@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="platform.domain.TestData" table="TestData">
+		<id name="ID" type="string">
+			<column name="ID"  not-null="true"/>
+			<generator class="uuid"/>
+		</id>
+		<property name="event" type="string">
+			<column name="event" />
+		</property>
+		<property name="date" type="timestamp">
+			<column name="date" />
+		</property>
+		<property name="discription" type="string">
+			<column name="discription" />
+		</property>
+	</class>
+</hibernate-mapping>

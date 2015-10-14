@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="platform.domain.Xzxzgzb" table="xz_xzgzb">
+		<id name="id" type="integer">
+			<column name="id"  not-null="true"/>
+			<generator class="identity"/>
+		</id>
+		<property name="wjm" type="string">
+			<column name="wjm" />
+		</property>
+		<property name="fwrq" type="date">
+			<column name="fwrq" />
+		</property>
+		<property name="wjh" type="string">
+			<column name="wjh" />
+		</property>
+		<property name="fwjg" type="string">
+			<column name="fwjg" />
+		</property>
+		<property name="jbnr" type="string">
+			<column name="jbnr" />	
+		</property>
+		<property name="jbr" type="string">
+			<column name="jbr" />	
+		</property>
+		<property name="cljg" type="string">
+			<column name="cljg" />	
+		</property>
+		<property name="jzrq" type="date">
+			<column name="jzrq" />
+		</property>
+	</class>
+</hibernate-mapping>

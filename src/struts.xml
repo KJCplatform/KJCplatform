@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+	<!-- 配置action的访问路径为.do的形式 -->
+	<constant name="struts.action.extension" value="do,action"></constant>
+	<!-- 配置struts的开发模式 -->
+	<constant name="struts.devMode" value="true"></constant>
+	<!-- 配置struts的简单模式 -->
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<package name="system" namespace="/system" extends="json-default">
+	    <!-- 首页登录 -->
+	    <action name="PlatFormMenuAction_*" class="platform.action.PlatFormMenuAction" method="{1}">
+	    	<result name="home">
+	    		/WEB-INF/page/menu/home.jsp
+	    	</result>
+	    	<result name="title">
+	    		/WEB-INF/page/menu/title.jsp
+	    	</result>
+	    	<result name="left">
+	    		/WEB-INF/page/menu/left.jsp
+	    	</result>
+	    	<result name="change1">
+	    		/WEB-INF/page/menu/change1.jsp
+	    	</result>
+	   
+	    </action>
+	    <action name="TestDataAction_*" class="platform.action.TestDataAction" method="{1}">
+	    	<result name="home">
+	    		/WEB-INF/page/system/actingIndex.jsp
+	    	</result>	 
+	    	<result name="save" type="redirectAction">
+	    		<param name="actionName">TestDataAction_home</param>
+	    		<param name="namespace">/system</param>
+	    	</result>   
+	    </action>
+	    
+	    <action name="XzxzgzbAction_*" class="platform.action.XzxzgzbAction" method="{1}">			
+			<result name="list" type="json">
+				<param name="root">responseJson</param>
+			</result>
+		</action>
+	</package>
+</struts>
