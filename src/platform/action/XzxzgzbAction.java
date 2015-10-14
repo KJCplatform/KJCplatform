@@ -1,5 +1,7 @@
 package platform.action;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Controller;
 
 import platform.action.BaseAction;
 import platform.dao.TestDataDao;
+import platform.domain.Xzxzgzb;
 import platform.form.TestDataFrom;
 
 
@@ -64,6 +67,22 @@ public class XzxzgzbAction extends BaseAction implements ModelDriven<XzxzgzbForm
 		map.put("total", xzxzgzbService.findXzxzgzbList().size());
 		this.setResponseJson(map);
 		return "list";
+	}
+	public String update(){
+		/*XzxzgzbForm xzxzgzbForm1 = new XzxzgzbForm();
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		String d=format.format(new Date());
+		xzxzgzbForm1.setId("1");
+		xzxzgzbForm1.setCljg("update");
+		xzxzgzbForm1.setFwjg("update");
+		xzxzgzbForm1.setFwrq(d);
+		xzxzgzbForm1.setJbnr("update");
+		xzxzgzbForm1.setJbr("update");
+		xzxzgzbForm1.setJzrq(d);
+		xzxzgzbForm1.setWjh("update");
+		xzxzgzbForm1.setWjm("update");*/
+		xzxzgzbService.updateXzxzgzb(xzxzgzbForm);
+		return "update";
 	}
 }
 

@@ -14,6 +14,7 @@ import platform.dao.XzxzgzbDao;
 import platform.domain.Xzxzgzb;
 import platform.form.XzxzgzbForm;
 import platform.service.XzxzgzbService;
+import platform.util.StringHelper;
 
 @Service(XzxzgzbService.SERVICE_NAME)
 public class XzxzgzbServiceImpl implements XzxzgzbService{
@@ -52,6 +53,20 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		
 	}
 	
+	public void updateXzxzgzb(XzxzgzbForm xzxzgzbForm){
+		Xzxzgzb xzxzgzb=new Xzxzgzb();
+		xzxzgzb.setCljg(xzxzgzbForm.getCljg());
+		xzxzgzb.setFwjg(xzxzgzbForm.getFwjg());
+		xzxzgzb.setFwrq(StringHelper.stringConvertDate(xzxzgzbForm.getFwrq()));
+		xzxzgzb.setId(Integer.valueOf(xzxzgzbForm.getId()));
+		xzxzgzb.setJbnr(xzxzgzbForm.getJbnr());
+		xzxzgzb.setJbr(xzxzgzbForm.getJbr());
+		xzxzgzb.setJzrq(StringHelper.stringConvertDate(xzxzgzbForm.getJzrq()));
+		xzxzgzb.setWjh(xzxzgzbForm.getWjh());
+		xzxzgzb.setWjm(xzxzgzbForm.getWjm());
+		xzxzgzbDao.update(xzxzgzb);
+		
+	}
 	private List<XzxzgzbForm> XzxzgzbPOListToVOList(List<Xzxzgzb> list) {
 		// TODO Auto-generated method stub
 		List<XzxzgzbForm> formlist=new ArrayList<XzxzgzbForm>();
