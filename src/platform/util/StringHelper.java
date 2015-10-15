@@ -13,7 +13,7 @@ public class StringHelper {
 	* @Return: Date 日期类型
 	*/
 	public static Date stringConvertDate(String date) {
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
 		Date d = null;
 		try {
 			d = format.parse(date);
