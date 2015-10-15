@@ -82,9 +82,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 	<!-- 编辑数据的div，默认看不到 -->
-<div id="divEdit" style="display:none">
+<div id="divEdit" style="display:none;">
 	<div id="tabEdit">
-		<form id="frmEdit" method= "post">
+		<form id="frmEdit" style="width:600px" method= "post">
 			<input type="hidden" id="id" name="id" />
 			<dl>
 				<dd>文件名:</dd>
