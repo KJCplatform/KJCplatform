@@ -38,15 +38,17 @@
 	    
 	    <action name="XzxzgzbAction_*" class="platform.action.XzxzgzbAction" method="{1}">			
 			<result name="list" type="json">
-				<param name="root">responseJson</param>
+			<param name="root">responseJson</param>
 			</result>
-			<result name="update" >
-	   
-	    	</result>
-	    	<result name="delete" >
-	    	</result>
-	    	<result name="add" >
-	    	</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
 		</action>
 	</package>
 </struts>

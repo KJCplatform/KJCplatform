@@ -30,6 +30,13 @@ import container.ServiceProvider;
 
 public class XzxzgzbAction extends BaseAction implements ModelDriven<XzxzgzbForm>{
 	public int page = 0;
+	public boolean operateSuccess;
+	public boolean isOperateSuccess() {
+		return operateSuccess;
+	}
+	public void setOperateSuccess(boolean operateSuccess) {
+		this.operateSuccess = operateSuccess;
+	}
 	public int rows = 0;
 	public Map responseJson;
 	public int getPage() {
@@ -82,15 +89,18 @@ public class XzxzgzbAction extends BaseAction implements ModelDriven<XzxzgzbForm
 		xzxzgzbForm1.setWjh("update");
 		xzxzgzbForm1.setWjm("update");*/
 		xzxzgzbService.updateXzxzgzb(xzxzgzbForm);
+		operateSuccess=true;
 		return "update";
 	}
 	public String delete(){
 		//xzxzgzbForm.setId("2");
 		xzxzgzbService.deleteObject(xzxzgzbForm.getId());
+		operateSuccess=true;
 		return   "delete";
 	}
 	public String add(){
 		xzxzgzbService.saveObject(xzxzgzbForm);
+		operateSuccess=true;
 		return "add";
 	}
 }
