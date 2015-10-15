@@ -11,5 +11,7 @@ public interface XzxzgzbService {
 	public List<XzxzgzbForm> findXzxzgzbList();
 	public List<XzxzgzbForm> findXzxzgzbListWithPage(int pagesize,int pageno, XzxzgzbForm xzxzgzbForm);
 	public void updateXzxzgzb(XzxzgzbForm xzxzgzbForm);
+	public void deleteObject(String id);
+	public void saveObject(XzxzgzbForm xzxzgzbForm);
 
 }

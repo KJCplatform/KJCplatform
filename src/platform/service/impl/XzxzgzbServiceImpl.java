@@ -67,6 +67,21 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		xzxzgzbDao.update(xzxzgzb);
 		
 	}
+	public void deleteObject(String id){
+		xzxzgzbDao.deleteObjectByIDs(Integer.valueOf(id));
+	}
+	public void saveObject(XzxzgzbForm xzxzgzbForm){
+		Xzxzgzb xzxzgzb=new Xzxzgzb();
+		xzxzgzb.setCljg(xzxzgzbForm.getCljg());
+		xzxzgzb.setFwjg(xzxzgzbForm.getFwjg());
+		xzxzgzb.setFwrq(StringHelper.stringConvertDate(xzxzgzbForm.getFwrq()));
+		xzxzgzb.setJbnr(xzxzgzbForm.getJbnr());
+		xzxzgzb.setJbr(xzxzgzbForm.getJbr());
+		xzxzgzb.setJzrq(StringHelper.stringConvertDate(xzxzgzbForm.getJzrq()));
+		xzxzgzb.setWjh(xzxzgzbForm.getWjh());
+		xzxzgzb.setWjm(xzxzgzbForm.getWjm());
+		xzxzgzbDao.save(xzxzgzb);
+	}
 	private List<XzxzgzbForm> XzxzgzbPOListToVOList(List<Xzxzgzb> list) {
 		// TODO Auto-generated method stub
 		List<XzxzgzbForm> formlist=new ArrayList<XzxzgzbForm>();

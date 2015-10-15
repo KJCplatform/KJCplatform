@@ -84,6 +84,15 @@ public class XzxzgzbAction extends BaseAction implements ModelDriven<XzxzgzbForm
 		xzxzgzbService.updateXzxzgzb(xzxzgzbForm);
 		return "update";
 	}
+	public String delete(){
+		//xzxzgzbForm.setId("2");
+		xzxzgzbService.deleteObject(xzxzgzbForm.getId());
+		return   "delete";
+	}
+	public String add(){
+		xzxzgzbService.saveObject(xzxzgzbForm);
+		return "add";
+	}
 }
 
 
