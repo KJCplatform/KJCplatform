@@ -40,6 +40,18 @@
 			<result name="list" type="json">
 				<param name="root">responseJson</param>
 			</result>
+			<result name="update" type="redirectAction">
+	    		<param name="actionName">XzxzgzbAction_list</param>
+	    		<param name="namespace">/system</param>
+	    	</result>
+	    	<result name="delete" type="redirectAction">
+	    		<param name="actionName">XzxzgzbAction_list</param>
+	    		<param name="namespace">/system</param>
+	    	</result>
+	    	<result name="add" type="redirectAction">
+	    		<param name="actionName">XzxzgzbAction_list</param>
+	    		<param name="namespace">/system</param>
+	    	</result>
 		</action>
 	</package>
 </struts>
