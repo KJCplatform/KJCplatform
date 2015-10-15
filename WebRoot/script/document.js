@@ -138,9 +138,10 @@ function editDoc() {
 	$("#wjh").val(doc.wjh);
 	$("#fwjg").val(doc.fwjg);	
 	// 给默认值
-	$("#fwrq").datebox("setValue", doc.fwrq.substring(0, 10));
+	//$("#fwrq").datebox("setValue", doc.fwrq.substring(0, 10));
+	$("#fwrq").datebox("getValue");
 	$("#jbnr").val(doc.jbnr);
-	alert($("#jzrq").datebox("getValue"));
+	//alert($("#jzrq").datebox("getValue"));
 	$("#jzrq").datebox("getValue");
 	$("#jbr").val(doc.jbr);
 	$("#cljg").val(doc.cljg);
@@ -210,6 +211,7 @@ function deleteDoc() {
 			var url = actionPath + doc.id;
 			// 试一下get方法（地址，回调函数）
 			$.get(url, function(result) {
+				alert(result);
 				if (result.operateSuccess) {
 					$.messager.alert('删除', '选中的文件成功删除！', 'info');
 					// 重新加载
