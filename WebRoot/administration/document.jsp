@@ -38,20 +38,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-<!--
-<div data-options="region:'north',title:'高级查询'" style="height: 100px; background: #F4F4F4;">
+
+<div data-options="region:'north',title:'高级查询'" style="height: 60px;">
         <form id="searchForm">
             <table>
                 <tr>
                     <th>文件名：</th>
                     <td>
-						<input name="name" />
+						<input id="fileName" />
 					</td>
                 </tr>
                 <tr>
-					<th>发文日期：</th>
+					<th>文件号：</th>
 					<td>
-                        <input class="easyui-datetimebox" name="time" />
+                        <input id="fileId" />
 					</td>
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>
@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </table>
         </form>
 </div>
--->
+
 
 <div data-options="region:'center',split:false">
 	<!-- 表格主题部分-->
@@ -85,38 +85,38 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="divEdit" style="display:none">
 	<div id="tabEdit">
 		<form id="frmEdit" method= "post">
-			<input type="hidden" id="id" name="doc.id" />
+			<input type="hidden" id="id" name="id" />
 			<dl>
 				<dd>文件名:</dd>
-				<dd><input size="15" id="wjm" name="doc.wjm" /></dd>
+				<dd><input size="15" id="wjm" name="wjm" /></dd>
 			</dl>
 			<dl>
 				<dd>文件号:</dd>
-				<dd><input size="15" id="wjh" name="doc.wjh" /></dd>
+				<dd><input size="15" id="wjh" name="wjh" /></dd>
 			</dl>
 			<dl>
 				<dd>发文机关:</dd>
-				<dd><input size="15" id="fwjg" name="doc.fwjg" /></dd>
+				<dd><input size="15" id="fwjg" name="fwjg" /></dd>
 			</dl>
 			<dl>
 				<dd>发文日期:</dd>
-				<dd><input type="text" style="width: 150px" id="fwrq" name="doc.fwrq" /></dd>
+				<dd><input type="text" style="width: 150px" id="fwrq" name="fwrq" /></dd>
 			</dl>
 			<dl>
 				<dd>交办内容:</dd>
-				<dd><textarea cols="45" rows="3" id="jbnr" name="doc.jbnr"></textarea></dd>
+				<dd><textarea cols="45" rows="3" id="jbnr" name="jbnr"></textarea></dd>
 			</dl>
 			<dl>
 				<dd>截止日期:</dd>
-				<dd><input  type="text" style="width: 150px" id="jzrq" name="doc.jzrq" /></dd>
+				<dd><input  type="text" style="width: 150px" id="jzrq" name="jzrq" /></dd>
 			</dl>
 			<dl>
 				<dd>交办人:</dd>
-				<dd><input size="15" id="jbr" name="doc.jbr" /></dd>
+				<dd><input size="15" id="jbr" name="jbr" /></dd>
 			</dl>
 			<dl>
 				<dd>处理结果:</dd>
-				<dd><textarea cols="45" rows="3" id="cljg" name="doc.cljg"></textarea></dd>
+				<dd><textarea cols="45" rows="3" id="cljg" name="cljg"></textarea></dd>
 			</dl>
 		</form>
 	</div>

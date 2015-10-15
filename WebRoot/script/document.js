@@ -77,7 +77,7 @@ function listDoc() {
 //查询
 function doSearch(){
 	$('#dg').datagrid('load',{
-		wjm: $('#filename').val(),
+		wjm: $('#fileName').val(),
 		wjh: $('#fileId').val()
 	});
 }
@@ -140,7 +140,8 @@ function editDoc() {
 	// 给默认值
 	$("#fwrq").datebox("setValue", doc.fwrq.substring(0, 10));
 	$("#jbnr").val(doc.jbnr);
-	$("#jzrq").databox("getValue");
+	alert($("#jzrq").datebox("getValue"));
+	$("#jzrq").datebox("getValue");
 	$("#jbr").val(doc.jbr);
 	$("#cljg").val(doc.cljg);
 	// 显示编辑页面
@@ -149,10 +150,11 @@ function editDoc() {
 function dealSave() {
 	// 表单数据序列化成一个字符串用&拼接
 	var params = $("#frmEdit").serialize();
-	var actionPath = basePath + '/system/XzxzgzbAction_add.action';
+	var actionAdd = basePath + '/system/XzxzgzbAction_add.action';
+	var actionUpdate = basePath + '/system/XzxzgzbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
 	if ($("#id").val() == "") {
-		$.post(actionPath, params, function(result) {
+		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {
 					$('#dg').datagrid('reload');// 重新加载
 					$.messager.alert('添加', '添加成功', 'info');
@@ -162,7 +164,7 @@ function dealSave() {
 		});
 		} else {
 		// 表示更新
-			$.post(actionPath, params, function(result) {
+			$.post(actionUpdate, params, function(result) {
 				if (result.operateSuccess) {
 					$('#dg').datagrid('reload');// 重新加载
 						$.messager.alert('更新', '更新成功', 'info');
@@ -204,7 +206,7 @@ function deleteDoc() {
 	}
 	$.messager.confirm('确认', '真的要删除选中的记录吗？', function(r) {
 		if (r) {
-			var actionPath = basePath + '/system/XzxzgzbAction_delete.action?doc.id=';
+			var actionPath = basePath + '/system/XzxzgzbAction_delete.action?id=';
 			var url = actionPath + doc.id;
 			// 试一下get方法（地址，回调函数）
 			$.get(url, function(result) {
