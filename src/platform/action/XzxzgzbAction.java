@@ -30,8 +30,8 @@ import container.ServiceProvider;
 
 public class XzxzgzbAction extends BaseAction implements ModelDriven<XzxzgzbForm>{
 	public int page = 0;
-	public boolean operateSuccess;
-	public boolean isOperateSuccess() {
+	private boolean operateSuccess;
+	public boolean getOperateSuccess() {
 		return operateSuccess;
 	}
 	public void setOperateSuccess(boolean operateSuccess) {
