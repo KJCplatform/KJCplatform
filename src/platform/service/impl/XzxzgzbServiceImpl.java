@@ -9,13 +9,14 @@ import javax.annotation.Resource;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import platform.dao.XzxzgzbDao;
 import platform.domain.Xzxzgzb;
 import platform.form.XzxzgzbForm;
 import platform.service.XzxzgzbService;
 import platform.util.StringHelper;
-
+@Transactional
 @Service(XzxzgzbService.SERVICE_NAME)
 public class XzxzgzbServiceImpl implements XzxzgzbService{
 	
@@ -67,6 +68,10 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		xzxzgzbDao.update(xzxzgzb);
 		
 	}
+	/*blic void updateXzxzgzbWithget(XzxzgzbForm xzxzgzbForm){
+		Xzxzgzb xzxzgzb=xzxzgzbDao.findObjectByID(Integer.valueOf(xzxzgzbForm.getId()));
+		xzxzgzb.setCljg("chenggong");
+	}*/
 	public void deleteObject(String id){
 		xzxzgzbDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
