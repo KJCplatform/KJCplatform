@@ -32,191 +32,163 @@ public class Kjjszjcjb implements java.io.Serializable {
 	private String sj;
 	private String lxdz;
 	private Set<Kjjszjcjbcg> kjjszjcjbcgs = new HashSet<Kjjszjcjbcg>();
-
+	private Set<Kjjszjcjbxm> kjjszjcjbxms = new HashSet<Kjjszjcjbxm>();
+	private Set<Kjjszjcjbzy> kjjszjcjbzys = new HashSet<Kjjszjcjbzy>();
 	public Integer getId() {
-		return this.id;
+		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
 	public String getZjxm() {
-		return this.zjxm;
+		return zjxm;
 	}
-
 	public void setZjxm(String zjxm) {
 		this.zjxm = zjxm;
 	}
-
 	public String getXb() {
-		return this.xb;
+		return xb;
 	}
-
 	public void setXb(String xb) {
 		this.xb = xb;
 	}
-
 	public String getSfzh() {
-		return this.sfzh;
+		return sfzh;
 	}
-
 	public void setSfzh(String sfzh) {
 		this.sfzh = sfzh;
 	}
-
 	public String getYx() {
-		return this.yx;
+		return yx;
 	}
-
 	public void setYx(String yx) {
 		this.yx = yx;
 	}
-
 	public String getJszc() {
-		return this.jszc;
+		return jszc;
 	}
-
 	public void setJszc(String jszc) {
 		this.jszc = jszc;
 	}
-
 	public String getZw() {
-		return this.zw;
+		return zw;
 	}
-
 	public void setZw(String zw) {
 		this.zw = zw;
 	}
-
 	public String getGzdw() {
-		return this.gzdw;
+		return gzdw;
 	}
-
 	public void setGzdw(String gzdw) {
 		this.gzdw = gzdw;
 	}
-
 	public String getGzbm() {
-		return this.gzbm;
+		return gzbm;
 	}
-
 	public void setGzbm(String gzbm) {
 		this.gzbm = gzbm;
 	}
-
 	public String getZgxl() {
-		return this.zgxl;
+		return zgxl;
 	}
-
 	public void setZgxl(String zgxl) {
 		this.zgxl = zgxl;
 	}
-
 	public String getSzdq() {
-		return this.szdq;
+		return szdq;
 	}
-
 	public void setSzdq(String szdq) {
 		this.szdq = szdq;
 	}
-
 	public String getHyly() {
-		return this.hyly;
+		return hyly;
 	}
-
 	public void setHyly(String hyly) {
 		this.hyly = hyly;
 	}
-
 	public String getJsly() {
-		return this.jsly;
+		return jsly;
 	}
-
 	public void setJsly(String jsly) {
 		this.jsly = jsly;
 	}
-
 	public String getXkly() {
-		return this.xkly;
+		return xkly;
 	}
-
 	public void setXkly(String xkly) {
 		this.xkly = xkly;
 	}
-
 	public String getFwyy() {
-		return this.fwyy;
+		return fwyy;
 	}
-
 	public void setFwyy(String fwyy) {
 		this.fwyy = fwyy;
 	}
-
 	public String getSzpt() {
-		return this.szpt;
+		return szpt;
 	}
-
 	public void setSzpt(String szpt) {
 		this.szpt = szpt;
 	}
-
 	public String getZjjj() {
-		return this.zjjj;
+		return zjjj;
 	}
-
 	public void setZjjj(String zjjj) {
 		this.zjjj = zjjj;
 	}
-
 	public String getZytc() {
-		return this.zytc;
+		return zytc;
 	}
-
 	public void setZytc(String zytc) {
 		this.zytc = zytc;
 	}
-
 	public Boolean getSfgk() {
-		return this.sfgk;
+		return sfgk;
 	}
-
 	public void setSfgk(Boolean sfgk) {
 		this.sfgk = sfgk;
 	}
-
 	public String getLxdh() {
-		return this.lxdh;
+		return lxdh;
 	}
-
 	public void setLxdh(String lxdh) {
 		this.lxdh = lxdh;
 	}
-
 	public String getSj() {
-		return this.sj;
+		return sj;
 	}
-
 	public void setSj(String sj) {
 		this.sj = sj;
 	}
-
 	public String getLxdz() {
-		return this.lxdz;
+		return lxdz;
 	}
-
 	public void setLxdz(String lxdz) {
 		this.lxdz = lxdz;
 	}
-
 	public Set<Kjjszjcjbcg> getKjjszjcjbcgs() {
 		return kjjszjcjbcgs;
 	}
-
 	public void setKjjszjcjbcgs(Set<Kjjszjcjbcg> kjjszjcjbcgs) {
 		this.kjjszjcjbcgs = kjjszjcjbcgs;
 	}
+	public Set<Kjjszjcjbxm> getKjjszjcjbxms() {
+		return kjjszjcjbxms;
+	}
+	public void setKjjszjcjbxms(Set<Kjjszjcjbxm> kjjszjcjbxms) {
+		this.kjjszjcjbxms = kjjszjcjbxms;
+	}
+	public Set<Kjjszjcjbzy> getKjjszjcjbzys() {
+		return kjjszjcjbzys;
+	}
+	public void setKjjszjcjbzys(Set<Kjjszjcjbzy> kjjszjcjbzys) {
+		this.kjjszjcjbzys = kjjszjcjbzys;
+	}
+	
 
+	
+
+	
 
 
 }

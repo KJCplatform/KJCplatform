@@ -121,5 +121,17 @@
             </key>
             <many-to-many class="platform.domain.Kjjszjcjbcg" column="FK_kj_cg"/>
         </set>
+        <set name="kjjszjcjbxms" table="kj_zj_xm" cascade="all">
+            <key>
+                <column name="FK_kj_jszjcjb" not-null="true" />
+            </key>
+            <many-to-many class="platform.domain.Kjjszjcjbxm" column="FK_kj_xm"/>
+        </set>
+        <set name="kjjszjcjbzys" table="kj_zj_zy" cascade="all">
+            <key>
+                <column name="FK_kj_jszjcjb" not-null="true" />
+            </key>
+            <many-to-many class="platform.domain.Kjjszjcjbzy" column="FK_kj_zy"/>
+        </set>
     </class>
 </hibernate-mapping>

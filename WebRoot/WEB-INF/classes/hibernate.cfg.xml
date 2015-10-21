@@ -16,5 +16,7 @@
         <mapping resource="platform/domain/Xzxzgzb.hbm.xml"/>
 		<mapping resource="platform/domain/Kjjszjcjb.hbm.xml"/>
 		<mapping resource="platform/domain/Kjjszjcjbcg.hbm.xml"/>
+		<mapping resource="platform/domain/Kjjszjcjbzy.hbm.xml"/>
+		<mapping resource="platform/domain/Kjjszjcjbxm.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>

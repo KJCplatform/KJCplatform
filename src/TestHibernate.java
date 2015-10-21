@@ -11,6 +11,8 @@ import org.junit.Test;
 
 import platform.domain.Kjjszjcjb;
 import platform.domain.Kjjszjcjbcg;
+import platform.domain.Kjjszjcjbxm;
+import platform.domain.Kjjszjcjbzy;
 import platform.domain.TestData;
 
 
@@ -25,18 +27,23 @@ public class TestHibernate {
 		Session session = sf.openSession();
 		//开启事务
 		Transaction tr = session.beginTransaction();
-		//实例化ElecText对象，添加数据，执行保存操作
 		Kjjszjcjb kjjszjcjb=(Kjjszjcjb) session.get(Kjjszjcjb.class, 1);
-		Iterator<Kjjszjcjbcg> it=kjjszjcjb.getKjjszjcjbcgs().iterator();
-		while(it.hasNext()){
-		System.out.println(it.next().getCgjj());}
-		//Kjjszjcjbcg kjjszjcjbcg=new Kjjszjcjbcg();
+		//Iterator<Kjjszjcjbcg> it=kjjszjcjb.getKjjszjcjbcgs().iterator();
+		//while(it.hasNext()){
+		//System.out.println(it.next().getCgjj());}
+		Kjjszjcjbzy kjjszjcjbzy=new Kjjszjcjbzy();
+		Kjjszjcjbxm kjjszjcjbxm=new Kjjszjcjbxm();
+		kjjszjcjbzy.setWcsj(new Date());
+		kjjszjcjbzy.setXmjj("哈哈哈哈1");
+		kjjszjcjbzy.setXmmc("哈哈哈哈2");
+		kjjszjcjbxm.setHzsj("哈哈哈哈3");
+		kjjszjcjbxm.setXmmc("哈哈哈");
 		//kjjszjcjb.setFwyy("test");
 		//kjjszjcjb.setZytc("test");
-		//kjjszjcjbcg.setCgjj("test2");
-		//kjjszjcjb.getKjjszjcjbcgs().add(kjjszjcjbcg);
+		kjjszjcjb.getKjjszjcjbxms().add(kjjszjcjbxm);
+		kjjszjcjb.getKjjszjcjbzys().add(kjjszjcjbzy);
 		//保存
-		//session.save(kjjszjcjb);
+		//session.save(kjjszjcjbcg);
 		//提交事务
 		tr.commit();
 		session.close();
