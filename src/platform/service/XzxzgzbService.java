@@ -13,5 +13,6 @@ public interface XzxzgzbService {
 	public void updateXzxzgzb(XzxzgzbForm xzxzgzbForm);
 	public void deleteObject(String id);
 	public void saveObject(XzxzgzbForm xzxzgzbForm);
+	//public void updateXzxzgzbWithget(XzxzgzbForm xzxzgzbForm);
 
 }

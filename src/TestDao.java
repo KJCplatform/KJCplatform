@@ -21,7 +21,7 @@ public class TestDao {
 		XzxzgzbDao xzxzgzbDao = (XzxzgzbDao)ac.getBean(XzxzgzbDao.SERVICE_NAME);
 		//实例化PO对象，赋值，执行保存
 		Xzxzgzb xzxzgzb = new Xzxzgzb();
-		xzxzgzb.setCljg("hggggg11");
+		xzxzgzb.setCljg("qqqqqq");
 		xzxzgzb.setFwjg("teshh23");
 		xzxzgzb.setFwrq(new Date());
 		xzxzgzb.setJbnr("testhh33332");
