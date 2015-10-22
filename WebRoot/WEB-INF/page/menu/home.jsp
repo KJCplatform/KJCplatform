@@ -162,7 +162,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			"menuid": "26",
 			"menuname": "技术专家信息",
 			"icon": "icon-nav",
-			"url": "demo.html"	
+			"url": "<%=basePath%>/project/expert.jsp"	
 		}
 		
 	]

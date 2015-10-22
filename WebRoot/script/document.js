@@ -31,6 +31,8 @@ $(function() {
 	$("#jbnr").validatebox({
 		required : true
 	});
+
+	$("#info").html("TEST!!");
 });
 //加载公文列表
 function listDoc() {
@@ -154,9 +156,11 @@ function dealSave() {
 	var actionAdd = basePath + '/system/XzxzgzbAction_add.action';
 	var actionUpdate = basePath + '/system/XzxzgzbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
+	alert(params);
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {
+					//alert(result);
 					$('#dg').datagrid('reload');// 重新加载
 					$.messager.alert('添加', '添加成功', 'info');
 			} else {
@@ -222,6 +226,7 @@ function deleteDoc() {
 			});
 		}
 	});
+
 }
 
 

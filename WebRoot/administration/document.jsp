@@ -6,7 +6,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head >
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>数字框</title>
+    <title>公文管理</title>
     <link href="<%=path%>/css/default.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/icon.css" />
@@ -31,15 +31,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			width:80px;
 		}
 	</style>
-	
 	<script type="text/javascript" src="<%=basePath%>/script/easyui/jquery.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>/script/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="<%=basePath%>/script/easyui-lang-zh_CN.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/script/document.js"></script>
 </head>
 
 <body>
 
-<div data-options="region:'north',title:'高级查询'" style="height: 60px;">
+<div data-options="region:'north',title:'查询'" style="height: 60px;">
         <form id="searchForm">
             <table>
                 <tr>
