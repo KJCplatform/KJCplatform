@@ -34,6 +34,13 @@ import container.ServiceProvider;
 
 public class KjjszjcjbAction extends BaseAction implements ModelDriven<KjjszjcjbForm>{
 	public int page = 0;
+	private String resultid;
+	public String getResultid() {
+		return resultid;
+	}
+	public void setResultid(String resultid) {
+		this.resultid = resultid;
+	}
 	private boolean operateSuccess;
 	public boolean getOperateSuccess() {
 		return operateSuccess;
@@ -70,37 +77,27 @@ public class KjjszjcjbAction extends BaseAction implements ModelDriven<Kjjszjcjb
 	Map<String, Object> map = new HashMap<String, Object>();
 	public String list(){
 		
-		List<XzxzgzbForm> formlist=xzxzgzbService.findXzxzgzbListWithPage(rows,page,xzxzgzbForm);
-		map.put("rows", formlist);
-		map.put("total", xzxzgzbService.findXzxzgzbList().size());
-		this.setResponseJson(map);
+		//map.put("rows", formlist);
+		//map.put("total", xzxzgzbService.findXzxzgzbList().size());
+		//this.setResponseJson(map);
 		return "list";
 	}
 	public String update(){
-		/*XzxzgzbForm xzxzgzbForm1 = new XzxzgzbForm();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		String d=format.format(new Date());
-		xzxzgzbForm1.setId("1");
-		xzxzgzbForm1.setCljg("update");
-		xzxzgzbForm1.setFwjg("update");
-		xzxzgzbForm1.setFwrq(d);
-		xzxzgzbForm1.setJbnr("update");
-		xzxzgzbForm1.setJbr("update");
-		xzxzgzbForm1.setJzrq(d);
-		xzxzgzbForm1.setWjh("update");
-		xzxzgzbForm1.setWjm("update");*/
-		xzxzgzbService.updateXzxzgzb(xzxzgzbForm);
-		operateSuccess=true;
+		
 		return "update";
 	}
 	public String delete(){
-		//xzxzgzbForm.setId("2");
-		xzxzgzbService.deleteObject(xzxzgzbForm.getId());
+		
 		operateSuccess=true;
 		return   "delete";
 	}
 	public String add(){
-		xzxzgzbService.saveObject(xzxzgzbForm);
+		//KjjszjcjbForm kjjszjcjbForm1=new KjjszjcjbForm();
+		//kjjszjcjbForm1.setFwyy("哈哈哈");
+		//kjjszjcjbForm1.setGzbm("哈哈哈");
+		//kjjszjcjbForm1.setZytc("哈哈哈");
+		resultid=kjjszjcjbService.saveKjjszjcjb(kjjszjcjbForm);
+		System.out.println(resultid);
 		operateSuccess=true;
 		return "add";
 	}
