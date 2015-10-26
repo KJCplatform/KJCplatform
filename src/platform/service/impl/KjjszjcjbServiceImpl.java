@@ -40,9 +40,10 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 		kjjszjcjb.setJszc(kjjszjcjbForm.getJszc());
 		kjjszjcjb.setLxdh(kjjszjcjbForm.getLxdh());
 		kjjszjcjb.setLxdz(kjjszjcjbForm.getLxdz());
-		if(kjjszjcjbForm.getSfgk()=="是"){
+		if(kjjszjcjbForm.getSfgk().equals("是")){
 		kjjszjcjb.setSfgk(true);}
-		else{kjjszjcjb.setSfgk(false);}
+		else if(kjjszjcjbForm.getSfgk().equals("否"))
+		{kjjszjcjb.setSfgk(false);}
 		kjjszjcjb.setSfzh(kjjszjcjbForm.getSfzh());
 		kjjszjcjb.setSj(kjjszjcjbForm.getSj());
 		kjjszjcjb.setSzdq(kjjszjcjbForm.getSzdq());

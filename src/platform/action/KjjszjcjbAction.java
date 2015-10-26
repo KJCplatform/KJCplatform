@@ -92,12 +92,13 @@ public class KjjszjcjbAction extends BaseAction implements ModelDriven<Kjjszjcjb
 		return   "delete";
 	}
 	public String add(){
-		//KjjszjcjbForm kjjszjcjbForm1=new KjjszjcjbForm();
-		//kjjszjcjbForm1.setFwyy("哈哈哈");
-		//kjjszjcjbForm1.setGzbm("哈哈哈");
-		//kjjszjcjbForm1.setZytc("哈哈哈");
+		/*KjjszjcjbForm kjjszjcjbForm1=new KjjszjcjbForm();
+		kjjszjcjbForm1.setFwyy("哈哈哈");
+		kjjszjcjbForm1.setGzbm("哈哈哈");
+		kjjszjcjbForm1.setZytc("哈哈哈");
+		kjjszjcjbForm1.setSfgk("否");*/
 		resultid=kjjszjcjbService.saveKjjszjcjb(kjjszjcjbForm);
-		System.out.println(resultid);
+		//System.out.println(resultid);
 		operateSuccess=true;
 		return "add";
 	}
