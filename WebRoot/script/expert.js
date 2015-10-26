@@ -235,6 +235,7 @@ $(function() {
 				text : '提交',
 				iconCls : 'icon-ok',// 图标
 				handler : function() {// 处理函数
+					   var action =  basePath + '/system/KjjszjcjbAction_addcxy.action';
 							var rows = $('#cxy').datagrid('getRows');
 							if(rows.length != 0){
 								for(i=0; i<rows.length; i++) {
@@ -243,7 +244,7 @@ $(function() {
 			
 								var data = {'cxyform': JSON.stringify(rows)};
 								//alert(data);
-								$.post('add.action', data, function(result){
+								$.post(action, data, function(result){
 									if (result.operateSuccess) {
 									//alert(result);
 										$('#cxy').datagrid('reload');// 重新加载

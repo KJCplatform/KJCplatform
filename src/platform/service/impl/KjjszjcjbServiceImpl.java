@@ -13,7 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import platform.dao.KjjszjcjbDao;
 import platform.domain.Kjjszjcjb;
+import platform.domain.Kjjszjcjbxm;
 import platform.form.KjjszjcjbForm;
+import platform.form.KjjszjcjbxmForm;
 import platform.service.KjjszjcjbService;
 import platform.util.StringHelper;
 @Transactional
@@ -60,5 +62,28 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 		
 		return kjjszjcjb;
 	}
-	
+	public void addCxyListWithExpertId(int id, List<KjjszjcjbxmForm> list){
+		List<Kjjszjcjbxm> Plist=this.xmPoToVoList(list);
+		Kjjszjcjb kjjszjcjb= kjjszjcjbDao.findObjectByID(id);
+		for(int i=0;i<Plist.size();i++){
+			kjjszjcjb.getKjjszjcjbxms().add(Plist.get(i));
+		}
+	}
+
+	private List<Kjjszjcjbxm> xmPoToVoList(List<KjjszjcjbxmForm> list) {
+		List<Kjjszjcjbxm> Plist=new ArrayList<Kjjszjcjbxm>();
+		for(int i=0;i<list.size();i++){
+			Kjjszjcjbxm kjjszjcjbxm=new Kjjszjcjbxm();
+			kjjszjcjbxm.setHzsj(list.get(i).getHzsj());
+			kjjszjcjbxm.setXmjj(list.get(i).getXmjj());
+			kjjszjcjbxm.setXmmc(list.get(i).getXmjj());
+			if(list.get(i).getHzxg().equals("良好")){
+				kjjszjcjbxm.setHzxg(true);
+			}else if(list.get(i).getHzxg().equals("一般")){
+				kjjszjcjbxm.setHzxg(false);
+			}
+			Plist.add(kjjszjcjbxm);
+		}
+		return Plist;
+	}
 }
