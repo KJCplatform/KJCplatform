@@ -241,9 +241,8 @@ $(function() {
 									rows[i].id = 1;
 								}
 			
-								var data = JSON.stringify(rows);
-								alert(data);
-						
+								var data = {'cxyform': JSON.stringify(rows)};
+								//alert(data);
 								$.post('add.action', data, function(result){
 									if (result.operateSuccess) {
 									//alert(result);
@@ -457,7 +456,7 @@ $(function() {
 //提交基本信息表
 function submit(){
 	var s = '';
-	var action =  basePath + '/system/submit.action';
+	var action =  basePath + '/system/KjjszjcjbAction_add.action';
 	var rows = $('#info').propertygrid('getRows');
 	var changes = $('#info').propertygrid('getChanges');
 	if(rows.length != changes.length){
