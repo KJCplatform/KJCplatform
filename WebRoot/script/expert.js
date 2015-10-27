@@ -477,7 +477,7 @@ $(function() {
 							rows[i].id = resultid;
 						}
 						//alert(resultid);
-						var data = {'cxyform': JSON.stringify(rows)};
+						var data = {'zyform': JSON.stringify(rows)};
 						//alert(data);
 						$.post(action, data, function(result){
 							if (result.operateSuccess) {
