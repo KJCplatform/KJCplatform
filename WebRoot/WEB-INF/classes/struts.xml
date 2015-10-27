@@ -51,11 +51,12 @@
 			</result>
 		</action>
 		<action name="KjjszjcjbAction_*" class="platform.action.KjjszjcjbAction" method="{1}">			
-
 			<result name="add" type="json">
 				
 			</result>
-	    	
+	    	<result name="addcxy" type="json">
+				
+			</result>
 		</action>
 	</package>
 </struts>

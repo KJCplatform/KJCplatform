@@ -1,6 +1,7 @@
 package platform.action;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -9,6 +10,9 @@ import java.util.Map;
 import java.util.Set;
 
 import javax.annotation.Resource;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,6 +24,8 @@ import platform.action.BaseAction;
 import platform.dao.TestDataDao;
 import platform.domain.Xzxzgzb;
 import platform.form.KjjszjcjbForm;
+import platform.form.KjjszjcjbxmForm;
+import platform.form.KjjszjcjbzyForm;
 import platform.form.TestDataFrom;
 
 
@@ -33,6 +39,13 @@ import com.opensymphony.xwork2.ModelDriven;
 import container.ServiceProvider;
 
 public class KjjszjcjbAction extends BaseAction implements ModelDriven<KjjszjcjbForm>{
+	String cxyform;
+	public String getCxyform() {
+		return cxyform;
+	}
+	public void setCxyform(String cxyform) {
+		this.cxyform = cxyform;
+	}
 	public int page = 0;
 	private String resultid;
 	public String getResultid() {
@@ -92,14 +105,37 @@ public class KjjszjcjbAction extends BaseAction implements ModelDriven<Kjjszjcjb
 		return   "delete";
 	}
 	public String add(){
-		//KjjszjcjbForm kjjszjcjbForm1=new KjjszjcjbForm();
-		//kjjszjcjbForm1.setFwyy("哈哈哈");
-		//kjjszjcjbForm1.setGzbm("哈哈哈");
-		//kjjszjcjbForm1.setZytc("哈哈哈");
+		/*KjjszjcjbForm kjjszjcjbForm1=new KjjszjcjbForm();
+		kjjszjcjbForm1.setFwyy("哈哈哈");
+		kjjszjcjbForm1.setGzbm("哈哈哈");
+		kjjszjcjbForm1.setZytc("哈哈哈");
+		kjjszjcjbForm1.setSfgk("否");*/
 		resultid=kjjszjcjbService.saveKjjszjcjb(kjjszjcjbForm);
-		System.out.println(resultid);
+		//System.out.println(resultid);
 		operateSuccess=true;
 		return "add";
+	}
+	public String addcxy(){
+		//System.out.println(cxyform);
+		//JSONObject jsonObj = JSONObject.fromObject(cxyform);
+		List<KjjszjcjbxmForm> list=new ArrayList<KjjszjcjbxmForm>();
+		JSONArray  arrays=JSONArray.fromObject(cxyform);
+        for(int i=0;i<arrays.size();i++){
+        	JSONObject jsonJ = arrays.getJSONObject(i);
+        	KjjszjcjbxmForm kjjszjcjbxmForm=new KjjszjcjbxmForm();
+        	kjjszjcjbxmForm.setXmmc(jsonJ.getString("xmmc"));
+        	//System.out.println(kjjszjcjbxmForm.getXmmc());
+        	kjjszjcjbxmForm.setXmjj(jsonJ.getString("xmjj"));
+        	//System.out.println(kjjszjcjbxmForm.getXmjj());
+        	kjjszjcjbxmForm.setHzsj(jsonJ.getString("hzsj"));
+        	//System.out.println(kjjszjcjbxmForm.getHzsj());
+        	kjjszjcjbxmForm.setHzxg(jsonJ.getString("hzxg"));
+        	//System.out.println(kjjszjcjbxmForm.getHzxg());
+        	list.add(kjjszjcjbxmForm);   	
+        }
+        kjjszjcjbService.addCxyListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
+		operateSuccess=true;
+		return "addcxy";
 	}
 }
 
