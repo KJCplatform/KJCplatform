@@ -24,6 +24,7 @@ import platform.action.BaseAction;
 import platform.dao.TestDataDao;
 import platform.domain.Xzxzgzb;
 import platform.form.KjjszjcjbForm;
+import platform.form.KjjszjcjbcgForm;
 import platform.form.KjjszjcjbxmForm;
 import platform.form.KjjszjcjbzyForm;
 import platform.form.TestDataFrom;
@@ -40,11 +41,25 @@ import container.ServiceProvider;
 
 public class KjjszjcjbAction extends BaseAction implements ModelDriven<KjjszjcjbForm>{
 	String cxyform;
+	String zyform;
+	String jscgform;
 	public String getCxyform() {
 		return cxyform;
 	}
 	public void setCxyform(String cxyform) {
 		this.cxyform = cxyform;
+	}
+	public String getZyform() {
+		return zyform;
+	}
+	public void setZyform(String zyform) {
+		this.zyform = zyform;
+	}
+	public String getJscgform() {
+		return jscgform;
+	}
+	public void setJscgform(String jscgform) {
+		this.jscgform = jscgform;
 	}
 	public int page = 0;
 	private String resultid;
@@ -136,6 +151,41 @@ public class KjjszjcjbAction extends BaseAction implements ModelDriven<Kjjszjcjb
         kjjszjcjbService.addCxyListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
 		operateSuccess=true;
 		return "addcxy";
+	}
+	public String addjscg(){
+		//System.out.println(jscgform);
+		List<KjjszjcjbcgForm> list=new ArrayList<KjjszjcjbcgForm>();
+		JSONArray  arrays=JSONArray.fromObject(jscgform);
+		for(int i=0;i<arrays.size();i++){
+        	JSONObject jsonJ = arrays.getJSONObject(i);
+        	KjjszjcjbcgForm kjjszjcjbcgForm	=new KjjszjcjbcgForm();
+        	kjjszjcjbcgForm.setCgjj(jsonJ.getString("cgjj"));
+        	kjjszjcjbcgForm.setCgmc(jsonJ.getString("cgmc"));
+        	kjjszjcjbcgForm.setWcsj(jsonJ.getString("wcsj"));
+        	kjjszjcjbcgForm.setZhqk(jsonJ.getString("zhqk"));
+        	list.add(kjjszjcjbcgForm);
+        }
+		kjjszjcjbService.addJscgListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
+		operateSuccess=true;
+		return "addjscg";
+		
+	}
+	public String addzy(){
+		//System.out.println(zyform);
+		List<KjjszjcjbzyForm> list=new ArrayList<KjjszjcjbzyForm>();
+		JSONArray  arrays=JSONArray.fromObject(zyform);
+		for(int i=0;i<arrays.size();i++){
+        	JSONObject jsonJ = arrays.getJSONObject(i);
+        	KjjszjcjbzyForm kjjszjcjbzyForm	=new KjjszjcjbzyForm();
+        	kjjszjcjbzyForm.setXmjj(jsonJ.getString("xmjj"));
+        	kjjszjcjbzyForm.setXmmc(jsonJ.getString("xmmc"));
+        	kjjszjcjbzyForm.setWcsj(jsonJ.getString("wcsj"));
+        	kjjszjcjbzyForm.setSfzh(jsonJ.getString("sfzh"));
+        	list.add(kjjszjcjbzyForm);
+        }
+		kjjszjcjbService.addzyListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
+		operateSuccess=true;
+		return "addzy";
 	}
 }
 

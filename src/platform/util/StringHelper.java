@@ -22,5 +22,14 @@ public class StringHelper {
 		}
 		return d;
 	}
-
+	public static Date stringConvertDate2(String date) {
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		Date d = null;
+		try {
+			d = format.parse(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return d;
+	}
 }
