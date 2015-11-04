@@ -54,6 +54,9 @@
 			<result name="add" type="json">
 				
 			</result>
+			<result name="addcxy" type="json">
+				
+			</result>
 	    	
              <result name="addzy" type="json">
 				

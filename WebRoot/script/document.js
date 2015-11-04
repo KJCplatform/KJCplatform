@@ -32,7 +32,6 @@ $(function() {
 		required : true
 	});
 
-	$("#info").html("TEST!!");
 });
 //加载公文列表
 function listDoc() {

@@ -162,7 +162,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			"menuid": "26",
 			"menuname": "技术专家信息",
 			"icon": "icon-nav",
-			"url": "<%=basePath%>/project/expert.jsp"	
+			"url": "",
+			"child":[{
+				"menuid": "261",
+				"menuname": "数据录入",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/expert.jsp"
+			},{
+				"menuid": "262",
+				"menuname": "信息查询",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/search.jsp"
+			}]	
 		}
 		
 	]
