@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -137,5 +138,112 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 			Plist.add(kjjszjcjbxm);
 		}
 		return Plist;
+	}
+	public List<KjjszjcjbForm> findKjjszjcjbList(KjjszjcjbForm kjjszjcjbForm){
+		String hqlWhere = "";
+		Object [] params = null;
+		List<String> paramsList=new ArrayList<String>();
+		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+		if(kjjszjcjbForm!=null&&StringUtils.isNotBlank(kjjszjcjbForm.getZjxm())){
+			hqlWhere += " and o.zjxm = ?";
+			paramsList.add(kjjszjcjbForm.getZjxm());
+		}
+		orderby.put(" o.id", "desc");
+		params = paramsList.toArray();
+		List<Kjjszjcjb> list=kjjszjcjbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
+		List<KjjszjcjbForm> formlist=this.KjjszjcjbPoToVoList(list);
+		return formlist;
+	}
+
+	private List<KjjszjcjbForm> KjjszjcjbPoToVoList(List<Kjjszjcjb> list) {
+		List<KjjszjcjbForm> formlist=new ArrayList<KjjszjcjbForm>();
+		for(int i=0;i<list.size();i++){
+			KjjszjcjbForm kjjszjcjbForm=new KjjszjcjbForm();
+			kjjszjcjbForm.setFwyy(list.get(i).getFwyy());
+			kjjszjcjbForm.setGzbm(list.get(i).getGzbm());
+			kjjszjcjbForm.setGzdw(list.get(i).getGzdw());
+			kjjszjcjbForm.setHyly(list.get(i).getHyly());
+			kjjszjcjbForm.setJsly(list.get(i).getJsly());
+			kjjszjcjbForm.setJszc(list.get(i).getJszc());
+			kjjszjcjbForm.setLxdh(list.get(i).getLxdh());
+			kjjszjcjbForm.setLxdz(list.get(i).getLxdz());
+			
+			if(list.get(i).getSfgk()!=null){
+			 if(list.get(i).getSfgk()==true)
+			kjjszjcjbForm.setSfgk("是");
+			else kjjszjcjbForm.setSfgk("否");}
+			
+			kjjszjcjbForm.setSfzh(list.get(i).getSfzh());
+			kjjszjcjbForm.setSj(list.get(i).getSj());
+			kjjszjcjbForm.setSzdq(list.get(i).getSzdq());
+			kjjszjcjbForm.setSzpt(list.get(i).getSzpt());
+			kjjszjcjbForm.setXb(list.get(i).getXb());
+			kjjszjcjbForm.setXkly(list.get(i).getXkly());
+			kjjszjcjbForm.setYx(list.get(i).getYx());
+			kjjszjcjbForm.setZgxl(list.get(i).getZgxl());
+			kjjszjcjbForm.setZjjj(list.get(i).getZjjj());
+			kjjszjcjbForm.setZjxm(list.get(i).getZjxm());
+			kjjszjcjbForm.setZw(list.get(i).getZw());
+			kjjszjcjbForm.setZytc(list.get(i).getZytc());
+			kjjszjcjbForm.setKjjszjcjbcgs(KjjszjcjbcgSetToFormList(list.get(i).getKjjszjcjbcgs()));
+			kjjszjcjbForm.setKjjszjcjbzys(KjjszjcjbzySetToFormList(list.get(i).getKjjszjcjbzys()));
+			kjjszjcjbForm.setKjjszjcjbxms(KjjszjcjbxmSetToFormList(list.get(i).getKjjszjcjbxms()));
+			formlist.add(kjjszjcjbForm);
+		}
+		return formlist;
+	}
+
+	private List<KjjszjcjbxmForm> KjjszjcjbxmSetToFormList(
+			Set<Kjjszjcjbxm> kjjszjcjbxms) {
+   List<KjjszjcjbxmForm> formlist=new ArrayList<KjjszjcjbxmForm>();
+		for(Kjjszjcjbxm kjjszjcjbxm:kjjszjcjbxms){
+			KjjszjcjbxmForm kjjszjcjbxmForm=new KjjszjcjbxmForm();
+			kjjszjcjbxmForm.setHzsj(kjjszjcjbxm.getHzsj());
+			if(kjjszjcjbxm.getHzxg()!=null) 
+			{if(kjjszjcjbxm.getHzxg()==true)
+			kjjszjcjbxmForm.setHzxg("良好");
+             else kjjszjcjbxmForm.setHzxg("一般");}
+			kjjszjcjbxmForm.setXmjj(kjjszjcjbxm.getXmjj());
+			kjjszjcjbxmForm.setXmmc(kjjszjcjbxmForm.getXmmc());
+			formlist.add(kjjszjcjbxmForm);
+		}
+		return formlist;
+	}
+
+	private List<KjjszjcjbzyForm> KjjszjcjbzySetToFormList(
+			Set<Kjjszjcjbzy> kjjszjcjbzys) {
+		List<KjjszjcjbzyForm> formlist=new ArrayList<KjjszjcjbzyForm>();
+		for(Kjjszjcjbzy kjjszjcjbzy:kjjszjcjbzys){
+			KjjszjcjbzyForm kjjszjcjbzyForm=new KjjszjcjbzyForm();
+			if(kjjszjcjbzy.getSfzh()!=null)
+			{
+			if(kjjszjcjbzy.getSfzh()==true)
+			kjjszjcjbzyForm.setSfzh("是");
+			else kjjszjcjbzyForm.setSfzh("否");}
+			kjjszjcjbzyForm.setWcsj(kjjszjcjbzy.getWcsj().toString());
+			kjjszjcjbzyForm.setXmjj(kjjszjcjbzy.getXmmc());
+			kjjszjcjbzyForm.setXmmc(kjjszjcjbzy.getXmmc());
+			formlist.add(kjjszjcjbzyForm);
+			
+		}
+		return formlist;
+	}
+
+	private List<KjjszjcjbcgForm> KjjszjcjbcgSetToFormList(
+			Set<Kjjszjcjbcg> kjjszjcjbcgs) {
+		// TODO Auto-generated method stub
+		List<KjjszjcjbcgForm> formlist=new ArrayList<KjjszjcjbcgForm>();
+		for(Kjjszjcjbcg kjjszjcjbcg:kjjszjcjbcgs){
+			KjjszjcjbcgForm kjjszjcjbcgForm=new KjjszjcjbcgForm();
+			kjjszjcjbcgForm.setCgjj(kjjszjcjbcg.getCgjj());
+			kjjszjcjbcgForm.setCgmc(kjjszjcjbcg.getCgmc());
+			kjjszjcjbcgForm.setWcsj(String.valueOf(kjjszjcjbcg.getWcsj()));
+			if(kjjszjcjbcg.getZhqk()!=null)
+			{if(kjjszjcjbcg.getZhqk()==true)
+			kjjszjcjbcgForm.setZhqk("已转化，继续转化");
+			else kjjszjcjbcgForm.setZhqk("未转化，希望转化");}
+			formlist.add(kjjszjcjbcgForm);
+		}
+		return formlist;
 	}
 }

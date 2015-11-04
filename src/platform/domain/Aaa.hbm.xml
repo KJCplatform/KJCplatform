@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="platform.domain.Aaa" table="kj_dxyqxxb">
+		<id name="id" type="integer">
+			<column name="id"  not-null="true"/>
+			<generator class="identity"/>
+		</id>
+        <property name="yqbh" type="string">
+			<column name="yqbh" />
+		</property>
+		<property name="flbm" type="string">
+			<column name="flbm" />
+		</property>
+		
+		<property name="nbbh" type="string">
+			<column name="nbbh" />
+		</property>
+		<property name="zwmc" type="string">
+			<column name="zwmc" />
+		</property>
+		<property name="ywmc" type="string">
+			<column name="ywmc" />
+		</property>
+		
+		<property name="xhgg" type="string">
+			<column name="xhgg" />
+		</property>
+		<property name="jszb" type="string">
+			<column name="jszb" />
+		</property>
+		<property name="csyjly" type="string">
+			<column name="csyjly" />
+		</property>
+		
+		<property name="zyyt" type="string">
+			<column name="zyyt" />
+		</property><property name="zyfjgn" type="string">
+			<column name="zyfjgn" />
+		</property>
+		<property name="rzqk" type="string">
+			<column name="rzqk" />
+		</property>
+		
+		<property name="sccs" type="string">
+			<column name="sccs" />
+		</property>
+		<property name="cdgb" type="string">
+			<column name="cdgb" />
+		</property>
+		<property name="yqyz" type="string">
+			<column name="yqyz" />
+		</property>
+		
+		<property name="qyrq" type="date">
+			<column name="qyrq" />
+		</property>
+		<property name="szdwmc" type="string">
+			<column name="szdwmc" />
+		</property>
+		<property name="sysmc" type="string">
+			<column name="sysmc" />
+		</property>
+		
+		<property name="afdz" type="string">
+			<column name="afdz" />
+		</property>
+		<property name="yzbm" type="string">
+			<column name="yzbm" />
+		</property>
+		<property name="lxr" type="string">
+			<column name="lxr" />
+		</property>
+		
+		<property name="dh" type="string">
+			<column name="dh" />
+		</property>
+		<property name="dzyj" type="string">
+			<column name="dzyj" />
+		</property>
+		<property name="sfgx" type="string">
+			<column name="sfgx" />
+		</property>
+		
+		<property name="yqzt" type="string">
+			<column name="yqzt" />
+		</property>
+		<property name="kfjsap" type="string">
+			<column name="kfjsap" />
+		</property>
+		<property name="cksfbz" type="string">
+			<column name="cksfbz" />
+		</property>
+			    
+		<property name="fwtjnf" type="string">
+			<column name="fwtjnf" />
+		</property>
+		<property name="nfwjs" type="string">
+			<column name="nfwjs" />
+		</property>
+		<property name="nfwsr" type="string">
+			<column name="nfwsr" />
+		</property>
+		
+		<property name="zmyh" type="string">
+			<column name="zmyh" />
+		</property>
+		<property name="yycg" type="string">
+			<column name="yycg" />
+		</property>
+		<property name="yqtp" type="string">
+			<column name="yqtp" />
+		</property>
+		
+		<property name="bz" type="string">
+			<column name="bz" />
+		</property>
+	</class>
+</hibernate-mapping>

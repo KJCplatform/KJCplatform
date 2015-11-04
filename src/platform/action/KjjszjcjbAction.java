@@ -104,8 +104,12 @@ public class KjjszjcjbAction extends BaseAction implements ModelDriven<Kjjszjcjb
 	}
 	Map<String, Object> map = new HashMap<String, Object>();
 	public String list(){
-		
-		//map.put("rows", formlist);
+		//KjjszjcjbForm kjjszjcjbForm1=new KjjszjcjbForm();
+		//kjjszjcjbForm1.setZjxm("哈哈哈");
+		List<KjjszjcjbForm> formlist=kjjszjcjbService.findKjjszjcjbList(kjjszjcjbForm);
+		//System.out.println(formlist.get(0).getKjjszjcjbcgs().get(2).getCgjj());
+		  map.put("rows", formlist);
+		  this.setResponseJson(map);
 		//map.put("total", xzxzgzbService.findXzxzgzbList().size());
 		//this.setResponseJson(map);
 		return "list";
