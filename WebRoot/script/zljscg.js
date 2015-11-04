@@ -64,6 +64,13 @@ $(function() {
 				{id: "其他方式", text: '其他方式'}
 			 ]
 	);
+	
+	$("#sj").numberbox({
+		
+	});
+	$("#gddh").numberbox({
+		
+	});
 
 });
 //加载公文列表

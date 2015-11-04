@@ -57,7 +57,6 @@ public class KjcgcjbServiceImpl implements KjcgcjbService{
 		Kjcgcjb kjcgcjb=new Kjcgcjb();
 		
 		kjcgcjb.setId(Integer.valueOf(kjcgcjbForm.getId()));
-		
 		kjcgcjb.setCgmc(kjcgcjbForm.getCgmc());
 		kjcgcjb.setWcdw(kjcgcjbForm.getWcdw());
 		kjcgcjb.setZywcr(kjcgcjbForm.getZywcr());
@@ -69,10 +68,16 @@ public class KjcgcjbServiceImpl implements KjcgcjbService{
 		kjcgcjb.setJsly(kjcgcjbForm.getJsly());
 		kjcgcjb.setCgjd(kjcgcjbForm.getCgjd());
 		kjcgcjb.setJyfs(kjcgcjbForm.getJyfs());
+		
+		if(kjcgcjbForm.getSfzj()!=null)
 		kjcgcjb.setSfzj(Integer.valueOf(kjcgcjbForm.getSfzj()));
 		kjcgcjb.setGfdj(kjcgcjbForm.getGfdj());
 		kjcgcjb.setZhyq(kjcgcjbForm.getZhyq());
+		
+		if(!kjcgcjbForm.getSfgk().equals(""))
 		kjcgcjb.setSfgk(Integer.valueOf(kjcgcjbForm.getSfgk()));
+		
+		if(!kjcgcjbForm.getFbrxz().equals(""))
 		kjcgcjb.setFbrxz(Integer.valueOf(kjcgcjbForm.getFbrxz()));
 		kjcgcjb.setLxrxm(kjcgcjbForm.getLxrxm());
 		kjcgcjb.setGddh(kjcgcjbForm.getGddh());
@@ -80,7 +85,6 @@ public class KjcgcjbServiceImpl implements KjcgcjbService{
 		kjcgcjb.setSj(kjcgcjbForm.getSj());
 		kjcgcjb.setDzyx(kjcgcjbForm.getDzyx());
 		kjcgcjb.setLxdz(kjcgcjbForm.getLxdz());
-		
 		
 		kjcgcjbDao.update(kjcgcjb);
 		
