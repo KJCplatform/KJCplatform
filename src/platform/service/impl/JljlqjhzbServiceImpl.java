@@ -97,7 +97,8 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 			jljlqjhzbForm.setFrmc(jljlqjhzb.getFrmc());
 			jljlqjhzbForm.setJlzy(jljlqjhzb.getJlzy());
 			jljlqjhzbForm.setQjmc(jljlqjhzb.getQjmc());
-			jljlqjhzbForm.setId(String.valueOf(jljlqjhzbForm.getId()));
+			jljlqjhzbForm.setId(String.valueOf(jljlqjhzb.getId()));
+			
 			jljlqjhzbForm.setZsh(jljlqjhzb.getZsh());
 			jljlqjhzbForm.setZmcxh(jljlqjhzb.getZmcxh());
 			jljlqjhzbForm.setPtmcxh(jljlqjhzb.getPtmcxh());

@@ -21,7 +21,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 
-
 @Service(KjsjjljgxxbService.SERVICE_NAME)
 public class KjsjjljgxxbServiceImpl implements KjsjjljgxxbService{
 	
@@ -61,13 +60,20 @@ public class KjsjjljgxxbServiceImpl implements KjsjjljgxxbService{
 	
 	public void updateKjsjjljgxxb(KjsjjljgxxbForm kjsjjljgxxbForm){
 		Kjsjjljgxxb kjsjjljgxxb=new Kjsjjljgxxb();
+
+		kjsjjljgxxb.setId(Integer.valueOf(kjsjjljgxxbForm.getId()));
 		kjsjjljgxxb.setFrmc(kjsjjljgxxbForm.getFrmc());
 		kjsjjljgxxb.setJlzy(kjsjjljgxxbForm.getJlzy());
+		
+		//数据校验
+		if(kjsjjljgxxbForm.getQjsl()!=null&&!kjsjjljgxxbForm.getQjsl().equals(""))
 		kjsjjljgxxb.setQjsl(Integer.valueOf(kjsjjljgxxbForm.getQjsl()));
-		kjsjjljgxxb.setId(Integer.valueOf(kjsjjljgxxbForm.getId()));
+		
 		kjsjjljgxxb.setTxdz(kjsjjljgxxbForm.getTxdz());
 		kjsjjljgxxb.setLxr(kjsjjljgxxbForm.getLxr());
 		kjsjjljgxxb.setBgdh(kjsjjljgxxbForm.getBgdh());
+		//数据校验
+		if(kjsjjljgxxbForm.getSj()!=null&&!kjsjjljgxxbForm.getSj().equals(""))
 		kjsjjljgxxb.setSj(Long.valueOf(kjsjjljgxxbForm.getSj()));
 		kjsjjljgxxbDao.update(kjsjjljgxxb);
 		
@@ -86,18 +92,19 @@ public class KjsjjljgxxbServiceImpl implements KjsjjljgxxbService{
 //		}catch(Exception e){System.out.println("Error!");}
 		
 		Kjsjjljgxxb kjsjjljgxxb=new Kjsjjljgxxb();
+		
 		kjsjjljgxxb.setFrmc(kjsjjljgxxbForm.getFrmc());
 		kjsjjljgxxb.setJlzy(kjsjjljgxxbForm.getJlzy());
 		
 		//数据校验
-		if(!kjsjjljgxxbForm.getQjsl().equals(""))
+		if(kjsjjljgxxbForm.getQjsl()!=null&&!kjsjjljgxxbForm.getQjsl().equals(""))
 		kjsjjljgxxb.setQjsl(Integer.valueOf(kjsjjljgxxbForm.getQjsl()));
 		
 		kjsjjljgxxb.setTxdz(kjsjjljgxxbForm.getTxdz());
 		kjsjjljgxxb.setLxr(kjsjjljgxxbForm.getLxr());
 		kjsjjljgxxb.setBgdh(kjsjjljgxxbForm.getBgdh());
 		//数据校验
-		if(!kjsjjljgxxbForm.getSj().equals(""))
+		if(kjsjjljgxxbForm.getSj()!=null&&!kjsjjljgxxbForm.getSj().equals(""))
 		kjsjjljgxxb.setSj(Long.valueOf(kjsjjljgxxbForm.getSj()));
 		kjsjjljgxxbDao.save(kjsjjljgxxb);
 	}
@@ -109,11 +116,16 @@ public class KjsjjljgxxbServiceImpl implements KjsjjljgxxbService{
 			KjsjjljgxxbForm kjsjjljgxxbForm=new KjsjjljgxxbForm();
 			kjsjjljgxxbForm.setFrmc(kjsjjljgxxb.getFrmc());
 			kjsjjljgxxbForm.setJlzy(kjsjjljgxxb.getJlzy());
+			
+		
 			kjsjjljgxxbForm.setQjsl(String.valueOf(kjsjjljgxxb.getQjsl()));
+			
+		
 			kjsjjljgxxbForm.setId(String.valueOf(kjsjjljgxxb.getId()));
 			kjsjjljgxxbForm.setTxdz(kjsjjljgxxb.getTxdz());
 			kjsjjljgxxbForm.setLxr(kjsjjljgxxb.getLxr());
 			kjsjjljgxxbForm.setBgdh(kjsjjljgxxb.getBgdh());
+			
 			kjsjjljgxxbForm.setSj(String.valueOf(kjsjjljgxxb.getSj()));
 			formlist.add(kjsjjljgxxbForm);
 		}

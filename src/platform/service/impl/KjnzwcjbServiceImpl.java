@@ -69,10 +69,16 @@ public class KjnzwcjbServiceImpl implements KjnzwcjbService{
 		kjnzwcjb.setJsly(kjnzwcjbForm.getJsly());
 	 	kjnzwcjb.setCgjd(kjnzwcjbForm.getCgjd());
 	    kjnzwcjb.setJyfs(kjnzwcjbForm.getJyfs());
+	    
+		if(kjnzwcjbForm.getSfzj()!=null&&!kjnzwcjbForm.getSfzj().equals(""))
 		kjnzwcjb.setSfzj(Integer.valueOf(kjnzwcjbForm.getSfzj()));
 		kjnzwcjb.setGfdj(kjnzwcjbForm.getGfdj());
 		kjnzwcjb.setZhyq(kjnzwcjbForm.getZhyq());
+		
+		if(kjnzwcjbForm.getSfgk()!=null&&!kjnzwcjbForm.getSfgk().equals(""))
 		kjnzwcjb.setSfgk(Integer.valueOf(kjnzwcjbForm.getSfgk()));
+		
+		if(kjnzwcjbForm.getFbrxz()!=null&&!kjnzwcjbForm.getFbrxz().equals(""))
 	 	kjnzwcjb.setFbrxz(Integer.valueOf(kjnzwcjbForm.getFbrxz()));
 	    kjnzwcjb.setLxrxm(kjnzwcjbForm.getLxrxm());
 		kjnzwcjb.setGddh(kjnzwcjbForm.getGddh());
@@ -80,7 +86,6 @@ public class KjnzwcjbServiceImpl implements KjnzwcjbService{
 		kjnzwcjb.setSj(kjnzwcjbForm.getSj());
 		kjnzwcjb.setDzyx(kjnzwcjbForm.getDzyx());
 	 	kjnzwcjb.setLxdz(kjnzwcjbForm.getLxdz());
-
 		
 		kjnzwcjbDao.update(kjnzwcjb);
 		
@@ -103,15 +108,15 @@ public class KjnzwcjbServiceImpl implements KjnzwcjbService{
 	 	kjnzwcjb.setCgjd(kjnzwcjbForm.getCgjd());
 	    kjnzwcjb.setJyfs(kjnzwcjbForm.getJyfs());
 	    
-		if(kjnzwcjbForm.getSfzj()!=null)
+		if(kjnzwcjbForm.getSfzj()!=null&&!kjnzwcjbForm.getSfzj().equals(""))
 		kjnzwcjb.setSfzj(Integer.valueOf(kjnzwcjbForm.getSfzj()));
 		kjnzwcjb.setGfdj(kjnzwcjbForm.getGfdj());
 		kjnzwcjb.setZhyq(kjnzwcjbForm.getZhyq());
 		
-		if(!kjnzwcjbForm.getSfgk().equals(""))
+		if(kjnzwcjbForm.getSfgk()!=null&&!kjnzwcjbForm.getSfgk().equals(""))
 		kjnzwcjb.setSfgk(Integer.valueOf(kjnzwcjbForm.getSfgk()));
 		
-		if(!kjnzwcjbForm.getFbrxz().equals(""))
+		if(kjnzwcjbForm.getFbrxz()!=null&&!kjnzwcjbForm.getFbrxz().equals(""))
 	 	kjnzwcjb.setFbrxz(Integer.valueOf(kjnzwcjbForm.getFbrxz()));
 	    kjnzwcjb.setLxrxm(kjnzwcjbForm.getLxrxm());
 		kjnzwcjb.setGddh(kjnzwcjbForm.getGddh());
@@ -133,6 +138,8 @@ public class KjnzwcjbServiceImpl implements KjnzwcjbService{
 			kjnzwcjbForm.setPzmc(kjnzwcjb.getPzmc());
 			kjnzwcjbForm.setXydw(kjnzwcjb.getXydw());
 			kjnzwcjbForm.setXyr(kjnzwcjb.getXyr());
+			
+			if(kjnzwcjb.getSdsj()!=null)
 			kjnzwcjbForm.setSdsj(String.valueOf(kjnzwcjb.getSdsj()));
 			kjnzwcjbForm.setSdh(kjnzwcjb.getSdh());
 			kjnzwcjbForm.setSdjg(kjnzwcjb.getSdjg());
@@ -141,10 +148,13 @@ public class KjnzwcjbServiceImpl implements KjnzwcjbService{
 			kjnzwcjbForm.setJsly(kjnzwcjb.getJsly());
 			kjnzwcjbForm.setCgjd(kjnzwcjb.getCgjd());
 			kjnzwcjbForm.setJyfs(kjnzwcjb.getJyfs());
+			
 		    kjnzwcjbForm.setSfzj(String.valueOf(kjnzwcjb.getSfzj()));
 		    kjnzwcjbForm.setGfdj(kjnzwcjb.getGfdj());
 		    kjnzwcjbForm.setZhyq(kjnzwcjb.getZhyq());
+		
 		    kjnzwcjbForm.setSfgk(String.valueOf(kjnzwcjb.getSfgk()));
+		    
 		    kjnzwcjbForm.setFbrxz(String.valueOf(kjnzwcjb.getFbrxz()));
 		    kjnzwcjbForm.setLxrxm(kjnzwcjb.getLxrxm());
 		    kjnzwcjbForm.setGddh(kjnzwcjb.getGddh());

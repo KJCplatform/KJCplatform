@@ -61,7 +61,10 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 		jljlrytjb.setQzrq(StringHelper.stringConvertDate(jljlrytjbForm.getQzrq()));
 		jljlrytjb.setQfrq(StringHelper.stringConvertDate(jljlrytjbForm.getQfrq()));
 		jljlrytjb.setId(Integer.valueOf(jljlrytjbForm.getId()));
+		//数据校验
+		if(jljlrytjbForm.getXb()!=null&&!jljlrytjbForm.getXb().equals(""))
 		jljlrytjb.setXb(Integer.valueOf(jljlrytjbForm.getXb()));
+		
 		jljlrytjb.setJlzh(jljlrytjbForm.getJlzh());
      	jljlrytjb.setYxq(jljlrytjbForm.getYxq());
 		jljlrytjb.setKjxm(jljlrytjbForm.getKjxm());
@@ -81,12 +84,14 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 		jljlrytjb.setQfrq(StringHelper.stringConvertDate(jljlrytjbForm.getQfrq()));
 		
 		//数据校验
-		if(!jljlrytjbForm.getXb().equals(""))
+		if(jljlrytjbForm.getXb()!=null&&!jljlrytjbForm.getXb().equals(""))
 		jljlrytjb.setXb(Integer.valueOf(jljlrytjbForm.getXb()));
 		
 		jljlrytjb.setJlzh(jljlrytjbForm.getJlzh());
      	jljlrytjb.setYxq(jljlrytjbForm.getYxq());
 		jljlrytjb.setKjxm(jljlrytjbForm.getKjxm());
+		
+		jljlrytjbDao.save(jljlrytjb);
 	}
 	private List<JljlrytjbForm> JljlrytjbPOListToVOList(List<Jljlrytjb> list) {
 		// TODO Auto-generated method stub
@@ -101,7 +106,9 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 			jljlrytjbForm.setQzrq(String.valueOf(jljlrytjb.getQzrq()));
 			jljlrytjbForm.setQfrq(String.valueOf(jljlrytjb.getQfrq()));
 			jljlrytjbForm.setId(String.valueOf(jljlrytjb.getId()));
+			
 			jljlrytjbForm.setXb(String.valueOf(jljlrytjb.getXb()));
+			
 			jljlrytjbForm.setJlzh(jljlrytjb.getJlzh());
 			jljlrytjbForm.setYxq(jljlrytjb.getYxq());
 			jljlrytjbForm.setKjxm(jljlrytjb.getKjxm());

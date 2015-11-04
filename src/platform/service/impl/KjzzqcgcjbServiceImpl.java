@@ -58,7 +58,6 @@ public class KjzzqcgcjbServiceImpl implements KjzzqcgcjbService{
 		
 		kjzzqcgcjb.setId(Integer.valueOf(kjzzqcgcjbForm.getId()));
 		
-		
 		kjzzqcgcjb.setCgmc(kjzzqcgcjbForm.getCgmc());
 		kjzzqcgcjb.setWcdw(kjzzqcgcjbForm.getWcdw());
 		kjzzqcgcjb.setZywcr(kjzzqcgcjbForm.getZywcr());
@@ -69,10 +68,16 @@ public class KjzzqcgcjbServiceImpl implements KjzzqcgcjbService{
 		kjzzqcgcjb.setJsly(kjzzqcgcjbForm.getJsly());
 		kjzzqcgcjb.setCgjd(kjzzqcgcjbForm.getCgjd());
 		kjzzqcgcjb.setJyfs(kjzzqcgcjbForm.getJyfs());
+		
+		if(kjzzqcgcjbForm.getSfzj()!=null&&!kjzzqcgcjbForm.getSfzj().equals(""))
 		kjzzqcgcjb.setSfzj(Integer.valueOf(kjzzqcgcjbForm.getSfzj()));
 		kjzzqcgcjb.setGfdj(kjzzqcgcjbForm.getGfdj());
 		kjzzqcgcjb.setZhyq(kjzzqcgcjbForm.getZhyq());
+		
+		if(kjzzqcgcjbForm.getSfgk()!=null&&!kjzzqcgcjbForm.getSfgk().equals(""))
 		kjzzqcgcjb.setSfgk(Integer.valueOf(kjzzqcgcjbForm.getSfgk()));
+		
+		if(kjzzqcgcjbForm.getFbrxz()!=null&&!kjzzqcgcjbForm.getFbrxz().equals(""))
 		kjzzqcgcjb.setFbrxz(Integer.valueOf(kjzzqcgcjbForm.getFbrxz()));
 		kjzzqcgcjb.setLxrxm(kjzzqcgcjbForm.getLxrxm());
 		kjzzqcgcjb.setGddh(kjzzqcgcjbForm.getGddh());
@@ -80,8 +85,6 @@ public class KjzzqcgcjbServiceImpl implements KjzzqcgcjbService{
 		kjzzqcgcjb.setSj(kjzzqcgcjbForm.getSj());
 		kjzzqcgcjb.setDzyx(kjzzqcgcjbForm.getDzyx());
 		kjzzqcgcjb.setLxdz(kjzzqcgcjbForm.getLxdz());
-
-		
 		
 		
 		kjzzqcgcjbDao.update(kjzzqcgcjb);
@@ -103,15 +106,15 @@ public class KjzzqcgcjbServiceImpl implements KjzzqcgcjbService{
 		kjzzqcgcjb.setCgjd(kjzzqcgcjbForm.getCgjd());
 		kjzzqcgcjb.setJyfs(kjzzqcgcjbForm.getJyfs());
 		
-		if(kjzzqcgcjbForm.getSfzj()!=null)
+		if(kjzzqcgcjbForm.getSfzj()!=null&&!kjzzqcgcjbForm.getSfzj().equals(""))
 		kjzzqcgcjb.setSfzj(Integer.valueOf(kjzzqcgcjbForm.getSfzj()));
 		kjzzqcgcjb.setGfdj(kjzzqcgcjbForm.getGfdj());
 		kjzzqcgcjb.setZhyq(kjzzqcgcjbForm.getZhyq());
 		
-		if(!kjzzqcgcjbForm.getSfgk().equals(""))
+		if(kjzzqcgcjbForm.getSfgk()!=null&&!kjzzqcgcjbForm.getSfgk().equals(""))
 		kjzzqcgcjb.setSfgk(Integer.valueOf(kjzzqcgcjbForm.getSfgk()));
 		
-		if(!kjzzqcgcjbForm.getFbrxz().equals(""))
+		if(kjzzqcgcjbForm.getFbrxz()!=null&&!kjzzqcgcjbForm.getFbrxz().equals(""))
 		kjzzqcgcjb.setFbrxz(Integer.valueOf(kjzzqcgcjbForm.getFbrxz()));
 		kjzzqcgcjb.setLxrxm(kjzzqcgcjbForm.getLxrxm());
 		kjzzqcgcjb.setGddh(kjzzqcgcjbForm.getGddh());
@@ -133,6 +136,8 @@ public class KjzzqcgcjbServiceImpl implements KjzzqcgcjbService{
 			kjzzqcgcjbForm.setCgmc(kjzzqcgcjb.getCgmc());
 			kjzzqcgcjbForm.setWcdw(kjzzqcgcjb.getWcdw());
 			kjzzqcgcjbForm.setZywcr(kjzzqcgcjb.getZywcr());
+			
+			if(kjzzqcgcjb.getWcsj()!=null)
 			kjzzqcgcjbForm.setWcsj(String.valueOf(kjzzqcgcjb.getWcsj()));
 			kjzzqcgcjbForm.setRzbh(kjzzqcgcjb.getRzbh());
 			kjzzqcgcjbForm.setCgjj(kjzzqcgcjb.getCgjj());
@@ -140,10 +145,13 @@ public class KjzzqcgcjbServiceImpl implements KjzzqcgcjbService{
 			kjzzqcgcjbForm.setJsly(kjzzqcgcjb.getJsly());
 			kjzzqcgcjbForm.setCgjd(kjzzqcgcjb.getCgjd());
 			kjzzqcgcjbForm.setJyfs(kjzzqcgcjb.getJyfs());
+
 			kjzzqcgcjbForm.setSfzj(String.valueOf(kjzzqcgcjb.getSfzj()));
 			kjzzqcgcjbForm.setGfdj(kjzzqcgcjb.getGfdj());
 			kjzzqcgcjbForm.setZhyq(kjzzqcgcjb.getZhyq());
+
 			kjzzqcgcjbForm.setSfgk(String.valueOf(kjzzqcgcjb.getSfgk()));
+			
 			kjzzqcgcjbForm.setFbrxz(String.valueOf(kjzzqcgcjb.getFbrxz()));
 			kjzzqcgcjbForm.setLxrxm(kjzzqcgcjb.getLxrxm());
 			kjzzqcgcjbForm.setGddh(kjzzqcgcjb.getGddh());
