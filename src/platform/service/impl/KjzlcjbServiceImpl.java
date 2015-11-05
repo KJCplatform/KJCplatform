@@ -89,6 +89,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		if(kjzlcjbForm.getGddh()!=null
 				&&!kjzlcjbForm.getGddh().equals(""))
 		kjzlcjb.setGddh(Long.valueOf(kjzlcjbForm.getGddh()));
+		
 		kjzlcjb.setSzdq(kjzlcjbForm.getSzdq());
 		
 		//数据校验

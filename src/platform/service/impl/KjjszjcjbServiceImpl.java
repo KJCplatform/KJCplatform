@@ -157,6 +157,7 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 
 	private List<KjjszjcjbForm> KjjszjcjbPoToVoList(List<Kjjszjcjb> list) {
 		List<KjjszjcjbForm> formlist=new ArrayList<KjjszjcjbForm>();
+		if(list.size()>0){
 		for(int i=0;i<list.size();i++){
 			KjjszjcjbForm kjjszjcjbForm=new KjjszjcjbForm();
 			kjjszjcjbForm.setFwyy(list.get(i).getFwyy());
@@ -189,13 +190,14 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 			kjjszjcjbForm.setKjjszjcjbzys(KjjszjcjbzySetToFormList(list.get(i).getKjjszjcjbzys()));
 			kjjszjcjbForm.setKjjszjcjbxms(KjjszjcjbxmSetToFormList(list.get(i).getKjjszjcjbxms()));
 			formlist.add(kjjszjcjbForm);
-		}
+		}}
 		return formlist;
 	}
 
 	private List<KjjszjcjbxmForm> KjjszjcjbxmSetToFormList(
 			Set<Kjjszjcjbxm> kjjszjcjbxms) {
    List<KjjszjcjbxmForm> formlist=new ArrayList<KjjszjcjbxmForm>();
+   if(kjjszjcjbxms.size()>0){
 		for(Kjjszjcjbxm kjjszjcjbxm:kjjszjcjbxms){
 			KjjszjcjbxmForm kjjszjcjbxmForm=new KjjszjcjbxmForm();
 			kjjszjcjbxmForm.setHzsj(kjjszjcjbxm.getHzsj());
@@ -206,13 +208,14 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 			kjjszjcjbxmForm.setXmjj(kjjszjcjbxm.getXmjj());
 			kjjszjcjbxmForm.setXmmc(kjjszjcjbxmForm.getXmmc());
 			formlist.add(kjjszjcjbxmForm);
-		}
+		}}
 		return formlist;
 	}
 
 	private List<KjjszjcjbzyForm> KjjszjcjbzySetToFormList(
 			Set<Kjjszjcjbzy> kjjszjcjbzys) {
 		List<KjjszjcjbzyForm> formlist=new ArrayList<KjjszjcjbzyForm>();
+		if(kjjszjcjbzys.size()>0){
 		for(Kjjszjcjbzy kjjszjcjbzy:kjjszjcjbzys){
 			KjjszjcjbzyForm kjjszjcjbzyForm=new KjjszjcjbzyForm();
 			if(kjjszjcjbzy.getSfzh()!=null)
@@ -225,7 +228,7 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 			kjjszjcjbzyForm.setXmmc(kjjszjcjbzy.getXmmc());
 			formlist.add(kjjszjcjbzyForm);
 			
-		}
+		}}
 		return formlist;
 	}
 
@@ -233,6 +236,7 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 			Set<Kjjszjcjbcg> kjjszjcjbcgs) {
 		// TODO Auto-generated method stub
 		List<KjjszjcjbcgForm> formlist=new ArrayList<KjjszjcjbcgForm>();
+		if(kjjszjcjbcgs.size()>0){
 		for(Kjjszjcjbcg kjjszjcjbcg:kjjszjcjbcgs){
 			KjjszjcjbcgForm kjjszjcjbcgForm=new KjjszjcjbcgForm();
 			kjjszjcjbcgForm.setCgjj(kjjszjcjbcg.getCgjj());
@@ -243,7 +247,7 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 			kjjszjcjbcgForm.setZhqk("已转化，继续转化");
 			else kjjszjcjbcgForm.setZhqk("未转化，希望转化");}
 			formlist.add(kjjszjcjbcgForm);
-		}
+		}}
 		return formlist;
 	}
 }
