@@ -29,6 +29,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 			},
 			{
+				"menuid": "13",
+				"menuname": "科技项目库",
+				"icon": "icon-log",
+				"url": "<%=basePath%>/administration/kjkjxmk.jsp"
+				
+			},
+			{
+				"menuid": "14",
+				"menuname": "大型仪器信息表",
+				"icon": "icon-log",
+				"url": "<%=basePath%>/administration/aaa.jsp"
+				
+			},
+			{
+				"menuid": "15",
+				"menuname": "认定高新企业备案表",
+				"icon": "icon-log",
+				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
+				
+			},
+			{
 				"menuid": "12",
 				"menuname": "通讯录管理",
 				"icon": "icon-log",
@@ -39,6 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					"icon": "icon-role",
 					"url": "demo2.html"
 					},
+					
 					{
 					"menuid": "122",
 					"menuname": "高技术企业",
@@ -95,43 +117,43 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				"menuid": "211",
 				"menuname": "专利技术成果",
 				"icon": "icon-nav",
-				"url": "demo2.html"
+				"url": "<%=basePath%>/administration/zljscg.jsp"
 			},
 			{
 				"menuid": "212",
 				"menuname": "登记鉴定成果",
 				"icon": "icon-nav",
-				"url": "demo2.html"
+				"url": "<%=basePath%>/administration/kjcgcjb.jsp"
 			},
 			{
 				"menuid": "213",
 				"menuname": "软件著作权",
 				"icon": "icon-nav",
-				"url": "demo2.html"
+				"url": "<%=basePath%>/administration/kjzzqcgcjb.jsp"
 			},
 			{
 				"menuid": "214",
 				"menuname": "农作物新品种成果",
 				"icon": "icon-nav",
-				"url": "demo2.html"
+				"url": "<%=basePath%>/administration/kjnzwcjb.jsp"
 			},
 			{
 				"menuid": "215",
 				"menuname": "其他技术成果",
 				"icon": "icon-nav",
-				"url": "demo2.html"
+				"url": "<%=basePath%>/administration/kjqtcgcjb.jsp"
 			},
 			{
 				"menuid": "216",
 				"menuname": "技术需求采集",
 				"icon": "icon-nav",
-				"url": "demo2.html"
+				"url": "<%=basePath%>/administration/kjjsxqcjb.jsp"
 			},
 			{
 				"menuid": "217",
 				"menuname": "融资需求",
 				"icon": "icon-nav",
-				"url": "demo2.html"
+				"url": "<%=basePath%>/administration/kjrzxqcjb.jsp"
 			}]		
 		},
 		{
@@ -207,19 +229,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			"menuid": "41",
 			"menuname": "国防三级计量技术机构",
 			"icon": "icon-nav",
-			"url": "demo.html"	
+			"url": "<%=basePath%>/administration/sjjlbz.jsp"	
 		},
 		{
 			"menuid": "42",
 			"menuname": "国防军工企事业单位最高计量标准器具",
 			"icon": "icon-nav",
-			"url": "demo.html"	
+			"url": "<%=basePath%>/administration/qjhzb.jsp"	
 		},
 		{
 			"menuid": "43",
 			"menuname": "国防军工企事业单位计量检定人员",
 			"icon": "icon-nav",
-			"url": "demo.html"	
+			"url": "<%=basePath%>/administration/xxtjb.jsp"	
 		}
 		]
 	},

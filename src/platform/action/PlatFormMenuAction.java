@@ -1,18 +1,33 @@
 package platform.action;
 
-import platform.form.MenuFrom;
+
+import platform.form.UserForm;
+import platform.service.KjjszjcjbService;
+import platform.service.UserService;
 
 import com.opensymphony.xwork2.ModelDriven;
 
-public class PlatFormMenuAction extends BaseAction implements ModelDriven<MenuFrom>{
-	private MenuFrom menuFrom=new MenuFrom();
+import container.ServiceProvider;
+
+public class PlatFormMenuAction extends BaseAction implements ModelDriven<UserForm>{
+	private UserForm userForm=new UserForm();
+	private  UserService userService=(UserService) ServiceProvider.getService(UserService.SERVICE_NAME);
 	@Override
-	public MenuFrom getModel() {
+	public UserForm getModel() {
 		// TODO Auto-generated method stub
-		return menuFrom;
+		return userForm;
 	}
 	public String home(){
-		return "home";
+	 //UserForm userForm1=new UserForm();
+	 //userForm1.setName("a");
+	 //userForm1.setPassword("admin");
+	 //System.out.println(userService.checkNameAndPassword(userForm1));
+		
+		
+		if(userService.checkNameAndPassword(userForm)==true)
+		{return "home";}
+		else return "error";
+	// return "home";
 	}
 	public String title(){
 		return "title";

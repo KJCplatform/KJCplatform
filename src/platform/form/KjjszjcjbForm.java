@@ -1,7 +1,9 @@
 package platform.form;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import platform.domain.Kjjszjcjbcg;
@@ -31,9 +33,27 @@ public class KjjszjcjbForm implements java.io.Serializable{
 	private String lxdh;
 	private String sj;
 	private String lxdz;
-	private Set<KjjszjcjbcgForm> kjjszjcjbcgs = new HashSet<KjjszjcjbcgForm>();
-	private Set<KjjszjcjbxmForm> kjjszjcjbxms = new HashSet<KjjszjcjbxmForm>();
-	private Set<KjjszjcjbzyForm> kjjszjcjbzys = new HashSet<KjjszjcjbzyForm>();
+	private List<KjjszjcjbcgForm> kjjszjcjbcgs ;
+	private List<KjjszjcjbxmForm> kjjszjcjbxms ;
+	private List<KjjszjcjbzyForm> kjjszjcjbzys ;
+	public List<KjjszjcjbcgForm> getKjjszjcjbcgs() {
+		return kjjszjcjbcgs;
+	}
+	public void setKjjszjcjbcgs(List<KjjszjcjbcgForm> kjjszjcjbcgs) {
+		this.kjjszjcjbcgs = kjjszjcjbcgs;
+	}
+	public List<KjjszjcjbxmForm> getKjjszjcjbxms() {
+		return kjjszjcjbxms;
+	}
+	public void setKjjszjcjbxms(List<KjjszjcjbxmForm> kjjszjcjbxms) {
+		this.kjjszjcjbxms = kjjszjcjbxms;
+	}
+	public List<KjjszjcjbzyForm> getKjjszjcjbzys() {
+		return kjjszjcjbzys;
+	}
+	public void setKjjszjcjbzys(List<KjjszjcjbzyForm> kjjszjcjbzys) {
+		this.kjjszjcjbzys = kjjszjcjbzys;
+	}
 	public String getId() {
 		return id;
 	}
@@ -166,23 +186,6 @@ public class KjjszjcjbForm implements java.io.Serializable{
 	public void setLxdz(String lxdz) {
 		this.lxdz = lxdz;
 	}
-	public Set<KjjszjcjbcgForm> getKjjszjcjbcgs() {
-		return kjjszjcjbcgs;
-	}
-	public void setKjjszjcjbcgs(Set<KjjszjcjbcgForm> kjjszjcjbcgs) {
-		this.kjjszjcjbcgs = kjjszjcjbcgs;
-	}
-	public Set<KjjszjcjbxmForm> getKjjszjcjbxms() {
-		return kjjszjcjbxms;
-	}
-	public void setKjjszjcjbxms(Set<KjjszjcjbxmForm> kjjszjcjbxms) {
-		this.kjjszjcjbxms = kjjszjcjbxms;
-	}
-	public Set<KjjszjcjbzyForm> getKjjszjcjbzys() {
-		return kjjszjcjbzys;
-	}
-	public void setKjjszjcjbzys(Set<KjjszjcjbzyForm> kjjszjcjbzys) {
-		this.kjjszjcjbzys = kjjszjcjbzys;
-	}
+
 	  
 }

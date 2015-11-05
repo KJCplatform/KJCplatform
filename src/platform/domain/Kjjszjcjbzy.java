@@ -10,6 +10,7 @@ import java.util.Set;
 /**
  * Kjjszjcjbzy entity. @author MyEclipse Persistence Tools
  */
+
 public class Kjjszjcjbzy  implements java.io.Serializable {
 
 	     private Integer id;
