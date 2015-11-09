@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
 		var basePath = localhostPath + projectName;
 		
-		var rows = [
+		var display = [
 	            { "name": "姓名", "group": "基本信息", "value": "", "editor": "text" },
 				{ "name": "性别", "group": "基本信息", "value": "", "editor": "text" },
 				{ "name": "身份证号", "group": "基本信息", "value": "", "editor": "text" },
@@ -68,7 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                { field: 'value', title: '', width: 100, resizable: false }
 		        ]]
 		    });
-		    $('#info').propertygrid('loadData', rows);
+		    $('#info').propertygrid('loadData', display);
 			
 			$('#cxy').datagrid({
 				title : '产学研合作项目情况',
@@ -131,7 +131,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		function doSearch(){
 			var action =  basePath + '/system/KjjszjcjbAction_list.action';
 			$('#searchForm').form('submit',{
-				url:"search.action",
+				url: action,
 				onSubmit:function(){
 					var isValid = $(this).form('validate');
 					if(!isValid){
@@ -139,9 +139,67 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					}
 					return isValid;
 				},
-				success:function(data){    
-					alert(data)    
-				}    
+				success:function(data){     
+					var obj={};
+					obj = eval('(' + data + ')');
+					var rows = obj.rows;
+					//alert(rows.length);
+					//判断取出的专家记录是否唯一
+					if(rows.length == 0){
+						alert("系统无此专家信息，请检查输入信息");
+					}
+					else if(rows.length > 1){
+						alert("专家重名，对应多个专家信息");
+					}
+					else{
+						info = rows[0];
+						//alert(info.fwyy);
+						display[0].value = info.zjxm;
+						display[1].value = info.xb;
+						display[2].value = info.sfzh;
+						display[3].value = info.yx;
+						display[4].value = info.jszc;
+						display[5].value = info.zw;
+						display[6].value = info.gzdw;
+						display[7].value = info.gzbm;
+						display[8].value = info.zgxl;
+						display[9].value = info.szdq;
+						display[10].value = info.hyly;
+						display[11].value = info.jsly;
+						display[12].value = info.xkly;
+						display[13].value = info.fwyy;
+						display[14].value = info.szpt;
+						display[15].value = info.zjjj;
+						display[16].value = info.zytc;
+						
+						var cxydata = {};
+						var jscgdata = {};
+						var zydata = {};
+						if(info.kjjszjcjbxms != null){
+							cxydata.total = info.kjjszjcjbxms.length;
+							cxydata.rows = info.kjjszjcjbxms;
+						}
+						if(info.kjjszjcjbcgs != null){
+							jscgdata.total = info.kjjszjcjbcgs.length;
+							jscgdata.rows = info.kjjszjcjbcgs;
+						}
+						if(info.kjjszjcjbzys != null){
+							zydata.total = info.kjjszjcjbzys.length;
+							zydata.rows = info.kjjszjcjbzys;
+						}	
+					}
+					 $('#info').propertygrid('loadData', display);
+					 if(cxydata){
+						 $('#cxy').datagrid('loadData', cxydata);
+					 }
+					 if(jscgdata){
+						 $('#jscg').datagrid('loadData', jscgdata);
+					 }
+					 if(zydata){
+						 $('#zy').datagrid('loadData', zydata);
+					 }
+					 
+				}   
 			})
 		}
 
@@ -158,7 +216,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <tr>
 					<th>专家姓名：</th>
 					<td>
-                        <input class="easyui-validatebox" type="text" name="name" data-options="required:true" /> 
+                        <input class="easyui-validatebox" type="text" name="zjxm" data-options="required:true" /> 
 					</td>
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>
