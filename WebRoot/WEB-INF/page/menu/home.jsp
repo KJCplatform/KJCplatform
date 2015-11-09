@@ -2,6 +2,7 @@
 <% 
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+String rights=(String)request.getSession().getAttribute("globle_rights");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1">
@@ -16,7 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <script type="text/javascript">
 	var _menus = { "menus":
-	[{
+	[<%if(rights.contains("1")){%>
+	 {
 		"menuid": "1",
 		"icon": "icon-sys",
 		"menuname": "行政管理",
@@ -102,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 		]
 		
-	},
+	},<%}if(rights.contains("2")){%>
 	{
 		"menuid": "2",
 		"icon": "icon-sys",
@@ -200,7 +202,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 	]
 		
-	},
+	},<%}if(rights.contains("3")){%>
 	{
 		"menuid": "3",
 		"icon": "icon-sys",
@@ -219,7 +221,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			"url": "demo.html"				
 		}	
 		]
-	},
+	},<%}if(rights.contains("4")){%>
 	{
 		"menuid": "4",
 		"icon": "icon-sys",
@@ -244,7 +246,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			"url": "<%=basePath%>/administration/xxtjb.jsp"	
 		}
 		]
-	},
+	},<%}if(rights.contains("5")){%>
 	{
 		"menuid": "5",
 		"icon": "icon-sys",
@@ -256,7 +258,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			"url": "demo.html"	
 		}
 		]	
-	},
+	},<%}if(rights.contains("6")){%>
 	{
 		"menuid": "6",
 		"icon": "icon-sys",
@@ -280,7 +282,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			"url": "demo.html"
 		}
 		]	
-	},
+	},<%}if(rights.contains("7")){%>
 	{
 		"menuid": "7",
 		"icon": "icon-sys",
@@ -299,7 +301,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 		]
 		
-	}
+	}<%}%>
 	]	
 		
 }

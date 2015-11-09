@@ -60,11 +60,11 @@
 			<result name="add" type="json">
 				
 			</result>
-	    	
-             <result name="addzy" type="json">
+			<result name="addcxy" type="json">
 				
 			</result>
-			<result name="addcxy" type="json">
+	    	
+             <result name="addzy" type="json">
 				
 			</result>
 			<result name="addjscg" type="json">

@@ -1,6 +1,7 @@
 package platform.action;
 
 
+import platform.domain.User;
 import platform.form.UserForm;
 import platform.service.KjjszjcjbService;
 import platform.service.UserService;
@@ -22,10 +23,12 @@ public class PlatFormMenuAction extends BaseAction implements ModelDriven<UserFo
 	 //userForm1.setName("a");
 	 //userForm1.setPassword("admin");
 	 //System.out.println(userService.checkNameAndPassword(userForm1));
-		
-		
 		if(userService.checkNameAndPassword(userForm)==true)
-		{return "home";}
+		{  User user=userService.getUserByName(userForm.getName());
+		   request.getSession().setAttribute("globle_user", user);
+		   String rights = userService.findRightByUserID(user.getId());
+		   request.getSession().setAttribute("globle_rights", rights);
+			return "home";}
 		else return "error";
 	// return "home";
 	}

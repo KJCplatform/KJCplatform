@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import platform.dao.UserDao;
+import platform.domain.User;
 import platform.form.UserForm;
 import platform.form.XzxzgzbForm;
 import platform.service.UserService;
@@ -34,5 +35,23 @@ public class UserServiceImpl implements UserService{
 	    return false;
 	}
 	
-	
+	public User getUserByName(String name){
+		String hqlWhere = " and o.name = ?";
+		Object [] params = {name};
+		List<User> list=userDao.findCollectionByConditionNoPage(hqlWhere, params, null);
+		User user = null;
+		if(list!=null && list.size()>0){
+			user = list.get(0);
+		}
+		return user;
+	}
+	public String findRightByUserID(int id){
+		List<Object> list = userDao.findRightByUserID(id);
+		StringBuffer buffer = new StringBuffer("");
+		for(int i=0;list!=null && i<list.size();i++){
+			Object object = list.get(i);
+			buffer.append(object.toString());
+		}
+		return buffer.toString();
+	}
 }
