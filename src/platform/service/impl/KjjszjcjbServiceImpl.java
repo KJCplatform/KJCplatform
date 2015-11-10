@@ -206,7 +206,7 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 			kjjszjcjbxmForm.setHzxg("良好");
              else kjjszjcjbxmForm.setHzxg("一般");}
 			kjjszjcjbxmForm.setXmjj(kjjszjcjbxm.getXmjj());
-			kjjszjcjbxmForm.setXmmc(kjjszjcjbxmForm.getXmmc());
+			kjjszjcjbxmForm.setXmmc(kjjszjcjbxm.getXmmc());
 			formlist.add(kjjszjcjbxmForm);
 		}}
 		return formlist;
