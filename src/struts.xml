@@ -259,5 +259,16 @@
 				
 			</result>
 		</action>
+		<action name="UserAction_*" class="platform.action.UserAction" method="{1}">			
+			<result name="home" type="json">
+
+			</result>
+			<result name="edit" type="json">
+				
+			</result>
+	    	<result name="save" type="json">
+				
+			</result>
+		</action>
 	</package>
 </struts>
