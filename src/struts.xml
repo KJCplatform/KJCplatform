@@ -261,7 +261,7 @@
 		</action>
 		<action name="UserAction_*" class="platform.action.UserAction" method="{1}">			
 			<result name="home" type="json">
-
+            <param name="root">responseJson</param>
 			</result>
 			<result name="edit" type="json">
 				
