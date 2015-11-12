@@ -11,8 +11,13 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import platform.dao.RightDao;
 import platform.dao.UserDao;
+import platform.dao.UserRightDao;
+import platform.domain.Right;
 import platform.domain.User;
+import platform.domain.UserRight;
+import platform.form.RightForm;
 import platform.form.UserForm;
 import platform.form.XzxzgzbForm;
 import platform.service.UserService;
@@ -24,7 +29,10 @@ public class UserServiceImpl implements UserService{
 	
 	@Resource(name=UserDao.SERVICE_NAME)
 	private UserDao userDao;
-
+	@Resource(name=RightDao.SERVICE_NAME)
+    private RightDao rightDao;
+	@Resource(name=UserRightDao.SERVICE_NAME)
+    private UserRightDao userRightDao;
 	@Override
 	public boolean checkNameAndPassword(UserForm userForm) {
 		// TODO Auto-generated method stub
@@ -53,5 +61,72 @@ public class UserServiceImpl implements UserService{
 			buffer.append(object.toString());
 		}
 		return buffer.toString();
+	}
+
+	@Override
+	public List<UserForm> AllUsers() {
+		// TODO Auto-generated method stub
+		String hqlWhere="";
+		List<User> list=userDao.findCollectionByConditionNoPage(hqlWhere, null, null);
+		List<UserForm> formlist=this.userVoListToPoList(list);
+		return formlist;
+	}
+
+	private List<UserForm> userVoListToPoList(List<User> list) {
+		// TODO Auto-generated method stub
+		List<UserForm> formlist=new ArrayList<UserForm>();
+		for(int i=0;i<list.size();i++){
+			UserForm userForm=new UserForm();
+			userForm.setName(list.get(i).getName());
+			userForm.setId(String.valueOf(list.get(i).getId()));
+			formlist.add(userForm);
+		}
+		return formlist;
+	}
+
+	@Override
+	public List<RightForm> getRightByUserID(String id) {
+		// TODO Auto-generated method stub
+		String hqlWhere="";
+		List<Object> list = userDao.findRightByUserID(Integer.valueOf(id));
+		List<Right> rightlist=rightDao.findCollectionByConditionNoPage(hqlWhere,null, null);
+		List<RightForm> formlist=this.rightVoToPoList(rightlist);
+		for(int i=0;list!=null &&i<list.size();i++){
+			for(int j=0;j<formlist.size();j++){
+				if(formlist.get(j).getId().equals(list.get(i).toString())){
+					formlist.get(j).setFlag("1");//"1"表示有这个权限
+					break;
+				}
+			}
+		}
+		return formlist;
+	}
+
+	private List<RightForm> rightVoToPoList(List<Right> rightlist) {
+		// TODO Auto-generated method stub
+		List<RightForm> formlist=new ArrayList<RightForm>();
+		for(int i=0;i<rightlist.size();i++){
+			RightForm rightForm=new RightForm();
+			rightForm.setId(String.valueOf(rightlist.get(i).getId()));
+			rightForm.setName(rightlist.get(i).getName());
+			formlist.add(rightForm);
+		}
+		return formlist;
+	}
+
+	@Override
+	public void saveRightsOfUser(UserForm userForm) {
+		// TODO Auto-generated method stub
+		String[] selectrights=userForm.getSelectrights();
+		List<UserRight> list=userRightDao.getListByUserID(userForm.getId());
+		userRightDao.deleteObjectByCollection(list);
+		List<UserRight> newlist=new ArrayList<UserRight>();
+		for(int i=0;selectrights!=null&&i<selectrights.length;i++){
+			UserRight userRight = new UserRight();
+			userRight.setUserID(Integer.valueOf(userForm.getId()));
+			userRight.setRightID(Integer.valueOf(selectrights[i]));
+			newlist.add(userRight);
+		}
+		userRightDao.saveObjectByCollection(newlist);
 	}
 }

@@ -32,7 +32,9 @@
 		 <mapping resource="platform/domain/Kjzlcjb.hbm.xml"/> 
 		 <mapping resource="platform/domain/Kjcgcjb.hbm.xml"/> 
 		 <mapping resource="platform/domain/Kjzzqcgcjb.hbm.xml"/> 
-		 <mapping resource="platform/domain/Kjnzwcjb.hbm.xml"/> 
+		 <mapping resource="platform/domain/Kjnzwcjb.hbm.xml"/>
+		 <mapping resource="platform/domain/UserRight.hbm.xml"/>
+		 <mapping resource="platform/domain/Right.hbm.xml"/> 
 		
 	</session-factory>
 </hibernate-configuration>

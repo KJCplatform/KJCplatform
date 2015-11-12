@@ -12,6 +12,7 @@ public interface ICommonDao<T> {
 	T findObjectByID(Serializable id);
 	void deleteObjectByIDs(Serializable ... ids);
 	void deleteObjectByCollection(Collection<T> entities);
+	void saveObjectByCollection(Collection<T> entities);
 	List<T> findCollectionByConditionNoPage(String hqlWhere,
 			Object[] params, LinkedHashMap<String, String> orderby);
 

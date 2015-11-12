@@ -161,5 +161,7 @@ public class CommonDaoImpl<T> extends HibernateDaoSupport implements ICommonDao<
 		}
 		return buffer.toString();
 	}
-	
+	public void saveObjectByCollection(Collection<T> entities) {
+		this.getHibernateTemplate().saveOrUpdateAll(entities);
+	}
 }
