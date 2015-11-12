@@ -1,6 +1,8 @@
 package platform.action;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -26,16 +28,24 @@ public class UserAction extends BaseAction implements ModelDriven<UserForm>{
 
 
 private  UserService userService=(UserService) ServiceProvider.getService(UserService.SERVICE_NAME);
-
-
+public Map responseJson;
+Map<String, Object> map = new HashMap<String, Object>();
 private UserForm userForm=new UserForm();
+
+public Map getResponseJson() {
+	return responseJson;
+}
+public void setResponseJson(Map responseJson) {
+	this.responseJson = responseJson;
+}
 public UserForm getModel() {
 	
 	return userForm;
 }
 public String home(){
 	List<UserForm> userList=userService.AllUsers();//返回所有用户
-
+	 map.put("users", userList);
+	 this.setResponseJson(map);
 	return "home";
 }
 public String edit(){

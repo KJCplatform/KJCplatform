@@ -1,1 +1,8 @@
+/beans.xml
+/container/
+/hibernate.cfg.xml
 /platform/
+/test1.class
+/Test.class
+/TestDao.class
+/TestHibernate.class
