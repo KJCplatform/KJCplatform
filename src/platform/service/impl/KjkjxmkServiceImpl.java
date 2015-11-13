@@ -53,7 +53,7 @@ public class KjkjxmkServiceImpl implements KjkjxmkService{
 	
 	public void updateKjkjxmk(KjkjxmkForm kjkjxmkForm){
 		Kjkjxmk kjkjxmk=new Kjkjxmk();
-		kjkjxmk.setId(Integer.valueOf(kjkjxmk.getId()));
+		kjkjxmk.setId(Integer.valueOf(kjkjxmkForm.getId()));
 		kjkjxmk.setLb(kjkjxmkForm.getLb());
 		kjkjxmk.setXh(kjkjxmkForm.getXh());
 		kjkjxmk.setDwmc(kjkjxmkForm.getDwmc());
