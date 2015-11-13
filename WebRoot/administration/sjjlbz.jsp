@@ -72,24 +72,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- </div> -->
 
 
-    <div class="container">  
-        <h3>导入Excel</h3>  
-        <form id="uploadimg-form"  action="" method="post">  
-            <input type="file" title="选择文件" name="fileUpload" id="fileUpload"/><br /><br />  
-            <input id="fileBtn" type="submit"  onclick="Exproter()" class="btn" value="文件上传"/><br /><br />  
-        </form>  
+<!--     <div class="container">   -->
+<!--         <h3>导入Excel</h3>   -->
+<!--         <form id="uploadimg-form" enctype="multipart/form-data"  action="" method="post">   -->
+<!--             <input type="file" title="选择文件" name="fileUpload" id="fileUpload"/><br /><br />   -->
+<!--             <input id="fileBtn" type="submit"  class="btn" value="文件上传"/> -->
+            
+            
+            
+<!--          <input id="export" type="button"  onclick="Exproter()" class="btn" value="导出文件"/><br /><br />   -->
+        
+<!--         </form>   -->
   
-        <div id="showData" style="display: none;">  
-            <div>  
-                <p>导入数据如下：</p>  
-                <p id="jsonShow"></p>  
-            </div>  
-        </div>  
-    </div> 
+<!--         <div id="showData" style="display: none;">   -->
+<!--             <div>   -->
+<!--                 <p>导入数据如下：</p>   -->
+<!--                 <p id="jsonShow"></p>   -->
+<!--             </div>   -->
+<!--         </div>   -->
+<!--     </div>  -->
  
     
-    
+    <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
+   选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
+       　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
+       <a href="#" class="easyui-linkbutton" id="btnExport" onclick="ShowExport()" >导出</a> 　
+</form>
 
+
+<!-- <input id="file_upl" type="file"  /> -->
+<!-- <input  type="button" style="width:80px"  value="导入" onclick="test()" /> -->
 
 <div data-options="region:'center',split:false">
 	<!-- 表格主题部分-->
@@ -115,11 +127,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<input type="hidden" id="id" name="id" />
 			<dl>
 				<dd>法人单位名称:</dd>
-				<dd><input size="15" id="frmc" name="frmc" /></dd>
+				<dd><input size="15" id="frmc" name="frmc" />*</dd>
 			</dl>
 			<dl>
 				<dd>涉及的计量专业:</dd>
-				<dd><input size="15" id="jlzy" name="jlzy" /></dd>
+				<dd><input size="15" id="jlzy" name="jlzy" />*</dd>
 			</dl>
 			<dl>
 				<dd>企事业最高计量标准器具数量:</dd>

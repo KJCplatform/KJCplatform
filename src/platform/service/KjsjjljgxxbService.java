@@ -13,5 +13,7 @@ public interface KjsjjljgxxbService {
 	public void updateKjsjjljgxxb(KjsjjljgxxbForm kjsjjljgxxbForm);
 	public void deleteObject(String id);
 	public void saveObject(KjsjjljgxxbForm kjsjjljgxxbForm);
+	public void showimportObject(String kjsjjljgxxbForm) throws Exception;
+	public void showexportObject() throws Exception;
 
 }

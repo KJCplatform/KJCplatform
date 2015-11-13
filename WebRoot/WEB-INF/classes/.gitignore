@@ -1,6 +1,6 @@
 /beans.xml
-/container/
-/excel/
+/container
+/excel
 /hibernate.cfg.xml
-/platform/
+/platform
 /test1.class

@@ -27,6 +27,7 @@ import platform.service.KjsjjljgxxbService;
 import com.opensymphony.xwork2.ModelDriven;
 
 import container.ServiceProvider;
+import excel.CreateExcel;
 
 public class KjsjjljgxxbAction extends BaseAction implements ModelDriven<KjsjjljgxxbForm>{
 	public int page = 0;
@@ -52,6 +53,7 @@ public class KjsjjljgxxbAction extends BaseAction implements ModelDriven<Kjsjjlj
 		this.rows = rows;
 	}
 	public Map getResponseJson() {
+	
 		return responseJson;
 	}
 	public void setResponseJson(Map responseJson) {
@@ -99,9 +101,26 @@ public class KjsjjljgxxbAction extends BaseAction implements ModelDriven<Kjsjjlj
 		return   "delete";
 	}
 	public String add(){
+//		System.out.println(map);
+//		System.out.println(responseJson);
+
 		kjsjjljgxxbService.saveObject(kjsjjljgxxbForm);
 		operateSuccess=true;
 		return "add";
+	}
+	
+	public String showimport() throws Exception{
+		System.out.println(kjsjjljgxxbForm.getFrmc());
+		kjsjjljgxxbService.showimportObject(kjsjjljgxxbForm.getFrmc());
+		operateSuccess=true;
+		return "showimport";
+	}
+	
+	public String showexport() throws Exception{
+
+		kjsjjljgxxbService.showexportObject();
+		operateSuccess=true;
+		return "showexport";
 	}
 }
 
