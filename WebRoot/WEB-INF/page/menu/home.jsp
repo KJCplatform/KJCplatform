@@ -162,25 +162,57 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuid": "22",
 			"menuname": "高新技术企业信息",
 			"icon": "icon-nav",
-			"url": "demo.html"	
+			 "url": "<%=basePath%>/administration/kjndgxjsqypjb.jsp"
 		},
 		{
 			"menuid": "23",
 			"menuname": "军品配套科研项目",
 			"icon": "icon-nav",
-			"url": "demo.html"	
+			"url": "<%=basePath%>/administration/kjndjpptkyxmb.jsp"	
 		},
 		{
 			"menuid": "24",
 			"menuname": "湖北省科学技术奖励",
 			"icon": "icon-nav",
-			"url": "demo.html"	
+	        "url": "<%=basePath%>/administration/kjgfjflqk.jsp"	
 		},
 		{
 			"menuid": "25",
 			"menuname": "国防科学技术奖",
 			"icon": "icon-nav",
-			"url": "demo.html"	
+			"url": "demo.html",
+			"child":[{
+				"menuid": "251",
+				"menuname": "1.****年度我省获国防科学技术进步奖和发明奖统计表",
+				"icon": "icon-nav",
+			    "url": "<%=basePath%>/administration/kjndgfjtjb.jsp"
+				
+			},
+			{
+				"menuid": "252",
+				"menuname": "2.****期间至****年度我省获国家科学技术奖国防科技工业专用项目特等奖统计",
+				"icon": "icon-nav",
+			    "url": "<%=basePath%>/administration/kjgjkjjgfxmtj.jsp"
+				
+			},
+			{
+				"menuid": "253",
+				"menuname": "3.****至****年度我省获国家科学技术奖国防科技工业专用项目统计",
+				"icon": "icon-nav",
+			    "url": "<%=basePath%>/administration/kjgjkjjgftdtj.jsp"
+				
+			},
+			{
+				"menuid": "254",
+				"menuname": "4.年度我省军工单位获湖北省科学技术奖励情况表",
+				"icon": "icon-nav",
+			    "url": "<%=basePath%>/administration/kjndjgkjjlqkb.jsp"
+				
+			}]
+			
+			
+			
+			
 		},
 		{
 			"menuid": "26",
@@ -208,18 +240,19 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 		"icon": "icon-sys",
 		"menuname": "军品质量管理",
 		"menus":[
-		{
+			{
 			"menuid": "31",
 			"menuname": "国防科技工业军工产品质量",
 			"icon": "icon-nav",
-			"url": "demo.html"				
+			//"url": "demo.html"	
+			"url": "<%=basePath%>/administration/jpzlzkjbb.jsp"			
 		},
 		{
 			"menuid": "32",
 			"menuname": "国防科技工业质量事故",
 			"icon": "icon-nav",
-			"url": "demo.html"				
-		}	
+			"url": "<%=basePath%>/administration/jpsgwtbb.jsp"			
+		}
 		]
 	},<%}if(rights.contains("4")){%>
 	{

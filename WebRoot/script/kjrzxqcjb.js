@@ -16,23 +16,21 @@ $(function() {
 	$("#zcsj").datebox({
 		required : true
 	});
-	
 	// 给文本框加上验证器
 	$("#qymc").validatebox({
 		required : true,
 		missingMessage : '企业名称不能为空'
 	});
-	$("#rzed").validatebox({
+	$("#qylx").validatebox({
 		required : true,
-		missingMessage : '融资额度不能为空'
+		missingMessage : '企业类型不能为空'
 	});
-	
 });
 //加载公文列表
 function listDoc() {
 	var actionPath = basePath + '/system/KjrzxqcjbAction_list.action';
 	 $('#dg').datagrid({
-            title : '融资需求信息表',
+            title : '融资需求数据采集表',
             width : 1200,
             height: 400,
             //fit: true,
@@ -44,8 +42,8 @@ function listDoc() {
             url:actionPath,//url调用Action方法
             loadMsg : '数据装载中......',
             singleSelect:true,//为true时只能选择单行
-            //sortName : 'xh',//当数据表格初始化时以哪一列来排序
-            //sortOrder : 'desc',//定义排序顺序，可以是'asc'或者'desc'（正序或者倒序）。
+            sortName : 'zcsj',//当数据表格初始化时以哪一列来排序
+            sortOrder : 'desc',//定义排序顺序，可以是'asc'或者'desc'（正序或者倒序）。
             pagination : true,//分页
             rownumbers : true,//行数
 			
@@ -73,15 +71,15 @@ function listDoc() {
 //查询
 function doSearch(){
 	$('#dg').datagrid('load',{
-		qymc: $('#fileName').val(),
-		rzed: $('#fileId').val()
+		qymc: $('#qymc').val(),
+		qylx: $('#qylx').val()
 	});
 }
 // 显示编辑窗口
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '融资需求数据采集表',
+		title : '融资需求采集表',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',
@@ -128,7 +126,6 @@ function editDoc() {
 		return;
 	}
 	$('#frmEdit').form('clear');
-	// 填充数据
 	// 填充数据
 	$("#id").val(doc.id);
 	$("#qymc").val(doc.qymc);
@@ -229,15 +226,3 @@ function deleteDoc() {
 		}
 	});
 }
-
-
-
-
-
-
-
-
-
-
-
-	

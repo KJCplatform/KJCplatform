@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="platform.domain.Kjndjpptkyxmb" table="kj_ndjpptkyxmb">
+		<id name="id" type="integer">
+			<column name="id"  not-null="true"/>
+			<generator class="identity"/>
+		</id>
+		<property name="xmbh" type="string">
+			<column name="xmbh" />
+		</property>
+		<property name="xmmc" type="string">
+			<column name="xmmc" />
+		</property>
+		<property name="cyzgbm" type="string">
+			<column name="cyzgbm" />
+		</property>
+		<property name="cydw" type="string">
+			<column name="cydw" />
+		</property>
+		<property name="xqzgbm" type="string">
+			<column name="xqzgbm" />	
+		</property>
+		<property name="xqdw" type="string">
+			<column name="xqdw" />	
+		</property>
+		<property name="bjxh" type="string">
+			<column name="bjxh" />	
+		</property>
+		<property name="xmnr" type="string">
+			<column name="xmnr" />
+		</property>
+		<property name="yzzq" type="string">
+			<column name="yzzq" />
+		</property>
+		<property name="pfzjf" type="string">
+			<column name="pfzjf" />
+		</property>
+		<property name="pfgbjf" type="string">
+			<column name="pfgbjf" />
+		</property>
+		<property name="dwzjf" type="string">
+			<column name="dwzjf" />
+		</property>
+		<property name="dwgbjf" type="string">
+			<column name="dwgbjf" />
+		</property>
+		<property name="ndyjnr" type="string">
+			<column name="ndyjnr" />
+		</property>
+		<property name="yjwcqk" type="string">
+			<column name="yjwcqk" />
+		</property>
+		<property name="wwcyy" type="string">
+			<column name="wwcyy" />
+		</property>
+		<property name="clsfzj" type="string">
+			<column name="clsfzj" />
+		</property>
+		<property name="qdcg" type="string">
+			<column name="qdcg" />
+		</property>
+		<property name="czwt" type="string">
+			<column name="czwt" />
+		</property>
+		<property name="csjy" type="string">
+			<column name="csjy" />
+		</property>
+		<property name="bz" type="string">
+			<column name="bz" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="platform.domain.Kjgjkjjgftdtj" table="kj_gjkjjgftdtj">
+		<id name="id" type="integer">
+			<column name="id"  not-null="true"/>
+			<generator class="identity"/>
+		</id>
+		<property name="nd" type="string">
+			<column name="nd" />
+		</property>
+		<property name="xmmc" type="string">
+			<column name="xmmc" />
+		</property>
+		<property name="zywcdw" type="string">
+			<column name="zywcdw" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

@@ -71,7 +71,86 @@
 				
 			</result>
 		</action>
-		<action name="KjkjxmkAction_*" class="platform.action.KjkjxmkAction" method="{1}">			
+		<action name="UserAction_*" class="platform.action.UserAction" method="{1}">			
+			<result name="home" type="json">
+            <param name="root">responseJson</param>
+			</result>
+			<result name="edit" type="json">
+				
+			</result>
+	    	<result name="save" type="json">
+				
+			</result>
+		</action>
+
+	
+
+
+		<action name="KjzlcjbAction_*" class="platform.action.KjzlcjbAction"
+			method="{1}">
+			<result name="list" type="json">
+				<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+
+			</result>
+			<result name="delete" type="json">
+
+			</result>
+			<result name="update" type="json">
+
+			</result>
+		</action>
+
+		<action name="KjcgcjbAction_*" class="platform.action.KjcgcjbAction"
+			method="{1}">
+			<result name="list" type="json">
+				<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+
+			</result>
+			<result name="delete" type="json">
+
+			</result>
+			<result name="update" type="json">
+
+			</result>
+		</action>
+
+		<action name="KjzzqcgcjbAction_*" class="platform.action.KjzzqcgcjbAction"
+			method="{1}">
+			<result name="list" type="json">
+				<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+
+			</result>
+			<result name="delete" type="json">
+
+			</result>
+			<result name="update" type="json">
+
+			</result>
+		</action>
+
+		<action name="KjnzwcjbAction_*" class="platform.action.KjnzwcjbAction"
+			method="{1}">
+			<result name="list" type="json">
+				<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+
+			</result>
+			<result name="delete" type="json">
+
+			</result>
+			<result name="update" type="json">
+
+			</result>
+		</action>
+
+		<action name="KjdxyqxxbAction_*" class="platform.action.AaaAction" method="{1}">			
 			<result name="list" type="json">
 			<param name="root">responseJson</param>
 			</result>
@@ -141,35 +220,9 @@
 				
 			</result>
 		</action>
-		 <action name="KjsjjljgxxbAction_*" class="platform.action.KjsjjljgxxbAction" method="{1}">			
-			<result name="list" type="json">
-			<param name="root">responseJson</param>
-			</result>
-			<result name="add" type="json">
-				
-			</result>
-	    	<result name="delete" type="json">
-				
-			</result>
-	    	<result name="update" type="json">
-				
-			</result>
-		</action>
 		
-		 <action name="JljlrytjbAction_*" class="platform.action.JljlrytjbAction" method="{1}">			
-			<result name="list" type="json">
-			<param name="root">responseJson</param>
-			</result>
-			<result name="add" type="json">
-				
-			</result>
-	    	<result name="delete" type="json">
-				
-			</result>
-	    	<result name="update" type="json">
-				
-			</result>
-		</action>
+		
+		
 		
 		<action name="JljlqjhzbAction_*" class="platform.action.JljlqjhzbAction" method="{1}">			
 			<result name="list" type="json">
@@ -185,67 +238,7 @@
 				
 			</result>
 		</action>
-		
-		<action name="KjzlcjbAction_*" class="platform.action.KjzlcjbAction" method="{1}">			 
-			<result name="list" type="json"> 
- 			<param name="root">responseJson</param> 
-			</result> 
-			<result name="add" type="json"> 
-				
-			</result> 
-    	<result name="delete" type="json"> 
-				
-			</result> 
-	    	<result name="update" type="json"> 
-				
-			</result> 
-		</action> 
-		
-				<action name="KjcgcjbAction_*" class="platform.action.KjcgcjbAction" method="{1}">			 
-			<result name="list" type="json"> 
- 			<param name="root">responseJson</param> 
-			</result> 
-			<result name="add" type="json"> 
-				
-			</result> 
-    	<result name="delete" type="json"> 
-				
-			</result> 
-	    	<result name="update" type="json"> 
-				
-			</result> 
-		</action> 
-		
-						<action name="KjzzqcgcjbAction_*" class="platform.action.KjzzqcgcjbAction" method="{1}">			 
-			<result name="list" type="json"> 
- 			<param name="root">responseJson</param> 
-			</result> 
-			<result name="add" type="json"> 
-				
-			</result> 
-    	<result name="delete" type="json"> 
-				
-			</result> 
-	    	<result name="update" type="json"> 
-				
-			</result> 
-		</action> 
-		
-		<action name="KjnzwcjbAction_*" class="platform.action.KjnzwcjbAction" method="{1}">			 
-			<result name="list" type="json"> 
- 			<param name="root">responseJson</param> 
-			</result> 
-			<result name="add" type="json"> 
-				
-			</result> 
-    	<result name="delete" type="json"> 
-				
-			</result> 
-	    	<result name="update" type="json"> 
-				
-			</result> 
-		</action> 
-		<action name="AaaAction_*" class="platform.action.AaaAction" method="{1}">			
+		<action name="JljlrytjbAction_*" class="platform.action.JljlrytjbAction" method="{1}">			
 			<result name="list" type="json">
 			<param name="root">responseJson</param>
 			</result>
@@ -259,16 +252,207 @@
 				
 			</result>
 		</action>
-		<action name="UserAction_*" class="platform.action.UserAction" method="{1}">			
-			<result name="home" type="json">
-            <param name="root">responseJson</param>
+		<action name="JpsgwtbbAction_*" class="platform.action.JpsgwtbbAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
 			</result>
-			<result name="edit" type="json">
+			<result name="add" type="json">
 				
 			</result>
-	    	<result name="save" type="json">
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
 				
 			</result>
 		</action>
+		<action name="JpzlzkjbbAction_*" class="platform.action.JpzlzkjbbAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+		</action>
+		<action name="KjndjpptkyxmbAction_*" class="platform.action.KjndjpptkyxmbAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+		</action>
+		<action name="KjsjjljgxxbAction_*" class="platform.action.KjsjjljgxxbAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+		</action>
+		
+		<action name="KjndgxjsqypjbAction_*" class="platform.action.KjndgxjsqypjbAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+		</action>
+		<action name="KjndjgkjjlqkbAction_*" class="platform.action.KjndjgkjjlqkbAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+		</action>
+		<action name="KjgjkjjgfxmtjAction_*" class="platform.action.KjgjkjjgfxmtjAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+		</action>
+		<action name="KjgjkjjgftdtjAction_*" class="platform.action.KjgjkjjgftdtjAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+		</action>
+		<action name="KjndgfjtjbAction_*" class="platform.action.KjndgfjtjbAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+		</action>
+		<action name="KjgfjflqkAction_*" class="platform.action.KjgfjflqkAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+		</action>
+		
+		
+		
+		<action name="KjkjxmxxbAction_*" class="platform.action.KjkjxmxxbAction" method="{1}">
+		    <result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>			
+			<result name="add" type="json">
+				
+			</result>
+	    	
+             <result name="addcjdw" type="json">
+				
+			</result>
+			
+		</action>
+		<action name="WqwqxkzxqAction_*" class="platform.action.WqwqxkzxqAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+		</action>
+		<action name="JpjgdwjbqkAction_*" class="platform.action.JpjgdwjbqkAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+		</action>
+		<action name="KjgxqybabAction_*" class="platform.action.KjgxqybabAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+		</action>
+			
+			
+		
 	</package>
 </struts>

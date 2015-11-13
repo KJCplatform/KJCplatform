@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="platform.domain.Jpsgwtbb" table="jp_sgwtbb">
+		<id name="id" type="integer">
+			<column name="id"  not-null="true"/>
+			<generator class="identity"/>
+		</id>
+		<property name="cpmc" type="string">
+			<column name="cpmc" />
+		</property>
+		<property name="fsrq" type="date">
+			<column name="fsrq" />
+		</property>
+		<property name="yyqk" type="string">
+			<column name="yyqk" />
+		</property>
+		<property name="bz" type="string">
+			<column name="bz" />
+		</property>
+		<property name="tbr" type="string">
+			<column name="tbr" />	
+		</property>
+		<property name="zlbmfzr" type="string">
+			<column name="zlbmfzr" />	
+		</property>
+		<property name="bcrq" type="date">
+			<column name="bcrq" />
+		</property>
+	</class>
+</hibernate-mapping>

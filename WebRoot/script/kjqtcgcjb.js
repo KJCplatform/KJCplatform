@@ -31,45 +31,6 @@ $(function() {
 	/*$("#jbnr").validatebox({
 		required : true
 	});*/
-	//加入下拉列表
-	$('#yyhy').combotree();
-	$('#yyhy').combotree('loadData', 
-	[{ id: "1", text: '1',
-		children: [{ id: "11", text: '11' },
-		           { id: "12", text: '12' },
-		           { id: "13", text: '13' }]},
-	 {id: "2", text: '2',
-		children: [{ id: "21", text: '21' },
-		           { id: "22", text: '22' },
-		           { id: "23", text: '23' }] 
-	 }]
-	);
-	$('#jsly').combotree();
-	$('#jsly').combotree('loadData', 
-	[{ id: "1", text: '1',
-		children: [{ id: "11", text: '11' },
-		           { id: "12", text: '12' },
-		           { id: "13", text: '13' }]},
-	 {id: "2", text: '2',
-		children: [{ id: "21", text: '21' },
-		           { id: "22", text: '22' },
-		           { id: "23", text: '23' }] 
-	 }]
-	);
-	$('#zhfs').combotree();
-	$('#zhfs').combotree('loadData', 
-	[{ id: "请选择", text: '请选择',
-		children: [{ id: "技术许可", text: '技术许可' },
-		           { id: "技术转让", text: '技术转让' },
-		           { id: "技术入股", text: '技术入股' },
-		           { id: "技术提成", text: '技术提成' },
-		           { id: "其他", text: '其他' },
-		           
-		           
-		           
-		           ]},]
-	);
-	
 });
 //加载公文列表
 function listDoc() {
@@ -124,7 +85,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '其他技术成果采集',
+		title : '公文操作',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',
