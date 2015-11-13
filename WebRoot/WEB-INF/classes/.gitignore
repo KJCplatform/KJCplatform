@@ -3,5 +3,10 @@
 /excel
 /hibernate.cfg.xml
 /platform
+/struts.xml
 /test1.class
 /test3.class
+/Test.class
+/TestDao.class
+/TestHibernate.class
+/test4.class
