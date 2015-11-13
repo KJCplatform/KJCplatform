@@ -33,7 +33,7 @@
 				<property name="zlbfzr" type="string">
 			<column name="zlbfzr" />	
 		</property>
-				<property name="shr" type="string">
+		<property name="shr" type="string">
 			<column name="shr" />	
 		</property>
 

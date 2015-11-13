@@ -103,8 +103,8 @@ public class JpzlzkjbbAction extends BaseAction implements ModelDriven<Jpzlzkjbb
 		return   "delete";
 	}
 	public String add(){
-//		System.out.println(jpzlzkjbbForm.getShr());
-//		System.out.println(jpzlzkjbbForm.getTbr());
+	 //System.out.println(jpzlzkjbbForm.getShr());
+	 //System.out.println(jpzlzkjbbForm.getTbr());
 		jpzlzkjbbService.saveObject(jpzlzkjbbForm);
 		operateSuccess=true;
 		return "add";
