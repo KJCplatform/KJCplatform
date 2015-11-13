@@ -189,7 +189,7 @@ function dealSave() {
 			if (result.operateSuccess) {
 					$('#dg').datagrid('reload');// 重新加载
 					$.messager.alert('添加', '添加成功', 'info');
-					alert(params);
+					//alert(params);
 			} else {
 					$.messager.alert('添加', '添加失败', 'warning');
 				}
@@ -328,25 +328,234 @@ function deleteDoc() {
 //		});
 //
 //}
+//
+//function Exproter() {
+//	alert("导出");
+//	
+//    //获取Datagride的列  
+//    var rows = $('#dg').datagrid('getRows');  
+//	alert("1");
+//    var oXL = new ActiveXObject("Excel.Application"); //创建AX对象excel 
+//    alert("2");
+//    var oWB = oXL.Workbooks.Add(); //获取workbook对象   
+//    alert("3");
+//    var oSheet = oWB.ActiveSheet; //激活当前sheet  
+//    alert("4");
+//    for (var i = 0; i < rows.length; i++) {  
+//        oSheet.Cells(i + 1, 1).value = rows[i].O_NAME;  
+//    }  
+//    alert("5");
+//    oXL.Visible = true; //设置excel可见属性  
+//	alert(oSheet);
+//}
 
-function Exproter() {
-	alert("读取信息。。。");
+
+
+////导入excel  
+//function uploadExcel(){     
+//  //得到上传文件的全路径  
+//  var fileName= $('#uploadExcel').filebox('getValue');  
+//       //获取题型  
+//  var id= $('#questionType').combobox('getValue');   
+//  var questionTypes=encodeURI(id);    
+//    
+//   if(questionTypes !=""){   
+//          //进行基本校验  
+//          if(fileName==""){     
+//             $.messager.alert('提示','请选择上传文件！','info');   
+//          }else{  
+//              //对文件格式进行校验  
+//              var d1=/\.[^\.]+$/.exec(fileName);   
+//              if(d1==".xls"){  
+//                   //获取题型     
+//                   var id= $('#questionType').combobox('getValue')  
+//                   var questionTypes=encodeURI(id);  
+//                      
+//                   //获取课程  
+//                   var courseTypeId =$('#courseTypeId').combobox('getValue')  
+//                   var courseType=encodeURI(courseTypeId);  
+//                     
+//                   //提交表单  
+//                   document.getElementById("questionTypesManage").action="${pageContext.request.contextPath}/leadtoQuestionTypes/leadInExcelQuestionBank?questionType="+questionTypes+"&courseType="+courseType;  
+//                   document.getElementById("questionTypesManage").submit();     
+//                   $.messager.alert('提示','操作成功！','info');          
+//             }else{  
+//                 $.messager.alert('提示','请选择xls格式文件！','info');   
+//                 $('#uploadExcel').filebox('setValue','');   
+//             }  
+//          }    
+//   }else{    
+//       $.messager.alert('提示','请选择课程题型！','info');   
+//   }
+//
+//}  
+
+
+
+
+
+
+
+
+
+
+
+
+//function ShowImport(){
+//	$.showWindow({
+//		title:'客户联系人-Excel数据导入',
+//		useiframe:true,
+//		width:1024,
+//		height:700,
+//		content:'url:/contact/Import',
+//		buttons:[{
+//			text:'取消',
+//			iconCls:'icon-cancel',
+//			handler:function(win){
+//				win.close();
+//			}
+//		}]
+//		
+//	});
+//}
+
+
+
+
+//导入excel  
+//function ShowImport(){
+//  //得到上传文件的全路径  
+//
+//  var fileName= $('#uploadExcel').filebox('getValue');  
+//       
+////  var id=1;   
+//  //var questionTypes=encodeURI(id);    
+//    
+////   if(questionTypes !=""){   
+//          //进行基本校验  
+//          if(fileName==""){
+//             $.messager.alert('提示','请选择上传文件！','info');   
+//          }else{
+//              //对文件格式进行校验  
+//              var d1=/\.[^\.]+$/.exec(fileName);   
+//              if(d1==".xls"){  
+//                     
+//                   //提交表单  
+//                   //document.getElementById("questionTypesManage").action="${pageContext.request.contextPath}/leadtoQuestionTypes/leadInExcelQuestionBank?questionType="+questionTypes+"&courseType="+courseType;  
+//                   
+//                  // document.getElementById("questionTypesManage").action="basePath + '/system/KjsjjljgxxbAction_hhs";
+//              
+//            	document.getElementById("questionTypesManage").submit();     
+//
+//				//$.messager.alert('添加', '添加成功', 'info');
+//				
+//				return false;
+//				
+//	
+//             }else{  
+//                 $.messager.alert('提示','请选择xls格式文件！','info');   
+//                 $('#uploadExcel').filebox('setValue','');
+//             }
+//          } 
+//   }
+
+
+
+//else{
+//       $.messager.alert('提示','请选择课程题型！','info');   
+//   }
+//}  
+
+//function ShowExport(){
+//	
+//
+//	 $('#dg').submit();     
+//	 alert("导出成功！");
+//	   }
+
+
+
+
+
+function ShowImport(){
 	
-    //获取Datagride的列  
-    var rows = $('#uploadimg-form').datagrid('getRows');  
-	alert("1");
-    var oXL = new ActiveXObject("Excel.Application"); //创建AX对象excel 
-    alert("2");
-    var oWB = oXL.Workbooks.Add(); //获取workbook对象   
-    alert("3");
-    var oSheet = oWB.ActiveSheet; //激活当前sheet  
-    alert("4");
-    for (var i = 0; i < rows.length; i++) {  
-        oSheet.Cells(i + 1, 1).value = rows[i].O_NAME;  
-    }  
-    alert("5");
-    oXL.Visible = true; //设置excel可见属性  
-	alert(oSheet);
-}
+//	  var file_upl = document.getElementById('uploadExcel');
+//	  file_upl.select();
+//	  var fileName = document.selection.createRange().text;
+//	alert(fileName);
+	
+	  //得到上传文件的全路径  
+	  var fileName= $('#uploadExcel').filebox('getValue');  
+//	
+	  
+	 // alert(fileName);
+	          //进行基本校验  
+	          if(fileName==""){
+	             $.messager.alert('提示','请选择上传文件！','info');   
+	          }else{
+	              //对文件格式进行校验  
+	              var d1=/\.[^\.]+$/.exec(fileName);   
+	              if(d1==".xls"){  
+	                   //提交表单  
+	                   //document.getElementById("questionTypesManage").action="${pageContext.request.contextPath}/leadtoQuestionTypes/leadInExcelQuestionBank?questionType="+questionTypes+"&courseType="+courseType;  
+	            	//document.getElementById("questionTypesManage").submit();     
+	            		var params ="frmc="+fileName;
+	            		var showimport = basePath + '/system/KjsjjljgxxbAction_showimport.action';
+
+	            		//alert(params);
+	            		
+	          		$.post(showimport, params, function(result) {
+	        			if (result.operateSuccess) {
+	        					$('#dg').datagrid('reload');// 重新加载
+	        					$.messager.alert('导入', '导入Excel成功', 'info');
+	        				
+	        			}else {
+	        					$.messager.alert('导入', '导入Excel失败', 'warning');
+	        				}
+	        		});
+	          		
+	            	  
+	            	  return false;
+	             }else{  
+	                 $.messager.alert('提示','请选择xls格式文件！','info');   
+	                 $('#uploadExcel').filebox('setValue','');
+	             }
+	          } 
+	   }
 
 
+
+function ShowExport(){
+	  
+	var params ="frmc="+$('#uploadExcel').filebox('getValue');
+	  
+
+	var showimport = basePath + '/system/KjsjjljgxxbAction_showexport.action';
+	            				
+	$.post(showimport, params, function(result) {
+	        			if (result.operateSuccess) {
+	        					$('#dg').datagrid('reload');// 重新加载
+	        					$.messager.alert('导出', '导出Excel成功', 'info');
+	        				
+	        			}else {
+	        					$.messager.alert('导出', '导出Excel失败', 'warning');
+	        				}
+	        		});
+  
+	            	  return false;
+	   }
+
+
+
+
+//function test(){
+//	
+////	var file_upl = document.getElementById('file_upl');
+////	file_upl.select();
+////	alert(file_upl);
+////	var realpath = document.selection.createRange().text;
+////	alert(realpath);
+//	
+//	 file_url = document.getElementById("file_upl").value;
+//	 alert(file_url);
+//}
