@@ -109,7 +109,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		      ]] 
 			});
 			
-					$('#cp').datagrid({
+					$('#xkzycp').datagrid({
 				title : '武器装备科研生产的许可专业（产品）',
 				width : 1200,
 				height: 400,
@@ -195,16 +195,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						display[32].value = info.xcjpxmqk;
 						
 						var srqkdata = {};
-						var cpdata = {};
+						var xkzycpdata = {};
 			
 				
 						if(info.wqwqxkzxqsrqks!= null){
 							srqkdata.total = info.wqwqxkzxqsrqks.length;
 							srqkdata.rows = info.wqwqxkzxqsrqks;
 						}
-						if(info.wqwqxkzxqxkzycps!= null){
-							cpdata.total = info.wqwqxkzxqxkzycps.length;
-							cpdata.rows = info.wqwqxkzxqxkzycps;
+						if(info.wqwqxkzxqxkzyxkzycps!= null){
+							xkzycpdata.total = info.wqwqxkzxqxkzyxkzycps.length;
+							xkzycpdata.rows = info.wqwqxkzxqxkzyxkzycps;
 						}
 				
 					}
@@ -212,8 +212,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					 if(srqkdata){
 						 $('#srqk').datagrid('loadData', srqkdata);
 					 }
-					  if(cpdata){
-						 $('#cp').datagrid('loadData', cpdata);
+					  if(xkzycpdata){
+						 $('#xkzycp').datagrid('loadData', xkzycpdata);
 					 }
 				}   
 			})
@@ -257,7 +257,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</table>
 	
 	<!-- 武器装备科研生产的许可专业（产品）-->
-	<table id="cp">
+	<table id="xkzycp">
 	</table>
 
 </div>

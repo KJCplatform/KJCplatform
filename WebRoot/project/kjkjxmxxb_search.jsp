@@ -87,7 +87,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    });
 		    $('#kjxmxx').propertygrid('loadData', display);
 			
-			$('#qtcjdw').datagrid({
+			$('#cjdw').datagrid({
 				title : '其他参加单位',
 				width : 1200,
 				height: 400,
@@ -165,17 +165,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						display[29].value = info.zjf;
 						display[30].value = info.sbk;
 						
-						var qtcjdwdata = {};
+						var cjdwdata = {};
 				
 						if(info.Kjkjxmxxbcjdws != null){
-							qtcjdwdata.total = info.Kjkjxmxxbcjdws.length;
-							qtcjdwdata.rows = info.Kjkjxmxxbcjdws;
+							cjdwdata.total = info.Kjkjxmxxbcjdws.length;
+							cjdwdata.rows = info.Kjkjxmxxbcjdws;
 						}
 				
 					}
 					 $('#kjxmxx').propertygrid('loadData', display);
-					 if(qtcjdwdata){
-						 $('#qtcjdw').datagrid('loadData', qtcjdwdata);
+					 if(cjdwdata){
+						 $('#cjdw').datagrid('loadData', cjdwdata);
 					 }
 					 
 				}   
@@ -215,7 +215,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<br>
 	<!-- 其他参加单位-->
-	<table id="qtcjdw">
+	<table id="cjdw">
 	</table>
 
 </div>

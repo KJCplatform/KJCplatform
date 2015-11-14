@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<br><br>	
 	
 	<!-- 武器装备科研生产的许可专业（产品）-->
-	<table id="cp">
+	<table id="xkzycp">
 	</table>
 	<br><br>
 
@@ -64,8 +64,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</form>
 	</div>
 	
-	<div id="cp">
-		<form id="frmcp" style="width:600px" method= "post">
+	<div id="xkzycp">
+		<form id="frmxkzycp" style="width:600px" method= "post">
 			<input type="hidden" id="id" name="id" />
 			<dl>
 				<dd>项目代码:</dd>

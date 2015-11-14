@@ -183,7 +183,7 @@ $(function() {
 	
 	
 	
-	$('#cp').datagrid({
+	$('#ry').datagrid({
 		title : '武器装备科研生产的许可专业（产品）',
         width : 1200,
         height: 400,
@@ -199,26 +199,26 @@ $(function() {
 			text : '添加',
 			iconCls : 'icon-add', // 图标
 			handler : function() { // 处理函数
-				$('#cp').datagrid('endEdit', lastIndex);
-				$('#cp').datagrid('appendRow',{
+				$('#ry').datagrid('endEdit', lastIndex);
+				$('#ry').datagrid('appendRow',{
 					bmzw:'',
 					xm:'',
 					bgdh:'',
 					sj:''
 				})
-				lastIndex = $('#cp').datagrid('getRows').length-1;
-				$('#cp').datagrid('selectRow',lastIndex);
-				$('#cp').datagrid('beginEdit',lastIndex);	
+				lastIndex = $('#ry').datagrid('getRows').length-1;
+				$('#ry').datagrid('selectRow',lastIndex);
+				$('#ry').datagrid('beginEdit',lastIndex);	
 				
 			}
 		},'-',{
 				text:'删除',
 				iconCls:'icon-remove',
 				handler:function(){
-					var row = $('#cp').datagrid('getSelected');
+					var row = $('#ry').datagrid('getSelected');
 					if (row){
-						var index = $('#cp').datagrid('getRowIndex', row);
-						$('#cp').datagrid('deleteRow', index);
+						var index = $('#ry').datagrid('getRowIndex', row);
+						$('#ry').datagrid('deleteRow', index);
 					}
 					else{
 						$.messager.alert('删除', '请先选中要删除的记录', 'info');
@@ -229,10 +229,10 @@ $(function() {
 			text : "编辑",
 			iconCls : "icon-edit",
 			handler : function() {
-				var row = $('#cp').datagrid('getSelected');
+				var row = $('#ry').datagrid('getSelected');
 				if (row) {
-					var rowIndex = $('#cp').datagrid('getRowIndex', row);
-					$('#cp').datagrid('beginEdit', rowIndex);
+					var rowIndex = $('#ry').datagrid('getRowIndex', row);
+					$('#ry').datagrid('beginEdit', rowIndex);
 				}
 				else{
 						$.messager.alert('编辑', '请先选中要编辑的记录', 'info');
@@ -242,27 +242,27 @@ $(function() {
 			text : '保存',
 			iconCls : 'icon-save',// 图标
 			handler : function() {// 处理函数
-				$('#cp').datagrid('acceptChanges');
+				$('#ry').datagrid('acceptChanges');
 			}
 		},'-',{	
 			text : '提交',
 			iconCls : 'icon-ok',// 图标
 			handler : function() {// 处理函数
 
-						var action = basePath + '/system/JpjgdwjbqkAction_addcp.action';
+						var action = basePath + '/system/JpjgdwjbqkAction_addry.action';
 
-						var rows = $('#cp').datagrid('getRows');
+						var rows = $('#ry').datagrid('getRows');
 						if(rows.length != 0){
 							for(i=0; i<rows.length; i++) {
 								rows[i].id = resultid;
 							}
 							//alert(resultid);
-							var data = {'cpform': JSON.stringify(rows)};
+							var data = {'ryform': JSON.stringify(rows)};
 							//alert(data);
 							$.post(action, data, function(result){
 								if (result.operateSuccess) {
 								//alert(result);
-									$('#cp').datagrid('reload');// 重新加载
+									$('#ry').datagrid('reload');// 重新加载
 									$.messager.alert('提交', '提交成功', 'info');
 								} else {
 									$.messager.alert('提交', '提交失败', 'warning');

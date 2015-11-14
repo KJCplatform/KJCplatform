@@ -29,14 +29,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<br>
 	<!-- 其他参加单位-->
-	<table id="qtcjdw">
+	<table id="cjdw">
 	</table>
 	<br><br>	
 
 		<!-- 编辑数据的div，默认看不到 -->
 <div id="divEdit" style="display:none;">
-	<div id="qtcjdw">
-		<form id="frmqtcjdw" style="width:600px" method= "post">
+	<div id="cjdw">
+		<form id="frmcjdw" style="width:600px" method= "post">
 			<input type="hidden" id="id" name="id" />
 			<dl>
 				<dd>序号:</dd>

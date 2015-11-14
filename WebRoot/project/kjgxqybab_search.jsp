@@ -108,7 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				rownumbers : true,//行数
 				columns:[[ 
 					  {field:'xmbh',title:'项目编号',editor:'text',width:100},    
-					  {field:'',title:'项目名称',editor:'text',width:100},
+					  {field:'xmmc',title:'项目名称',editor:'text',width:100},
 					  {field:'jfhj',title:'项目研发经费-合计',editor:'text',width:100},    
 					  {field:'jfnb',title:'项目研发经费-内部',editor:'text',width:100},
 					  {field:'jfwb',title:'项目研发经费-外部',editor:'text',width:100}
@@ -129,10 +129,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				//pagination : true,//分页
 				rownumbers : true,//行数
 				columns:[[ 
-					  {field:'xmdm',title:'项目代码',editor:'text',width:100},    
-					  {field:'xmmc',title:'项目名称',editor:'text',width:100},
-					  {field:'kysc',title:'科研/生产',editor:'text',width:100},    
-					  {field:'xklx',title:'许可类型',editor:'text',width:100}
+					  {field:'xmbh',title:'项目编号',editor:'text',width:100},    
+					  {field:'sqmc',title:'授权项目名称',editor:'text',width:100},
+					  {field:'lb',title:'类别',editor:'text',width:100},    
+					  {field:'sqh',title:'授权号',editor:'text',width:100},
+					  {field:'sqrq',title:'授权日期',width:100,editor:{
+						type:'datebox',
+						required: true
+					}
+					}
 			
 		      ]] 
 			});
@@ -148,7 +153,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				onSubmit:function(){
 					var isValid = $(this).form('validate');
 					if(!isValid){
-						alert("请输入单位名称");
+						alert("请输入企业名称");
 					}
 					return isValid;
 				},
@@ -159,68 +164,62 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					//alert(rows.length);
 					//判断取出的专家记录是否唯一
 					if(rows.length == 0){
-						alert("系统无此单位名称，请检查输入信息");
+						alert("系统无此企业名称，请检查输入信息");
 					}
 					else if(rows.length > 1){
-						alert("有多个单位名称，对应多条信息");
+						alert("有多个企业名称，对应多条信息");
 					}
 					else{
 						info = rows[0];
 						//alert(info.fwyy);
-						display[0].value = info.dwmc;
-						display[1].value = info.qtmc;
-						display[2].value = info.dwdh;
-						display[3].value = info.scdz;
-						display[4].value = info.jjxz;
-						display[5].value = info.frdb;
-						display[6].value = info.dwdz;
-						display[7].value = info.yzbm;
-						display[8].value = info.lxr;
-						display[9].value = info.lxdh;
-						display[10].value = info.zgzs;
-						display[11].value = info.gzgl;
-						display[12].value = info.zzgl;
-						display[13].value = info.czgl;
-						display[14].value = info.gzjs;
-						display[15].value = info.zzjs;
-						display[16].value = info.czjs;
-						display[17].value = info.gzgr;
-						display[18].value = info.zzgr;
-						display[19].value = info.czgr;
-						display[20].value = info.gjjcgs;
-						display[21].value = info.sbjcgs;
-						display[22].value = info.jbqk;
-						display[23].value = info.kyfx;
-						display[24].value = info.qyscgl;
-						display[25].value = info.kyzk;
-						display[26].value = info.zlglzk;
-						display[27].value = info.bmaqzk;
-						display[28].value = info.jpyfqk;
-						display[29].value = info.jpjcqk;
-						display[30].value = info.jpzzqk;
-						display[31].value = info.wcjpqk;
-						display[32].value = info.xcjpxmqk;
+						display[0].value = info.year;
+						display[1].value = info.nf;
+						display[2].value = info.qymc;
+						display[3].value = info.nssbh;
+						display[4].value = info.ssly;
+						display[5].value = info.zgswjg;
+						display[6].value = info.zgzs;
+						display[7].value = info.yjrys;
+						display[8].value = info.dzrs;
+						display[9].value = info.ynzsr;
+						display[10].value = info.sr1;
+						display[11].value = info.sr2;
+						display[12].value = info.sr3;
+						display[13].value = info.hj;
+						display[14].value = info.xszzl;
+						display[15].value = info.zc1;
+						display[16].value = info.zc2;
+						display[17].value = info.zc3;
+						display[18].value = info.zczzl;
+
 						
-						var srqkdata = {};
-						var cpdata = {};
-			
+						var gxcpdata = {};
+						var yfxmdata = {};
+			            var zscqdata = {};
 				
-						if(info.wqwqxkzxqsrqks!= null){
-							srqkdata.total = info.wqwqxkzxqsrqks.length;
-							srqkdata.rows = info.wqwqxkzxqsrqks;
+						if(info.kjgxqybabgxcps!= null){
+							gxcpdata.total = info.kjgxqybabgxcps.length;
+							gxcpdata.rows = info.kjgxqybabgxcps;
 						}
-						if(info.wqwqxkzxqxkzycps!= null){
-							cpdata.total = info.wqwqxkzxqxkzycps.length;
-							cpdata.rows = info.wqwqxkzxqxkzycps;
+						if(info.kjgxqybabxkyfxms!= null){
+							yfxmdata.total = info.kjgxqybabxkyfxms.length;
+							yfxmdata.rows = info.kjgxqybabxkyfxms;
+						}
+						if(info.kjgxqybabxkzscqs!= null){
+							zscqdata.total = info.kjgxqybabxkzscqs.length;
+							zscqdata.rows = info.kjgxqybabxkzscqs;
 						}
 				
 					}
 					 $('#gxjsqyrdba').propertygrid('loadData', display);
-					 if(srqkdata){
-						 $('#srqk').datagrid('loadData', srqkdata);
+					 if(gxcpdata){
+						 $('#gxcp').datagrid('loadData', gxcpdata);
 					 }
-					  if(cpdata){
-						 $('#cp').datagrid('loadData', cpdata);
+					  if(yfxmdata){
+						 $('#yfxm').datagrid('loadData', yfxmdata);
+					 }
+					 if(zscqdata){
+						 $('#zscq').datagrid('loadData', zscqdata);
 					 }
 				}   
 			})
@@ -237,9 +236,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <form id="searchForm" method="post">
             <table>
                 <tr>
-					<th>单位名称：</th>
+					<th>企业名称：</th>
 					<td>
-                        <input class="easyui-validatebox" type="text" name="dwmc" data-options="required:true" /> 
+                        <input class="easyui-validatebox" type="text" name="qymc" data-options="required:true" /> 
 					</td>
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>
@@ -259,12 +258,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	<br>
 	
-	<!-- 产值或销售收入情况-->
-	<table id="srqk">
+	<!-- 上年度高新技术产品（服务）情况-->
+	<table id="gxcp">
 	</table>
 	
-	<!-- 武器装备科研生产的许可专业（产品）-->
-	<table id="cp">
+	<!-- 企业研究开发项目情况-->
+	<table id="yfxm">
+	</table>
+	
+	<!-- 近3年内获得的自主知识产权情况）-->
+	<table id="zscq">
 	</table>
 
 </div>

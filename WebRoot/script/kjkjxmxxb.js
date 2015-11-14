@@ -156,7 +156,7 @@ $(function() {
 //		required : true
 //	});	
 	
-	$('#qtcjdw').datagrid({
+	$('#cjdw').datagrid({
 			title : '其他参加单位',
             width : 1200,
             height: 400,
@@ -172,24 +172,24 @@ $(function() {
 				text : '添加',
 				iconCls : 'icon-add', // 图标
 				handler : function() { // 处理函数
-					$('#qtcjdw').datagrid('endEdit', lastIndex);
-					$('#qtcjdw').datagrid('appendRow',{
+					$('#cjdw').datagrid('endEdit', lastIndex);
+					$('#cjdw').datagrid('appendRow',{
 						xh:'',
 						dwmc:''
 					})
-					lastIndex = $('#qtcjdw').datagrid('getRows').length-1;
-					$('#qtcjdw').datagrid('selectRow',lastIndex);
-					$('#qtcjdw').datagrid('beginEdit',lastIndex);	
+					lastIndex = $('#cjdw').datagrid('getRows').length-1;
+					$('#cjdw').datagrid('selectRow',lastIndex);
+					$('#cjdw').datagrid('beginEdit',lastIndex);	
 					
 				}
 			},'-',{
 					text:'删除',
 					iconCls:'icon-remove',
 					handler:function(){
-						var row = $('#qtcjdw').datagrid('getSelected');
+						var row = $('#cjdw').datagrid('getSelected');
 						if (row){
-							var index = $('#qtcjdw').datagrid('getRowIndex', row);
-							$('#qtcjdw').datagrid('deleteRow', index);
+							var index = $('#cjdw').datagrid('getRowIndex', row);
+							$('#cjdw').datagrid('deleteRow', index);
 						}
 						else{
 							$.messager.alert('删除', '请先选中要删除的记录', 'info');
@@ -200,10 +200,10 @@ $(function() {
 				text : "编辑",
 				iconCls : "icon-edit",
 				handler : function() {
-					var row = $('#qtcjdw').datagrid('getSelected');
+					var row = $('#cjdw').datagrid('getSelected');
 					if (row) {
-						var rowIndex = $('#qtcjdw').datagrid('getRowIndex', row);
-						$('#qtcjdw').datagrid('beginEdit', rowIndex);
+						var rowIndex = $('#cjdw').datagrid('getRowIndex', row);
+						$('#cjdw').datagrid('beginEdit', rowIndex);
 					}
 					else{
 							$.messager.alert('编辑', '请先选中要编辑的记录', 'info');
@@ -213,27 +213,27 @@ $(function() {
 				text : '保存',
 				iconCls : 'icon-save',// 图标
 				handler : function() {// 处理函数
-					$('#qtcjdw').datagrid('acceptChanges');
+					$('#cjdw').datagrid('acceptChanges');
 				}
 			},'-',{	
 				text : '提交',
 				iconCls : 'icon-ok',// 图标
 				handler : function() {// 处理函数
 
-							var action = basePath + '/system/KjkjxmxxbAction_addqtcjdw.action';
+							var action = basePath + '/system/KjkjxmxxbAction_addcjdw.action';
 
-							var rows = $('#qtcjdw').datagrid('getRows');
+							var rows = $('#cjdw').datagrid('getRows');
 							if(rows.length != 0){
 								for(i=0; i<rows.length; i++) {
 									rows[i].id = resultid;
 								}
 								//alert(resultid);
-								var data = {'qtcjdwform': JSON.stringify(rows)};
+								var data = {'cjdwform': JSON.stringify(rows)};
 								//alert(data);
 								$.post(action, data, function(result){
 									if (result.operateSuccess) {
 									//alert(result);
-										$('#qtcjdw').datagrid('reload');// 重新加载
+										$('#cjdw').datagrid('reload');// 重新加载
 										$.messager.alert('提交', '提交成功', 'info');
 									} else {
 										$.messager.alert('提交', '提交失败', 'warning');

@@ -189,7 +189,7 @@ $(function() {
 	
 	
 	
-	$('#cp').datagrid({
+	$('#xkzycp').datagrid({
 		title : '武器装备科研生产的许可专业（产品）',
         width : 1200,
         height: 400,
@@ -205,26 +205,26 @@ $(function() {
 			text : '添加',
 			iconCls : 'icon-add', // 图标
 			handler : function() { // 处理函数
-				$('#cp').datagrid('endEdit', lastIndex);
-				$('#cp').datagrid('appendRow',{
+				$('#xkzycp').datagrid('endEdit', lastIndex);
+				$('#xkzycp').datagrid('appendRow',{
 					xmdm:'',
 					xmmc:'',
 					kysc:'',
 					xklx:''
 				})
-				lastIndex = $('#cp').datagrid('getRows').length-1;
-				$('#cp').datagrid('selectRow',lastIndex);
-				$('#cp').datagrid('beginEdit',lastIndex);	
+				lastIndex = $('#xkzycp').datagrid('getRows').length-1;
+				$('#xkzycp').datagrid('selectRow',lastIndex);
+				$('#xkzycp').datagrid('beginEdit',lastIndex);	
 				
 			}
 		},'-',{
 				text:'删除',
 				iconCls:'icon-remove',
 				handler:function(){
-					var row = $('#cp').datagrid('getSelected');
+					var row = $('#xkzycp').datagrid('getSelected');
 					if (row){
-						var index = $('#cp').datagrid('getRowIndex', row);
-						$('#cp').datagrid('deleteRow', index);
+						var index = $('#xkzycp').datagrid('getRowIndex', row);
+						$('#xkzycp').datagrid('deleteRow', index);
 					}
 					else{
 						$.messager.alert('删除', '请先选中要删除的记录', 'info');
@@ -235,10 +235,10 @@ $(function() {
 			text : "编辑",
 			iconCls : "icon-edit",
 			handler : function() {
-				var row = $('#cp').datagrid('getSelected');
+				var row = $('#xkzycp').datagrid('getSelected');
 				if (row) {
-					var rowIndex = $('#cp').datagrid('getRowIndex', row);
-					$('#cp').datagrid('beginEdit', rowIndex);
+					var rowIndex = $('#xkzycp').datagrid('getRowIndex', row);
+					$('#xkzycp').datagrid('beginEdit', rowIndex);
 				}
 				else{
 						$.messager.alert('编辑', '请先选中要编辑的记录', 'info');
@@ -248,27 +248,27 @@ $(function() {
 			text : '保存',
 			iconCls : 'icon-save',// 图标
 			handler : function() {// 处理函数
-				$('#cp').datagrid('acceptChanges');
+				$('#xkzycp').datagrid('acceptChanges');
 			}
 		},'-',{	
 			text : '提交',
 			iconCls : 'icon-ok',// 图标
 			handler : function() {// 处理函数
 
-						var action = basePath + '/system/WqwqxkzxqAction_addcp.action';
+						var action = basePath + '/system/WqwqxkzxqAction_addxkzycp.action';
 
-						var rows = $('#cp').datagrid('getRows');
+						var rows = $('#xkzycp').datagrid('getRows');
 						if(rows.length != 0){
 							for(i=0; i<rows.length; i++) {
 								rows[i].id = resultid;
 							}
 							//alert(resultid);
-							var data = {'cpform': JSON.stringify(rows)};
+							var data = {'xkzycpform': JSON.stringify(rows)};
 							//alert(data);
 							$.post(action, data, function(result){
 								if (result.operateSuccess) {
 								//alert(result);
-									$('#cp').datagrid('reload');// 重新加载
+									$('#xkzycp').datagrid('reload');// 重新加载
 									$.messager.alert('提交', '提交成功', 'info');
 								} else {
 									$.messager.alert('提交', '提交失败', 'warning');

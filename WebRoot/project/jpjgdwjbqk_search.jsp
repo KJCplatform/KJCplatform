@@ -103,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		      ]] 
 			});
 			
-					$('#cp').datagrid({
+					$('#ry').datagrid({
 				title : '武器装备科研生产的许可专业（产品）',
 				width : 1200,
 				height: 400,
@@ -185,7 +185,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 						
 						var srqkdata = {};
-						var cpdata = {};
+						var rydata = {};
 			
 				
 						if(info.jpjgdwjbqksrqks!= null){
@@ -193,8 +193,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							srqkdata.rows = info.jpjgdwjbqksrqks;
 						}
 						if(info.jpjgdwjbqkrys!= null){
-							cpdata.total = info.jpjgdwjbqkrys.length;
-							cpdata.rows = info.jpjgdwjbqkrys;
+							rydata.total = info.jpjgdwjbqkrys.length;
+							rydata.rows = info.jpjgdwjbqkrys;
 						}
 				
 					}
@@ -202,8 +202,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					 if(srqkdata){
 						 $('#srqk').datagrid('loadData', srqkdata);
 					 }
-					  if(cpdata){
-						 $('#cp').datagrid('loadData', cpdata);
+					  if(rydata){
+						 $('#ry').datagrid('loadData', rydata);
 					 }
 				}   
 			})
@@ -247,7 +247,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</table>
 	
 	<!-- 武器装备科研生产的许可专业（产品）-->
-	<table id="cp">
+	<table id="ry">
 	</table>
 
 </div>
