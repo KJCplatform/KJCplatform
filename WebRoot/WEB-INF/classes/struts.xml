@@ -150,7 +150,7 @@
 			</result>
 		</action>
 
-		<action name="KjdxyqxxbAction_*" class="platform.action.AaaAction" method="{1}">			
+		<action name="AaaAction_*" class="platform.action.AaaAction" method="{1}">			
 			<result name="list" type="json">
 			<param name="root">responseJson</param>
 			</result>
@@ -459,7 +459,21 @@
 				
 			</result>
 		</action>
-			
+		
+					<action name="KjkjxmkAction_*" class="platform.action.KjkjxmkAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+		</action>
 			
 		
 	</package>

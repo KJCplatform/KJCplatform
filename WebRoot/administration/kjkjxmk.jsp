@@ -45,13 +45,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <tr>
                     <th>单位名称：</th>
                     <td>
-						<input id="dwmc" />
+						<input id="fileName"/>
 					</td>
                 </tr>
                 <tr>
 					<th>项目名称：</th>
 					<td>
-                        <input id="xmmc" />
+                        <input id="fileID"/>
 					</td>
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>

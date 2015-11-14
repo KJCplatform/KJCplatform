@@ -77,8 +77,8 @@ function listDoc() {
 //查询
 function doSearch(){
 	$('#dg').datagrid('load',{
-		dwmc: $('#dwmc').val(),
-		xmmc: $('#xmmc').val()
+		dwmc: $('#fileName').val(),
+		xmmc: $('#fileID').val()
 	});
 }
 // 显示编辑窗口
