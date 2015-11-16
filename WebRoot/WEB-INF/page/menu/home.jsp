@@ -137,7 +137,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 		{
 			"menuid": "13",
 			"menuname": "科技项目库",
-			"icon": "icon-log",
+			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/kjkjxmk.jsp"
 			
 		}
@@ -230,12 +230,6 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuname": "角色管理",
 			"icon": "icon-role",
 			"url": "demo2.html"
-		},
-		{
-			"menuid": "63",
-			"menuname": "系统设置",
-			"icon": "icon-set",
-			"url": "demo.html"
 		}
 		]	
 	},<%}if(rights.contains("7")){%>
@@ -328,7 +322,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
                 $.messager.confirm('系统提示', '您确定要退出本次登录吗?', function(r) {
 
                     if (r) {
-                        location.href = '/ajax/loginout.ashx';
+                        location.href = '/KJCPlatform/';
                     }
                 });
             })
