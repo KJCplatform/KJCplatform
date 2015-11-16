@@ -28,6 +28,10 @@ public class PlatFormMenuAction extends BaseAction implements ModelDriven<UserFo
 		   request.getSession().setAttribute("globle_user", user);
 		   String rights = userService.findRightByUserID(user.getId());
 		   request.getSession().setAttribute("globle_rights", rights);
+		   
+			//存入username
+		   request.getSession().setAttribute("hhs_user", userForm.getName());
+		   
 			return "home";}
 		else return "error";
 	// return "home";

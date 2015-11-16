@@ -44,4 +44,14 @@ public class UserDaoImpl extends CommonDaoImpl<User> implements UserDao{
 	});
 	return list;
 	}
+	
+	public String getIdByName(String name) {
+		String hql = "select id from User where name = '" + name + "'" ;
+		 List<Object> list=this.getHibernateTemplate().find(hql);
+		
+		 if(list.size()==0)
+			return null;
+		  else 
+		  return (String.valueOf(list.get(0)));
+	}
 }

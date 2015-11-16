@@ -257,6 +257,17 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 		
 }
 	
+	
+	var curWwwPath = window.document.location.href;
+//获取主机地址之后的目录，如： /ems/Pages/Basic/Person.jsp
+var pathName = window.document.location.pathname;
+var pos = curWwwPath.indexOf(pathName);
+//获取主机地址，如： http://localhost:8080
+var localhostPath = curWwwPath.substring(0, pos);
+//获取带"/"的项目名，如：/ems
+var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
+var basePath = localhostPath + projectName;
+
 
         //设置登录窗口
         function openPwd() {
@@ -277,10 +288,12 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 
         
 
-        //修改密码
+            //修改密码
         function serverLogin() {
+            var $oldpass = $('#txtOldPass');
             var $newpass = $('#txtNewPass');
             var $rePass = $('#txtRePass');
+            
 
             if ($newpass.val() == '') {
                 msgShow('系统提示', '请输入密码！', 'warning');
@@ -296,12 +309,24 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
                 return false;
             }
 
-            $.post('/ajax/editpassword.ashx?newpass=' + $newpass.val(), function(msg) {
-                msgShow('系统提示', '恭喜,密码修改成功！<br>您的新密码为：' + msg, 'info');
-                $newpass.val('');
-                $rePass.val('');
-                close();
-            })
+
+            alert($newpass.val());
+            var actionChange = basePath + '/system/UserAction_change.action';
+            
+            var params ="name="+$oldpass.val()+"&"+"password="+$newpass.val();
+	  
+	  
+            $.post(actionChange, params, function(result) {
+            if (result.operateSuccess) {
+            
+					 msgShow('系统提示', '恭喜,密码修改成功！<br>您的新密码为：' + $newpass.val(), 'info');
+            
+			} else {
+					$.messager.alert('修改密码', '旧密码错误！', 'warning');
+			}
+            
+            
+            });
             
         }
 
@@ -327,7 +352,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
                     }
                 });
             })
-        });
+        })
 		
 		
 </script>
@@ -368,17 +393,21 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
     
     <!--修改密码窗口-->
     <div id="w" class="easyui-window" title="修改密码" collapsible="false" minimizable="false"
-        maximizable="false" icon="icon-save"  style="width: 300px; height: 150px; padding: 5px;
+        maximizable="false" icon="icon-save"  style="width: 300px; height: 200px; padding: 5px;
         background: #fafafa;">
         <div class="easyui-layout" fit="true">
             <div region="center" border="false" style="padding: 10px; background: #fff; border: 1px solid #ccc;">
                 <table cellpadding=3>
+                 <tr>
+                        <td>输入旧密码：</td>
+                        <td><input id="txtOldPass" type="Password" class="txt01" /></td>
+                    </tr>
                     <tr>
                         <td>新密码：</td>
                         <td><input id="txtNewPass" type="Password" class="txt01" /></td>
                     </tr>
                     <tr>
-                        <td>确认密码：</td>
+                        <td>确认新密码： </td>
                         <td><input id="txtRePass" type="Password" class="txt01" /></td>
                     </tr>
                 </table>

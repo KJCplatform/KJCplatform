@@ -10,6 +10,6 @@ public interface UserDao extends ICommonDao<User>{
 	public final static String SERVICE_NAME = "platform.dao.impl.UserDaoImpl";
 
 	 public String getPasswordByName(String name);
-
+	 public String getIdByName(String name);
 	public List<Object> findRightByUserID(int id);
 }

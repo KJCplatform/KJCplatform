@@ -33,6 +33,14 @@ public List<UserForm> userList;
 Map<String, Object> map = new HashMap<String, Object>();
 private UserForm userForm=new UserForm();
 
+public boolean operateSuccess;
+public boolean isOperateSuccess() {
+	return operateSuccess;
+}
+public void setOperateSuccess(boolean operateSuccess) {
+	this.operateSuccess = operateSuccess;
+}
+
 public List<UserForm> getUserList() {
 	return userList;
 }
@@ -72,6 +80,26 @@ public String save(){
      userForm1.setSelectrights(temp);
 	userService.saveRightsOfUser(userForm1);
 	return "save";
+}
+
+public String change(){
+//	System.out.println(userForm.getName());
+//	System.out.println(userForm.getPassword());
+	//System.out.println(userList);
+
+	boolean sign=false;
+	
+	//System.out.println(String.valueOf(request.getSession().getAttribute("hhs_user")));
+	sign=userService.changeObject(userForm,String.valueOf(request.getSession().getAttribute("hhs_user")));
+	
+//	 m=String.valueOf(request.getSession().getAttribute("globle_user"));
+//	System.out.println(m);
+//	 
+	if(sign==true)  operateSuccess=true;
+	else if(sign==false)  operateSuccess=false;
+	
+	return "change";
+
 }
 
 }

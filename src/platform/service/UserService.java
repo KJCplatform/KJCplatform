@@ -23,6 +23,6 @@ public interface UserService {
 
 	public void saveRightsOfUser(UserForm userForm);
 
-
+	public boolean changeObject(UserForm userForm, String valueOf);
 
 }
