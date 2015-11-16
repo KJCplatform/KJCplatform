@@ -35,13 +35,13 @@ public class KjqtcgcjbServiceImpl implements KjqtcgcjbService{
 		Object [] params = null;
 		List<String> paramsList=new ArrayList<String>();
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
-		if(kjqtcgcjbForm!=null&&StringUtils.isNotBlank(kjqtcgcjbForm.getCgmc())){
-			hqlWhere += " and o.cgmc like ?";
-			paramsList.add("%"+kjqtcgcjbForm.getWcdw()+"%");
-		}
 		if(kjqtcgcjbForm!=null&&StringUtils.isNotBlank(kjqtcgcjbForm.getWcdw())){
 			hqlWhere += " and o.wcdw like ?";
 			paramsList.add("%"+kjqtcgcjbForm.getWcdw()+"%");
+		}
+		if(kjqtcgcjbForm!=null&&StringUtils.isNotBlank(kjqtcgcjbForm.getZywcr())){
+			hqlWhere += " and o.zywcr like ?";
+			paramsList.add("%"+kjqtcgcjbForm.getZywcr()+"%");
 		}
 		orderby.put(" o.wcsj", "desc");
 		params = paramsList.toArray();
@@ -104,7 +104,8 @@ public class KjqtcgcjbServiceImpl implements KjqtcgcjbService{
 		kjqtcgcjb.setDzyx(kjqtcgcjbForm.getDzyx());
 		kjqtcgcjb.setLxdz(kjqtcgcjbForm.getLxdz());
 		kjqtcgcjbDao.save(kjqtcgcjb);
-	}
+	
+		}
 	private List<KjqtcgcjbForm> KjqtcgcjbPOListToVOList(List<Kjqtcgcjb> list) {
 		// TODO Auto-generated method stub
 		List<KjqtcgcjbForm> formlist=new ArrayList<KjqtcgcjbForm>();

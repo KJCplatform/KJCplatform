@@ -28,6 +28,61 @@ $(function() {
 		required : true,
 		missingMessage : '成果完成单位不能为空'
 	});
+	
+	
+	$('#yyhy').combotree();
+	$('#yyhy').combotree('loadData', 
+	[{ id: "1", text: '1',
+		children: [{ id: "11", text: '11' },
+		           { id: "12", text: '12' },
+		           { id: "13", text: '13' }
+		          ]
+	 },
+	 {id: "2", text: '2',
+		children: [{ id: "21", text: '21' },
+		           { id: "22", text: '22' },
+		           { id: "23", text: '23' }
+                  ] 
+	 }
+	]
+	);
+	
+	
+	
+	$('#jsly').combotree();
+	$('#jsly').combotree('loadData', 
+	[{ id: "1", text: '1',
+		children: [{ id: "11", text: '11' },
+		           { id: "12", text: '12' },
+		           { id: "13", text: '13' }
+		          ]
+	 },
+	 {id: "2", text: '2',
+		children: [{ id: "21", text: '21' },
+		           { id: "22", text: '22' },
+		           { id: "23", text: '23' }
+                  ] 
+	 }
+	]
+	);
+	
+	
+	$('#zhfs').combotree();
+	$('#zhfs').combotree('loadData', 
+	[{ id: "1", text: '1',
+		children: [{ id: "11", text: '11' },
+		           { id: "12", text: '12' },
+		           { id: "13", text: '13' }
+		          ]
+	 },
+	 {id: "2", text: '2',
+		children: [{ id: "21", text: '21' },
+		           { id: "22", text: '22' },
+		           { id: "23", text: '23' }
+                  ] 
+	 }
+	]
+	);
 	/*$("#jbnr").validatebox({
 		required : true
 	});*/
@@ -77,8 +132,8 @@ function listDoc() {
 //查询
 function doSearch(){
 	$('#dg').datagrid('load',{
-		cgmc: $('#fileName').val(),
-		wcdw: $('#fileId').val()
+		wcdw: $('#fileName').val(),
+		zywcr: $('#fileId').val()
 	});
 }
 // 显示编辑窗口
@@ -165,6 +220,7 @@ function dealSave() {
 	var actionAdd = basePath + '/system/KjqtcgcjbAction_add.action';
 	var actionUpdate = basePath + '/system/KjqtcgcjbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
+	alert(params);
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {
