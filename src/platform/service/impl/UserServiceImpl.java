@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public boolean checkNameAndPassword(UserForm userForm) {
 		// TODO Auto-generated method stub
-		String userPass=userDao.getPasswordByName(userForm.getText());
+		String userPass=userDao.getPasswordByName(userForm.getName());
 		if( userForm.getPassword().equals(userPass))
 		return true;
 		else 
@@ -77,7 +77,7 @@ public class UserServiceImpl implements UserService{
 		List<UserForm> formlist=new ArrayList<UserForm>();
 		for(int i=0;i<list.size();i++){
 			UserForm userForm=new UserForm();
-			userForm.setText(list.get(i).getName());
+			userForm.setName(list.get(i).getName());
 			userForm.setId(String.valueOf(list.get(i).getId()));
 			formlist.add(userForm);
 		}

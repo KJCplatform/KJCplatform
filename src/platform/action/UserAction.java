@@ -29,7 +29,7 @@ public class UserAction extends BaseAction implements ModelDriven<UserForm>{
 
 private  UserService userService=(UserService) ServiceProvider.getService(UserService.SERVICE_NAME);
 public Map responseJson;
-List<UserForm> userList;
+public List<UserForm> userList;
 Map<String, Object> map = new HashMap<String, Object>();
 private UserForm userForm=new UserForm();
 
