@@ -142,7 +142,7 @@ public class UserServiceImpl implements UserService{
 			User user = new User();
 		
 			user.setId(Integer.valueOf(userId));
-			user.setName(userPass);
+			user.setName(valueOf);
 		    user.setPassword(userForm.getPassword());
 		  	userDao.update(user);
 			
