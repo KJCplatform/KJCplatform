@@ -24,9 +24,7 @@
 	    	<result name="left">
 	    		/WEB-INF/page/menu/left.jsp
 	    	</result>
-	    	<result name="change1">
-	    		/WEB-INF/page/menu/change1.jsp
-	    	</result>
+	  
 	   
 	    </action>
 	    <action name="TestDataAction_*" class="platform.action.TestDataAction" method="{1}">

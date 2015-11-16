@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>
                 </tr>
                 <tr>
-					<th>融资额度：</th>
+					<th>企业类型：</th>
 					<td>
                         <input id="fileId" />
 					</td>

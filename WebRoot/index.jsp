@@ -36,6 +36,8 @@ FORM {
 <title>科技处软件平台</title>
 </head>
 <body onload="ini()">
+
+
 <form action="${pageContext.request.contextPath}/system/PlatFormMenuAction_home.do" method="post" onsubmit="return check();">
 <table border="0" width="100%" id="table1" height="532" cellspacing="0" cellpadding="0" >
 	<tr>
@@ -76,6 +78,8 @@ FORM {
 
 								</tr>
 							</table>
+
+							
 						</td>
 					</tr>
 					
