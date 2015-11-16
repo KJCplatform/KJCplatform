@@ -71,8 +71,8 @@ function listDoc() {
 //查询
 function doSearch(){
 	$('#dg').datagrid('load',{
-		qymc: $('#qymc').val(),
-		qylx: $('#qylx').val()
+		qymc: $('#fileName').val(),
+		qylx: $('#fileId').val()
 	});
 }
 // 显示编辑窗口

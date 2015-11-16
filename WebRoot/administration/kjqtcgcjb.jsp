@@ -43,13 +43,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <form id="searchForm">
             <table>
                 <tr>
-                    <th>成果名称：</th>
+                    <th>完成单位：</th>
                     <td>
 						<input id="fileName" />
 					</td>
                 </tr>
                 <tr>
-					<th>成果完成单位：</th>
+					<th>主要完成人：</th>
 					<td>
                         <input id="fileId" />
 					</td>

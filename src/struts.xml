@@ -25,7 +25,7 @@
 	    		/WEB-INF/page/menu/left.jsp
 	    	</result>
 	    	<result name="change1">
-	    		/WEB-INF/page/menu/change1.jsp
+	    		/WEB-INF/page/menu/change1.jsp77 
 	    	</result>
 	   
 	    </action>
