@@ -26,80 +26,15 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			{
 				"menuid": "11",
 				"menuname": "公文管理",
-				"icon": "icon-log",
+				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/document.jsp"
 				
 			},
 			{
-				"menuid": "13",
-				"menuname": "科技项目库",
-				"icon": "icon-log",
-				"url": "<%=basePath%>/administration/kjkjxmk.jsp"
-				
-			},
-			{
-				"menuid": "14",
-				"menuname": "大型仪器信息表",
-				"icon": "icon-log",
-				"url": "<%=basePath%>/administration/aaa.jsp"
-				
-			},
-			{
-				"menuid": "15",
-				"menuname": "认定高新企业备案表",
-				"icon": "icon-log",
-				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
-				
-			},
-			{
 				"menuid": "12",
-				"menuname": "通讯录管理",
-				"icon": "icon-log",
-				"url": "http://hxling.cnblogs.com",
-				"child": [{
-					"menuid": "121",
-					"menuname": "计量机构",
-					"icon": "icon-role",
-					"url": "demo2.html"
-					},
-					
-					{
-					"menuid": "122",
-					"menuname": "高技术企业",
-					"icon": "icon-role",
-					"url": "demo.html"
-					},
-					{
-					"menuid": "123",
-					"menuname": "军工企业",
-					"icon": "icon-role",
-					"url": "demo.html"
-					},
-					{
-					"menuid": "124",
-					"menuname": "专家通讯录",
-					"icon": "icon-role",
-					"url": "demo.html"
-					},
-					{
-					"menuid": "125",
-					"menuname": "项目目录",
-					"icon": "icon-set",
-					"url": "demo.html"
-					},
-					{
-					"menuid": "126",
-					"menuname": "成果目录",
-					"icon": "icon-set",
-					"url": "demo.html"
-					},
-					{
-					"menuid": "127",
-					"menuname": "专项目录",
-					"icon": "icon-set",
-					"url": "demo.html"
-					}					
-				]
+				"menuname": "专家通讯录",
+				"icon": "icon-nav",
+				"url": "http://hxling.cnblogs.com"
 			}
 			
 		]
@@ -162,57 +97,25 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuid": "22",
 			"menuname": "高新技术企业信息",
 			"icon": "icon-nav",
-			 "url": "<%=basePath%>/administration/kjndgxjsqypjb.jsp"
+			"url": "demo.html"	
 		},
 		{
 			"menuid": "23",
 			"menuname": "军品配套科研项目",
 			"icon": "icon-nav",
-			"url": "<%=basePath%>/administration/kjndjpptkyxmb.jsp"	
+			"url": "demo.html"	
 		},
 		{
 			"menuid": "24",
 			"menuname": "湖北省科学技术奖励",
 			"icon": "icon-nav",
-	        "url": "<%=basePath%>/administration/kjgfjflqk.jsp"	
+			"url": "demo.html"	
 		},
 		{
 			"menuid": "25",
 			"menuname": "国防科学技术奖",
 			"icon": "icon-nav",
-			"url": "demo.html",
-			"child":[{
-				"menuid": "251",
-				"menuname": "1.****年度我省获国防科学技术进步奖和发明奖统计表",
-				"icon": "icon-nav",
-			    "url": "<%=basePath%>/administration/kjndgfjtjb.jsp"
-				
-			},
-			{
-				"menuid": "252",
-				"menuname": "2.****期间至****年度我省获国家科学技术奖国防科技工业专用项目特等奖统计",
-				"icon": "icon-nav",
-			    "url": "<%=basePath%>/administration/kjgjkjjgfxmtj.jsp"
-				
-			},
-			{
-				"menuid": "253",
-				"menuname": "3.****至****年度我省获国家科学技术奖国防科技工业专用项目统计",
-				"icon": "icon-nav",
-			    "url": "<%=basePath%>/administration/kjgjkjjgftdtj.jsp"
-				
-			},
-			{
-				"menuid": "254",
-				"menuname": "4.年度我省军工单位获湖北省科学技术奖励情况表",
-				"icon": "icon-nav",
-			    "url": "<%=basePath%>/administration/kjndjgkjjlqkb.jsp"
-				
-			}]
-			
-			
-			
-			
+			"url": "demo.html"	
 		},
 		{
 			"menuid": "26",
@@ -230,6 +133,13 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/search.jsp"
 			}]	
+		},
+		{
+			"menuid": "13",
+			"menuname": "科技项目库",
+			"icon": "icon-log",
+			"url": "<%=basePath%>/administration/kjkjxmk.jsp"
+			
 		}
 		
 	]
@@ -240,19 +150,18 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 		"icon": "icon-sys",
 		"menuname": "军品质量管理",
 		"menus":[
-			{
+		{
 			"menuid": "31",
 			"menuname": "国防科技工业军工产品质量",
 			"icon": "icon-nav",
-			//"url": "demo.html"	
-			"url": "<%=basePath%>/administration/jpzlzkjbb.jsp"			
+			"url": "demo.html"				
 		},
 		{
 			"menuid": "32",
 			"menuname": "国防科技工业质量事故",
 			"icon": "icon-nav",
-			"url": "<%=basePath%>/administration/jpsgwtbb.jsp"			
-		}
+			"url": "demo.html"				
+		}	
 		]
 	},<%}if(rights.contains("4")){%>
 	{
@@ -277,6 +186,20 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuname": "国防军工企事业单位计量检定人员",
 			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/xxtjb.jsp"	
+		},
+		{
+			"menuid": "14",
+			"menuname": "大型仪器信息表",
+			"icon": "icon-nav",
+			"url": "<%=basePath%>/administration/aaa.jsp"
+			
+		},
+		{
+			"menuid": "15",
+			"menuname": "认定高新企业备案表",
+			"icon": "icon-nav",
+			"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
+			
 		}
 		]
 	},<%}if(rights.contains("5")){%>
@@ -300,7 +223,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuid": "61",
 			"menuname": "用户管理",
 			"icon": "icon-users",
-			"url": "demo2.html",
+			"url": "<%=basePath%>/administration/user.jsp",
 		},
 		{
 			"menuid": "62",
