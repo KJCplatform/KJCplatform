@@ -22,9 +22,9 @@ public class PlatFormMenuAction extends BaseAction implements ModelDriven<UserFo
 	 //UserForm userForm1=new UserForm();
 	 //userForm1.setName("a");
 	 //userForm1.setPassword("admin");
-	 //System.out.println(userService.checkNameAndPassword(userForm1));
+	 //System.out.println(userService.checkNameAndPassword(userForm1))
 		if(userService.checkNameAndPassword(userForm)==true)
-		{  User user=userService.getUserByName(userForm.getName());
+		{  User user=userService.getUserByName(userForm.getText());
 		   request.getSession().setAttribute("globle_user", user);
 		   String rights = userService.findRightByUserID(user.getId());
 		   request.getSession().setAttribute("globle_rights", rights);

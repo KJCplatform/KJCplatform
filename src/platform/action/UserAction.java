@@ -29,9 +29,16 @@ public class UserAction extends BaseAction implements ModelDriven<UserForm>{
 
 private  UserService userService=(UserService) ServiceProvider.getService(UserService.SERVICE_NAME);
 public Map responseJson;
+List<UserForm> userList;
 Map<String, Object> map = new HashMap<String, Object>();
 private UserForm userForm=new UserForm();
 
+public List<UserForm> getUserList() {
+	return userList;
+}
+public void setUserList(List<UserForm> userList) {
+	this.userList = userList;
+}
 public Map getResponseJson() {
 	return responseJson;
 }
@@ -43,9 +50,9 @@ public UserForm getModel() {
 	return userForm;
 }
 public String home(){
-	List<UserForm> userList=userService.AllUsers();//返回所有用户
-	 map.put("users", userList);
-	 this.setResponseJson(map);
+	userList=userService.AllUsers();//返回所有用户
+	 //map.put("users", userList);
+	// this.setResponseJson(map);
 	return "home";
 }
 public String edit(){
