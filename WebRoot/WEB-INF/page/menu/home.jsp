@@ -31,76 +31,56 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"url": "<%=basePath%>/administration/document.jsp"
 				
 			},
-			{
-				"menuid": "13",
-				"menuname": "科技项目库",
-				"icon": "icon-log",
-				"url": "<%=basePath%>/administration/kjkjxmk.jsp"
-				
-			},
-			{
-				"menuid": "14",
-				"menuname": "大型仪器信息表",
-				"icon": "icon-log",
-				"url": "<%=basePath%>/administration/aaa.jsp"
-				
-			},
-			{
-				"menuid": "15",
-				"menuname": "认定高新企业备案表",
-				"icon": "icon-log",
-				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
-				
-			},
+		
 			{
 				"menuid": "12",
-				"menuname": "通讯录管理",
+				"menuname": "专家通讯录",
 				"icon": "icon-log",
 				"url": "http://hxling.cnblogs.com",
-				"child": [{
-					"menuid": "121",
-					"menuname": "计量机构",
-					"icon": "icon-role",
-					"url": "demo2.html"
-					},
+// 				"child": [{
+// 					"menuid": "121",
+// 					"menuname": "计量机构",
+// 					"icon": "icon-role",
+// 					"url": "demo2.html"
+// 					},
 					
-					{
-					"menuid": "122",
-					"menuname": "高技术企业",
-					"icon": "icon-role",
-					"url": "demo.html"
-					},
-					{
-					"menuid": "123",
-					"menuname": "军工企业",
-					"icon": "icon-role",
-					"url": "demo.html"
-					},
-					{
-					"menuid": "124",
-					"menuname": "专家通讯录",
-					"icon": "icon-role",
-					"url": "demo.html"
-					},
-					{
-					"menuid": "125",
-					"menuname": "项目目录",
-					"icon": "icon-set",
-					"url": "demo.html"
-					},
-					{
-					"menuid": "126",
-					"menuname": "成果目录",
-					"icon": "icon-set",
-					"url": "demo.html"
-					},
-					{
-					"menuid": "127",
-					"menuname": "专项目录",
-					"icon": "icon-set",
-					"url": "demo.html"
-					}					
-				]
+// 					{
+// 					"menuid": "122",
+// 					"menuname": "高技术企业",
+// 					"icon": "icon-role",
+// 					"url": "demo.html"
+// 					},
+// 					{
+// 					"menuid": "123",
+// 					"menuname": "军工企业",
+// 					"icon": "icon-role",
+// 					"url": "demo.html"
+// 					},
+// 					{
+// 					"menuid": "124",
+// 					"menuname": "专家通讯录",
+// 					"icon": "icon-role",
+// 					"url": "demo.html"
+// 					},
+// 					{
+// 					"menuid": "125",
+// 					"menuname": "项目目录",
+// 					"icon": "icon-set",
+// 					"url": "demo.html"
+// 					},
+// 					{
+// 					"menuid": "126",
+// 					"menuname": "成果目录",
+// 					"icon": "icon-set",
+// 					"url": "demo.html"
+// 					},
+// 					{
+// 					"menuid": "127",
+// 					"menuname": "专项目录",
+// 					"icon": "icon-set",
+// 					"url": "demo.html"
+// 					}					
+// 				]
 			}
 			
 		]
@@ -266,7 +246,23 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjqxqybab_search.jsp"
 			}]	
-		}
+		},
+			{
+				"menuid": "2A",
+				"menuname": "科技项目库",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/kjkjxmk.jsp"
+				
+			},
+	
+			{
+				"menuid": "2B",
+				"menuname": "认定高新企业备案表",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
+				
+			}
+		
 		
 		
 	]
@@ -354,7 +350,14 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/wqwqxkzxq_search.jsp"
 			}]		
-		}
+		},
+				{
+				"menuid": "52",
+				"menuname": "大型仪器信息表",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/aaa.jsp"
+				
+			},
 		]	
 	},<%}if(rights.contains("6")){%>
 	{
@@ -365,20 +368,21 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuid": "61",
 			"menuname": "用户管理",
 			"icon": "icon-users",
-			"url": "demo2.html",
+			"url": "<%=basePath%>/administration/adduser.jsp"
 		},
 		{
 			"menuid": "62",
 			"menuname": "角色管理",
 			"icon": "icon-role",
-			"url": "demo2.html"
-		},
-		{
-			"menuid": "63",
-			"menuname": "系统设置",
-			"icon": "icon-set",
-			"url": "demo.html"
+			"url": "<%=basePath%>/administration/addright.jsp"
 		}
+		
+// 		{
+// 			"menuid": "63",
+// 			"menuname": "系统设置",
+// 			"icon": "icon-set",
+// 			"url": "demo.html"
+// 		}
 		]	
 	},<%}if(rights.contains("7")){%>
 	{
