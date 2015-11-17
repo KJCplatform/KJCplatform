@@ -128,7 +128,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</dl>
 				<dl>
 						<dd>
-						应用行业: <select id="yyhy" multiple="true" name="yyhy">
+						应用行业: <select id="yyhy" multiple="true" name="yyhy" style="width:150px;">
 		
 						</select>
 					</dd>
@@ -136,7 +136,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				<dl>
 					<dd>
-						技术领域: <select id="jsly" multiple="true" name="jsly">
+						技术领域: <select id="jsly" multiple="true" name="jsly" style="width:150px;">
 
 						</select>
 					</dd>
@@ -157,7 +157,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</dl>
 
 				<dd>
-					交易方式: <select id="jyfs" multiple="true" name="jyfs">
+					交易方式: <select id="jyfs" class="easyui-combobox"  multiple="true" name="jyfs" style="width:150px;" >
+ <option value="技术许可">技术许可</option>
+ <option value="技术转让">技术转让</option>
+ <option value="技术入股">技术入股</option>
+ <option value="技术提成">技术提成</option>
+ <option value="其他方式">其他方式</option>
 
 					</select>
 				</dd>

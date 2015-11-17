@@ -131,13 +131,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<dl>
 				<dd>应用行业: </dd>
 			<dd>	
-			<select id="yyhy" multiple="true" name="yyhy"></select>
+			<select id="yyhy" multiple="true" name="yyhy" style="width:150px;"></select>
 			</dd>
 			</dl>
 			<dl>
 				<dd>技术领域:</dd>
 				<dd>
-				<select id="jsly" multiple="true" name="jsly"></select>
+				<select id="jsly" multiple="true" name="jsly" style="width:150px;"></select>
 				</dd>
 			</dl>
 			<dl>
@@ -156,7 +156,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<dl>
 				<dd>转化方式:</dd>
 				<dd>
-				<select id="zhfs" multiple="true" name="zhfs"></select>
+				<select id="zhfs" multiple="true" name="zhfs" style="width:150px;"></select>
 				</dd>
 			</dl>
 			<dl>
