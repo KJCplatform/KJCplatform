@@ -20,6 +20,9 @@ public interface KjjszjcjbService {
 	public void addzyListWithExpertId(int id, List<KjjszjcjbzyForm> list);
 
 	public List<KjjszjcjbForm> findKjjszjcjbList(KjjszjcjbForm kjjszjcjbForm);
+	public List<KjjszjcjbForm> findContactWithpage(int pagesize,int pageno);
+
+	public int listSize();
 
 
 
