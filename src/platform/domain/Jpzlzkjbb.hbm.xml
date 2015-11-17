@@ -22,7 +22,7 @@
 			<column name="cgl" />
 		</property>
 		<property name="ssl" type="string">
-			<column name="ssl" />	
+			<column name="ssl2" />	
 		</property>
 		<property name="zlhdqk" type="string">
 			<column name="zlhdqk" />	
