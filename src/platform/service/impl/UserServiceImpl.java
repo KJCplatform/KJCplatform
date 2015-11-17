@@ -129,4 +129,35 @@ public class UserServiceImpl implements UserService{
 		}
 		userRightDao.saveObjectByCollection(newlist);
 	}
+	
+	
+	@Override
+	public boolean changeObject(UserForm userForm, String valueOf) {
+		String userPass=userDao.getPasswordByName(valueOf);
+		String userId=userDao.getIdByName(valueOf);
+	   // System.out.println(userId);
+		
+		if(userPass.equals(userForm.getName())){
+			System.out.println(userPass+"|"+userForm.getName());
+			User user = new User();
+		
+			user.setId(Integer.valueOf(userId));
+			user.setName(valueOf);
+		    user.setPassword(userForm.getPassword());
+		  	userDao.update(user);
+			
+			return true;
+		}
+		else
+		
+		return false;
+		
+		//System.out.println("userPass"+userPass);
+		
+		
+				// TODO Auto-generated method stub
+	}
+	
+	
+	
 }

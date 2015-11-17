@@ -103,7 +103,12 @@ public class KjqtcgcjbServiceImpl implements KjqtcgcjbService{
 		kjqtcgcjb.setSj(kjqtcgcjbForm.getSj());
 		kjqtcgcjb.setDzyx(kjqtcgcjbForm.getDzyx());
 		kjqtcgcjb.setLxdz(kjqtcgcjbForm.getLxdz());
+		
+		try{
 		kjqtcgcjbDao.save(kjqtcgcjb);
+		}catch(Exception e){
+			System.out.println(e);
+		}
 	
 		}
 	private List<KjqtcgcjbForm> KjqtcgcjbPOListToVOList(List<Kjqtcgcjb> list) {

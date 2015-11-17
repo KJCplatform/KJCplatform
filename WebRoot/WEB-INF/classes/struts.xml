@@ -79,6 +79,10 @@
 	    	<result name="save" type="json">
 				
 			</result>
+			<result name="change" type="json">
+				
+			</result>
+			
 		</action>
 
 	
