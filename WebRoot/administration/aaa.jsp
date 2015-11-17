@@ -169,7 +169,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dl>
 			<dl>
 				<dd>启用日期:</dd>
-				<dd><input size="20" id="qyrq" name="qyrq" /></dd>
+				<dd><input  type="text" style="width: 150px" id="qyrq" name="qyrq" /></dd>
 			</dl>
 			<dl>
 				<dd>所在单位名称:</dd>

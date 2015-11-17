@@ -78,8 +78,8 @@ function listDoc() {
 //查询
 function doSearch(){
 	$('#dg').datagrid('load',{
-		dwmc: $('#fileName').val(),
-		xm: $('#fileId').val()
+		frmc: $('#fileName').val(),
+		jlzy: $('#fileId').val()
 	});
 }
 // 显示编辑窗口

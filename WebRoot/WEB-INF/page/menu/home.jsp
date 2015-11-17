@@ -289,7 +289,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuid": "51",
 			"menuname": "武器装备科研生产许可取证单位信息",
 			"icon": "icon-nav",
-			"url": "demo.html"	
+			"url": "<%=basePath%>/project/wqwqxkzxq.jsp"	
 		}
 		]	
 	},<%}if(rights.contains("6")){%>
@@ -360,7 +360,7 @@ var basePath = localhostPath + projectName;
                 modal: true,
                 shadow: true,
                 closed: true,
-                height: 160,
+                height: 200,
                 resizable:false
             });
         }
