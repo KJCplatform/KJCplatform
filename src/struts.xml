@@ -458,7 +458,7 @@
 			</result>
 		</action>
 		
-					<action name="KjkjxmkAction_*" class="platform.action.KjkjxmkAction" method="{1}">			
+			<action name="KjkjxmkAction_*" class="platform.action.KjkjxmkAction" method="{1}">			
 			<result name="list" type="json">
 			<param name="root">responseJson</param>
 			</result>
