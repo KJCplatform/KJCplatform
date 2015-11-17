@@ -289,7 +289,18 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuid": "51",
 			"menuname": "武器装备科研生产许可取证单位信息",
 			"icon": "icon-nav",
-			"url": "<%=basePath%>/project/wqwqxkzxq.jsp"	
+			"url": "",
+			"child":[{
+				"menuid": "511",
+				"menuname": "数据录入",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/wqwqxkzxq.jsp"
+			},{
+				"menuid": "512",
+				"menuname": "信息查询",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/wqwqxkzxq_search.jsp"
+			}]		
 		}
 		]	
 	},<%}if(rights.contains("6")){%>
