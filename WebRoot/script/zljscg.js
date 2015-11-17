@@ -77,7 +77,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/KjzlcjbAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '专利技术成果',
             width : 1200,
             height: 400,
             //fit: true,

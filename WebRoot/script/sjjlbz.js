@@ -57,7 +57,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/KjsjjljgxxbAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '国防三级计量技术机构',
             width : 1200,
             height: 400,
             //fit: true,

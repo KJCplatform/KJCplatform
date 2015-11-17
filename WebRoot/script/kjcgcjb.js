@@ -69,7 +69,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/KjcgcjbAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '登记鉴定成果',
             width : 1200,
             height: 400,
             //fit: true,

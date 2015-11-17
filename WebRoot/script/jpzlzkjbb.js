@@ -26,7 +26,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/JpzlzkjbbAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '国防科技工业军工产品质量',
             width : 1200,
             height: 400,
             //fit: true,

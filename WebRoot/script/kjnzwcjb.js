@@ -70,7 +70,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/KjnzwcjbAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '农作物新品种成果',
             width : 1200,
             height: 400,
             //fit: true,

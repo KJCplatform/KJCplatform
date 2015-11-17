@@ -40,7 +40,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/KjndgxjsqypjbAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '高新技术企业信息',
             width : 1200,
             height: 400,
             //fit: true,

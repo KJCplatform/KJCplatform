@@ -37,7 +37,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/JljlrytjbAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '国防军工企事业单位计量检定人员',
             width : 1200,
             height: 400,
             //fit: true,

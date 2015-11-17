@@ -24,7 +24,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/KjndjpptkyxmbAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '军品配套科研项目',
             width : 1200,
             height: 400,
             //fit: true,

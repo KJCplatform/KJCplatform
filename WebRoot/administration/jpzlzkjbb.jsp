@@ -44,6 +44,7 @@
 <script type="text/javascript"
 	src="<%=basePath%>/script/easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>/script/jpzlzkjbb.js"></script>
+  <script type="text/javascript" src="<%=basePath%>/script/easyui-lang-zh_CN.js"></script>
 </head>
 
 <body>
