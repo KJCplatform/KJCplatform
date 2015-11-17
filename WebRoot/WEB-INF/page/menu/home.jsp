@@ -231,7 +231,43 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/search.jsp"
 			}]	
+		},
+	
+			{
+			"menuid": "28",
+			"menuname": "科技项目信息",
+			"icon": "icon-nav",
+			"url": "",
+			"child":[{
+				"menuid": "281",
+				"menuname": "数据录入",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/kjkjxmxxb.jsp"
+			},{
+				"menuid": "282",
+				"menuname": "信息查询",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/kjkjxmxxb_search.jsp"
+			}]	
+		},
+			{
+			"menuid": "29",
+			"menuname": "高新技术企业认定备案信息",
+			"icon": "icon-nav",
+			"url": "",
+			"child":[{
+				"menuid": "291",
+				"menuname": "数据录入",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/kjqxqybab.jsp"
+			},{
+				"menuid": "292",
+				"menuname": "信息查询",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/kjqxqybab_search.jsp"
+			}]	
 		}
+		
 		
 	]
 		
@@ -278,7 +314,24 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuname": "国防军工企事业单位计量检定人员",
 			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/xxtjb.jsp"	
-		}
+		},
+				{
+			"menuid": "44",
+			"menuname": "军工单位基本情况信息",
+			"icon": "icon-nav",
+			"url": "",
+			"child":[{
+				"menuid": "441",
+				"menuname": "数据录入",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/jpjgdwjbqk.jsp"
+			},{
+				"menuid": "442",
+				"menuname": "信息查询",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/jpjgdwjbqk_search.jsp"
+			}]	
+		},
 		]
 	},<%}if(rights.contains("5")){%>
 	{
