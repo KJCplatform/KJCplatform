@@ -36,16 +36,16 @@ $(function() {
 		required : true,
 		missingMessage : '计量专业不能为空'
 	});
-	$("#bgdh").numberbox({
-		//required : true,
-	});
-	$("#sj").numberbox({
-		maxlength:11        //?
-		//required : true,
-	});
-	$("#qjsl").numberbox({
-		//required : true
-	});
+//	$("#bgdh").numberbox({
+//		//required : true,
+//	});
+//	$("#sj").numberbox({
+//		maxlength:11        //?
+//		//required : true,
+//	});
+//	$("#qjsl").numberbox({
+//		//required : true
+//	});
 	
 //	$("#lxr").validatebox({
 //		required : true

@@ -133,7 +133,7 @@ function editDoc() {
 	$("#tbr").val(doc.tbr);
 	$("#zlbfzr").val(doc.zlbfzr);
 	$("#shr").val(doc.shr);
-	$("#bcrq").datebox("getValue");
+	$("#bcrq").datebox("setValue", doc.bcrq.substring(0, 10));
 
 	
 	// 显示编辑页面

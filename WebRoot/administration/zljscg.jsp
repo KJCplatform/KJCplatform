@@ -150,7 +150,7 @@
 				</dl>
 				<dl>
 					<dd>
-						公开日: <input size="15" id="gkr" name="gkr" />
+						公开日: <input  type="text" style="width: 150px" id="gkr" name="gkr" />
 					</dd>
 				</dl>
 				<dl>

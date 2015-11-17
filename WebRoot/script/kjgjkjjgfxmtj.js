@@ -20,24 +20,24 @@ $(function() {
 	});
 
 	
-	$("#tdj").numberbox({
-	//	maxlength:11   
-	});
-	$("#ydj").numberbox({
-	//	maxlength:11   
-	});
-	
-	$("#edj").numberbox({
-	//	maxlength:11   
-	});
-	
-	$("#sdj").numberbox({
-	//	maxlength:11   
-	});
-	
-	$("#hj").numberbox({
-	//	maxlength:11   
-	});
+//	$("#tdj").numberbox({
+//	//	maxlength:11   
+//	});
+//	$("#ydj").numberbox({
+//	//	maxlength:11   
+//	});
+//	
+//	$("#edj").numberbox({
+//	//	maxlength:11   
+//	});
+//	
+//	$("#sdj").numberbox({
+//	//	maxlength:11   
+//	});
+//	
+//	$("#hj").numberbox({
+//	//	maxlength:11   
+//	});
 	
 });
 //加载公文列表

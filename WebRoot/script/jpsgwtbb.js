@@ -131,12 +131,12 @@ function editDoc() {
 	// 填充数据
 	$("#id").val(doc.id);
 	$("#cpmc").val(doc.cpmc);
-	$("#fsrq").datebox("getValue");
+	$("#fsrq").datebox("setValue", doc.fsrq.substring(0, 10));
 	$("#yyqk").val(doc.yyqk);
 	$("#bz").val(doc.bz);
 	$("#tbr").val(doc.tbr);
 	$("#zlbmfzr").val(doc.zlbmfzr);
-	$("#bcrq").datebox("getValue");
+	$("#bcrq").datebox("setValue", doc.bcrq.substring(0, 10));
 	
 	// 显示编辑页面
 	showEditForm();

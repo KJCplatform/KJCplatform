@@ -139,9 +139,9 @@ function editDoc() {
 	$("#xm").val(doc.xm);
 	$("#xb").val(doc.xb);	
 
-	$("#csny").datebox("getValue");
-	$("#qzrq").datebox("getValue");
-	$("#qfrq").datebox("getValue");
+	$("#csny").datebox("setValue", doc.csny.substring(0, 10));
+	$("#qzrq").datebox("setValue", doc.qzrq.substring(0, 10));
+	$("#qfrq").datebox("setValue", doc.qfrq.substring(0, 10));
 	
 	$("#whcd").val(doc.whcd);
 	$("#jlzy").val(doc.jlzy);

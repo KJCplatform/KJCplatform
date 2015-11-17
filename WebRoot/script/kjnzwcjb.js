@@ -171,7 +171,7 @@ function editDoc() {
 	$("#pzmc").val(doc.pzmc);
 	$("#xydw").val(doc.xydw);
 	$("#xyr").val(doc.xyr);
-	$("#sdsj").val(doc.sdsj);
+	$("#sdsj").datebox("setValue", doc.sdsj.substring(0, 10));
 	$("#sdh").val(doc.sdh);
 	$("#sdjg").val(doc.sdjg);
 	$("#pzjj").val(doc.pzjj);

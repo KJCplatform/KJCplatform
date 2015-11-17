@@ -55,7 +55,7 @@ $(function() {
 
 	);
 	
-	$('#jyfs').combotree();
+	//$('#jyfs').combotree();
 	$('#jyfs').combotree('loadData', 
 			[{ id: "技术许可", text: '技术许可'},
 				{id: "技术转让", text: '技术转让'},
@@ -65,12 +65,12 @@ $(function() {
 			 ]
 	);
 	
-	$("#sj").numberbox({
-		
-	});
-	$("#gddh").numberbox({
-		
-	});
+//	$("#sj").numberbox({
+//		
+//	});
+//	$("#gddh").numberbox({
+//		
+//	});
 
 });
 //加载公文列表
@@ -181,7 +181,7 @@ function editDoc() {
 	$("#zywcr").val(doc.zywcr);
 	$("#zlh").val(doc.zlh);
 	$("#gkh").val(doc.gkh);
-	$("#gkr").datebox("getValue");
+	$("#gkr").datebox("setValue", doc.gkr.substring(0, 10));
 	$("#zflh").val(doc.zflh);
 	$("#flzt").val(doc.flzt);
 	$("#cgjj").val(doc.cgjj);
