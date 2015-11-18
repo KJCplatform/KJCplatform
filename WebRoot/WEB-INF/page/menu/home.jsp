@@ -36,7 +36,9 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuid": "12",
 				"menuname": "专家通讯录",
 				"icon": "icon-log",
-				"url": "http://hxling.cnblogs.com",
+				"url": "<%=basePath%>/administration/kjjszjcjb.jsp"
+				//"url": "http://hxling.cnblogs.com",
+				
 // 				"child": [{
 // 					"menuid": "121",
 // 					"menuname": "计量机构",
