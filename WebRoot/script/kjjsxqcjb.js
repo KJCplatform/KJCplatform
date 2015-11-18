@@ -137,7 +137,7 @@ function editDoc() {
 	
 	// 给默认值
 	//$("#fwrq").datebox("setValue", doc.fwrq.substring(0, 10));
-	$("#yqrq").datebox("getValue");
+	$("#yqrq").datebox("setValue", doc.yqrq.substring(0, 10));
 	$("#sshy").val(doc.sshy);	
 	$("#jsly").val(doc.jsly);
 	//alert($("#jzrq").datebox("getValue"));

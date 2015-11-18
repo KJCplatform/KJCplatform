@@ -6,7 +6,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head >
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>数字框</title>
+    <title>其他技术成果</title>
     <link href="<%=path%>/css/default.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/icon.css" />
@@ -35,6 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="<%=basePath%>/script/easyui/jquery.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>/script/easyui/jquery.easyui.min.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/script/kjqtcgcjb.js"></script>
+	 <script type="text/javascript" src="<%=basePath%>/script/easyui-lang-zh_CN.js"></script>
 </head>
 
 <body>
@@ -130,13 +131,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<dl>
 				<dd>应用行业: </dd>
 			<dd>	
-			<select id="yyhy" multiple="true" name="yyhy"></select>
+			<select id="yyhy" multiple="true" name="yyhy" style="width:150px;"></select>
 			</dd>
 			</dl>
 			<dl>
 				<dd>技术领域:</dd>
 				<dd>
-				<select id="jsly" multiple="true" name="jsly"></select>
+				<select id="jsly" multiple="true" name="jsly" style="width:150px;"></select>
 				</dd>
 			</dl>
 			<dl>
@@ -155,7 +156,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<dl>
 				<dd>转化方式:</dd>
 				<dd>
-				<select id="zhfs" multiple="true" name="zhfs"></select>
+				<select id="zhfs" multiple="true" name="zhfs" style="width:150px;"></select>
 				</dd>
 			</dl>
 			<dl>

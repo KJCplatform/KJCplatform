@@ -138,11 +138,12 @@ function editDoc() {
 	$("#wjh").val(doc.wjh);
 	$("#fwjg").val(doc.fwjg);	
 	// 给默认值
-	//$("#fwrq").datebox("setValue", doc.fwrq.substring(0, 10));
-	$("#fwrq").datebox("getValue");
+	$("#fwrq").datebox("setValue", doc.fwrq.substring(0, 10));
+	//$("#fwrq").datebox("getValue");
 	$("#jbnr").val(doc.jbnr);
 	//alert($("#jzrq").datebox("getValue"));
-	$("#jzrq").datebox("getValue");
+	$("#jzrq").datebox("setValue", doc.jzrq.substring(0, 10));
+	//$("#jzrq").datebox("getValue");
 	$("#jbr").val(doc.jbr);
 	$("#cljg").val(doc.cljg);
 	// 显示编辑页面

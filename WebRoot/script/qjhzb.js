@@ -37,7 +37,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/JljlqjhzbAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '国防军工企事业单位最高计量标准器具',
             width : 1200,
             height: 400,
             //fit: true,
@@ -78,8 +78,8 @@ function listDoc() {
 //查询
 function doSearch(){
 	$('#dg').datagrid('load',{
-		dwmc: $('#fileName').val(),
-		xm: $('#fileId').val()
+		frmc: $('#fileName').val(),
+		jlzy: $('#fileId').val()
 	});
 }
 // 显示编辑窗口

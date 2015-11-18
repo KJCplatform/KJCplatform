@@ -55,21 +55,21 @@ $(function() {
 
 	);
 	
-	$('#jyfs').combotree();
-	$('#jyfs').combotree('loadData', 
-			[{ id: "技术许可", text: '技术许可'},
-				{id: "技术转让", text: '技术转让'},
-				{id: "技术入股", text: '技术入股'},
-				{id: "技术提成", text: '技术提成'},
-				{id: "其他方式", text: '其他方式'}
-			 ]
-	);
+//	$('#jyfs').combotree();
+//	$('#jyfs').combotree('loadData', 
+//			[{ id: "技术许可", text: '技术许可'},
+//				{id: "技术转让", text: '技术转让'},
+//				{id: "技术入股", text: '技术入股'},
+//				{id: "技术提成", text: '技术提成'},
+//				{id: "其他方式", text: '其他方式'}
+//			 ]
+//	);
 });
 //加载公文列表
 function listDoc() {
 	var actionPath = basePath + '/system/KjzzqcgcjbAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '软件著作权',
             width : 1200,
             height: 400,
             //fit: true,
@@ -173,7 +173,7 @@ function editDoc() {
 	$("#cgmc").val(doc.cgmc);
 	$("#wcdw").val(doc.wcdw);
 	$("#zywcr").val(doc.zywcr);	
-	$("#wcsj").datebox("getValue");
+	$("#wcsj").datebox("setValue", doc.wcsj.substring(0, 10));
 	$("#rzbh").val(doc.rzbh);
 	$("#cgjj").val(doc.cgjj);
 	$("#yyhy").val(doc.yyhy);

@@ -37,7 +37,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/JljlrytjbAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '国防军工企事业单位计量检定人员',
             width : 1200,
             height: 400,
             //fit: true,
@@ -139,9 +139,9 @@ function editDoc() {
 	$("#xm").val(doc.xm);
 	$("#xb").val(doc.xb);	
 
-	$("#csny").datebox("getValue");
-	$("#qzrq").datebox("getValue");
-	$("#qfrq").datebox("getValue");
+	$("#csny").datebox("setValue", doc.csny.substring(0, 10));
+	$("#qzrq").datebox("setValue", doc.qzrq.substring(0, 10));
+	$("#qfrq").datebox("setValue", doc.qfrq.substring(0, 10));
 	
 	$("#whcd").val(doc.whcd);
 	$("#jlzy").val(doc.jlzy);

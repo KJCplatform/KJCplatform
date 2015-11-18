@@ -24,7 +24,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/KjgfjflqkAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '湖北省科学技术奖励',
             width : 1200,
             height: 400,
             //fit: true,

@@ -36,16 +36,16 @@ $(function() {
 		required : true,
 		missingMessage : '计量专业不能为空'
 	});
-	$("#bgdh").numberbox({
-		//required : true,
-	});
-	$("#sj").numberbox({
-		maxlength:11        //?
-		//required : true,
-	});
-	$("#qjsl").numberbox({
-		//required : true
-	});
+//	$("#bgdh").numberbox({
+//		//required : true,
+//	});
+//	$("#sj").numberbox({
+//		maxlength:11        //?
+//		//required : true,
+//	});
+//	$("#qjsl").numberbox({
+//		//required : true
+//	});
 	
 //	$("#lxr").validatebox({
 //		required : true
@@ -57,7 +57,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/KjsjjljgxxbAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '国防三级计量技术机构',
             width : 1200,
             height: 400,
             //fit: true,

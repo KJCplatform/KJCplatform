@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>数字框</title>
+<title>湖北省科学技术奖励</title>
 <link href="<%=path%>/css/default.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=basePath%>/script/easyui/themes/default/easyui.css" />
@@ -44,6 +44,7 @@
 <script type="text/javascript"
 	src="<%=basePath%>/script/easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>/script/kjgfjflqk.js"></script>
+  <script type="text/javascript" src="<%=basePath%>/script/easyui-lang-zh_CN.js"></script>
 </head>
 
 <body>
@@ -106,7 +107,7 @@
 						主要完成单位: <input size="15" id="zywcdw" name="zywcdw" />
 					</dd>
 				</dl>
-=
+
 
 
 

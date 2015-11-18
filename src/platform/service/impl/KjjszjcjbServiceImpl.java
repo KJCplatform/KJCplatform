@@ -154,7 +154,7 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 		List<KjjszjcjbForm> formlist=this.KjjszjcjbPoToVoList(list);
 		return formlist;
 	}
-
+	 
 	private List<KjjszjcjbForm> KjjszjcjbPoToVoList(List<Kjjszjcjb> list) {
 		List<KjjszjcjbForm> formlist=new ArrayList<KjjszjcjbForm>();
 		if(list.size()>0){
@@ -249,5 +249,30 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 			formlist.add(kjjszjcjbcgForm);
 		}}
 		return formlist;
+	}
+
+	@Override
+	public List<KjjszjcjbForm> findContactWithpage(int pagesize, int pageno) {
+		// TODO Auto-generated method stub
+		List<KjjszjcjbForm> formlist=new ArrayList<KjjszjcjbForm>();
+		List<Object[]> list=kjjszjcjbDao.findContactWithpage(pagesize, pageno);
+		for(int i=0;i<list.size();i++){
+			KjjszjcjbForm kjjszjcjbForm=new KjjszjcjbForm();
+			kjjszjcjbForm.setZjxm(list.get(i)[0].toString());
+			kjjszjcjbForm.setGzdw(list.get(i)[1].toString());
+			kjjszjcjbForm.setGzbm(list.get(i)[2].toString());
+			kjjszjcjbForm.setZw(list.get(i)[3].toString());
+			kjjszjcjbForm.setSj(list.get(i)[4].toString());
+			kjjszjcjbForm.setLxdh(list.get(i)[5].toString());
+			formlist.add(kjjszjcjbForm);
+		}
+		return formlist;
+	}
+
+	@Override
+	public int listSize() {
+		// TODO Auto-generated method stub
+		int size=kjjszjcjbDao.findCollectionByConditionNoPage("", null, null).size();
+		return size;
 	}
 }

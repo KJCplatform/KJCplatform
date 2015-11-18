@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>数字框</title>
+<title>专利技术成果</title>
 <link href="<%=path%>/css/default.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=basePath%>/script/easyui/themes/default/easyui.css" />
@@ -44,6 +44,9 @@
 <script type="text/javascript"
 	src="<%=basePath%>/script/easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>/script/zljscg.js"></script>
+
+  <script type="text/javascript" src="<%=basePath%>/script/easyui-lang-zh_CN.js"></script>
+  
 </head>
 
 <body>
@@ -150,7 +153,7 @@
 				</dl>
 				<dl>
 					<dd>
-						公开日: <input size="15" id="gkr" name="gkr" />
+						公开日: <input  type="text" style="width: 150px" id="gkr" name="gkr" />
 					</dd>
 				</dl>
 				<dl>
@@ -173,7 +176,7 @@
 
 				<dl>
 					<dd>
-						应用行业: <select id="yyhy" multiple="true" name="yyhy">
+						应用行业: <select id="yyhy" multiple="true" name="yyhy" style="width:150px;">
 							<!-- 				<option value="1" >1</option> -->
 							<!-- 				<option value="2" >2</option> -->
 							<!-- 				<option value="3" >3</option> -->
@@ -186,7 +189,7 @@
 
 				<dl>
 					<dd>
-						技术领域: <select id="jsly" multiple="true" name="jsly">
+						技术领域: <select id="jsly" multiple="true" name="jsly" style="width:150px;">
 
 						</select>
 					</dd>
@@ -207,7 +210,12 @@
 				</dl>
 
 				<dd>
-					交易方式: <select id="jyfs" multiple="true" name="jyfs">
+					交易方式: <select id="jyfs" class="easyui-combobox"  multiple="true" name="jyfs" style="width:150px;" >
+ <option value="技术许可">技术许可</option>
+ <option value="技术转让">技术转让</option>
+ <option value="技术入股">技术入股</option>
+ <option value="技术提成">技术提成</option>
+ <option value="其他方式">其他方式</option>
 
 					</select>
 				</dd>

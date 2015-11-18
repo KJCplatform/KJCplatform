@@ -1,0 +1,90 @@
+package platform.service.impl;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Service;
+
+import platform.dao.AddrightDao;
+import platform.domain.Addright;
+import platform.form.AddrightForm;
+import platform.service.AddrightService;
+import platform.util.StringHelper;
+
+@SuppressWarnings("unused")
+@Service(AddrightService.SERVICE_NAME)
+public class AddrightServiceImpl implements AddrightService{
+	
+	@Resource(name=AddrightDao.SERVICE_NAME)
+	private AddrightDao addrightDao;
+	
+	public List<AddrightForm> findAddrightList(){
+		String hqlWhere = "";
+		Object [] params = null;
+		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+		orderby.put(" o.id", "desc");
+		List<Addright> list=addrightDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
+		List<AddrightForm> formlist=this.AddrightPOListToVOList(list);
+		return formlist;
+		
+	}
+	public List<AddrightForm> findAddrightListWithPage(int pagesize,int pageno,AddrightForm addrightForm){
+		String hqlWhere = "";
+		Object [] params = null;
+		List<String> paramsList=new ArrayList<String>();
+		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+		if(addrightForm!=null&&StringUtils.isNotBlank(addrightForm.getUserid())){
+			hqlWhere += " and o.userid like ?";
+			paramsList.add("%"+addrightForm.getUserid()+"%");
+		}
+		
+		orderby.put(" o.id", "desc");
+		params = paramsList.toArray();
+		List<Addright> list=addrightDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
+		List<AddrightForm> formlist=this.AddrightPOListToVOList(list);
+		return formlist;
+		
+	}
+	
+	public void updateAddright(AddrightForm addrightForm){
+		Addright addright=new Addright();
+		System.out.println(addrightForm.getId());
+		addright.setId(Integer.valueOf(addrightForm.getId()));
+		addright.setUserid(addrightForm.getUserid());
+		addright.setRightid(addrightForm.getRightid());
+		
+		addrightDao.update(addright);
+		
+	}
+	public void deleteObject(String id){
+		addrightDao.deleteObjectByIDs(Integer.valueOf(id));
+	}
+	public void saveObject(AddrightForm addrightForm){
+		Addright addright=new Addright();
+		addright.setUserid(addrightForm.getUserid());
+		addright.setRightid(addrightForm.getRightid());
+		
+		addrightDao.save(addright);
+	}
+	private List<AddrightForm> AddrightPOListToVOList(List<Addright> list) {
+		// TODO Auto-generated method stub
+		List<AddrightForm> formlist=new ArrayList<AddrightForm>();
+		for(int i=0;i<list.size();i++){
+			Addright addright=list.get(i);
+			AddrightForm addrightForm=new AddrightForm();
+			addrightForm.setId(String.valueOf(addright.getId()));
+			addrightForm.setUserid(addright.getUserid());
+			addrightForm.setRightid(addright.getRightid());
+			
+			formlist.add(addrightForm);
+		}
+		return formlist;
+	}
+
+	
+}

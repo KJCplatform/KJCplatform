@@ -66,5 +66,8 @@
           <mapping resource="platform/domain/Kjgxqybabyfxm.hbm.xml"/>
           <mapping resource="platform/domain/Kjgxqybabgxcp.hbm.xml"/>
 		
+       <mapping resource="platform/domain/Adduser.hbm.xml"/>
+		 <mapping resource="platform/domain/Addright.hbm.xml"/>
+		
 	</session-factory>
 </hibernate-configuration>

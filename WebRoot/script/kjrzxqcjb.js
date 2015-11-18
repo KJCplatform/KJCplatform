@@ -134,7 +134,7 @@ function editDoc() {
 	// 给默认值
 	//$("#fwrq").datebox("setValue", doc.fwrq.substring(0, 10));
 	$("#zczb").val(doc.zczb);
-	$("#zcsj").datebox("getValue");
+	$("#zcsj").datebox("setValue", doc.zcsj.substring(0, 10));
 	$("#ygzs").val(doc.ygzs);
 	//alert($("#jzrq").datebox("getValue"));
 	$("#rzed").val(doc.rzed);

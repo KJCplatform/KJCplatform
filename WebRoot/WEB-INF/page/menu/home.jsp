@@ -30,76 +30,56 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"url": "<%=basePath%>/administration/document.jsp"
 				
 			},
-			{
-				"menuid": "13",
-				"menuname": "科技项目库",
-				"icon": "icon-log",
-				"url": "<%=basePath%>/administration/kjkjxmk.jsp"
-				
-			},
-			{
-				"menuid": "14",
-				"menuname": "大型仪器信息表",
-				"icon": "icon-log",
-				"url": "<%=basePath%>/administration/aaa.jsp"
-				
-			},
-			{
-				"menuid": "15",
-				"menuname": "认定高新企业备案表",
-				"icon": "icon-log",
-				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
-				
-			},
+		
 			{
 				"menuid": "12",
-				"menuname": "通讯录管理",
+				"menuname": "专家通讯录",
 				"icon": "icon-log",
 				"url": "http://hxling.cnblogs.com",
-				"child": [{
-					"menuid": "121",
-					"menuname": "计量机构",
-					"icon": "icon-role",
-					"url": "demo2.html"
-					},
+// 				"child": [{
+// 					"menuid": "121",
+// 					"menuname": "计量机构",
+// 					"icon": "icon-role",
+// 					"url": "demo2.html"
+// 					},
 					
-					{
-					"menuid": "122",
-					"menuname": "高技术企业",
-					"icon": "icon-role",
-					"url": "demo.html"
-					},
-					{
-					"menuid": "123",
-					"menuname": "军工企业",
-					"icon": "icon-role",
-					"url": "demo.html"
-					},
-					{
-					"menuid": "124",
-					"menuname": "专家通讯录",
-					"icon": "icon-role",
-					"url": "demo.html"
-					},
-					{
-					"menuid": "125",
-					"menuname": "项目目录",
-					"icon": "icon-set",
-					"url": "demo.html"
-					},
-					{
-					"menuid": "126",
-					"menuname": "成果目录",
-					"icon": "icon-set",
-					"url": "demo.html"
-					},
-					{
-					"menuid": "127",
-					"menuname": "专项目录",
-					"icon": "icon-set",
-					"url": "demo.html"
-					}					
-				]
+// 					{
+// 					"menuid": "122",
+// 					"menuname": "高技术企业",
+// 					"icon": "icon-role",
+// 					"url": "demo.html"
+// 					},
+// 					{
+// 					"menuid": "123",
+// 					"menuname": "军工企业",
+// 					"icon": "icon-role",
+// 					"url": "demo.html"
+// 					},
+// 					{
+// 					"menuid": "124",
+// 					"menuname": "专家通讯录",
+// 					"icon": "icon-role",
+// 					"url": "demo.html"
+// 					},
+// 					{
+// 					"menuid": "125",
+// 					"menuname": "项目目录",
+// 					"icon": "icon-set",
+// 					"url": "demo.html"
+// 					},
+// 					{
+// 					"menuid": "126",
+// 					"menuname": "成果目录",
+// 					"icon": "icon-set",
+// 					"url": "demo.html"
+// 					},
+// 					{
+// 					"menuid": "127",
+// 					"menuname": "专项目录",
+// 					"icon": "icon-set",
+// 					"url": "demo.html"
+// 					}					
+// 				]
 			}
 			
 		]
@@ -230,7 +210,59 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/search.jsp"
 			}]	
-		}
+		},
+	
+			{
+			"menuid": "28",
+			"menuname": "科技项目信息",
+			"icon": "icon-nav",
+			"url": "",
+			"child":[{
+				"menuid": "281",
+				"menuname": "数据录入",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/kjkjxmxxb.jsp"
+			},{
+				"menuid": "282",
+				"menuname": "信息查询",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/kjkjxmxxb_search.jsp"
+			}]	
+		},
+			{
+			"menuid": "29",
+			"menuname": "高新技术企业认定备案信息",
+			"icon": "icon-nav",
+			"url": "",
+			"child":[{
+				"menuid": "291",
+				"menuname": "数据录入",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/kjqxqybab.jsp"
+			},{
+				"menuid": "292",
+				"menuname": "信息查询",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/kjqxqybab_search.jsp"
+			}]	
+		},
+			{
+				"menuid": "2A",
+				"menuname": "科技项目库",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/kjkjxmk.jsp"
+				
+			},
+	
+			{
+				"menuid": "2B",
+				"menuname": "认定高新企业备案表",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
+				
+			}
+		
+		
 		
 	]
 		
@@ -277,7 +309,24 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuname": "国防军工企事业单位计量检定人员",
 			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/xxtjb.jsp"	
-		}
+		},
+				{
+			"menuid": "44",
+			"menuname": "军工单位基本情况信息",
+			"icon": "icon-nav",
+			"url": "",
+			"child":[{
+				"menuid": "441",
+				"menuname": "数据录入",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/jpjgdwjbqk.jsp"
+			},{
+				"menuid": "442",
+				"menuname": "信息查询",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/jpjgdwjbqk_search.jsp"
+			}]	
+		},
 		]
 	},<%}if(rights.contains("5")){%>
 	{
@@ -288,8 +337,26 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuid": "51",
 			"menuname": "武器装备科研生产许可取证单位信息",
 			"icon": "icon-nav",
-			"url": "demo.html"	
-		}
+			"url": "",
+			"child":[{
+				"menuid": "511",
+				"menuname": "数据录入",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/wqwqxkzxq.jsp"
+			},{
+				"menuid": "512",
+				"menuname": "信息查询",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/wqwqxkzxq_search.jsp"
+			}]		
+		},
+				{
+				"menuid": "52",
+				"menuname": "大型仪器信息表",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/aaa.jsp"
+				
+			},
 		]	
 	},<%}if(rights.contains("6")){%>
 	{
@@ -300,20 +367,21 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuid": "61",
 			"menuname": "用户管理",
 			"icon": "icon-users",
-			"url": "demo2.html",
+			"url": "<%=basePath%>/administration/adduser.jsp"
 		},
 		{
 			"menuid": "62",
 			"menuname": "角色管理",
 			"icon": "icon-role",
-			"url": "demo2.html"
-		},
-		{
-			"menuid": "63",
-			"menuname": "系统设置",
-			"icon": "icon-set",
-			"url": "demo.html"
+			"url": "<%=basePath%>/administration/addright.jsp"
 		}
+		
+// 		{
+// 			"menuid": "63",
+// 			"menuname": "系统设置",
+// 			"icon": "icon-set",
+// 			"url": "demo.html"
+// 		}
 		]	
 	},<%}if(rights.contains("7")){%>
 	{
@@ -359,7 +427,7 @@ var basePath = localhostPath + projectName;
                 modal: true,
                 shadow: true,
                 closed: true,
-                height: 160,
+                height: 200,
                 resizable:false
             });
         }

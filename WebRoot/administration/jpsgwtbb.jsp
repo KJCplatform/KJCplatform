@@ -44,6 +44,7 @@
 <script type="text/javascript"
 	src="<%=basePath%>/script/easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>/script/jpsgwtbb.js"></script>
+  <script type="text/javascript" src="<%=basePath%>/script/easyui-lang-zh_CN.js"></script>
 </head>
 
 <body>
@@ -102,7 +103,7 @@
 
 				<dl>
 					<dd>
-						发生日期: <input size="15" id="fsrq" name="fsrq" />
+						发生日期: <input  type="text" style="width: 150px" id="fsrq" name="fsrq" />
 					</dd>
 				</dl>
 				<dl>
@@ -127,7 +128,7 @@
 				</dl>
 						<dl>
 					<dd>
-						报出日期: <input size="15" id="bcrq" name="bcrq" />
+						报出日期: <input  type="text" style="width: 150px" id="bcrq" name="bcrq" />
 					</dd>
 				</dl>
 

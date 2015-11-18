@@ -35,6 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="<%=basePath%>/script/easyui/jquery.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>/script/easyui/jquery.easyui.min.js"></script>
 	<script type="text/javascript" src="<%=basePath%>/script/xxtjb.js"></script>
+	 <script type="text/javascript" src="<%=basePath%>/script/easyui-lang-zh_CN.js"></script>
 </head>
 
 <body>
@@ -106,7 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dl>
 			<dl>
 				<dd>出生年月:</dd>
-				<dd><textarea cols="45" rows="3" id="csny" name="csny"></textarea></dd>
+				<dd><input  type="text" style="width: 150px" id="csny" name="csny" /></textarea></dd>
 			</dl>
 			<dl>
 				<dd>计量检定员证员:</dd>
@@ -114,7 +115,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dl>
 			<dl>
 				<dd>首次取证日期:</dd>
-				<dd><input size="15" id="qzrq" name="qzrq" /></dd>
+				<dd><input  type="text" style="width: 150px" id="qzrq" name="qzrq" /></dd>
 			</dl>
 			<dl>
 				<dd>有效期:</dd>
@@ -126,7 +127,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dl>
 						<dl>
 				<dd>签发日期:</dd>
-				<dd><textarea cols="45" rows="3" id="qfrq" name="qfrq"></textarea></dd>
+				<dd><input  type="text" style="width: 150px" id="qfrq" name="qfrq" /></dd>
 			</dl>
 			
 			

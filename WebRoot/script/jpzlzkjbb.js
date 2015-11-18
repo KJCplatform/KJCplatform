@@ -26,7 +26,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/JpzlzkjbbAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '国防科技工业军工产品质量',
             width : 1200,
             height: 400,
             //fit: true,
@@ -133,7 +133,7 @@ function editDoc() {
 	$("#tbr").val(doc.tbr);
 	$("#zlbfzr").val(doc.zlbfzr);
 	$("#shr").val(doc.shr);
-	$("#bcrq").datebox("getValue");
+	$("#bcrq").datebox("setValue", doc.bcrq.substring(0, 10));
 
 	
 	// 显示编辑页面

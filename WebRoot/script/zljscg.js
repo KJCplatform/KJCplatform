@@ -55,29 +55,29 @@ $(function() {
 
 	);
 	
-	$('#jyfs').combotree();
-	$('#jyfs').combotree('loadData', 
-			[{ id: "技术许可", text: '技术许可'},
-				{id: "技术转让", text: '技术转让'},
-				{id: "技术入股", text: '技术入股'},
-				{id: "技术提成", text: '技术提成'},
-				{id: "其他方式", text: '其他方式'}
-			 ]
-	);
+	//$('#jyfs').combotree();
+//	$('#jyfs').combotree('loadData', 
+//			[{ id: "技术许可", text: '技术许可'},
+//				{id: "技术转让", text: '技术转让'},
+//				{id: "技术入股", text: '技术入股'},
+//				{id: "技术提成", text: '技术提成'},
+//				{id: "其他方式", text: '其他方式'}
+//			 ]
+//	);
 	
-	$("#sj").numberbox({
-		
-	});
-	$("#gddh").numberbox({
-		
-	});
+//	$("#sj").numberbox({
+//		
+//	});
+//	$("#gddh").numberbox({
+//		
+//	});
 
 });
 //加载公文列表
 function listDoc() {
 	var actionPath = basePath + '/system/KjzlcjbAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '专利技术成果',
             width : 1200,
             height: 400,
             //fit: true,
@@ -181,7 +181,7 @@ function editDoc() {
 	$("#zywcr").val(doc.zywcr);
 	$("#zlh").val(doc.zlh);
 	$("#gkh").val(doc.gkh);
-	$("#gkr").datebox("getValue");
+	$("#gkr").datebox("setValue", doc.gkr.substring(0, 10));
 	$("#zflh").val(doc.zflh);
 	$("#flzt").val(doc.flzt);
 	$("#cgjj").val(doc.cgjj);

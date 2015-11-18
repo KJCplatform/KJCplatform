@@ -56,21 +56,21 @@ $(function() {
 
 	);
 	
-	$('#jyfs').combotree();
-	$('#jyfs').combotree('loadData', 
-			[{ id: "技术许可", text: '技术许可'},
-				{id: "技术转让", text: '技术转让'},
-				{id: "技术入股", text: '技术入股'},
-				{id: "技术提成", text: '技术提成'},
-				{id: "其他方式", text: '其他方式'}
-			 ]
-	);
+//	$('#jyfs').combotree();
+//	$('#jyfs').combotree('loadData', 
+//			[{ id: "技术许可", text: '技术许可'},
+//				{id: "技术转让", text: '技术转让'},
+//				{id: "技术入股", text: '技术入股'},
+//				{id: "技术提成", text: '技术提成'},
+//				{id: "其他方式", text: '其他方式'}
+//			 ]
+//	);
 });
 //加载公文列表
 function listDoc() {
 	var actionPath = basePath + '/system/KjnzwcjbAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '农作物新品种成果',
             width : 1200,
             height: 400,
             //fit: true,
@@ -171,7 +171,7 @@ function editDoc() {
 	$("#pzmc").val(doc.pzmc);
 	$("#xydw").val(doc.xydw);
 	$("#xyr").val(doc.xyr);
-	$("#sdsj").val(doc.sdsj);
+	$("#sdsj").datebox("setValue", doc.sdsj.substring(0, 10));
 	$("#sdh").val(doc.sdh);
 	$("#sdjg").val(doc.sdjg);
 	$("#pzjj").val(doc.pzjj);

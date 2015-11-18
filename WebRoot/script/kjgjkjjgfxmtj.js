@@ -20,31 +20,31 @@ $(function() {
 	});
 
 	
-	$("#tdj").numberbox({
-	//	maxlength:11   
-	});
-	$("#ydj").numberbox({
-	//	maxlength:11   
-	});
-	
-	$("#edj").numberbox({
-	//	maxlength:11   
-	});
-	
-	$("#sdj").numberbox({
-	//	maxlength:11   
-	});
-	
-	$("#hj").numberbox({
-	//	maxlength:11   
-	});
+//	$("#tdj").numberbox({
+//	//	maxlength:11   
+//	});
+//	$("#ydj").numberbox({
+//	//	maxlength:11   
+//	});
+//	
+//	$("#edj").numberbox({
+//	//	maxlength:11   
+//	});
+//	
+//	$("#sdj").numberbox({
+//	//	maxlength:11   
+//	});
+//	
+//	$("#hj").numberbox({
+//	//	maxlength:11   
+//	});
 	
 });
 //加载公文列表
 function listDoc() {
 	var actionPath = basePath + '/system/KjndgfjtjbAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '国家科学技术奖国防科技工业专用项目特等奖统计',
             width : 1200,
             height: 400,
             //fit: true,

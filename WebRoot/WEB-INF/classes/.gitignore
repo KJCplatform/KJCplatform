@@ -1,7 +1,8 @@
-/platform
+/platform/
+/struts.xml
 /beans.xml
-/container
-/excel
+/container/
+/excel/
 /hibernate.cfg.xml
 /test1.class
 /test3.class

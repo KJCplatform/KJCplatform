@@ -24,7 +24,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/KjgjkjjgftdtjAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '国家科学技术奖国防科技工业专用项目统计',
             width : 1200,
             height: 400,
             //fit: true,

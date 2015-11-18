@@ -191,7 +191,7 @@ function editDoc() {
 	$("#id").val(doc.id);
 	$("#cgmc").val(doc.cgmc);
 	$("#zywcr").val(doc.zywcr);
-	$("#wcsj").datebox("getValue");	
+	$("#wcsj").datebox("setValue", doc.wcsj.substring(0, 10));
 	// 给默认值
 	//$("#fwrq").datebox("setValue", doc.fwrq.substring(0, 10));
 	//$("#fwrq").datebox("getValue");

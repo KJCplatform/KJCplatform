@@ -19,32 +19,32 @@ $(function() {
 		missingMessage : '不能为空'
 	});
 
-	
-	$("#tdj").numberbox({
-	//	maxlength:11   
-	});
-	$("#ydj").numberbox({
-	//	maxlength:11   
-	});
-	
-	$("#edj").numberbox({
-	//	maxlength:11   
-	});
-	
-	$("#sdj").numberbox({
-	//	maxlength:11   
-	});
-	
-	$("#hj").numberbox({
-	//	maxlength:11   
-	});
+//	
+//	$("#tdj").numberbox({
+//	//	maxlength:11   
+//	});
+//	$("#ydj").numberbox({
+//	//	maxlength:11   
+//	});
+//	
+//	$("#edj").numberbox({
+//	//	maxlength:11   
+//	});
+//	
+//	$("#sdj").numberbox({
+//	//	maxlength:11   
+//	});
+//	
+//	$("#hj").numberbox({
+//	//	maxlength:11   
+//	});
 	
 });
 //加载公文列表
 function listDoc() {
 	var actionPath = basePath + '/system/KjndgfjtjbAction_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
+            title : '国防科学技术进步奖和发明奖统计表',
             width : 1200,
             height: 400,
             //fit: true,
