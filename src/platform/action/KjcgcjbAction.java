@@ -99,6 +99,8 @@ public class KjcgcjbAction extends BaseAction implements ModelDriven<KjcgcjbForm
 		return   "delete";
 	}
 	public String add(){
+		System.out.println(kjcgcjbForm.getZhyq());
+		System.out.println(kjcgcjbForm.getLxrxm());
 		kjcgcjbService.saveObject(kjcgcjbForm);
 		operateSuccess=true;
 		return "add";

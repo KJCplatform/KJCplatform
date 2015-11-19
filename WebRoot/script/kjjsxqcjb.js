@@ -15,7 +15,7 @@ $(function() {
 	// 日期加上日期控件
 	$("#yqrq").datebox({
 		editable:false,
-		required : true
+		required:true
 	});
 	// 给文本框加上验证器
 	$("#xqmc").validatebox({

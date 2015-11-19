@@ -57,15 +57,16 @@ $(function() {
 
 	);
 	
-//	$('#jyfs').combotree();
-//	$('#jyfs').combotree('loadData', 
-//			[{ id: "技术许可", text: '技术许可'},
-//				{id: "技术转让", text: '技术转让'},
-//				{id: "技术入股", text: '技术入股'},
-//				{id: "技术提成", text: '技术提成'},
-//				{id: "其他方式", text: '其他方式'}
-//			 ]
-//	);
+	$('#jyfs').combotree();
+	$('#jyfs').combotree('loadData', 
+			[{ id: "技术许可", text: '技术许可'},
+				{id: "技术转让", text: '技术转让'},
+				{id: "技术入股", text: '技术入股'},
+				{id: "技术提成", text: '技术提成'},
+				{id: "其他方式", text: '其他方式'}
+			 ]
+	);
+	
 });
 //加载公文列表
 function listDoc() {
@@ -176,10 +177,11 @@ function editDoc() {
 	$("#sdh").val(doc.sdh);
 	$("#sdjg").val(doc.sdjg);
 	$("#pzjj").val(doc.pzjj);
-	$("#yyhy").val(doc.yyhy);
-	$("#jsly").val(doc.jsly);
+
+	$("#jsly").combotree("setValue", doc.jsly);
+	$("#yyhy").combotree("setValue", doc.yyhy);
 	$("#cgjd").val(doc.cgjd);
-	$("#jyfs").val(doc.jyfs);
+	$("#jyfs").combotree("setValue", doc.jyfs);
 	$("#sfzj").val(doc.sfzj);
 	$("#gfdj").val(doc.gfdj);
 	$("#zhyq").val(doc.zhyq);

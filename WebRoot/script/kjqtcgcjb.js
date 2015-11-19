@@ -199,8 +199,8 @@ function editDoc() {
 	$("#cgjj").val(doc.cgjj);
 	//alert($("#jzrq").datebox("getValue"));
 	//$("#jzrq").datebox("getValue");
-	$("#yyhy").val(doc.yyhy);
-	$("#jsly").val(doc.jsly);
+	$("#jsly").combotree("setValue", doc.jsly);
+	$("#yyhy").combotree("setValue", doc.yyhy);
 	$("#cgjd").val(doc.cgjd);
 	$("#zhfs").val(doc.zhfs);
 	$("#zhyq").val(doc.zhyq);
