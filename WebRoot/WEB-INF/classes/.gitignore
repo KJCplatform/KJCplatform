@@ -1,9 +1,4 @@
-/platform/
-/struts.xml
-/beans.xml
-/container/
-/excel/
-/hibernate.cfg.xml
+/platform
 /test1.class
 /test3.class
 /test4.class
@@ -11,3 +6,5 @@
 /Test.class
 /TestDao.class
 /TestHibernate.class
+/container
+/excel

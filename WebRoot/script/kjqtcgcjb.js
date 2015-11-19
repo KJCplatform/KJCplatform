@@ -14,6 +14,7 @@ $(function() {
 	listDoc();
 	// 日期加上日期控件
 	$("#wcsj").datebox({
+		editable:false,
 		required : true
 	});
 	/*$("#jzrq").datebox({
@@ -224,7 +225,7 @@ function dealSave() {
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {
-					alert(result);
+			//		alert(result);
 					$('#dg').datagrid('reload');// 重新加载
 					$.messager.alert('添加', '添加成功', 'info');
 			} else {
@@ -279,7 +280,7 @@ function deleteDoc() {
 			var url = actionPath + doc.id;
 			// 试一下get方法（地址，回调函数）
 			$.get(url, function(result) {
-				alert(result);
+			//	alert(result);
 				if (result.operateSuccess) {
 					$.messager.alert('删除', '选中的文件成功删除！', 'info');
 					// 重新加载
