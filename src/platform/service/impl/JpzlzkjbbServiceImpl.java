@@ -74,7 +74,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			jpzlzkjbb.setTbr(jpzlzkjbbForm.getTbr());
 			jpzlzkjbb.setZlbfzr(jpzlzkjbbForm.getZlbfzr());
 			jpzlzkjbb.setShr(jpzlzkjbbForm.getShr());
-			jpzlzkjbb.setBcrq(StringHelper.stringConvertDate(jpzlzkjbbForm.getBcrq()));
+			jpzlzkjbb.setBcrq(StringHelper.stringConvertDate2(jpzlzkjbbForm.getBcrq()));
 		    jpzlzkjbbDao.update(jpzlzkjbb);
 		
 	}
@@ -96,7 +96,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		jpzlzkjbb.setShr(jpzlzkjbbForm.getShr());
 		
 		if(jpzlzkjbbForm.getBcrq()!=null&&!jpzlzkjbbForm.getBcrq().equals(""))
-		jpzlzkjbb.setBcrq(StringHelper.stringConvertDate(jpzlzkjbbForm.getBcrq()));
+		jpzlzkjbb.setBcrq(StringHelper.stringConvertDate2(jpzlzkjbbForm.getBcrq()));
 		
 		try{
 		jpzlzkjbbDao.save(jpzlzkjbb);

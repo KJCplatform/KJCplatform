@@ -25,7 +25,7 @@ $(function() {
 		missingMessage : '不能为空'
 	});
 	$("#zllx").validatebox({
-		required : true,
+		//required : true,
 		missingMessage : '不能为空'
 	});
 	
@@ -211,6 +211,7 @@ function dealSave() {
 	var actionAdd = basePath + '/system/KjzlcjbAction_add.action';
 	var actionUpdate = basePath + '/system/KjzlcjbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
+	//alert(params);
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {

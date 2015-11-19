@@ -57,9 +57,9 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 		Jljlrytjb jljlrytjb=new Jljlrytjb();
 		jljlrytjb.setDwmc(jljlrytjbForm.getDwmc());
 		jljlrytjb.setXm(jljlrytjbForm.getXm());
-		jljlrytjb.setCsny(StringHelper.stringConvertDate(jljlrytjbForm.getCsny()));
-		jljlrytjb.setQzrq(StringHelper.stringConvertDate(jljlrytjbForm.getQzrq()));
-		jljlrytjb.setQfrq(StringHelper.stringConvertDate(jljlrytjbForm.getQfrq()));
+		jljlrytjb.setCsny(StringHelper.stringConvertDate2(jljlrytjbForm.getCsny()));
+		jljlrytjb.setQzrq(StringHelper.stringConvertDate2(jljlrytjbForm.getQzrq()));
+		jljlrytjb.setQfrq(StringHelper.stringConvertDate2(jljlrytjbForm.getQfrq()));
 		jljlrytjb.setId(Integer.valueOf(jljlrytjbForm.getId()));
 		//数据校验
 		if(jljlrytjbForm.getXb()!=null&&!jljlrytjbForm.getXb().equals(""))
@@ -79,9 +79,9 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 		Jljlrytjb jljlrytjb=new Jljlrytjb();
 		jljlrytjb.setDwmc(jljlrytjbForm.getDwmc());
 		jljlrytjb.setXm(jljlrytjbForm.getXm());
-		jljlrytjb.setCsny(StringHelper.stringConvertDate(jljlrytjbForm.getCsny()));
-		jljlrytjb.setQzrq(StringHelper.stringConvertDate(jljlrytjbForm.getQzrq()));
-		jljlrytjb.setQfrq(StringHelper.stringConvertDate(jljlrytjbForm.getQfrq()));
+		jljlrytjb.setCsny(StringHelper.stringConvertDate2(jljlrytjbForm.getCsny()));
+		jljlrytjb.setQzrq(StringHelper.stringConvertDate2(jljlrytjbForm.getQzrq()));
+		jljlrytjb.setQfrq(StringHelper.stringConvertDate2(jljlrytjbForm.getQfrq()));
 		
 		//数据校验
 		if(jljlrytjbForm.getXb()!=null&&!jljlrytjbForm.getXb().equals(""))

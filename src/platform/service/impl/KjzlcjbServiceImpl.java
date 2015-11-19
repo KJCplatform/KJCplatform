@@ -65,7 +65,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setZywcr(kjzlcjbForm.getZywcr());
 		kjzlcjb.setZlh(kjzlcjbForm.getZlh());
 		kjzlcjb.setGkh(kjzlcjbForm.getGkh());
-		kjzlcjb.setGkr(StringHelper.stringConvertDate(kjzlcjbForm.getGkr()));
+		kjzlcjb.setGkr(StringHelper.stringConvertDate2(kjzlcjbForm.getGkr()));
 		kjzlcjb.setZflh(kjzlcjbForm.getZflh());
 		kjzlcjb.setFlzt(kjzlcjbForm.getFlzt());
 		kjzlcjb.setCgjj(kjzlcjbForm.getCgjj());
@@ -114,7 +114,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setZywcr(kjzlcjbForm.getZywcr());
 		kjzlcjb.setZlh(kjzlcjbForm.getZlh());
 		kjzlcjb.setGkh(kjzlcjbForm.getGkh());
-		kjzlcjb.setGkr(StringHelper.stringConvertDate(kjzlcjbForm.getGkr()));
+		kjzlcjb.setGkr(StringHelper.stringConvertDate2(kjzlcjbForm.getGkr()));
 		kjzlcjb.setZflh(kjzlcjbForm.getZflh());
 		kjzlcjb.setFlzt(kjzlcjbForm.getFlzt());
 		kjzlcjb.setCgjj(kjzlcjbForm.getCgjj());

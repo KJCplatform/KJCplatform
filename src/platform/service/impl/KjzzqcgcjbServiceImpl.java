@@ -61,7 +61,7 @@ public class KjzzqcgcjbServiceImpl implements KjzzqcgcjbService{
 		kjzzqcgcjb.setCgmc(kjzzqcgcjbForm.getCgmc());
 		kjzzqcgcjb.setWcdw(kjzzqcgcjbForm.getWcdw());
 		kjzzqcgcjb.setZywcr(kjzzqcgcjbForm.getZywcr());
-		kjzzqcgcjb.setWcsj(StringHelper.stringConvertDate(kjzzqcgcjbForm.getWcsj()));
+		kjzzqcgcjb.setWcsj(StringHelper.stringConvertDate2(kjzzqcgcjbForm.getWcsj()));
 		kjzzqcgcjb.setRzbh(kjzzqcgcjbForm.getRzbh());
 		kjzzqcgcjb.setCgjj(kjzzqcgcjbForm.getCgjj());
 		kjzzqcgcjb.setYyhy(kjzzqcgcjbForm.getYyhy());
@@ -98,7 +98,7 @@ public class KjzzqcgcjbServiceImpl implements KjzzqcgcjbService{
 		kjzzqcgcjb.setCgmc(kjzzqcgcjbForm.getCgmc());
 		kjzzqcgcjb.setWcdw(kjzzqcgcjbForm.getWcdw());
 		kjzzqcgcjb.setZywcr(kjzzqcgcjbForm.getZywcr());
-		kjzzqcgcjb.setWcsj(StringHelper.stringConvertDate(kjzzqcgcjbForm.getWcsj()));
+		kjzzqcgcjb.setWcsj(StringHelper.stringConvertDate2(kjzzqcgcjbForm.getWcsj()));
 		kjzzqcgcjb.setRzbh(kjzzqcgcjbForm.getRzbh());
 		kjzzqcgcjb.setCgjj(kjzzqcgcjbForm.getCgjj());
 		kjzzqcgcjb.setYyhy(kjzzqcgcjbForm.getYyhy());
