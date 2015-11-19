@@ -36,7 +36,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuid": "12",
 				"menuname": "专家通讯录",
 				"icon": "icon-log",
-				"url": "<%=basePath%>/administration/kjjszjcjb.jsp"
+				"url": "<%=basePath%>/administration/zjtxl.jsp"
 				//"url": "http://hxling.cnblogs.com",
 				
 // 				"child": [{
