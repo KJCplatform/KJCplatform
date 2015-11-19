@@ -142,7 +142,7 @@ function editDoc() {
 	$('#frmEdit').form('clear');
 	// 填充数据
 	$("#id").val(doc.id);
-	$("#nd").val(doc.nd);
+	$("#year").val(doc.year);
 	$("#tdj").val(doc.tdj);
 	$("#ydj").val(doc.ydj);
 	$("#edj").val(doc.edj);

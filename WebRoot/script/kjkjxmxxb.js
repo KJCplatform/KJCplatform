@@ -7,7 +7,7 @@ var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
 var basePath = localhostPath + projectName;
 
 //globel
-var resultid;
+//var resultid;
 
 //test
 //var test = [
@@ -225,11 +225,11 @@ $(function() {
 							var rows = $('#cjdw').datagrid('getRows');
 							if(rows.length != 0){
 								for(i=0; i<rows.length; i++) {
-									rows[i].id = resultid;
+									rows[i].id = 1;
 								}
 								//alert(resultid);
 								var data = {'cjdwform': JSON.stringify(rows)};
-								//alert(data);
+//								alert(rows);
 								$.post(action, data, function(result){
 									if (result.operateSuccess) {
 									//alert(result);
@@ -238,7 +238,7 @@ $(function() {
 									} else {
 										$.messager.alert('提交', '提交失败', 'warning');
 									}
-								});
+								}); 
 							}
 						}
 			}],
@@ -259,7 +259,7 @@ $(function() {
 					  }
 				  }}, 
 		          {field:'xh',title:'序号',editor:'textarea',width:100},    
-		          {field:'dwmc',title:'单位名称',editor:'textarea',width:100},  
+		          {field:'dwmc',title:'单位名称',editor:'textarea',width:100} 
 			
 		      ]] 
 	});
@@ -288,12 +288,12 @@ function submit(){
 		}
 	
 	}
-	//alert(s);
+	alert(s);
 	if(s.length != 0){
 		$.post(action, s, function(result) {
 			if (result.operateSuccess) {
 					//alert(result.resultid);
-					resultid = result.resultid;
+					//resultid = result.resultid;
 					$('#kjxmxx').propertygrid('reload');// 重新加载
 					$.messager.alert('提交', '提交成功', 'info');
 			} else {
@@ -310,6 +310,46 @@ function closeForm(div, form) {
 	$(div).dialog('close');
 }
 
+//显示编辑窗口
+function showEditForm(div, form, title, pos) {
+	$(div).dialog({
+		modal : true,// 模式窗口
+		title : title,
+		iconCls : 'icon-save',
+		//left: 150,
+		top: pos,
+		buttons : [ {
+			text : '确认',
+			handler : function() {
+				// 进行表单字段验证，当全部字段都有效时返回true和validatebox一起使用
+				if ($(form).form('validate')) {
+					// 提交到服务器并写入数据库
+					dealSave();
+					// 关闭窗口
+					closeForm(div, form);
+				} else {
+					$.messager.alert('验证', '信息有误或不完整', 'error');
+				}
+			}
+		}, {
+			text : '取消',
+			handler : function() {
+				closeForm(div, form);
+			}
+		} ]
+	});
+}
+
+//添加的函数
+function addDoc(div, form, title, pos) {
+	// 清空原有的数据
+	//$('#frmEdit').form('clear');
+	$(form).form('clear');
+	// 显示添加对话框
+	showEditForm(div, form, title, pos);
+}
 
 
+function dealSave() {
 
+}

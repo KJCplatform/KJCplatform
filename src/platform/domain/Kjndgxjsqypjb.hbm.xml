@@ -59,8 +59,16 @@
 		<property name="zhdf" type="string">
 			<column name="zhdf" />
 		</property>
+		
 		<property name="zhnldf" type="string">
 			<column name="zhnldf" />
+		</property>	
+		<property name="zscqdf" type="string">
+			<column name="zscqdf" />
+		</property>	
+		<property name="glspdf" type="string">
+			<column name="glspdf" />
+			
 		</property>
 		<property name="czzbdf" type="string">
 			<column name="czzbdf" />

@@ -199,10 +199,11 @@ function editDoc() {
 	$("#cgjj").val(doc.cgjj);
 	//alert($("#jzrq").datebox("getValue"));
 	//$("#jzrq").datebox("getValue");
+	$("#wcdw").val(doc.wcdw);
 	$("#jsly").combotree("setValue", doc.jsly);
 	$("#yyhy").combotree("setValue", doc.yyhy);
 	$("#cgjd").val(doc.cgjd);
-	$("#zhfs").val(doc.zhfs);
+	$("#zhfs").combotree("setValue", doc.zhfs);
 	$("#zhyq").val(doc.zhyq);
 	$("#sfgk").val(doc.sfgk);
 	$("#fbrxz").val(doc.fbrxz);
@@ -221,7 +222,7 @@ function dealSave() {
 	var actionAdd = basePath + '/system/KjqtcgcjbAction_add.action';
 	var actionUpdate = basePath + '/system/KjqtcgcjbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
-	//alert(params);
+	alert(params);
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {

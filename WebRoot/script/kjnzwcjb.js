@@ -203,6 +203,7 @@ function dealSave() {
 	var actionAdd = basePath + '/system/KjnzwcjbAction_add.action';
 	var actionUpdate = basePath + '/system/KjnzwcjbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
+	
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {

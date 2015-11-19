@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	<script type="text/javascript" src="<%=basePath%>/script/easyui/jquery.min.js"></script>
     <script type="text/javascript" src="<%=basePath%>/script/easyui/jquery.easyui.min.js"></script>
-	<script type="text/javascript" src="<%=basePath%>/script/kjjsxqcjbcopy.js"></script>
+	<script type="text/javascript" src="<%=basePath%>/script/kjjsxqcjb.js"></script>
 	  <script type="text/javascript" src="<%=basePath%>/script/easyui-lang-zh_CN.js"></script>
 </head>
 
@@ -141,11 +141,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dl>
 			<dl>
 				<dd>需求描述:</dd>
-				<dd><textarea cols="20" rows="3" id="bz" name="bz"></textarea></dd>
+				<dd><textarea cols="20" rows="3" id="xqms" name="xqms"></textarea></dd>
 			</dl>
 			<dl>
 				<dd>拟提供资金:</dd>
-				<dd><select   style="width: 150px" id="gfdj" name="gfdj" >
+				<dd><select   style="width: 150px" id="ngzj" name="ngzj" >
 				<option value="请选择">请选择</option>
 				<option value="">研发阶段</option>
 				<option value="20万元以下">20万元以下</option>

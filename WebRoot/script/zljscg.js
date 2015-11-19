@@ -204,9 +204,9 @@ function editDoc() {
 	$("#jyfs").combotree("setValue", doc.jyfs);
 	$("#sfzj").val(doc.sfzj);
 	$("#gfdj").val(doc.gfdj);
-	$("#qtzhyq").val(doc.qtzhyq);
+	$("#zhyq").val(doc.zhyq);
 	$("#sfgk").val(doc.sfgk);
-	$("#lxr").val(doc.lxr);	
+	$("#lxrxm").val(doc.lxrxm);	
 	$("#gddh").val(doc.gddh);	
 	$("#szdq").val(doc.szdq);
 	$("#sj").val(doc.sj);

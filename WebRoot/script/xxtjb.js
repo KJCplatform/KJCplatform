@@ -147,7 +147,7 @@ function editDoc() {
 	$("#qfrq").datebox("setValue", doc.qfrq.substring(0, 10));
 	
 	$("#whcd").val(doc.whcd);
-	$("#jlzy").val(doc.jlzy);
+	$("#jlzh").val(doc.jlzh);
 	$("#yxq").val(doc.yxq);
 	$("#kjxm").val(doc.kjxm);
 	// 显示编辑页面

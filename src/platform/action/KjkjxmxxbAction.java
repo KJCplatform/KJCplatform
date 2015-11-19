@@ -135,6 +135,7 @@ public class KjkjxmxxbAction extends BaseAction implements ModelDriven<Kjkjxmxxb
 		return "add";
 	}
 	public String addcjdw(){
+
 		//System.out.println(cxyform);
 		//JSONObject jsonObj = JSONObject.fromObject(cxyform);
 		List<KjkjxmxxbcjdwForm> list=new ArrayList<KjkjxmxxbcjdwForm>();
@@ -143,12 +144,16 @@ public class KjkjxmxxbAction extends BaseAction implements ModelDriven<Kjkjxmxxb
         	JSONObject jsonJ = arrays.getJSONObject(i);
         	KjkjxmxxbcjdwForm kjkjxmxxbcjdwForm=new KjkjxmxxbcjdwForm();
         	kjkjxmxxbcjdwForm.setXh(jsonJ.getString("xh"));
+        	kjkjxmxxbcjdwForm.setDwmc(jsonJ.getString("dwmc"));
         	//System.out.println(kjjszjcjbxmForm.getXmmc());
     //    	kjkjxmxxbcjdwForm.setFk_kj_kjxmxxb(jsonJ.getString("fk_kj_kjxmxxb"));
         	//System.out.println(kjjszjcjbxmForm.getXmjj());
         	
         	list.add(kjkjxmxxbcjdwForm);   	
         }
+      //  System.out.println(list.get(0).getId());
+     //   System.out.println(list.get(0).getXh());
+      //  System.out.println(list.get(0).getDwmc());
         kjkjxmxxbService.addCjdwListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
 		operateSuccess=true;
 		return "addcjdw";

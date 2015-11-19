@@ -23,9 +23,59 @@ $(function() {
 		missingMessage : '需求名称不能为空'
 	});
 	$("#jjfs").validatebox({
-		required : true,
-		missingMessage : '需求解决方式不能为空'
+		//required : true,
+		//missingMessage : '需求解决方式不能为空'
 	});
+	
+	
+	
+	$('#sshy').combotree();
+	$('#sshy').combotree('loadData', 
+	[{ id: "1", text: '1',
+		children: [{ id: "11", text: '11' },
+		           { id: "12", text: '12' },
+		           { id: "13", text: '13' }]},
+	 {id: "2", text: '2',
+		children: [{ id: "21", text: '21' },
+		           { id: "22", text: '22' },
+		           { id: "23", text: '23' }] 
+	 }]
+	);
+	
+	$('#jsly').combotree();
+	$('#jsly').combotree('loadData', 
+	[{ id: "1", text: '1',
+		children: [{ id: "11", text: '11' },
+		           { id: "12", text: '12' },
+		           { id: "13", text: '13' }
+		          ]
+	 },
+	 {id: "2", text: '2',
+		children: [{ id: "21", text: '21' },
+		           { id: "22", text: '22' },
+		           { id: "23", text: '23' }
+                  ] 
+	 }
+	]
+	);
+	
+	$('#szdq').combotree();
+	$('#szdq').combotree('loadData', 
+	[{ id: "1", text: '1',
+		children: [{ id: "11", text: '11' },
+		           { id: "12", text: '12' },
+		           { id: "13", text: '13' }
+		          ]
+	 },
+	 {id: "2", text: '2',
+		children: [{ id: "21", text: '21' },
+		           { id: "22", text: '22' },
+		           { id: "23", text: '23' }
+                  ] 
+	 }
+	]
+	);
+	
 //加载公文列表
 });
 function listDoc() {
@@ -129,6 +179,7 @@ function editDoc() {
 		$.messager.alert('文件', '请先选中要编辑的文件', 'info');
 		return;
 	}
+
 	$('#frmEdit').form('clear');
 	// 填充数据
 	$("#id").val(doc.id);
@@ -138,9 +189,9 @@ function editDoc() {
 	
 	// 给默认值
 	//$("#fwrq").datebox("setValue", doc.fwrq.substring(0, 10));
-	$("#yqrq").datebox("setValue", doc.yqrq.substring(0, 10));
-	$("#sshy").val(doc.sshy);	
-	$("#jsly").val(doc.jsly);
+	$("#yqrq").datebox("setValue",doc.yqrq.substring(0, 10));
+	$("#jsly").combotree("setValue", doc.jsly);
+	$("#sshy").combotree("setValue", doc.sshy);
 	//alert($("#jzrq").datebox("getValue"));
 	$("#xqms").val(doc.xqms);
 	$("#ngzj").val(doc.ngzj);
@@ -148,7 +199,7 @@ function editDoc() {
 	$("#sfgk").val(doc.sfgk);
 	$("#lxrxm").val(doc.lxrxm);
 	$("#gddh").val(doc.gddh);
-	$("#szdq").val(doc.szdq);
+	$("#szdq").combotree("setValue", doc.szdq);
 	$("#sj").val(doc.sj);
 	$("#dzyx").val(doc.dzyx);
 	$("#lxdz").val(doc.lxdz);
@@ -160,6 +211,7 @@ function dealSave() {
 	var params = $("#frmEdit").serialize();
 	var actionAdd = basePath + '/system/KjjsxqcjbAction_add.action';
 	var actionUpdate = basePath + '/system/KjjsxqcjbAction_update.action';
+	//alert(params);
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {

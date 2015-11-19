@@ -69,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<table id="dg">
 	<thead>
 		<tr>
-			<th field="cgnc" width="100">名称</th>
+			<th field="cgmc" width="100">名称</th>
 			<th field="wcdw" width="120">完成单位</th>
 			<th field="zywcr" width="110">完成人</th>
 			<th field="wcsj" width="120">完成时间</th>
@@ -88,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="szdq" width="120">所在地区</th>
 			<th field="sj" width="100">手机</th>
 			<th field="dzyx" width="120">电子邮箱</th>
-			<th field="clxdz" width="120">联系地址</th>
+			<th field="lxdz" width="120">联系地址</th>
 			
 		</tr>
 	</thead>
@@ -126,7 +126,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dl>
 			<dl>
 				<dd>成果简介:</dd>
-				<dd><textarea cols="20" rows="3" id="bz" name="bz"></textarea></dd>
+				<dd><textarea cols="20" rows="3" id="cgjj" name="cgjj"></textarea></dd>
 			</dl>
 			<dl>
 				<dd>应用行业: </dd>

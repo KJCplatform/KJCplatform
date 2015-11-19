@@ -36,7 +36,7 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 		return kjjszjcjbDao.selectMaxId();
 		
 	}
-
+  
 	private Kjjszjcjb VoObjecttoPoObject(KjjszjcjbForm kjjszjcjbForm) {
 		Kjjszjcjb kjjszjcjb=new Kjjszjcjb();
 		kjjszjcjb.setFwyy(kjjszjcjbForm.getFwyy());
@@ -70,6 +70,8 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 	public void addCxyListWithExpertId(int id, List<KjjszjcjbxmForm> list){
 		List<Kjjszjcjbxm> Plist=this.xmPoToVoList(list);
 		Kjjszjcjb kjjszjcjb= kjjszjcjbDao.findObjectByID(id);
+		
+		System.out.println(	kjjszjcjb.getKjjszjcjbxms());
 		for(int i=0;i<Plist.size();i++){
 			kjjszjcjb.getKjjszjcjbxms().add(Plist.get(i));
 		}

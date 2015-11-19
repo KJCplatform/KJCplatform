@@ -18,11 +18,11 @@ public class KjzlcjbForm implements java.io.Serializable{
 	  private String jsly;
 	  private String cgjd;
 	  private String jyfs;
-	  private String sfwtzj;
+	  private String sfzj;
 	  private String gfdj;
-	  private String qtzhyq;
+	  private String zhyq;
 	  private String sfgk;
-	  private String lxr;
+	  private String lxrxm;
 	  private String gddh;
 	  private String szdq;
 	  private String sj;
@@ -118,11 +118,11 @@ public class KjzlcjbForm implements java.io.Serializable{
 	public void setJyfs(String jyfs) {
 		this.jyfs = jyfs;
 	}
-	public String getSfwtzj() {
-		return sfwtzj;
+	public String getSfzj() {
+		return sfzj;
 	}
-	public void setSfwtzj(String sfwtzj) {
-		this.sfwtzj = sfwtzj;
+	public void setSfzj(String sfzj) {
+		this.sfzj = sfzj;
 	}
 	public String getGfdj() {
 		return gfdj;
@@ -130,11 +130,11 @@ public class KjzlcjbForm implements java.io.Serializable{
 	public void setGfdj(String gfdj) {
 		this.gfdj = gfdj;
 	}
-	public String getQtzhyq() {
-		return qtzhyq;
+	public String getZhyq() {
+		return zhyq;
 	}
-	public void setQtzhyq(String qtzhyq) {
-		this.qtzhyq = qtzhyq;
+	public void setZhyq(String zhyq) {
+		this.zhyq = zhyq;
 	}
 	public String getSfgk() {
 		return sfgk;
@@ -142,11 +142,11 @@ public class KjzlcjbForm implements java.io.Serializable{
 	public void setSfgk(String sfgk) {
 		this.sfgk = sfgk;
 	}
-	public String getLxr() {
-		return lxr;
+	public String getLxrxm() {
+		return lxrxm;
 	}
-	public void setLxr(String lxr) {
-		this.lxr = lxr;
+	public void setLxrxm(String lxrxm) {
+		this.lxrxm = lxrxm;
 	}
 	public String getGddh() {
 		return gddh;
@@ -178,7 +178,7 @@ public class KjzlcjbForm implements java.io.Serializable{
 	public void setLxdz(String lxdz) {
 		this.lxdz = lxdz;
 	}
-	  
+
 	  
 	  
 }

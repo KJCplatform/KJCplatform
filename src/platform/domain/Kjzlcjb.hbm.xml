@@ -50,19 +50,19 @@
 		<property name="jyfs" type="string">
 			<column name="jyfs" />	
 		</property>
-		<property name="sfwtzj" type="integer">
+		<property name="sfzj" type="integer">
 			<column name="sfwtzj" />	
 		</property>
 		<property name="gfdj" type="string">
 			<column name="gfdj" />
 		</property>
-		<property name="qtzhyq" type="string">
+		<property name="zhyq" type="string">
 			<column name="qtzhyq" />
 		</property>
 		<property name="sfgk" type="integer">
 			<column name="sfgk" />
 		</property>
-		<property name="lxr" type="string">
+		<property name="lxrxm" type="string">
 			<column name="lxr" />
 		</property>
 		<property name="gddh" type="long">

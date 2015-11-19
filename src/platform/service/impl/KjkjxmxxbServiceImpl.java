@@ -73,9 +73,15 @@ public class KjkjxmxxbServiceImpl implements KjkjxmxxbService{
 	public void addCjdwListWithExpertId(int id, List<KjkjxmxxbcjdwForm> list){
 		List<Kjkjxmxxbcjdw> Plist=this.cjdwPoToVoList(list);
 		Kjkjxmxxb kjkjxmxxb= kjkjxmxxbDao.findObjectByID(id);
-		for(int i=0;i<Plist.size();i++){
-			kjkjxmxxb.getKjkjxmxxbcjdws().add(Plist.get(i));
-		}
+
+		try{
+			System.out.println(kjkjxmxxb.getKjkjxmxxbcjdws());
+		//kjkjxmxxb.getKjkjxmxxbcjdws().add(Plist.get(0));
+		}catch(Exception e){System.out.println(e);}
+		//		for(int i=0;i<Plist.size();i++){
+//			kjkjxmxxb.getKjkjxmxxbcjdws().add(Plist.get(i));
+//		}
+		
 	}
 	
 	private List<Kjkjxmxxbcjdw> cjdwPoToVoList(List<KjkjxmxxbcjdwForm> list) {
@@ -84,6 +90,7 @@ public class KjkjxmxxbServiceImpl implements KjkjxmxxbService{
 			Kjkjxmxxbcjdw kjkjxmxxbcjdw=new Kjkjxmxxbcjdw();
 			
 			kjkjxmxxbcjdw.setXh(list.get(i).getXh());
+			kjkjxmxxbcjdw.setDwmc(list.get(i).getDwmc());
 	//		kjkjxmxxbcjdw.setFk_kj_kjxmxxb(list.get(i).getFk_kj_kjxmxxb());
 			
 			
@@ -164,6 +171,7 @@ public class KjkjxmxxbServiceImpl implements KjkjxmxxbService{
 		for(Kjkjxmxxbcjdw kjkjxmxxbcjdw:kjkjxmxxbcjdws){
 			KjkjxmxxbcjdwForm kjkjxmxxbcjdwForm=new KjkjxmxxbcjdwForm();
 			kjkjxmxxbcjdwForm.setXh(kjkjxmxxbcjdw.getXh());
+			kjkjxmxxbcjdwForm.setDwmc(kjkjxmxxbcjdw.getDwmc());
 	//		kjkjxmxxbcjdwForm.setFk_kj_kjxmxxb(kjkjxmxxbcjdw.getFk_kj_kjxmxxb());
 			
 			

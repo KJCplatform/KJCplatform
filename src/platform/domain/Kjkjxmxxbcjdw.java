@@ -8,6 +8,7 @@ import java.util.Set;
 public class Kjkjxmxxbcjdw  implements java.io.Serializable {
 	private Integer id;
 	private String xh;
+	private String dwmc;
 	
 	
 	private Set<Kjkjxmxxb> Kjkjxmxxbs = new HashSet<Kjkjxmxxb>();
@@ -28,7 +29,14 @@ public class Kjkjxmxxbcjdw  implements java.io.Serializable {
 		this.xh = xh;
 	}
 
-	
+	public String getDwmc() {
+		return dwmc;
+	}
+
+	public void setDwmc(String dwmc) {
+		this.dwmc = dwmc;
+	}
+
 
 	public Set<Kjkjxmxxb> getKjkjxmxxbs() {
 		return Kjkjxmxxbs;

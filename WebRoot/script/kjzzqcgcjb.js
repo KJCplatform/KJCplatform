@@ -204,6 +204,7 @@ function dealSave() {
 	var actionAdd = basePath + '/system/KjzzqcgcjbAction_add.action';
 	var actionUpdate = basePath + '/system/KjzzqcgcjbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
+	alert(params);
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {

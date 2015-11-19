@@ -75,15 +75,15 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setJyfs(kjzlcjbForm.getJyfs());
 		
 		//数据校验
-		if(kjzlcjbForm.getSfwtzj()!=null)
-		kjzlcjb.setSfwtzj(Integer.valueOf(kjzlcjbForm.getSfwtzj()));
+		if(kjzlcjbForm.getSfzj()!=null)
+		kjzlcjb.setSfzj(Integer.valueOf(kjzlcjbForm.getSfzj()));
 		kjzlcjb.setGfdj(kjzlcjbForm.getGfdj());
-		kjzlcjb.setQtzhyq(kjzlcjbForm.getQtzhyq());
+		kjzlcjb.setZhyq(kjzlcjbForm.getZhyq());
 		
 		//数据校验
 		if(kjzlcjbForm.getSfgk()!=null)
 		kjzlcjb.setSfgk(Integer.valueOf(kjzlcjbForm.getSfgk()));
-		kjzlcjb.setLxr(kjzlcjbForm.getLxr());
+		kjzlcjb.setLxrxm(kjzlcjbForm.getLxrxm());
 		
 		//数据校验
 		if(kjzlcjbForm.getGddh()!=null
@@ -124,15 +124,15 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setJyfs(kjzlcjbForm.getJyfs());
 		
 		//数据校验
-		if(kjzlcjbForm.getSfwtzj()!=null)
-		kjzlcjb.setSfwtzj(Integer.valueOf(kjzlcjbForm.getSfwtzj()));
+		if(kjzlcjbForm.getSfzj()!=null)
+		kjzlcjb.setSfzj(Integer.valueOf(kjzlcjbForm.getSfzj()));
 		kjzlcjb.setGfdj(kjzlcjbForm.getGfdj());
-		kjzlcjb.setQtzhyq(kjzlcjbForm.getQtzhyq());
+		kjzlcjb.setZhyq(kjzlcjbForm.getZhyq());
 		
 		//数据校验
 		if(kjzlcjbForm.getSfgk()!=null)
 		kjzlcjb.setSfgk(Integer.valueOf(kjzlcjbForm.getSfgk()));
-		kjzlcjb.setLxr(kjzlcjbForm.getLxr());
+		kjzlcjb.setLxrxm(kjzlcjbForm.getLxrxm());
 		
 		//数据校验
 		if(!kjzlcjbForm.getGddh().equals(""))
@@ -171,12 +171,12 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 			kjzlcjbForm.setCgjd(kjzlcjb.getCgjd());
 			kjzlcjbForm.setJyfs(kjzlcjb.getJyfs());
 
-			kjzlcjbForm.setSfwtzj(String.valueOf(kjzlcjb.getSfwtzj()));
+			kjzlcjbForm.setSfzj(String.valueOf(kjzlcjb.getSfzj()));
 			kjzlcjbForm.setGfdj(kjzlcjb.getGfdj());
-			kjzlcjbForm.setQtzhyq(kjzlcjb.getQtzhyq());
+			kjzlcjbForm.setZhyq(kjzlcjb.getZhyq());
 			
 			kjzlcjbForm.setSfgk(String.valueOf(kjzlcjb.getSfgk()));
-			kjzlcjbForm.setLxr(kjzlcjb.getLxr());
+			kjzlcjbForm.setLxrxm(kjzlcjb.getLxrxm());
 			
 			if(kjzlcjb.getGddh()!=null)
 			kjzlcjbForm.setGddh(String.valueOf(kjzlcjb.getGddh()));

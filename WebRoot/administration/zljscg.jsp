@@ -90,11 +90,11 @@
 					<th field="jsly">技术领域</th>
 					<th field="cgjd">成果阶段</th>
 					<th field="jyfs">交易方式</th>
-					<th field="sfwtzj">是否委托中介</th>
+					<th field="sfzj">是否委托中介</th>
 					<th field="gfdj">供方定价</th>
-					<th field="qtzhyq">其他转化要求</th>
+					<th field="zhyq">其他转化要求</th>
 					<th field="sfgk">是否公开</th>
-					<th field="lxr">联系人姓名</th>
+					<th field="lxrxm">联系人姓名</th>
 					<th field="gddh">固定电话</th>
 					<th field="szdq">所在地区</th>
 					<th field="sj">手机</th>
@@ -249,7 +249,7 @@
 
 				<dl>
 					<dd>
-						其他转化要求: <input size="15" id="qtzhyq" name="qtzhyq" />
+						其他转化要求: <input size="15" id="zhyq" name="zhyq" />
 					</dd>
 				</dl>
 
@@ -265,7 +265,7 @@
 
 				<dl>
 					<dd>
-						联系人姓名: <input size="15" id="lxr" name="lxr" /> 固定电话: <input
+						联系人姓名: <input size="15" id="lxrxm" name="lxrxm" /> 固定电话: <input
 							type="text" style="width: 150px" id="gddh" name="gddh" />
 					</dd>
 				</dl>

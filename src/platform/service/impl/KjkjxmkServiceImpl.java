@@ -64,6 +64,7 @@ public class KjkjxmkServiceImpl implements KjkjxmkService{
 		kjkjxmk.setZtz(kjkjxmkForm.getZtz());
 		kjkjxmk.setYwctz(kjkjxmkForm.getYwctz());
 		kjkjxmk.setBz(kjkjxmkForm.getBz());
+		kjkjxmk.setBntz(kjkjxmkForm.getBntz());
 		kjkjxmkDao.update(kjkjxmk);
 		
 	}
@@ -83,6 +84,7 @@ public class KjkjxmkServiceImpl implements KjkjxmkService{
 		kjkjxmk.setYmjd(kjkjxmkForm.getYmjd());
 		kjkjxmk.setZtz(kjkjxmkForm.getZtz());
 		kjkjxmk.setYwctz(kjkjxmkForm.getYwctz());
+		kjkjxmk.setBntz(kjkjxmkForm.getBntz());
 		kjkjxmk.setBz(kjkjxmkForm.getBz());
 		kjkjxmkDao.save(kjkjxmk);
 	}
@@ -102,6 +104,7 @@ public class KjkjxmkServiceImpl implements KjkjxmkService{
 			kjkjxmkForm.setYmjd(kjkjxmk.getYmjd());
 			kjkjxmkForm.setZtz(kjkjxmk.getZtz());
 			kjkjxmkForm.setYwctz(kjkjxmk.getYwctz());
+			kjkjxmkForm.setBntz(kjkjxmk.getBntz());
 			kjkjxmkForm.setBz(kjkjxmk.getBz());
 			formlist.add(kjkjxmkForm);
 		}
