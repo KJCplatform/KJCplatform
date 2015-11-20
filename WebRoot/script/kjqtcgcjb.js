@@ -14,6 +14,7 @@ $(function() {
 	listDoc();
 	// 日期加上日期控件
 	$("#wcsj").datebox({
+		editable:false,
 		required : true
 	});
 	/*$("#jzrq").datebox({
@@ -96,7 +97,7 @@ function listDoc() {
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      
-            pageSize : 5,//默认选择的分页是每页5行数据
+            pageSize : 10,//默认选择的分页是每页5行数据
             pageList : [ 5, 10, 15, 20 ],//可以选择的分页集合
             nowrap : true,//设置为true，当数据长度超出列宽时将会自动截取
             toolbar:"#toolbar",//在添加 增添、删除、修改操作的按钮要用到这个
@@ -198,10 +199,11 @@ function editDoc() {
 	$("#cgjj").val(doc.cgjj);
 	//alert($("#jzrq").datebox("getValue"));
 	//$("#jzrq").datebox("getValue");
-	$("#yyhy").val(doc.yyhy);
-	$("#jsly").val(doc.jsly);
+	$("#wcdw").val(doc.wcdw);
+	$("#jsly").combotree("setValue", doc.jsly);
+	$("#yyhy").combotree("setValue", doc.yyhy);
 	$("#cgjd").val(doc.cgjd);
-	$("#zhfs").val(doc.zhfs);
+	$("#zhfs").combotree("setValue", doc.zhfs);
 	$("#zhyq").val(doc.zhyq);
 	$("#sfgk").val(doc.sfgk);
 	$("#fbrxz").val(doc.fbrxz);
@@ -224,7 +226,7 @@ function dealSave() {
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {
-					alert(result);
+			//		alert(result);
 					$('#dg').datagrid('reload');// 重新加载
 					$.messager.alert('添加', '添加成功', 'info');
 			} else {
@@ -279,7 +281,7 @@ function deleteDoc() {
 			var url = actionPath + doc.id;
 			// 试一下get方法（地址，回调函数）
 			$.get(url, function(result) {
-				alert(result);
+			//	alert(result);
 				if (result.operateSuccess) {
 					$.messager.alert('删除', '选中的文件成功删除！', 'info');
 					// 重新加载

@@ -21,6 +21,8 @@ public class Kjndgxjsqypjb implements java.io.Serializable{
 	  private String jsnjnbl;
 	  private String jyngxsrbl;
 	  private String zhdf;
+	  private String zscqdf;
+	  private String glspdf;
 	  private String zhnldf;
 	  private String czzbdf;
 	  private String zhpj;
@@ -133,6 +135,18 @@ public class Kjndgxjsqypjb implements java.io.Serializable{
 	public void setZhdf(String zhdf) {
 		this.zhdf = zhdf;
 	}
+	public String getZscqdf() {
+		return zscqdf;
+	}
+	public void setZscqdf(String zscqdf) {
+		this.zscqdf = zscqdf;
+	}
+	public String getGlspdf() {
+		return glspdf;
+	}
+	public void setGlspdf(String glspdf) {
+		this.glspdf = glspdf;
+	}
 	public String getZhnldf() {
 		return zhnldf;
 	}
@@ -157,6 +171,7 @@ public class Kjndgxjsqypjb implements java.io.Serializable{
 	public void setPdzjz(String pdzjz) {
 		this.pdzjz = pdzjz;
 	}
-	
+
+	  
 	 
 }

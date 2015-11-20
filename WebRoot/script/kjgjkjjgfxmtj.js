@@ -142,7 +142,7 @@ function editDoc() {
 	$('#frmEdit').form('clear');
 	// 填充数据
 	$("#id").val(doc.id);
-	$("#nd").val(doc.nd);
+	$("#year").val(doc.year);
 	$("#tdj").val(doc.tdj);
 	$("#ydj").val(doc.ydj);
 	$("#edj").val(doc.edj);
@@ -215,7 +215,7 @@ function deleteDoc() {
 			var url = actionPath + doc.id;
 			// 试一下get方法（地址，回调函数）
 			$.get(url, function(result) {
-				alert(result);
+			//	alert(result);
 				if (result.operateSuccess) {
 					$.messager.alert('删除', '选中的文件成功删除！', 'info');
 					// 重新加载

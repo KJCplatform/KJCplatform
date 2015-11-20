@@ -57,9 +57,9 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 		Jljlrytjb jljlrytjb=new Jljlrytjb();
 		jljlrytjb.setDwmc(jljlrytjbForm.getDwmc());
 		jljlrytjb.setXm(jljlrytjbForm.getXm());
-		jljlrytjb.setCsny(StringHelper.stringConvertDate(jljlrytjbForm.getCsny()));
-		jljlrytjb.setQzrq(StringHelper.stringConvertDate(jljlrytjbForm.getQzrq()));
-		jljlrytjb.setQfrq(StringHelper.stringConvertDate(jljlrytjbForm.getQfrq()));
+		jljlrytjb.setCsny(StringHelper.stringConvertDate2(jljlrytjbForm.getCsny()));
+		jljlrytjb.setQzrq(StringHelper.stringConvertDate2(jljlrytjbForm.getQzrq()));
+		jljlrytjb.setQfrq(StringHelper.stringConvertDate2(jljlrytjbForm.getQfrq()));
 		jljlrytjb.setId(Integer.valueOf(jljlrytjbForm.getId()));
 		//数据校验
 		if(jljlrytjbForm.getXb()!=null&&!jljlrytjbForm.getXb().equals(""))
@@ -68,7 +68,7 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 		jljlrytjb.setJlzh(jljlrytjbForm.getJlzh());
      	jljlrytjb.setYxq(jljlrytjbForm.getYxq());
 		jljlrytjb.setKjxm(jljlrytjbForm.getKjxm());
-
+		jljlrytjb.setWhcd(jljlrytjbForm.getWhcd());
 		jljlrytjbDao.update(jljlrytjb);
 		
 	}
@@ -79,14 +79,14 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 		Jljlrytjb jljlrytjb=new Jljlrytjb();
 		jljlrytjb.setDwmc(jljlrytjbForm.getDwmc());
 		jljlrytjb.setXm(jljlrytjbForm.getXm());
-		jljlrytjb.setCsny(StringHelper.stringConvertDate(jljlrytjbForm.getCsny()));
-		jljlrytjb.setQzrq(StringHelper.stringConvertDate(jljlrytjbForm.getQzrq()));
-		jljlrytjb.setQfrq(StringHelper.stringConvertDate(jljlrytjbForm.getQfrq()));
+		jljlrytjb.setCsny(StringHelper.stringConvertDate2(jljlrytjbForm.getCsny()));
+		jljlrytjb.setQzrq(StringHelper.stringConvertDate2(jljlrytjbForm.getQzrq()));
+		jljlrytjb.setQfrq(StringHelper.stringConvertDate2(jljlrytjbForm.getQfrq()));
 		
 		//数据校验
 		if(jljlrytjbForm.getXb()!=null&&!jljlrytjbForm.getXb().equals(""))
 		jljlrytjb.setXb(Integer.valueOf(jljlrytjbForm.getXb()));
-		
+		jljlrytjb.setWhcd(jljlrytjbForm.getWhcd());
 		jljlrytjb.setJlzh(jljlrytjbForm.getJlzh());
      	jljlrytjb.setYxq(jljlrytjbForm.getYxq());
 		jljlrytjb.setKjxm(jljlrytjbForm.getKjxm());
@@ -108,7 +108,7 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 			jljlrytjbForm.setId(String.valueOf(jljlrytjb.getId()));
 			
 			jljlrytjbForm.setXb(String.valueOf(jljlrytjb.getXb()));
-			
+			jljlrytjbForm.setWhcd(jljlrytjb.getWhcd());
 			jljlrytjbForm.setJlzh(jljlrytjb.getJlzh());
 			jljlrytjbForm.setYxq(jljlrytjb.getYxq());
 			jljlrytjbForm.setKjxm(jljlrytjb.getKjxm());

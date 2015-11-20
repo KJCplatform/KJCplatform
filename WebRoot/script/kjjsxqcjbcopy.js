@@ -14,6 +14,7 @@ $(function() {
 	listDoc();
 	// 日期加上日期控件
 	$("#yqrq").datebox({
+		editable:false,
 		required : true
 	});
 	// 给文本框加上验证器
@@ -87,7 +88,7 @@ function listDoc() {
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      
-            pageSize : 5,//默认选择的分页是每页5行数据
+            pageSize :10,//默认选择的分页是每页5行数据
             pageList : [ 5, 10, 15, 20 ],//可以选择的分页集合
             nowrap : true,//设置为true，当数据长度超出列宽时将会自动截取
             toolbar:"#toolbar",//在添加 增添、删除、修改操作的按钮要用到这个
@@ -188,8 +189,9 @@ function editDoc() {
 	// 给默认值
 	//$("#fwrq").datebox("setValue", doc.fwrq.substring(0, 10));
 	$("#yqrq").datebox("getValue");
-	$("#sshy").val(doc.sshy);	
-	$("#jsly").val(doc.jsly);
+	
+	$("#jsly").combotree("setValue", doc.jsly);
+	$("#sshy").combotree("setValue", doc.sshy);
 	//alert($("#jzrq").datebox("getValue"));
 	$("#xqms").val(doc.xqms);
 	$("#ngzj").val(doc.ngzj);
@@ -197,7 +199,7 @@ function editDoc() {
 	$("#sfgk").val(doc.sfgk);
 	$("#lxrxm").val(doc.lxrxm);
 	$("#gddh").val(doc.gddh);
-	$("#szdq").val(doc.szdq);
+	$("#szdq").combotree("setValue", doc.szdq);
 	$("#sj").val(doc.sj);
 	$("#dzyx").val(doc.dzyx);
 	$("#lxdz").val(doc.lxdz);
@@ -213,7 +215,7 @@ function dealSave() {
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {
-					alert(result);
+					//alert(result);
 					$('#dg').datagrid('reload');// 重新加载
 					$.messager.alert('添加', '添加成功', 'info');
 			} else {
@@ -268,7 +270,7 @@ function deleteDoc() {
 			var url = actionPath + doc.id;
 			// 试一下get方法（地址，回调函数）
 			$.get(url, function(result) {
-				alert(result);
+				//alert(result);
 				if (result.operateSuccess) {
 					$.messager.alert('删除', '选中的文件成功删除！', 'info');
 					// 重新加载

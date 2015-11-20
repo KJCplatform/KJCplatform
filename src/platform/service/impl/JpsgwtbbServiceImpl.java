@@ -66,12 +66,12 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 		//	jljlqjhzb.setFwrq(StringHelper.stringConvertDate(jljlqjhzbForm.getFwrq()));
 			jpsgwtbb.setId(Integer.valueOf(jpsgwtbbForm.getId()));
 			jpsgwtbb.setCpmc(jpsgwtbbForm.getCpmc());
-			jpsgwtbb.setFsrq(StringHelper.stringConvertDate(jpsgwtbbForm.getFsrq()));
+			jpsgwtbb.setFsrq(StringHelper.stringConvertDate2(jpsgwtbbForm.getFsrq()));
 			jpsgwtbb.setYyqk(jpsgwtbbForm.getYyqk());
 			jpsgwtbb.setBz(jpsgwtbbForm.getBz());
 			jpsgwtbb.setTbr(jpsgwtbbForm.getTbr());
 			jpsgwtbb.setZlbmfzr(jpsgwtbbForm.getZlbmfzr());
-			jpsgwtbb.setBcrq(StringHelper.stringConvertDate(jpsgwtbbForm.getBcrq()));
+			jpsgwtbb.setBcrq(StringHelper.stringConvertDate2(jpsgwtbbForm.getBcrq()));
 		    jpsgwtbbDao.update(jpsgwtbb);
 		
 	}
@@ -81,14 +81,14 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 	public void saveObject(JpsgwtbbForm jpsgwtbbForm){
 		Jpsgwtbb jpsgwtbb=new Jpsgwtbb();
         //  jljlqjhzb.setCljg(jljlqjhzbForm.getCljg());
-		//	jljlqjhzb.setFwrq(StringHelper.stringConvertDate(jljlqjhzbForm.getFwrq()));
+		//	jljlqjhzb.setFwrq(StringHelper.stringConvertDate2(jljlqjhzbForm.getFwrq()));
 		jpsgwtbb.setCpmc(jpsgwtbbForm.getCpmc());
-		jpsgwtbb.setFsrq(StringHelper.stringConvertDate(jpsgwtbbForm.getFsrq()));
+		jpsgwtbb.setFsrq(StringHelper.stringConvertDate2(jpsgwtbbForm.getFsrq()));
 		jpsgwtbb.setYyqk(jpsgwtbbForm.getYyqk());
 		jpsgwtbb.setBz(jpsgwtbbForm.getBz());
 		jpsgwtbb.setTbr(jpsgwtbbForm.getTbr());
 		jpsgwtbb.setZlbmfzr(jpsgwtbbForm.getZlbmfzr());
-		jpsgwtbb.setBcrq(StringHelper.stringConvertDate(jpsgwtbbForm.getBcrq()));
+		jpsgwtbb.setBcrq(StringHelper.stringConvertDate2(jpsgwtbbForm.getBcrq()));
 		jpsgwtbbDao.save(jpsgwtbb);
 	}
 	private List<JpsgwtbbForm> JpsgwtbbPOListToVOList(List<Jpsgwtbb> list) {

@@ -162,6 +162,7 @@ public class KjjszjcjbAction extends BaseAction implements ModelDriven<Kjjszjcjb
         	//System.out.println(kjjszjcjbxmForm.getHzxg());
         	list.add(kjjszjcjbxmForm);   	
         }
+       // System.out.println(list.get(0).getId());
         kjjszjcjbService.addCxyListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
 		operateSuccess=true;
 		return "addcxy";

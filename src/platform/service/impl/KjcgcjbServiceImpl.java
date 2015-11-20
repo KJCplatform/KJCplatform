@@ -61,7 +61,7 @@ public class KjcgcjbServiceImpl implements KjcgcjbService{
 		kjcgcjb.setCgmc(kjcgcjbForm.getCgmc());
 		kjcgcjb.setWcdw(kjcgcjbForm.getWcdw());
 		kjcgcjb.setZywcr(kjcgcjbForm.getZywcr());
-		kjcgcjb.setWcsj(StringHelper.stringConvertDate(kjcgcjbForm.getWcsj()));
+		kjcgcjb.setWcsj(StringHelper.stringConvertDate2(kjcgcjbForm.getWcsj()));
 		kjcgcjb.setDjjdh(kjcgcjbForm.getDjjdh());
 		kjcgcjb.setTxxs(kjcgcjbForm.getTxxs());
 		kjcgcjb.setCgjj(kjcgcjbForm.getCgjj());
@@ -98,7 +98,7 @@ public class KjcgcjbServiceImpl implements KjcgcjbService{
 		kjcgcjb.setCgmc(kjcgcjbForm.getCgmc());
 		kjcgcjb.setWcdw(kjcgcjbForm.getWcdw());
 		kjcgcjb.setZywcr(kjcgcjbForm.getZywcr());
-		kjcgcjb.setWcsj(StringHelper.stringConvertDate(kjcgcjbForm.getWcsj()));
+		kjcgcjb.setWcsj(StringHelper.stringConvertDate2(kjcgcjbForm.getWcsj()));
 		kjcgcjb.setDjjdh(kjcgcjbForm.getDjjdh());
 		kjcgcjb.setTxxs(kjcgcjbForm.getTxxs());
 		kjcgcjb.setCgjj(kjcgcjbForm.getCgjj());

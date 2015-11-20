@@ -157,12 +157,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</dl>
 
 				<dd>
-					交易方式: <select id="jyfs" class="easyui-combobox"  multiple="true" name="jyfs" style="width:150px;" >
- <option value="技术许可">技术许可</option>
- <option value="技术转让">技术转让</option>
- <option value="技术入股">技术入股</option>
- <option value="技术提成">技术提成</option>
- <option value="其他方式">其他方式</option>
+					交易方式: <select id="jyfs"   multiple="true" name="jyfs" style="width:150px;" >
+
 
 					</select>
 				</dd>
@@ -171,7 +167,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 				<dl>
 					<dd>
-						是否委托中介: <select id="sfwtzj" name="sfwtzj">
+						是否委托中介: <select id="sfzj" name="sfzj">
 							<option value="1" selected="selected">是</option>
 							<option value="0">否</option>
 						</select>
@@ -199,7 +195,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 				<dl>
 					<dd>
-						其他转化要求: <input size="15" id="qtzhyq" name="qtzhyq" />
+						其他转化要求: <input size="15" id="zhyq" name="zhyq" />
 					</dd>
 				</dl>
 
@@ -225,7 +221,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				<dl>
 					<dd>
-						联系人姓名: <input size="15" id="lxr" name="lxr" /> 固定电话: <input
+						联系人姓名: <input size="15" id="lxrxm" name="lxrxm" /> 固定电话: <input
 							type="text" style="width: 150px" id="gddh" name="gddh" />
 					</dd>
 				</dl>

@@ -61,7 +61,7 @@ public class AaaServiceImpl implements AaaService{
 		Aaa aaa=new Aaa();
 		aaa.setYqbh(aaaForm.getYqbh());
 		aaa.setFlbm(aaaForm.getFlbm());
-		aaa.setQyrq(StringHelper.stringConvertDate(aaaForm.getQyrq()));
+		aaa.setQyrq(StringHelper.stringConvertDate2(aaaForm.getQyrq()));
 		aaa.setId(Integer.valueOf(aaaForm.getId()));
 		aaa.setNbbh(aaaForm.getNbbh());
 		aaa.setZwmc(aaaForm.getZwmc());
@@ -107,7 +107,7 @@ public class AaaServiceImpl implements AaaService{
 		Aaa aaa=new Aaa();
 		aaa.setYqbh(aaaForm.getYqbh());
 		aaa.setFlbm(aaaForm.getFlbm());
-		aaa.setQyrq(StringHelper.stringConvertDate(aaaForm.getQyrq()));
+		aaa.setQyrq(StringHelper.stringConvertDate2(aaaForm.getQyrq()));
 		aaa.setNbbh(aaaForm.getNbbh());
 		aaa.setZwmc(aaaForm.getZwmc());
 		aaa.setYwmc(aaaForm.getYwmc());

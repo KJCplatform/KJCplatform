@@ -35,7 +35,9 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuid": "12",
 				"menuname": "专家通讯录",
 				"icon": "icon-log",
-				"url": "http://hxling.cnblogs.com",
+				"url": "<%=basePath%>/administration/zjtxl.jsp"
+				//"url": "http://hxling.cnblogs.com",
+				
 // 				"child": [{
 // 					"menuid": "121",
 // 					"menuname": "计量机构",
@@ -201,12 +203,12 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"url": "",
 			"child":[{
 				"menuid": "261",
-				"menuname": "数据录入",
+				"menuname": "数据录入-技术专家信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/expert.jsp"
 			},{
 				"menuid": "262",
-				"menuname": "信息查询",
+				"menuname": "信息查询-技术专家信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/search.jsp"
 			}]	
@@ -219,12 +221,12 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"url": "",
 			"child":[{
 				"menuid": "281",
-				"menuname": "数据录入",
+				"menuname": "数据录入-科技项目信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjkjxmxxb.jsp"
 			},{
 				"menuid": "282",
-				"menuname": "信息查询",
+				"menuname": "信息查询-科技项目信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjkjxmxxb_search.jsp"
 			}]	
@@ -236,12 +238,12 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"url": "",
 			"child":[{
 				"menuid": "291",
-				"menuname": "数据录入",
+				"menuname": "数据录入-高新技术企业认定备案信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjqxqybab.jsp"
 			},{
 				"menuid": "292",
-				"menuname": "信息查询",
+				"menuname": "信息查询-高新技术企业认定备案信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjqxqybab_search.jsp"
 			}]	
@@ -317,12 +319,12 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"url": "",
 			"child":[{
 				"menuid": "441",
-				"menuname": "数据录入",
+				"menuname": "数据录入-军工单位基本情况信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/jpjgdwjbqk.jsp"
 			},{
 				"menuid": "442",
-				"menuname": "信息查询",
+				"menuname": "信息查询-军工单位基本情况信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/jpjgdwjbqk_search.jsp"
 			}]	
@@ -340,12 +342,12 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"url": "",
 			"child":[{
 				"menuid": "511",
-				"menuname": "数据录入",
+				"menuname": "数据录入-武器装备科研生产许可取证单位信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/wqwqxkzxq.jsp"
 			},{
 				"menuid": "512",
-				"menuname": "信息查询",
+				"menuname": "信息查询-武器装备科研生产许可取证单位信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/wqwqxkzxq_search.jsp"
 			}]		

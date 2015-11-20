@@ -14,7 +14,8 @@ $(function() {
 	listDoc();
 	// 日期加上日期控件
 	$("#sdsj").datebox({
-		 
+		editable:false,
+		required : true
 	});
 //	$("#zhyq").filebox({
 //		 
@@ -56,15 +57,16 @@ $(function() {
 
 	);
 	
-//	$('#jyfs').combotree();
-//	$('#jyfs').combotree('loadData', 
-//			[{ id: "技术许可", text: '技术许可'},
-//				{id: "技术转让", text: '技术转让'},
-//				{id: "技术入股", text: '技术入股'},
-//				{id: "技术提成", text: '技术提成'},
-//				{id: "其他方式", text: '其他方式'}
-//			 ]
-//	);
+	$('#jyfs').combotree();
+	$('#jyfs').combotree('loadData', 
+			[{ id: "技术许可", text: '技术许可'},
+				{id: "技术转让", text: '技术转让'},
+				{id: "技术入股", text: '技术入股'},
+				{id: "技术提成", text: '技术提成'},
+				{id: "其他方式", text: '其他方式'}
+			 ]
+	);
+	
 });
 //加载公文列表
 function listDoc() {
@@ -75,7 +77,7 @@ function listDoc() {
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      
-            pageSize : 5,//默认选择的分页是每页5行数据
+            pageSize : 10,//默认选择的分页是每页5行数据
             pageList : [ 5, 10, 15, 20 ],//可以选择的分页集合
             nowrap : true,//设置为true，当数据长度超出列宽时将会自动截取
             toolbar:"#toolbar",//在添加 增添、删除、修改操作的按钮要用到这个
@@ -175,10 +177,11 @@ function editDoc() {
 	$("#sdh").val(doc.sdh);
 	$("#sdjg").val(doc.sdjg);
 	$("#pzjj").val(doc.pzjj);
-	$("#yyhy").val(doc.yyhy);
-	$("#jsly").val(doc.jsly);
+
+	$("#jsly").combotree("setValue", doc.jsly);
+	$("#yyhy").combotree("setValue", doc.yyhy);
 	$("#cgjd").val(doc.cgjd);
-	$("#jyfs").val(doc.jyfs);
+	$("#jyfs").combotree("setValue", doc.jyfs);
 	$("#sfzj").val(doc.sfzj);
 	$("#gfdj").val(doc.gfdj);
 	$("#zhyq").val(doc.zhyq);
@@ -200,6 +203,7 @@ function dealSave() {
 	var actionAdd = basePath + '/system/KjnzwcjbAction_add.action';
 	var actionUpdate = basePath + '/system/KjnzwcjbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
+	
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {
@@ -257,7 +261,7 @@ function deleteDoc() {
 			var url = actionPath + doc.id;
 			// 试一下get方法（地址，回调函数）
 			$.get(url, function(result) {
-				alert(result);
+				//alert(result);
 				if (result.operateSuccess) {
 					$.messager.alert('删除', '选中的文件成功删除！', 'info');
 					// 重新加载

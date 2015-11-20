@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="platform.domain.Zjtxl" table="zjtxl">
+		<id name="id" type="integer">
+			<column name="id"  not-null="true"/>
+			<generator class="identity"/>
+		</id>
+		<property name="xm" type="string">
+			<column name="xm" />
+		</property>
+		<property name="dw" type="string">
+			<column name="dw" />
+		</property>
+		<property name="zw" type="string">
+			<column name="zw" />
+		</property>
+		<property name="bm" type="string">
+			<column name="bm" />
+		</property>
+		<property name="lxfszj" type="string">
+			<column name="lxfszj" />	
+		</property>
+		<property name="lxfssj" type="string">
+			<column name="lxfssj" />	
+		</property>
+		
+	</class>
+</hibernate-mapping>

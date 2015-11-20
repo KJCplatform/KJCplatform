@@ -17,17 +17,16 @@ public class Kjzlcjb implements java.io.Serializable{
 	  private String jsly;
 	  private String cgjd;
 	  private String jyfs;
-	  private int sfwtzj;
+	  private int sfzj;
 	  private String gfdj;
-	  private String qtzhyq;
+	  private String zhyq;
 	  private int sfgk;
-	  private String lxr;
+	  private String lxrxm;
 	  private Long gddh;
 	  private String szdq;
 	  private Long sj;
 	  private String dzyx;
 	  private String lxdz;
-	  
 	public int getId() {
 		return id;
 	}
@@ -118,11 +117,11 @@ public class Kjzlcjb implements java.io.Serializable{
 	public void setJyfs(String jyfs) {
 		this.jyfs = jyfs;
 	}
-	public int getSfwtzj() {
-		return sfwtzj;
+	public int getSfzj() {
+		return sfzj;
 	}
-	public void setSfwtzj(int sfwtzj) {
-		this.sfwtzj = sfwtzj;
+	public void setSfzj(int sfzj) {
+		this.sfzj = sfzj;
 	}
 	public String getGfdj() {
 		return gfdj;
@@ -130,11 +129,11 @@ public class Kjzlcjb implements java.io.Serializable{
 	public void setGfdj(String gfdj) {
 		this.gfdj = gfdj;
 	}
-	public String getQtzhyq() {
-		return qtzhyq;
+	public String getZhyq() {
+		return zhyq;
 	}
-	public void setQtzhyq(String qtzhyq) {
-		this.qtzhyq = qtzhyq;
+	public void setZhyq(String zhyq) {
+		this.zhyq = zhyq;
 	}
 	public int getSfgk() {
 		return sfgk;
@@ -142,11 +141,11 @@ public class Kjzlcjb implements java.io.Serializable{
 	public void setSfgk(int sfgk) {
 		this.sfgk = sfgk;
 	}
-	public String getLxr() {
-		return lxr;
+	public String getLxrxm() {
+		return lxrxm;
 	}
-	public void setLxr(String lxr) {
-		this.lxr = lxr;
+	public void setLxrxm(String lxrxm) {
+		this.lxrxm = lxrxm;
 	}
 	public Long getGddh() {
 		return gddh;
@@ -179,8 +178,7 @@ public class Kjzlcjb implements java.io.Serializable{
 		this.lxdz = lxdz;
 	}
 	  
-	  
-	  
+
 	  
 			  
 

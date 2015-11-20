@@ -14,7 +14,8 @@ $(function() {
 	listDoc();
 	// 日期加上日期控件
 	$("#wcsj").datebox({
-	
+		editable:false,
+		required : true
 	});
 
 	// 给文本框加上验证器
@@ -55,15 +56,17 @@ $(function() {
 
 	);
 	
-//	$('#jyfs').combotree();
-//	$('#jyfs').combotree('loadData', 
-//			[{ id: "技术许可", text: '技术许可'},
-//				{id: "技术转让", text: '技术转让'},
-//				{id: "技术入股", text: '技术入股'},
-//				{id: "技术提成", text: '技术提成'},
-//				{id: "其他方式", text: '其他方式'}
-//			 ]
-//	);
+	$('#jyfs').combotree();
+	$('#jyfs').combotree('loadData', 
+			[{ id: "技术许可", text: '技术许可'},
+				{id: "技术转让", text: '技术转让'},
+				{id: "技术入股", text: '技术入股'},
+				{id: "技术提成", text: '技术提成'},
+				{id: "其他方式", text: '其他方式'}
+			 ]
+	);
+	
+	
 });
 //加载公文列表
 function listDoc() {
@@ -176,10 +179,10 @@ function editDoc() {
 	$("#wcsj").datebox("setValue", doc.wcsj.substring(0, 10));
 	$("#rzbh").val(doc.rzbh);
 	$("#cgjj").val(doc.cgjj);
-	$("#yyhy").val(doc.yyhy);
-	$("#jsly").val(doc.jsly);
+	$("#yyhy").combotree("setValue", doc.yyhy);
+	$("#jsly").combotree("setValue", doc.jsly);
 	$("#cgjd").val(doc.cgjd);
-	$("#jyfs").val(doc.jyfs);	
+	$("#jyfs").combotree("setValue", doc.jyfs);
 	$("#sfzj").val(doc.sfzj);
 	$("#gfdj").val(doc.gfdj);
 	$("#zhyq").val(doc.zhyq);
@@ -201,6 +204,7 @@ function dealSave() {
 	var actionAdd = basePath + '/system/KjzzqcgcjbAction_add.action';
 	var actionUpdate = basePath + '/system/KjzzqcgcjbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
+	alert(params);
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {
@@ -258,7 +262,7 @@ function deleteDoc() {
 			var url = actionPath + doc.id;
 			// 试一下get方法（地址，回调函数）
 			$.get(url, function(result) {
-				alert(result);
+				//alert(result);
 				if (result.operateSuccess) {
 					$.messager.alert('删除', '选中的文件成功删除！', 'info');
 					// 重新加载
