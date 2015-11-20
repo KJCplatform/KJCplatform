@@ -241,12 +241,12 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuid": "291",
 				"menuname": "数据录入-高新技术企业认定备案信息",
 				"icon": "icon-nav",
-				"url": "<%=basePath%>/project/kjqxqybab.jsp"
+				"url": "<%=basePath%>/project/kjgxqybab.jsp"
 			},{
 				"menuid": "292",
 				"menuname": "信息查询-高新技术企业认定备案信息",
 				"icon": "icon-nav",
-				"url": "<%=basePath%>/project/kjqxqybab_search.jsp"
+				"url": "<%=basePath%>/project/kjgxqybab_search.jsp"
 			}]	
 		},
 			{

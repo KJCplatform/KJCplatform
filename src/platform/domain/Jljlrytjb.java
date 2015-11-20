@@ -5,7 +5,7 @@ public class Jljlrytjb implements java.io.Serializable{
 	  private int id;
 	  private String dwmc;
 	  private String xm;
-	  private int xb;
+	  private String xb;
 	  private String whcd;
 	  private Date csny;
 	  private String jlzh;
@@ -32,10 +32,10 @@ public class Jljlrytjb implements java.io.Serializable{
 	public void setXm(String xm) {
 		this.xm = xm;
 	}
-	public int getXb() {
+	public String getXb() {
 		return xb;
 	}
-	public void setXb(int xb) {
+	public void setXb(String xb) {
 		this.xb = xb;
 	}
 	public String getWhcd() {
