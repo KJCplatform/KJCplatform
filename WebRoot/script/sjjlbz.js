@@ -107,7 +107,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '公文操作',
+		title : '编辑',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',
@@ -135,6 +135,11 @@ function showEditForm() {
 function closeForm() {
 	$("#frmEdit").form('clear');
 	$('#tabEdit').dialog('close');
+}
+
+function closeForm2() {
+	//$("#frmEdit2").form('clear');
+	$('#tabEdit2').dialog('close');
 }
 
 // 添加的函数
@@ -527,8 +532,18 @@ function ShowImport(){
 
 function ShowExport(){
 	  
-	var params ="frmc="+$('#uploadExcel').filebox('getValue');
-	  
+	var Items = document.getElementsByName("Items"); 
+	var params ="frmc=";
+	
+    for(var i = 0; i < Items.length; i++) 
+    { 
+       if(Items[i].checked == true) 
+       { 
+    	   params+=Items[i].value+" "; 
+       } 
+    } 
+
+	//alert(params);
 
 	var showimport = basePath + '/system/KjsjjljgxxbAction_showexport.action';
 	            				
@@ -538,7 +553,7 @@ function ShowExport(){
 	        					$.messager.alert('导出', '导出Excel成功', 'info');
 	        				
 	        			}else {
-	        					$.messager.alert('导出', '导出Excel失败', 'warning');
+	        					$.messager.alert('导出', '文件被占用！导出Excel失败', 'warning');
 	        				}
 	        		});
   
@@ -547,7 +562,27 @@ function ShowExport(){
 
 
 
-
+//Excelselect
+function selectExcel() {
+	$("#tabEdit2").dialog({
+		modal : true,// 模式窗口
+		title : '导出Excel',
+		iconCls : 'icon-save',
+		buttons : [ {
+			text : '确认',
+			handler : function() {
+				
+				ShowExport();
+				closeForm2();
+			}
+		}, {
+			text : '取消',
+			handler : function() {
+				closeForm2();
+			}
+		} ]
+	});
+}
 //function test(){
 //	
 ////	var file_upl = document.getElementById('file_upl');
