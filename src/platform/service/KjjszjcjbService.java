@@ -26,7 +26,7 @@ public interface KjjszjcjbService {
 
 	public void showimportObject(String zjxm) throws Exception;
 
-	public void showexportObject() throws Exception;
+	public void showexportObject(String string, List<KjjszjcjbForm> formlist) throws Exception;
 
 
 

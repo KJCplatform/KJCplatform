@@ -92,6 +92,7 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 			kjjszjcjb.getKjjszjcjbxms().add(Plist.get(i));
 		}
 	}
+	
 	public void addJscgListWithExpertId(int id, List<KjjszjcjbcgForm> list){
 		List<Kjjszjcjbcg> Plist=this.cgPoToVoList(list);
 		Kjjszjcjb kjjszjcjb= kjjszjcjbDao.findObjectByID(id);
@@ -391,23 +392,30 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 	}
 
 	@Override
-	public void showexportObject() throws Exception {
+	public void showexportObject(String str,List<KjjszjcjbForm> formlist) throws Exception {
 
 	
-		String hqlWhere = "zjxm='123'";
+		String hqlWhere = "zjxm='"+str+"'";
 		Object[] params = null;
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 		orderby.put(" o.zjxm", "desc");
 	
 		List<Kjjszjcjb> list=kjjszjcjbDao.findCollectionByConditionNoPage2(hqlWhere, params, orderby);
-		List<KjjszjcjbForm> formlist=this.KjjszjcjbPoToVoList(list);
+		List<KjjszjcjbForm> fm=this.KjjszjcjbPoToVoList(list);
 
+		//System.out.println(list.get(0).getId());
+		
+//		for(int i=0;i<18;i++){
+//			System.out.println("hhs:"+formlist.get(0).getKjjszjcjbxms().get(i).getXmjj());
+//		}
+		
+	
 		
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		// System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
 		String time = df.format(new Date());
-		String path = "D:\\表8  技术专家数据采集表   admin  " + time + ".xls";
+		String path = "D:\\表8  技术专家数据采集表   admin  "+"专家姓名-"+str+"   " + time + ".xls";
 
 		
 		// 打开文件
@@ -555,95 +563,217 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 	    sheet.addCell(label15_2);
 	    
 	    
+	    int xmnum=formlist.get(0).getKjjszjcjbxms().size();
+	    int cgnum=formlist.get(0).getKjjszjcjbcgs().size();
+	    int zynum=formlist.get(0).getKjjszjcjbzys().size();
+	    
+//		System.out.println("hhsxm:"+formlist.get(0).getKjjszjcjbxms().size());
+//		System.out.println("hhs2:"+formlist.get(0).getKjjszjcjbcgs().size());
+//		System.out.println("hhs3:"+formlist.get(0).getKjjszjcjbzys().size());
+	    
+	    
+		
 		sheet.mergeCells(0, 15, 9, 15);
 		Label label16= new Label(0,15,"产学研合作项目情况",cellFormat); 
 		sheet.addCell(label16);
-		sheet.mergeCells(0, 16, 1, 16);
-		Label label17_1= new Label(0,16,"序号",cellFormat); 
+		
+		
+		
+		for(int i=0;i<=xmnum;i++){
+		
+			if(i==0){
+		sheet.mergeCells(0, 16+i, 1, 16+i);
+		Label label17_1= new Label(0,16+i,"序号",cellFormat); 
 		sheet.addCell(label17_1);
-		sheet.mergeCells(2, 16, 3, 16);
-		Label label17_2= new Label(2,16,"项目名称",cellFormat); 
+		sheet.mergeCells(2, 16+i, 3, 16+i);
+		Label label17_2= new Label(2,16+i,"项目名称",cellFormat); 
 		sheet.addCell(label17_2);
-		sheet.mergeCells(4, 16, 5, 16);
-		Label label17_3= new Label(4,16,"合作起止时间",cellFormat); 
+		sheet.mergeCells(4, 16+i, 5, 16+i);
+		Label label17_3= new Label(4,16+i,"合作起止时间",cellFormat); 
 		sheet.addCell(label17_3);
-		sheet.mergeCells(6, 16, 7, 16);
-		Label label17_4= new Label(6,16,"项目简介",cellFormat); 
+		sheet.mergeCells(6, 16+i, 7, 16+i);
+		Label label17_4= new Label(6,16+i,"项目简介",cellFormat); 
 		sheet.addCell(label17_4);
-		sheet.mergeCells(8, 16, 9, 16);
-		Label label17_5= new Label(8,16,"合作效果",cellFormat); 
+		sheet.mergeCells(8, 16+i, 9, 16+i);
+		Label label17_5= new Label(8,16+i,"合作效果",cellFormat); 
 		sheet.addCell(label17_5);
-	    
+			}
+			else{
+				sheet.mergeCells(0, 16+i, 1, 16+i);
+				Label label17_1= new Label(0,16+i,String.valueOf(i),cellFormat); 
+				sheet.addCell(label17_1);
+				sheet.mergeCells(2, 16+i, 3, 16+i);
+				Label label17_2= new Label(2,16+i,formlist.get(0).getKjjszjcjbxms().get(i-1).getXmmc(),cellFormat); 
+				sheet.addCell(label17_2);
+				sheet.mergeCells(4, 16+i, 5, 16+i);
+				Label label17_3= new Label(4,16+i,formlist.get(0).getKjjszjcjbxms().get(i-1).getHzsj(),cellFormat); 
+				sheet.addCell(label17_3);
+				sheet.mergeCells(6, 16+i, 7, 16+i);
+				Label label17_4= new Label(6,16+i,formlist.get(0).getKjjszjcjbxms().get(i-1).getXmjj(),cellFormat); 
+				sheet.addCell(label17_4);
+				sheet.mergeCells(8, 16+i, 9, 16+i);
+				Label label17_5= new Label(8,16+i,formlist.get(0).getKjjszjcjbxms().get(i-1).getHzxg(),cellFormat); 
+				sheet.addCell(label17_5);
+			}
+				
+			
+			
+		}
 		
 		
-		sheet.mergeCells(0, 17, 9, 17);
-		Label label18= new Label(0,17,"主持或参与完成的技术成果情况",cellFormat); 
+		sheet.mergeCells(0, 17+xmnum, 9, 17+xmnum);
+		Label label18= new Label(0,17+xmnum,"主持或参与完成的技术成果情况",cellFormat); 
 		sheet.addCell(label18);
-		sheet.mergeCells(0, 18, 1, 18);
-		Label label19_1= new Label(0,18,"序号",cellFormat); 
+		
+		
+		
+		for(int i=xmnum;i<=xmnum+cgnum;i++){
+			if(i==xmnum){
+		sheet.mergeCells(0, 18+i, 1, 18+i);
+		Label label19_1= new Label(0,18+i,"序号",cellFormat); 
 		sheet.addCell(label19_1);
-		sheet.mergeCells(2, 18, 3, 18);
-		Label label19_2= new Label(2,18,"成果名称",cellFormat); 
+		sheet.mergeCells(2, 18+i, 3, 18+i);
+		Label label19_2= new Label(2,18+i,"成果名称",cellFormat); 
 		sheet.addCell(label19_2);
-		sheet.mergeCells(4, 18, 5, 18);
-		Label label19_3= new Label(4,18,"完成时间",cellFormat); 
+		sheet.mergeCells(4, 18+i, 5, 18+i);
+		Label label19_3= new Label(4,18+i,"完成时间",cellFormat); 
 		sheet.addCell(label19_3);
-		sheet.mergeCells(6, 18, 7, 18);
-		Label label19_4= new Label(6,18,"成果简介",cellFormat); 
+		sheet.mergeCells(6, 18+i, 7, 18+i);
+		Label label19_4= new Label(6,18+i,"成果简介",cellFormat); 
 		sheet.addCell(label19_4);
-		sheet.mergeCells(8, 18, 9, 18);
-		Label label19_5= new Label(8,18,"转化情况",cellFormat); 
+		sheet.mergeCells(8, 18+i, 9, 18+i);
+		Label label19_5= new Label(8,18+i,"转化情况",cellFormat); 
 		sheet.addCell(label19_5);
+			}
+			else{
+				sheet.mergeCells(0, 18+i, 1, 18+i);
+				Label label19_1= new Label(0,18+i,String.valueOf(i-xmnum),cellFormat); 
+				sheet.addCell(label19_1);
+				sheet.mergeCells(2, 18+i, 3, 18+i);
+				Label label19_2= new Label(2,18+i,formlist.get(0).getKjjszjcjbcgs().get(i-xmnum-1).getCgmc(),cellFormat); 
+				sheet.addCell(label19_2);
+				sheet.mergeCells(4, 18+i, 5, 18+i);
+				Label label19_3= new Label(4,18+i,formlist.get(0).getKjjszjcjbcgs().get(i-xmnum-1).getWcsj(),cellFormat); 
+				sheet.addCell(label19_3);
+				sheet.mergeCells(6, 18+i, 7, 18+i);
+				Label label19_4= new Label(6,18+i,formlist.get(0).getKjjszjcjbcgs().get(i-xmnum-1).getCgjj(),cellFormat); 
+				sheet.addCell(label19_4);
+				sheet.mergeCells(8, 18+i, 9, 18+i);
+				Label label19_5= new Label(8,18+i,formlist.get(0).getKjjszjcjbcgs().get(i-xmnum-1).getZhqk(),cellFormat); 
+				sheet.addCell(label19_5);
+			}
+			
+			
+		}
 		
 		
 		
-		sheet.mergeCells(0, 19, 9, 19);
-		Label label20= new Label(0,19,"在研项目情况",cellFormat); 
+		sheet.mergeCells(0, 19+xmnum+cgnum, 9, 19+xmnum+cgnum);
+		Label label20= new Label(0,19+xmnum+cgnum,"在研项目情况",cellFormat); 
 		sheet.addCell(label20);
-		sheet.mergeCells(0, 20, 1, 20);
-		Label label21_1= new Label(0,20,"序号",cellFormat); 
+		
+		
+		for(int i=xmnum+cgnum;i<=xmnum+cgnum+zynum;i++){
+			if(i==xmnum+cgnum){
+		sheet.mergeCells(0, 20+i, 1, 20+i);
+		Label label21_1= new Label(0,20+i,"序号",cellFormat); 
 		sheet.addCell(label21_1);
-		sheet.mergeCells(2, 20, 3, 20);
-		Label label21_2= new Label(2,20,"项目名称",cellFormat); 
+		sheet.mergeCells(2, 20+i, 3, 20+i);
+		Label label21_2= new Label(2,20+i,"项目名称",cellFormat); 
 		sheet.addCell(label21_2);
-		sheet.mergeCells(4, 20, 5, 20);
-		Label label21_3= new Label(4,20,"预计完成时间",cellFormat); 
+		sheet.mergeCells(4, 20+i, 5, 20+i);
+		Label label21_3= new Label(4,20+i,"预计完成时间",cellFormat); 
 		sheet.addCell(label21_3);
-		sheet.mergeCells(6, 20, 7, 20);
-		Label label21_4= new Label(6,20,"项目简介",cellFormat); 
+		sheet.mergeCells(6, 20+i, 7, 20+i);
+		Label label21_4= new Label(6,20+i,"项目简介",cellFormat); 
 		sheet.addCell(label21_4);
-		sheet.mergeCells(8, 20, 9, 20);
-		Label label21_5= new Label(8,20,"是否转化",cellFormat); 
+		sheet.mergeCells(8, 20+i, 9, 20+i);
+		Label label21_5= new Label(8,20+i,"是否转化",cellFormat); 
 		sheet.addCell(label21_5);
+			}
+			else {
+				sheet.mergeCells(0, 20+i, 1, 20+i);
+				Label label21_1= new Label(0,20+i,String.valueOf(i-xmnum-cgnum),cellFormat); 
+				sheet.addCell(label21_1);
+				sheet.mergeCells(2, 20+i, 3, 20+i);
+				Label label21_2= new Label(2,20+i,formlist.get(0).getKjjszjcjbzys().get(i-xmnum-cgnum-1).getXmmc(),cellFormat); 
+				sheet.addCell(label21_2);
+				sheet.mergeCells(4, 20+i, 5, 20+i);
+				Label label21_3= new Label(4,20+i,formlist.get(0).getKjjszjcjbzys().get(i-xmnum-cgnum-1).getWcsj(),cellFormat); 
+				sheet.addCell(label21_3);
+				sheet.mergeCells(6, 20+i, 7, 20+i);
+				Label label21_4= new Label(6,20+i,formlist.get(0).getKjjszjcjbzys().get(i-xmnum-cgnum-1).getXmjj(),cellFormat); 
+				sheet.addCell(label21_4);
+				sheet.mergeCells(8, 20+i, 9, 20+i);
+				Label label21_5= new Label(8,20+i,formlist.get(0).getKjjszjcjbzys().get(i-xmnum-cgnum-1).getSfzh(),cellFormat); 
+				sheet.addCell(label21_5);
+				
+			}
+		
+		}
 		
 		
-		sheet.mergeCells(0, 21, 1, 21);
-		Label label22_1= new Label(0,21,"以下信息是否公开",cellFormat); 
+		
+		
+		int addlength=xmnum+cgnum+zynum;
+		
+		
+		sheet.mergeCells(0, 21+addlength, 1, 21+addlength);
+		Label label22_1= new Label(0,21+addlength,"以下信息是否公开",cellFormat); 
 		sheet.addCell(label22_1);
-		sheet.mergeCells(2, 21, 9, 21);
-		Label label22_2= new Label(2,21,formlist.get(0).getSfgk(),cellFormat); 
+		sheet.mergeCells(2, 21+addlength, 9, 21+addlength);
+		Label label22_2= new Label(2,21+addlength,formlist.get(0).getSfgk(),cellFormat); 
 		sheet.addCell(label22_2);
 		
-		sheet.mergeCells(0, 22, 1, 22);
-		Label label23_1= new Label(0,22,"联系电话",cellFormat); 
+		sheet.mergeCells(0, 22+addlength, 1, 22+addlength);
+		Label label23_1= new Label(0,22+addlength,"联系电话",cellFormat); 
 		sheet.addCell(label23_1);
-		sheet.mergeCells(2, 22, 4, 22);
-		Label label23_2= new Label(2,22,formlist.get(0).getLxdh(),cellFormat); 
+		sheet.mergeCells(2, 22+addlength, 4, 22+addlength);
+		Label label23_2= new Label(2,22+addlength,formlist.get(0).getLxdh(),cellFormat); 
 		sheet.addCell(label23_2);
-		sheet.mergeCells(5, 22, 6, 22);
-		Label label23_3= new Label(5,22,"手机",cellFormat); 
+		sheet.mergeCells(5, 22+addlength, 6, 22+addlength);
+		Label label23_3= new Label(5,22+addlength,"手机",cellFormat); 
 		sheet.addCell(label23_3);
-		sheet.mergeCells(7, 22, 9, 22);
-		Label label23_4= new Label(7,22,formlist.get(0).getSj(),cellFormat); 
+		sheet.mergeCells(7, 22+addlength, 9, 22+addlength);
+		Label label23_4= new Label(7,22+addlength,formlist.get(0).getSj(),cellFormat); 
 		sheet.addCell(label23_4);
 		
 		
-		sheet.mergeCells(0, 23, 1, 23);
-		Label label24_1= new Label(0,23,"联系地址",cellFormat); 
+		sheet.mergeCells(0, 23+addlength, 1, 23+addlength);
+		Label label24_1= new Label(0,23+addlength,"联系地址",cellFormat); 
 		sheet.addCell(label24_1);
-		sheet.mergeCells(2, 23, 9, 23);
-		Label label24_2= new Label(2,23,formlist.get(0).getLxdz(),cellFormat); 
+		sheet.mergeCells(2, 23+addlength, 9, 23+addlength);
+		Label label24_2= new Label(2,23+addlength,formlist.get(0).getLxdz(),cellFormat); 
 		sheet.addCell(label24_2);
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -745,5 +875,37 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 		book.close();
 
 	}
+	
+	
+	
+	public List<KjjszjcjbxmForm> FindxmById(int id, List<KjjszjcjbxmForm> list){
+		List<Kjjszjcjbxm> Plist=this.xmPoToVoList(list);
+		Kjjszjcjb kjjszjcjb= kjjszjcjbDao.findObjectByID(id);
+		
+		System.out.println(kjjszjcjb.getKjjszjcjbxms());
+		for(int i=0;i<Plist.size();i++){
+			kjjszjcjb.getKjjszjcjbxms().add(Plist.get(i));
+		}
+		
+		return list;
+	}
+//	
+//	public void addJscgListWithExpertId(int id, List<KjjszjcjbcgForm> list){
+//		List<Kjjszjcjbcg> Plist=this.cgPoToVoList(list);
+//		Kjjszjcjb kjjszjcjb= kjjszjcjbDao.findObjectByID(id);
+//		for(int i=0;i<Plist.size();i++){
+//			kjjszjcjb.getKjjszjcjbcgs().add(Plist.get(i));
+//		}
+//		
+//	}
+//	public void addzyListWithExpertId(int id, List<KjjszjcjbzyForm> list){
+//		List<Kjjszjcjbzy> Plist=this.zyPoToVoList(list);
+//		Kjjszjcjb kjjszjcjb= kjjszjcjbDao.findObjectByID(id);
+//		for(int i=0;i<Plist.size();i++){
+//			kjjszjcjb.getKjjszjcjbzys().add(Plist.get(i));
+//		}
+//		
+//		
+//	}
 	
 }

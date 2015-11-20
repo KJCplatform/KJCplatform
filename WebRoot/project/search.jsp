@@ -205,9 +205,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 function ShowExport(){
-	  
+
+	  var isValid = $('#searchForm').form('validate');
+					if(!isValid){
+						alert("请输入专家姓名");
+						return false;
+					}
+					//alert(isValid);
+
 	var params =$('#searchForm').serialize();
-	alert(params);
+	//alert(params);
 
 	var showimport = basePath + '/system/KjjszjcjbAction_showexport.action';
 	            				
@@ -217,7 +224,7 @@ function ShowExport(){
 	        					$.messager.alert('导出', '导出Excel成功', 'info');
 	        				
 	        			}else {
-	        					$.messager.alert('导出', '导出Excel失败', 'warning');
+	        					$.messager.alert('导出', '导出失败：系统无此专家信息，请检查专家姓名', 'warning');
 	        				}
 	        		});
   
@@ -240,17 +247,19 @@ function ShowImport(){}
                         <input class="easyui-validatebox" type="text" name="zjxm" data-options="required:true" /> 
 					</td>
 					<td>
-						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>
+						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询  </a>
+					    <a href="#" class="easyui-linkbutton" id="btnExport" onclick="ShowExport()" >导出Excel</a> 　
 					</td>       
                 </tr>
             </table>
         </form>
 </div>
-    <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
-   选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
-       　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
-       <a href="#" class="easyui-linkbutton" id="btnExport" onclick="ShowExport()" >导出</a> 　
-</form>
+
+<!--     <form id="questionTypesManage"  method="post" enctype="multipart/form-data">   -->
+<!--    选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">   -->
+<!--        　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                        -->
+<!--        <a href="#" class="easyui-linkbutton" id="btnExport" onclick="ShowExport()" >导出Excel</a> 　 -->
+<!-- </form> -->
 
 
 <div data-options="region:'center',split:false">
