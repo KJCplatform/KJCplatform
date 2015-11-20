@@ -16,13 +16,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <script type="text/javascript" src="<%=basePath%>/script/easyui-lang-zh_CN.js"></script>
     <script type="text/javascript">
     	$(function() {
-    		
-    		
-    		 $('#cc').combobox({    
-    		        url:'<%=basePath%>/system/UserAction_home.action',    
-    		        valueField:'id',    
-    		        textField:'text'   
-    		    }); 
+    		var url = '<%=basePath%>/system/UserAction_home.action';
+    		var combodata = [];
+    		var obj = new Object();
+    		$.get(url, function(result) {
+				//alert(result);
+				for(i=0; i<result.length; i++){
+					obj.id = result[i].id;
+					obj.text = result[i].name;
+					combodata.push(obj);
+				}
+				
+			});
+    		 $('#cc').combobox('loadData',combodata);
     	});
     
     </script>
