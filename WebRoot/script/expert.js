@@ -6,6 +6,9 @@ var localhostPath = curWwwPath.substring(0, pos);
 var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
 var basePath = localhostPath + projectName;
 
+//globel
+var resultid;
+
 //test
 var test = [
 	 {"id": "xm", "name": "专家姓名", "group": "基本信息", "value": "", "editor": "text" },
@@ -235,13 +238,15 @@ $(function() {
 				text : '提交',
 				iconCls : 'icon-ok',// 图标
 				handler : function() {// 处理函数
+
 							var action = basePath + '/system/KjjszjcjbAction_addcxy.action';
+
 							var rows = $('#cxy').datagrid('getRows');
 							if(rows.length != 0){
 								for(i=0; i<rows.length; i++) {
-									rows[i].id = 1;
+									rows[i].id = resultid;
 								}
-			
+								//alert(resultid);
 								var data = {'cxyform': JSON.stringify(rows)};
 								//alert(data);
 								$.post(action, data, function(result){
@@ -269,7 +274,7 @@ $(function() {
 				  {field:'id',hidden:true,editor:{
 					  type: 'numberbox',
 					  options:{
-						  value: 1
+						  value: 0
 					  }
 				  }}, 
 		          {field:'xmmc',title:'项目名称',editor:'textarea',width:100},    
@@ -331,6 +336,19 @@ $(function() {
 					}
 				
 			},'-',{
+				text : "编辑",
+				iconCls : "icon-edit",
+				handler : function() {
+					var row = $('#jscg').datagrid('getSelected');
+					if (row) {
+						var rowIndex = $('#jscg').datagrid('getRowIndex', row);
+						$('#jscg').datagrid('beginEdit', rowIndex);
+					}
+					else{
+							$.messager.alert('编辑', '请先选中要编辑的记录', 'info');
+						}
+				}
+			},'-',{
 				text : '保存',
 				iconCls : 'icon-save',// 图标
 				handler : function() {// 处理函数
@@ -340,18 +358,35 @@ $(function() {
 				text : '提交',
 				iconCls : 'icon-edit',// 图标
 				handler : function() {// 处理函数
-					editDoc();
+						var action = basePath + '/system/KjjszjcjbAction_addjscg.action';
+						var rows = $('#jscg').datagrid('getRows');
+						if(rows.length != 0){
+							for(i=0; i<rows.length; i++) {
+								rows[i].id = resultid;
+							}
+							//alert(resultid);
+							var data = {'jscgform': JSON.stringify(rows)};
+							//alert(data);
+							$.post(action, data, function(result){
+								if (result.operateSuccess) {
+								//alert(result);
+									$('#jscg').datagrid('reload');// 重新加载
+									$.messager.alert('提交', '提交成功', 'info');
+								} else {
+									$.messager.alert('提交', '提交失败', 'warning');
+								}
+							});
+						}
 				}
 			}],
-			onClickRow:function(rowIndex){
-				if (lastIndex != rowIndex){
-					$('#jscg').datagrid('endEdit', lastIndex);
-					$('#jscg').datagrid('beginEdit', rowIndex);
-				}
-				lastIndex = rowIndex;
-			},
 			
 			columns:[[    
+				{field:'id',hidden:true,editor:{
+					  type: 'numberbox',
+					  options:{
+						  value: 0
+					  }
+				  }}, 
 				{field:'cgmc',title:'成果名称',editor:'textarea',width:100},    
 		        {field:'wcsj',title:'完成时间',width:100, editor:{
 					type:'datebox',
@@ -413,6 +448,19 @@ $(function() {
 					}
 				
 			},'-',{
+					text : "编辑",
+					iconCls : "icon-edit",
+					handler : function() {
+						var row = $('#zy').datagrid('getSelected');
+						if (row) {
+							var rowIndex = $('#zy').datagrid('getRowIndex', row);
+							$('#zy').datagrid('beginEdit', rowIndex);
+						}
+						else{
+								$.messager.alert('编辑', '请先选中要编辑的记录', 'info');
+							}
+					}
+			},'-',{
 				text : '保存',
 				iconCls : 'icon-save',// 图标
 				handler : function() {// 处理函数
@@ -422,18 +470,35 @@ $(function() {
 				text : '提交',
 				iconCls : 'icon-edit',// 图标
 				handler : function() {// 处理函数
-					editDoc();
+					var action = basePath + '/system/KjjszjcjbAction_addzy.action';
+					var rows = $('#zy').datagrid('getRows');
+					if(rows.length != 0){
+						for(i=0; i<rows.length; i++) {
+							rows[i].id = resultid;
+						}
+						//alert(resultid);
+						var data = {'zyform': JSON.stringify(rows)};
+						//alert(data);
+						$.post(action, data, function(result){
+							if (result.operateSuccess) {
+							//alert(result);
+								$('#zy').datagrid('reload');// 重新加载
+								$.messager.alert('提交', '提交成功', 'info');
+							} else {
+								$.messager.alert('提交', '提交失败', 'warning');
+							}
+						});
+					}
 				}
 			}],
-			onClickRow:function(rowIndex){
-				if (lastIndex != rowIndex){
-					$('#zy').datagrid('endEdit', lastIndex);
-					$('#zy').datagrid('beginEdit', rowIndex);
-				}
-				lastIndex = rowIndex;
-			},
 			
 			columns:[[    
+				{field:'id',hidden:true,editor:{
+					  type: 'numberbox',
+					  options:{
+						  value: 0
+					  }
+				  }}, 
 		        {field:'xmmc',title:'项目名称',editor:'textarea',width:100},    
 		        {field:'wcsj',title:'预计完成时间',width:100,
 					editor:{
@@ -474,11 +539,12 @@ function submit(){
 		}
 	
 	}
-	alert(s);
+	//alert(s);
 	if(s.length != 0){
 		$.post(action, s, function(result) {
 			if (result.operateSuccess) {
-					//alert(result);
+					//alert(result.resultid);
+					resultid = result.resultid;
 					$('#info').propertygrid('reload');// 重新加载
 					$.messager.alert('提交', '提交成功', 'info');
 			} else {
@@ -489,61 +555,12 @@ function submit(){
 	
 }
 
-function dealSave(action, string) {
-
-	}
-
-//查询
-function doSearch(){
-	
-}
-// 显示编辑窗口
-function showEditForm(div, form, title, pos) {
-	$(div).dialog({
-		modal : true,// 模式窗口
-		title : title,
-		iconCls : 'icon-save',
-		//left: 150,
-		top: pos,
-		buttons : [ {
-			text : '确认',
-			handler : function() {
-				// 进行表单字段验证，当全部字段都有效时返回true和validatebox一起使用
-				if ($(form).form('validate')) {
-					// 提交到服务器并写入数据库
-					dealSave();
-					// 关闭窗口
-					closeForm(div, form);
-				} else {
-					$.messager.alert('验证', '信息有误或不完整', 'error');
-				}
-			}
-		}, {
-			text : '取消',
-			handler : function() {
-				closeForm(div, form);
-			}
-		} ]
-	});
-}
-
 // 关闭窗口
 function closeForm(div, form) {
 	$(form).form('clear');
 	$(div).dialog('close');
 }
 
-// 添加的函数
-function addDoc(div, form, title, pos) {
-	// 清空原有的数据
-	//$('#frmEdit').form('clear');
-	$(form).form('clear');
-	// 显示添加对话框
-	showEditForm(div, form, title, pos);
-}
 
-function dealSave() {
-
-}
 
 
