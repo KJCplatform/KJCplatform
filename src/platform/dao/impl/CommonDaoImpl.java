@@ -108,6 +108,24 @@ public class CommonDaoImpl<T> extends HibernateDaoSupport implements ICommonDao<
 		});
 		return list;
 	}
+	
+	public List<T> findCollectionByConditionNoPage2(String hqlWhere,
+			final Object[] params, LinkedHashMap<String, String> orderby) {
+		String hql = "from " + entity.getSimpleName() + " o where ";
+		//组织排序条件
+		String hqlOrderBy = this.orderByCondition(orderby);
+		hql = hql + hqlWhere + hqlOrderBy;
+		final String finalHql = hql;
+		List<T> list = (List<T>)this.getHibernateTemplate().execute(new HibernateCallback(){
+            public Object doInHibernate(Session session)
+					throws HibernateException, SQLException {
+				Query query = session.createQuery(finalHql);
+				setParams(query,params);
+				return query.list();
+			}
+		});
+		return list;
+	}
 
 	public List<T> findCollectionByConditionWithPage(String hqlWhere,
 			final Object[] params, LinkedHashMap<String, String> orderby,final int pagesize,final int pageno) {
@@ -128,6 +146,8 @@ public class CommonDaoImpl<T> extends HibernateDaoSupport implements ICommonDao<
 		});
 		return list;
 	}
+	
+	
 	
 	/**  
 	* @Name: setParams

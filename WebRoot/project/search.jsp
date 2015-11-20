@@ -204,6 +204,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 
 
+function ShowExport(){
+	  
+	var params =$('#searchForm').serialize();
+	alert(params);
+
+	var showimport = basePath + '/system/KjjszjcjbAction_showexport.action';
+	            				
+	$.post(showimport, params, function(result) {
+	        			if (result.operateSuccess) {
+	        					$('#dg').datagrid('reload');// 重新加载
+	        					$.messager.alert('导出', '导出Excel成功', 'info');
+	        				
+	        			}else {
+	        					$.messager.alert('导出', '导出Excel失败', 'warning');
+	        				}
+	        		});
+  
+	            	  return false;
+	            	  }
+
+function ShowImport(){}
 
 	</script>
 </head>
@@ -225,6 +246,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </table>
         </form>
 </div>
+    <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
+   选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
+       　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
+       <a href="#" class="easyui-linkbutton" id="btnExport" onclick="ShowExport()" >导出</a> 　
+</form>
+
 
 <div data-options="region:'center',split:false">
 	

@@ -24,6 +24,10 @@ public interface KjjszjcjbService {
 
 	public int listSize();
 
+	public void showimportObject(String zjxm) throws Exception;
+
+	public void showexportObject() throws Exception;
+
 
 
 }
