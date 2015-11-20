@@ -115,13 +115,20 @@ public class KjjszjcjbAction extends BaseAction implements ModelDriven<Kjjszjcjb
 		return "list";
 	}
 	public String contact(){
-		//rows=5;
-		//page=1;
+		rows=5;
+		page=1;
+		//try{
 		List<KjjszjcjbForm> contactlist=kjjszjcjbService.findContactWithpage(rows, page);
+	
+		
 		  map.put("rows", contactlist);
-		  //System.out.println(formlist.get(1).getZjxm());
+		  System.out.println(contactlist.get(1).getZjxm());
 		  map.put("total", kjjszjcjbService.listSize());
+		  System.out.println(kjjszjcjbService.listSize());
 		  this.setResponseJson(map);
+		//}catch(Exception e){
+			//System.out.println(e);
+		//}
 		return "contact";
 	}
 	public String update(){

@@ -34,7 +34,7 @@ $(function() {
 });
 //加载公文列表
 function listDoc() {
-	var actionPath = basePath + '/system/KjjszjcjbAction_list.action';
+	var actionPath = basePath + '/system/KjjszjcjbAction_contact.action';
 	 $('#dg').datagrid({
             title : '专家通讯录',
             width : 1200,
@@ -53,25 +53,27 @@ function listDoc() {
             pagination : true,//分页
             rownumbers : true,//行数
 			
-			toolbar:[ {// 工具栏
-				text : '添加',
-				iconCls : 'icon-add', // 图标
-				handler : function() { // 处理函数
-					addDoc();
-				}
-			}, {
-				text : '删除',
-				iconCls : 'icon-cancel', // 图标
-				handler : function() { // 处理函数
-					deleteDoc();
-				}
-			}, {
-				text : '编辑',
-				iconCls : 'icon-edit',// 图标
-				handler : function() {// 处理函数
-					editDoc();
-				}
-			} ],
+//			toolbar:[ 
+//			          {// 工具栏
+//				text : '添加',
+//				iconCls : 'icon-add', // 图标
+//				handler : function() { // 处理函数
+//					addDoc();
+//				}
+//			}, {
+//				text : '删除',
+//				iconCls : 'icon-cancel', // 图标
+//				handler : function() { // 处理函数
+//					deleteDoc();
+//				}
+//			}, {
+//				text : '编辑',
+//				iconCls : 'icon-edit',// 图标
+//				handler : function() {// 处理函数
+//					editDoc();
+//				}
+//			} 
+//			],
         });
 }
 //查询
