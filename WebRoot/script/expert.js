@@ -10,31 +10,27 @@ var basePath = localhostPath + projectName;
 var resultid;
 
 //test
-var test = [
-	 {"id": "xm", "name": "专家姓名", "group": "基本信息", "value": "", "editor": "text" },
-     {"id": "xb", "name": "性别", "group": "基本信息", "value": "", 
-    		"editor":{
-    			"type": 'combobox', 
-    			"required": true ,
-    			"options":{
-    				"data":[{"value":"男","text":"男"},{"value":"女","text":"女"}],
-                        "panelHeight":"auto"		
-    				}
-		} 
-	}
-];
+
 var rows = [
             {"id": "zjxm", "name": "专家姓名", "group": "基本信息", "value": "", "editor": "text" },
             {"id": "xb", "name": "性别", "group": "基本信息", "value": "", 
     		"editor":{
     			"type": 'combobox', 
-    			"required": true ,
     			"options":{
     				"data":[{"value":"男","text":"男"},{"value":"女","text":"女"}],
-                        "panelHeight":"auto"		
+                    "panelHeight":"auto",
+					"required": true ,
+					"editable" : false 	
     				}
     		} },
-            {"id":"sfzh", "name": "身份证号", "value": "", "group": "基本信息", "editor":"text" },
+            {"id":"sfzh", "name": "身份证号", "value": "", "group": "基本信息", 
+				"editor":{
+					"type": 'validatebox',	
+					"options":{
+                        "validType":"idcard"
+                    }
+					
+				}},
     		{"id":"yx", "name":"邮箱","value":"", "group":"基本信息","editor":{
                     "type":"validatebox",
                     "options":{
@@ -45,9 +41,12 @@ var rows = [
     		"editor":{
     			"type": 'combobox', 
     			"required": true ,
+				"editable" : false ,
     			"options":{
     				"data":[{"value":"职称1","text":"职称1"},{"value":"职称2","text":"职称2"},{"value":"职称3","text":"职称3"}],
-                        "panelHeight":"auto"		
+                    "panelHeight":"auto",
+					"required": true ,
+					"editable" : false 		
     				}	
     		} },
     		{"id":"zw","name": "职务", "value": "", "group": "基本信息", "editor":"text" },
@@ -56,20 +55,21 @@ var rows = [
     		{"id": "zgxl", "name": "最高学历", "group": "基本信息", "value": "下拉菜单选择", 
     		"editor":{
     			"type": 'combobox', 
-    			"required": true ,
     			"options":{
     				"data":[{"value":"院士","text":"院士"},{"value":"博士","text":"博士"},{"value":"硕士","text":"硕士"},{"value":"本科","text":"本科"},{"value":"大专","text":"大专"},{"value":"其他","text":"其他"}],
-                        "panelHeight":"auto"		
+                    "panelHeight":"auto",
+					"required": true ,
+					"editable" : false 		
     				}	
     		} },
     		{"id": "szdq", "name": "所在地区", "group": "基本信息", "value": "", 
     		"editor":{
     			"type": 'combotree', 
-    			"required": true ,
 				"options":{
 					"url": basePath + '/project/area.json',
 					"multiple" : true,
 					"cascadeCheck": false,
+					"required": true ,
 					"onClick": function(node) {  
 						//返回树对象  
 						//alert(node.text);
@@ -90,59 +90,75 @@ var rows = [
 			{"id": "sfgk", "name": "以下信息是否公开", "group": "联系方式", "value": "", 
     		"editor":{
     			"type": 'combobox', 
-    			"required": true ,
     			"options":{
     				"data":[{"value":"是","text":"是"},{"value":"否","text":"否"}],
-                "panelHeight":"auto"		
+					"panelHeight":"auto",
+					"required": true ,
+					"editable" : false 	
     				}
     		} },
-			{"id": "lxdh", "name": "联系电话", "value": "", "group": "联系方式", "editor":"text" },
-			{"id": "sj", "name": "手机", "value": "", "group": "联系方式", "editor":"text" },
+			{"id": "lxdh", "name": "联系电话", "value": "", "group": "联系方式", 
+			"editor":{
+				"type": 'validatebox',
+				"options":{
+					"validType": "phone"
+				}
+			}},
+			{"id": "sj", "name": "手机", "value": "", "group": "联系方式", "editor":{
+				"type": 'validatebox',
+				"options":{
+					"validType": "mobile"
+				}
+			}},
 			{"id": "lxdz", "name": "联系地址", "value": "", "group": "联系方式", "editor":"text" },
 			
 			{"id": "hyly", "name": "行业领域", "group": "研究方向", "value": "", 
     		"editor":{
     			"type": 'combotree', 
-    			"required": true ,
 				"options":{
 					"url": basePath + '/project/industry.json',
 					"multiple" : true,
 					"checkbox": true ,
-					"cascadeCheck": false
+					"cascadeCheck": false,
+					"required": true ,
+					"editable": false
 				}
     			
     		} }	,
 			{"id": "jsly", "name": "技术领域", "group": "研究方向", "value": "", 
     		"editor":{
     			"type": 'combotree', 
-    			"required": true ,
 				"options":{
 					"url": basePath + '/project/tech.json',
 					"multiple" : true,
 					"checkbox": true ,
-					"cascadeCheck": false
+					"cascadeCheck": false,
+					"required": true ,
+					"editable": false
 				}
     		} }	,
 			{"id": "xkly", "name": "学科领域", "group": "研究方向", "value": "", 
     		"editor":{
     			"type": 'combotree', 
-    			"required": true ,
     			"options":{
 					"url": basePath + '/project/subject.json',
 					"multiple" : true,
 					"checkbox": true ,
-					"cascadeCheck": false
+					"cascadeCheck": false,
+					"required": true ,
+					"editable": false
 				}
     		} }	,
 			
-			{"id": "fwyy", "name": "服务意愿", "group": "其他信息", "value": "下拉菜单选择", 
+			{"id": "fwyy", "name": "服务意愿", "group": "其他信息", "value": "", 
     		"editor":{
     			"type": 'combobox', 
-    			"required": true ,
-				"multiple":true ,  
     			"options":{
     				"data":[{"value":"技术成果及需求评价","text":"技术成果及需求评价"},{"value":"技术开发","text":"技术开发"},{"value":"技术咨询","text":"技术咨询"},{"value":"技术服务","text":"技术服务"}],
-                        "panelHeight":"auto"		
+                    "panelHeight":"auto",
+					"required": true ,
+					"multiple":true ,  
+					"editable": false
     				}	
     		} },
 			{"id": "szpt", "name": "所在研发平台或实验基地", "value": "", "group": "其他信息", "editor":"text" },
@@ -166,13 +182,7 @@ $(function() {
     });
 	$("#info").propertygrid('loadData', rows);
 	
-	// 日期加上日期控件
-	$("#wcsj").datebox({
-		required : true
-	});
-	$("#wcsj2").datebox({
-		required : true
-	});	
+	
 	$('#cxy').datagrid({
 			title : '产学研合作项目情况',
             width : 1200,
@@ -285,7 +295,8 @@ $(function() {
 						type:'combobox',  
 						options:{  
 							data:[{"value":"良好","text":"良好"},{"value":"一般","text":"一般"}],  
-							required:true  
+							required:true ,
+							editable:false	
 							} 
 						}    
 				  }
@@ -390,7 +401,10 @@ $(function() {
 				{field:'cgmc',title:'成果名称',editor:'textarea',width:100},    
 		        {field:'wcsj',title:'完成时间',width:100, editor:{
 					type:'datebox',
-					required: true
+					options:{
+						required: true,
+						editable: false	
+					}
 					}
 				},  
 				{field:'cgjj',title:'成果简介',editor:'textarea',width:100},  				  
@@ -398,7 +412,8 @@ $(function() {
 						type:'combobox',  
 						options:{  
 							data:[{"value":"已转化，继续转化","text":"已转化，继续转化"},{"value":"未转化，希望转化","text":"未转化，希望转化"}],  
-							required:true  
+							required:true,
+							editable: false
 							} 
 					}
 				}    
@@ -503,7 +518,10 @@ $(function() {
 		        {field:'wcsj',title:'预计完成时间',width:100,
 					editor:{
 						type:'datebox',
-						required: true
+						options:{
+							required: true,
+							editable: false
+						}			
 					}
 				},  
 				{field:'xmjj',title:'项目简介',width:100,editor:'textarea'},  				  
@@ -511,7 +529,8 @@ $(function() {
 						type:'combobox',  
 						options:{  
 							data:[{"value":"是","text":"是"},{"value":"否","text":"否"}],  
-							required:true  
+							required:true,
+							editable: false	
 						} 
 					}
 				}    
