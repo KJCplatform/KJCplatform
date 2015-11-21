@@ -59,7 +59,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(function() {
 			$('#info').propertygrid({
 	
-		        width: 1200,
+		        width: 1000,
 		        height: 'auto',
 		        showGroup: true,
 		        scrollbarSize: 0,
@@ -72,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			$('#cxy').datagrid({
 				title : '产学研合作项目情况',
-				width : 1200,
+				width : 1000,
 				height: 400,
 				fitColumns : true, // 自动适应列宽      
 				pageSize : 5,//默认选择的分页是每页5行数据
@@ -91,7 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 			$('#jscg').datagrid({
 				title : '主持或参与完成的技术成果情况',
-				width : 1200,
+				width : 1000,
 				height: 400,
 				fitColumns : true, // 自动适应列宽      
 				pageSize : 5,//默认选择的分页是每页5行数据
@@ -110,7 +110,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 			$('#zy').datagrid({
 				title : '在研项目情况',
-				width : 1200,
+				width : 1000,
 				height: 400,
 				fitColumns : true, // 自动适应列宽      
 				pageSize : 5,//默认选择的分页是每页5行数据

@@ -14,8 +14,6 @@ public interface KjkjxmxxbService {
 
 	public void addCjdwListWithExpertId(int id, List<KjkjxmxxbcjdwForm> list);
 
-	
-
 	public List<KjkjxmxxbForm> findKjkjxmxxbList(KjkjxmxxbForm kjkjxmxxbForm);
 
 

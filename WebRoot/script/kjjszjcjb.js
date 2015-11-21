@@ -37,7 +37,7 @@ function listDoc() {
 	var actionPath = basePath + '/system/KjjszjcjbAction_contact.action';
 	 $('#dg').datagrid({
             title : '专家通讯录',
-            width : 1200,
+            width : 1000,
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      

@@ -124,18 +124,19 @@ public class KjkjxmxxbAction extends BaseAction implements ModelDriven<Kjkjxmxxb
 		return   "delete";
 	}
 	public String add(){
+		System.out.println(resultid);
 		/*KjjszjcjbForm kjjszjcjbForm1=new KjjszjcjbForm();
 		kjjszjcjbForm1.setFwyy("哈哈哈");
 		kjjszjcjbForm1.setGzbm("哈哈哈");
 		kjjszjcjbForm1.setZytc("哈哈哈");
 		kjjszjcjbForm1.setSfgk("否");*/
 		resultid=kjkjxmxxbService.saveKjkjxmxxb(kjkjxmxxbForm);
+		System.out.println(resultid);
 		//System.out.println(resultid);
 		operateSuccess=true;
 		return "add";
 	}
 	public String addcjdw(){
-
 		//System.out.println(cxyform);
 		//JSONObject jsonObj = JSONObject.fromObject(cxyform);
 		List<KjkjxmxxbcjdwForm> list=new ArrayList<KjkjxmxxbcjdwForm>();
@@ -145,15 +146,13 @@ public class KjkjxmxxbAction extends BaseAction implements ModelDriven<Kjkjxmxxb
         	KjkjxmxxbcjdwForm kjkjxmxxbcjdwForm=new KjkjxmxxbcjdwForm();
         	kjkjxmxxbcjdwForm.setXh(jsonJ.getString("xh"));
         	kjkjxmxxbcjdwForm.setDwmc(jsonJ.getString("dwmc"));
-        	//System.out.println(kjjszjcjbxmForm.getXmmc());
+        	
+        	System.out.println(kjkjxmxxbcjdwForm.getXh());
     //    	kjkjxmxxbcjdwForm.setFk_kj_kjxmxxb(jsonJ.getString("fk_kj_kjxmxxb"));
         	//System.out.println(kjjszjcjbxmForm.getXmjj());
         	
         	list.add(kjkjxmxxbcjdwForm);   	
         }
-      //  System.out.println(list.get(0).getId());
-     //   System.out.println(list.get(0).getXh());
-      //  System.out.println(list.get(0).getDwmc());
         kjkjxmxxbService.addCjdwListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
 		operateSuccess=true;
 		return "addcjdw";

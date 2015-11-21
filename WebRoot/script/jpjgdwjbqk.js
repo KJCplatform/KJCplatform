@@ -47,7 +47,7 @@ var rows = [
 $(function() {
 	var lastIndex;
 	$('#jgdwjbqk').propertygrid({
-		width: 1200,
+		width: 1000,
         height: 'auto',
         showGroup: true,
         scrollbarSize: 0,
@@ -68,7 +68,7 @@ $(function() {
 	
 	$('#srqk').datagrid({
 			title : '产值或销售收入情况',
-            width : 1200,
+            width : 1000,
             height: 400,
 			fitColumns : true, // 自动适应列宽      
             pageSize : 5,//默认选择的分页是每页5行数据
@@ -144,7 +144,7 @@ $(function() {
 								//alert(data);
 								$.post(action, data, function(result){
 									if (result.operateSuccess) {
-									//alert(result);
+									alert(result);
 										$('#srqk').datagrid('reload');// 重新加载
 										$.messager.alert('提交', '提交成功', 'info');
 									} else {
@@ -185,7 +185,7 @@ $(function() {
 	
 	$('#ry').datagrid({
 		title : '武器装备科研生产的许可专业（产品）',
-        width : 1200,
+        width : 1000,
         height: 400,
 		fitColumns : true, // 自动适应列宽      
         pageSize : 5,//默认选择的分页是每页5行数据
@@ -261,7 +261,7 @@ $(function() {
 							//alert(data);
 							$.post(action, data, function(result){
 								if (result.operateSuccess) {
-								//alert(result);
+								alert(result);
 									$('#ry').datagrid('reload');// 重新加载
 									$.messager.alert('提交', '提交成功', 'info');
 								} else {

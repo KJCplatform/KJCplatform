@@ -38,7 +38,7 @@ var rows = [
 $(function() {
 	var lastIndex;
 	$('#gxjsqyrdba').propertygrid({
-		width: 1200,
+		width: 1000,
         height: 'auto',
         showGroup: true,
         scrollbarSize: 0,
@@ -59,7 +59,7 @@ $(function() {
 	
 	$('#gxcp').datagrid({
 			title : '上年度高新技术产品（服务）情况',
-            width : 1200,
+            width : 1000,
             height: 400,
 			fitColumns : true, // 自动适应列宽      
             pageSize : 5,//默认选择的分页是每页5行数据
@@ -175,7 +175,7 @@ $(function() {
 	
 	$('#yfxm').datagrid({
 		title : '企业研究开发项目情况',
-        width : 1200,
+        width : 1000,
         height: 400,
 		fitColumns : true, // 自动适应列宽      
         pageSize : 5,//默认选择的分页是每页5行数据
@@ -284,7 +284,7 @@ $(function() {
 	
 	$('#zscq').datagrid({
 		title : '近3年内获得的自主知识产权情况',
-        width : 1200,
+        width : 1000,
         height: 400,
 		fitColumns : true, // 自动适应列宽      
         pageSize : 5,//默认选择的分页是每页5行数据

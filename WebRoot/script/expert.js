@@ -152,7 +152,7 @@ var rows = [
 $(function() {
 	var lastIndex;
 	$('#info').propertygrid({
-		width: 1200,
+		width: 1000,
         height: 'auto',
         showGroup: true,
         scrollbarSize: 0,
@@ -172,7 +172,7 @@ $(function() {
 	});	
 	$('#cxy').datagrid({
 			title : '产学研合作项目情况',
-            width : 1200,
+            width : 1000,
             height: 400,
 			fitColumns : true, // 自动适应列宽      
             pageSize : 5,//默认选择的分页是每页5行数据
@@ -239,14 +239,14 @@ $(function() {
 							var rows = $('#cxy').datagrid('getRows');
 							if(rows.length != 0){
 								for(i=0; i<rows.length; i++) {
-									rows[i].id = 1;
+									rows[i].id = resultid;
 								}
 			
 								var data = {'cxyform': JSON.stringify(rows)};
 								//alert(data);
 								$.post(action, data, function(result){
 									if (result.operateSuccess) {
-									//alert(result);
+									alert(result);
 										$('#cxy').datagrid('reload');// 重新加载
 										$.messager.alert('提交', '提交成功', 'info');
 									} else {
@@ -290,7 +290,7 @@ $(function() {
 	
 	$('#jscg').datagrid({
 			title : '主持或参与完成的技术成果情况',
-            width : 1200,
+            width : 1000,
             height: 400,
 			fitColumns : true, // 自动适应列宽      
             pageSize : 5,//默认选择的分页是每页5行数据
@@ -336,12 +336,30 @@ $(function() {
 				handler : function() {// 处理函数
 					$('#jscg').datagrid('acceptChanges');
 				}
-			},'-',{
+			},'-',{	
 				text : '提交',
-				iconCls : 'icon-edit',// 图标
+				iconCls : 'icon-ok',// 图标
 				handler : function() {// 处理函数
-					editDoc();
-				}
+							var action = basePath + '/system/KjjszjcjbAction_addjscg.action';
+							var rows = $('#jscg').datagrid('getRows');
+							if(rows.length != 0){
+								for(i=0; i<rows.length; i++) {
+									rows[i].id = resultid;
+								}
+			
+								var data = {'jscgform': JSON.stringify(rows)};
+								//alert(data);
+								$.post(action, data, function(result){
+									if (result.operateSuccess) {
+									//alert(result);
+										$('#jscg').datagrid('reload');// 重新加载
+										$.messager.alert('提交', '提交成功', 'info');
+									} else {
+										$.messager.alert('提交', '提交失败', 'warning');
+									}
+								});
+							}
+						}
 			}],
 			onClickRow:function(rowIndex){
 				if (lastIndex != rowIndex){
@@ -372,7 +390,7 @@ $(function() {
 	
 		$('#zy').datagrid({
 			title : '在研项目情况',
-            width : 1200,
+            width : 1000,
             height: 400,
 			fitColumns : true, // 自动适应列宽      
             pageSize : 5,//默认选择的分页是每页5行数据
@@ -413,17 +431,48 @@ $(function() {
 					}
 				
 			},'-',{
+				text : "编辑",
+				iconCls : "icon-edit",
+				handler : function() {
+					var row = $('#zy').datagrid('getSelected');
+					if (row) {
+						var rowIndex = $('#zy').datagrid('getRowIndex', row);
+						$('#zy').datagrid('beginEdit', rowIndex);
+					}
+					else{
+							$.messager.alert('编辑', '请先选中要编辑的记录', 'info');
+						}
+				}
+			},'-',{
 				text : '保存',
 				iconCls : 'icon-save',// 图标
 				handler : function() {// 处理函数
 					$('#zy').datagrid('acceptChanges');
 				}
-			},'-',{
+			},'-',{	
 				text : '提交',
-				iconCls : 'icon-edit',// 图标
+				iconCls : 'icon-ok',// 图标
 				handler : function() {// 处理函数
-					editDoc();
-				}
+							var action = basePath + '/system/KjjszjcjbAction_addzy.action';
+							var rows = $('#zy').datagrid('getRows');
+							if(rows.length != 0){
+								for(i=0; i<rows.length; i++) {
+									rows[i].id = resultid;
+								}
+			
+								var data = {'zyform': JSON.stringify(rows)};
+								//alert(data);
+								$.post(action, data, function(result){
+									if (result.operateSuccess) {
+									//alert(result);
+										$('#zy').datagrid('reload');// 重新加载
+										$.messager.alert('提交', '提交成功', 'info');
+									} else {
+										$.messager.alert('提交', '提交失败', 'warning');
+									}
+								});
+							}
+						}
 			}],
 			onClickRow:function(rowIndex){
 				if (lastIndex != rowIndex){
@@ -479,6 +528,8 @@ function submit(){
 		$.post(action, s, function(result) {
 			if (result.operateSuccess) {
 					//alert(result);
+				resultid = result.resultid;
+				
 					$('#info').propertygrid('reload');// 重新加载
 					$.messager.alert('提交', '提交成功', 'info');
 			} else {

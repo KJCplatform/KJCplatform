@@ -71,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(function() {
 			$('#jgdwjbqk').propertygrid({
 	
-		        width: 1200,
+		        width: 1000,
 		        height: 'auto',
 		        showGroup: true,
 		        scrollbarSize: 0,
@@ -84,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			$('#srqk').datagrid({
 				title : '产值或销售收入情况',
-				width : 1200,
+				width : 1000,
 				height: 400,
 				fitColumns : true, // 自动适应列宽      
 				pageSize : 5,//默认选择的分页是每页5行数据
@@ -105,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 					$('#ry').datagrid({
 				title : '武器装备科研生产的许可专业（产品）',
-				width : 1200,
+				width : 1000,
 				height: 400,
 				fitColumns : true, // 自动适应列宽      
 				pageSize : 5,//默认选择的分页是每页5行数据

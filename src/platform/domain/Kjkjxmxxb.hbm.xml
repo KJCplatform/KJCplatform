@@ -100,7 +100,7 @@
                 <comment>高级</comment>
             </column>
         </property>
-        <property name="zj" type="java.lang.Boolean">
+        <property name="zj" type="java.lang.String">
             <column name="zj">
                 <comment>中级</comment>
             </column>

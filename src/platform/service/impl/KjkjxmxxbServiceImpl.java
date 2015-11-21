@@ -1,7 +1,7 @@
 package platform.service.impl;
 
 import java.util.ArrayList;
-
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
@@ -15,13 +15,12 @@ import org.springframework.transaction.annotation.Transactional;
 import platform.dao.KjkjxmxxbDao;
 import platform.domain.Kjkjxmxxb;
 import platform.domain.Kjkjxmxxbcjdw;
-
 import platform.form.KjkjxmxxbForm;
 import platform.form.KjkjxmxxbcjdwForm;
-
 import platform.service.KjkjxmxxbService;
 
 @Transactional
+
 @Service(KjkjxmxxbService.SERVICE_NAME)
 public class KjkjxmxxbServiceImpl implements KjkjxmxxbService{
 	
@@ -30,13 +29,16 @@ public class KjkjxmxxbServiceImpl implements KjkjxmxxbService{
 
 	public String saveKjkjxmxxb(KjkjxmxxbForm kjkjxmxxbForm){
 		Kjkjxmxxb kjkjxmxxb=this.VoObjecttoPoObject(kjkjxmxxbForm);
+		try{
 		kjkjxmxxbDao.save(kjkjxmxxb);
+		}catch(Exception e){System.out.println(e);}
 		return kjkjxmxxbDao.selectMaxId();
 		
 	}
 
 	private Kjkjxmxxb VoObjecttoPoObject(KjkjxmxxbForm kjkjxmxxbForm) {
 		Kjkjxmxxb kjkjxmxxb=new Kjkjxmxxb();
+	//	kjkjxmxxb.setId(Integer.valueOf(kjkjxmxxbForm.getId()));
 		kjkjxmxxb.setXmbh(kjkjxmxxbForm.getXmbh());
 		kjkjxmxxb.setXmmc(kjkjxmxxbForm.getXmmc());
 		kjkjxmxxb.setCjdws(kjkjxmxxbForm.getCjdws());
@@ -71,16 +73,29 @@ public class KjkjxmxxbServiceImpl implements KjkjxmxxbService{
 		return kjkjxmxxb;
 	}
 	public void addCjdwListWithExpertId(int id, List<KjkjxmxxbcjdwForm> list){
+//		System.out.println("hhs1:"+list.get(0).getXh());
 		List<Kjkjxmxxbcjdw> Plist=this.cjdwPoToVoList(list);
+//		System.out.println("hhs2:"+Plist.get(0).getXh());
+		
 		Kjkjxmxxb kjkjxmxxb= kjkjxmxxbDao.findObjectByID(id);
-
+//		private Integer id;
+//		private String xh;
+//		private String dwmc;
+//		private Set<Kjkjxmxxb> Kjkjxmxxbs = new HashSet<Kjkjxmxxb>();
+		
+		
+		System.out.println("hh:"+Plist.get(0).getDwmc());
+		System.out.println("hh:"+Plist.get(0).getXh());
+		System.out.println("hh:"+Plist.get(0).getId());
+		System.out.println("hh:"+Plist.get(0).getKjkjxmxxbs());
+		
 		try{
-			System.out.println(kjkjxmxxb.getKjkjxmxxbcjdws());
-		//kjkjxmxxb.getKjkjxmxxbcjdws().add(Plist.get(0));
+		
+		for(int i=0;i<Plist.size();i++){
+			kjkjxmxxb.getKjkjxmxxbcjdws().add(Plist.get(i));
+		}
+		
 		}catch(Exception e){System.out.println(e);}
-		//		for(int i=0;i<Plist.size();i++){
-//			kjkjxmxxb.getKjkjxmxxbcjdws().add(Plist.get(i));
-//		}
 		
 	}
 	
@@ -88,9 +103,8 @@ public class KjkjxmxxbServiceImpl implements KjkjxmxxbService{
 		List<Kjkjxmxxbcjdw> Plist=new ArrayList<Kjkjxmxxbcjdw>();
 		for(int i=0;i<list.size();i++){
 			Kjkjxmxxbcjdw kjkjxmxxbcjdw=new Kjkjxmxxbcjdw();
-			
-			kjkjxmxxbcjdw.setXh(list.get(i).getXh());
 			kjkjxmxxbcjdw.setDwmc(list.get(i).getDwmc());
+			kjkjxmxxbcjdw.setXh(list.get(i).getXh());
 	//		kjkjxmxxbcjdw.setFk_kj_kjxmxxb(list.get(i).getFk_kj_kjxmxxb());
 			
 			

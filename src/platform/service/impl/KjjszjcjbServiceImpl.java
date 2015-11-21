@@ -87,7 +87,15 @@ public class KjjszjcjbServiceImpl implements KjjszjcjbService{
 		List<Kjjszjcjbxm> Plist=this.xmPoToVoList(list);
 		Kjjszjcjb kjjszjcjb= kjjszjcjbDao.findObjectByID(id);
 		
-		System.out.println(	kjjszjcjb.getKjjszjcjbxms());
+		System.out.println(Plist.get(0).getHzsj());
+		System.out.println(Plist.get(0).getXmjj());
+		System.out.println(Plist.get(0).getXmmc());
+		System.out.println(Plist.get(0).getHzxg());
+		System.out.println(Plist.get(0).getId());
+		System.out.println(Plist.get(0).getKjjszjcjbs());
+	
+		
+		
 		for(int i=0;i<Plist.size();i++){
 			kjjszjcjb.getKjjszjcjbxms().add(Plist.get(i));
 		}

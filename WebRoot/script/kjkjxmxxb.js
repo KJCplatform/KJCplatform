@@ -137,7 +137,7 @@ var rows = [
 $(function() {
 	var lastIndex;
 	$('#kjxmxx').propertygrid({
-		width: 1200,
+		width: 1000,
         height: 'auto',
         showGroup: true,
         scrollbarSize: 0,
@@ -158,7 +158,7 @@ $(function() {
 	
 	$('#cjdw').datagrid({
 			title : '其他参加单位',
-            width : 1200,
+            width : 1000,
             height: 400,
 			fitColumns : true, // 自动适应列宽      
             pageSize : 5,//默认选择的分页是每页5行数据
@@ -225,7 +225,7 @@ $(function() {
 							var rows = $('#cjdw').datagrid('getRows');
 							if(rows.length != 0){
 								for(i=0; i<rows.length; i++) {
-									rows[i].id = 1;
+									rows[i].id = resultid;
 								}
 								//alert(resultid);
 								var data = {'cjdwform': JSON.stringify(rows)};
@@ -293,7 +293,7 @@ function submit(){
 		$.post(action, s, function(result) {
 			if (result.operateSuccess) {
 					//alert(result.resultid);
-					//resultid = result.resultid;
+					resultid = result.resultid;
 					$('#kjxmxx').propertygrid('reload');// 重新加载
 					$.messager.alert('提交', '提交成功', 'info');
 			} else {

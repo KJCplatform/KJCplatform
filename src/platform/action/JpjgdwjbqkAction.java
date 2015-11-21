@@ -129,7 +129,7 @@ public class JpjgdwjbqkAction extends BaseAction implements ModelDriven<Jpjgdwjb
 		return "add";
 	}
 	public String addsrqk(){
-		//System.out.println(cxyform);
+		System.out.println(srqkform);
 		//JSONObject jsonObj = JSONObject.fromObject(cxyform);
 		List<JpjgdwjbqksrqkForm> list=new ArrayList<JpjgdwjbqksrqkForm>();
 		JSONArray  arrays=JSONArray.fromObject(srqkform);
@@ -139,6 +139,7 @@ public class JpjgdwjbqkAction extends BaseAction implements ModelDriven<Jpjgdwjb
         //	jpjgdwjbqksrqkForm.setFk_jgdwjbqk_id(jsonJ.getString("fk_jgdwjbqk_id"));
         	//System.out.println(kjjszjcjbxmForm.getXmmc());
         	jpjgdwjbqksrqkForm.setYear(jsonJ.getString("year"));
+        	System.out.println(jpjgdwjbqksrqkForm.getYear());
         	//System.out.println(kjjszjcjbxmForm.getXmjj());
         	jpjgdwjbqksrqkForm.setZcz(jsonJ.getString("zcz"));
         	//System.out.println(kjjszjcjbxmForm.getHzsj());
@@ -167,7 +168,8 @@ public class JpjgdwjbqkAction extends BaseAction implements ModelDriven<Jpjgdwjb
         }
 		jpjgdwjbqkService.addRyListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
 		operateSuccess=true;
-		return "addjscg";
+		System.out.println("!!!!!!!11");
+		return "addry";
 		
 	}
 	
