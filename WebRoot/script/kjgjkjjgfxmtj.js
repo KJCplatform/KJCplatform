@@ -93,7 +93,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '公文操作',
+		title : '国家科学技术奖国防科技工业专用项目特等奖统计',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',

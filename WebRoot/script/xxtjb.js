@@ -89,7 +89,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '公文操作',
+		title : '国防军工企事业单位计量检定人员',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',

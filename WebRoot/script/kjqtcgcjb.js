@@ -141,7 +141,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '公文操作',
+		title : '其他技术成果采集',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',

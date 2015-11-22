@@ -121,7 +121,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '公文操作',
+		title : '农作物新品种成果',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',

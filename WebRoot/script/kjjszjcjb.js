@@ -87,7 +87,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '公文操作',
+		title : '专家通讯录',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',

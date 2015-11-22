@@ -80,7 +80,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '公文操作',
+		title : '大型仪器信息表',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',

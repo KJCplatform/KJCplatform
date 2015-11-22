@@ -107,7 +107,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '编辑',
+		title : '国防三级计量技术机构',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',

@@ -73,7 +73,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '公文操作',
+		title : '湖北省科学技术奖励情况表',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',

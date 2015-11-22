@@ -76,7 +76,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '公文操作',
+		title : '国防科技工业军工产品质量',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',
@@ -145,7 +145,7 @@ function dealSave() {
 	var params = $("#frmEdit").serialize();
 	var actionAdd = basePath + '/system/JpzlzkjbbAction_add.action';
 	var actionUpdate = basePath + '/system/JpzlzkjbbAction_update.action';
-	alert(params);
+	//alert(params);
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
