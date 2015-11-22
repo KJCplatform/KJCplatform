@@ -21,8 +21,12 @@ var rows = [
             {"id":"dwdz", "name": "单位地址", "group": "基本信息", "value": "", "editor":"text" },
             {"id":"yzbm", "name": "邮政编码", "value": "", "group": "基本信息", "editor":"text" },
             {"id":"lxr", "name": "联系人", "group": "基本信息", "value": "", "editor": "text" },
-            {"id":"lxdh", "name": "联系电话", "group": "基本信息", "value": "", "editor":"text" },
-            {"id":"zgzs", "name": "在岗职工总人数", "value": "", "group": "人员构成", "editor":"text" },
+            {"id":"lxdh", "name": "联系电话", "group": "基本信息", "value": "", "editor":{
+            	"type": 'numberbox', 
+            } },
+            {"id":"zgzs", "name": "在岗职工总人数", "value": "", "group": "人员构成", "editor":{
+            	"type": 'numberbox', 
+            } },
             {"id":"gzgl", "name": "高职管理", "group": "人员构成", "value": "", "editor": "text" },
             {"id":"zzgl", "name": "中职管理", "group": "人员构成", "value": "", "editor":"text" },
             {"id":"czgl", "name": "初职管理", "value": "", "group": "人员构成", "editor":"text" },
@@ -32,8 +36,12 @@ var rows = [
             {"id":"gzgr", "name": "高职工人", "value": "", "group": "人员构成", "editor":"text" },
             {"id":"zzgr", "name": "中职工人", "group": "人员构成", "value": "", "editor":"text" },
             {"id":"czgr", "name": "初职工人", "value": "", "group": "人员构成", "editor":"text" },
-            {"id":"gjjcgs", "name": "国家级科技成果数", "group": "获得科技成果数量", "value": "", "editor": "text" },
-            {"id":"sbjcgs", "name": "省部级科技成果数", "group": "获得科技成果数量", "value": "", "editor":"text" },
+            {"id":"gjjcgs", "name": "国家级科技成果数", "group": "获得科技成果数量", "value": "", "editor": {
+            	"type": 'numberbox', 
+            } },
+            {"id":"sbjcgs", "name": "省部级科技成果数", "group": "获得科技成果数量", "value": "", "editor":{
+            	"type": 'numberbox', 
+            } },
             {"id":"jbqk", "name": "单位基本情况", "value": "", "group": "其他信息", "editor":"text" },
             {"id":"kyfx", "name": "单位科研方向", "group": "其他信息", "value": "", "editor": "text" },
             {"id":"qyscgl", "name": "企业生产纲领", "group": "其他信息", "value": "", "editor":"text" },

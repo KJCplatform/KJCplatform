@@ -76,6 +76,16 @@ $(function() {
 		
 	});
 
+//    $("dzyx").validatebox({
+//    	
+//    	 email : {     
+//             validator: function(value){     
+//                 return /^[a-zA-Z0-9_+.-]+\@([a-zA-Z0-9-]+\.)+[a-zA-Z0-9]{2,4}$/i.test($.trim(value));     
+//             },     
+//             message: '电子邮箱格式错误.'
+//    	 }
+//    });
+    
 });
 //加载公文列表
 function listDoc() {

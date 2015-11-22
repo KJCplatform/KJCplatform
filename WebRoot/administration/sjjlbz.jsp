@@ -143,7 +143,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dl>
 			<dl>
 				<dd>联系人:</dd>
-				<dd><textarea cols="45" rows="3" id="lxr" name="lxr"></textarea></dd>
+			<dd><input type="text" style="width: 150px" id="lxr" name="lxr" /></dd>
 			</dl>
 			<dl>
 				<dd>办公电话:</dd>

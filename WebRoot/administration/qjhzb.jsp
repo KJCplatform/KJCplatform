@@ -111,7 +111,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dl>
 			<dl>
 				<dd>配套设备名称型号:</dd>
-				<dd><input  type="text" style="width: 150px" id="ptmcxh" name="ptmcxh" /></dd>
+				<dd><textarea cols="45" rows="3" id="ptmcxh" name="ptmcxh"></textarea></dd>
 			</dl>
 			<dl>
 				<dd>测量参数及范围:</dd>
