@@ -266,7 +266,7 @@
 				<dl>
 					<dd>
 						联系人姓名: <input size="15" id="lxrxm" name="lxrxm" /> 固定电话: <input
-							type="text" style="width: 150px" id="gddh" name="gddh" />
+							type="text" style="width: 150px" id="gddh" name="gddh" style="width:150px;" />
 					</dd>
 				</dl>
 
@@ -285,7 +285,7 @@
 
 				<dl>
 					<dd>
-						手机: <input type="text" style="width: 150px" id="sj" name="sj" />
+						手机: <input type="text" style="width: 150px" id="sj" name="sj" style="width:150px;" />
 						电子邮箱: <input size="15" id="dzyx" name="dzyx" />
 					</dd>
 				</dl>

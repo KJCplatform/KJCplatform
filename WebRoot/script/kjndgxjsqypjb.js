@@ -19,21 +19,21 @@ $(function() {
 		missingMessage : '不能为空'
 	});
 	
-//	$("#zgzs").numberbox({
-//		maxlength:11   
-//	});
-//	$("#dzysrs").numberbox({
-//		maxlength:11   
-//	});
-//	$("#yfrys").numberbox({
-//		maxlength:11   
-//	});
-//	$("#xmhds").numberbox({
-//		maxlength:11   
-//	});
-//	$("#cphds").numberbox({
-//		maxlength:11   
-//	});
+	$("#zgzs").numberbox({
+		maxlength:11   
+	});
+	$("#dzysrs").numberbox({
+		maxlength:11   
+	});
+	$("#yfrys").numberbox({
+		maxlength:11   
+	});
+	$("#xmhds").numberbox({
+		maxlength:11   
+	});
+	$("#cphds").numberbox({
+		maxlength:11   
+	});
 
 });
 //加载公文列表

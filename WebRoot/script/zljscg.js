@@ -57,15 +57,7 @@ $(function() {
 
 	);
 	
-//	$('#jyfs').combotree();
-//	$('#jyfs').combotree('loadData', 
-//			[{ id: "技术许可", text: '技术许可'},
-//				{id: "技术转让", text: '技术转让'},
-//				{id: "技术入股", text: '技术入股'},
-//				{id: "技术提成", text: '技术提成'},
-//				{id: "其他方式", text: '其他方式'}
-//			 ]
-//	);
+
 	
 	$('#jyfs').combotree();
 	$('#jyfs').combotree('loadData', 
@@ -77,12 +69,12 @@ $(function() {
 			 ]
 	);
 	
-//	$("#sj").numberbox({
-//		
-//	});
-//	$("#gddh").numberbox({
-//		
-//	});
+	$("#sj").numberbox({
+		
+	});
+	$("#gddh").numberbox({
+		
+	});
 
 });
 //加载公文列表

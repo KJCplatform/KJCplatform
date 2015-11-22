@@ -129,30 +129,30 @@
 				</dl>
 				<dl>
 					<dd>
-						职工总数: <input size="15" id="zgzs" name="zgzs" />
+						职工总数: <input size="15" id="zgzs" name="zgzs" style="width:150px;" />
 					</dd>
 				</dl>
 				<dl>
 					<dd>
-						大专以上学历科技人员数: <input size="15" id="dzysrs" name="dzysrs" />
+						大专以上学历科技人员数: <input size="15" id="dzysrs" name="dzysrs" style="width:150px;" />
 					</dd>
 				</dl>
 								<dl>
 					<dd>
-						研发人员数: <input size="15" id="yfrys" name="yfrys" />
+						研发人员数: <input size="15" id="yfrys" name="yfrys" style="width:150px;" />
 					</dd>
 				</dl>
 				
 								<dl>
 					<dd>
-						研发项目核定数: <input size="15" id="xmhds" name="xmhds" />
+						研发项目核定数: <input size="15" id="xmhds" name="xmhds" style="width:150px;"  />
 					</dd>
 				</dl>
 
 
 				<dl>
 					<dd>
-						高新技术产品核定数: <input size="15" id="cphds" name="cphds" />
+						高新技术产品核定数: <input size="15" id="cphds" name="cphds" style="width:150px;" />
 					</dd>
 				</dl>
 				<dl>
