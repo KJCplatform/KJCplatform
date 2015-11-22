@@ -123,6 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					var rows = obj.rows;
 					//alert(rows.length);
 					//判断取出的专家记录是否唯一
+					
 					if(rows.length == 0){
 						alert("系统无此项目编号，请检查输入信息");
 					}
@@ -167,16 +168,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						
 						var cjdwdata = {};
 				
-						if(info.Kjkjxmxxbcjdws != null){
-							cjdwdata.total = info.Kjkjxmxxbcjdws.length;
-							cjdwdata.rows = info.Kjkjxmxxbcjdws;
+						if(info.kjkjxmxxbcjdws != null){
+							cjdwdata.total = info.kjkjxmxxbcjdws.length;
+							cjdwdata.rows = info.kjkjxmxxbcjdws;
 						}
 				
 					}
 					 $('#kjxmxx').propertygrid('loadData', display);
 					 if(cjdwdata){
+					//alert("cjdw:"+cjdwdata);
 						 $('#cjdw').datagrid('loadData', cjdwdata);
 					 }
+					 
+					 
+					 
+					 
+					 
 					 
 				}   
 			})

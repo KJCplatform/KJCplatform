@@ -145,9 +145,9 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 		Object [] params = null;
 		List<String> paramsList=new ArrayList<String>();
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
-		if(kjgxqybabForm!=null&&StringUtils.isNotBlank(kjgxqybabForm.getYear())){
-			hqlWhere += " and o.year = ?";
-			paramsList.add(kjgxqybabForm.getYear());
+		if(kjgxqybabForm!=null&&StringUtils.isNotBlank(kjgxqybabForm.getQymc())){
+			hqlWhere += " and o.qymc = ?";
+			paramsList.add(kjgxqybabForm.getQymc());
 		}
 		orderby.put(" o.id", "desc");
 		params = paramsList.toArray();

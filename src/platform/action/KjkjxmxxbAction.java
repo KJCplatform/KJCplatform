@@ -112,6 +112,8 @@ public class KjkjxmxxbAction extends BaseAction implements ModelDriven<Kjkjxmxxb
 		  this.setResponseJson(map);
 		//map.put("total", xzxzgzbService.findXzxzgzbList().size());
 		//this.setResponseJson(map);
+		  
+		  System.out.println("succedd!");
 		return "list";
 	}
 	public String update(){

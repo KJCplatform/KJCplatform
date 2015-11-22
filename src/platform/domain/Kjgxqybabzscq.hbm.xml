@@ -34,7 +34,7 @@
 
           <set name="kjgxqybabs" table="kj_qy_zscq" >
             <key>
-                <column name="FK_jp_zscq" not-null="true" />
+                <column name="FK_kj_zscq" not-null="true" />
             </key>
             <many-to-many class="platform.domain.Kjgxqybab" column="FK_kj_gxqybab" />
         </set>

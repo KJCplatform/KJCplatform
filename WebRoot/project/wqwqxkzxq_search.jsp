@@ -202,17 +202,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							srqkdata.total = info.wqwqxkzxqsrqks.length;
 							srqkdata.rows = info.wqwqxkzxqsrqks;
 						}
-						if(info.wqwqxkzxqxkzyxkzycps!= null){
-							xkzycpdata.total = info.wqwqxkzxqxkzyxkzycps.length;
-							xkzycpdata.rows = info.wqwqxkzxqxkzyxkzycps;
+						if(info.wqwqxkzxqxkzycps!= null){
+							xkzycpdata.total = info.wqwqxkzxqxkzycps.length;
+							xkzycpdata.rows = info.wqwqxkzxqxkzycps;
 						}
 				
 					}
 					 $('#wqzbkyscxkzxq').propertygrid('loadData', display);
 					 if(srqkdata){
+					// alert("1:"+srqkdata.total);
+					// alert("2:"+srqkdata.rows);
+					 
 						 $('#srqk').datagrid('loadData', srqkdata);
 					 }
 					  if(xkzycpdata){
+					// alert("3:"+xkzycpdata.total);
+					// alert("4:"+xkzycpdata.rows);
+					  
 						 $('#xkzycp').datagrid('loadData', xkzycpdata);
 					 }
 				}   

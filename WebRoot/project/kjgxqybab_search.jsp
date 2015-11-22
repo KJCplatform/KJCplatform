@@ -161,7 +161,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					var obj={};
 					obj = eval('(' + data + ')');
 					var rows = obj.rows;
-					//alert(rows.length);
+					alert(rows.length);
 					//判断取出的专家记录是否唯一
 					if(rows.length == 0){
 						alert("系统无此企业名称，请检查输入信息");
@@ -201,24 +201,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							gxcpdata.total = info.kjgxqybabgxcps.length;
 							gxcpdata.rows = info.kjgxqybabgxcps;
 						}
-						if(info.kjgxqybabxkyfxms!= null){
-							yfxmdata.total = info.kjgxqybabxkyfxms.length;
-							yfxmdata.rows = info.kjgxqybabxkyfxms;
+						if(info.kjgxqybabyfxms!= null){
+							yfxmdata.total = info.kjgxqybabyfxms.length;
+							yfxmdata.rows = info.kjgxqybabyfxms;
 						}
-						if(info.kjgxqybabxkzscqs!= null){
-							zscqdata.total = info.kjgxqybabxkzscqs.length;
-							zscqdata.rows = info.kjgxqybabxkzscqs;
+						if(info.kjgxqybabzscqs!= null){
+							zscqdata.total = info.kjgxqybabzscqs.length;
+							zscqdata.rows = info.kjgxqybabzscqs;
 						}
 				
 					}
 					 $('#gxjsqyrdba').propertygrid('loadData', display);
 					 if(gxcpdata){
+					// alert("1");
 						 $('#gxcp').datagrid('loadData', gxcpdata);
 					 }
 					  if(yfxmdata){
+					//   alert("2");
 						 $('#yfxm').datagrid('loadData', yfxmdata);
 					 }
 					 if(zscqdata){
+					 // alert("3");
 						 $('#zscq').datagrid('loadData', zscqdata);
 					 }
 				}   

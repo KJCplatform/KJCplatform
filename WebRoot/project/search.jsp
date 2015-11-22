@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				{ "name": "所在研发平台或实验基地", "group": "其他信息","value": "", "editor": "text"},
 				{ "name": "专家简介", "group": "其他信息","value": "", "editor": "textarea"},
 				{ "name": "专业特长", "group": "其他信息","value": "", "editor": "textarea"}
-			]
+			];
 		$(function() {
 			$('#info').propertygrid({
 	
