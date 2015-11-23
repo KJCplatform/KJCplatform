@@ -12,26 +12,18 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import excel.CreateExcel;
-import excel.ReadExcel;
 import platform.dao.KjsjjljgxxbDao;
 import platform.domain.Kjsjjljgxxb;
 import platform.form.KjsjjljgxxbForm;
 import platform.service.KjsjjljgxxbService;
-import platform.util.StringHelper;
+
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
-import jxl.read.biff.BiffException;
-import jxl.write.Label;
-import jxl.write.WritableCellFormat;
-import jxl.write.WritableSheet;
-import jxl.write.WritableWorkbook;
+
 
 @Service(KjsjjljgxxbService.SERVICE_NAME)
 public class KjsjjljgxxbServiceImpl implements KjsjjljgxxbService {
@@ -246,17 +238,15 @@ public class KjsjjljgxxbServiceImpl implements KjsjjljgxxbService {
 		// }
 
 	}
-
-	@Override
-	public void showexportObject(String str) throws Exception {
-
-		 
-		String[] ss = str.split(" ");  
-		//System.out.println(str);  
-		//for(int i=0;i<ss.length;i++)
-		//System.out.println(ss[i]);  
-		
-		
+	/**
+	 * 将要导出的数据存成LinkedHashMap
+	 * @param ss
+	 * @return LinkedHashMap
+	 */
+	private LinkedHashMap<String, ArrayList<String>> getDataAsHashMap(String str){
+		LinkedHashMap<String, ArrayList<String>> lhm = new LinkedHashMap<String ,ArrayList<String>>();
+		List<String> li = new ArrayList<String>();
+		String[] ss = str.split(" ");
 		
 		String hqlWhere = "";
 		Object[] params = null;
@@ -266,141 +256,83 @@ public class KjsjjljgxxbServiceImpl implements KjsjjljgxxbService {
 				.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<KjsjjljgxxbForm> formlist = this.KjsjjljgxxbPOListToVOList(list);
 
+		for(int i = 0, k =0 ; i < ss.length; i ++){
+			switch (ss[i]) {
+			case "1":
+			    for(int j= 0;j< list.size();j++){
+			    	li.add(formlist.get(j).getFrmc());
+			    }
+			    lhm.put("法人单位名称", new ArrayList<String>(li));
+			    li.clear();
+			    k++;
+				break;
+			case "2":
+			    for(int j= 0;j< list.size();j++){
+			    	li.add(formlist.get(j).getJlzy());
+			    }
+			    lhm.put("涉及的计量专业", new ArrayList<String>(li));
+			    li.clear();
+			    k++;
+				break;
+			case "3":
+			    for(int j= 0;j< list.size();j++){
+			    	li.add(formlist.get(j).getQjsl());
+			    }
+			    lhm.put("企事业最高计量标准器具数量", new ArrayList<String>(li));
+			    li.clear();
+			    k++;
+				break;
+			case "4":
+			    for(int j= 0;j< list.size();j++){
+			    	li.add(formlist.get(j).getTxdz());
+			    }
+			    lhm.put("通讯地址", new ArrayList<String>(li));
+			    li.clear();
+			    k++;
+				break;
+			case "5":
+			    for(int j= 0;j< list.size();j++){
+			    	li.add(formlist.get(j).getLxr());
+			    }
+			    lhm.put("联系人", new ArrayList<String>(li));
+			    li.clear();
+			    k++;
+			    break;
+			case "6":
+			    for(int j= 0;j< list.size();j++){
+			    	li.add(formlist.get(j).getBgdh());
+			    }
+			    lhm.put("办公电话", new ArrayList<String>(li));
+			    li.clear();
+			    k++;
+				break;
+			case "7":
+			    for(int j= 0;j< list.size();j++){
+			    	li.add(formlist.get(j).getSj());
+			    }
+			    lhm.put("手机", new ArrayList<String>(li));
+			    li.clear();
+			    k++;
+				break;
+			}
+			
+		}
+		
+		return lhm;
+	}
+	
+	
+	
+	@Override
+	public void showexportObject(String str) throws Exception {
+
+		 
+		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		// System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
 		String time = df.format(new Date());
-		String path = "D:\\国防三级计量技术机构    admin  " + time + ".xls";
-
-		// 打开文件
-		WritableWorkbook book = Workbook.createWorkbook(new File(path));
-		// 生成名为“第一页”的工作表，参数0表示这是第一页
-		WritableSheet sheet = book.createSheet(" 第一页 ", 0);
-		// 在Label对象的构造子中指名单元格位置是第一列第一行(0,0)
-		// 以及单元格内容为test
-
-		  WritableCellFormat cellFormat=new WritableCellFormat();
-			cellFormat.setBorder(jxl.format.Border.ALL,jxl.format.BorderLineStyle.THIN); 
-			cellFormat.setAlignment(jxl.format.Alignment.CENTRE);
-			
-		
-			int lie=0;
-			
-		for(int i=0;i<ss.length;i++)
-		{
-			sheet.setColumnView( i , 20 );
-			switch(ss[i]){
-			case "1":
-				Label lab1 = new Label(lie, 0, "法人单位名称",cellFormat);
-			    sheet.addCell(lab1);
-			    for(int j=1;j<=list.size();j++){
-			    	Label label = new Label(lie, j, formlist.get(j-1).getFrmc(),cellFormat);
-					sheet.addCell(label);
-			    }
-			    lie++;
-			    break;
-			case "2":
-				Label lab2 = new Label(lie, 0,"涉及的计量专业",cellFormat);
-			    sheet.addCell(lab2);
-			    for(int j=1;j<=list.size();j++){
-			    	Label label = new Label(lie, j, formlist.get(j-1).getJlzy(),cellFormat);
-					sheet.addCell(label);
-			    }
-			    lie++;
-			    break;
-			case "3":
-				Label lab3 = new Label(lie, 0, "企事业最高计量标准器具数量",cellFormat);
-			    sheet.addCell(lab3);
-			    for(int j=1;j<=list.size();j++){
-			    	Label label = new Label(lie, j, formlist.get(j-1).getQjsl(),cellFormat);
-					sheet.addCell(label);
-			    }
-			    lie++;
-			    break;
-			case "4":
-				Label lab4 = new Label(lie, 0, "通讯地址",cellFormat);
-			    sheet.addCell(lab4);
-			    for(int j=1;j<=list.size();j++){
-			    	Label label = new Label(lie, j, formlist.get(j-1).getTxdz(),cellFormat);
-					sheet.addCell(label);
-			    }
-			    lie++;
-			    break;
-			case "5":
-				Label lab5 = new Label(lie, 0, "联系人",cellFormat);
-			    sheet.addCell(lab5);
-			    for(int j=1;j<=list.size();j++){
-			    	Label label = new Label(lie, j, formlist.get(j-1).getLxr(),cellFormat);
-					sheet.addCell(label);
-			    }
-			    lie++;
-			    break;
-			case "6":
-				Label lab6 = new Label(lie, 0, "办公电话",cellFormat);
-			    sheet.addCell(lab6);
-			    for(int j=1;j<=list.size();j++){
-			    	Label label = new Label(lie, j, formlist.get(j-1).getBgdh(),cellFormat);
-					sheet.addCell(label);
-			    }
-			    lie++;
-			    break;
-			case "7":
-				Label lab7 = new Label(lie, 0, "手机",cellFormat);
-			    sheet.addCell(lab7);
-			    for(int j=1;j<=list.size();j++){
-			    	Label label = new Label(lie, j, formlist.get(j-1).getSj(),cellFormat);
-					sheet.addCell(label);
-			    }
-			    lie++;
-			    break;
-			
-			}
-		}
-		
-//		for (int i = 0; i <= list.size(); i++) {
-//			if (i == 0) {
-//				Label label = new Label(0, i, "法人单位名称");
-//				sheet.addCell(label);
-//				Label label2 = new Label(1, i, "涉及的计量专业");
-//				sheet.addCell(label2);
-//				Label label3 = new Label(2, i, "企事业最高计量标准器具数量");
-//				sheet.addCell(label3);
-//				Label label4 = new Label(3, i, "通讯地址");
-//				sheet.addCell(label4);
-//				Label label5 = new Label(4, i, "联系人");
-//				sheet.addCell(label5);
-//				Label label6 = new Label(5, i, "办公电话");
-//				sheet.addCell(label6);
-//				Label label7 = new Label(6, i, "手机");
-//				sheet.addCell(label7);
-//			} else {
-//
-//				Label label = new Label(0, i, formlist.get(i-1).getFrmc());
-//				sheet.addCell(label);
-//				Label label2 = new Label(1, i, formlist.get(i-1).getJlzy());
-//				sheet.addCell(label2);
-//				Label label3 = new Label(2, i, formlist.get(i-1).getQjsl());
-//				sheet.addCell(label3);
-//				Label label4 = new Label(3, i, formlist.get(i-1).getTxdz());
-//				sheet.addCell(label4);
-//				Label label5 = new Label(4, i, formlist.get(i-1).getLxr());
-//				sheet.addCell(label5);
-//				Label label6 = new Label(5, i, formlist.get(i-1).getBgdh());
-//				sheet.addCell(label6);
-//				Label label7 = new Label(6, i, formlist.get(i-1).getSj());
-//				sheet.addCell(label7);
-//			}
-//		}
-
-		// /**/ /*
-		// * 生成一个保存数字的单元格 必须使用Number的完整包路径，否则有语法歧义 单元格位置是第二列，第一行，值为789.123
-		// */
-		// jxl.write.Number number = new jxl.write.Number( 1 , 0 , 555.12541 );
-		// sheet.addCell(number);
-
-		// 写入数据并关闭文件
-		book.write();
-		book.close();
-
+		String path = "D:\\国防三级计量技术机构    admin  " + time + ".xls";	
+		CreateExcel.createExcel(getDataAsHashMap(str), path);				
 	}
 
 }
