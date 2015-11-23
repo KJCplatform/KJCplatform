@@ -161,7 +161,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					var obj={};
 					obj = eval('(' + data + ')');
 					var rows = obj.rows;
-					alert(rows.length);
+					//alert(rows.length);
 					//判断取出的专家记录是否唯一
 					if(rows.length == 0){
 						alert("系统无此企业名称，请检查输入信息");

@@ -49,25 +49,32 @@
 
 <body>
 
-	<div data-options="region:'north',title:'高级查询'" style="height: 60px;">
-		<form id="searchForm">
-			<table>
-				<tr>
-					<th>年度：</th>
-					<td><input id="fileName" /></td>
-				</tr>
-				<tr>
-					<th>企业名称：</th>
-					<td><input id="fileId" /></td>
-					<td><a class="easyui-linkbutton"
-						data-options="iconCls:'icon-search'" href="javascript:void(0);"
-						onclick="doSearch();">查询</a></td>
+<!-- 	<div data-options="region:'north',title:'高级查询'" style="height: 60px;"> -->
+<!-- 		<form id="searchForm"> -->
+<!-- 			<table> -->
+<!-- 				<tr> -->
+<!-- 					<th>年度：</th> -->
+<!-- 					<td><input id="fileName" /></td> -->
+<!-- 				</tr> -->
+<!-- 				<tr> -->
+<!-- 					<th>企业名称：</th> -->
+<!-- 					<td><input id="fileId" /></td> -->
+<!-- 					<td><a class="easyui-linkbutton" -->
+<!-- 						data-options="iconCls:'icon-search'" href="javascript:void(0);" -->
+<!-- 						onclick="doSearch();">查询</a></td> -->
 
-				</tr>
-			</table>
-		</form>
-	</div>
+<!-- 				</tr> -->
+<!-- 			</table> -->
+<!-- 		</form> -->
+<!-- 	</div> -->
 
+    <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
+   选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
+       　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
+<!--        <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　 -->
+ <a href="#" class="easyui-linkbutton" id="btnExport"   action="<%=basePath%>/excel/gx.xls" style="position: relative ;left:20px;">表格格式</a>
+
+</form>
 
 	<div data-options="region:'center',split:false">
 		<!-- 表格主题部分-->

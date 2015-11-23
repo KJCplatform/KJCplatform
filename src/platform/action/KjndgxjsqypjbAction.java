@@ -4,12 +4,15 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+
 import platform.action.BaseAction;
 import platform.dao.TestDataDao;
 import platform.domain.Kjndgxjsqypjb;
@@ -17,7 +20,9 @@ import platform.form.TestDataFrom;
 import platform.form.KjndgxjsqypjbForm;
 import platform.service.TestDataService;
 import platform.service.KjndgxjsqypjbService;
+
 import com.opensymphony.xwork2.ModelDriven;
+
 import container.ServiceProvider;
 
 @SuppressWarnings({ "unused", "serial" })
@@ -99,6 +104,25 @@ public class KjndgxjsqypjbAction extends BaseAction implements ModelDriven<Kjndg
 		operateSuccess=true;
 		return "add";
 	}
+	
+	
+	public String showimport() throws Exception{
+		System.out.println(kjndgxjsqypjbForm.getQymc());
+		kjndgxjsqypjbService.showimportObject(kjndgxjsqypjbForm.getQymc());
+		operateSuccess=true;
+		return "showimport";
+	}
+	
+	public String showexport() throws Exception{
+		//System.out.println(kjsjjljgxxbForm.getFrmc());
+		kjndgxjsqypjbService.showexportObject(kjndgxjsqypjbForm.getQymc());
+		operateSuccess=true;
+		return "showexport";
+	}
+	
+	
+	
+	
 }
 
 

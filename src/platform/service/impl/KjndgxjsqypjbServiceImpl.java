@@ -1,4 +1,5 @@
 package platform.service.impl;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -6,11 +7,16 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import platform.dao.KjndgxjsqypjbDao;
 import platform.domain.Kjndgxjsqypjb;
+import platform.domain.Kjsjjljgxxb;
 import platform.form.KjndgxjsqypjbForm;
 import platform.service.KjndgxjsqypjbService;
 import platform.util.StringHelper;
@@ -199,6 +205,120 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 			formlist.add(kjndgxjsqypjbForm);
 		}
 		return formlist;
+	}
+	
+	@Override
+	public void showimportObject(String showimport)  throws Exception {
+		
+		String b = showimport.replace("\\", "\\\\");
+		String c = b.replace("C:\\\\fakepath", "D:");
+
+		Workbook book = Workbook.getWorkbook(new File(c));
+		// Workbook book = Workbook.getWorkbook( new File(b));
+		// 获得第一个工作表对象
+		Sheet sheet = book.getSheet(0);
+		// 得到第一列第一行的单元格
+
+		int columnum = sheet.getColumns();// 得到列数
+		int rownum = sheet.getRows();// 得到行数
+
+
+		Kjndgxjsqypjb kjndgxjsqypjb=new Kjndgxjsqypjb();
+		
+		Cell cell= sheet.getCell(2,1);
+		kjndgxjsqypjb.setYear(cell.getContents());
+		
+		cell=sheet.getCell(2,2);
+		kjndgxjsqypjb.setQymc(cell.getContents());
+		
+		cell=sheet.getCell(9,2);
+		kjndgxjsqypjb.setCply(cell.getContents());
+	
+		cell=sheet.getCell(2,3);
+		kjndgxjsqypjb.setZgzs(Integer.valueOf(cell.getContents().trim()));
+	
+		cell=sheet.getCell(7,3);
+		kjndgxjsqypjb.setDzysrs(Integer.valueOf(cell.getContents().trim()));
+	
+		cell=sheet.getCell(10,3);
+		kjndgxjsqypjb.setYfrys(Integer.valueOf(cell.getContents().trim()));
+	
+		cell=sheet.getCell(4,4);
+		kjndgxjsqypjb.setXmhds(Integer.valueOf(cell.getContents().trim()));
+	
+		cell=sheet.getCell(10,4);
+		kjndgxjsqypjb.setCphds(Integer.valueOf(cell.getContents().trim()));
+	
+		cell=sheet.getCell(4,6);
+		kjndgxjsqypjb.setJfze(cell.getContents());
+	
+		cell=sheet.getCell(10,6);
+		kjndgxjsqypjb.setYncpsr(cell.getContents());
+	
+		cell=sheet.getCell(4,7);
+		kjndgxjsqypjb.setJnyfze(cell.getContents());
+		
+		cell=sheet.getCell(10,8);
+		kjndgxjsqypjb.setDzrybl(cell.getContents());
+		
+		cell=sheet.getCell(10,9);
+		kjndgxjsqypjb.setYfrybl(cell.getContents());
+		
+		cell=sheet.getCell(10,10);
+		kjndgxjsqypjb.setJsnyfbl(cell.getContents());
+		
+		cell=sheet.getCell(10,11);
+		kjndgxjsqypjb.setJsnjnbl(cell.getContents());
+		
+		cell=sheet.getCell(10,12);
+		kjndgxjsqypjb.setJyngxsrbl(cell.getContents());
+		
+		cell=sheet.getCell(10,13);
+		kjndgxjsqypjb.setZscqdf(cell.getContents());
+		
+		cell=sheet.getCell(10,14);
+		kjndgxjsqypjb.setZhnldf(cell.getContents());
+		
+		cell=sheet.getCell(10,15);
+		kjndgxjsqypjb.setGlspdf(cell.getContents());
+		
+		cell=sheet.getCell(10,16);
+		kjndgxjsqypjb.setCzzbdf(cell.getContents());
+		
+		cell=sheet.getCell(3,13);
+		kjndgxjsqypjb.setZhdf(cell.getContents());
+		
+		cell=sheet.getCell(1,17);
+		kjndgxjsqypjb.setZhpj(cell.getContents());
+		
+		cell=sheet.getCell(1,23);
+		kjndgxjsqypjb.setPdzjz(cell.getContents());
+		
+		
+		
+		
+		kjndgxjsqypjbDao.save(kjndgxjsqypjb);
+			
+
+		
+
+		book.close();
+		// } catch (Exception e) {
+		// System.out.println(e);
+		// }
+		
+		
+	}
+	
+	
+	
+	
+	@Override
+	public void showexportObject(String qymc) {
+
+		
+		
+		
 	}
 
 	
