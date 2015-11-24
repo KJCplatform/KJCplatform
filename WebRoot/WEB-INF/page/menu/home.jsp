@@ -6,6 +6,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" content="ie=edge"/> 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>湖北省国防科学技术工业办公室软件平台</title>
     <link href="<%=basePath%>/css/default.css" rel="stylesheet" type="text/css" />
@@ -35,7 +36,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuid": "12",
 				"menuname": "专家通讯录",
 				"icon": "icon-log",
-				"url": "<%=basePath%>/administration/zjtxl.jsp"
+				"url": "<%=basePath%>/administration/kjjszjcjb.jsp"
 				//"url": "http://hxling.cnblogs.com",
 				
 // 				"child": [{
@@ -86,13 +87,13 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			
 		]
 		
-	},<%}if(rights.contains("2")){%>
-	{
+	}<%}if(rights.contains("2")){%>
+	,{
 		"menuid": "2",
 		"icon": "icon-sys",
 		"menuname": "科技项目管理",
 		"menus":[
-		{
+			{
 			"menuid": "21",
 			"menuname": "技术成果基本信息",
 			"icon": "icon-nav",
@@ -231,7 +232,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"url": "<%=basePath%>/project/kjkjxmxxb_search.jsp"
 			}]	
 		},
-			{
+		{
 			"menuid": "29",
 			"menuname": "高新技术企业认定备案信息",
 			"icon": "icon-nav",
@@ -240,41 +241,41 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuid": "291",
 				"menuname": "数据录入-高新技术企业认定备案信息",
 				"icon": "icon-nav",
-				"url": "<%=basePath%>/project/kjqxqybab.jsp"
+				"url": "<%=basePath%>/project/kjgxqybab.jsp"
 			},{
 				"menuid": "292",
 				"menuname": "信息查询-高新技术企业认定备案信息",
 				"icon": "icon-nav",
-				"url": "<%=basePath%>/project/kjqxqybab_search.jsp"
+				"url": "<%=basePath%>/project/kjgxqybab_search.jsp"
 			}]	
 		},
-			{
+		{
 				"menuid": "2A",
 				"menuname": "科技项目库",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/kjkjxmk.jsp"
 				
-			},
+		},
 	
-			{
+		{
 				"menuid": "2B",
 				"menuname": "认定高新企业备案表",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
 				
-			}
+		}
 		
 		
 		
 	]
 		
-	},<%}if(rights.contains("3")){%>
-	{
+	}<%}if(rights.contains("3")){%>
+	,{
 		"menuid": "3",
 		"icon": "icon-sys",
 		"menuname": "军品质量管理",
 		"menus":[
-			{
+		{
 			"menuid": "31",
 			"menuname": "国防科技工业军工产品质量",
 			"icon": "icon-nav",
@@ -286,10 +287,9 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuname": "国防科技工业质量事故",
 			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/jpsgwtbb.jsp"			
-		}
-		]
-	},<%}if(rights.contains("4")){%>
-	{
+		}]
+	}<%}if(rights.contains("4")){%>
+	,{
 		"menuid": "4",
 		"icon": "icon-sys",
 		"menuname": "计量机构管理",
@@ -312,7 +312,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/xxtjb.jsp"	
 		},
-				{
+		{
 			"menuid": "44",
 			"menuname": "军工单位基本情况信息",
 			"icon": "icon-nav",
@@ -328,14 +328,15 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/jpjgdwjbqk_search.jsp"
 			}]	
-		},
+		}
 		]
-	},<%}if(rights.contains("5")){%>
-	{
+	}<%}if(rights.contains("5")){%>
+	,{
 		"menuid": "5",
 		"icon": "icon-sys",
 		"menuname": "武器装备许可管理",
-		"menus":[{
+		"menus":[
+		{
 			"menuid": "51",
 			"menuname": "武器装备科研生产许可取证单位信息",
 			"icon": "icon-nav",
@@ -352,16 +353,16 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"url": "<%=basePath%>/project/wqwqxkzxq_search.jsp"
 			}]		
 		},
-				{
+		{
 				"menuid": "52",
 				"menuname": "大型仪器信息表",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/aaa.jsp"
 				
-			},
+		}
 		]	
-	},<%}if(rights.contains("6")){%>
-	{
+	}<%}if(rights.contains("6")){%>
+	,{
 		"menuid": "6",
 		"icon": "icon-sys",
 		"menuname": "系统管理",
@@ -385,8 +386,8 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 // 			"url": "demo.html"
 // 		}
 		]	
-	},<%}if(rights.contains("7")){%>
-	{
+	}<%}if(rights.contains("7")){%>
+	,{
 		"menuid": "7",
 		"icon": "icon-sys",
 		"menuname": "数据库管理",
@@ -394,19 +395,18 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuid": "71",
 			"menuname": "数据一致性管理",
 			"icon": "icon-set",
-			"url": "demo2.html",
+			"url": "demo2.html"
 		},
 		{
 			"menuid": "71",
 			"menuname": "数据库更新",
 			"icon": "icon-set",
-			"url": "demo2.html",
+			"url": "demo2.html"
 		}
-		]
-		
-	}<%}%>
-	]	
-		
+		]		
+	}
+	<%}%>
+	]		
 }
 	
 	
