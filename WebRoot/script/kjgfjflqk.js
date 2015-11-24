@@ -59,7 +59,7 @@ function listDoc() {
 				handler : function() {// 处理函数
 					editDoc();
 				}
-			} ],
+			} ]
         });
 }
 //查询

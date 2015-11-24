@@ -72,7 +72,7 @@
    选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
        　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
 <!--        <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　 -->
- <a href="#" class="easyui-linkbutton" id="btnExport"   action="<%=basePath%>/excel/gx.xls" style="position: relative ;left:20px;">表格格式</a>
+<!--  <a href="#" class="easyui-linkbutton" id="btnExport"   action="<%=basePath%>/excel/gx.xls" style="position: relative ;left:20px;">表格格式</a> -->
 
 </form>
 

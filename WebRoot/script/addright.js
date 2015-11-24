@@ -33,6 +33,14 @@ $(function() {
 	$("#jbnr").validatebox({
 		required : true
 	});
+	
+//	$('#cc').combobox({
+//	    url:'combobox_data.json',
+//	    valueField:'id',
+//	    textField:'text'
+//	});  
+
+	
 });
 //加载公文列表
 function listDoc() {
@@ -73,9 +81,24 @@ function listDoc() {
 				handler : function() {// 处理函数
 					editDoc();
 				}
-			} ],
+			} ]
         });
 }
+
+
+//var url = "${pageContext.request.contextPath}/user_findUlist.action";
+//$.getJSON(url, function(json) {
+//$('#cc').combobox({
+//data : json.rows,
+//valueField:'userId',
+//textField:'name'
+//});
+//});
+
+
+
+
+
 //查询
 function doSearch(){
 	$('#dg').datagrid('load',{
