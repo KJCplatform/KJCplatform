@@ -22,12 +22,12 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 	  {
 		"menuid": "1",
 		"icon": "icon-sys",
-		"menuname": "行政管理",
+		"menuname": "内部管理",
 		"menus":[
 			{
 				"menuid": "11",
 				"menuname": "公文管理",
-				"icon": "icon-log",
+				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/document.jsp"
 				
 			},
@@ -35,7 +35,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			{
 				"menuid": "12",
 				"menuname": "专家通讯录",
-				"icon": "icon-log",
+				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/kjjszjcjb.jsp"
 				//"url": "http://hxling.cnblogs.com",
 				
@@ -116,12 +116,12 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/kjzzqcgcjb.jsp"
 			},
-			{
-				"menuid": "214",
-				"menuname": "农作物新品种成果",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/kjnzwcjb.jsp"
-			},
+//			{
+//			    "menuid": "214",
+//				"menuname": "农作物新品种成果",
+//				"icon": "icon-nav",
+//				"url": "<%=basePath%>/administration/kjnzwcjb.jsp"
+//			},
 			{
 				"menuid": "215",
 				"menuname": "其他技术成果",
@@ -133,13 +133,13 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuname": "技术需求采集",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/kjjsxqcjb.jsp"
-			},
-			{
-				"menuid": "217",
-				"menuname": "融资需求",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/kjrzxqcjb.jsp"
-			}]		
+			}
+//			{
+//				"menuid": "217",
+//				"menuname": "融资需求",
+//				"icon": "icon-nav",
+//				"url": "<%=basePath%>/administration/kjrzxqcjb.jsp" }
+			]		
 		},
 		{
 			"menuid": "22",
