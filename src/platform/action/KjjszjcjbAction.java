@@ -107,21 +107,36 @@ public class KjjszjcjbAction extends BaseAction implements ModelDriven<Kjjszjcjb
 		//KjjszjcjbForm kjjszjcjbForm1=new KjjszjcjbForm();
 		//kjjszjcjbForm1.setZjxm("哈哈哈");
 		List<KjjszjcjbForm> formlist=kjjszjcjbService.findKjjszjcjbList(kjjszjcjbForm);
-		//System.out.println(formlist.get(0).getKjjszjcjbcgs().get(2).getCgjj());
+		
+//		for(int i=0;i<18;i++){
+//		System.out.println("hhs:"+formlist.get(0).getKjjszjcjbxms().get(i).getXmjj());
+//		}
+		
+		
+		
 		  map.put("rows", formlist);
 		  this.setResponseJson(map);
+		  
+		
 		//map.put("total", xzxzgzbService.findXzxzgzbList().size());
 		//this.setResponseJson(map);
 		return "list";
 	}
 	public String contact(){
-		//rows=5;
-		//page=1;
+//		rows=5;
+//		page=1;
+		//try{
 		List<KjjszjcjbForm> contactlist=kjjszjcjbService.findContactWithpage(rows, page);
+	
+		
 		  map.put("rows", contactlist);
-		  //System.out.println(formlist.get(1).getZjxm());
+		  System.out.println(contactlist.get(1).getZjxm());
 		  map.put("total", kjjszjcjbService.listSize());
+		  System.out.println(kjjszjcjbService.listSize());
 		  this.setResponseJson(map);
+		//}catch(Exception e){
+			//System.out.println(e);
+		//}
 		return "contact";
 	}
 	public String update(){
@@ -201,6 +216,29 @@ public class KjjszjcjbAction extends BaseAction implements ModelDriven<Kjjszjcjb
 		kjjszjcjbService.addzyListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
 		operateSuccess=true;
 		return "addzy";
+	}
+	
+	public String showimport() throws Exception{
+		
+		//System.out.println(kjjszjcjbForm.getZjxm());
+		kjjszjcjbService.showimportObject(kjjszjcjbForm.getZjxm());
+		operateSuccess=true;
+		return "showimport";
+	}
+	
+	public String showexport() throws Exception{
+
+	    List<KjjszjcjbForm> formlist=kjjszjcjbService.findKjjszjcjbList(kjjszjcjbForm);
+	    
+		kjjszjcjbService.showexportObject(kjjszjcjbForm.getZjxm(),formlist);
+
+//	    List<KjjszjcjbForm> formlist=kjjszjcjbService.findKjjszjcjbList(kjjszjcjbForm);
+//		for(int i=0;i<18;i++){
+//		System.out.println("hhs:"+formlist.get(0).getKjjszjcjbxms().get(i).getXmjj());
+//		}
+	
+		operateSuccess=true;
+		return "showexport";
 	}
 }
 

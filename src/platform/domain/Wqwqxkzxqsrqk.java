@@ -7,7 +7,6 @@ import java.util.Set;
 
 public class Wqwqxkzxqsrqk  implements java.io.Serializable {
 	private Integer id;
-	
 	private String year;
 	private String jp;
 	private String zcz;

@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(function() {
 			$('#kjxmxx').propertygrid({
 	
-		        width: 1200,
+		        width: 1000,
 		        height: 'auto',
 		        showGroup: true,
 		        scrollbarSize: 0,
@@ -89,7 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			$('#cjdw').datagrid({
 				title : '其他参加单位',
-				width : 1200,
+				width : 1000,
 				height: 400,
 				fitColumns : true, // 自动适应列宽      
 				pageSize : 5,//默认选择的分页是每页5行数据
@@ -123,6 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					var rows = obj.rows;
 					//alert(rows.length);
 					//判断取出的专家记录是否唯一
+					
 					if(rows.length == 0){
 						alert("系统无此项目编号，请检查输入信息");
 					}
@@ -167,16 +168,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						
 						var cjdwdata = {};
 				
-						if(info.Kjkjxmxxbcjdws != null){
-							cjdwdata.total = info.Kjkjxmxxbcjdws.length;
-							cjdwdata.rows = info.Kjkjxmxxbcjdws;
+						if(info.kjkjxmxxbcjdws != null){
+							cjdwdata.total = info.kjkjxmxxbcjdws.length;
+							cjdwdata.rows = info.kjkjxmxxbcjdws;
 						}
 				
 					}
 					 $('#kjxmxx').propertygrid('loadData', display);
 					 if(cjdwdata){
+					//alert("cjdw:"+cjdwdata);
 						 $('#cjdw').datagrid('loadData', cjdwdata);
 					 }
+					 
+					 
+					 
+					 
+					 
 					 
 				}   
 			})

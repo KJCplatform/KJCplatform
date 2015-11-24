@@ -15,4 +15,6 @@ public interface WqwqxkzxqService {
     public void addSrqkListWithExpertId(int id, List<WqwqxkzxqsrqkForm> list);
     public void addXkzycpListWithExpertId(int id, List<WqwqxkzxqxkzycpForm> list);
     public List<WqwqxkzxqForm> findWqwqxkzxqList(WqwqxkzxqForm wqwqxkzxqForm);
+  //  public List<WqwqxkzxqForm> findContactWithpage(int pagesize,int pageno);
+  //  public int listSize();
 }

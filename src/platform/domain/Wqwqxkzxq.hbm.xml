@@ -5,108 +5,108 @@
 <hibernate-mapping>
 
 	<class name="platform.domain.Wqwqxkzxq" table="wq_wqxkzxq" catalog="kjcplatform">
-		<id name="id" type="integer">
+		<id name="id" type="java.lang.Integer">
 			<column name="id"  not-null="true"/>
 			<generator class="identity"/>
 		</id>
-		<property name="dwmc" type="string">
+		<property name="dwmc" type="java.lang.String">
 			<column name="dwmc" />
 		</property>
-		<property name="qtmc" type="string">
+		<property name="qtmc" type="java.lang.String">
 			<column name="qtmc" />
 		</property>
-		<property name="dwdh" type="string">
+		<property name="dwdh" type="java.lang.String">
 			<column name="dwdh" />
 		</property>
-		<property name="scdz" type="string">
+		<property name="scdz" type="java.lang.String">
 			<column name="scdz" />
 		</property>
-		<property name="jjxz" type="string">
+		<property name="jjxz" type="java.lang.String">
 			<column name="jjxz" />	
 		</property>
-		<property name="frdb" type="string">
+		<property name="frdb" type="java.lang.String">
 			<column name="frdb" />	
 		</property>
-		<property name="dwdz" type="string">
+		<property name="dwdz" type="java.lang.String">
 			<column name="dwdz" />	
 		</property>
-		<property name="yzbm" type="string">
+		<property name="yzbm" type="java.lang.String">
 			<column name="yzbm" />
 		</property>
-		<property name="lxr" type="string">
+		<property name="lxr" type="java.lang.String">
 			<column name="lxr" />
 		</property>
-		<property name="lxdh" type="string">
+		<property name="lxdh" type="java.lang.String">
 			<column name="lxdh" />
 		</property>
-		<property name="zgzs" type="string">
+		<property name="zgzs" type="java.lang.String">
 			<column name="zgzs" />
 		</property>
-		<property name="gzgl" type="string">
+		<property name="gzgl" type="java.lang.String">
 			<column name="gzgl" />
 		</property>
-		<property name="zzgl" type="string">
+		<property name="zzgl" type="java.lang.String">
 			<column name="zzgl" />
 		</property>
-		<property name="czgl" type="string">
+		<property name="czgl" type="java.lang.String">
 			<column name="czgl" />
 		</property>
-		<property name="gzjs" type="string">
+		<property name="gzjs" type="java.lang.String">
 			<column name="gzjs" />
 		</property>
-		<property name="zzjs" type="string">
+		<property name="zzjs" type="java.lang.String">
 			<column name="zzjs" />
 		</property>
-		<property name="czjs" type="string">
+		<property name="czjs" type="java.lang.String">
 			<column name="czjs" />
 		</property>
-		<property name="gzgr" type="string">
+		<property name="gzgr" type="java.lang.String">
 			<column name="gzgr" />
 		</property>
-		<property name="zzgr" type="string">
+		<property name="zzgr" type="java.lang.String">
 			<column name="zzgr" />
 		</property>
-		<property name="czgr" type="string">
+		<property name="czgr" type="java.lang.String">
 			<column name="czgr" />
 		</property>
-		<property name="gjjcgs" type="string">
+		<property name="gjjcgs" type="java.lang.String">
 			<column name="gjjcgs" />
 		</property>
-		<property name="sbjcgs" type="string">
+		<property name="sbjcgs" type="java.lang.String">
 			<column name="sbjcgs" />
 		</property>
-		<property name="jbqk" type="string">
+		<property name="jbqk" type="java.lang.String">
 			<column name="jbqk" />
 		</property>
-		<property name="kyfx" type="string">
+		<property name="kyfx" type="java.lang.String">
 			<column name="kyfx" />
 		</property>
-		<property name="qyscgl" type="string">
+		<property name="qyscgl" type="java.lang.String">
 			<column name="qyscgl" />
 		</property>
 		
-		<property name="kyzk" type="string">
+		<property name="kyzk" type="java.lang.String">
 			<column name="kyzk" />
 		</property>
-		<property name="zlglzk" type="string">
+		<property name="zlglzk" type="java.lang.String">
 			<column name="zlglzk" />
 		</property>
-		<property name="bmaqzk" type="string">
+		<property name="bmaqzk" type="java.lang.String">
 			<column name="bmaqzk" />
 		</property>
-		<property name="jpyfqk" type="string">
+		<property name="jpyfqk" type="java.lang.String">
 			<column name="jpyfqk" />
 		</property>
-		<property name="jpjcqk" type="string">
+		<property name="jpjcqk" type="java.lang.String">
 			<column name="jpjcqk" />
 		</property>
-		<property name="jpzzqk" type="string">
+		<property name="jpzzqk" type="java.lang.String">
 			<column name="jpzzqk" />
 		</property>
-		<property name="wcjpqk" type="string">
+		<property name="wcjpqk" type="java.lang.String">
 			<column name="wcjpqk" />
 		</property>
-		<property name="xcjpxmqk" type="string">
+		<property name="xcjpxmqk" type="java.lang.String">
 			<column name="xcjpxmqk" />
 		</property>
 		

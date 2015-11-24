@@ -93,6 +93,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<option value="8"> user6</option>
 				</select>
 				
+				
+<!-- 				<dd>	 -->
+<!-- 			<select id="yyhy" multiple="true" name="yyhy" style="width:150px;"></select> -->
+<!-- 			</dd> -->
+			
+				
 			</dl>
 			<dl>
 				<dd>权限id:</dd>

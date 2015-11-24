@@ -13,21 +13,17 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import platform.dao.WqwqxkzxqDao;
-import platform.domain.Jpjgdwjbqk;
-import platform.domain.Jpjgdwjbqkry;
-import platform.domain.Jpjgdwjbqksrqk;
+
 import platform.domain.Wqwqxkzxq;
 import platform.domain.Wqwqxkzxqsrqk;
 import platform.domain.Wqwqxkzxqxkzycp;
-import platform.form.JpjgdwjbqkForm;
-import platform.form.JpjgdwjbqkryForm;
-import platform.form.JpjgdwjbqksrqkForm;
+
 import platform.form.WqwqxkzxqForm;
 import platform.form.WqwqxkzxqsrqkForm;
 import platform.form.WqwqxkzxqxkzycpForm;
 import platform.service.WqwqxkzxqService;
 import platform.util.StringHelper;
-
+@Transactional
 @SuppressWarnings("unused")
 @Service(WqwqxkzxqService.SERVICE_NAME)
 public class WqwqxkzxqServiceImpl implements WqwqxkzxqService{
@@ -73,6 +69,7 @@ public class WqwqxkzxqServiceImpl implements WqwqxkzxqService{
 		wqwqxkzxq.setZlglzk(wqwqxkzxqForm.getZlglzk());
 		wqwqxkzxq.setBmaqzk(wqwqxkzxqForm.getBmaqzk());
 		wqwqxkzxq.setJpyfqk(wqwqxkzxqForm.getJpyfqk());
+		wqwqxkzxq.setJpzzqk(wqwqxkzxqForm.getJpzzqk());
 		wqwqxkzxq.setJpjcqk(wqwqxkzxqForm.getJpjcqk());
 		wqwqxkzxq.setWcjpqk(wqwqxkzxqForm.getWcjpqk());
 		wqwqxkzxq.setXcjpxmqk(wqwqxkzxqForm.getXcjpxmqk());
@@ -169,7 +166,6 @@ public class WqwqxkzxqServiceImpl implements WqwqxkzxqService{
 			wqwqxkzxqForm.setCzgr(list.get(i).getCzgr());
 			wqwqxkzxqForm.setGjjcgs(list.get(i).getGjjcgs());
 			wqwqxkzxqForm.setSbjcgs(list.get(i).getSbjcgs());
-			
 			wqwqxkzxqForm.setJbqk(list.get(i).getJbqk());
 			wqwqxkzxqForm.setKyfx(list.get(i).getKyfx());
 			wqwqxkzxqForm.setQyscgl(list.get(i).getQyscgl());
@@ -181,7 +177,8 @@ public class WqwqxkzxqServiceImpl implements WqwqxkzxqService{
 			wqwqxkzxqForm.setJpzzqk(list.get(i).getJpzzqk());
 			wqwqxkzxqForm.setWcjpqk(list.get(i).getWcjpqk());
 			wqwqxkzxqForm.setXcjpxmqk(list.get(i).getXcjpxmqk());
-			
+			wqwqxkzxqForm.setWqwqxkzxqxkzycps(WqwqxkzxqxkzycpSetToFormList(list.get(i).getWqwqxkzxqxkzycps()));
+			wqwqxkzxqForm.setWqwqxkzxqsrqks(WqwqxkzxqsrqkSetToFormList(list.get(i).getWqwqxkzxqsrqks()));
 			formlist.add(wqwqxkzxqForm);
 		}
 		}
@@ -219,6 +216,12 @@ public class WqwqxkzxqServiceImpl implements WqwqxkzxqService{
 		}}
 		return formlist;
 	}
+
+	
+
+
+
+	
 
 	
 }

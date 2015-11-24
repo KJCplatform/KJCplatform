@@ -122,8 +122,10 @@ public class KjgxqybabAction extends BaseAction implements ModelDriven<Kjgxqybab
 		kjjszjcjbForm1.setGzbm("哈哈哈");
 		kjjszjcjbForm1.setZytc("哈哈哈");
 		kjjszjcjbForm1.setSfgk("否");*/
+		//System.out.println("123");
 		resultid=kjgxqybabService.saveKjgxqybab(kjgxqybabForm);
 		//System.out.println(resultid);
+		//System.out.println("123");
 		operateSuccess=true;
 		return "add";
 	}
@@ -139,13 +141,16 @@ public class KjgxqybabAction extends BaseAction implements ModelDriven<Kjgxqybab
         	//System.out.println(kjjszjcjbxmForm.getXmmc());
    //     	kjgxqybabzscqForm.setFk_gxqybab_id(jsonJ.getString("fk_gxqybab_id"));
         	kjgxqybabzscqForm.setXmbh(jsonJ.getString("xmbh"));
+        	System.out.println(kjgxqybabzscqForm.getXmbh());
         	kjgxqybabzscqForm.setSqmc(jsonJ.getString("sqmc"));
         	kjgxqybabzscqForm.setLb(jsonJ.getString("lb"));
         	kjgxqybabzscqForm.setSqh(jsonJ.getString("sqh"));
         	kjgxqybabzscqForm.setSqrq(jsonJ.getString("sqrq"));
         	list.add(kjgxqybabzscqForm);   	
         }
+        try{
         kjgxqybabService.addZscqListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
+	}catch(Exception e){System.out.println(e);}
 		operateSuccess=true;
 		return "addzscq";
 	}
@@ -153,7 +158,7 @@ public class KjgxqybabAction extends BaseAction implements ModelDriven<Kjgxqybab
 		//System.out.println(cxyform);
 		//JSONObject jsonObj = JSONObject.fromObject(cxyform);
 		List<KjgxqybabyfxmForm> list=new ArrayList<KjgxqybabyfxmForm>();
-		JSONArray  arrays=JSONArray.fromObject(zscqform);
+		JSONArray  arrays=JSONArray.fromObject(yfxmform);
         for(int i=0;i<arrays.size();i++){
         	JSONObject jsonJ = arrays.getJSONObject(i);
         	KjgxqybabyfxmForm kjgxqybabyfxmForm=new KjgxqybabyfxmForm();
@@ -167,7 +172,9 @@ public class KjgxqybabAction extends BaseAction implements ModelDriven<Kjgxqybab
         	kjgxqybabyfxmForm.setJfwb(jsonJ.getString("jfwb"));
         	list.add(kjgxqybabyfxmForm);   	
         }
+        try{
         kjgxqybabService.addYfxmListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
+	}catch(Exception e){System.out.println(e);}
 		operateSuccess=true;
 		return "addyfxm";
 	}
@@ -175,7 +182,7 @@ public class KjgxqybabAction extends BaseAction implements ModelDriven<Kjgxqybab
 		//System.out.println(cxyform);
 		//JSONObject jsonObj = JSONObject.fromObject(cxyform);
 		List<KjgxqybabgxcpForm> list=new ArrayList<KjgxqybabgxcpForm>();
-		JSONArray  arrays=JSONArray.fromObject(zscqform);
+		JSONArray  arrays=JSONArray.fromObject(gxcpform);
         for(int i=0;i<arrays.size();i++){
         	JSONObject jsonJ = arrays.getJSONObject(i);
         	KjgxqybabgxcpForm kjgxqybabgxcpForm=new KjgxqybabgxcpForm();
@@ -188,7 +195,14 @@ public class KjgxqybabAction extends BaseAction implements ModelDriven<Kjgxqybab
         	
         	list.add(kjgxqybabgxcpForm);   	
         }
+        
+        
+//        kjgxqybabService.addGxcpListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
+        try{
         kjgxqybabService.addGxcpListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
+        }catch(Exception e){System.out.println(e);}
+        
+        
 		operateSuccess=true;
 		return "addgxcp";
 	}

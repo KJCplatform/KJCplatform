@@ -33,16 +33,22 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 	private KjgxqybabDao kjgxqybabDao;
 
 	public String saveKjgxqybab(KjgxqybabForm kjgxqybabForm){
+		
 		Kjgxqybab kjgxqybab=this.VoObjecttoPoObject(kjgxqybabForm);
 		kjgxqybabDao.save(kjgxqybab);
-		return kjgxqybabDao.selectMaxId();
+	//	try{
+	//	Kjgxqybab kjgxqybab=this.VoObjecttoPoObject(kjgxqybabForm);
+	//	kjgxqybabDao.save(kjgxqybab);
+	//	}
+	//	catch(Exception e){System.out.println(e);}
 		
+		return kjgxqybabDao.selectMaxId();
 	}
 
 	private Kjgxqybab VoObjecttoPoObject(KjgxqybabForm kjgxqybabForm) {
 		
 		Kjgxqybab kjgxqybab=new Kjgxqybab();
-		kjgxqybab.setId(Integer.valueOf(kjgxqybabForm.getId()));
+//		kjgxqybab.setId(Integer.valueOf(kjgxqybabForm.getId()));
 		kjgxqybab.setYear(kjgxqybabForm.getYear());
 		kjgxqybab.setNf(kjgxqybabForm.getNf());
 		kjgxqybab.setQymc(kjgxqybabForm.getQymc());
@@ -139,9 +145,9 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 		Object [] params = null;
 		List<String> paramsList=new ArrayList<String>();
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
-		if(kjgxqybabForm!=null&&StringUtils.isNotBlank(kjgxqybabForm.getYear())){
-			hqlWhere += " and o.year = ?";
-			paramsList.add(kjgxqybabForm.getYear());
+		if(kjgxqybabForm!=null&&StringUtils.isNotBlank(kjgxqybabForm.getQymc())){
+			hqlWhere += " and o.qymc = ?";
+			paramsList.add(kjgxqybabForm.getQymc());
 		}
 		orderby.put(" o.id", "desc");
 		params = paramsList.toArray();

@@ -17,12 +17,13 @@
                 <comment>序号</comment>
             </column>
         </property>
-        
-              <property name="dwmc" type="java.lang.String">
+        <property name="dwmc" type="java.lang.String">
             <column name="dwmc">
                 <comment>单位名称</comment>
             </column>
         </property>
+        
+        
         
         <set name="kjkjxmxxbs" table="kj_xm_cjdw" >
             <key>

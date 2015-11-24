@@ -55,11 +55,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				{ "name": "所在研发平台或实验基地", "group": "其他信息","value": "", "editor": "text"},
 				{ "name": "专家简介", "group": "其他信息","value": "", "editor": "textarea"},
 				{ "name": "专业特长", "group": "其他信息","value": "", "editor": "textarea"}
-			]
+			];
 		$(function() {
 			$('#info').propertygrid({
 	
-		        width: 1200,
+		        width: 1000,
 		        height: 'auto',
 		        showGroup: true,
 		        scrollbarSize: 0,
@@ -72,7 +72,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			$('#cxy').datagrid({
 				title : '产学研合作项目情况',
-				width : 1200,
+				width : 1000,
 				height: 400,
 				fitColumns : true, // 自动适应列宽      
 				pageSize : 5,//默认选择的分页是每页5行数据
@@ -91,7 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 			$('#jscg').datagrid({
 				title : '主持或参与完成的技术成果情况',
-				width : 1200,
+				width : 1000,
 				height: 400,
 				fitColumns : true, // 自动适应列宽      
 				pageSize : 5,//默认选择的分页是每页5行数据
@@ -110,7 +110,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 			$('#zy').datagrid({
 				title : '在研项目情况',
-				width : 1200,
+				width : 1000,
 				height: 400,
 				fitColumns : true, // 自动适应列宽      
 				pageSize : 5,//默认选择的分页是每页5行数据
@@ -204,6 +204,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 
 
+function ShowExport(){
+
+	  var isValid = $('#searchForm').form('validate');
+					if(!isValid){
+						alert("请输入专家姓名");
+						return false;
+					}
+					//alert(isValid);
+
+	var params =$('#searchForm').serialize();
+	//alert(params);
+
+	var showimport = basePath + '/system/KjjszjcjbAction_showexport.action';
+	            				
+	$.post(showimport, params, function(result) {
+	        			if (result.operateSuccess) {
+	        					$('#dg').datagrid('reload');// 重新加载
+	        					$.messager.alert('导出', '导出Excel成功', 'info');
+	        				
+	        			}else {
+	        					$.messager.alert('导出', '导出失败：系统无此专家信息，请检查专家姓名', 'warning');
+	        				}
+	        		});
+  
+	            	  return false;
+	            	  }
+
+function ShowImport(){}
 
 	</script>
 </head>
@@ -219,12 +247,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <input class="easyui-validatebox" type="text" name="zjxm" data-options="required:true" /> 
 					</td>
 					<td>
-						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>
+						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询  </a>
+					    <a href="#" class="easyui-linkbutton" id="btnExport" onclick="ShowExport()" >导出Excel</a> 　
 					</td>       
                 </tr>
             </table>
         </form>
 </div>
+
+<!--     <form id="questionTypesManage"  method="post" enctype="multipart/form-data">   -->
+<!--    选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">   -->
+<!--        　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                        -->
+<!--        <a href="#" class="easyui-linkbutton" id="btnExport" onclick="ShowExport()" >导出Excel</a> 　 -->
+<!-- </form> -->
+
 
 <div data-options="region:'center',split:false">
 	

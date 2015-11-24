@@ -71,6 +71,15 @@
 			<result name="addjscg" type="json">
 				
 			</result>
+			
+			<result name="showimport" type="json">
+
+			</result>
+
+			<result name="showexport" type="json">
+
+			</result>
+			
 		</action>
 		<action name="UserAction_*" class="platform.action.UserAction" method="{1}">			
 			<result name="home" type="json">
@@ -335,6 +344,15 @@
 	    	<result name="update" type="json">
 				
 			</result>
+			
+					<result name="showimport" type="json">
+
+			</result>
+
+			<result name="showexport" type="json">
+
+			</result>
+			
 		</action>
 		<action name="KjndjgkjjlqkbAction_*" class="platform.action.KjndjgkjjlqkbAction" method="{1}">			
 			<result name="list" type="json">
@@ -435,6 +453,12 @@
 	    	<result name="update" type="json">
 				
 			</result>
+			    	<result name="addxkzycp" type="json">
+				
+			</result>
+			    	<result name="addsrqk" type="json">
+				
+			</result>
 		</action>
 		<action name="JpjgdwjbqkAction_*" class="platform.action.JpjgdwjbqkAction" method="{1}">			
 			<result name="list" type="json">
@@ -449,6 +473,12 @@
 	    	<result name="update" type="json">
 				
 			</result>
+			<result name="addry" type="json">
+				
+			</result>
+			<result name="addsrqk" type="json">
+				
+			</result>
 		</action>
 		<action name="KjgxqybabAction_*" class="platform.action.KjgxqybabAction" method="{1}">			
 			<result name="list" type="json">
@@ -461,6 +491,15 @@
 				
 			</result>
 	    	<result name="update" type="json">
+				
+			</result>
+			    	<result name="addzscq" type="json">
+				
+			</result>
+			    	<result name="addyfxm" type="json">
+				
+			</result>
+			    	<result name="addgxcp" type="json">
 				
 			</result>
 		</action>

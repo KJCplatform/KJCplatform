@@ -33,6 +33,26 @@ $(function() {
 	$("#jbnr").validatebox({
 		required : true
 	});
+	
+//	$('#cc').combobox({
+//	    url:'combobox_data.json',
+//	    valueField:'id',
+//	    textField:'text'
+//	});  
+
+	$('#yyhy').combotree();
+	$('#yyhy').combotree('loadData', 
+			[{ id: "技术许可", text: '技术许可'},
+				{id: "技术转让", text: '技术转让'},
+				{id: "技术入股", text: '技术入股'},
+				{id: "技术提成", text: '技术提成'},
+				{id: "其他方式", text: '其他方式'}
+			 ]
+	);
+	
+	
+
+	
 });
 //加载公文列表
 function listDoc() {
@@ -73,9 +93,27 @@ function listDoc() {
 				handler : function() {// 处理函数
 					editDoc();
 				}
-			} ],
+			} ]
         });
 }
+
+
+function loadcombotree() {
+	//alert("12345");
+
+var url = basePath + '/system/AddrightAction_list.action';
+$.getJSON(url, function(json) {
+$('#yyhy').combobox({
+data : json.rows,
+valueField:'id',
+textField:'userid'
+});
+});
+
+}
+
+
+
 //查询
 function doSearch(){
 	$('#dg').datagrid('load',{
@@ -123,6 +161,7 @@ function addDoc() {
 	$('#frmEdit').form('clear');
 	// 显示添加对话框
 	showEditForm();
+	loadcombotree();
 }
 
 // 编辑按钮的操作

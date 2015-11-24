@@ -34,10 +34,10 @@ $(function() {
 });
 //加载公文列表
 function listDoc() {
-	var actionPath = basePath + '/system/KjjszjcjbAction_list.action';
+	var actionPath = basePath + '/system/KjjszjcjbAction_contact.action';
 	 $('#dg').datagrid({
             title : '专家通讯录',
-            width : 1200,
+            width : 1000,
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      
@@ -51,27 +51,29 @@ function listDoc() {
             //sortName : 'xh',//当数据表格初始化时以哪一列来排序
             //sortOrder : 'desc',//定义排序顺序，可以是'asc'或者'desc'（正序或者倒序）。
             pagination : true,//分页
-            rownumbers : true,//行数
+            rownumbers : true //行数
 			
-			toolbar:[ {// 工具栏
-				text : '添加',
-				iconCls : 'icon-add', // 图标
-				handler : function() { // 处理函数
-					addDoc();
-				}
-			}, {
-				text : '删除',
-				iconCls : 'icon-cancel', // 图标
-				handler : function() { // 处理函数
-					deleteDoc();
-				}
-			}, {
-				text : '编辑',
-				iconCls : 'icon-edit',// 图标
-				handler : function() {// 处理函数
-					editDoc();
-				}
-			} ],
+//			toolbar:[ 
+//			          {// 工具栏
+//				text : '添加',
+//				iconCls : 'icon-add', // 图标
+//				handler : function() { // 处理函数
+//					addDoc();
+//				}
+//			}, {
+//				text : '删除',
+//				iconCls : 'icon-cancel', // 图标
+//				handler : function() { // 处理函数
+//					deleteDoc();
+//				}
+//			}, {
+//				text : '编辑',
+//				iconCls : 'icon-edit',// 图标
+//				handler : function() {// 处理函数
+//					editDoc();
+//				}
+//			} 
+//			],
         });
 }
 //查询
@@ -85,7 +87,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '公文操作',
+		title : '专家通讯录',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',

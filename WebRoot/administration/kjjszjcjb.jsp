@@ -39,28 +39,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 
-<div data-options="region:'north',title:'查询'" style="height: 60px;">
-        <form id="searchForm">
-            <table>
-                <tr>
-                    <th>专家姓名：</th>
-                    <td>
-						<input id="fileName" />
-					</td>
-                </tr>
-                <tr>
-					<th>工作单位：</th>
-					<td>
-                        <input id="fileId" />
-					</td>
-					<td>
-						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>
-					</td>
+<!-- <div data-options="region:'north',title:'查询'" style="height: 60px;"> -->
+<!--         <form id="searchForm"> -->
+<!--             <table> -->
+<!--                 <tr> -->
+<!--                     <th>专家姓名：</th> -->
+<!--                     <td> -->
+<!-- 						<input id="fileName" /> -->
+<!-- 					</td> -->
+<!--                 </tr> -->
+<!--                 <tr> -->
+<!-- 					<th>工作单位：</th> -->
+<!-- 					<td> -->
+<!--                         <input id="fileId" /> -->
+<!-- 					</td> -->
+<!-- 					<td> -->
+<!-- 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a> -->
+<!-- 					</td> -->
                 
-                </tr>
-            </table>
-        </form>
-</div>
+<!--                 </tr> -->
+<!--             </table> -->
+<!--         </form> -->
+<!-- </div> -->
 
 
 <div data-options="region:'center',split:false">

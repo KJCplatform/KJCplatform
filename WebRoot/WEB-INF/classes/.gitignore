@@ -1,12 +1,22 @@
+<<<<<<< HEAD
 /platform
+=======
+>>>>>>> 048123f5aa5a3f66685d94f86e824fe7f2d22d49
 /beans.xml
 /container
 /excel
 /hibernate.cfg.xml
+<<<<<<< HEAD
 /test1.class
 /test3.class
 /test4.class
 /CopyOftest4.class
+=======
+/platform
+/CopyOfTest.class
+/CopyOftest4.class
+/Copy_2_of_Test.class
+>>>>>>> 048123f5aa5a3f66685d94f86e824fe7f2d22d49
 /Test.class
 /TestDao.class
 /TestHibernate.class

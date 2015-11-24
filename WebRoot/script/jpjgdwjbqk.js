@@ -21,8 +21,12 @@ var rows = [
             {"id":"dwdz", "name": "单位地址", "group": "基本信息", "value": "", "editor":"text" },
             {"id":"yzbm", "name": "邮政编码", "value": "", "group": "基本信息", "editor":"text" },
             {"id":"lxr", "name": "联系人", "group": "基本信息", "value": "", "editor": "text" },
-            {"id":"lxdh", "name": "联系电话", "group": "基本信息", "value": "", "editor":"text" },
-            {"id":"zgzs", "name": "在岗职工总人数", "value": "", "group": "人员构成", "editor":"text" },
+            {"id":"lxdh", "name": "联系电话", "group": "基本信息", "value": "", "editor":{
+            	"type": 'numberbox', 
+            } },
+            {"id":"zgzs", "name": "在岗职工总人数", "value": "", "group": "人员构成", "editor":{
+            	"type": 'numberbox', 
+            } },
             {"id":"gzgl", "name": "高职管理", "group": "人员构成", "value": "", "editor": "text" },
             {"id":"zzgl", "name": "中职管理", "group": "人员构成", "value": "", "editor":"text" },
             {"id":"czgl", "name": "初职管理", "value": "", "group": "人员构成", "editor":"text" },
@@ -32,14 +36,24 @@ var rows = [
             {"id":"gzgr", "name": "高职工人", "value": "", "group": "人员构成", "editor":"text" },
             {"id":"zzgr", "name": "中职工人", "group": "人员构成", "value": "", "editor":"text" },
             {"id":"czgr", "name": "初职工人", "value": "", "group": "人员构成", "editor":"text" },
-            {"id":"gjjcgs", "name": "国家级科技成果数", "group": "获得科技成果数量", "value": "", "editor": "text" },
-            {"id":"sbjcgs", "name": "省部级科技成果数", "group": "获得科技成果数量", "value": "", "editor":"text" },
+            {"id":"gjjcgs", "name": "国家级科技成果数", "group": "获得科技成果数量", "value": "", "editor": {
+            	"type": 'numberbox', 
+            } },
+            {"id":"sbjcgs", "name": "省部级科技成果数", "group": "获得科技成果数量", "value": "", "editor":{
+            	"type": 'numberbox', 
+            } },
 
             {"id":"jlz", "name": "计量站", "group": "其他信息", "value": "", "editor": "text" },
-            {"id":"jlbzsl", "name": "建立计量标准数量", "group": "其他信息", "value": "", "editor":"text" },
+            {"id":"jlbzsl", "name": "建立计量标准数量", "group": "其他信息", "value": "", "editor":{
+            	"type": 'numberbox', 
+            } },
             {"id":"jpkyrw", "name": "主要军品科研生产任务", "value": "", "group": "其他信息", "editor":"text" },
-            {"id":"gjsyssl", "name": "国家级实验室数量", "group": "其他信息", "value": "", "editor":"text" },
-            {"id":"gfsyssl", "name": "国防实验室数量", "value": "", "group": "其他信息", "editor":"text" },
+            {"id":"gjsyssl", "name": "国家级实验室数量", "group": "其他信息", "value": "", "editor":{
+            	"type": 'numberbox', 
+            } },
+            {"id":"gfsyssl", "name": "国防实验室数量", "value": "", "group": "其他信息", "editor":{
+            	"type": 'numberbox', 
+            } },
          
         ];
 
@@ -47,7 +61,7 @@ var rows = [
 $(function() {
 	var lastIndex;
 	$('#jgdwjbqk').propertygrid({
-		width: 1200,
+		width: 1000,
         height: 'auto',
         showGroup: true,
         scrollbarSize: 0,
@@ -68,7 +82,7 @@ $(function() {
 	
 	$('#srqk').datagrid({
 			title : '产值或销售收入情况',
-            width : 1200,
+            width : 1000,
             height: 400,
 			fitColumns : true, // 自动适应列宽      
             pageSize : 5,//默认选择的分页是每页5行数据
@@ -144,7 +158,7 @@ $(function() {
 								//alert(data);
 								$.post(action, data, function(result){
 									if (result.operateSuccess) {
-									//alert(result);
+									alert(result);
 										$('#srqk').datagrid('reload');// 重新加载
 										$.messager.alert('提交', '提交成功', 'info');
 									} else {
@@ -185,7 +199,7 @@ $(function() {
 	
 	$('#ry').datagrid({
 		title : '武器装备科研生产的许可专业（产品）',
-        width : 1200,
+        width : 1000,
         height: 400,
 		fitColumns : true, // 自动适应列宽      
         pageSize : 5,//默认选择的分页是每页5行数据
@@ -261,7 +275,7 @@ $(function() {
 							//alert(data);
 							$.post(action, data, function(result){
 								if (result.operateSuccess) {
-								//alert(result);
+								alert(result);
 									$('#ry').datagrid('reload');// 重新加载
 									$.messager.alert('提交', '提交成功', 'info');
 								} else {

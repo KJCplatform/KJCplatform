@@ -7,14 +7,18 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
 import javax.annotation.Resource;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+
 import platform.action.BaseAction;
 import platform.dao.TestDataDao;
 import platform.form.WqwqxkzxqForm;
@@ -23,7 +27,9 @@ import platform.form.WqwqxkzxqsrqkForm;
 import platform.form.TestDataFrom;
 import platform.service.WqwqxkzxqService;
 import platform.service.TestDataService;
+
 import com.opensymphony.xwork2.ModelDriven;
+
 import container.ServiceProvider;
 
 public class WqwqxkzxqAction extends BaseAction implements ModelDriven<WqwqxkzxqForm>{
@@ -42,7 +48,6 @@ public class WqwqxkzxqAction extends BaseAction implements ModelDriven<Wqwqxkzxq
 	public void setSrqkform(String srqkform) {
 		this.srqkform = srqkform;
 	}
-	
 	
 	public int page = 0;
 	private String resultid;
@@ -87,6 +92,7 @@ public class WqwqxkzxqAction extends BaseAction implements ModelDriven<Wqwqxkzxq
 	}
 	Map<String, Object> map = new HashMap<String, Object>();
 	public String list(){
+		
 		//KjjszjcjbForm kjjszjcjbForm1=new KjjszjcjbForm();
 		//kjjszjcjbForm1.setZjxm("哈哈哈");
 		List<WqwqxkzxqForm> formlist=wqwqxkzxqService.findWqwqxkzxqList(wqwqxkzxqForm);
@@ -97,29 +103,47 @@ public class WqwqxkzxqAction extends BaseAction implements ModelDriven<Wqwqxkzxq
 		//this.setResponseJson(map);
 		return "list";
 	}
+/*	public String contact(){
+		//rows=5;
+		//page=1;
+		List<WqwqxkzxqForm> contactlist=wqwqxkzxqService.findContactWithpage(rows, page);
+		  map.put("rows", contactlist);
+		  //System.out.println(formlist.get(1).getZjxm());
+		  map.put("total", wqwqxkzxqService.listSize());
+		  this.setResponseJson(map);
+		return "contact";
+	}
+*/	
+	
+	
 	public String update(){
+		
 		
 		return "update";
 	}
 	public String delete(){
 		
+		
 		operateSuccess=true;
 		return   "delete";
 	}
 	public String add(){
+		System.out.println(resultid);
 		/*KjjszjcjbForm kjjszjcjbForm1=new KjjszjcjbForm();
 		kjjszjcjbForm1.setFwyy("哈哈哈");
 		kjjszjcjbForm1.setGzbm("哈哈哈");
 		kjjszjcjbForm1.setZytc("哈哈哈");
 		kjjszjcjbForm1.setSfgk("否");*/
 		resultid=wqwqxkzxqService.saveWqwqxkzxq(wqwqxkzxqForm);
-		//System.out.println(resultid);
+		System.out.println(resultid);
 		operateSuccess=true;
 		return "add";
 	}
 	public String addsrqk(){
-		//System.out.println(cxyform);
+		
+		System.out.println(srqkform);
 		//JSONObject jsonObj = JSONObject.fromObject(cxyform);
+		
 		List<WqwqxkzxqsrqkForm> list=new ArrayList<WqwqxkzxqsrqkForm>();
 		JSONArray  arrays=JSONArray.fromObject(srqkform);
         for(int i=0;i<arrays.size();i++){
@@ -128,19 +152,26 @@ public class WqwqxkzxqAction extends BaseAction implements ModelDriven<Wqwqxkzxq
       //  	wqwqxkzxqsrqkForm.setFk_wqwqxkzxq_id(jsonJ.getString("fk_wqwqxkzxq_id"));
         	//System.out.println(kjjszjcjbxmForm.getXmmc());
         	wqwqxkzxqsrqkForm.setYear(jsonJ.getString("year"));
+       // 	System.out.println(wqwqxkzxqsrqkForm.getYear());
         	//System.out.println(kjjszjcjbxmForm.getXmjj());
         	wqwqxkzxqsrqkForm.setZcz(jsonJ.getString("zcz"));
+       // 	System.out.println(wqwqxkzxqsrqkForm.getZcz());
         	//System.out.println(kjjszjcjbxmForm.getHzsj());
         	wqwqxkzxqsrqkForm.setJp(jsonJ.getString("jp"));
+      //  	System.out.println(wqwqxkzxqsrqkForm.getJp());
         	//System.out.println(kjjszjcjbxmForm.getHzxg());
         	wqwqxkzxqsrqkForm.setMp(jsonJ.getString("mp"));
+       // 	System.out.println(wqwqxkzxqsrqkForm.getMp());
         	list.add(wqwqxkzxqsrqkForm);
         }
         wqwqxkzxqService.addSrqkListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
 		operateSuccess=true;
+    	System.out.println("123");
+
 		return "addsrqk";
 	}
 	public String addxkzycp(){
+		
 		//System.out.println(jscgform);
 		List<WqwqxkzxqxkzycpForm> list=new ArrayList<WqwqxkzxqxkzycpForm>();
 		JSONArray  arrays=JSONArray.fromObject(xkzycpform);
@@ -154,7 +185,11 @@ public class WqwqxkzxqAction extends BaseAction implements ModelDriven<Wqwqxkzxq
         	wqwqxkzxqxkzycpForm.setXklx(jsonJ.getString("xklx"));
         	list.add(wqwqxkzxqxkzycpForm);
         }
+		try{
+			System.out.println(arrays.getJSONObject(0).getInt("id"));
 		wqwqxkzxqService.addXkzycpListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
+		}catch(Exception e){System.out.println(e);}
+		
 		operateSuccess=true;
 		return "addxkzycp";
 		

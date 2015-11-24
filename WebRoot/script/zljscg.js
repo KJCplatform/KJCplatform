@@ -57,15 +57,7 @@ $(function() {
 
 	);
 	
-//	$('#jyfs').combotree();
-//	$('#jyfs').combotree('loadData', 
-//			[{ id: "技术许可", text: '技术许可'},
-//				{id: "技术转让", text: '技术转让'},
-//				{id: "技术入股", text: '技术入股'},
-//				{id: "技术提成", text: '技术提成'},
-//				{id: "其他方式", text: '其他方式'}
-//			 ]
-//	);
+
 	
 	$('#jyfs').combotree();
 	$('#jyfs').combotree('loadData', 
@@ -77,13 +69,23 @@ $(function() {
 			 ]
 	);
 	
-//	$("#sj").numberbox({
-//		
-//	});
-//	$("#gddh").numberbox({
-//		
-//	});
+	$("#sj").numberbox({
+		
+	});
+	$("#gddh").numberbox({
+		
+	});
 
+//    $("dzyx").validatebox({
+//    	
+//    	 email : {     
+//             validator: function(value){     
+//                 return /^[a-zA-Z0-9_+.-]+\@([a-zA-Z0-9-]+\.)+[a-zA-Z0-9]{2,4}$/i.test($.trim(value));     
+//             },     
+//             message: '电子邮箱格式错误.'
+//    	 }
+//    });
+    
 });
 //加载公文列表
 function listDoc() {
@@ -124,7 +126,7 @@ function listDoc() {
 				handler : function() {// 处理函数
 					editDoc();
 				}
-			} ],
+			} ]
         });
 }
 //查询
@@ -138,7 +140,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '公文操作',
+		title : '专利技术成果',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',

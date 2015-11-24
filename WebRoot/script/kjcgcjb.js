@@ -105,7 +105,7 @@ function listDoc() {
 				handler : function() {// 处理函数
 					editDoc();
 				}
-			} ],
+			} ]
         });
 }
 //查询
@@ -119,7 +119,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '公文操作',
+		title : '登记鉴定成果',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',
@@ -202,7 +202,7 @@ function dealSave() {
 	var actionAdd = basePath + '/system/KjcgcjbAction_add.action';
 	var actionUpdate = basePath + '/system/KjcgcjbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
-	alert(params);
+	//alert(params);
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {

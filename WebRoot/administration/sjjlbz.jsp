@@ -96,7 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
    选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
        　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
-       <a href="#" class="easyui-linkbutton" id="btnExport" onclick="ShowExport()" >导出</a> 　
+       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
 </form>
 
 
@@ -123,7 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- 编辑数据的div，默认看不到 -->
 <div id="divEdit" style="display:none;">
 	<div id="tabEdit" style="overflow-y:auto;">
-		<form id="frmEdit" style="width:600px; height:600px;margin:100px 0px 0px 0px"  method= "post">
+		<form id="frmEdit" style="width:600px; ;margin:0px 0px 0px 0px"  method= "post">
 			<input type="hidden" id="id" name="id" />
 			<dl>
 				<dd>法人单位名称:</dd>
@@ -143,7 +143,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dl>
 			<dl>
 				<dd>联系人:</dd>
-				<dd><textarea cols="45" rows="3" id="lxr" name="lxr"></textarea></dd>
+			<dd><input type="text" style="width: 150px" id="lxr" name="lxr" /></dd>
 			</dl>
 			<dl>
 				<dd>办公电话:</dd>
@@ -156,6 +156,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</form>
 	</div>
 </div>	
+
+
+
+
+<div id="divEdit2" style="display:none;">
+	<div id="tabEdit2" style="overflow-y:auto;">
+		<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
+		 >>>请选择导出项<<<
+		 <br> <br>
+<input name="Items" type="checkbox" checked="checked" value="1" />法人单位名称<br>
+<input name="Items" type="checkbox" checked="checked" value="2" />涉及的计量专业<br> 
+<input name="Items" type="checkbox" checked="checked" value="3" />企事业最高计量标准器具数量<br> 
+<input name="Items" type="checkbox" checked="checked" value="4" />通讯地址<br>
+<input name="Items" type="checkbox" checked="checked" value="5" />联系人<br> 
+<input name="Items" type="checkbox" checked="checked" value="6" />办公电话<br> 
+<input name="Items" type="checkbox" checked="checked" value="7" />手机<br>
+		</form>
+	</div>
+</div>	
+
+
+
 </body>
 
 </html>

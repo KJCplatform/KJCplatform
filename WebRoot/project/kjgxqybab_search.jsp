@@ -63,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		$(function() {
 			$('#gxjsqyrdba').propertygrid({
 	
-		        width: 1200,
+		        width: 1000,
 		        height: 'auto',
 		        showGroup: true,
 		        scrollbarSize: 0,
@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			$('#gxcp').datagrid({
 				title : '上年度高新技术产品（服务）情况',
-				width : 1200,
+				width : 1000,
 				height: 400,
 				fitColumns : true, // 自动适应列宽      
 				pageSize : 5,//默认选择的分页是每页5行数据
@@ -96,7 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 					$('#yfxm').datagrid({
 				title : '企业研究开发项目情况',
-				width : 1200,
+				width : 1000,
 				height: 400,
 				fitColumns : true, // 自动适应列宽      
 				pageSize : 5,//默认选择的分页是每页5行数据
@@ -118,7 +118,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 					$('#zscq').datagrid({
 				title : '近3年内获得的自主知识产权情况',
-				width : 1200,
+				width : 1000,
 				height: 400,
 				fitColumns : true, // 自动适应列宽      
 				pageSize : 5,//默认选择的分页是每页5行数据
@@ -201,24 +201,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							gxcpdata.total = info.kjgxqybabgxcps.length;
 							gxcpdata.rows = info.kjgxqybabgxcps;
 						}
-						if(info.kjgxqybabxkyfxms!= null){
-							yfxmdata.total = info.kjgxqybabxkyfxms.length;
-							yfxmdata.rows = info.kjgxqybabxkyfxms;
+						if(info.kjgxqybabyfxms!= null){
+							yfxmdata.total = info.kjgxqybabyfxms.length;
+							yfxmdata.rows = info.kjgxqybabyfxms;
 						}
-						if(info.kjgxqybabxkzscqs!= null){
-							zscqdata.total = info.kjgxqybabxkzscqs.length;
-							zscqdata.rows = info.kjgxqybabxkzscqs;
+						if(info.kjgxqybabzscqs!= null){
+							zscqdata.total = info.kjgxqybabzscqs.length;
+							zscqdata.rows = info.kjgxqybabzscqs;
 						}
 				
 					}
 					 $('#gxjsqyrdba').propertygrid('loadData', display);
 					 if(gxcpdata){
+					// alert("1");
 						 $('#gxcp').datagrid('loadData', gxcpdata);
 					 }
 					  if(yfxmdata){
+					//   alert("2");
 						 $('#yfxm').datagrid('loadData', yfxmdata);
 					 }
 					 if(zscqdata){
+					 // alert("3");
 						 $('#zscq').datagrid('loadData', zscqdata);
 					 }
 				}   

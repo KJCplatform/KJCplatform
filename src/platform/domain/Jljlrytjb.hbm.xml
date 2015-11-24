@@ -23,7 +23,7 @@
 		<property name="xm" type="string">
 			<column name="xm" />
 		</property>
-		<property name="xb" type="integer">
+		<property name="xb" type="string">
 			<column name="xb" />
 		</property>
 		<property name="whcd" type="string">
