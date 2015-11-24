@@ -177,6 +177,7 @@ function addDoc() {
 	$('#frmEdit').form('clear');
 	// 显示添加对话框
 	showEditForm();
+	
 }
 
 // 编辑按钮的操作
