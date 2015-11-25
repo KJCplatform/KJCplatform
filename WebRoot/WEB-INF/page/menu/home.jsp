@@ -8,7 +8,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 <head id="Head1">
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" content="ie=edge"/> 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>湖北省国防科学技术工业办公室软件平台</title>
+    <title>湖北省国防科工办科技信息管理系统</title>
     <link href="<%=basePath%>/css/default.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/icon.css" />
@@ -34,7 +34,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 		
 			{
 				"menuid": "12",
-				"menuname": "专家通讯录",
+				"menuname": "专家通讯库",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/kjjszjcjb.jsp"
 				//"url": "http://hxling.cnblogs.com",
@@ -83,6 +83,12 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 // 					"url": "demo.html"
 // 					}					
 // 				]
+			},{
+				"menuid": "13",
+				"menuname": "行业通讯库",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/hytxk.jsp"
+				
 			}
 			
 		]
@@ -100,7 +106,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"url": "demo.html",	
 			"child":[{
 				"menuid": "211",
-				"menuname": "专利技术成果",
+				"menuname": "国防专利",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/zljscg.jsp"
 			},
@@ -277,14 +283,14 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 		"menus":[
 		{
 			"menuid": "31",
-			"menuname": "国防科技工业军工产品质量",
+			"menuname": "军工产品质量",
 			"icon": "icon-nav",
 			//"url": "demo.html"	
 			"url": "<%=basePath%>/administration/jpzlzkjbb.jsp"			
 		},
 		{
 			"menuid": "32",
-			"menuname": "国防科技工业质量事故",
+			"menuname": "质量事故",
 			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/jpsgwtbb.jsp"			
 		}]
@@ -292,7 +298,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 	,{
 		"menuid": "4",
 		"icon": "icon-sys",
-		"menuname": "计量机构管理",
+		"menuname": "国防计量管理",
 		"menus":[
 		{
 			"menuid": "41",
@@ -398,8 +404,20 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"url": "demo2.html"
 		},
 		{
-			"menuid": "71",
+			"menuid": "72",
 			"menuname": "数据库更新",
+			"icon": "icon-set",
+			"url": "demo2.html"
+		},
+		{
+			"menuid": "73",
+			"menuname": "数据库备份",
+			"icon": "icon-set",
+			"url": "demo2.html"
+		},
+		{
+			"menuid": "74",
+			"menuname": "数据库还原",
 			"icon": "icon-set",
 			"url": "demo2.html"
 		}
@@ -410,7 +428,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 }
 	
 	
-	var curWwwPath = window.document.location.href;
+var curWwwPath = window.document.location.href;
 //获取主机地址之后的目录，如： /ems/Pages/Basic/Person.jsp
 var pathName = window.document.location.pathname;
 var pos = curWwwPath.indexOf(pathName);
@@ -521,7 +539,7 @@ var basePath = localhostPath + projectName;
         background: url(<%=basePath%>/images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%;
         line-height: 20px;color: #fff; font-family: Verdana, 微软雅黑,黑体">
         <span style="float:right; padding-right:20px;" class="head">欢迎   <a href="#" id="editpass">修改密码</a> <a href="#" id="loginOut">安全退出</a></span>
-        <span style="padding-left:10px; font-size: 20px; "><img src="<%=basePath%>/images/blocks.gif" width="20" height="20" align="absmiddle" /> 湖北省国防科学技术工业办公室软件平台</span>
+        <span style="padding-left:10px; font-size: 20px; "><img src="<%=basePath%>/images/blocks.gif" width="20" height="20" align="absmiddle" /> 湖北省国防科工办科技信息管理系统</span>
     </div>
     <div region="south" split="true" style="height: 30px; background: #D2E0F2; ">
         <div class="footer">By 湖北省国防科学技术工业办公室      jQuery.Easy-UI </div>
