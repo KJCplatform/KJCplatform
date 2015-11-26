@@ -28,7 +28,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/KjndgxqybabAction_list.action';
 	 $('#dg').datagrid({
-            title : '认定高新企业备案表',
+            title : '高新技术企业认定备案信息汇总表',
             width : 1200,
             height: 400,
             //fit: true,

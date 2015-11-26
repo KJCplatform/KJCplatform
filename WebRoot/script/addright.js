@@ -70,7 +70,7 @@ function listDoc() {
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      
-            pageSize : 5,//默认选择的分页是每页5行数据
+            pageSize : 10,//默认选择的分页是每页5行数据
             pageList : [ 5, 10, 15, 20 ],//可以选择的分页集合
             nowrap : true,//设置为true，当数据长度超出列宽时将会自动截取
             toolbar:"#toolbar",//在添加 增添、删除、修改操作的按钮要用到这个

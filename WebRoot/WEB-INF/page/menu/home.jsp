@@ -268,21 +268,24 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuname": "信息查询-高新技术企业认定备案信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjgxqybab_search.jsp"
-			}]	
+			}
+			,
+	
+		{
+				"menuid": "293",
+				"menuname": "汇总表-高新技术企业认定备案信息",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
+				
+		}
+			
+			]	
 		},
 		{
 				"menuid": "2A",
 				"menuname": "科技项目库",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/kjkjxmk.jsp"
-				
-		},
-	
-		{
-				"menuid": "2B",
-				"menuname": "认定高新企业备案表",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
 				
 		}
 		
