@@ -7,22 +7,7 @@ var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
 var basePath = localhostPath + projectName;
 
 //globel
-//var resultid;
-
-//test
-//var test = [
-//	 {"id": "xm", "name": "专家姓名", "group": "基本信息", "value": "", "editor": "text" },
-//     {"id": "xb", "name": "性别", "group": "基本信息", "value": "", 
-//    		"editor":{
-//    			"type": 'combobox', 
-//    			"required": true ,
-//    			"options":{
-//    				"data":[{"value":"男","text":"男"},{"value":"女","text":"女"}],
-//                        "panelHeight":"auto"		
-//    				}
-//		} 
-//	}
-//];
+var resultid;
 
 var rows = [
             {"id":"xmbh", "name": "项目编号", "group": "基本信息", "value": "", "editor": "text" },

@@ -8,7 +8,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 <head id="Head1">
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" content="ie=edge"/> 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>湖北省国防科工办科技信息管理系统</title>
+    <title>湖北省国防科技工业科技信息管理系统</title>
     <link href="<%=basePath%>/css/default.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/icon.css" />
@@ -155,7 +155,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 		},
 		{
 			"menuid": "23",
-			"menuname": "军品配套科研项目",
+			"menuname": "军品科研项目",
 			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/kjndjpptkyxmb.jsp"	
 		},
@@ -164,6 +164,13 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuname": "湖北省科学技术奖励",
 			"icon": "icon-nav",
 	        "url": "<%=basePath%>/administration/kjgfjflqk.jsp"	
+		},
+		{
+			"menuid": "52",
+			"menuname": "大型仪器信息表",
+			"icon": "icon-nav",
+			"url": "<%=basePath%>/administration/aaa.jsp"
+			
 		},
 		{
 			"menuid": "25",
@@ -358,13 +365,6 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/wqwqxkzxq_search.jsp"
 			}]		
-		},
-		{
-				"menuid": "52",
-				"menuname": "大型仪器信息表",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/aaa.jsp"
-				
 		}
 		]	
 	}<%}if(rights.contains("6")){%>
@@ -539,7 +539,7 @@ var basePath = localhostPath + projectName;
         background: url(<%=basePath%>/images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%;
         line-height: 20px;color: #fff; font-family: Verdana, 微软雅黑,黑体">
         <span style="float:right; padding-right:20px;" class="head">欢迎   <a href="#" id="editpass">修改密码</a> <a href="#" id="loginOut">安全退出</a></span>
-        <span style="padding-left:10px; font-size: 20px; "><img src="<%=basePath%>/images/blocks.gif" width="20" height="20" align="absmiddle" /> 湖北省国防科工办科技信息管理系统</span>
+        <span style="padding-left:10px; font-size: 20px; "><img src="<%=basePath%>/images/blocks.gif" width="20" height="20" align="absmiddle" /> 湖北省国防科技工业科技信息管理系统</span>
     </div>
     <div region="south" split="true" style="height: 30px; background: #D2E0F2; ">
         <div class="footer">By 湖北省国防科学技术工业办公室      jQuery.Easy-UI </div>
@@ -553,9 +553,10 @@ var basePath = localhostPath + projectName;
     </div>
     <div id="mainPanle" region="center" style="background: #eee; overflow-y:hidden">
         <div id="tabs" class="easyui-tabs"  fit="true" border="false" >
-			<div title="欢迎使用" style="padding:20px;overflow:hidden; color:red; " >
-				<h1 style="font-size:24px;">欢迎使用湖北省国防科学技术工业办公室软件平台</h1>
-				<h1 style="font-size:24px;">系统须知</h1>
+			<div title="欢迎使用" style="padding:20px;overflow:hidden; color:red; text-align:center;" >
+				<br><br>
+				<h1 style="font-size:40px;">国家秘密高于一切</h1>
+				<h1 style="font-size:40px;">保密责任重于泰山</h1>
 			</div>
 		</div>
     </div>
