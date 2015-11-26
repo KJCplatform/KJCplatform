@@ -80,7 +80,8 @@
 					<th field="zllx">专利类型</th>
 					<th field="zlqr">专利权人</th>
 					<th field="zywcr">主要完成人</th>
-					<th field="zlh">专利<th field="zflh">主分类号</th>号</th>
+					<th field="zlh">专利号</th>
+					<th field="zflh">主分类号</th>
 					<th field="gkh">公开号</th>
 					<th field="gkr">公开日</th>
 					
@@ -113,8 +114,7 @@
 	<!-- 编辑数据的div，默认看不到 -->
 	<div id="divEdit" style="display:none;">
 		<div id="tabEdit" style="overflow-y:auto;">
-			<form id="frmEdit"
-				style="width:600px; height:600px;margin:100px 0px 0px 0px"
+			<form id="frmEdit" style="width:800px;height:400px"
 				method="post">
 				<input type="hidden" id="id" name="id" />
 				<dl>
