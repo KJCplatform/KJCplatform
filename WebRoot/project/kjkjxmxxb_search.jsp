@@ -273,7 +273,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 		//提交基本信息表
 		function update(){
-			var s = '';
+			var s = 'id=' + resultid;
 			var action =  basePath + '/system/KjkjxmxxbAction_update.action';
 			var rows = $('#kjxmxx').propertygrid('getRows');
 			var changes = $('#kjxmxx').propertygrid('getChanges');
@@ -325,7 +325,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>
 					</td> 
 					<td>
-						<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0);" onclick="deleteInfo();">删除</a>
+						<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0);" onclick="delete();">删除</a>
 					</td>	
                 </tr>
             </table>
