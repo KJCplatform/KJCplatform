@@ -88,7 +88,8 @@ function showEditForm() {
 					dealSave();
 					// 关闭窗口
 					closeForm();
-				} else {
+				} else 
+				{
 					$.messager.alert('验证', '信息有误或不完整', 'error');
 				}
 			}
