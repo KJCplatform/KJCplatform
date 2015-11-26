@@ -222,8 +222,8 @@
 				<dl>
 					<dd>
 						是否委托中介: <select id="sfzj" name="sfzj">
-							<option value="1" selected="selected">是</option>
-							<option value="0">否</option>
+							<option value="是" selected="selected">是</option>
+							<option value="否">否</option>
 						</select>
 					</dd>
 				</dl>
@@ -257,8 +257,8 @@
 				<dl>
 					<dd>
 						以下信息是否公开: <select id="sfgk" name="sfgk">
-							<option value="1" selected="selected">是</option>
-							<option value="0">否</option>
+							<option value="是" selected="selected">是</option>
+							<option value="否">否</option>
 						</select>
 					</dd>
 				</dl>

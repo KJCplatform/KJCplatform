@@ -199,7 +199,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						 $('#zy').datagrid('loadData', zydata);
 					 }
 					 
-				}   
+				}
 			})
 		}
 

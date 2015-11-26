@@ -157,7 +157,22 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuid": "23",
 			"menuname": "军品配套科研项目",
 			"icon": "icon-nav",
-			"url": "<%=basePath%>/administration/kjndjpptkyxmb.jsp"	
+			"url": "demo.html",
+			"child":[{
+			    "menuid": "231",
+				"menuname": "军品科研项目汇总表",
+				"icon": "icon-nav",
+			    "url": "<%=basePath%>/administration/kjndjpptkyxmb.jsp"	
+			},
+			{
+			    "menuid": "232",
+				"menuname": "军品科研项目执行情况表",
+				"icon": "icon-nav",
+			    "url": "<%=basePath%>/administration/kjndjpptkyxmb2.jsp"	
+			}
+			]
+			
+			
 		},
 		{
 			"menuid": "24",
@@ -357,7 +372,29 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuname": "信息查询-武器装备科研生产许可取证单位信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/wqwqxkzxq_search.jsp"
-			}]		
+			},{
+				"menuid": "513",
+				"menuname": "已获得许可的武器生产专业(产品)",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/wqwqxkzxq2.jsp"
+			},{
+				"menuid": "514",
+				"menuname": "已获得许可的武器装备科研专业",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/wqwqxkzxq3.jsp"
+			},{
+				"menuid": "515",
+				"menuname": "申请延续的武器装备科研生产许可专业产品",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/wqwqxkzxq4.jsp"
+			},{
+				"menuid": "516",
+				"menuname": "申请增加的武器装备科研生产许可专业产品",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/wqwqxkzxq5.jsp"
+			}
+			
+			]		
 		},
 		{
 				"menuid": "52",

@@ -204,7 +204,9 @@ function editDoc() {
 	$("#jsly").combotree("setValue", doc.jsly);
 	$("#cgjd").val(doc.cgjd);
 	$("#jyfs").combotree("setValue", doc.jyfs);
+	
 	$("#sfzj").val(doc.sfzj);
+	
 	$("#gfdj").val(doc.gfdj);
 	$("#zhyq").val(doc.zhyq);
 	$("#sfgk").val(doc.sfgk);

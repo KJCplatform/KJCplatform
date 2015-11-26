@@ -70,14 +70,24 @@ public class KjcgcjbServiceImpl implements KjcgcjbService{
 		kjcgcjb.setCgjd(kjcgcjbForm.getCgjd());
 		kjcgcjb.setJyfs(kjcgcjbForm.getJyfs());
 		
-		if(kjcgcjbForm.getSfzj()!=null&&!kjcgcjbForm.getSfzj().equals(""))
-		kjcgcjb.setSfzj(Integer.valueOf(kjcgcjbForm.getSfzj()));
+		//数据校验
+		if(kjcgcjbForm.getSfzj()!=null){
+		if(kjcgcjbForm.getSfzj().equals("是"))
+			kjcgcjb.setSfzj(1);
+		else if(kjcgcjbForm.getSfzj().equals("否"))
+			kjcgcjb.setSfzj(0);
+		}
 		kjcgcjb.setGfdj(kjcgcjbForm.getGfdj());
 		kjcgcjb.setZhyq(kjcgcjbForm.getZhyq());
 		
-		if(kjcgcjbForm.getSfgk()!=null&&!kjcgcjbForm.getSfgk().equals(""))
-		kjcgcjb.setSfgk(Integer.valueOf(kjcgcjbForm.getSfgk()));
-		
+		//数据校验
+		if(kjcgcjbForm.getSfgk()!=null)
+		{
+			if(kjcgcjbForm.getSfgk().equals("是"))
+				kjcgcjb.setSfgk(1);
+			else if(kjcgcjbForm.getSfgk().equals("否"))
+				kjcgcjb.setSfgk(0);
+		}
 		if(kjcgcjbForm.getFbrxz()!=null&&!kjcgcjbForm.getFbrxz().equals(""))
 		kjcgcjb.setFbrxz(Integer.valueOf(kjcgcjbForm.getFbrxz()));
 		kjcgcjb.setLxrxm(kjcgcjbForm.getLxrxm());
@@ -107,13 +117,24 @@ public class KjcgcjbServiceImpl implements KjcgcjbService{
 		kjcgcjb.setCgjd(kjcgcjbForm.getCgjd());
 		kjcgcjb.setJyfs(kjcgcjbForm.getJyfs());
 		
-		if(kjcgcjbForm.getSfzj()!=null&&!kjcgcjbForm.getSfzj().equals(""))
-		kjcgcjb.setSfzj(Integer.valueOf(kjcgcjbForm.getSfzj()));
+		//数据校验
+		if(kjcgcjbForm.getSfzj()!=null){
+		if(kjcgcjbForm.getSfzj().equals("是"))
+			kjcgcjb.setSfzj(1);
+		else if(kjcgcjbForm.getSfzj().equals("否"))
+			kjcgcjb.setSfzj(0);
+		}
 		kjcgcjb.setGfdj(kjcgcjbForm.getGfdj());
 		kjcgcjb.setZhyq(kjcgcjbForm.getZhyq());
 		
-		if(kjcgcjbForm.getSfgk()!=null&&!kjcgcjbForm.getSfgk().equals(""))
-		kjcgcjb.setSfgk(Integer.valueOf(kjcgcjbForm.getSfgk()));
+		//数据校验
+		if(kjcgcjbForm.getSfgk()!=null)
+		{
+			if(kjcgcjbForm.getSfgk().equals("是"))
+				kjcgcjb.setSfgk(1);
+			else if(kjcgcjbForm.getSfgk().equals("否"))
+				kjcgcjb.setSfgk(0);
+		}
 		
 		if(kjcgcjbForm.getFbrxz()!=null&&!kjcgcjbForm.getFbrxz().equals(""))
 		kjcgcjb.setFbrxz(Integer.valueOf(kjcgcjbForm.getFbrxz()));
@@ -145,10 +166,18 @@ public class KjcgcjbServiceImpl implements KjcgcjbService{
 			kjcgcjbForm.setJsly(kjcgcjb.getJsly());
 			kjcgcjbForm.setCgjd(kjcgcjb.getCgjd());
 			kjcgcjbForm.setJyfs(kjcgcjb.getJyfs());
-			kjcgcjbForm.setSfzj(String.valueOf(kjcgcjb.getSfzj()));
+			if(kjcgcjb.getSfzj()==1)
+				kjcgcjbForm.setSfzj("是");
+				else if(kjcgcjb.getSfzj()==0)
+					kjcgcjbForm.setSfzj("否");
+				
 			kjcgcjbForm.setGfdj(kjcgcjb.getGfdj());
 			kjcgcjbForm.setZhyq(kjcgcjb.getZhyq());
-			kjcgcjbForm.setSfgk(String.valueOf(kjcgcjb.getSfgk()));
+			if(kjcgcjb.getSfgk()==1)
+				kjcgcjbForm.setSfgk("是");
+				else if(kjcgcjb.getSfgk()==0)
+					kjcgcjbForm.setSfgk("否");
+			
 			kjcgcjbForm.setFbrxz(String.valueOf(kjcgcjb.getFbrxz()));
 			kjcgcjbForm.setLxrxm(kjcgcjb.getLxrxm());
 			kjcgcjbForm.setGddh(kjcgcjb.getGddh());

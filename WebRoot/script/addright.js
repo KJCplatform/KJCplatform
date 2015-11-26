@@ -33,27 +33,34 @@ $(function() {
 	$("#jbnr").validatebox({
 		required : true
 	});
+
+	
+	
+	
+//	$('#userid').combotree({
+//	   // url: basePath + '/project/area.json'
+//		url:basePath + '/system/AddrightAction_list.action',
+//		
+	
+			
+			
+		
+		
+		
+	  //  valueField:'userid',
+	  //  textField:'rightid'
+		
+	});   
 	
 //	$('#cc').combobox({
 //	    url:'combobox_data.json',
 //	    valueField:'id',
 //	    textField:'text'
 //	});  
-
-	$('#yyhy').combotree();
-	$('#yyhy').combotree('loadData', 
-			[{ id: "技术许可", text: '技术许可'},
-				{id: "技术转让", text: '技术转让'},
-				{id: "技术入股", text: '技术入股'},
-				{id: "技术提成", text: '技术提成'},
-				{id: "其他方式", text: '其他方式'}
-			 ]
-	);
-	
 	
 
 	
-});
+
 //加载公文列表
 function listDoc() {
 	var actionPath = basePath + '/system/AddrightAction_list.action';
@@ -95,21 +102,36 @@ function listDoc() {
 				}
 			} ]
         });
+	 
+	 
+//	 
+//	 alert("1235");
+//
+//	 $.getJSON(actionPath, function(json) {
+//	 $('#userid').combobox({
+//	 data : json.rows,
+//	 valueField:'id',
+//	 textField:'userid'
+//	 });
+//	 });
+//	 
+	 
 }
 
 
 function loadcombotree() {
-	//alert("12345");
-
-var url = basePath + '/system/AddrightAction_list.action';
-$.getJSON(url, function(json) {
-$('#yyhy').combobox({
-data : json.rows,
-valueField:'id',
-textField:'userid'
-});
-});
-
+//	alert("1235");
+//
+//	var testurl = basePath + '/system/AddrightAction_list.action';
+//$.getJSON(testurl, function(json) {
+//$('#userid').combobox({
+//data : json.rows,
+//valueField:'id',
+//textField:'userid'
+//});
+//});
+	 
+	
 }
 
 

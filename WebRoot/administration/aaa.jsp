@@ -64,44 +64,44 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 
-<div data-options="region:'center',split:false">
+<div data-options="region:'center',split:false" >
 	<!-- 表格主题部分-->
 	<table id="dg">
 	<thead>
 		<tr>
-			<th field="yqbh" width="200">仪器编号</th>
-			<th field="flbm" width="200">仪器分类编码</th>
-			<th field="nbbh" width="200">所在单位内仪器编号</th>
-			<th field="zwmc" width="200">仪器中文名称</th>
-			<th field="ywmc" width="200">仪器英文名称</th>
-			<th field="xhgg" width="200">仪器型号规格</th>
-			<th field="jszb" width="200">主要技术指标</th>
-			<th field="csyjly" width="200">主要测试和研究领域</th>
-			<th field="zyyt" width="200">主要用途</th>
-			<th field="zyfjgn" width="200">主要附件及功能</th>
-			<th field="rzqk" width="200">仪器认证情况</th>
-			<th field="sccs" width="200">生产厂商</th>
-			<th field="cdgb" width="200">产地国别</th>
-     		<th field="yqyz" width="200">仪器原值</th>
-			<th field="qyrq" width="200">启用日期</th>
-			<th field="szdwmc" width="200">所在单位名称</th>
-			<th field="sysmc" width="200">实验室名称</th>
-			<th field="afdz" width="200">仪器安放地址</th>
-			<th field="yzbm" width="200">邮政编码</th>
-			<th field="lxr" width="200">仪器联系人</th>
-			<th field="dh" width="200">电话</th>
-			<th field="dzyj" width="200">电子邮件</th>
-			<th field="sfgx" width="200">是否共享</th>
-			<th field="yqzt" width="200">仪器状态</th>
-			<th field="kfjsap" width="200">开放机时安排</th>
-			<th field="cksfbz" width="200">参考收费标准</th>
-			<th field="fwtjnf" width="200">服务统计年份</th>
-			<th field="nfwjs" width="200">年对外服务机时</th>
-			<th field="nfwsr" width="200">年对外服务收入</th>
-			<th field="zmyh" width="200">知名用户及联系方式</th>
-			<th field="yycg" width="200">应用成果</th>
-			<th field="yqtp" width="200">仪器图片</th>
-			<th field="bz" width="200">备注</th>     
+			<th field="yqbh" >仪器编号</th>
+			<th field="flbm" >仪器分类编码</th>
+			<th field="nbbh" >所在单位内仪器编号</th>
+			<th field="zwmc">仪器中文名称</th>
+			<th field="ywmc" >仪器英文名称</th>
+			<th field="xhgg" >仪器型号规格</th>
+			<th field="jszb" >主要技术指标</th>
+			<th field="csyjly" >主要测试和研究领域</th>
+			<th field="zyyt">主要用途</th>
+			<th field="zyfjgn" >主要附件及功能</th>
+			<th field="rzqk" >仪器认证情况</th>
+			<th field="sccs" >生产厂商</th>
+			<th field="cdgb" >产地国别</th>
+     		<th field="yqyz">仪器原值</th>
+			<th field="qyrq" >启用日期</th>
+			<th field="szdwmc" >所在单位名称</th>
+			<th field="sysmc" >实验室名称</th>
+			<th field="afdz" >仪器安放地址</th>
+			<th field="yzbm">邮政编码</th>
+			<th field="lxr" >仪器联系人</th>
+			<th field="dh" >电话</th>
+			<th field="dzyj" >电子邮件</th>
+			<th field="sfgx" >是否共享</th>
+			<th field="yqzt" >仪器状态</th>
+			<th field="kfjsap" >开放机时安排</th>
+			<th field="cksfbz" >参考收费标准</th>
+			<th field="fwtjnf" >服务统计年份</th>
+			<th field="nfwjs" >年对外服务机时</th>
+			<th field="nfwsr" >年对外服务收入</th>
+			<th field="zmyh" >知名用户及联系方式</th>
+			<th field="yycg" >应用成果</th>
+			<th field="yqtp" >仪器图片</th>
+			<th field="bz" >备注</th>     
 		</tr>
 	</thead>
 	</table>

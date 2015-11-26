@@ -75,14 +75,26 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setJyfs(kjzlcjbForm.getJyfs());
 		
 		//数据校验
-		if(kjzlcjbForm.getSfzj()!=null)
-		kjzlcjb.setSfzj(Integer.valueOf(kjzlcjbForm.getSfzj()));
+		if(kjzlcjbForm.getSfzj()!=null){
+		if(kjzlcjbForm.getSfzj().equals("是"))
+			kjzlcjb.setSfzj(1);
+		else if(kjzlcjbForm.getSfzj().equals("否"))
+			kjzlcjb.setSfzj(0);
+		}
+		
 		kjzlcjb.setGfdj(kjzlcjbForm.getGfdj());
 		kjzlcjb.setZhyq(kjzlcjbForm.getZhyq());
 		
 		//数据校验
 		if(kjzlcjbForm.getSfgk()!=null)
-		kjzlcjb.setSfgk(Integer.valueOf(kjzlcjbForm.getSfgk()));
+		{
+			if(kjzlcjbForm.getSfgk().equals("是"))
+				kjzlcjb.setSfgk(1);
+			else if(kjzlcjbForm.getSfgk().equals("否"))
+				kjzlcjb.setSfgk(0);
+		}
+		
+		
 		kjzlcjb.setLxrxm(kjzlcjbForm.getLxrxm());
 		
 		//数据校验
@@ -124,14 +136,25 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setJyfs(kjzlcjbForm.getJyfs());
 		
 		//数据校验
-		if(kjzlcjbForm.getSfzj()!=null)
-		kjzlcjb.setSfzj(Integer.valueOf(kjzlcjbForm.getSfzj()));
+		if(kjzlcjbForm.getSfzj()!=null){
+		if(kjzlcjbForm.getSfzj().equals("是"))
+			kjzlcjb.setSfzj(1);
+		else if(kjzlcjbForm.getSfzj().equals("否"))
+			kjzlcjb.setSfzj(0);
+		}
+		
 		kjzlcjb.setGfdj(kjzlcjbForm.getGfdj());
 		kjzlcjb.setZhyq(kjzlcjbForm.getZhyq());
 		
 		//数据校验
 		if(kjzlcjbForm.getSfgk()!=null)
-		kjzlcjb.setSfgk(Integer.valueOf(kjzlcjbForm.getSfgk()));
+		{
+			if(kjzlcjbForm.getSfgk().equals("是"))
+				kjzlcjb.setSfgk(1);
+			else if(kjzlcjbForm.getSfgk().equals("否"))
+				kjzlcjb.setSfgk(0);
+		}
+		
 		kjzlcjb.setLxrxm(kjzlcjbForm.getLxrxm());
 		
 		//数据校验
@@ -171,11 +194,21 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 			kjzlcjbForm.setCgjd(kjzlcjb.getCgjd());
 			kjzlcjbForm.setJyfs(kjzlcjb.getJyfs());
 
-			kjzlcjbForm.setSfzj(String.valueOf(kjzlcjb.getSfzj()));
+			if(kjzlcjb.getSfzj()==1)
+			kjzlcjbForm.setSfzj("是");
+			else if(kjzlcjb.getSfzj()==0)
+			kjzlcjbForm.setSfzj("否");
+			
+			
 			kjzlcjbForm.setGfdj(kjzlcjb.getGfdj());
 			kjzlcjbForm.setZhyq(kjzlcjb.getZhyq());
 			
-			kjzlcjbForm.setSfgk(String.valueOf(kjzlcjb.getSfgk()));
+			
+			if(kjzlcjb.getSfgk()==1)
+				kjzlcjbForm.setSfgk("是");
+				else if(kjzlcjb.getSfgk()==0)
+				kjzlcjbForm.setSfgk("否");
+			
 			kjzlcjbForm.setLxrxm(kjzlcjb.getLxrxm());
 			
 			if(kjzlcjb.getGddh()!=null)
