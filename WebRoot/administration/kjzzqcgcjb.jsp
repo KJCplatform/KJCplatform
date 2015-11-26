@@ -69,28 +69,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<table id="dg">
 	<thead>
 		<tr>
-			<th field="cgmc" width="130">成果名称</th>
-			<th field="wcdw" width="130">成果完成单位</th>
-			<th field="zywcr" width="130">主要完成人</th>
-			<th field="wcsj" width="130">完成时间</th>
-			<th field="rzbh" width="130">软著编号</th>
-			<th field="cgjj" width="130">成果简介</th>
-			<th field="yyhy" width="130">应用行业</th>
-						<th field="jsly" width="130">技术领域</th>
-			<th field="cgjd" width="130">成果阶段</th>
-			<th field="jyfs" width="130">交易方式</th>
-			<th field="sfzj" width="130">是否委托中介</th>
-			<th field="gfdj" width="130">供方定价</th>
-			<th field="zhyq" width="130">其他转化要求</th>
-			<th field="sfgk" width="130">以下信息是否公开</th>
-						<th field="fbrxz" width="130">发布人性质</th>
-			<th field="lxrxm" width="130">联系人姓名</th>
-			<th field="gddh" width="130">固定电话</th>
-			<th field="szdq" width="130">所在地区</th>
-			<th field="sj" width="130">手机</th>
-			<th field="dzyx" width="130">电子邮箱</th>
-			<th field="lxdz" width="130">联系地址</th>
-
+			<th field="cgmc" >成果名称</th>
+			<th field="wcdw" >成果完成单位</th>
+			<th field="zywcr" >主要完成人</th>
+			<th field="wcsj" >完成时间</th>
+			<th field="rzbh">软著编号</th>
+			<th field="cgjj" >成果简介</th>
+			<th field="yyhy" >应用行业</th>
+			<th field="jsly">技术领域</th>
+			<th field="cgjd" >成果阶段</th>
+			<th field="jyfs" >交易方式</th>
+			<th field="sfzj" >是否委托中介</th>
+			<th field="gfdj" >供方定价</th>
+			<th field="zhyq" >其他转化要求</th>
+			<th field="sfgk" >以下信息是否公开</th>
+			<th field="fbrxz" >发布人性质</th>
+			<th field="lxrxm">联系人姓名</th>
+			<th field="gddh" >固定电话</th>
+			<th field="szdq" >所在地区</th>
+			<th field="sj" >手机</th>
+			<th field="dzyx" >电子邮箱</th>
+			<th field="lxdz">联系地址</th>
+            <th field="jlnf">记录年份</th>
+		    <th field="username">记录人</th>
+			<th field="gxsj">更新时间</th>
+			<th field="submit">是否提交</th>
 		</tr>
 	</thead>
 	</table>
@@ -99,7 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- 编辑数据的div，默认看不到 -->
 <div id="divEdit" style="display:none;">
 	<div id="tabEdit" style="overflow-y:auto;">
-		<form id="frmEdit" style="width:600px; height:600px;margin:100px 0px 0px 0px" method= "post">
+			<form id="frmEdit" style="width:800px;height:400px" method= "post">
 			<input type="hidden" id="id" name="id" />
 			<dl>
 				<dd>成果名称:
@@ -168,8 +171,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dl>
 					<dd>
 						是否委托中介: <select id="sfzj" name="sfzj">
-							<option value="1" selected="selected">是</option>
-							<option value="0">否</option>
+							<option value="是" selected="selected">是</option>
+							<option value="否">否</option>
 						</select>
 					</dd>
 				</dl>
@@ -203,8 +206,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dl>
 					<dd>
 						以下信息是否公开: <select id="sfgk" name="sfgk">
-							<option value="1" selected="selected">是</option>
-							<option value="0">否</option>
+							<option value="是" selected="selected">是</option>
+							<option value="否">否</option>
 						</select>
 					</dd>
 				</dl>

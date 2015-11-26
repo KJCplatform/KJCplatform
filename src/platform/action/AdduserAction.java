@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import platform.action.BaseAction;
 import platform.dao.TestDataDao;
 import platform.domain.Adduser;
+import platform.form.AddrightForm;
 import platform.form.TestDataFrom;
 
 
@@ -107,6 +108,23 @@ public class AdduserAction extends BaseAction implements ModelDriven<AdduserForm
 		operateSuccess=true;
 		return "add";
 	}
+	
+	
+	
+	public String test(){
+		
+		List<AdduserForm> formlist=adduserService.findAdduserListWithPage(1000,1,adduserForm);
+		
+
+		map.put("rows", formlist);
+		map.put("total", adduserService.findAdduserList().size());
+		
+		
+		this.setResponseJson(map);
+		operateSuccess=true;
+		return "test";
+	}
+	
 }
 
 

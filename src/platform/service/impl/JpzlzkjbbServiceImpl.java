@@ -73,8 +73,8 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			jpzlzkjbb.setZlhdqk(jpzlzkjbbForm.getZlhdqk());
 			jpzlzkjbb.setTbr(jpzlzkjbbForm.getTbr());
 			jpzlzkjbb.setZlbfzr(jpzlzkjbbForm.getZlbfzr());
-//			jpzlzkjbb.setShr(jpzlzkjbbForm.getShr());
-			jpzlzkjbb.setShr("123");
+			jpzlzkjbb.sets2hr(jpzlzkjbbForm.getS2hr());
+			//jpzlzkjbb.sets2hr("123");
 			jpzlzkjbb.setBcrq(StringHelper.stringConvertDate2(jpzlzkjbbForm.getBcrq()));
 		    jpzlzkjbbDao.update(jpzlzkjbb);
 		
@@ -94,8 +94,8 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		jpzlzkjbb.setZlhdqk(jpzlzkjbbForm.getZlhdqk());
 		jpzlzkjbb.setTbr(jpzlzkjbbForm.getTbr());
 		jpzlzkjbb.setZlbfzr(jpzlzkjbbForm.getZlbfzr());
-		//jpzlzkjbb.setShr(jpzlzkjbbForm.getShr());
-		jpzlzkjbb.setShr("123");
+		jpzlzkjbb.sets2hr(jpzlzkjbbForm.getS2hr());
+		//jpzlzkjbb.sets2hr("123");
 		if(jpzlzkjbbForm.getBcrq()!=null&&!jpzlzkjbbForm.getBcrq().equals(""))
 		jpzlzkjbb.setBcrq(StringHelper.stringConvertDate2(jpzlzkjbbForm.getBcrq()));
 		
@@ -120,8 +120,8 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			jpzlzkjbbForm.setZlhdqk(jpzlzkjbb.getZlhdqk());
 			jpzlzkjbbForm.setTbr(jpzlzkjbb.getTbr());
 			jpzlzkjbbForm.setZlbfzr(jpzlzkjbb.getZlbfzr());
-//			jpzlzkjbbForm.setShr(jpzlzkjbb.getShr());
-			jpzlzkjbbForm.setShr("123");
+			jpzlzkjbbForm.setS2hr(jpzlzkjbb.gets2hr());
+			//jpzlzkjbbForm.sets2hr("123");
 			jpzlzkjbbForm.setBcrq(String.valueOf(jpzlzkjbb.getBcrq()));
 			
 			formlist.add(jpzlzkjbbForm);

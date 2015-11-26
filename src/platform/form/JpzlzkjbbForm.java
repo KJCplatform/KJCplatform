@@ -13,8 +13,14 @@ public class JpzlzkjbbForm implements java.io.Serializable{
 	  private String zlhdqk;
 	  private String tbr;
 	  private String zlbfzr;
-	  private String shr;
-	  private String bcrq;
+	  private String s2hr;
+	  public String getS2hr() {
+		return s2hr;
+	}
+	public void setS2hr(String s2hr) {
+		this.s2hr = s2hr;
+	}
+	private String bcrq;
 	public String getId() {
 		return id;
 	}
@@ -68,12 +74,6 @@ public class JpzlzkjbbForm implements java.io.Serializable{
 	}
 	public void setZlbfzr(String zlbfzr) {
 		this.zlbfzr = zlbfzr;
-	}
-	public String getShr() {
-		return shr;
-	}
-	public void setShr(String shr) {
-		this.shr = shr;
 	}
 	public String getBcrq() {
 		return bcrq;

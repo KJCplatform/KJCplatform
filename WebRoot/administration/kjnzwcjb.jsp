@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 
-<div data-options="region:'center',split:false">
+<div data-options="region:'center',split:false"  style="overflow:scroll" >
 	<!-- 表格主题部分-->
 	<table id="dg">
 	<thead>

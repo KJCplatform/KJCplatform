@@ -12,60 +12,19 @@ var basePath = localhostPath + projectName;
 
 $(function() {
 	listDoc();
-	// 日期加上日期控件
-	$("#fwrq").datebox({
-		editable:false,
-		required : true
-	});
-	$("#jzrq").datebox({
-		editable:false,
-		required : true
-	});
+
 	// 给文本框加上验证器
-	$("#wjm").validatebox({
+	$("#xmbh").validatebox({
 		required : true,
-		missingMessage : '文件名不能为空'
-	});
-	$("#wjh").validatebox({
-		required : true,
-		missingMessage : '文件号不能为空'
-	});
-	$("#jbnr").validatebox({
-		required : true
+		missingMessage : '不能为空'
 	});
 
-	
-	
-	
-//	$('#userid').combotree({
-//	   // url: basePath + '/project/area.json'
-//		url:basePath + '/system/AddrightAction_list.action',
-//		
-	
-			
-			
-		
-		
-		
-	  //  valueField:'userid',
-	  //  textField:'rightid'
-		
-	});   
-	
-//	$('#cc').combobox({
-//	    url:'combobox_data.json',
-//	    valueField:'id',
-//	    textField:'text'
-//	});  
-	
-
-	
-
+});
 //加载公文列表
 function listDoc() {
-	var actionPath = basePath + '/system/AddrightAction_list.action';
+	var actionPath = basePath + '/system/KjndjpptkyxmbAction_list.action';
 	 $('#dg').datagrid({
-            title : '用户权限管理',
+            title : '军品科研项目执行情况表',
             width : 1200,
             height: 400,
             //fit: true,
@@ -83,86 +42,38 @@ function listDoc() {
             rownumbers : true,//行数
 			
 			toolbar:[ {// 工具栏
-				text : '添加用户权限',
+				text : '添加',
 				iconCls : 'icon-add', // 图标
 				handler : function() { // 处理函数
 					addDoc();
 				}
 			}, {
-				text : '删除用户权限',
+				text : '删除',
 				iconCls : 'icon-cancel', // 图标
 				handler : function() { // 处理函数
 					deleteDoc();
 				}
 			}, {
-				text : '编辑用户权限',
+				text : '编辑',
 				iconCls : 'icon-edit',// 图标
 				handler : function() {// 处理函数
 					editDoc();
 				}
 			} ]
         });
-	 
-	 
-//	 
-//	 alert("1235");
-//
-//	 $.getJSON(actionPath, function(json) {
-//	 $('#userid').combobox({
-//	 data : json.rows,
-//	 valueField:'id',
-//	 textField:'userid'
-//	 });
-//	 });
-//	 
-	 
 }
-
-
-function loadcombotree() {
-//	alert("1235");
-//
-//	var testurl = basePath + '/system/AddrightAction_list.action';
-//$.getJSON(testurl, function(json) {
-//$('#userid').combobox({
-//data : json.rows,
-//valueField:'id',
-//textField:'userid'
-//});
-//});
-
-	var testurl = basePath + '/system/AdduserAction_test.action';
-	//var testurl = basePath + '/system/KjsjjljgxxbAction_showexport.action';
-	
-	$.post(testurl, null, function(json) {
-
-		$.getJSON(testurl, function(json) {
-		$('#userid').combobox({
-		data : json.rows,
-		valueField:'id',
-		textField:'name'
-		});
-		});
-		
-});
-	
-	
-}
-
-
-
 //查询
 function doSearch(){
 	$('#dg').datagrid('load',{
-		name: $('#rightname').val(),
-		
+		xmbh: $('#fileName').val(),
+		xmmc: $('#fileId').val()
 	});
 }
 // 显示编辑窗口
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '添加用户权限',
+		title : '军品配套科研项目',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',
@@ -198,7 +109,6 @@ function addDoc() {
 	$('#frmEdit').form('clear');
 	// 显示添加对话框
 	showEditForm();
-	loadcombotree();
 }
 
 // 编辑按钮的操作
@@ -211,9 +121,21 @@ function editDoc() {
 	}
 	$('#frmEdit').form('clear');
 	// 填充数据
-	$("#userid").val(doc.userid);
-	$("#rightid").val(doc.rightid);
 	$("#id").val(doc.id);
+	$("#xmbh").val(doc.xmbh);
+	$("#xmmc").val(doc.xmmc);
+	$("#cyzgbm").val(doc.cyzgbm);
+	$("#cydw").val(doc.cydw);
+	$("#xqzgbm").val(doc.xqzgbm);
+	$("#xqdw").val(doc.xqdw);
+	$("#bjxh").val(doc.bjxh);
+	$("#xmnr").val(doc.xmnr);
+	$("#yzzq").val(doc.yzzq);
+	$("#pfzjf").val(doc.pfzjf);
+	$("#pfgbjf").val(doc.pfgbjf);
+
+	$("#bz").val(doc.bz);
+	
 
 	
 	// 显示编辑页面
@@ -222,14 +144,12 @@ function editDoc() {
 function dealSave() {
 	// 表单数据序列化成一个字符串用&拼接
 	var params = $("#frmEdit").serialize();
-	var actionAdd = basePath + '/system/AddrightAction_add.action';
-	var actionUpdate = basePath + '/system/AddrightAction_update.action';
+	var actionAdd = basePath + '/system/KjndjpptkyxmbAction_add.action';
+	var actionUpdate = basePath + '/system/KjndjpptkyxmbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
-
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {
-				//	alert(result);
 					$('#dg').datagrid('reload');// 重新加载
 					$.messager.alert('添加', '添加成功', 'info');
 			} else {
@@ -259,7 +179,7 @@ function save(){
 			var result = eval('('+result+')');
 			if (result.success){
 				$('#frmEdit').dialog('close');		// close the dialog
-				$('#dg').datagrid('reload');	// reload the right data
+				$('#dg').datagrid('reload');	// reload the user data
 			} else {
 				$.messager.show({
 					title: 'Error',
@@ -280,7 +200,7 @@ function deleteDoc() {
 	}
 	$.messager.confirm('确认', '真的要删除选中的记录吗？', function(r) {
 		if (r) {
-			var actionPath = basePath + '/system/AddrightAction_delete.action?id=';
+			var actionPath = basePath + '/system/KjndjpptkyxmbAction_delete.action?id=';
 			var url = actionPath + doc.id;
 			// 试一下get方法（地址，回调函数）
 			$.get(url, function(result) {
@@ -297,7 +217,7 @@ function deleteDoc() {
 	});
 }
 
-
+ 
 
 
 

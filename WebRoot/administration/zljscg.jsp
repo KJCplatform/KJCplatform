@@ -81,9 +81,10 @@
 					<th field="zlqr">专利权人</th>
 					<th field="zywcr">主要完成人</th>
 					<th field="zlh">专利号</th>
+					<th field="zflh">主分类号</th>
 					<th field="gkh">公开号</th>
 					<th field="gkr">公开日</th>
-					<th field="zflh">主分类号</th>
+					
 					<th field="flzt">法律状态</th>
 					<th field="cgjj">成果简介</th>
 					<th field="yyhy">应用行业</th>
@@ -100,6 +101,11 @@
 					<th field="sj">手机</th>
 					<th field="dzyx">电子邮箱</th>
 					<th field="lxdz">联系地址</th>
+					
+					<th field="jlnf">记录年份</th>
+					<th field="username">记录人</th>
+					<th field="gxsj">更新时间</th>
+					<th field="submit">是否提交</th>
 				</tr>
 			</thead>
 		</table>
@@ -108,8 +114,7 @@
 	<!-- 编辑数据的div，默认看不到 -->
 	<div id="divEdit" style="display:none;">
 		<div id="tabEdit" style="overflow-y:auto;">
-			<form id="frmEdit"
-				style="width:600px; height:600px;margin:100px 0px 0px 0px"
+			<form id="frmEdit" style="width:800px;height:400px"
 				method="post">
 				<input type="hidden" id="id" name="id" />
 				<dl>
@@ -222,8 +227,8 @@
 				<dl>
 					<dd>
 						是否委托中介: <select id="sfzj" name="sfzj">
-							<option value="1" selected="selected">是</option>
-							<option value="0">否</option>
+							<option value="是" selected="selected">是</option>
+							<option value="否">否</option>
 						</select>
 					</dd>
 				</dl>
@@ -257,8 +262,8 @@
 				<dl>
 					<dd>
 						以下信息是否公开: <select id="sfgk" name="sfgk">
-							<option value="1" selected="selected">是</option>
-							<option value="0">否</option>
+							<option value="是" selected="selected">是</option>
+							<option value="否">否</option>
 						</select>
 					</dd>
 				</dl>

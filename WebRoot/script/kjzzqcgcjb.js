@@ -73,7 +73,7 @@ function listDoc() {
 	var actionPath = basePath + '/system/KjzzqcgcjbAction_list.action';
 	 $('#dg').datagrid({
             title : '软件著作权',
-            width : 1200,
+            //width : 1200,
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      

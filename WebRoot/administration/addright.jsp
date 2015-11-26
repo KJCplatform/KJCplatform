@@ -81,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd>用户id:</dd>
 				
 				&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
-				<select  id="userid" name="userid" type="select" width=“60px">
+				<select  id="userid" name="userid" type="select" width=“60px"  style="width:150px;">
 				
 				<option value="1"> admin</option>
 				<option value="2"> admin2</option>

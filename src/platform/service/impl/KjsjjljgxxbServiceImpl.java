@@ -326,7 +326,7 @@ public class KjsjjljgxxbServiceImpl implements KjsjjljgxxbService {
 	@Override
 	public void showexportObject(String str) throws Exception {
 
-		 
+		 System.out.println(str);
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		// System.out.println(df.format(new Date()));// new Date()为获取当前系统时间

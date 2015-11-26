@@ -14,7 +14,7 @@ public class Jpzlzkjbb implements java.io.Serializable{
 	  private String zlhdqk;
 	  private String tbr;
 	  private String zlbfzr;
-	  private String shr;
+	  private String s2hr;
 	  private Date bcrq;
 	public int getId() {
 		return id;
@@ -70,11 +70,11 @@ public class Jpzlzkjbb implements java.io.Serializable{
 	public void setZlbfzr(String zlbfzr) {
 		this.zlbfzr = zlbfzr;
 	}
-	public String getShr() {
-		return shr;
+	public String gets2hr() {
+		return s2hr;
 	}
-	public void setShr(String shr) {
-		this.shr = shr;
+	public void sets2hr(String s2hr) {
+		this.s2hr = s2hr;
 	}
 	public Date getBcrq() {
 		return bcrq;

@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 
-<div data-options="region:'center',split:false">
+<div data-options="region:'center',split:false"  style="overflow:scroll" >
 	<!-- 表格主题部分-->
 	<table id="dg">
 	<thead>
@@ -85,6 +85,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="sj" width="130">手机</th>
 			<th field="dzyx" width="130">电子邮箱</th>
 			<th field="lxdz" width="130">联系地址</th>
+			    <th field="jlnf">记录年份</th>
+		    <th field="username">记录人</th>
+			<th field="gxsj">更新时间</th>
+			<th field="submit">是否提交</th>
 		</tr>
 	</thead>
 	</table>

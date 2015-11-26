@@ -90,6 +90,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="dzyx" width="120">电子邮箱</th>
 			<th field="lxdz" width="120">联系地址</th>
 			
+			    <th field="jlnf">记录年份</th>
+		    <th field="username">记录人</th>
+			<th field="gxsj">更新时间</th>
+			<th field="submit">是否提交</th>
 		</tr>
 	</thead>
 	</table>

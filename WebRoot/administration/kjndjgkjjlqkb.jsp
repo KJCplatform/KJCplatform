@@ -69,7 +69,7 @@
 	</div>
 
 
-	<div data-options="region:'center',split:false">
+	<div data-options="region:'center',split:false"  style="overflow:scroll" >
 		<!-- 表格主题部分-->
 		<table id="dg">
 			<thead>
@@ -81,7 +81,10 @@
 					<th field="wcdw">完成单位</th>
 					<th field="djdw">推荐单位</th>
 		
-
+			    <th field="jlnf">记录年份</th>
+		    <th field="username">记录人</th>
+			<th field="gxsj">更新时间</th>
+			<th field="submit">是否提交</th>
 				</tr>
 			</thead>
 		</table>
@@ -90,8 +93,7 @@
 	<!-- 编辑数据的div，默认看不到 -->
 	<div id="divEdit" style="display:none;">
 		<div id="tabEdit" style="overflow-y:auto;">
-			<form id="frmEdit"
-				style="width:600px; height:600px;margin:100px 0px 0px 0px"
+	<form id="frmEdit" style="width:800px;height:400px"
 				method="post">
 				<input type="hidden" id="id" name="id" />
 				<dl>

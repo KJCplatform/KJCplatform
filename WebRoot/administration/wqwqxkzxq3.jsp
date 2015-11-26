@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>湖北省科学技术奖励</title>
+<title>军品配套科研项目</title>
 <link href="<%=path%>/css/default.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=basePath%>/script/easyui/themes/default/easyui.css" />
@@ -43,8 +43,8 @@
 	src="<%=basePath%>/script/easyui/jquery.min.js"></script>
 <script type="text/javascript"
 	src="<%=basePath%>/script/easyui/jquery.easyui.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>/script/kjgfjflqk.js"></script>
-  <script type="text/javascript" src="<%=basePath%>/script/easyui-lang-zh_CN.js"></script>
+<!-- <script type="text/javascript" src="<%=basePath%>/script/kjndjpptkyxmb2.js"></script> -->
+ <script type="text/javascript" src="<%=basePath%>/script/easyui-lang-zh_CN.js"></script>
 </head>
 
 <body>
@@ -53,11 +53,11 @@
 		<form id="searchForm">
 			<table>
 				<tr>
-					<th>奖励等级：</th>
+					<th>序号：</th>
 					<td><input id="fileName" /></td>
 				</tr>
 				<tr>
-					<th>项目名称：</th>
+					<th>专业名称：</th>
 					<td><input id="fileId" /></td>
 					<td><a class="easyui-linkbutton"
 						data-options="iconCls:'icon-search'" href="javascript:void(0);"
@@ -69,18 +69,14 @@
 	</div>
 
 
-	<div data-options="region:'center',split:false">
+	<div data-options="region:'center',split:false" >
 		<!-- 表格主题部分-->
 		<table id="dg">
 			<thead>
 				<tr>
-					<th field="dj">奖励等级</th>
-					<th field="xmmc">项目名称</th>
-					<th field="zywcdw">主要完成单位</th>
-					 <th field="jlnf">记录年份</th>
-		    <th field="username">记录人</th>
-			<th field="gxsj">更新时间</th>
-			<th field="submit">是否提交</th>
+					<th field="xh" width="200">序号</th>
+			        <th field="zymc"  width="300">专业名称</th>
+					<th field="bz"  width="400">备注</th>
 				</tr>
 			</thead>
 		</table>
@@ -89,30 +85,29 @@
 	<!-- 编辑数据的div，默认看不到 -->
 	<div id="divEdit" style="display:none;">
 		<div id="tabEdit" style="overflow-y:auto;">
-	<form id="frmEdit" style="width:800px;height:400px"
+			<form id="frmEdit"
+				style="width:600px; height:600px;margin:100px 0px 0px 0px"
 				method="post">
 				<input type="hidden" id="id" name="id" />
 				<dl>
 					<dd>
-						奖励等级: <input size="15" id="dj" name="dj" />
-					</dd>
-				</dl>
-
-				<dl>
-					<dd>
-						项目名称: <input size="15" id="xmmc" name="xmmc" />
+						序号: <input size="15" id="xh" name="xh" />
 					</dd>
 				</dl>
 
 
 				<dl>
 					<dd>
-						主要完成单位: <input size="15" id="zywcdw" name="zywcdw" />
+						专业名称: <input size="15" id="zymc" name="zymc" />
 					</dd>
 				</dl>
-
-
-
+				<dl>
+					<dd>
+						备注: <input size="15" id="bz" name="bz" />
+					</dd>
+				</dl>
+				
+				
 
 			</form>
 		</div>

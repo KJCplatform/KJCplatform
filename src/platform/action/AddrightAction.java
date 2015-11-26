@@ -72,7 +72,10 @@ public class AddrightAction extends BaseAction implements ModelDriven<AddrightFo
 		//System.out.println(page+":"+rows);
 		//xzxzgzbForm.setWjm("test");
 		//xzxzgzbForm.setWjh("2");
+		//System.out.println(rows);
+		//System.out.println(page);
 		List<AddrightForm> formlist=addrightService.findAddrightListWithPage(rows,page,addrightForm);
+		//System.out.println(formlist.get(0).getId());
 		//System.out.println(formlist.get(formlist.size()-1).getCljg());
 		map.put("rows", formlist);
 		map.put("total", addrightService.findAddrightList().size());
@@ -106,6 +109,20 @@ public class AddrightAction extends BaseAction implements ModelDriven<AddrightFo
 		addrightService.saveObject(addrightForm);
 		operateSuccess=true;
 		return "add";
+	}
+	
+	public String test(){
+		
+		List<AddrightForm> formlist=addrightService.findAddrightListWithPage(100,1,addrightForm);
+		
+
+		map.put("rows", formlist);
+		map.put("total", addrightService.findAddrightList().size());
+		
+		
+		this.setResponseJson(map);
+		operateSuccess=true;
+		return "test";
 	}
 }
 
