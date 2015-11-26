@@ -118,8 +118,8 @@ public class KjsjjljgxxbAction extends BaseAction implements ModelDriven<Kjsjjlj
 	
 	public String showexport() throws Exception{
 		//System.out.println(kjsjjljgxxbForm.getFrmc());
-//		kjsjjljgxxbService.showexportObject(kjsjjljgxxbForm.getFrmc());
-//		operateSuccess=true;
+		kjsjjljgxxbService.showexportObject(kjsjjljgxxbForm.getFrmc());
+		operateSuccess=true;
 		return "showexport";
 	}
 }

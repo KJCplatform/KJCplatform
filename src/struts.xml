@@ -531,6 +531,11 @@
 	    	<result name="update" type="json">
 				
 			</result>
+			
+				<result name="test" type="json">
+					<param name="root">responseJson</param>
+			</result>
+			
 		</action>
 		
 		<action name="AddrightAction_*" class="platform.action.AddrightAction" method="{1}">			
@@ -545,6 +550,10 @@
 			</result>
 	    	<result name="update" type="json">
 				
+			</result>
+			
+			<result name="test" type="json">
+					<param name="root">responseJson</param>
 			</result>
 		</action>
 		
