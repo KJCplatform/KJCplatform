@@ -81,7 +81,10 @@
 					<th field="edj">二等奖</th>
 					<th field="sdj">三等奖</th>
 					<th field="hj">合计</th>
-
+			    <th field="jlnf">记录年份</th>
+		    <th field="username">记录人</th>
+			<th field="gxsj">更新时间</th>
+			<th field="submit">是否提交</th>
 				</tr>
 			</thead>
 		</table>

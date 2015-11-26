@@ -26,6 +26,13 @@ public class Kjzlcjb implements java.io.Serializable{
 	  private String szdq;
 	  private Long sj;
 	  private String dzyx;
+	  
+	  private String jlnf;
+	  private String username;
+	  private String gxsj;
+	  private String submit;
+	  
+	  
 	  private String lxdz;
 	public int getId() {
 		return id;
@@ -176,6 +183,30 @@ public class Kjzlcjb implements java.io.Serializable{
 	}
 	public void setLxdz(String lxdz) {
 		this.lxdz = lxdz;
+	}
+	public String getJlnf() {
+		return jlnf;
+	}
+	public void setJlnf(String jlnf) {
+		this.jlnf = jlnf;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getGxsj() {
+		return gxsj;
+	}
+	public void setGxsj(String gxsj) {
+		this.gxsj = gxsj;
+	}
+	public String isSubmit() {
+		return submit;
+	}
+	public void setSubmit(String submit) {
+		this.submit = submit;
 	}
 	  
 

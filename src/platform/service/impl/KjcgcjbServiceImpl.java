@@ -151,7 +151,7 @@ public class KjcgcjbServiceImpl implements KjcgcjbService{
 		List<KjcgcjbForm> formlist=new ArrayList<KjcgcjbForm>();
 		for(int i=0;i<list.size();i++){
 			Kjcgcjb kjcgcjb=list.get(i);
-			
+			 
 			KjcgcjbForm kjcgcjbForm=new KjcgcjbForm();
 			
 			kjcgcjbForm.setId(String.valueOf(kjcgcjb.getId()));

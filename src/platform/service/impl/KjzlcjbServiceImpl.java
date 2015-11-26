@@ -167,6 +167,14 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setSj(Long.valueOf(kjzlcjbForm.getSj()));
 		kjzlcjb.setDzyx(kjzlcjbForm.getDzyx());
 		kjzlcjb.setLxdz(kjzlcjbForm.getLxdz());
+		
+		
+		
+//		kjzlcjb.setJlnf("test1");
+//		kjzlcjb.setUser("test2");
+//		kjzlcjb.setGxsj("test3");
+//		kjzlcjb.setSubmit("0");
+		
 		kjzlcjbDao.save(kjzlcjb);
 	}
 	private List<KjzlcjbForm> KjzlcjbPOListToVOList(List<Kjzlcjb> list) {
@@ -219,6 +227,10 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 			kjzlcjbForm.setSj(String.valueOf(kjzlcjb.getSj()));
 			kjzlcjbForm.setDzyx(kjzlcjb.getDzyx());
 			kjzlcjbForm.setLxdz(kjzlcjb.getLxdz());
+			
+			
+			
+			
 			formlist.add(kjzlcjbForm);
 		}
 		return formlist;

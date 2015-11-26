@@ -98,6 +98,11 @@
 					<th field="csjy">存在的问题</th>
 					<th field="csjy">存在问题拟采取的措施建议</th>
 					<th field="bz">备注</th>
+					
+					 <th field="jlnf">记录年份</th>
+					<th field="username">记录人</th>
+					<th field="gxsj">更新时间</th>
+					<th field="submit">是否提交</th>
 				</tr>
 			</thead>
 		</table>

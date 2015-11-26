@@ -77,6 +77,10 @@
 					<th field="dj">奖励等级</th>
 					<th field="xmmc">项目名称</th>
 					<th field="zywcdw">主要完成单位</th>
+					 <th field="jlnf">记录年份</th>
+		    <th field="username">记录人</th>
+			<th field="gxsj">更新时间</th>
+			<th field="submit">是否提交</th>
 				</tr>
 			</thead>
 		</table>
