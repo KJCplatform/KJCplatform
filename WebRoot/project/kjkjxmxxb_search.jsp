@@ -325,7 +325,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>
 					</td> 
 					<td>
-						<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0);" onclick="delete();">删除</a>
+						<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0);" onclick="deleteInfo();">删除</a>
 					</td>	
                 </tr>
             </table>
