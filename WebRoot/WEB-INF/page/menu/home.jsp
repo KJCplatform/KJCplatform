@@ -8,7 +8,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 <head id="Head1">
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" content="ie=edge"/> 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>湖北省国防科工办科技信息管理系统</title>
+    <title>湖北省国防科技工业科技信息管理系统</title>
     <link href="<%=basePath%>/css/default.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/icon.css" />
@@ -155,30 +155,22 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 		},
 		{
 			"menuid": "23",
-			"menuname": "军品配套科研项目",
+			"menuname": "军品科研项目",
 			"icon": "icon-nav",
-			"url": "demo.html",
-			"child":[{
-			    "menuid": "231",
-				"menuname": "军品科研项目汇总表",
-				"icon": "icon-nav",
-			    "url": "<%=basePath%>/administration/kjndjpptkyxmb.jsp"	
-			},
-			{
-			    "menuid": "232",
-				"menuname": "军品科研项目执行情况表",
-				"icon": "icon-nav",
-			    "url": "<%=basePath%>/administration/kjndjpptkyxmb2.jsp"	
-			}
-			]
-			
-			
+			"url": "<%=basePath%>/administration/kjndjpptkyxmb.jsp"	
 		},
 		{
 			"menuid": "24",
 			"menuname": "湖北省科学技术奖励",
 			"icon": "icon-nav",
 	        "url": "<%=basePath%>/administration/kjgfjflqk.jsp"	
+		},
+		{
+			"menuid": "52",
+			"menuname": "大型仪器信息表",
+			"icon": "icon-nav",
+			"url": "<%=basePath%>/administration/aaa.jsp"
+			
 		},
 		{
 			"menuid": "25",
@@ -268,24 +260,21 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuname": "信息查询-高新技术企业认定备案信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjgxqybab_search.jsp"
-			}
-			,
-	
-		{
-				"menuid": "293",
-				"menuname": "汇总表-高新技术企业认定备案信息",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
-				
-		}
-			
-			]	
+			}]	
 		},
 		{
 				"menuid": "2A",
 				"menuname": "科技项目库",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/kjkjxmk.jsp"
+				
+		},
+	
+		{
+				"menuid": "2B",
+				"menuname": "认定高新企业备案表",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
 				
 		}
 		
@@ -375,36 +364,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuname": "信息查询-武器装备科研生产许可取证单位信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/wqwqxkzxq_search.jsp"
-			},{
-				"menuid": "513",
-				"menuname": "已获得许可的武器生产专业(产品)",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/wqwqxkzxq2.jsp"
-			},{
-				"menuid": "514",
-				"menuname": "已获得许可的武器装备科研专业",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/wqwqxkzxq3.jsp"
-			},{
-				"menuid": "515",
-				"menuname": "申请延续的武器装备科研生产许可专业产品",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/wqwqxkzxq4.jsp"
-			},{
-				"menuid": "516",
-				"menuname": "申请增加的武器装备科研生产许可专业产品",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/wqwqxkzxq5.jsp"
-			}
-			
-			]		
-		},
-		{
-				"menuid": "52",
-				"menuname": "大型仪器信息表",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/aaa.jsp"
-				
+			}]		
 		}
 		]	
 	}<%}if(rights.contains("6")){%>
@@ -579,7 +539,7 @@ var basePath = localhostPath + projectName;
         background: url(<%=basePath%>/images/layout-browser-hd-bg.gif) #7f99be repeat-x center 50%;
         line-height: 20px;color: #fff; font-family: Verdana, 微软雅黑,黑体">
         <span style="float:right; padding-right:20px;" class="head">欢迎   <a href="#" id="editpass">修改密码</a> <a href="#" id="loginOut">安全退出</a></span>
-        <span style="padding-left:10px; font-size: 20px; "><img src="<%=basePath%>/images/blocks.gif" width="20" height="20" align="absmiddle" /> 湖北省国防科工办科技信息管理系统</span>
+        <span style="padding-left:10px; font-size: 20px; "><img src="<%=basePath%>/images/blocks.gif" width="20" height="20" align="absmiddle" /> 湖北省国防科技工业科技信息管理系统</span>
     </div>
     <div region="south" split="true" style="height: 30px; background: #D2E0F2; ">
         <div class="footer">By 湖北省国防科学技术工业办公室      jQuery.Easy-UI </div>
@@ -593,9 +553,10 @@ var basePath = localhostPath + projectName;
     </div>
     <div id="mainPanle" region="center" style="background: #eee; overflow-y:hidden">
         <div id="tabs" class="easyui-tabs"  fit="true" border="false" >
-			<div title="欢迎使用" style="padding:20px;overflow:hidden; color:red; " >
-				<h1 style="font-size:24px;">欢迎使用湖北省国防科学技术工业办公室软件平台</h1>
-				<h1 style="font-size:24px;">系统须知</h1>
+			<div title="欢迎使用" style="padding:20px;overflow:hidden; color:red; text-align:center;" >
+				<br><br>
+				<h1 style="font-size:40px;">国家秘密高于一切</h1>
+				<h1 style="font-size:40px;">保密责任重于泰山</h1>
 			</div>
 		</div>
     </div>
