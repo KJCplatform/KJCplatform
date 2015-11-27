@@ -439,6 +439,15 @@
 				
 			</result>
 			
+			  <result name="update" type="json">
+				
+			</result>
+			
+			  <result name="delete" type="json">
+				
+			</result>
+			
+			
 		</action>
 		<action name="WqwqxkzxqAction_*" class="platform.action.WqwqxkzxqAction" method="{1}">			
 			<result name="list" type="json">

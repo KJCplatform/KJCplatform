@@ -16,6 +16,10 @@ public interface KjkjxmxxbService {
 
 	public List<KjkjxmxxbForm> findKjkjxmxxbList(KjkjxmxxbForm kjkjxmxxbForm);
 
+	public void deleteObject(String id);
+
+	public void updateObject(KjkjxmxxbForm kjkjxmxxbForm);
+
 
 
 }

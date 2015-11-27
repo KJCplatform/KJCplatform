@@ -118,10 +118,11 @@ public class KjkjxmxxbAction extends BaseAction implements ModelDriven<Kjkjxmxxb
 	}
 	public String update(){
 		
+		kjkjxmxxbService.updateObject(kjkjxmxxbForm);
 		return "update";
 	}
 	public String delete(){
-		
+		kjkjxmxxbService.deleteObject(kjkjxmxxbForm.getId());
 		operateSuccess=true;
 		return   "delete";
 	}

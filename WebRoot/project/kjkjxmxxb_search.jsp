@@ -146,7 +146,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									for(i=0; i<rows.length; i++) {
 										rows[i].id = resultid;
 									}
-									//alert(resultid);
+									alert(resultid);
 									var data = {'cjdwform': JSON.stringify(rows)};
 	//								alert(rows);
 									$.post(action, data, function(result){
@@ -197,6 +197,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						//alert(info.fwyy);
 						//记录的主键id
 						resultid = info.id;
+						alert(resultid);
 						display[0].value = info.xmbh;
 						display[1].value = info.xmmc;
 						display[2].value = info.cjdws;
@@ -291,7 +292,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}
 			
 			}
-			//alert(s);
+			alert(s);
 			if(s.length != 0){
 				$.post(action, s, function(result) {
 					if (result.operateSuccess) {

@@ -15,8 +15,10 @@ import org.springframework.transaction.annotation.Transactional;
 import platform.dao.KjkjxmxxbDao;
 import platform.domain.Kjkjxmxxb;
 import platform.domain.Kjkjxmxxbcjdw;
+import platform.domain.Kjndgfjtjb;
 import platform.form.KjkjxmxxbForm;
 import platform.form.KjkjxmxxbcjdwForm;
+import platform.form.KjndgfjtjbForm;
 import platform.service.KjkjxmxxbService;
 
 @Transactional
@@ -136,7 +138,11 @@ public class KjkjxmxxbServiceImpl implements KjkjxmxxbService{
 		List<KjkjxmxxbForm> formlist=new ArrayList<KjkjxmxxbForm>();
 		if(list.size()>0){
 		for(int i=0;i<list.size();i++){
+			
 			KjkjxmxxbForm kjkjxmxxbForm=new KjkjxmxxbForm();
+			
+			kjkjxmxxbForm.setId(String.valueOf(list.get(i).getId()));
+			
 			kjkjxmxxbForm.setXmbh(list.get(i).getXmbh());
 			kjkjxmxxbForm.setXmmc(list.get(i).getXmmc());
 			kjkjxmxxbForm.setCjdws(list.get(i).getCjdws());
@@ -192,6 +198,53 @@ public class KjkjxmxxbServiceImpl implements KjkjxmxxbService{
 			formlist.add(kjkjxmxxbcjdwForm);
 		}}
 		return formlist;
+	}
+	
+	
+	
+	public void deleteObject(String id){
+		kjkjxmxxbDao.deleteObjectByIDs(Integer.valueOf(id));
+	}
+	
+	
+	public void updateObject(KjkjxmxxbForm kjkjxmxxbForm){
+		Kjkjxmxxb kjkjxmxxb=new Kjkjxmxxb();
+
+		kjkjxmxxb.setId(Integer.valueOf(kjkjxmxxbForm.getId()));
+		kjkjxmxxb.setXmbh(kjkjxmxxbForm.getXmbh());
+		kjkjxmxxb.setXmmc(kjkjxmxxbForm.getXmmc());
+		kjkjxmxxb.setCjdws(kjkjxmxxbForm.getCjdws());
+		kjkjxmxxb.setDwmc(kjkjxmxxbForm.getDwmc());
+		kjkjxmxxb.setDwszd(kjkjxmxxbForm.getDwszd());
+		kjkjxmxxb.setTxdz(kjkjxmxxbForm.getTxdz());
+		kjkjxmxxb.setYb(kjkjxmxxbForm.getYb());
+		kjkjxmxxb.setDwxz(kjkjxmxxbForm.getDwxz());
+		kjkjxmxxb.setSjbm(kjkjxmxxbForm.getSjbm());
+		kjkjxmxxb.setFzr(kjkjxmxxbForm.getFzr());
+		kjkjxmxxb.setXb(kjkjxmxxbForm.getXb());
+		kjkjxmxxb.setCsn(kjkjxmxxbForm.getCsn());
+		kjkjxmxxb.setXl(kjkjxmxxbForm.getXl());
+		kjkjxmxxb.setZc(kjkjxmxxbForm.getZc());
+		kjkjxmxxb.setLxdh(kjkjxmxxbForm.getLxdh());
+		kjkjxmxxb.setEmail(kjkjxmxxbForm.getEmail());
+		kjkjxmxxb.setXmzrs(kjkjxmxxbForm.getXmzrs());
+		kjkjxmxxb.setGj(kjkjxmxxbForm.getGj());
+		kjkjxmxxb.setZj(kjkjxmxxbForm.getZj());
+		kjkjxmxxb.setCj(kjkjxmxxbForm.getCj());
+		kjkjxmxxb.setQt(kjkjxmxxbForm.getQt());
+		kjkjxmxxb.setQssj(kjkjxmxxbForm.getQssj());
+		kjkjxmxxb.setZzsj(kjkjxmxxbForm.getZzsj());
+		kjkjxmxxb.setXmhdlx(kjkjxmxxbForm.getXmhdlx());
+		kjkjxmxxb.setSsly(kjkjxmxxbForm.getSsly());
+		kjkjxmxxb.setXmjsly(kjkjxmxxbForm.getXmjsly());
+		kjkjxmxxb.setZyyfnr(kjkjxmxxbForm.getZyyfnr());
+		kjkjxmxxb.setCgxs(kjkjxmxxbForm.getCgxs());
+		kjkjxmxxb.setYqzl(kjkjxmxxbForm.getYqzl());
+		kjkjxmxxb.setZjf(kjkjxmxxbForm.getZjf());
+		kjkjxmxxb.setSbk(kjkjxmxxbForm.getSbk());
+		
+		kjkjxmxxbDao.update(kjkjxmxxb);
+		
 	}
 
 }
