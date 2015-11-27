@@ -31,7 +31,7 @@ public class CommonDaoImpl<T> extends HibernateDaoSupport implements ICommonDao<
 	* @Return: 无
 	*/
 	public void save(T entity) {
-		this.getHibernateTemplate().save(entity);
+		this.getHibernateTemplate().saveOrUpdate(entity);
 	}
 
 	

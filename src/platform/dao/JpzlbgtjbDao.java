@@ -7,4 +7,6 @@ import platform.dao.ICommonDao;
 
 public interface JpzlbgtjbDao extends ICommonDao<Jpzlbgtjb>{
 	public final static String SERVICE_NAME = "platform.dao.impl.JpzlbgtjbDaoImpl";
+
+	//public Jpzlbgtjb findObjectByDwmcAndYear(String dwmc, String jlnf);
 }

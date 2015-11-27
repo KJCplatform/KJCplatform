@@ -2,6 +2,7 @@ package platform.service;
 
 import java.util.List;
 
+import platform.form.JpzlbgtjbForm;
 import platform.form.JpzlzkjbbForm;
 
 
@@ -13,5 +14,6 @@ public interface JpzlzkjbbService {
 	public void updateJpzlzkjbb(JpzlzkjbbForm jpzlzkjbbForm);
 	public void deleteObject(String id);
 	public void saveObject(JpzlzkjbbForm jpzlzkjbbForm);
+
 
 }

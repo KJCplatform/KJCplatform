@@ -23,11 +23,21 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 	@Resource(name=XzxzgzbDao.SERVICE_NAME)
 	private XzxzgzbDao xzxzgzbDao;
 	
-	public List<XzxzgzbForm> findXzxzgzbList(){
+	public List<XzxzgzbForm> findXzxzgzbList(XzxzgzbForm xzxzgzbForm){
 		String hqlWhere = "";
 		Object [] params = null;
+		List<String> paramsList=new ArrayList<String>();
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getWjm())){
+			hqlWhere += " and o.wjm like ?";
+			paramsList.add("%"+xzxzgzbForm.getWjm()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getWjh())){
+			hqlWhere += " and o.wjh like ?";
+			paramsList.add("%"+xzxzgzbForm.getWjh()+"%");
+		}
 		orderby.put(" o.fwrq", "desc");
+		params = paramsList.toArray();
 		List<Xzxzgzb> list=xzxzgzbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<XzxzgzbForm> formlist=this.XzxzgzbPOListToVOList(list);
 		return formlist;

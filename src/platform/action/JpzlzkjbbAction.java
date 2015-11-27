@@ -92,6 +92,11 @@ public class JpzlzkjbbAction extends BaseAction implements ModelDriven<Jpzlzkjbb
 		xzxzgzbForm1.setJzrq(d);
 		xzxzgzbForm1.setWjh("update");
 		xzxzgzbForm1.setWjm("update");*/
+		/*JpzlzkjbbForm jpzlzkjbbForm1=new JpzlzkjbbForm();
+		jpzlzkjbbForm1.setId("26");
+		jpzlzkjbbForm1.setDwmc("单位1");
+		jpzlzkjbbForm1.setJd("3");
+		jpzlzkjbbForm1.setJlnf("2015");*/
 		jpzlzkjbbService.updateJpzlzkjbb(jpzlzkjbbForm);
 		operateSuccess=true;
 		return "update";
@@ -105,6 +110,10 @@ public class JpzlzkjbbAction extends BaseAction implements ModelDriven<Jpzlzkjbb
 	public String add(){
 	// System.out.println(jpzlzkjbbForm.getS2hr());
 	// System.out.println(jpzlzkjbbForm.getTbr());
+		/*JpzlzkjbbForm jpzlzkjbbForm1=new JpzlzkjbbForm();
+		jpzlzkjbbForm1.setDwmc("单位1");
+		jpzlzkjbbForm1.setJd("4");
+		jpzlzkjbbForm1.setJlnf("2015");*/
 		jpzlzkjbbService.saveObject(jpzlzkjbbForm);
 		operateSuccess=true;
 		return "add";

@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import platform.action.BaseAction;
 import platform.dao.TestDataDao;
 import platform.domain.Zjtxl;
+import platform.form.JpsgwtbbForm;
 import platform.form.JpzlbgtjbForm;
 import platform.form.JpzlzkdwbForm;
 import platform.form.TestDataFrom;
@@ -73,21 +74,45 @@ public class JpzlbgtjbAction extends BaseAction implements ModelDriven<Jpzlbgtjb
 	}
 	Map<String, Object> map = new HashMap<String, Object>();
 	public String list(){
-		
+		List<JpzlbgtjbForm> formlist=jpzlbgtjbService.findJpzlbgtjbListWithPage(rows,page,jpzlbgtjbForm);
+		map.put("rows", formlist);
+		map.put("total", jpzlbgtjbService.findJpzlbgtjbList(jpzlbgtjbForm).size());
+		this.setResponseJson(map);
 		return "list";
 	}
-	public String update(){
-		
-		return "update";
+	public String noFirst(){
+		/*JpzlbgtjbForm jpzlbgtjbForm1=new JpzlbgtjbForm();
+		jpzlbgtjbForm1.setYear("2015");*/
+		List<String> stringlist=jpzlbgtjbService.notInFirst(jpzlbgtjbForm);
+		/*for(int i=0;i<stringlist.size();i++){
+		System.out.println(stringlist.get(i));}*/
+		map.put("nofirst", stringlist);
+		this.setResponseJson(map);
+		return "noFirst";
 	}
-	public String delete(){
-	
-		return   "delete";
+	public String noSecond(){
+		List<String> stringlist=jpzlbgtjbService.notInSecond(jpzlbgtjbForm);
+		map.put("noSecond", stringlist);
+		this.setResponseJson(map);
+		return "noSecond";
 	}
-	public String add(){
-	
-		return "add";
+	public String noThird(){
+		List<String> stringlist=jpzlbgtjbService.notInThird(jpzlbgtjbForm);
+		map.put("noThird", stringlist);
+		this.setResponseJson(map);
+		return "noThird";
 	}
+	public String noFourth(){
+		/*JpzlbgtjbForm jpzlbgtjbForm1=new JpzlbgtjbForm();
+		jpzlbgtjbForm1.setYear("2015");*/
+		List<String> stringlist=jpzlbgtjbService.notInFourth(jpzlbgtjbForm);
+	/*	for(int i=0;i<stringlist.size();i++){
+		System.out.println(stringlist.get(i));}*/
+		map.put("noFourth", stringlist);
+		this.setResponseJson(map);
+		return "noFourth";
+	}
+
 }
 
 

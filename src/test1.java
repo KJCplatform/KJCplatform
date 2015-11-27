@@ -2,6 +2,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import platform.action.JpzlbgtjbAction;
+import platform.action.JpzlzkjbbAction;
 import platform.action.KjjszjcjbAction;
 import platform.action.PlatFormMenuAction;
 import platform.action.UserAction;
@@ -14,8 +16,8 @@ public class test1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		KjjszjcjbAction userAction=new KjjszjcjbAction();
-	//	userAction.contact();
+		JpzlbgtjbAction userAction=new JpzlbgtjbAction();
+	   userAction.noFourth();
 		//Kjzlcjb kjzlcjb=new Kjzlcjb();
 		//kjzlcjb.setGkr(StringHelper.stringConvertDate(null));	
 	}
