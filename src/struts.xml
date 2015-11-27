@@ -511,6 +511,9 @@
 			    	<result name="addgxcp" type="json">
 				
 			</result>
+			
+			
+			
 		</action>
 		
 			<action name="KjkjxmkAction_*" class="platform.action.KjkjxmkAction" method="{1}">			

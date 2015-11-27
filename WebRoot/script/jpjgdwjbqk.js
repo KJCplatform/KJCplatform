@@ -53,7 +53,7 @@ var rows = [
             } },
             {"id":"gfsyssl", "name": "国防实验室数量", "value": "", "group": "其他信息", "editor":{
             	"type": 'numberbox', 
-            } },
+            } }
          
         ];
 

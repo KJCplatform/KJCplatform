@@ -266,7 +266,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									for(i=0; i<rows.length; i++) {
 										rows[i].id = resultid;
 									}
-									alert(resultid);
+									//alert(resultid);
 									var data = {'cjdwform': JSON.stringify(rows)};
 	//								alert(rows);
 									$.post(action, data, function(result){

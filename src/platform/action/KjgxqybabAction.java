@@ -7,28 +7,30 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
 import javax.annotation.Resource;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+
 import platform.action.BaseAction;
 import platform.dao.TestDataDao;
-
 import platform.form.KjgxqybabForm;
 import platform.form.KjgxqybabzscqForm;
 import platform.form.KjgxqybabyfxmForm;
 import platform.form.KjgxqybabgxcpForm;
-
 import platform.form.TestDataFrom;
-
 import platform.service.KjgxqybabService;
 import platform.service.TestDataService;
 
 import com.opensymphony.xwork2.ModelDriven;
+
 import container.ServiceProvider;
 
 public class KjgxqybabAction extends BaseAction implements ModelDriven<KjgxqybabForm>{
@@ -107,12 +109,14 @@ public class KjgxqybabAction extends BaseAction implements ModelDriven<Kjgxqybab
 		//this.setResponseJson(map);
 		return "list";
 	}
-	public String update(){
+public String update(){
 		
+	kjgxqybabService.updateObject(kjgxqybabForm);
+		operateSuccess=true;
 		return "update";
 	}
 	public String delete(){
-		
+		kjgxqybabService.deleteObject(kjgxqybabForm.getId());
 		operateSuccess=true;
 		return   "delete";
 	}

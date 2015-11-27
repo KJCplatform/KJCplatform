@@ -36,9 +36,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var localhostPath = curWwwPath.substring(0, pos);
 		var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
 		var basePath = localhostPath + projectName;
+		var resultid;
 		
 		var display = [
-     {"id":"year", "name": "年度", "group": "基本信息", "value": "", "editor": "text" },
+            {"id":"year", "name": "年度", "group": "基本信息", "value": "", "editor": "text" },
             {"id":"nf", "name": "年份", "group": "基本信息", "value": "", "editor":"text" },
             {"id":"qymc", "name": "企业名称", "value": "", "group": "基本信息", "editor":"text" },
             {"id":"nssbh", "name": "纳税人识别号", "group": "基本信息", "value": "", "editor": "text" },
@@ -67,6 +68,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         ];
 			
 		$(function() {
+		var lastIndex;
 			$('#gxjsqyrdba').propertygrid({
 	
 		        width: 1000,
@@ -103,14 +105,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					text : '添加',
 					iconCls : 'icon-add', // 图标
 					handler : function() { // 处理函数
-						$('#cjdw').datagrid('endEdit', lastIndex);
-						$('#cjdw').datagrid('appendRow',{
+						$('#gxcp').datagrid('endEdit', lastIndex);
+						$('#gxcp').datagrid('appendRow',{
 							xh:'',
 							dwmc:''
 						})
-						lastIndex = $('#cjdw').datagrid('getRows').length-1;
-						$('#cjdw').datagrid('selectRow',lastIndex);
-						$('#cjdw').datagrid('beginEdit',lastIndex);	
+						lastIndex = $('#gxcp').datagrid('getRows').length-1;
+						$('#gxcp').datagrid('selectRow',lastIndex);
+						$('#gxcp').datagrid('beginEdit',lastIndex);	
 						
 					}
 				},'-',{
@@ -118,10 +120,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						text:'删除',
 						iconCls:'icon-remove',
 						handler:function(){
-							var row = $('#cjdw').datagrid('getSelected');
+							var row = $('#gxcp').datagrid('getSelected');
 							if (row){
-								var index = $('#cjdw').datagrid('getRowIndex', row);
-								$('#cjdw').datagrid('deleteRow', index);
+								var index = $('#gxcp').datagrid('getRowIndex', row);
+								$('#gxcp').datagrid('deleteRow', index);
 							}
 							else{
 								$.messager.alert('删除', '请先选中要删除的记录', 'info');
@@ -132,10 +134,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					text : "编辑",
 					iconCls : "icon-edit",
 					handler : function() {
-						var row = $('#cjdw').datagrid('getSelected');
+						var row = $('#gxcp').datagrid('getSelected');
 						if (row) {
-							var rowIndex = $('#cjdw').datagrid('getRowIndex', row);
-							$('#cjdw').datagrid('beginEdit', rowIndex);
+							var rowIndex = $('#gxcp').datagrid('getRowIndex', row);
+							$('#gxcp').datagrid('beginEdit', rowIndex);
 						}
 						else{
 								$.messager.alert('编辑', '请先选中要编辑的记录', 'info');
@@ -145,27 +147,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					text : '保存',
 					iconCls : 'icon-save',// 图标
 					handler : function() {// 处理函数
-						$('#cjdw').datagrid('acceptChanges');
+						$('#gxcp').datagrid('acceptChanges');
 					}
 					},'-',{	
 						text : '提交',
 						iconCls : 'icon-ok',// 图标
 						handler : function() {// 处理函数
 
-								var action = basePath + '/system/KjkjxmxxbAction_addcjdw.action';
+								var action = basePath + '/system/KjgxqybabAction_addgxcp.action';
 
-								var rows = $('#cjdw').datagrid('getRows');
+								var rows = $('#gxcp').datagrid('getRows');
 								if(rows.length != 0){
 									for(i=0; i<rows.length; i++) {
 										rows[i].id = resultid;
 									}
-									alert(resultid);
-									var data = {'cjdwform': JSON.stringify(rows)};
+									//alert(resultid);
+									var data = {'gxcpform': JSON.stringify(rows)};
 	//								alert(rows);
 									$.post(action, data, function(result){
 										if (result.operateSuccess) {
 										//alert(result);
-											$('#cjdw').datagrid('reload');// 重新加载
+											$('#gxcp').datagrid('reload');// 重新加载
 											$.messager.alert('提交', '提交成功', 'info');
 										} else {
 											$.messager.alert('提交', '提交失败', 'warning');
@@ -201,7 +203,83 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					  {field:'jfnb',title:'项目研发经费-内部',editor:'text',width:100},
 					  {field:'jfwb',title:'项目研发经费-外部',editor:'text',width:100}
 			
-		      ]] 
+		      ]],
+		      	toolbar:[   {// 工具栏
+					text : '添加',
+					iconCls : 'icon-add', // 图标
+					handler : function() { // 处理函数
+						$('#yfxm').datagrid('endEdit', lastIndex);
+						$('#yfxm').datagrid('appendRow',{
+							xh:'',
+							dwmc:''
+						})
+						lastIndex = $('#yfxm').datagrid('getRows').length-1;
+						$('#yfxm').datagrid('selectRow',lastIndex);
+						$('#yfxm').datagrid('beginEdit',lastIndex);	
+						
+					}
+				},'-',{
+					
+						text:'删除',
+						iconCls:'icon-remove',
+						handler:function(){
+							var row = $('#yfxm').datagrid('getSelected');
+							if (row){
+								var index = $('#yfxm').datagrid('getRowIndex', row);
+								$('#yfxm').datagrid('deleteRow', index);
+							}
+							else{
+								$.messager.alert('删除', '请先选中要删除的记录', 'info');
+							}
+						}
+					
+					},'-',{
+					text : "编辑",
+					iconCls : "icon-edit",
+					handler : function() {
+						var row = $('#yfxm').datagrid('getSelected');
+						if (row) {
+							var rowIndex = $('#yfxm').datagrid('getRowIndex', row);
+							$('#yfxm').datagrid('beginEdit', rowIndex);
+						}
+						else{
+								$.messager.alert('编辑', '请先选中要编辑的记录', 'info');
+							}
+					}
+					},'-',{
+					text : '保存',
+					iconCls : 'icon-save',// 图标
+					handler : function() {// 处理函数
+						$('#yfxm').datagrid('acceptChanges');
+					}
+					},'-',{	
+						text : '提交',
+						iconCls : 'icon-ok',// 图标
+						handler : function() {// 处理函数
+
+								var action = basePath + '/system/KjgxqybabAction_addyfxm.action';
+
+								var rows = $('#yfxm').datagrid('getRows');
+								if(rows.length != 0){
+									for(i=0; i<rows.length; i++) {
+										rows[i].id = resultid;
+									}
+									//alert(resultid);
+									var data = {'yfxmform': JSON.stringify(rows)};
+	//								alert(rows);
+									$.post(action, data, function(result){
+										if (result.operateSuccess) {
+										//alert(result);
+											$('#yfxm').datagrid('reload');// 重新加载
+											$.messager.alert('提交', '提交成功', 'info');
+										} else {
+											$.messager.alert('提交', '提交失败', 'warning');
+										}
+									}); 
+								}
+							}
+				}]
+		       
 			});
 			
 					$('#zscq').datagrid({
@@ -227,7 +305,82 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					}
 					}
 			
-		      ]] 
+		      ]],
+		      	toolbar:[   {// 工具栏
+					text : '添加',
+					iconCls : 'icon-add', // 图标
+					handler : function() { // 处理函数
+						$('#zscq').datagrid('endEdit', lastIndex);
+						$('#zscq').datagrid('appendRow',{
+							xh:'',
+							dwmc:''
+						})
+						lastIndex = $('#zscq').datagrid('getRows').length-1;
+						$('#zscq').datagrid('selectRow',lastIndex);
+						$('#zscq').datagrid('beginEdit',lastIndex);	
+						
+					}
+				},'-',{
+					
+						text:'删除',
+						iconCls:'icon-remove',
+						handler:function(){
+							var row = $('#zscq').datagrid('getSelected');
+							if (row){
+								var index = $('#zscq').datagrid('getRowIndex', row);
+								$('#zscq').datagrid('deleteRow', index);
+							}
+							else{
+								$.messager.alert('删除', '请先选中要删除的记录', 'info');
+							}
+						}
+					
+					},'-',{
+					text : "编辑",
+					iconCls : "icon-edit",
+					handler : function() {
+						var row = $('#zscq').datagrid('getSelected');
+						if (row) {
+							var rowIndex = $('#zscq').datagrid('getRowIndex', row);
+							$('#zscq').datagrid('beginEdit', rowIndex);
+						}
+						else{
+								$.messager.alert('编辑', '请先选中要编辑的记录', 'info');
+							}
+					}
+					},'-',{
+					text : '保存',
+					iconCls : 'icon-save',// 图标
+					handler : function() {// 处理函数
+						$('#zscq').datagrid('acceptChanges');
+					}
+					},'-',{	
+						text : '提交',
+						iconCls : 'icon-ok',// 图标
+						handler : function() {// 处理函数
+
+								var action = basePath + '/system/KjgxqybabAction_addzscq.action';
+
+								var rows = $('#zscq').datagrid('getRows');
+								if(rows.length != 0){
+									for(i=0; i<rows.length; i++) {
+										rows[i].id = resultid;
+									}
+									//alert(resultid);
+									var data = {'zscqform': JSON.stringify(rows)};
+	//								alert(rows);
+									$.post(action, data, function(result){
+										if (result.operateSuccess) {
+										//alert(result);
+											$('#zscq').datagrid('reload');// 重新加载
+											$.messager.alert('提交', '提交成功', 'info');
+										} else {
+											$.messager.alert('提交', '提交失败', 'warning');
+										}
+									}); 
+								}
+							}
+				}] 
 			});
 			
 		});	
@@ -260,6 +413,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					else{
 						info = rows[0];
 						//alert(info.fwyy);
+						resultid = info.id;
 						display[0].value = info.year;
 						display[1].value = info.nf;
 						display[2].value = info.qymc;
@@ -315,7 +469,70 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}   
 			})
 		}
-
+	
+		function deleteInfo(){
+			//id不是数字
+			if(isNaN(resultid)){
+				$.messager.alert('删除', '请先查询确认要删除的记录', 'info');
+				return;
+			}
+			$.messager.confirm('确认', '真的要删除该记录吗？', function(r) {
+				if (r) {
+					var actionPath = basePath + '/system/KjgxqybabAction_delete.action?id=';
+					var url = actionPath + resultid;
+					// 试一下get方法（地址，回调函数）
+					$.get(url, function(result) {
+						if (result.operateSuccess) {
+							$.messager.alert('删除', '选中的记录成功删除！', 'info');
+							// 重新加载
+							$("#dg").datagrid('reload');
+						} else {
+							$.messager.alert('删除', '删除失败！', 'warning');
+						}
+					});
+				}
+			});
+			
+		}
+		//提交基本信息表
+		function update(){
+			var s = 'id=' + resultid + '&';
+			var action =  basePath + '/system/KjgxqybabAction_update.action';
+			var rows = $('#gxjsqyrdba').propertygrid('getRows');
+			var changes = $('#gxjsqyrdba').propertygrid('getChanges');
+// 			if(changes.length == 0){
+// 				$.messager.alert('验证', '信息未更改', 'error');
+// 			}
+// 			else{
+				for(var i=0; i<rows.length; i++){
+					if(i == rows.length-1){
+						s += rows[i].id + '=' + rows[i].value;
+					}
+					else{
+						s += rows[i].id + '=' + rows[i].value + '&';
+					}
+				}
+			
+				
+				
+				
+				//alert(s);
+				if(s.length != 0){
+					$.post(action, s, function(result) {
+						if (result.operateSuccess) {
+								//alert(result.resultid);
+								//resultid = result.resultid;
+								$('#gxjsqyrdba').propertygrid('reload');// 重新加载
+								$.messager.alert('更新', '更新成功', 'info');
+						} else {
+								$.messager.alert('更新', '更新失败', 'warning');
+							}
+					});
+				}
+// 			}
+			
+			
+		}
 
 
 	</script>
@@ -334,6 +551,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>
 					</td>       
+					<td>
+						<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0);" onclick="deleteInfo();">删除</a>
+					</td>	
                 </tr>
             </table>
         </form>
@@ -345,6 +565,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<table id="gxjsqyrdba" ></table>
 	<br>
 	<div style="text-align:center">
+			<a href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-ok'" onclick="update()">更新</a>
 	
 	</div>
 	<br>

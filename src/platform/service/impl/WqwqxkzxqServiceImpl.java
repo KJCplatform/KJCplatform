@@ -13,11 +13,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import platform.dao.WqwqxkzxqDao;
-
+import platform.domain.Kjgxqybab;
 import platform.domain.Wqwqxkzxq;
 import platform.domain.Wqwqxkzxqsrqk;
 import platform.domain.Wqwqxkzxqxkzycp;
-
+import platform.form.KjgxqybabForm;
 import platform.form.WqwqxkzxqForm;
 import platform.form.WqwqxkzxqsrqkForm;
 import platform.form.WqwqxkzxqxkzycpForm;
@@ -144,6 +144,8 @@ public class WqwqxkzxqServiceImpl implements WqwqxkzxqService{
 		if(list.size()>0){
 		for(int i=0;i<list.size();i++){
 			WqwqxkzxqForm wqwqxkzxqForm=new WqwqxkzxqForm();
+			
+			wqwqxkzxqForm.setId(String.valueOf(list.get(i).getId()));
 			wqwqxkzxqForm.setDwmc(list.get(i).getDwmc());
 			wqwqxkzxqForm.setQtmc(list.get(i).getQtmc());
 			wqwqxkzxqForm.setDwdh(list.get(i).getDwdh());
@@ -220,7 +222,53 @@ public class WqwqxkzxqServiceImpl implements WqwqxkzxqService{
 	
 
 
-
+	public void deleteObject(String id){
+		wqwqxkzxqDao.deleteObjectByIDs(Integer.valueOf(id));
+	}
+	
+	
+	public void updateObject(WqwqxkzxqForm wqwqxkzxqForm){
+		
+		
+	Wqwqxkzxq wqwqxkzxq=new Wqwqxkzxq();
+	wqwqxkzxq.setId(Integer.valueOf(wqwqxkzxqForm.getId()));
+		wqwqxkzxq.setDwmc(wqwqxkzxqForm.getDwmc());
+		wqwqxkzxq.setQtmc(wqwqxkzxqForm.getQtmc());
+		wqwqxkzxq.setDwdh(wqwqxkzxqForm.getDwdh());
+		wqwqxkzxq.setScdz(wqwqxkzxqForm.getScdz());
+		wqwqxkzxq.setJjxz(wqwqxkzxqForm.getJjxz());
+		wqwqxkzxq.setFrdb(wqwqxkzxqForm.getFrdb());
+		wqwqxkzxq.setDwdz(wqwqxkzxqForm.getDwdz());
+		wqwqxkzxq.setYzbm(wqwqxkzxqForm.getYzbm());
+		wqwqxkzxq.setLxr(wqwqxkzxqForm.getLxr());
+		wqwqxkzxq.setLxdh(wqwqxkzxqForm.getLxdh());
+		wqwqxkzxq.setZgzs(wqwqxkzxqForm.getZgzs());
+		wqwqxkzxq.setGzgl(wqwqxkzxqForm.getGzgl());
+		wqwqxkzxq.setZzgl(wqwqxkzxqForm.getZzgl());
+		wqwqxkzxq.setCzgl(wqwqxkzxqForm.getCzgl());
+		wqwqxkzxq.setGzjs(wqwqxkzxqForm.getGzjs());
+		wqwqxkzxq.setZzjs(wqwqxkzxqForm.getZzjs());
+		wqwqxkzxq.setCzjs(wqwqxkzxqForm.getCzjs());
+		wqwqxkzxq.setGzgr(wqwqxkzxqForm.getGzgr());
+		wqwqxkzxq.setZzgr(wqwqxkzxqForm.getZzgr());
+		wqwqxkzxq.setCzgr(wqwqxkzxqForm.getCzgr());
+		wqwqxkzxq.setGjjcgs(wqwqxkzxqForm.getGjjcgs());
+		wqwqxkzxq.setSbjcgs(wqwqxkzxqForm.getSbjcgs());
+		wqwqxkzxq.setJbqk(wqwqxkzxqForm.getJbqk());
+		wqwqxkzxq.setKyfx(wqwqxkzxqForm.getKyfx());
+		wqwqxkzxq.setQyscgl(wqwqxkzxqForm.getQyscgl());
+		wqwqxkzxq.setKyzk(wqwqxkzxqForm.getKyzk());
+		wqwqxkzxq.setZlglzk(wqwqxkzxqForm.getZlglzk());
+		wqwqxkzxq.setBmaqzk(wqwqxkzxqForm.getBmaqzk());
+		wqwqxkzxq.setJpyfqk(wqwqxkzxqForm.getJpyfqk());
+		wqwqxkzxq.setJpzzqk(wqwqxkzxqForm.getJpzzqk());
+		wqwqxkzxq.setJpjcqk(wqwqxkzxqForm.getJpjcqk());
+		wqwqxkzxq.setWcjpqk(wqwqxkzxqForm.getWcjpqk());
+		wqwqxkzxq.setXcjpxmqk(wqwqxkzxqForm.getXcjpxmqk());
+		
+		wqwqxkzxqDao.update(wqwqxkzxq);
+		
+	}
 	
 
 	

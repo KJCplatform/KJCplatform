@@ -93,8 +93,8 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			
 		]
 		
-	}<%}if(rights.contains("2")){%>
-	,{
+	},<%}if(rights.contains("2")){%>
+	{
 		"menuid": "2",
 		"icon": "icon-sys",
 		"menuname": "科技项目管理",
@@ -298,8 +298,8 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 		
 	]
 		
-	}<%}if(rights.contains("3")){%>
-	,{
+	},<%}if(rights.contains("3")){%>
+	{
 		"menuid": "3",
 		"icon": "icon-sys",
 		"menuname": "军品质量管理",
@@ -317,8 +317,8 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/jpsgwtbb.jsp"			
 		}]
-	}<%}if(rights.contains("4")){%>
-	,{
+	},<%}if(rights.contains("4")){%>
+	{
 		"menuid": "4",
 		"icon": "icon-sys",
 		"menuname": "国防计量管理",
@@ -359,8 +359,8 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			}]	
 		}
 		]
-	}<%}if(rights.contains("5")){%>
-	,{
+	},<%}if(rights.contains("5")){%>
+	{
 		"menuid": "5",
 		"icon": "icon-sys",
 		"menuname": "武器装备许可管理",
@@ -383,8 +383,8 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			}]		
 		}
 		]	
-	}<%}if(rights.contains("6")){%>
-	,{
+	},<%}if(rights.contains("6")){%>
+	{
 		"menuid": "6",
 		"icon": "icon-sys",
 		"menuname": "系统管理",
@@ -408,8 +408,8 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 // 			"url": "demo.html"
 // 		}
 		]	
-	}<%}if(rights.contains("7")){%>
-	,{
+	},<%}if(rights.contains("7")){%>
+	{
 		"menuid": "7",
 		"icon": "icon-sys",
 		"menuname": "数据库管理",
