@@ -22,16 +22,15 @@ import org.springframework.stereotype.Controller;
 
 import platform.action.BaseAction;
 import platform.dao.TestDataDao;
-
 import platform.form.JpjgdwjbqkForm;
 import platform.form.JpjgdwjbqksrqkForm;
 import platform.form.JpjgdwjbqkryForm;
-
 import platform.form.TestDataFrom;
 
 
 import platform.service.JpjgdwjbqkService;
 import platform.service.TestDataService;
+
 
 
 import com.opensymphony.xwork2.ModelDriven;
@@ -110,13 +109,15 @@ public class JpjgdwjbqkAction extends BaseAction implements ModelDriven<Jpjgdwjb
 	}
 	public String update(){
 		
-		return "update";
-	}
-	public String delete(){
-		
-		operateSuccess=true;
-		return   "delete";
-	}
+		jpjgdwjbqkService.updateObject(jpjgdwjbqkForm);
+			operateSuccess=true;
+			return "update";
+		}
+		public String delete(){
+			jpjgdwjbqkService.deleteObject(jpjgdwjbqkForm.getId());
+			operateSuccess=true;
+			return   "delete";
+		}
 	public String add(){
 		/*KjjszjcjbForm kjjszjcjbForm1=new KjjszjcjbForm();
 		kjjszjcjbForm1.setFwyy("哈哈哈");

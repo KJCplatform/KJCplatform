@@ -17,11 +17,13 @@ import platform.domain.Kjgxqybab;
 import platform.domain.Kjgxqybabzscq;
 import platform.domain.Kjgxqybabyfxm;
 import platform.domain.Kjgxqybabgxcp;
+import platform.domain.Kjkjxmxxb;
 import platform.domain.Kjndgxqybab;
 import platform.form.KjgxqybabForm;
 import platform.form.KjgxqybabzscqForm;
 import platform.form.KjgxqybabyfxmForm;
 import platform.form.KjgxqybabgxcpForm;
+import platform.form.KjkjxmxxbForm;
 import platform.form.KjndgxqybabForm;
 import platform.service.KjgxqybabService;
 import platform.util.StringHelper;
@@ -162,6 +164,7 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 		for(int i=0;i<list.size();i++){
 			KjgxqybabForm kjgxqybabForm=new KjgxqybabForm();
 			
+			kjgxqybabForm.setId(String.valueOf(list.get(i).getId()));
 			kjgxqybabForm.setYear(list.get(i).getYear());
 			kjgxqybabForm.setNf(list.get(i).getNf());
 			kjgxqybabForm.setQymc(list.get(i).getQymc());
@@ -241,5 +244,39 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 			formlist.add(kjgxqybabgxcpForm);
 		}}
 		return formlist;
+	}
+	
+	
+	public void deleteObject(String id){
+		kjgxqybabDao.deleteObjectByIDs(Integer.valueOf(id));
+	}
+	
+	
+	public void updateObject(KjgxqybabForm kjgxqybabForm){
+		Kjgxqybab kjgxqybab=new Kjgxqybab();
+		kjgxqybab.setId(Integer.valueOf(kjgxqybabForm.getId()));
+		kjgxqybab.setYear(kjgxqybabForm.getYear());
+		kjgxqybab.setNf(kjgxqybabForm.getNf());
+		kjgxqybab.setQymc(kjgxqybabForm.getQymc());
+		kjgxqybab.setNssbh(kjgxqybabForm.getNssbh());
+		kjgxqybab.setSsly(kjgxqybabForm.getSsly());
+		kjgxqybab.setZgswjg(kjgxqybabForm.getZgswjg());
+		kjgxqybab.setZgzs(kjgxqybabForm.getZgzs());
+		kjgxqybab.setYjrys(kjgxqybabForm.getYjrys());
+		kjgxqybab.setDzrs(kjgxqybabForm.getDzrs());
+		kjgxqybab.setYnzsr(kjgxqybabForm.getYnzsr());
+		kjgxqybab.setSr1(kjgxqybabForm.getSr1());
+		kjgxqybab.setSr2(kjgxqybabForm.getSr2());
+		kjgxqybab.setSr3(kjgxqybabForm.getSr3());
+		kjgxqybab.setHj(kjgxqybabForm.getHj());
+		kjgxqybab.setXszzl(kjgxqybabForm.getXszzl());
+		kjgxqybab.setZc1(kjgxqybabForm.getZc1());
+		kjgxqybab.setZc2(kjgxqybabForm.getZc2());
+		kjgxqybab.setZc3(kjgxqybabForm.getZc3());
+		kjgxqybab.setZczzl(kjgxqybabForm.getZczzl());
+		
+		
+		kjgxqybabDao.update(kjgxqybab);
+		
 	}
 }

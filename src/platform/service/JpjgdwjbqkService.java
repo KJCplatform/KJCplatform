@@ -23,4 +23,12 @@ public interface JpjgdwjbqkService {
 
 
 
+	public void updateObject(JpjgdwjbqkForm jpjgdwjbqkForm);
+
+
+
+	public void deleteObject(String id);
+
+
+
 }

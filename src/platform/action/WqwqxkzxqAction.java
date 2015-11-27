@@ -118,15 +118,17 @@ public class WqwqxkzxqAction extends BaseAction implements ModelDriven<Wqwqxkzxq
 	
 	public String update(){
 		
+		wqwqxkzxqService.updateObject(wqwqxkzxqForm);
+			operateSuccess=true;
+			return "update";
+		}
+		public String delete(){
+			wqwqxkzxqService.deleteObject(wqwqxkzxqForm.getId());
+			operateSuccess=true;
+			return   "delete";
+		}
 		
-		return "update";
-	}
-	public String delete(){
 		
-		
-		operateSuccess=true;
-		return   "delete";
-	}
 	public String add(){
 		System.out.println(resultid);
 		/*KjjszjcjbForm kjjszjcjbForm1=new KjjszjcjbForm();

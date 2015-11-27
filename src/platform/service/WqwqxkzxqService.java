@@ -17,4 +17,6 @@ public interface WqwqxkzxqService {
     public List<WqwqxkzxqForm> findWqwqxkzxqList(WqwqxkzxqForm wqwqxkzxqForm);
   //  public List<WqwqxkzxqForm> findContactWithpage(int pagesize,int pageno);
   //  public int listSize();
+	public void updateObject(WqwqxkzxqForm wqwqxkzxqForm);
+	public void deleteObject(String id);
 }

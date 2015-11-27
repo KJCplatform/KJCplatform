@@ -1,7 +1,6 @@
 package platform.service.impl;
 
 import java.util.ArrayList;
-
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
@@ -16,11 +15,11 @@ import platform.dao.JpjgdwjbqkDao;
 import platform.domain.Jpjgdwjbqk;
 import platform.domain.Jpjgdwjbqksrqk;
 import platform.domain.Jpjgdwjbqkry;
-
+import platform.domain.Kjgxqybab;
 import platform.form.JpjgdwjbqkForm;
 import platform.form.JpjgdwjbqksrqkForm;
 import platform.form.JpjgdwjbqkryForm;
-
+import platform.form.KjgxqybabForm;
 import platform.service.JpjgdwjbqkService;
 
 @Transactional
@@ -146,6 +145,7 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 		if(list.size()>0){
 		for(int i=0;i<list.size();i++){
 			JpjgdwjbqkForm jpjgdwjbqkForm=new JpjgdwjbqkForm();
+			jpjgdwjbqkForm.setId(String.valueOf(list.get(i).getId()));
 			jpjgdwjbqkForm.setDwmc(list.get(i).getDwmc());
 			jpjgdwjbqkForm.setQtmc(list.get(i).getQtmc());
 			jpjgdwjbqkForm.setDwdh(list.get(i).getDwdh());
@@ -214,6 +214,46 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 			
 		}}
 		return formlist;
+	}
+	
+	
+	public void deleteObject(String id){
+		jpjgdwjbqkDao.deleteObjectByIDs(Integer.valueOf(id));
+	}
+	
+	
+	public void updateObject(JpjgdwjbqkForm jpjgdwjbqkForm){
+		Jpjgdwjbqk jpjgdwjbqk=new Jpjgdwjbqk();
+		jpjgdwjbqk.setId(Integer.valueOf(jpjgdwjbqkForm.getId()));
+		jpjgdwjbqk.setDwmc(jpjgdwjbqkForm.getDwmc());
+		jpjgdwjbqk.setQtmc(jpjgdwjbqkForm.getQtmc());
+		jpjgdwjbqk.setDwdh(jpjgdwjbqkForm.getDwdh());
+		jpjgdwjbqk.setScdz(jpjgdwjbqkForm.getScdz());
+		jpjgdwjbqk.setJjxz(jpjgdwjbqkForm.getJjxz());
+		jpjgdwjbqk.setFrdb(jpjgdwjbqkForm.getFrdb());
+		jpjgdwjbqk.setDwdz(jpjgdwjbqkForm.getDwdz());
+		jpjgdwjbqk.setYzbm(jpjgdwjbqkForm.getYzbm());
+		jpjgdwjbqk.setLxr(jpjgdwjbqkForm.getLxr());
+		jpjgdwjbqk.setLxdh(jpjgdwjbqkForm.getLxdh());
+		jpjgdwjbqk.setZgzs(jpjgdwjbqkForm.getZgzs());
+		jpjgdwjbqk.setGzgl(jpjgdwjbqkForm.getGzgl());
+		jpjgdwjbqk.setZzgl(jpjgdwjbqkForm.getZzgl());
+		jpjgdwjbqk.setCzgl(jpjgdwjbqkForm.getCzgl());
+		jpjgdwjbqk.setGzjs(jpjgdwjbqkForm.getGzjs());
+		jpjgdwjbqk.setZzjs(jpjgdwjbqkForm.getZzjs());
+		jpjgdwjbqk.setCzjs(jpjgdwjbqkForm.getCzjs());
+		jpjgdwjbqk.setGzgr(jpjgdwjbqkForm.getGzgr());
+		jpjgdwjbqk.setZzgr(jpjgdwjbqkForm.getZzgr());
+		jpjgdwjbqk.setCzgr(jpjgdwjbqkForm.getCzgr());
+		jpjgdwjbqk.setGjjcgs(jpjgdwjbqkForm.getGjjcgs());
+		jpjgdwjbqk.setSbjcgs(jpjgdwjbqkForm.getSbjcgs());
+		jpjgdwjbqk.setJlz(jpjgdwjbqkForm.getJlz());
+		jpjgdwjbqk.setJlbzsl(jpjgdwjbqkForm.getJlbzsl());
+		jpjgdwjbqk.setJpkyrw(jpjgdwjbqkForm.getJpkyrw());
+		jpjgdwjbqk.setGjsyssl(jpjgdwjbqkForm.getGjsyssl());
+		jpjgdwjbqk.setGfsyssl(jpjgdwjbqkForm.getGfsyssl());
+		jpjgdwjbqkDao.update(jpjgdwjbqk);
+		
 	}
 
 	

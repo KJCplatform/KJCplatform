@@ -21,6 +21,10 @@ public interface KjgxqybabService {
 
 	public List<KjgxqybabForm> findKjgxqybabList(KjgxqybabForm kjgxqybabForm);
 
+	public void updateObject(KjgxqybabForm kjgxqybabForm);
+
+	public void deleteObject(String id);
+
 
 
 }
