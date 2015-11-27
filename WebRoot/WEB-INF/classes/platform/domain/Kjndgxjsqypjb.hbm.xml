@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="platform.domain.Kjndgxjsqypjb" table="kj_ndgxjsqypjb">
+		<id name="id" type="integer">
+			<column name="id"  not-null="true"/>
+			<generator class="identity"/>
+		</id>
+		<property name="year" type="string">
+			<column name="year" />
+		</property>
+		<property name="qymc" type="string">
+			<column name="qymc" />
+		</property>
+		<property name="cply" type="string">
+			<column name="cply" />
+		</property>
+		<property name="zgzs" type="integer">
+			<column name="zgzs" />
+		</property>
+		<property name="dzysrs" type="integer">
+			<column name="dzysrs" />	
+		</property>
+		<property name="yfrys" type="integer">
+			<column name="yfrys" />	
+		</property>
+		<property name="xmhds" type="integer">
+			<column name="xmhds" />	
+		</property>
+		<property name="cphds" type="integer">
+			<column name="cphds" />
+		</property>
+		<property name="jfze" type="string">
+			<column name="jfze" />
+		</property>
+		<property name="yncpsr" type="string">
+			<column name="yncpsr" />
+		</property>
+		<property name="jnyfze" type="string">
+			<column name="jnyfze" />
+		</property>
+		<property name="dzrybl" type="string">
+			<column name="dzrybl" />
+		</property>
+		<property name="yfrybl" type="string">
+			<column name="yfrybl" />
+		</property>
+		<property name="jsnyfbl" type="string">
+			<column name="jsnyfbl" />
+		</property>
+		<property name="jsnjnbl" type="string">
+			<column name="jsnjnbl" />
+		</property>
+		<property name="jyngxsrbl" type="string">
+			<column name="jyngxsrbl" />
+		</property>
+		<property name="zhdf" type="string">
+			<column name="zhdf" />
+		</property>
+		
+		<property name="zhnldf" type="string">
+			<column name="zhnldf" />
+		</property>	
+		<property name="zscqdf" type="string">
+			<column name="zscqdf" />
+		</property>	
+		<property name="glspdf" type="string">
+			<column name="glspdf" />
+			
+		</property>
+		<property name="czzbdf" type="string">
+			<column name="czzbdf" />
+		</property>
+		<property name="zhpj" type="string">
+			<column name="zhpj" />
+		</property>
+		<property name="pdzjz" type="string">
+			<column name="pdzjz" />
+		</property>
+	</class>
+</hibernate-mapping>

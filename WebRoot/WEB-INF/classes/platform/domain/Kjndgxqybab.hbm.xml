@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="platform.domain.Kjndgxqybab" table="kj_ndgxqybab">
+		<id name="id" type="integer">
+			<column name="id"  not-null="true"/>
+			<generator class="identity"/>
+		</id>
+		<property name="year" type="string">
+			<column name="year" />
+		</property>
+		<property name="nf" type="string">
+			<column name="nf" />
+		</property>
+		<property name="qymc" type="string">
+			<column name="qymc" />
+		</property>
+		<property name="nssbh" type="string">
+			<column name="nssbh" />
+		</property>
+		<property name="ssly" type="string">
+			<column name="ssly" />	
+		</property>
+		<property name="zgswjg" type="string">
+			<column name="zgswjg" />	
+		</property>
+		<property name="zgzs" type="string">
+			<column name="zgzs" />	
+		</property>
+		<property name="yjrys" type="string">
+			<column name="yjrys" />	
+		</property>
+		<property name="dzrs" type="string">
+			<column name="dzrs" />	
+		</property>
+		<property name="ynzsr" type="string">
+			<column name="ynzsr" />	
+		</property>
+		<property name="sr1" type="string">
+			<column name="sr1" />	
+		</property>
+		<property name="sr2" type="string">
+			<column name="sr2" />	
+		</property>
+		<property name="sr3" type="string">
+			<column name="sr3" />	
+		</property>
+		<property name="hj" type="string">
+			<column name="hj" />	
+		</property>
+		<property name="xszzl" type="string">
+			<column name="xszzl" />	
+		</property>
+		<property name="zc1" type="string">
+			<column name="zc1" />	
+		</property>
+		<property name="zc2" type="string">
+			<column name="zc2" />	
+		</property>
+		<property name="zc3" type="string">
+			<column name="zc3" />	
+		</property>
+		<property name="zczzl" type="string">
+			<column name="zczzl" />	
+		</property>
+		
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="platform.domain.Jljlrytjb" table="jl_jlrytjb">
+		<id name="id" type="integer">
+			<column name="id"  not-null="true"/>
+			<generator class="identity"/>
+		</id>
+		<property name="dwmc" type="string">
+			<column name="dwmc" />
+		</property>
+		<property name="csny" type="date">
+			<column name="csny" />
+		</property>
+		<property name="qzrq" type="date">
+			<column name="qzrq" />
+		</property>
+		<property name="qfrq" type="date">
+			<column name="qfrq" />
+		</property>
+		<property name="xm" type="string">
+			<column name="xm" />
+		</property>
+		<property name="xb" type="string">
+			<column name="xb" />
+		</property>
+		<property name="whcd" type="string">
+			<column name="whcd" />
+		</property>
+		<property name="jlzh" type="string">
+			<column name="jlzh" />	
+		</property>
+		<property name="yxq" type="string">
+			<column name="yxq" />	
+		</property>
+		<property name="kjxm" type="string">
+			<column name="kqxm" />	
+		</property>
+
+	</class>
+</hibernate-mapping>

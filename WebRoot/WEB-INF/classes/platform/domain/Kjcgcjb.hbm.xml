@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="platform.domain.Kjcgcjb" table="kj_cgcjb">
+		<id name="id" type="integer">
+			<column name="id"  not-null="true"/>
+			<generator class="identity"/>
+		</id>
+		<property name="cgmc" type="string">
+			<column name="cgmc" />
+		</property>
+		<property name="wcdw" type="string">
+			<column name="wcdw" />
+		</property>
+		<property name="zywcr" type="string">
+			<column name="zywcr" />
+		</property>
+		<property name="wcsj" type="date">
+			<column name="wcsj" />
+		</property>
+		<property name="djjdh" type="string">
+			<column name="djjdh" />	
+		</property>
+		<property name="txxs" type="string">
+			<column name="txxs" />	
+		</property>
+		<property name="cgjj" type="string">
+			<column name="cgjj" />	
+		</property>
+		<property name="yyhy" type="string">
+			<column name="yyhy" />
+		</property>
+				<property name="jsly" type="string">
+			<column name="jsly" />
+		</property>
+		<property name="cgjd" type="string">
+			<column name="cgjd" />
+		</property>
+		<property name="jyfs" type="string">
+			<column name="jyfs" />
+		</property>
+		<property name="sfzj" type="integer">
+			<column name="sfzj" />
+		</property>
+		<property name="gfdj" type="string">
+			<column name="gfdj" />	
+		</property>
+		<property name="zhyq" type="string">
+			<column name="zhyq" />	
+		</property>
+		<property name="sfgk" type="integer">
+			<column name="sfgk" />	
+		</property>
+		<property name="fbrxz" type="integer">
+			<column name="fbrxz" />
+		</property>
+				<property name="lxrxm" type="string">
+			<column name="lxrxm" />
+		</property>
+		<property name="gddh" type="string">
+			<column name="gddh" />
+		</property>
+		<property name="szdq" type="string">
+			<column name="szdq" />
+		</property>
+		<property name="sj" type="string">
+			<column name="sj" />
+		</property>
+		<property name="dzyx" type="string">
+			<column name="dzyx" />	
+		</property>
+		<property name="lxdz" type="string">
+			<column name="lxdz" />	
+		</property>
+		
+		
+		<property name="jlnf" type="string">
+			<column name="jlnf" />
+		</property>
+		<property name="username" type="string">
+			<column name="username" />
+		</property>
+		<property name="gxsj" type="string">
+			<column name="gxsj" />
+		</property>
+		<property name="submit" type="integer">
+			<column name="submit" />
+		</property>
+		
+	</class>
+</hibernate-mapping>

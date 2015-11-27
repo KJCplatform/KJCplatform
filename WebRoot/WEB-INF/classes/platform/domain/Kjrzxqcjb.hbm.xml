@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="platform.domain.Kjrzxqcjb" table="kj_rzxqcjb">
+			
+		<id name="id" type="integer">
+			<column name="id"  not-null="true"/>
+			<generator class="identity"/>
+		</id>
+
+		<property name="qymc" type="string">
+			<column name="qymc" />
+		</property>
+		<property name="qylx" type="string">
+			<column name="qylx" />
+		</property>
+		<property name="qytz" type="string">
+			<column name="qytz" />
+		</property>
+
+		<property name="zczb" type="string">
+			<column name="zczb" />
+		</property>
+		<property name="zcsj" type="date">
+			<column name="zcsj" />
+		</property>
+		<property name="ygzs" type="string">
+			<column name="ygzs" />
+		</property>
+
+		
+		<property name="rzed" type="string">
+			<column name="rzed" />
+		</property>
+		<property name="zjyt" type="string">
+			<column name="zjyt" />
+		</property
+		><property name="rzfs" type="string">
+			<column name="rzfs" />
+			
+		</property><property name="xmjj" type="string">
+			<column name="xmjj" />
+		</property>
+		<property name="sfgk" type="string">
+			<column name="sfgk" />
+		</property>
+		<property name="xmlxr" type="string">
+			<column name="xmlxr" />
+		</property>
+
+		<property name="gddh" type="string">
+			<column name="gddh" />
+		</property>
+        <property name="sj" type="string">
+			<column name="sj" />
+		</property>
+		<property name="dzyx" type="string">
+			<column name="dzyx" />
+		</property>
+		
+		<property name="lxdz" type="string">
+			<column name="lxdz" />
+		</property>
+</class>
+</hibernate-mapping>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="platform.domain.Kjkjxmk" table="kj_kjxmk">
+		<id name="id" type="integer">
+			<column name="id"  not-null="true"/>
+			<generator class="identity"/>
+		</id>
+		<property name="lb" type="string">
+			<column name="lb" />
+		</property>
+		<property name="xh" type="string">
+			<column name="xh" />
+		</property>
+		<property name="dwmc" type="string">
+			<column name="dwmc" />
+		</property>
+		<property name="xmmc" type="string">
+			<column name="xmmc" />
+		</property>
+		<property name="jsgmnr" type="string">
+			<column name="jsgmnr" />
+		</property>
+		<property name="xmjszq" type="string">
+			<column name="xmjszq" />
+		</property><property name="ymjd" type="string">
+			<column name="ymjd" />
+		</property><property name="ztz" type="string">
+			<column name="ztz" />
+		</property><property name="ywctz" type="string">
+			<column name="ywctz" />
+		</property><property name="bntz" type="string">
+			<column name="bntz" />
+		</property>
+		<property name="bz" type="string">
+			<column name="bz" />
+		</property>
+		
+				
+				<property name="jlnf" type="string">
+			<column name="jlnf" />
+		</property>
+		<property name="username" type="string">
+			<column name="username" />
+		</property>
+		<property name="gxsj" type="string">
+			<column name="gxsj" />
+		</property>
+		<property name="submit" type="integer">
+			<column name="submit" />
+		</property>
+		
+</class>
+</hibernate-mapping>

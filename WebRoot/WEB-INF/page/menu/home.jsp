@@ -155,9 +155,24 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 		},
 		{
 			"menuid": "23",
-			"menuname": "军品科研项目",
+			"menuname": "军品配套科研项目",
 			"icon": "icon-nav",
-			"url": "<%=basePath%>/administration/kjndjpptkyxmb.jsp"	
+			"url": "demo.html",
+			"child":[{
+			    "menuid": "231",
+				"menuname": "军品科研项目汇总表",
+				"icon": "icon-nav",
+			    "url": "<%=basePath%>/administration/kjndjpptkyxmb.jsp"	
+			},
+			{
+			    "menuid": "232",
+				"menuname": "军品科研项目执行情况表",
+				"icon": "icon-nav",
+			    "url": "<%=basePath%>/administration/kjndjpptkyxmb2.jsp"	
+			}
+			]
+			
+			
 		},
 		{
 			"menuid": "24",
@@ -260,21 +275,22 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuname": "信息查询-高新技术企业认定备案信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjgxqybab_search.jsp"
-			}]	
+			},	{
+				"menuid": "293",
+				"menuname": "汇总表-高新技术企业认定备案信息",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
+				
+		}
+			
+			
+			]	
 		},
 		{
 				"menuid": "2A",
 				"menuname": "科技项目库",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/kjkjxmk.jsp"
-				
-		},
-	
-		{
-				"menuid": "2B",
-				"menuname": "认定高新企业备案表",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
 				
 		}
 		

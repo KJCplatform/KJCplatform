@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="platform.domain.Kjgjkjjgfxmtj" table="kj_gjkjjgfxmtj">
+		<id name="id" type="integer">
+			<column name="id"  not-null="true"/>
+			<generator class="identity"/>
+		</id>
+		<property name="nd" type="string">
+			<column name="nd" />
+		</property>
+		<property name="tdj" type="integer">
+			<column name="tdj" />
+		</property>
+		<property name="ydj" type="integer">
+			<column name="ydj" />
+		</property>
+		<property name="edj" type="integer">
+			<column name="edj" />
+		</property>
+		<property name="hj" type="integer">
+			<column name="hj" />	
+		</property>
+		
+			<property name="jlnf" type="string">
+			<column name="jlnf" />
+		</property>
+		<property name="username" type="string">
+			<column name="username" />
+		</property>
+		<property name="gxsj" type="string">
+			<column name="gxsj" />
+		</property>
+		<property name="submit" type="integer">
+			<column name="submit" />
+		</property>
+		
+	</class>
+</hibernate-mapping>
