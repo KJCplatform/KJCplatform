@@ -61,7 +61,12 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 	  private String zlbmfzr;
 	  private Date bcrq;*/
 	public void updateJpzlzkjbb(JpzlzkjbbForm jpzlzkjbbForm){
-		Jpzlzkjbb jpzlzkjbb=new Jpzlzkjbb();
+		    Jpzlzkjbb old=jpzlzkjbbDao.findObjectByID(Integer.valueOf(jpzlzkjbbForm.getId()));
+		    String olddwmc=old.getDwmc();
+		    String oldjlnf=old.getJlnf();
+		    String oldjd=old.getJd();
+		    
+		    Jpzlzkjbb jpzlzkjbb=new Jpzlzkjbb();
         //  jljlqjhzb.setCljg(jljlqjhzbForm.getCljg());
 		//	jljlqjhzb.setFwrq(StringHelper.stringConvertDate(jljlqjhzbForm.getFwrq()));
 			jpzlzkjbb.setId(Integer.valueOf(jpzlzkjbbForm.getId()));
