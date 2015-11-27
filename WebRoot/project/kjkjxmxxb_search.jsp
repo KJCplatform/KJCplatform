@@ -38,42 +38,149 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		var basePath = localhostPath + projectName;
 		var resultid;
 		var display = [
-            {"name": "项目编号", "group": "基本信息", "value": "", "editor":"text"},
-            {"name": "项目名称", "group": "基本信息", "value": "", "editor":"text" },
-            {"name": "参加单位总数", "value": "", "group": "基本信息", "editor":"text" },
-            {"name": "承担单位名称", "group": "项目承担单位", "value": "", "editor": "text" },
-            {"name": "单位所在地", "group": "项目承担单位", "value": "", "editor":"text" },
-            {"name": "通讯地址", "value": "", "group": "项目承担单位", "editor":"text" },
-            {"name": "邮编", "group": "项目承担单位", "value": "", "editor":"text" },
-            {"name": "单位性质", "group": "项目承担单位", "value": "", "editor":"text" },
-            {"name": "上级行政主管部门", "value": "", "group": "项目承担单位", "editor":"text" },
-            {"name": "项目负责人姓名", "group": "项目负责人", "value": "", "editor": "text" },
-            {"name": "性别", "group": "项目负责人", "value": "", 	"editor":"text" },
-            {"name": "出生年", "value": "", "group": "项目负责人", "editor":"text" },
-            {"name": "学历", "group": "项目负责人", "value": "","editor":"text" },
-            {"name": "职称", "group": "项目负责人", "value": "", "editor":"text" },
-            {"name": "联系电话", "value": "", "group": "项目负责人", "editor":"text" },
-            {"name": "Email", "group": "项目负责人", "value": "", "editor":"text" },
-            {"name": "总人数", "group": "项目组人数", "value": "", "editor":"text" },
-            {"name": "高级", "value": "", "group": "项目组人数", "editor":"text" },
-            {"name": "中级", "group": "项目组人数", "value": "", "editor": "text" },
-            {"name": "初级", "group": "项目组人数", "value": "", "editor":"text" },
-            {"name": "其他", "value": "", "group": "项目组人数", "editor":"text" },
-            {"name": "起始时间", "group": "其他信息", "value": "", "editor": "text" },
-            {"name": "终止时间", "group": "其他信息", "value": "", "editor":"text" },
-            {"name": "项目活动类型", "value": "", "group": "其他信息", "editor":"text" },
-            {"name": "所属领域", "group": "其他信息", "value": "", "editor":"text" },
-            {"name": "项目技术来源", "group": "其他信息", "value": "", "editor":"text" },
-            {"name": "主要研发内容", "value": "", "group": "其他信息", "editor":"text" },
-            {"name": "预期成果形式", "group": "其他信息", "value": "", "editor":"text" },
-            {"name": "预期取得专利", "group": "其他信息", "value": "", "editor":"text" },
-            {"name": "总经费", "value": "", "group": "经费投入", "editor":"text" },
-            {"name": "省拨款", "group": "经费投入", "value": "", "editor": "text" }
+            {"id":"xmbh", "name": "项目编号", "group": "基本信息", "value": "", "editor": "text" },
+            {"id":"xmmc", "name": "项目名称", "group": "基本信息", "value": "", "editor":"text" },
+            {"id":"cjdws", "name": "参加单位总数", "value": "", "group": "基本信息", "editor":{
+            	"type": 'numberbox', 
+            } },
+            {"id":"dwmc", "name": "承担单位名称", "group": "项目承担单位", "value": "", "editor": "text" },
+            {"id":"dwszd", "name": "单位所在地", "group": "项目承担单位", "value": "", "editor":"text" },
+            {"id":"txdz", "name": "通讯地址", "value": "", "group": "项目承担单位", "editor":"text" },
+            {"id":"yb", "name": "邮编", "group": "项目承担单位", "value": "", "editor":"text" },
+            {"id":"dwxz", "name": "单位性质", "group": "项目承担单位", "value": "请选择", "editor":{
+    			"type": 'combobox', 
+    			"required": true ,
+    			"editable":false,
+    			"options":{
+    				"data":[{"value":"大专院校","text":"大专院校"},{"value":"科研院所","text":"科研院所"},{"value":"企业","text":"企业"},{"value":"其它","text":"其它"}],
+                        "panelHeight":"auto"		
+    				}	
+    		} },
+            {"id":"sjbm", "name": "上级行政主管部门", "value": "", "group": "项目承担单位", "editor":"text" },
+            {"id":"fzr", "name": "项目负责人姓名", "group": "项目负责人", "value": "", "editor": "text" },
+            {"id":"xb", "name": "性别", "group": "项目负责人", "value": "请选择", 	"editor":{
+    			"type": 'combobox', 
+    			"required": true ,
+    			"editable":false,
+    			"options":{
+    				"data":[{"value":"男","text":"男"},{"value":"女","text":"女"}],
+                        "panelHeight":"auto"		
+    				}
+		}   },
+            {"id":"csn", "name": "出生年", "value": "", "group": "项目负责人", "editor":{
+				"type":'datebox',
+				"editable":false
+			
+			} },
+            {"id":"xl", "name": "学历", "group": "项目负责人", "value": "请选择","editor":{
+    			"type": 'combobox', 
+    			"required": true ,
+    			"editable":false,
+    			"options":{
+    				"data":[{"value":"研究生","text":"研究生"},{"value":"大学","text":"大学"},{"value":"大专","text":"大专"},{"value":"中专","text":"中专"},{"value":"其它","text":"其它"}],
+                        "panelHeight":"auto"		
+    				}	
+    		} },
+            {"id":"zc", "name": "职称", "group": "项目负责人", "value": "请选择", "editor":{
+    			"type": 'combobox', 
+    			"required": true ,
+    			"editable":false,
+    			"options":{
+    				"data":[{"value":"高级","text":"高级"},{"value":"中级","text":"中级"},{"value":"初级","text":"初级"}],
+                        "panelHeight":"auto"		
+    				}	
+    		}},
+            {"id":"lxdh", "name": "联系电话", "value": "", "group": "项目负责人", "editor":{
+            	"type": 'numberbox', 
+            } },
+            {"id":"email", "name": "Email", "group": "项目负责人", "value": "", "editor":{
+                "type":"validatebox",
+                "options":{
+                    "validType":"email"
+                }
+        }   },
+        
+        
+        
+        
+            {"id":"xmzrs", "name": "总人数", "group": "项目组人数", "value": "", "editor":{
+            	"type": 'numberbox', 
+            } },
+            {"id":"gj", "name": "高级", "value": "", "group": "项目组人数", "editor":{
+            	"type": 'numberbox', 
+            } },
+            {"id":"zj", "name": "中级", "group": "项目组人数", "value": "", "editor": {
+            	"type": 'numberbox', 
+            } },
+            {"id":"cj", "name": "初级", "group": "项目组人数", "value": "", "editor":{
+            	"type": 'numberbox', 
+            } },
+            {"id":"qt", "name": "其他", "value": "", "group": "项目组人数", "editor":{
+            	"type": 'numberbox', 
+            } },
+            {"id":"qssj", "name": "起始时间", "group": "其他信息", "value": "", "editor":{
+				"type":'datebox',
+				"editable":false} },
+            {"id":"zzsj", "name": "终止时间", "group": "其他信息", "value": "", "editor":{
+				"type":'datebox',
+				"editable":false} },
+            {"id":"xmhdlx", "name": "项目活动类型", "value": "请选择", "group": "其他信息", "editor":{
+            	"type": 'combobox', 
+    			"required": true ,
+    			"editable":false,
+    			"options":{
+    				"data":[{"value":"应用开发","text":"应用开发"},{"value":"产业化开发","text":"产业化开发"},{"value":"其它","text":"其它"}],
+                        "panelHeight":"auto"		
+    				}	
+        }},
+            {"id":"ssly", "name": "所属领域", "group": "其他信息", "value": "请选择", "editor":{
+            	"type": 'combobox', 
+    			"required": true ,
+    			"editable":false,
+    			"options":{
+    				"data":[{"value":"工业","text":"工业"},{"value":"农业","text":"农业"},{"value":"社会发展","text":"社会发展"},{"value":"其它","text":"其它"}],
+                        "panelHeight":"auto"		
+    				}	
+        } },
+            {"id":"xmjsly", "name": "项目技术来源", "group": "其他信息", "value": "请选择", "editor":{
+            	"type": 'combobox', 
+    			"required": true ,
+    			"editable":false,
+    			"options":{
+    				"data":[{"value":"国内技术","text":"国内技术"},{"value":"国外技术","text":"国外技术"},{"value":"本单位自主开发","text":"本单位自主开发"}],
+                        "panelHeight":"auto"		
+    				}	
+        } },
+            {"id":"zyyfnr", "name": "主要研发内容", "value": "", "group": "其他信息", "editor":"text" },
+            {"id":"cgxs", "name": "预期成果形式", "group": "其他信息", "value": "请选择", "editor":{
+            	"type": 'combobox', 
+    			"required": true ,
+    			"editable":false,
+    			"options":{
+    				"data":[{"value":"新技术","text":"新技术"},{"value":"新工艺","text":"新工艺"},{"value":"新产品（含农业新品种、计算机软件）","text":"新产品（含农业新品种、计算机软件）"}
+    				,{"value":"新材料","text":"新材料"},{"value":"新装备","text":"新装备"},{"value":"论文论著","text":"论文论著"},{"value":"研究（咨询）报告","text":"研究（咨询）报告"},{"value":"其它","text":"其它"}],
+                        "panelHeight":"auto"		
+    				}	
+        } },
+            {"id":"yqzl", "name": "预期取得专利", "group": "其他信息", "value": "请选择", "editor":{
+            	"type": 'combobox', 
+    			"required": true ,
+    			"editable":false,
+    			"options":{
+    				"data":[{"value":"国外发明专利","text":"国外发明专利"},{"value":"国内发明专利","text":"国内发明专利"},{"value":"其它","text":"其它"}],
+                        "panelHeight":"auto"		
+    				}	
+        }},
+            {"id":"zjf", "name": "总经费", "value": "", "group": "经费投入", "editor":"text" },
+            {"id":"sbk", "name": "省拨款", "group": "经费投入", "value": "", "editor": "text" },
 
             
         ];
-			
+
+            
+
 		$(function() {
+			var lastIndex;
 			$('#kjxmxx').propertygrid({
 	
 		        width: 1000,
@@ -99,8 +206,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				//url:actionPath,
 				pagination : true,//分页
 				rownumbers : true,//行数
-				toolbar:[ 
-				     {// 工具栏
+				toolbar:[   {// 工具栏
+					text : '添加',
+					iconCls : 'icon-add', // 图标
+					handler : function() { // 处理函数
+						$('#cjdw').datagrid('endEdit', lastIndex);
+						$('#cjdw').datagrid('appendRow',{
+							xh:'',
+							dwmc:''
+						})
+						lastIndex = $('#cjdw').datagrid('getRows').length-1;
+						$('#cjdw').datagrid('selectRow',lastIndex);
+						$('#cjdw').datagrid('beginEdit',lastIndex);	
+						
+					}
+				},'-',{
 					
 						text:'删除',
 						iconCls:'icon-remove',
@@ -197,7 +317,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						//alert(info.fwyy);
 						//记录的主键id
 						resultid = info.id;
-						alert(resultid);
+						//alert(resultid);
 						display[0].value = info.xmbh;
 						display[1].value = info.xmmc;
 						display[2].value = info.cjdws;
@@ -274,14 +394,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 		//提交基本信息表
 		function update(){
-			var s = 'id=' + resultid;
+			var s = 'id=' + resultid + '&';
 			var action =  basePath + '/system/KjkjxmxxbAction_update.action';
 			var rows = $('#kjxmxx').propertygrid('getRows');
 			var changes = $('#kjxmxx').propertygrid('getChanges');
-			if(changes.length == 0){
-				$.messager.alert('验证', '信息未更改', 'error');
-			}
-			else{
+// 			if(changes.length == 0){
+// 				$.messager.alert('验证', '信息未更改', 'error');
+// 			}
+// 			else{
 				for(var i=0; i<rows.length; i++){
 					if(i == rows.length-1){
 						s += rows[i].id + '=' + rows[i].value;
@@ -291,20 +411,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					}
 				}
 			
-			}
-			alert(s);
-			if(s.length != 0){
-				$.post(action, s, function(result) {
-					if (result.operateSuccess) {
-							//alert(result.resultid);
-							resultid = result.resultid;
-							$('#kjxmxx').propertygrid('reload');// 重新加载
-							$.messager.alert('更新', '更新成功', 'info');
-					} else {
-							$.messager.alert('更新', '更新失败', 'warning');
-						}
-				});
-			}
+				
+				
+				
+				//alert(s);
+				if(s.length != 0){
+					$.post(action, s, function(result) {
+						if (result.operateSuccess) {
+								//alert(result.resultid);
+								//resultid = result.resultid;
+								$('#kjxmxx').propertygrid('reload');// 重新加载
+								$.messager.alert('更新', '更新成功', 'info');
+						} else {
+								$.messager.alert('更新', '更新失败', 'warning');
+							}
+					});
+				}
+// 			}
+			
 			
 		}
 
