@@ -14,7 +14,15 @@ public class JpzlzkjbbForm implements java.io.Serializable{
 	  private String tbr;
 	  private String zlbfzr;
 	  private String s2hr;
-	  public String getS2hr() {
+	  private String jlnf;
+	  
+	  public String getJlnf() {
+		return jlnf;
+	}
+	public void setJlnf(String jlnf) {
+		this.jlnf = jlnf;
+	}
+	public String getS2hr() {
 		return s2hr;
 	}
 	public void setS2hr(String s2hr) {

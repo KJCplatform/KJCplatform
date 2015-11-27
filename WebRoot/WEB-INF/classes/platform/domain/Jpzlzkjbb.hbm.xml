@@ -40,6 +40,8 @@
 		<property name="bcrq" type="date">
 			<column name="bcrq" />
 		</property>
-		
+		<property name="jlnf" type="string">
+			<column name="jlnf" />
+		</property>
 	</class>
 </hibernate-mapping>
