@@ -358,6 +358,14 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/kjkjxmk.jsp"
 				
+		},
+			
+		{
+				"menuid": "284",
+				"menuname": "科技项目信息汇总",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/kjkjxmxxb0.jsp"
+				
 		}
 				]
 		},
