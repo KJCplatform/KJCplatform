@@ -14,5 +14,5 @@ public interface JljlrytjbService {
 	public void deleteObject(String id);
 	public void saveObject(JljlrytjbForm jljlrytjbForm);
 	public void showImportObject(String filePath) throws Exception;
-	public void showExportObject() throws Exception;
+	public void showExportObject(String items) throws Exception;
 }

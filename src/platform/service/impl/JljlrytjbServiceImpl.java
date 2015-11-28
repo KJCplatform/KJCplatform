@@ -1,6 +1,7 @@
 package platform.service.impl;
 
 import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -14,6 +15,7 @@ import jxl.Workbook;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
+import excel.CreateExcel;
 import platform.dao.JljlrytjbDao;
 import platform.domain.Jljlrytjb;
 import platform.form.JljlrytjbForm;
@@ -25,7 +27,7 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 	
 	@Resource(name=JljlrytjbDao.SERVICE_NAME)
 	private JljlrytjbDao jljlrytjbDao;
-	
+	private List<JljlrytjbForm> formListTemp = new ArrayList<JljlrytjbForm>();
 	public List<JljlrytjbForm> findJljlrytjbList(){
 		String hqlWhere = "";
 		Object [] params = null;
@@ -53,6 +55,10 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 		params = paramsList.toArray();
 		List<Jljlrytjb> list=jljlrytjbDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
 		List<JljlrytjbForm> formlist=this.JljlrytjbPOListToVOList(list);
+		if(pageno == 1){
+			formListTemp = 
+					JljlrytjbPOListToVOList(jljlrytjbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby));
+		}
 		return formlist;
 		
 	}
@@ -161,15 +167,112 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 		
 		for(int i = 1 ; i < rows; i ++){
 			jljlrytjb.setDwmc(sheet.getCell(0, i).getContents());
+			jljlrytjb.setXm(sheet.getCell(1, i).getContents());
+			jljlrytjb.setXb(sheet.getCell(2, i).getContents());
+			jljlrytjb.setWhcd(sheet.getCell(3, i).getContents());
+			jljlrytjb.setCsny(new SimpleDateFormat().parse(sheet.getCell(4, i).getContents()));
+			jljlrytjb.setJlzh(sheet.getCell(5, i).getContents());
+			jljlrytjb.setQzrq(new SimpleDateFormat().parse(sheet.getCell(6, i).getContents()));
+			jljlrytjb.setYxq(sheet.getCell(7, i).getContents());
+			jljlrytjb.setKjxm(sheet.getCell(8, i).getContents());
+			jljlrytjb.setQfrq(new SimpleDateFormat().parse(sheet.getCell(9, i).getContents()));
 			
-			
+			jljlrytjbDao.save(jljlrytjb);
 		}
 		
-		
+		workbook.close();
 	}
+	
+	private LinkedHashMap<String, ArrayList<String>> getDataAsHashMap(String items){
+		LinkedHashMap<String, ArrayList<String>> lhm = new LinkedHashMap<String ,ArrayList<String>>();
+		List<String> li = new ArrayList<String>();
+		String[] item = items.split(" ");
+		int len = formListTemp.size();
+		for(int i=0; i < item.length; i ++){
+			switch (item[i]) {
+			case "1":
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getDwmc());
+			    }
+			    lhm.put("单位名称", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "2":
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getXm());
+			    }
+			    lhm.put("姓名", new ArrayList<String>(li));
+			    li.clear();
+				break;			
+			case "3":
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getXb());
+			    }
+			    lhm.put("性别", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "4":
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getWhcd());
+			    }
+			    lhm.put("文化程度", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "5":
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getCsny());
+			    }
+			    lhm.put("出生年月", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "6":
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getJlzh());
+			    }
+			    lhm.put("计量检定员证员", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "7":
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getQzrq());
+			    }
+			    lhm.put("首次取证日期", new ArrayList<String>(li));
+			    li.clear();
+				break;	
+			case "8":
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getYxq());
+			    }
+			    lhm.put("有效期", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "9":
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getKjxm());
+			    }
+			    lhm.put("可从事检定项目", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "10":
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getQfrq());
+			    }
+			    lhm.put("签发日期", new ArrayList<String>(li));
+			    li.clear();
+				break;				
+			}
+			
+		}
+		return lhm;
+	}
+	
 	@Override
-	public void showExportObject() throws Exception {
+	public void showExportObject(String items) throws Exception {
 		// TODO Auto-generated method stub
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
+		String time = df.format(new Date());
+		String path = "D:\\国防军工企事业单位计量检定人员  admin " + time + ".xls";	
+		CreateExcel.createExcel(getDataAsHashMap(items), path);
 		
 	}
 
