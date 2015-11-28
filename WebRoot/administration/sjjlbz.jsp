@@ -47,29 +47,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <body>
 
-<!-- <div data-options="region:'north',title:'高级查询'" style="height: 60px;" > -->
-<!--         <form id="searchFormtest"> -->
-<!--             <table> -->
-<!--                 <tr> -->
-<!--                     <th>法人单位名称：</th> -->
-<!--                     <td> -->
-<!-- 						<input id="fileName" /> -->
-<!-- 					</td> -->
-<!--                 </tr> -->
-<!--                 <tr> -->
-<!-- 					<th>涉及的计量专业：</th> -->
-<!-- 					<td> -->
-<!--                         <input id="fileId" /> -->
-<!-- 					</td> -->
-<!-- 					<td> -->
-<!-- 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a> -->
-<!-- 					</td> -->
+<div data-options="region:'north',title:'高级查询'" style="height: 60px;" >
+        <form id="searchFormtest">
+            <table>
+                <tr>
+                    <th>法人单位名称：</th>
+                    <td>
+						<input id="fileName" />
+					</td>
+                </tr>
+                <tr>
+					<th>涉及的计量专业：</th>
+					<td>
+                        <input id="fileId" />
+					</td>
+					<td>
+						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>
+					</td>
                 
-<!--                 </tr> -->
-<!--             </table> -->
+                </tr>
+            </table>
             
-<!--         </form> -->
-<!-- </div> -->
+        </form>
+</div>
 
 
 <!--     <div class="container">   -->
@@ -125,6 +125,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</thead>
 	</table>
 </div>
+
+
+
+
+
+
+<div id="divEdit2" style="display:none;">
+	<div id="tabEdit2" style="overflow-y:auto;">
+		<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
+		 >>>请选择导出项<<<
+		 <br> <br>
+<input name="Items" type="checkbox" checked="checked" value="1" />法人单位名称<br>
+<input name="Items" type="checkbox" checked="checked" value="2" />涉及的计量专业<br> 
+<input name="Items" type="checkbox" checked="checked" value="3" />企事业最高计量标准器具数量<br> 
+<input name="Items" type="checkbox" checked="checked" value="4" />通讯地址<br>
+<input name="Items" type="checkbox" checked="checked" value="5" />联系人<br> 
+<input name="Items" type="checkbox" checked="checked" value="6" />办公电话<br> 
+<input name="Items" type="checkbox" checked="checked" value="7" />手机<br>
+		</form>
+	</div>
+</div>	
+
 
 	<!-- 编辑数据的div，默认看不到 -->
 <div id="divEdit" style="display:none;">
@@ -186,24 +208,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 </div>	
 
-
-
-
-<div id="divEdit2" style="display:none;">
-	<div id="tabEdit2" style="overflow-y:auto;">
-		<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
-		 >>>请选择导出项<<<
-		 <br> <br>
-<input name="Items" type="checkbox" checked="checked" value="1" />法人单位名称<br>
-<input name="Items" type="checkbox" checked="checked" value="2" />涉及的计量专业<br> 
-<input name="Items" type="checkbox" checked="checked" value="3" />企事业最高计量标准器具数量<br> 
-<input name="Items" type="checkbox" checked="checked" value="4" />通讯地址<br>
-<input name="Items" type="checkbox" checked="checked" value="5" />联系人<br> 
-<input name="Items" type="checkbox" checked="checked" value="6" />办公电话<br> 
-<input name="Items" type="checkbox" checked="checked" value="7" />手机<br>
-		</form>
-	</div>
-</div>	
 
 
 
