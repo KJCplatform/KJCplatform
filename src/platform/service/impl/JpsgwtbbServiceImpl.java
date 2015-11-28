@@ -72,6 +72,12 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 			jpsgwtbb.setTbr(jpsgwtbbForm.getTbr());
 			jpsgwtbb.setZlbmfzr(jpsgwtbbForm.getZlbmfzr());
 			jpsgwtbb.setBcrq(StringHelper.stringConvertDate2(jpsgwtbbForm.getBcrq()));
+			
+			jpsgwtbb.setJlnf(jpsgwtbbForm.getJlnf());
+			jpsgwtbb.setUsername(jpsgwtbbForm.getUsername());
+			jpsgwtbb.setGxsj(jpsgwtbbForm.getGxsj());
+			jpsgwtbb.setSubmit(jpsgwtbbForm.getSubmit());
+			
 		    jpsgwtbbDao.update(jpsgwtbb);
 		
 	}
@@ -89,6 +95,12 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 		jpsgwtbb.setTbr(jpsgwtbbForm.getTbr());
 		jpsgwtbb.setZlbmfzr(jpsgwtbbForm.getZlbmfzr());
 		jpsgwtbb.setBcrq(StringHelper.stringConvertDate2(jpsgwtbbForm.getBcrq()));
+		
+		jpsgwtbb.setJlnf(jpsgwtbbForm.getJlnf());
+		jpsgwtbb.setUsername(jpsgwtbbForm.getUsername());
+		jpsgwtbb.setGxsj(jpsgwtbbForm.getGxsj());
+		jpsgwtbb.setSubmit(jpsgwtbbForm.getSubmit());
+		
 		jpsgwtbbDao.save(jpsgwtbb);
 	}
 	private List<JpsgwtbbForm> JpsgwtbbPOListToVOList(List<Jpsgwtbb> list) {
@@ -107,6 +119,11 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 			jpsgwtbbForm.setTbr(jpsgwtbb.getTbr());
 			jpsgwtbbForm.setZlbmfzr(jpsgwtbb.getZlbmfzr());
 			jpsgwtbbForm.setBcrq(String.valueOf(jpsgwtbb.getBcrq()));
+			
+			jpsgwtbbForm.setJlnf(jpsgwtbb.getJlnf());
+			jpsgwtbbForm.setUsername(jpsgwtbb.getUsername());
+			jpsgwtbbForm.setGxsj(jpsgwtbb.getGxsj());
+			jpsgwtbbForm.setSubmit(String.valueOf(jpsgwtbb.getSubmit()));
 			
 			formlist.add(jpsgwtbbForm);
 		}

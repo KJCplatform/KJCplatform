@@ -69,6 +69,12 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
      	jljlrytjb.setYxq(jljlrytjbForm.getYxq());
 		jljlrytjb.setKjxm(jljlrytjbForm.getKjxm());
 		jljlrytjb.setWhcd(jljlrytjbForm.getWhcd());
+		
+		
+		jljlrytjb.setJlnf(jljlrytjbForm.getJlnf());
+		jljlrytjb.setUsername(jljlrytjbForm.getUsername());
+		jljlrytjb.setGxsj(jljlrytjbForm.getGxsj());
+		jljlrytjb.setSubmit(jljlrytjbForm.getSubmit());
 		jljlrytjbDao.update(jljlrytjb);
 		
 	}
@@ -90,6 +96,12 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 		jljlrytjb.setJlzh(jljlrytjbForm.getJlzh());
      	jljlrytjb.setYxq(jljlrytjbForm.getYxq());
 		jljlrytjb.setKjxm(jljlrytjbForm.getKjxm());
+		
+		
+		jljlrytjb.setJlnf(jljlrytjbForm.getJlnf());
+		jljlrytjb.setUsername(jljlrytjbForm.getUsername());
+		jljlrytjb.setGxsj(jljlrytjbForm.getGxsj());
+		jljlrytjb.setSubmit(jljlrytjbForm.getSubmit());
 		
 		jljlrytjbDao.save(jljlrytjb);
 	}
@@ -123,6 +135,12 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 //			jljlrytjbForm.setJzrq(String.valueOf(jljlrytjb.getJzrq()));
 //			jljlrytjbForm.setWjh(jljlrytjb.getWjh());
 //			jljlrytjbForm.setWjm(jljlrytjb.getWjm());
+			
+			
+			jljlrytjbForm.setJlnf(jljlrytjb.getJlnf());
+			jljlrytjbForm.setUsername(jljlrytjb.getUsername());
+			jljlrytjbForm.setGxsj(jljlrytjb.getGxsj());
+			jljlrytjbForm.setSubmit(String.valueOf(jljlrytjb.getSubmit()));
 			
 			formlist.add(jljlrytjbForm);
 		}

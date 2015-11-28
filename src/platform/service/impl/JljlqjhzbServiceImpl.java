@@ -66,6 +66,12 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 		jljlqjhzb.setBqdd(jljlqjhzbForm.getBqdd());
 		jljlqjhzb.setZsyjg(jljlqjhzbForm.getZsyjg());
 		
+		
+		jljlqjhzb.setJlnf(jljlqjhzbForm.getJlnf());
+		jljlqjhzb.setUsername(jljlqjhzbForm.getUsername());
+		jljlqjhzb.setGxsj(jljlqjhzbForm.getGxsj());
+		jljlqjhzb.setSubmit(jljlqjhzbForm.getSubmit());
+		
 		jljlqjhzbDao.update(jljlqjhzb);
 		
 	}
@@ -84,6 +90,12 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 		jljlqjhzb.setClcsfw(jljlqjhzbForm.getClcsfw());
 		jljlqjhzb.setBqdd(jljlqjhzbForm.getBqdd());
 		jljlqjhzb.setZsyjg(jljlqjhzbForm.getZsyjg());
+		
+		
+		jljlqjhzb.setJlnf(jljlqjhzbForm.getJlnf());
+		jljlqjhzb.setUsername(jljlqjhzbForm.getUsername());
+		jljlqjhzb.setGxsj(jljlqjhzbForm.getGxsj());
+		jljlqjhzb.setSubmit(jljlqjhzbForm.getSubmit());
 		
 		jljlqjhzbDao.save(jljlqjhzb);
 	}
@@ -105,6 +117,13 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 			jljlqjhzbForm.setClcsfw(jljlqjhzb.getClcsfw());
 			jljlqjhzbForm.setBqdd(jljlqjhzb.getBqdd());
 			jljlqjhzbForm.setZsyjg(jljlqjhzb.getZsyjg());
+			
+			
+			jljlqjhzbForm.setJlnf(jljlqjhzb.getJlnf());
+			jljlqjhzbForm.setUsername(jljlqjhzb.getUsername());
+			jljlqjhzbForm.setGxsj(jljlqjhzb.getGxsj());
+			jljlqjhzbForm.setSubmit(String.valueOf(jljlqjhzb.getSubmit())); 
+			
 			formlist.add(jljlqjhzbForm);
 		}
 		return formlist;

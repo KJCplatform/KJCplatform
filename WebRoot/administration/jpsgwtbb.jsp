@@ -81,6 +81,12 @@
 					<th field="tbr">填表人</th>
 					<th field="zlbmfzr">质量部门负责人</th>
 			        <th field="bcrq">报出日期</th>
+			        
+			        <th field="jlnf" width="130">记录时间(年份)</th>
+			        <th field="username" width="130">操作员</th>
+			        <th field="gxsj" width="130">更新时间</th>
+			        <th field="submit" width="130">是否提交</th>
+			        
 
 				</tr>
 			</thead>
@@ -89,10 +95,8 @@
 
 	<!-- 编辑数据的div，默认看不到 -->
 	<div id="divEdit" style="display:none;">
-		<div id="tabEdit" style="overflow-y:auto;">
-			<form id="frmEdit"
-				style="width:600px; height:600px;margin:100px 0px 0px 0px"
-				method="post">
+	<div id="tabEdit">
+		<form id="frmEdit" style="width:800px; height:400px; overflow:auto;" method= "post">
 				<input type="hidden" id="id" name="id" />
 				<dl>
 					<dd>
@@ -132,6 +136,29 @@
 					</dd>
 				</dl>
 
+
+
+                 <dl>
+			     	<dd>记录时间:</dd>
+			     	<dd><input size="15" id="jlnf" name="jlnf" /></dd>
+			     </dl>
+			    <dl>
+			    	<dd>操作员:</dd>
+				    <dd><input size="15" id="username" name="username" /></dd>
+			    </dl>
+			    <dl>
+				<dd>更新时间:</dd>
+				<dd><input size="15" id="gxsj" name="gxsj" /></dd>
+			</dl>
+			<dl>
+				<dd>是否提交:</dd>
+				<dd>
+				<select style="width: 150px" id="submit" name="submit" >
+				<option value="是">是</option>
+				<option value="否">否</option>
+				
+				</dd>
+			</dl> 
 			</form>
 		</div>
 	</div>

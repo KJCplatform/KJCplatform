@@ -78,7 +78,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="clcsfw" width="130">测量参数及范围</th>
 			<th field="bqdd" width="130">不确定度或准确度等级或最大允许误差</th>
 			<th field="zsyjg" width="130">主标准器溯源机构</th>
-
+            <th field="jlnf" width="130">记录时间(年份)</th>
+			<th field="username" width="130">操作员</th>
+			<th field="gxsj" width="130">更新时间</th>
+			<th field="submit" width="130">是否提交</th>
 		</tr>
 	</thead>
 	</table>
@@ -86,8 +89,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<!-- 编辑数据的div，默认看不到 -->
 <div id="divEdit" style="display:none;">
-	<div id="tabEdit" style="overflow-y:auto;">
-		<form id="frmEdit" style="width:600px; height:600px;margin:100px 0px 0px 0px"  method= "post">
+	<div id="tabEdit">
+		<form id="frmEdit" style="width:800px; height:400px; overflow:auto;" method= "post">
 			<input type="hidden" id="id" name="id" />
 			<dl>
 				<dd>法人单位名称:</dd>
@@ -121,10 +124,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd>不确定度或准确度等级或最大允许误差:</dd>
 				<dd><textarea cols="45" rows="3" id="bqdd" name="bqdd"></textarea></dd>
 			</dl>
-						<dl>
+		<dl>
 				<dd>主标准器溯源机构:</dd>
 				<dd><textarea cols="45" rows="3" id="zsyjg" name="zsyjg"></textarea></dd>
+		</dl>
 		
+		
+		
+		 <dl>
+				<dd>记录时间:</dd>
+				<dd><input size="15" id="jlnf" name="jlnf" /></dd>
+			</dl>
+			<dl>
+				<dd>操作员:</dd>
+				<dd><input size="15" id="username" name="username" /></dd>
+			</dl>
+			<dl>
+				<dd>更新时间:</dd>
+				<dd><input size="15" id="gxsj" name="gxsj" /></dd>
+			</dl>
+			<dl>
+				<dd>是否提交:</dd>
+				<dd>
+				<select style="width: 150px" id="submit" name="submit" >
+				<option value="是">是</option>
+				<option value="否">否</option>
+				
+				</dd>
+			</dl> 
 			
 			
 		</form>

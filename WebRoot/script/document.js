@@ -9,7 +9,7 @@ var localhostPath = curWwwPath.substring(0, pos);
 //获取带"/"的项目名，如：/ems
 var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
 var basePath = localhostPath + projectName;
-var user; 
+
 $(function() {
 	listDoc();
 	// 日期加上日期控件
@@ -33,11 +33,6 @@ $(function() {
 	$("#jbnr").validatebox({
 		required : true
 	});
-	
-	
-//	$("#dg").dblclick(function(){
-//		alert("123");
-//		});
 });
 //加载公文列表
 function listDoc() {
@@ -48,7 +43,7 @@ function listDoc() {
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      
-            pageSize : 10,//默认选择的分页是每页5行数据
+            pageSize : 5,//默认选择的分页是每页5行数据
             pageList : [ 5, 10, 15, 20 ],//可以选择的分页集合
             nowrap : true,//设置为true，当数据长度超出列宽时将会自动截取
             toolbar:"#toolbar",//在添加 增添、删除、修改操作的按钮要用到这个
@@ -59,59 +54,28 @@ function listDoc() {
             //sortOrder : 'desc',//定义排序顺序，可以是'asc'或者'desc'（正序或者倒序）。
             pagination : true,//分页
             rownumbers : true,//行数
-            onLoadSuccess: function (data) { 
-				user=eval(data).user;
-			//	alert("user="+user);
+			
+			toolbar:[ {// 工具栏
+				text : '添加',
+				iconCls : 'icon-add', // 图标
+				handler : function() { // 处理函数
+					addDoc();
+				}
 			}
+			, {
+				text : '删除',
+				iconCls : 'icon-cancel', // 图标
+				handler : function() { // 处理函数
+					deleteDoc();
+				}
+			}, {
+				text : '编辑',
+				iconCls : 'icon-edit',// 图标
+				handler : function() {// 处理函数
+					editDoc();
+				}
+			} ]
         });
-	 
-	 setTimeout(
-			 function(){
-				// alert("Hello world");
-				 if(user=="admin"){
-					// alert("admin");
-					 $('#dg').datagrid({
-						 toolbar:[ {// 工具栏
-								text : '添加',
-								iconCls : 'icon-add', // 图标
-								handler : function() { // 处理函数
-									addDoc();
-								}
-							}, {
-								text : '删除',
-								iconCls : 'icon-cancel', // 图标
-								handler : function() { // 处理函数
-									deleteDoc();
-								}
-							}, {
-								text : '编辑',
-								iconCls : 'icon-edit',// 图标
-								handler : function() {// 处理函数
-									editDoc();
-								}
-							}
-						 ]
-					 });
-				 }
-				 else{
-					// alert("user1");
-				 $('#dg').datagrid({
-					 toolbar:[ {// 工具栏
-							text : '添加',
-							iconCls : 'icon-add', // 图标
-							handler : function() { // 处理函数
-								addDoc();
-							}
-						} ]
-				 });
-				 
-				 }
-			 },300);
-	 
-	
-	 
-	 
-	 
 }
 //查询
 function doSearch(){
@@ -185,6 +149,11 @@ function editDoc() {
 	//$("#jzrq").datebox("getValue");
 	$("#jbr").val(doc.jbr);
 	$("#cljg").val(doc.cljg);
+	
+	$("#jlnf").val(doc.jlnf);
+	$("#username").val(doc.username);
+	$("#gxsj").val(doc.gxsj);
+	$("#submit").val(doc.submit);
 	// 显示编辑页面
 	showEditForm();
 }
@@ -263,15 +232,3 @@ function deleteDoc() {
 		}
 	});
 }
-
-
-
-
-
-
-
-
-
-
-
-	

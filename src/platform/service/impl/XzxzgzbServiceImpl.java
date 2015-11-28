@@ -23,21 +23,11 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 	@Resource(name=XzxzgzbDao.SERVICE_NAME)
 	private XzxzgzbDao xzxzgzbDao;
 	
-	public List<XzxzgzbForm> findXzxzgzbList(XzxzgzbForm xzxzgzbForm){
+	public List<XzxzgzbForm> findXzxzgzbList(){
 		String hqlWhere = "";
 		Object [] params = null;
-		List<String> paramsList=new ArrayList<String>();
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
-		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getWjm())){
-			hqlWhere += " and o.wjm like ?";
-			paramsList.add("%"+xzxzgzbForm.getWjm()+"%");
-		}
-		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getWjh())){
-			hqlWhere += " and o.wjh like ?";
-			paramsList.add("%"+xzxzgzbForm.getWjh()+"%");
-		}
 		orderby.put(" o.fwrq", "desc");
-		params = paramsList.toArray();
 		List<Xzxzgzb> list=xzxzgzbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<XzxzgzbForm> formlist=this.XzxzgzbPOListToVOList(list);
 		return formlist;
@@ -75,6 +65,12 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		xzxzgzb.setJzrq(StringHelper.stringConvertDate2(xzxzgzbForm.getJzrq()));
 		xzxzgzb.setWjh(xzxzgzbForm.getWjh());
 		xzxzgzb.setWjm(xzxzgzbForm.getWjm());
+		
+		xzxzgzb.setJlnf(xzxzgzbForm.getJlnf());
+		xzxzgzb.setUsername(xzxzgzbForm.getUsername());
+		xzxzgzb.setGxsj(xzxzgzbForm.getGxsj());
+		xzxzgzb.setSubmit(xzxzgzbForm.getSubmit());
+		
 		xzxzgzbDao.update(xzxzgzb);
 		
 	}
@@ -95,6 +91,12 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		xzxzgzb.setJzrq(StringHelper.stringConvertDate2(xzxzgzbForm.getJzrq()));
 		xzxzgzb.setWjh(xzxzgzbForm.getWjh());
 		xzxzgzb.setWjm(xzxzgzbForm.getWjm());
+		
+		xzxzgzb.setJlnf(xzxzgzbForm.getJlnf());
+		xzxzgzb.setUsername(xzxzgzbForm.getUsername());
+		xzxzgzb.setGxsj(xzxzgzbForm.getGxsj());
+		xzxzgzb.setSubmit(xzxzgzbForm.getSubmit());
+		
 		xzxzgzbDao.save(xzxzgzb);
 	}
 	private List<XzxzgzbForm> XzxzgzbPOListToVOList(List<Xzxzgzb> list) {
@@ -112,6 +114,12 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 			xzxzgzbForm.setJzrq(String.valueOf(xzxzgzb.getJzrq()));
 			xzxzgzbForm.setWjh(xzxzgzb.getWjh());
 			xzxzgzbForm.setWjm(xzxzgzb.getWjm());
+			
+			xzxzgzbForm.setJlnf(xzxzgzb.getJlnf());
+			xzxzgzbForm.setUsername(xzxzgzb.getUsername());
+			xzxzgzbForm.setGxsj(xzxzgzb.getGxsj());
+			xzxzgzbForm.setSubmit(String.valueOf(xzxzgzb.getSubmit()));
+			
 			formlist.add(xzxzgzbForm);
 		}
 		return formlist;

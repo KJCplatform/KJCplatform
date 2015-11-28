@@ -133,8 +133,13 @@ function editDoc() {
 	$("#zlhdqk").val(doc.zlhdqk);
 	$("#tbr").val(doc.tbr);
 	$("#zlbfzr").val(doc.zlbfzr);
-	$("#s2hr").val(doc.s2hr);
+	$("#shr").val(doc.shr);
 	$("#bcrq").datebox("setValue", doc.bcrq.substring(0, 10));
+	
+	$("#jlnf").val(doc.jlnf);
+	$("#username").val(doc.username);
+	$("#gxsj").val(doc.gxsj);
+	$("#submit").val(doc.submit);
 
 	
 	// 显示编辑页面
@@ -145,14 +150,10 @@ function dealSave() {
 	var params = $("#frmEdit").serialize();
 	var actionAdd = basePath + '/system/JpzlzkjbbAction_add.action';
 	var actionUpdate = basePath + '/system/JpzlzkjbbAction_update.action';
-	
 	//alert(params);
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
-	
-	
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
-		//	alert(params);
 			if (result.operateSuccess) {
 					$('#dg').datagrid('reload');// 重新加载
 					$.messager.alert('添加', '添加成功', 'info');

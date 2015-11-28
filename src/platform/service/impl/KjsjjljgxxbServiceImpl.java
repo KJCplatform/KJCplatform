@@ -18,6 +18,7 @@ import platform.form.KjsjjljgxxbForm;
 import platform.service.KjsjjljgxxbService;
 
 
+
 import java.io.File;
 
 import jxl.Cell;
@@ -81,7 +82,7 @@ public class KjsjjljgxxbServiceImpl implements KjsjjljgxxbService {
 		kjsjjljgxxb.setId(Integer.valueOf(kjsjjljgxxbForm.getId()));
 		kjsjjljgxxb.setFrmc(kjsjjljgxxbForm.getFrmc());
 		kjsjjljgxxb.setJlzy(kjsjjljgxxbForm.getJlzy());
-
+		
 		// 数据校验
 		if (kjsjjljgxxbForm.getQjsl() != null
 				&& !kjsjjljgxxbForm.getQjsl().equals(""))
@@ -94,6 +95,14 @@ public class KjsjjljgxxbServiceImpl implements KjsjjljgxxbService {
 		if (kjsjjljgxxbForm.getSj() != null
 				&& !kjsjjljgxxbForm.getSj().equals(""))
 			kjsjjljgxxb.setSj(Long.valueOf(kjsjjljgxxbForm.getSj()));
+		
+		
+		
+
+		kjsjjljgxxb.setJlnf(kjsjjljgxxbForm.getJlnf());
+		kjsjjljgxxb.setUsername(kjsjjljgxxbForm.getUsername());
+		kjsjjljgxxb.setGxsj(kjsjjljgxxbForm.getGxsj());
+		kjsjjljgxxb.setSubmit(kjsjjljgxxbForm.getSubmit());
 		kjsjjljgxxbDao.update(kjsjjljgxxb);
 
 	}
@@ -124,6 +133,13 @@ public class KjsjjljgxxbServiceImpl implements KjsjjljgxxbService {
 		if (kjsjjljgxxbForm.getSj() != null
 				&& !kjsjjljgxxbForm.getSj().equals(""))
 			kjsjjljgxxb.setSj(Long.valueOf(kjsjjljgxxbForm.getSj()));
+		
+		
+		
+		kjsjjljgxxb.setJlnf(kjsjjljgxxbForm.getJlnf());
+		kjsjjljgxxb.setUsername(kjsjjljgxxbForm.getUsername());
+		kjsjjljgxxb.setGxsj(kjsjjljgxxbForm.getGxsj());
+		kjsjjljgxxb.setSubmit(kjsjjljgxxbForm.getSubmit());
 		kjsjjljgxxbDao.save(kjsjjljgxxb);
 	}
 
@@ -142,6 +158,12 @@ public class KjsjjljgxxbServiceImpl implements KjsjjljgxxbService {
 			kjsjjljgxxbForm.setLxr(kjsjjljgxxb.getLxr());
 			kjsjjljgxxbForm.setBgdh(kjsjjljgxxb.getBgdh());
 			kjsjjljgxxbForm.setSj(String.valueOf(kjsjjljgxxb.getSj()));
+			
+			
+			kjsjjljgxxbForm.setJlnf(kjsjjljgxxb.getJlnf());
+			kjsjjljgxxbForm.setUsername(kjsjjljgxxb.getUsername());
+			kjsjjljgxxbForm.setGxsj(kjsjjljgxxb.getGxsj());
+			kjsjjljgxxbForm.setSubmit(String.valueOf(kjsjjljgxxb.getSubmit()));
 			formlist.add(kjsjjljgxxbForm);
 		}
 		return formlist;
@@ -326,7 +348,7 @@ public class KjsjjljgxxbServiceImpl implements KjsjjljgxxbService {
 	@Override
 	public void showexportObject(String str) throws Exception {
 
-		 System.out.println(str);
+		 
 		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		// System.out.println(df.format(new Date()));// new Date()为获取当前系统时间

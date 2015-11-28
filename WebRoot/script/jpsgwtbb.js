@@ -140,6 +140,11 @@ function editDoc() {
 	$("#zlbmfzr").val(doc.zlbmfzr);
 	$("#bcrq").datebox("setValue", doc.bcrq.substring(0, 10));
 	
+	$("#jlnf").val(doc.jlnf);
+	$("#username").val(doc.username);
+	$("#gxsj").val(doc.gxsj);
+	$("#submit").val(doc.submit);
+	
 	// 显示编辑页面
 	showEditForm();
 }

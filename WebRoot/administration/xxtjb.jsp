@@ -79,6 +79,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="yxq" width="130">有效期</th>
 			<th field="kjxm" width="130">可从事检定项目</th>
 			<th field="qfrq" width="130">签发日期</th>
+			
+			<th field="jlnf" width="130">记录时间(年份)</th>
+			<th field="username" width="130">操作员</th>
+			<th field="gxsj" width="130">更新时间</th>
+			<th field="submit" width="130">是否提交</th>
 		</tr>
 	</thead>
 	</table>
@@ -86,8 +91,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<!-- 编辑数据的div，默认看不到 -->
 <div id="divEdit" style="display:none;">
-	<div id="tabEdit" style="overflow-y:auto;">
-		<form id="frmEdit" style="width:600px; height:600px;margin:100px 0px 0px 0px" method= "post">
+	<div id="tabEdit">
+		<form id="frmEdit" style="width:800px; height:400px; overflow:auto;" method= "post">
 			<input type="hidden" id="id" name="id" />
 			<dl>
 				<dd>单位名称:</dd>
@@ -107,7 +112,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dl>
 			<dl>
 				<dd>出生年月:</dd>
-				<dd><input  type="text" style="width: 150px" id="csny" name="csny" /></textarea></dd>
+				<dd><input  type="text" style="width: 150px" id="csny" name="csny" /></dd>
 			</dl>
 			<dl>
 				<dd>计量检定员证员:</dd>
@@ -130,7 +135,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd><input  type="text" style="width: 150px" id="qfrq" name="qfrq" /></dd>
 			</dl>
 			
-			
+			 <dl>
+				<dd>记录时间:</dd>
+				<dd><input size="15" id="jlnf" name="jlnf" /></dd>
+			</dl>
+			<dl>
+				<dd>操作员:</dd>
+				<dd><input size="15" id="username" name="username" /></dd>
+			</dl>
+			<dl>
+				<dd>更新时间:</dd>
+				<dd><input size="15" id="gxsj" name="gxsj" /></dd>
+			</dl>
+			<dl>
+				<dd>是否提交:</dd>
+				<dd>
+				<select style="width: 150px" id="submit" name="submit" >
+				<option value="是">是</option>
+				<option value="否">否</option>
+				
+				</dd>
+			</dl> 
 		</form>
 	</div>
 </div>	

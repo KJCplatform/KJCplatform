@@ -168,6 +168,11 @@ function editDoc() {
 	$("#lxr").val(doc.lxr);
 	$("#bgdh").val(doc.bgdh);
 	$("#sj").val(doc.sj);	
+	
+	$("#jlnf").val(doc.jlnf);
+	$("#username").val(doc.username);
+	$("#gxsj").val(doc.gxsj);
+	$("#submit").val(doc.submit);
 	// 给默认值
 //	//$("#fwrq").datebox("setValue", doc.fwrq.substring(0, 10));
 //	$("#fwrq").datebox("getValue");
