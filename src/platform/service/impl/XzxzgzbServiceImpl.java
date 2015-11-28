@@ -1,11 +1,15 @@
 package platform.service.impl;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
+
+import jxl.Sheet;
+import jxl.Workbook;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
@@ -123,6 +127,36 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 			formlist.add(xzxzgzbForm);
 		}
 		return formlist;
+	}
+	
+	@Override
+	public void showImportObject(String filePath) throws Exception {
+		// TODO Auto-generated method stub
+		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:");
+		Workbook workbook = Workbook.getWorkbook(new File(path));		
+		Sheet sheet = workbook.getSheet(0);
+		int rows = sheet.getRows();
+		Xzxzgzb xzxzgzb = new Xzxzgzb();
+		
+		for(int i = 1 ; i < rows; i++){
+			xzxzgzb.setWjm(sheet.getCell(0, i).getContents());
+			xzxzgzb.setWjh(sheet.getCell(1, i).getContents());
+			xzxzgzb.setFwjg(sheet.getCell(2, i).getContents());
+			xzxzgzb.setFwrq(new SimpleDateFormat().parse(sheet.getCell(3, i).getContents()));
+			xzxzgzb.setJbnr(sheet.getCell(4, i).getContents());
+			xzxzgzb.setJzrq(new SimpleDateFormat().parse(sheet.getCell(5, i).getContents()));
+			xzxzgzb.setJbr(sheet.getCell(6, i).getContents());
+			xzxzgzb.setCljg(sheet.getCell(7, i).getContents());
+			
+			xzxzgzbDao.save(xzxzgzb);
+		}
+				
+		workbook.close();
+	}
+	@Override
+	public void showExportObject() throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
 	
