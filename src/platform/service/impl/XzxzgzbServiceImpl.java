@@ -3,6 +3,7 @@ package platform.service.impl;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import excel.CreateExcel;
 import platform.dao.XzxzgzbDao;
 import platform.domain.Xzxzgzb;
 import platform.form.XzxzgzbForm;
@@ -26,6 +28,7 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 	
 	@Resource(name=XzxzgzbDao.SERVICE_NAME)
 	private XzxzgzbDao xzxzgzbDao;
+	private List<XzxzgzbForm> formListTemp = new ArrayList<XzxzgzbForm>();
 	
 	public List<XzxzgzbForm> findXzxzgzbList(){
 		String hqlWhere = "";
@@ -54,6 +57,10 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		params = paramsList.toArray();
 		List<Xzxzgzb> list=xzxzgzbDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
 		List<XzxzgzbForm> formlist=this.XzxzgzbPOListToVOList(list);
+		if(pageno == 1 ){
+			formListTemp = 
+					XzxzgzbPOListToVOList(xzxzgzbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby));
+		}
 		return formlist;
 		
 	}
@@ -153,9 +160,84 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 				
 		workbook.close();
 	}
+	
+	private LinkedHashMap<String, ArrayList<String>> getDataAsHashMap(String items){
+		LinkedHashMap<String, ArrayList<String>> lhm = new LinkedHashMap<String ,ArrayList<String>>();
+		List<String> li = new ArrayList<String>();
+		String[] item = items.split(" ");
+
+		int len =formListTemp.size();
+		for(int i = 0; i < item.length; i ++){
+			switch (item[i]) {
+			case "1":
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getWjm());
+			    }
+			    lhm.put("文件名", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "2":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getWjh());
+			    }
+			    lhm.put("文件号", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "3":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getFwjg());
+			    }
+			    lhm.put("发文机关", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "4":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getFwrq());
+			    }
+			    lhm.put("发文日期", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "5":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getJbnr());
+			    }
+			    lhm.put("交办内容", new ArrayList<String>(li));
+			    li.clear();
+			    break;
+			case "6":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getJzrq());
+			    }
+			    lhm.put("截止日期", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "7":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getJbr());
+			    }
+			    lhm.put("交办人", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "8":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getCljg());
+			    }
+			    lhm.put("处理结果", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			}
+		}
+					
+		return lhm;
+	}
+	
 	@Override
-	public void showExportObject() throws Exception {
+	public void showExportObject(String items) throws Exception {
 		// TODO Auto-generated method stub
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
+		String time = df.format(new Date());
+		String path = "D:\\行政管理表 admin " + time + ".xls";	
+		CreateExcel.createExcel(getDataAsHashMap(items), path);	
 		
 	}
 

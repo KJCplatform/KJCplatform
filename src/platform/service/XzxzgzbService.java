@@ -14,7 +14,7 @@ public interface XzxzgzbService {
 	public void deleteObject(String id);
 	public void saveObject(XzxzgzbForm xzxzgzbForm);
 	//public void updateXzxzgzbWithget(XzxzgzbForm xzxzgzbForm);
-	void showExportObject() throws Exception;
-	void showImportObject(String filePath) throws Exception;
+	public void showExportObject(String items) throws Exception;
+	public void showImportObject(String filePath) throws Exception;
 
 }

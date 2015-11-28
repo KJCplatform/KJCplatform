@@ -171,7 +171,7 @@ public class KjkjxmkServiceImpl implements KjkjxmkService{
 		String[] item = items.split(" ");
 
 		int len =formListTemp.size();
-		for(int i = 0, k =0 ; i < item.length; i ++){
+		for(int i = 0; i < item.length; i ++){
 			switch (item[i]) {
 			case "1":
 			    for(int j= 0;j< len; j++){
