@@ -34,9 +34,40 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 		
 			{
 				"menuid": "12",
-				"menuname": "专家通讯库",
+				"menuname": "专家库",
 				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/kjjszjcjb.jsp"
+				"child":[
+							{
+								"menuid": "121",
+								"menuname": "质量管理专家",
+								"icon": "icon-nav",
+								"url": "<%=basePath%>/administration/kjjszjcjb1.jsp"
+								
+							},
+							{
+								"menuid": "122",
+								"menuname": "计量管理专家",
+								"icon": "icon-nav",
+								"url": "<%=basePath%>/administration/kjjszjcjb2.jsp"
+								
+							},
+							{
+								"menuid": "123",
+								"menuname": "科技专家",
+								"icon": "icon-nav",
+								"url": "<%=basePath%>/administration/kjjszjcjb3.jsp"
+								
+							},
+							{
+								"menuid": "124",
+								"menuname": "许可专家",
+								"icon": "icon-nav",
+								"url": "<%=basePath%>/administration/kjjszjcjb4.jsp"
+								
+							}
+						]
+				
+				
 				//"url": "http://hxling.cnblogs.com",
 				
 // 				"child": [{
@@ -83,13 +114,14 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 // 					"url": "demo.html"
 // 					}					
 // 				]
-			},{
-				"menuid": "13",
-				"menuname": "行业通讯库",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/hytxk.jsp"
-				
 			}
+// 			,{
+// 				"menuid": "13",
+// 				"menuname": "行业通讯库",
+// 				"icon": "icon-nav",
+// 				"url": "<%=basePath%>/administration/hytxk.jsp"
+				
+// 			}
 			
 		]
 		
@@ -155,7 +187,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 		},
 		{
 			"menuid": "23",
-			"menuname": "军品配套科研项目",
+			"menuname": "军品科研项目",
 			"icon": "icon-nav",
 			"url": "demo.html",
 			"child":[{
@@ -225,40 +257,109 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			
 			
 		},
-		{
-			"menuid": "26",
-			"menuname": "技术专家信息",
-			"icon": "icon-nav",
-			"url": "",
-			"child":[{
-				"menuid": "261",
-				"menuname": "数据录入-技术专家信息",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/project/expert.jsp"
-			},{
-				"menuid": "262",
-				"menuname": "信息查询-技术专家信息",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/project/search.jsp"
-			}]	
-		},
-	
+// 		{
+// 			"menuid": "26",
+// 			"menuname": "技术专家信息",
+// 			"icon": "icon-nav",
+// 			"url": "",
+// 			"child":[{
+// 				"menuid": "261",
+// 				"menuname": "数据录入-技术专家信息",
+// 				"icon": "icon-nav",
+// 				"url": "<%=basePath%>/project/expert.jsp"
+// 			},{
+// 				"menuid": "262",
+// 				"menuname": "信息查询-技术专家信息",
+// 				"icon": "icon-nav",
+// 				"url": "<%=basePath%>/project/search.jsp"
+// 			}]	
+// 		},
+// 	{
+// 			"menuid": "28",
+// 			"menuname": "科技项目信息",
+// 			"icon": "icon-nav",
+// 			"url": "demo.html",
+// 			"child":[{
+// 				"menuid": "281",
+// 				"menuname": "军转民科技项目信息",
+// 				"icon": "icon-nav",
+// 				"url": "demo.html",
+// 				"child":[{
+// 				"menuid": "2811",
+// 				"menuname": "数据录入-军转民科技项目信息",
+// 				"icon": "icon-nav",
+// 				"url": "<%=basePath%>/project/kjkjxmxxb.jsp"
+// 			},{
+// 				"menuid": "2812",
+// 				"menuname": "信息查询-军转民科技项目信息",
+// 				"icon": "icon-nav",
+// 				"url": "<%=basePath%>/project/kjkjxmxxb_search.jsp"
+// 			}]
+// 			},{
+// 				"menuid": "282",
+// 				"menuname": "民参军科技项目信息",
+// 				"icon": "icon-nav",
+// 				"url": "demo.html",
+// 				"child":[{
+// 				"menuid": "2821",
+// 				"menuname": "数据录入-民参军科技项目信息",
+// 				"icon": "icon-nav",
+// 				"url": "<%=basePath%>/project/kjkjxmxxb2.jsp"
+// 			},{
+// 				"menuid": "2822",
+// 				"menuname": "信息查询-民参军科技项目信息",
+// 				"icon": "icon-nav",
+// 				"url": "<%=basePath%>/project/kjkjxmxxb_search2.jsp"
+// 			}]
+// 			},
+			
+// 		{
+// 				"menuid": "283",
+// 				"menuname": "科技项目库",
+// 				"icon": "icon-nav",
+// 				"url": "<%=basePath%>/administration/kjkjxmk.jsp"
+				
+// 		}
+		
 			{
 			"menuid": "28",
 			"menuname": "科技项目信息",
 			"icon": "icon-nav",
-			"url": "",
+			"url": "demo.html",
 			"child":[{
-				"menuid": "281",
-				"menuname": "数据录入-科技项目信息",
+				
+				"menuid": "2811",
+				"menuname": "数据录入-军转民科技项目信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjkjxmxxb.jsp"
 			},{
-				"menuid": "282",
-				"menuname": "信息查询-科技项目信息",
+				"menuid": "2812",
+				"menuname": "信息查询-军转民科技项目信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjkjxmxxb_search.jsp"
-			}]	
+			}
+			,{
+			
+				"menuid": "2821",
+				"menuname": "数据录入-民参军科技项目信息",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/kjkjxmxxb2.jsp"
+			},{
+				"menuid": "2822",
+				"menuname": "信息查询-民参军科技项目信息",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/kjkjxmxxb_search2.jsp"
+			
+			},
+			
+		{
+				"menuid": "283",
+				"menuname": "科技项目库",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/kjkjxmk.jsp"
+				
+		}
+				]
 		},
 		{
 			"menuid": "29",
@@ -285,13 +386,6 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			
 			
 			]	
-		},
-		{
-				"menuid": "2A",
-				"menuname": "科技项目库",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/kjkjxmk.jsp"
-				
 		}
 		
 		
@@ -571,6 +665,9 @@ var basePath = localhostPath + projectName;
         <div id="tabs" class="easyui-tabs"  fit="true" border="false" >
 			<div title="欢迎使用" style="padding:20px;overflow:hidden; color:red; text-align:center;" >
 				<br><br>
+						<h1 style="font-size:24px;">欢迎使用湖北省国防科学技术工业办公室软件平台</h1>
+				<h1 style="font-size:24px;">系统须知:</h1>
+		
 				<h1 style="font-size:40px;">国家秘密高于一切</h1>
 				<h1 style="font-size:40px;">保密责任重于泰山</h1>
 			</div>

@@ -31,9 +31,55 @@ public class KjgxqybabForm implements java.io.Serializable{
 	  private String zc2;
 	  private String zc3;
 	  private String zczzl;
+	  
+	  private String zcqznf;
+	  private String bz;
+	  private String jlnf;
+	  private String username;
+	  private String gxsj;
+	  private String submit;
 	private List<KjgxqybabzscqForm> kjgxqybabzscqs ;
 	private List<KjgxqybabyfxmForm> kjgxqybabyfxms ;
 	private List<KjgxqybabgxcpForm> kjgxqybabgxcps ;
+	
+	
+	
+	public String getZcqznf() {
+		return zcqznf;
+	}
+	public void setZcqznf(String zcqznf) {
+		this.zcqznf = zcqznf;
+	}
+	public String getBz() {
+		return bz;
+	}
+	public void setBz(String bz) {
+		this.bz = bz;
+	}
+	public String getJlnf() {
+		return jlnf;
+	}
+	public void setJlnf(String jlnf) {
+		this.jlnf = jlnf;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getGxsj() {
+		return gxsj;
+	}
+	public void setGxsj(String gxsj) {
+		this.gxsj = gxsj;
+	}
+	public String getSubmit() {
+		return submit;
+	}
+	public void setSubmit(String submit) {
+		this.submit = submit;
+	}
 	public String getId() {
 		return id;
 	}

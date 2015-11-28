@@ -83,6 +83,7 @@
 				<tr>
 					<th field="year">年度</th>
 					<th field="qymc">企业名称</th>
+						<th field="zcqznf">最初取证年份</th>
 					<th field="cply">主营产品所属领域</th>
 					<th field="zgzs">职工总数</th>
 					<th field="dzysrs">大专以上学历科技人员数</th>
@@ -104,6 +105,11 @@
 					<th field="czzbdf">成长指标得分</th>
 					<th field="zhpj">对企业整体情况的综合评价</th>
 					<th field="pdzjz">评定专家组</th>
+						<th field="bz">备注</th>
+							    <th field="jlnf">记录年份</th>
+		    <th field="username">记录人</th>
+			<th field="gxsj">更新时间</th>
+			<th field="submit">是否提交</th>
 					
 				</tr>
 			</thead>

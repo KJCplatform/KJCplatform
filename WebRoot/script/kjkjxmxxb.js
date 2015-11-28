@@ -12,10 +12,10 @@ var resultid;
 var rows = [
             {"id":"xmbh", "name": "项目编号", "group": "基本信息", "value": "", "editor": "text" },
             {"id":"xmmc", "name": "项目名称", "group": "基本信息", "value": "", "editor":"text" },
-            {"id":"cjdws", "name": "参加单位总数", "value": "", "group": "基本信息", "editor":{
-            	"type": 'numberbox', 
-            } },
-            {"id":"dwmc", "name": "承担单位名称", "group": "项目承担单位", "value": "", "editor": "text" },
+//            {"id":"cjdws", "name": "参加单位总数", "value": "", "group": "基本信息", "editor":{
+//            	"type": 'numberbox', 
+//            } },
+            {"id":"dwmc", "name": "单位名称", "group": "项目承担单位", "value": "", "editor": "text" },
             {"id":"dwszd", "name": "单位所在地", "group": "项目承担单位", "value": "", "editor":"text" },
             {"id":"txdz", "name": "通讯地址", "value": "", "group": "项目承担单位", "editor":"text" },
             {"id":"yb", "name": "邮编", "group": "项目承担单位", "value": "", "editor":"text" },

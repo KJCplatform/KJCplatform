@@ -44,6 +44,7 @@
          <mapping resource="platform/domain/Jpsgwtbb.hbm.xml"/>
          <mapping resource="platform/domain/Jpzlzkjbb.hbm.xml"/>
          <mapping resource="platform/domain/Kjndjpptkyxmb.hbm.xml"/>
+        <mapping resource="platform/domain/Kjndjpptkyxmzxb.hbm.xml"/> 
          <mapping resource="platform/domain/Kjsjjljgxxb.hbm.xml"/>
          <mapping resource="platform/domain/Kjndgxjsqypjb.hbm.xml"/>
          <mapping resource="platform/domain/Kjndjgkjjlqkb.hbm.xml"/>
@@ -71,5 +72,12 @@
 		 		 <mapping resource="platform/domain/Zjtxl.hbm.xml"/>
 		 <mapping resource="platform/domain/Jpzlzkdwb.hbm.xml"/>
 		 <mapping resource="platform/domain/Jpzlbgtjb.hbm.xml"/>
+	
+	    <mapping resource="platform/domain/Kjjszjcjb1.hbm.xml"/>
+          <mapping resource="platform/domain/Kjjszjcjb2.hbm.xml"/>
+          <mapping resource="platform/domain/Kjjszjcjb3.hbm.xml"/>
+          <mapping resource="platform/domain/Kjjszjcjb4.hbm.xml"/>
+		
+	
 	</session-factory>
 </hibernate-configuration>
