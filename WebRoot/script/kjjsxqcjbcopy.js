@@ -9,7 +9,7 @@ var localhostPath = curWwwPath.substring(0, pos);
 //获取带"/"的项目名，如：/ems
 var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
 var basePath = localhostPath + projectName;
-
+var user;
 $(function() {
 	listDoc();
 	// 日期加上日期控件
@@ -100,26 +100,55 @@ function listDoc() {
             pagination : true,//分页
             rownumbers : true,//行数
 			
-			toolbar:[ {// 工具栏
-				text : '添加',
-				iconCls : 'icon-add', // 图标
-				handler : function() { // 处理函数
-					addDoc();
-				}
-			}, {
-				text : '删除',
-				iconCls : 'icon-cancel', // 图标
-				handler : function() { // 处理函数
-					deleteDoc();
-				}
-			}, {
-				text : '编辑',
-				iconCls : 'icon-edit',// 图标
-				handler : function() {// 处理函数
-					editDoc();
-				}
-			} ]
+            onLoadSuccess: function (data) { 
+				user=eval(data).user;
+			//	alert("user="+user);
+			}
         });
+	 
+	 setTimeout(
+			 function(){
+				// alert("Hello world");
+				 if(user=="admin"){
+					// alert("admin");
+					 $('#dg').datagrid({
+						 toolbar:[ {// 工具栏
+								text : '添加',
+								iconCls : 'icon-add', // 图标
+								handler : function() { // 处理函数
+									addDoc();
+								}
+							}, {
+								text : '删除',
+								iconCls : 'icon-cancel', // 图标
+								handler : function() { // 处理函数
+									deleteDoc();
+								}
+							}, {
+								text : '编辑',
+								iconCls : 'icon-edit',// 图标
+								handler : function() {// 处理函数
+									editDoc();
+								}
+							}
+						 ]
+					 });
+				 }
+				 else{
+					// alert("user1");
+				 $('#dg').datagrid({
+					 toolbar:[ {// 工具栏
+							text : '添加',
+							iconCls : 'icon-add', // 图标
+							handler : function() { // 处理函数
+								addDoc();
+							}
+						} ]
+				 });
+				 
+				 }
+			 },300);
+	 
 }
 
 //查询

@@ -329,24 +329,24 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"child":[{
 				
 				"menuid": "2811",
-				"menuname": "数据录入-军转民科技项目信息",
+				"menuname": "录入-军转民",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjkjxmxxb.jsp"
 			},{
 				"menuid": "2812",
-				"menuname": "信息查询-军转民科技项目信息",
+				"menuname": "查询-军转民",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjkjxmxxb_search.jsp"
 			}
 			,{
 			
 				"menuid": "2821",
-				"menuname": "数据录入-民参军科技项目信息",
+				"menuname": "录入-民参军",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjkjxmxxb2.jsp"
 			},{
 				"menuid": "2822",
-				"menuname": "信息查询-民参军科技项目信息",
+				"menuname": "查询-民参军",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjkjxmxxb_search2.jsp"
 			

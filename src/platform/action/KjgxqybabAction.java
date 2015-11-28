@@ -104,6 +104,9 @@ public class KjgxqybabAction extends BaseAction implements ModelDriven<Kjgxqybab
 		List<KjgxqybabForm> formlist=kjgxqybabService.findKjgxqybabList(kjgxqybabForm);
 		//System.out.println(formlist.get(0).getKjjszjcjbcgs().get(2).getCgjj());
 		  map.put("rows", formlist);
+		  
+		  map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
+			
 		  this.setResponseJson(map);
 		//map.put("total", xzxzgzbService.findXzxzgzbList().size());
 		//this.setResponseJson(map);

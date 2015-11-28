@@ -77,6 +77,8 @@ public class JpzlbgtjbAction extends BaseAction implements ModelDriven<Jpzlbgtjb
 		List<JpzlbgtjbForm> formlist=jpzlbgtjbService.findJpzlbgtjbListWithPage(rows,page,jpzlbgtjbForm);
 		map.put("rows", formlist);
 		map.put("total", jpzlbgtjbService.findJpzlbgtjbList(jpzlbgtjbForm).size());
+		map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
+		
 		this.setResponseJson(map);
 		return "list";
 	}

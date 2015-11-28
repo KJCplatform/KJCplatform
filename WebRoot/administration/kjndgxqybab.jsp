@@ -69,25 +69,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<table id="dg">
 	<thead>
 		<tr>
-			<th field="year" width="130">年度</th>
-			<th field="nf" width="130">年份</th>
-			<th field="qymc" width="130">企业名称</th>
-			<th field="nssbh" width="130">纳税人识别号</th>
-			<th field="ssly" width="130">主营产品技术领域</th>
-			<th field="zgswjg" width="130">企业所得税主管税务机关</th>
-			<th field="zgzs" width="130">职工总数</th>
-			<th field="yjrys" width="130">人事研究开发人员数</th>
-			<th field="dzrs" width="130">大专以上人员数</th>
-			<th field="ynzsr" width="130">近1年企业总收入</th>
-			<th field="sr1" width="130">第1年销售收入</th>
-			<th field="sr2" width="130">第2年销售总收入</th>
-			<th field="sr3" width="130">第3年销售总收入</th>
-			<th field="hj" width="130">销售收入合计</th>
-			<th field="xszzl" width="130">销售增长率</th>
-			<th field="zc1" width="130">第1 年总资产</th>
-			<th field="zc2" width="130">第2年总资产</th>
-			<th field="zc3" width="130">第3年总资产</th>
-			<th field="zczzl" width="130">总资产增长率</th>  
+			<th field="year" >年度</th>
+			<th field="nf">年份</th>
+			<th field="qymc" >企业名称</th>
+			<th field="nssbh" >纳税人识别号</th>
+			<th field="ssly">主营产品技术领域</th>
+			<th field="zgswjg" >企业所得税主管税务机关</th>
+			<th field="zgzs" >职工总数</th>
+			<th field="yjrys" >人事研究开发人员数</th>
+			<th field="dzrs" >大专以上人员数</th>
+			<th field="ynzsr" >近1年企业总收入</th>
+			<th field="sr1" >第1年销售收入</th>
+			<th field="sr2" >第2年销售总收入</th>
+			<th field="sr3" >第3年销售总收入</th>
+			<th field="hj" >销售收入合计</th>
+			<th field="xszzl" >销售增长率</th>
+			<th field="zc1" >第1 年总资产</th>
+			<th field="zc2" >第2年总资产</th>
+			<th field="zc3" >第3年总资产</th>
+			<th field="zczzl" >总资产增长率</th>  
+			    <th field="jlnf">记录年份</th>
+		    <th field="username">记录人</th>
+			<th field="gxsj">更新时间</th>
+			<th field="submit">是否提交</th>
+			
 		</tr>
 	</thead>
 	</table>

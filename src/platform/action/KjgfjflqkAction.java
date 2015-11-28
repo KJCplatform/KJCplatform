@@ -4,12 +4,15 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+
 import platform.action.BaseAction;
 import platform.dao.TestDataDao;
 import platform.domain.Kjgfjflqk;
@@ -17,7 +20,9 @@ import platform.form.TestDataFrom;
 import platform.form.KjgfjflqkForm;
 import platform.service.TestDataService;
 import platform.service.KjgfjflqkService;
+
 import com.opensymphony.xwork2.ModelDriven;
+
 import container.ServiceProvider;
 
 @SuppressWarnings({ "unused", "serial" })
@@ -68,6 +73,8 @@ public class KjgfjflqkAction extends BaseAction implements ModelDriven<Kjgfjflqk
 		//System.out.println(formlist.get(formlist.size()-1).getCljg());
 		map.put("rows", formlist);
 		map.put("total", kjgfjflqkService.findKjgfjflqkList().size());
+		map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
+		
 		this.setResponseJson(map);
 		return "list";
 	}

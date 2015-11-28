@@ -115,6 +115,8 @@ public class KjjszjcjbAction extends BaseAction implements ModelDriven<Kjjszjcjb
 		
 		
 		  map.put("rows", formlist);
+		  map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
+			
 		  this.setResponseJson(map);
 		  
 		

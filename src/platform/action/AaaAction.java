@@ -76,6 +76,8 @@ public class AaaAction extends BaseAction implements ModelDriven<AaaForm>{
 		//System.out.println(formlist.get(formlist.size()-1).getCljg());
 		map.put("rows", formlist);
 		map.put("total", aaaService.findAaaList().size());
+		map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
+		
 		this.setResponseJson(map);
 		return "list";
 	}

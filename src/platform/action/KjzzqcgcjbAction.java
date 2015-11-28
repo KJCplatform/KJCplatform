@@ -72,6 +72,8 @@ public class KjzzqcgcjbAction extends BaseAction implements ModelDriven<Kjzzqcgc
 		//System.out.println(formlist.get(formlist.size()-1).getCljg());
 		map.put("rows", formlist);
 		map.put("total", kjzzqcgcjbService.findKjzzqcgcjbList().size());
+		map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
+		
 		this.setResponseJson(map);
 		return "list";
 	}
