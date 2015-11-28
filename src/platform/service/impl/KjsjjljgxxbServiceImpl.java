@@ -87,12 +87,9 @@ private int tempn=0;
 //		else	listtemp.addAll(formlist);
 
 		if(pageno==1){
-		List<Kjsjjljgxxb> list2 = kjsjjljgxxbDao
-				.findCollectionByConditionWithPage(hqlWhere, params, orderby,
-						100000, 1);
-		List<KjsjjljgxxbForm> formlist2 = this.KjsjjljgxxbPOListToVOList(list2);
 		
-		listtemp=formlist2;
+		listtemp = 
+				KjsjjljgxxbPOListToVOList(kjsjjljgxxbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby));
 		}
 		
 		return formlist;

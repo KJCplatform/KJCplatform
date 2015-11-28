@@ -160,7 +160,11 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 				
 		workbook.close();
 	}
-	
+	/**
+	 * 将要导出的数据存成LinkedHashMap
+	 *
+	 * @return LinkedHashMap
+	 */
 	private LinkedHashMap<String, ArrayList<String>> getDataAsHashMap(String items){
 		LinkedHashMap<String, ArrayList<String>> lhm = new LinkedHashMap<String ,ArrayList<String>>();
 		List<String> li = new ArrayList<String>();

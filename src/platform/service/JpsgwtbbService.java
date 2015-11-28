@@ -13,5 +13,7 @@ public interface JpsgwtbbService {
 	public void updateJpsgwtbb(JpsgwtbbForm jpsgwtbbForm);
 	public void deleteObject(String id);
 	public void saveObject(JpsgwtbbForm jpsgwtbbForm);
+	public void showImportObject(String filePath) throws Exception;
+	public void showExportObject(String items)	throws Exception;
 
 }

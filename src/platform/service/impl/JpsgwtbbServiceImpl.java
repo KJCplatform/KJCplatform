@@ -1,4 +1,6 @@
 package platform.service.impl;
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -6,9 +8,13 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import jxl.Sheet;
+import jxl.Workbook;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
+import excel.CreateExcel;
 import platform.dao.JpsgwtbbDao;
 import platform.domain.Jpsgwtbb;
 import platform.form.JpsgwtbbForm;
@@ -21,7 +27,8 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 	
 	@Resource(name=JpsgwtbbDao.SERVICE_NAME)
 	private JpsgwtbbDao jpsgwtbbDao;
-	
+	//保存要导出的数据
+	private List<JpsgwtbbForm> formListTemp = new ArrayList<JpsgwtbbForm>();
 	public List<JpsgwtbbForm> findJpsgwtbbList(){
 		String hqlWhere = "";
 		Object [] params = null;
@@ -49,6 +56,11 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 		params = paramsList.toArray();
 		List<Jpsgwtbb> list=jpsgwtbbDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
 		List<JpsgwtbbForm> formlist=this.JpsgwtbbPOListToVOList(list);
+		if(pageno == 1){
+			//初始化
+			formListTemp =
+					JpsgwtbbPOListToVOList(jpsgwtbbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby));
+		}
 		return formlist;
 		
 	}
@@ -128,6 +140,105 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 			formlist.add(jpsgwtbbForm);
 		}
 		return formlist;
+	}
+	@Override
+	public void showImportObject(String filePath) throws Exception {
+		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:");
+		Workbook workbook = Workbook.getWorkbook(new File(path));		
+		Sheet sheet = workbook.getSheet(0);
+		int rows = sheet.getRows();
+		
+		Jpsgwtbb jpsgwtbb = new Jpsgwtbb();
+		for(int i = 1; i < rows ; i ++){
+			jpsgwtbb.setCpmc(sheet.getCell(0, i).getContents());
+			jpsgwtbb.setFsrq(new SimpleDateFormat().parse(sheet.getCell(1, i).getContents()));
+			jpsgwtbb.setYyqk(sheet.getCell(2, i).getContents());
+			jpsgwtbb.setBz(sheet.getCell(3, i).getContents());
+			jpsgwtbb.setTbr(sheet.getCell(4, i).getContents());
+			jpsgwtbb.setZlbmfzr(sheet.getCell(5, i).getContents());
+			jpsgwtbb.setBcrq(new SimpleDateFormat().parse(sheet.getCell(6, i).getContents()));
+			
+			jpsgwtbbDao.save(jpsgwtbb);
+		}
+		
+		workbook.close();
+	}
+	/**
+	 * 将要导出的数据存成LinkedHashMap
+	 *
+	 * @return LinkedHashMap
+	 */
+	private LinkedHashMap<String, ArrayList<String>> getDataAsHashMap(String items){
+		LinkedHashMap<String, ArrayList<String>> lhm = new LinkedHashMap<String ,ArrayList<String>>();
+		List<String> li = new ArrayList<String>();
+		String[] item = items.split(" ");
+
+		int len =formListTemp.size();
+		for(int i = 0; i < item.length; i ++){
+			switch (item[i]) {
+			case "1":
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getCpmc());
+			    }
+			    lhm.put("产品名称", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "2":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getFsrq());
+			    }
+			    lhm.put("发生日期", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "3":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getYyqk());
+			    }
+			    lhm.put("质量事故或重大质量问题发生的原因等基本情况", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "4":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getBz());
+			    }
+			    lhm.put("备注", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "5":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getTbr());
+			    }
+			    lhm.put("填表人", new ArrayList<String>(li));
+			    li.clear();
+			    break;
+			case "6":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getZlbmfzr());
+			    }
+			    lhm.put("质量部门负责人", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "7":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getBcrq());
+			    }
+			    lhm.put("报出日期", new ArrayList<String>(li));
+			    li.clear();
+				break;
+
+			}
+		}	
+		return lhm;
+	}
+	
+	
+	@Override
+	public void showExportObject(String items) throws Exception {
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
+		String time = df.format(new Date());
+		String path = "D:\\湖北省国防科技工业质量事故与重大质量问题报表  admin " + time + ".xls";	
+		CreateExcel.createExcel(getDataAsHashMap(items), path);
+		
 	}
 
 	
