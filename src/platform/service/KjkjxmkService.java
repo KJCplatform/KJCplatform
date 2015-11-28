@@ -14,7 +14,7 @@ public interface KjkjxmkService {
 	public void updateKjkjxmk(KjkjxmkForm kjkjxmkForm);
 	public void deleteObject(String id);
 	public void saveObject(KjkjxmkForm kjkjxmkForm);
-	public void showExportObject(String items, String dwmc, String xmmc) throws Exception;
-	void showimportObject(String filepath) throws Exception;
+	public void showimportObject(String filePath) throws Exception;
+	public void showExportObject(String items) throws Exception;
 	
 }

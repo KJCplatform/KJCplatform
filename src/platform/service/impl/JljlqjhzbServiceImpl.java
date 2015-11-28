@@ -20,13 +20,14 @@ import platform.dao.JljlqjhzbDao;
 import platform.domain.Jljlqjhzb;
 import platform.form.JljlqjhzbForm;
 import platform.service.JljlqjhzbService;
-import platform.util.StringHelper;
+
 
 @Service(JljlqjhzbService.SERVICE_NAME)
 public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 	
 	@Resource(name=JljlqjhzbDao.SERVICE_NAME)
 	private JljlqjhzbDao jljlqjhzbDao;
+	private  List<JljlqjhzbForm> formListTemp = new ArrayList<JljlqjhzbForm>();
 	
 	public List<JljlqjhzbForm> findJljlqjhzbList(){
 		String hqlWhere = "";
@@ -55,6 +56,10 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 		params = paramsList.toArray();
 		List<Jljlqjhzb> list=jljlqjhzbDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
 		List<JljlqjhzbForm> formlist=this.JljlqjhzbPOListToVOList(list);
+		if(pageno == 1){
+			formListTemp = 
+					this.JljlqjhzbPOListToVOList(jljlqjhzbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby));
+		}
 		return formlist;
 		
 	}
@@ -165,93 +170,72 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 	 *
 	 * @return LinkedHashMap
 	 */
-	private LinkedHashMap<String, ArrayList<String>> getDataAsHashMap(String item,String frmc, String jlzy){
+	private LinkedHashMap<String, ArrayList<String>> getDataAsHashMap(String item){
 	
 		LinkedHashMap<String, ArrayList<String>> lhm = new LinkedHashMap<String ,ArrayList<String>>();
 		List<String> li = new ArrayList<String>();
 		String[] items = item.split(" ");
-		StringBuilder hqlWhere = new StringBuilder("");
-		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
-		Object [] params = null;
-		orderby.put(" o.qjmc", "desc");
-		if(frmc != null && frmc.length()> 0){
-			hqlWhere.append("frmc='");
-			hqlWhere.append(frmc);
-			hqlWhere.append("' ");
-		}
-		if(jlzy != null && jlzy.length() > 0 ){
-			if(hqlWhere.length() == 0){
-				hqlWhere.append("jlzy='");
-			}
-			else{
-				hqlWhere.append("and jlzy='");
-			}
-			hqlWhere.append(jlzy);
-			hqlWhere.append("'");
-		}
-		List<Jljlqjhzb> list =  jljlqjhzbDao.findCollectionByConditionNoPage2(hqlWhere.toString(), params, orderby);
-		List<JljlqjhzbForm> formlist = this.JljlqjhzbPOListToVOList(list);
 		for(int i=0; i < items.length; i ++){
 			switch (items[i]) {
 			case "1":
-				for(int j =0 ; j < formlist.size(); j ++){
-					li.add(formlist.get(j).getFrmc());
+				for(int j =0 ; j < formListTemp.size(); j ++){
+					li.add(formListTemp.get(j).getFrmc());
 				}
 				lhm.put("法人单位名称", new ArrayList<>(li));
 				li.clear();
 				break;
 			case "2":
-				for(int j =0 ; j < formlist.size(); j ++){
-					li.add(formlist.get(j).getJlzy());
+				for(int j =0 ; j < formListTemp.size(); j ++){
+					li.add(formListTemp.get(j).getJlzy());
 				}
 				lhm.put("所属计量专业", new ArrayList<>(li));
 				li.clear();
 				break;
 			case "3":
-				for(int j =0 ; j < formlist.size(); j ++){
-					li.add(formlist.get(j).getQjmc());
+				for(int j =0 ; j < formListTemp.size(); j ++){
+					li.add(formListTemp.get(j).getQjmc());
 				}
 				lhm.put("企事业最高计量标准器具名称", new ArrayList<>(li));
 				li.clear();
 				break;
 			case "4":
-				for(int j =0 ; j < formlist.size(); j ++){
-					li.add(formlist.get(j).getZsh());
+				for(int j =0 ; j < formListTemp.size(); j ++){
+					li.add(formListTemp.get(j).getZsh());
 				}
 				lhm.put("证书号", new ArrayList<>(li));
 				li.clear();
 				break;
 			case "5":
-				for(int j =0 ; j < formlist.size(); j ++){
-					li.add(formlist.get(j).getZmcxh());
+				for(int j =0 ; j < formListTemp.size(); j ++){
+					li.add(formListTemp.get(j).getZmcxh());
 				}
 				lhm.put("主标准器名称型号", new ArrayList<>(li));
 				li.clear();
 				break;
 			case "6":
-				for(int j =0 ; j < formlist.size(); j ++){
-					li.add(formlist.get(j).getPtmcxh());
+				for(int j =0 ; j < formListTemp.size(); j ++){
+					li.add(formListTemp.get(j).getPtmcxh());
 				}
 				lhm.put("配套设备名称型号", new ArrayList<>(li));
 				li.clear();
 				break;
 			case "7":
-				for(int j =0 ; j < formlist.size(); j ++){
-					li.add(formlist.get(j).getClcsfw());
+				for(int j =0 ; j < formListTemp.size(); j ++){
+					li.add(formListTemp.get(j).getClcsfw());
 				}
 				lhm.put("测量参数及范围", new ArrayList<>(li));
 				li.clear();
 				break;
 			case "8":
-				for(int j =0 ; j < formlist.size(); j ++){
-					li.add(formlist.get(j).getBqdd());
+				for(int j =0 ; j < formListTemp.size(); j ++){
+					li.add(formListTemp.get(j).getBqdd());
 				}
 				lhm.put("不确定度或准确度等级或最大允许误差", new ArrayList<>(li));
 				li.clear();
 				break;
 			case "9":
-				for(int j =0 ; j < formlist.size(); j ++){
-					li.add(formlist.get(j).getZsyjg());
+				for(int j =0 ; j < formListTemp.size(); j ++){
+					li.add(formListTemp.get(j).getZsyjg());
 				}
 				lhm.put("主标准器溯源机构", new ArrayList<>(li));
 				li.clear();
@@ -271,12 +255,12 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 	 * @param frmc 法人单位名称
 	 * @param jlzy 计量专业
 	 */
-	public void showExportObject(String items, String frmc, String jlzy)
+	public void showExportObject(String items)
 			throws Exception {		
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		String time = df.format(new Date());
 		String path = "D:\\湖北省国防军工企事业单位最高计量标准器具汇总表   admin "+ time+".xls";
-		CreateExcel.createExcel(getDataAsHashMap(items, frmc, jlzy), path);
+		CreateExcel.createExcel(getDataAsHashMap(items), path);
 		
 	}
 	

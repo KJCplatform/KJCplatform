@@ -31,6 +31,7 @@ public class KjkjxmkServiceImpl implements KjkjxmkService{
 	
 	@Resource(name=KjkjxmkDao.SERVICE_NAME)
 	private KjkjxmkDao kjkjxmkDao;
+	private List<KjkjxmkForm> formListTemp = new ArrayList<KjkjxmkForm>();
 	
 	public List<KjkjxmkForm> findKjkjxmkList(){
 		String hqlWhere = "";
@@ -59,6 +60,10 @@ public class KjkjxmkServiceImpl implements KjkjxmkService{
 		params = paramsList.toArray();
 		List<Kjkjxmk> list=kjkjxmkDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
 		List<KjkjxmkForm> formlist=this.KjkjxmkPOListToVOList(list);
+		if(pageno == 1){
+			formListTemp =
+					KjkjxmkPOListToVOList(kjkjxmkDao.findCollectionByConditionNoPage(hqlWhere, params, orderby));
+		}
 		return formlist;
 		
 	}
@@ -160,129 +165,103 @@ public class KjkjxmkServiceImpl implements KjkjxmkService{
 	 * @param ss
 	 * @return LinkedHashMap
 	 */
-	private LinkedHashMap<String, ArrayList<String>> getDataAsHashMap(String str,String dwmc, String xmmc){
+	private LinkedHashMap<String, ArrayList<String>> getDataAsHashMap(String items){
 		LinkedHashMap<String, ArrayList<String>> lhm = new LinkedHashMap<String ,ArrayList<String>>();
 		List<String> li = new ArrayList<String>();
-		String[] ss = str.split(" ");
-		StringBuilder hqlWhere = new StringBuilder("");
-		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
-		Object [] params = null;
-		if(dwmc != null && dwmc.length() > 0){
-			hqlWhere.append("dwmc='");
-			hqlWhere.append(dwmc);
-			hqlWhere.append("' ");
-		}
-		if(xmmc != null && xmmc.length() > 0 ){
-			if(hqlWhere.length() == 0)
-				hqlWhere.append("xmmc='");
-			else {
-				hqlWhere.append(" and xmmc='");
-			}
-			hqlWhere.append(xmmc);
-			hqlWhere.append("'");
-		}
-		orderby.put(" o.xh", "asc");
-		String where = hqlWhere.toString();
-		System.out.println(where);
-		System.out.println(orderby.toString());
-		List<Kjkjxmk> list = kjkjxmkDao.findCollectionByConditionNoPage2(where, params, orderby);
-		List<KjkjxmkForm> formList = this.KjkjxmkPOListToVOList(list);
-		
-		for(int i = 0, k =0 ; i < ss.length; i ++){
-			switch (ss[i]) {
+		String[] item = items.split(" ");
+
+		int len =formListTemp.size();
+		for(int i = 0, k =0 ; i < item.length; i ++){
+			switch (item[i]) {
 			case "1":
-			    for(int j= 0;j< list.size();j++){
-			    	li.add(formList.get(j).getLb());
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getLb());
 			    }
 			    lhm.put("类别", new ArrayList<String>(li));
 			    li.clear();
 				break;
 			case "2":
-			    for(int j= 0;j< list.size();j++){
-			    	li.add(formList.get(j).getXh());
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getXh());
 			    }
 			    lhm.put("序号", new ArrayList<String>(li));
 			    li.clear();
 				break;
 			case "3":
-			    for(int j= 0;j< list.size();j++){
-			    	li.add(formList.get(j).getDwmc());
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getDwmc());
 			    }
 			    lhm.put("单位名称", new ArrayList<String>(li));
 			    li.clear();
 				break;
 			case "4":
-			    for(int j= 0;j< list.size();j++){
-			    	li.add(formList.get(j).getXmmc());
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getXmmc());
 			    }
 			    lhm.put("项目名称", new ArrayList<String>(li));
 			    li.clear();
 				break;
 			case "5":
-			    for(int j= 0;j< list.size();j++){
-			    	li.add(formList.get(j).getJsgmnr());
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getJsgmnr());
 			    }
 			    lhm.put("建设规模及内容", new ArrayList<String>(li));
 			    li.clear();
 			    break;
 			case "6":
-			    for(int j= 0;j< list.size();j++){
-			    	li.add(formList.get(j).getXmjszq());
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getXmjszq());
 			    }
 			    lhm.put("项目建设周期", new ArrayList<String>(li));
 			    li.clear();
 				break;
 			case "7":
-			    for(int j= 0;j< list.size();j++){
-			    	li.add(formList.get(j).getYmjd());
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getYmjd());
 			    }
 			    lhm.put("项目进度", new ArrayList<String>(li));
 			    li.clear();
 				break;
 			case "8":
-			    for(int j= 0;j< list.size();j++){
-			    	li.add(formList.get(j).getZtz());
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getZtz());
 			    }
 			    lhm.put("总投资", new ArrayList<String>(li));
 			    li.clear();
 				break;
 			case "9":
-			    for(int j= 0;j< list.size();j++){
-			    	li.add(formList.get(j).getYwctz());
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getYwctz());
 			    }
 			    lhm.put("已完成投资", new ArrayList<String>(li));
 			    li.clear();
 				break;
 			case "10":
-			    for(int j= 0;j< list.size();j++){
-			    	li.add(formList.get(j).getBntz());
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getBntz());
 			    }
 			    lhm.put("本年度投资", new ArrayList<String>(li));
 			    li.clear();
 				break;
 			case "11":
-			    for(int j= 0;j< list.size();j++){
-			    	li.add(formList.get(j).getBz());
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getBz());
 			    }
 			    lhm.put("备注", new ArrayList<String>(li));
 			    li.clear();
 				break;
 			}
 			}
-			
-		
-		
-		
-		
+					
 		return lhm;
 	}
 	@Override
-	public void showExportObject(String items, String dwmc, String xmmc) throws Exception{
+	public void showExportObject(String items) throws Exception{
 		// TODO Auto-generated method stub
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		String time = df.format(new Date());
 		String path = "D:\\科技项目库  admin " + time + ".xls";	
-		CreateExcel.createExcel(getDataAsHashMap(items, dwmc, xmmc), path);	
+		CreateExcel.createExcel(getDataAsHashMap(items), path);	
 		
 	}
 	
