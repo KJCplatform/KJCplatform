@@ -49,29 +49,29 @@
 
 <body>
 
-<!-- 	<div data-options="region:'north',title:'高级查询'" style="height: 60px;"> -->
-<!-- 		<form id="searchForm"> -->
-<!-- 			<table> -->
-<!-- 				<tr> -->
-<!-- 					<th>年度：</th> -->
-<!-- 					<td><input id="fileName" /></td> -->
-<!-- 				</tr> -->
-<!-- 				<tr> -->
-<!-- 					<th>企业名称：</th> -->
-<!-- 					<td><input id="fileId" /></td> -->
-<!-- 					<td><a class="easyui-linkbutton" -->
-<!-- 						data-options="iconCls:'icon-search'" href="javascript:void(0);" -->
-<!-- 						onclick="doSearch();">查询</a></td> -->
+	<div data-options="region:'north',title:'高级查询'" style="height: 60px;">
+		<form id="searchForm">
+			<table>
+				<tr>
+					<th>年度：</th>
+					<td><input id="fileName" /></td>
+				</tr>
+				<tr>
+					<th>企业名称：</th>
+					<td><input id="fileId" /></td>
+					<td><a class="easyui-linkbutton"
+						data-options="iconCls:'icon-search'" href="javascript:void(0);"
+						onclick="doSearch();">查询</a></td>
 
-<!-- 				</tr> -->
-<!-- 			</table> -->
-<!-- 		</form> -->
-<!-- 	</div> -->
+				</tr>
+			</table>
+		</form>
+	</div>
 
     <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
    选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
        　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
-<!--        <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　 -->
+       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
 <!--  <a href="#" class="easyui-linkbutton" id="btnExport"   action="<%=basePath%>/excel/gx.xls" style="position: relative ;left:20px;">表格格式</a> -->
 
 </form>
@@ -94,7 +94,7 @@
 					<th field="yncpsr">近一年高新产品销售收入核定额</th>
 					<th field="jnyfze">在中国境内研发费用总额定数</th>
 					<th field="dzrybl">大专以上学历科技人员占企业职工总数比例</th>
-					<th field="yfrybl">研发人员占企业职工总数的比例</th>
+					<th field="yfrybl">研发人员占企89业职工总数的比例</th>
 					<th field="jsnyfbl">近3年研究开发费用总额占总销售收入比例</th>
 					<th field="jsnjnbl">近3年在中国境内研发费用总额占全部研发费用总额比例</th>
 					<th field="jyngxsrbl">近1年高新技术产品（服务）收入占当年总收入比例</th>
@@ -115,6 +115,49 @@
 			</thead>
 		</table>
 	</div>
+
+
+
+
+	<div id="divEdit2" style="display:none;">
+	<div id="tabEdit2" style="overflow-y:auto;">
+		<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
+		 >>>请选择导出项<<<
+		 <br> <br>
+<input name="Items" type="checkbox" checked="checked" value="1" />年度<br>
+<input name="Items" type="checkbox" checked="checked" value="2" />企业名称<br> 
+<input name="Items" type="checkbox" checked="checked" value="3" />最初取证年份<br> 
+<input name="Items" type="checkbox" checked="checked" value="4" />主营产品所属领域<br>
+<input name="Items" type="checkbox" checked="checked" value="5" />职工总数<br> 
+<input name="Items" type="checkbox" checked="checked" value="6" />大专以上学历科技人员数<br> 
+<input name="Items" type="checkbox" checked="checked" value="7" />研发人员数<br>
+
+<input name="Items" type="checkbox" checked="checked" value="8" />研发项目核定数<br>
+<input name="Items" type="checkbox" checked="checked" value="9" />高新技术产品核定数<br> 
+<input name="Items" type="checkbox" checked="checked" value="10" />研发项目经费核定总额<br> 
+<input name="Items" type="checkbox" checked="checked" value="11" />近一年高新产品销售收入核定额<br>
+<input name="Items" type="checkbox" checked="checked" value="12" />在中国境内研发费用总额定数<br> 
+<input name="Items" type="checkbox" checked="checked" value="13" />大专以上学历科技人员占企业职工总数比例<br> 
+<input name="Items" type="checkbox" checked="checked" value="14" />研发人员占企89业职工总数的比例<br>
+
+<input name="Items" type="checkbox" checked="checked" value="15" />近3年研究开发费用总额占总销售收入比例<br>
+<input name="Items" type="checkbox" checked="checked" value="16" />近3年在中国境内研发费用总额占全部研发费用总额比例<br> 
+<input name="Items" type="checkbox" checked="checked" value="17" />近1年高新技术产品（服务）收入占当年总收入比例<br> 
+<input name="Items" type="checkbox" checked="checked" value="18" />综合得分<br>
+<input name="Items" type="checkbox" checked="checked" value="19" />知识产权得分<br> 
+<input name="Items" type="checkbox" checked="checked" value="20" />转化能力得分<br> 
+<input name="Items" type="checkbox" checked="checked" value="21" />管理水平得分<br>
+
+<input name="Items" type="checkbox" checked="checked" value="22" />成长指标得分<br>
+<input name="Items" type="checkbox" checked="checked" value="23" />对企业整体情况的综合评价<br> 
+<input name="Items" type="checkbox" checked="checked" value="24" />评定专家组<br> 
+<input name="Items" type="checkbox" checked="checked" value="25" />备注<br> 
+			</form>
+	</div>
+</div>	
+	
+	
+
 
 	<!-- 编辑数据的div，默认看不到 -->
 	<div id="divEdit" style="display:none;">

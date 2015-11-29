@@ -384,8 +384,8 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 
 		String hqlWhere = "";
 		Object[] params = null;
-		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
-		orderby.put(" o.qjsl", "desc");
+//		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+//		orderby.put(" o.qjsl", "desc");
 //		List<Kjsjjljgxxb> list = kjsjjljgxxbDao
 //				.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 	//	List<KjsjjljgxxbForm> formlist = this.KjsjjljgxxbPOListToVOList(list);
