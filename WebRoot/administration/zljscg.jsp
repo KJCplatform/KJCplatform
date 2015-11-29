@@ -69,6 +69,13 @@
 			</table>
 		</form>
 	</div>
+	
+	
+	    <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
+   选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
+       　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
+       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
+</form>
 
 
 	<div data-options="region:'center',split:false">
@@ -110,6 +117,45 @@
 			</thead>
 		</table>
 	</div>
+	
+	<div id="divEdit2" style="display:none;">
+	<div id="tabEdit2" style="overflow-y:auto;">
+		<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
+		 >>>请选择导出项<<<
+		 <br> <br>
+<input name="Items" type="checkbox" checked="checked" value="1" />成果名称<br>
+<input name="Items" type="checkbox" checked="checked" value="2" />专利类型<br> 
+<input name="Items" type="checkbox" checked="checked" value="3" />专利权人<br> 
+<input name="Items" type="checkbox" checked="checked" value="4" />主要完成人<br>
+<input name="Items" type="checkbox" checked="checked" value="5" />专利号<br> 
+<input name="Items" type="checkbox" checked="checked" value="6" />主分类号<br> 
+<input name="Items" type="checkbox" checked="checked" value="7" />公开号<br>
+
+<input name="Items" type="checkbox" checked="checked" value="8" />公开日<br>
+<input name="Items" type="checkbox" checked="checked" value="9" />法律状态<br> 
+<input name="Items" type="checkbox" checked="checked" value="10" />成果简介<br> 
+<input name="Items" type="checkbox" checked="checked" value="11" />应用行业<br>
+<input name="Items" type="checkbox" checked="checked" value="12" />技术领域<br> 
+<input name="Items" type="checkbox" checked="checked" value="13" />成果阶段<br> 
+<input name="Items" type="checkbox" checked="checked" value="14" />交易方式<br>
+
+<input name="Items" type="checkbox" checked="checked" value="15" />是否委托中介<br>
+<input name="Items" type="checkbox" checked="checked" value="16" />供方定价<br> 
+<input name="Items" type="checkbox" checked="checked" value="17" />其他转化要求<br> 
+<input name="Items" type="checkbox" checked="checked" value="18" />是否公开<br>
+<input name="Items" type="checkbox" checked="checked" value="19" />联系人姓名<br> 
+<input name="Items" type="checkbox" checked="checked" value="20" />固定电话<br> 
+<input name="Items" type="checkbox" checked="checked" value="21" />所在地区<br>
+
+<input name="Items" type="checkbox" checked="checked" value="22" />手机<br>
+<input name="Items" type="checkbox" checked="checked" value="23" />电子邮箱<br> 
+<input name="Items" type="checkbox" checked="checked" value="24" />联系地址<br> 
+		</form>
+	</div>
+</div>	
+	
+	
+	
 
 	<!-- 编辑数据的div，默认看不到 -->
 	<div id="divEdit" style="display:none;">

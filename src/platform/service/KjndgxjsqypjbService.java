@@ -14,6 +14,6 @@ public interface KjndgxjsqypjbService {
 	public void deleteObject(String id);
 	public void saveObject(KjndgxjsqypjbForm kjndgxjsqypjbForm);
 	public void showimportObject(String qymc) throws Exception;
-	public void showexportObject(String qymc);
+	public void showexportObject(String qymc) throws Exception;
 
 }

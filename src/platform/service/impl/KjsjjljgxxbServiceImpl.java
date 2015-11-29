@@ -40,7 +40,7 @@ public class KjsjjljgxxbServiceImpl implements KjsjjljgxxbService {
 	@Resource(name = KjsjjljgxxbDao.SERVICE_NAME)
 	private KjsjjljgxxbDao kjsjjljgxxbDao;
 private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
-private int tempn=0;	
+	
 
 	public List<KjsjjljgxxbForm> findKjsjjljgxxbList() {
 		String hqlWhere = "";
@@ -51,11 +51,7 @@ private int tempn=0;
 				.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<KjsjjljgxxbForm> formlist = this.KjsjjljgxxbPOListToVOList(list);
 
-		// CreateExcel create=new CreateExcel();
-		// create.createExcel(formlist);
-//if(tempn==0) {listtemp=formlist;tempn++;}
-	
-		
+
 		return formlist;
 
 	}
@@ -478,46 +474,6 @@ private int tempn=0;
 			}
 		}
 		
-//		for (int i = 0; i <= list.size(); i++) {
-//			if (i == 0) {
-//				Label label = new Label(0, i, "法人单位名称");
-//				sheet.addCell(label);
-//				Label label2 = new Label(1, i, "涉及的计量专业");
-//				sheet.addCell(label2);
-//				Label label3 = new Label(2, i, "企事业最高计量标准器具数量");
-//				sheet.addCell(label3);
-//				Label label4 = new Label(3, i, "通讯地址");
-//				sheet.addCell(label4);
-//				Label label5 = new Label(4, i, "联系人");
-//				sheet.addCell(label5);
-//				Label label6 = new Label(5, i, "办公电话");
-//				sheet.addCell(label6);
-//				Label label7 = new Label(6, i, "手机");
-//				sheet.addCell(label7);
-//			} else {
-//
-//				Label label = new Label(0, i, formlist.get(i-1).getFrmc());
-//				sheet.addCell(label);
-//				Label label2 = new Label(1, i, formlist.get(i-1).getJlzy());
-//				sheet.addCell(label2);
-//				Label label3 = new Label(2, i, formlist.get(i-1).getQjsl());
-//				sheet.addCell(label3);
-//				Label label4 = new Label(3, i, formlist.get(i-1).getTxdz());
-//				sheet.addCell(label4);
-//				Label label5 = new Label(4, i, formlist.get(i-1).getLxr());
-//				sheet.addCell(label5);
-//				Label label6 = new Label(5, i, formlist.get(i-1).getBgdh());
-//				sheet.addCell(label6);
-//				Label label7 = new Label(6, i, formlist.get(i-1).getSj());
-//				sheet.addCell(label7);
-//			}
-//		}
-
-		// /**/ /*
-		// * 生成一个保存数字的单元格 必须使用Number的完整包路径，否则有语法歧义 单元格位置是第二列，第一行，值为789.123
-		// */
-		// jxl.write.Number number = new jxl.write.Number( 1 , 0 , 555.12541 );
-		// sheet.addCell(number);
 
 		// 写入数据并关闭文件
 		book.write();
