@@ -9,75 +9,80 @@
 		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/kjcplatform</property>
 		<property name="hibernate.connection.autocommit">true</property>
-		
+
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		<property name="hibernate.show_sql">true</property>
-        <mapping resource="platform/domain/Xzxzgzb.hbm.xml"/>
-		<mapping resource="platform/domain/Kjjszjcjb.hbm.xml"/>
-		<mapping resource="platform/domain/Kjjszjcjbcg.hbm.xml"/>
-		<mapping resource="platform/domain/Kjjszjcjbzy.hbm.xml"/>
-		<mapping resource="platform/domain/Kjjszjcjbxm.hbm.xml"/>
-        <mapping resource="platform/domain/User.hbm.xml"/>
-		 <mapping resource="platform/domain/UserRight.hbm.xml"/>
-		 <mapping resource="platform/domain/Right.hbm.xml"/> 
-	    
-		 <mapping resource="platform/domain/Jljlrytjb.hbm.xml"/>
-		
-		 <mapping resource="platform/domain/Kjzlcjb.hbm.xml"/> 
-		 <mapping resource="platform/domain/Kjcgcjb.hbm.xml"/> 
-		 <mapping resource="platform/domain/Kjzzqcgcjb.hbm.xml"/> 
-		 <mapping resource="platform/domain/Kjnzwcjb.hbm.xml"/> 
-		 <mapping resource="platform/domain/Kjqtcgcjb.hbm.xml"/> 
-		
-		   <mapping resource="platform/domain/Kjgfjflqk.hbm.xml"/>
-		
-		   <mapping resource="platform/domain/Kjrzxqcjb.hbm.xml"/>
-		
-		
-         <mapping resource="platform/domain/Kjkjxmk.hbm.xml"/>
-         <mapping resource="platform/domain/Kjjsxqcjb.hbm.xml"/>
-         <mapping resource="platform/domain/Aaa.hbm.xml"/>
-         <mapping resource="platform/domain/Kjndgxqybab.hbm.xml"/>
-         <mapping resource="platform/domain/Jljlqjhzb.hbm.xml"/>
-       
-         <mapping resource="platform/domain/Jpsgwtbb.hbm.xml"/>
-         <mapping resource="platform/domain/Jpzlzkjbb.hbm.xml"/>
-         <mapping resource="platform/domain/Kjndjpptkyxmb.hbm.xml"/>
-        <mapping resource="platform/domain/Kjndjpptkyxmzxb.hbm.xml"/> 
-         <mapping resource="platform/domain/Kjsjjljgxxb.hbm.xml"/>
-         <mapping resource="platform/domain/Kjndgxjsqypjb.hbm.xml"/>
-         <mapping resource="platform/domain/Kjndjgkjjlqkb.hbm.xml"/>
-         <mapping resource="platform/domain/Kjgjkjjgfxmtj.hbm.xml"/>
-         <mapping resource="platform/domain/Kjgjkjjgftdtj.hbm.xml"/>
-         <mapping resource="platform/domain/Kjndgfjtjb.hbm.xml"/>
-         
-         <mapping resource="platform/domain/Kjkjxmxxb.hbm.xml"/>
-         <mapping resource="platform/domain/Kjkjxmxxbcjdw.hbm.xml"/>
-         <mapping resource="platform/domain/Wqwqxkzxq.hbm.xml"/>
-         <mapping resource="platform/domain/Wqwqxkzxqxkzycp.hbm.xml"/>
-         <mapping resource="platform/domain/Wqwqxkzxqsrqk.hbm.xml"/>
-         
-          <mapping resource="platform/domain/Jpjgdwjbqk.hbm.xml"/>
-          <mapping resource="platform/domain/Jpjgdwjbqkry.hbm.xml"/>
-          <mapping resource="platform/domain/Jpjgdwjbqksrqk.hbm.xml"/>
-          
-          <mapping resource="platform/domain/Kjgxqybab.hbm.xml"/>
-          <mapping resource="platform/domain/Kjgxqybabzscq.hbm.xml"/>
-          <mapping resource="platform/domain/Kjgxqybabyfxm.hbm.xml"/>
-          <mapping resource="platform/domain/Kjgxqybabgxcp.hbm.xml"/>
-		
-       <mapping resource="platform/domain/Adduser.hbm.xml"/>
-		 <mapping resource="platform/domain/Addright.hbm.xml"/>
-		 		 <mapping resource="platform/domain/Zjtxl.hbm.xml"/>
-		 <mapping resource="platform/domain/Jpzlzkdwb.hbm.xml"/>
-		 <mapping resource="platform/domain/Jpzlbgtjb.hbm.xml"/>
-	
-	    <mapping resource="platform/domain/Kjjszjcjb1.hbm.xml"/>
-          <mapping resource="platform/domain/Kjjszjcjb2.hbm.xml"/>
-          <mapping resource="platform/domain/Kjjszjcjb3.hbm.xml"/>
-          <mapping resource="platform/domain/Kjjszjcjb4.hbm.xml"/>
-		
-	
+		<mapping resource="platform/domain/Xzxzgzb.hbm.xml" />
+		<mapping resource="platform/domain/Kjjszjcjb.hbm.xml" />
+		<mapping resource="platform/domain/Kjjszjcjbcg.hbm.xml" />
+		<mapping resource="platform/domain/Kjjszjcjbzy.hbm.xml" />
+		<mapping resource="platform/domain/Kjjszjcjbxm.hbm.xml" />
+		<mapping resource="platform/domain/User.hbm.xml" />
+		<mapping resource="platform/domain/UserRight.hbm.xml" />
+		<mapping resource="platform/domain/Right.hbm.xml" />
+
+		<mapping resource="platform/domain/Jljlrytjb.hbm.xml" />
+
+		<mapping resource="platform/domain/Kjzlcjb.hbm.xml" />
+		<mapping resource="platform/domain/Kjcgcjb.hbm.xml" />
+		<mapping resource="platform/domain/Kjzzqcgcjb.hbm.xml" />
+		<mapping resource="platform/domain/Kjnzwcjb.hbm.xml" />
+		<mapping resource="platform/domain/Kjqtcgcjb.hbm.xml" />
+
+		<mapping resource="platform/domain/Kjgfjflqk.hbm.xml" />
+
+		<mapping resource="platform/domain/Kjrzxqcjb.hbm.xml" />
+
+
+		<mapping resource="platform/domain/Kjkjxmk.hbm.xml" />
+		<mapping resource="platform/domain/Kjjsxqcjb.hbm.xml" />
+		<mapping resource="platform/domain/Aaa.hbm.xml" />
+		<mapping resource="platform/domain/Kjndgxqybab.hbm.xml" />
+		<mapping resource="platform/domain/Jljlqjhzb.hbm.xml" />
+
+		<mapping resource="platform/domain/Jpsgwtbb.hbm.xml" />
+		<mapping resource="platform/domain/Jpzlzkjbb.hbm.xml" />
+		<mapping resource="platform/domain/Kjndjpptkyxmb.hbm.xml" />
+		<mapping resource="platform/domain/Kjndjpptkyxmzxb.hbm.xml" />
+		<mapping resource="platform/domain/Kjsjjljgxxb.hbm.xml" />
+		<mapping resource="platform/domain/Kjndgxjsqypjb.hbm.xml" />
+		<mapping resource="platform/domain/Kjndjgkjjlqkb.hbm.xml" />
+		<mapping resource="platform/domain/Kjgjkjjgfxmtj.hbm.xml" />
+		<mapping resource="platform/domain/Kjgjkjjgftdtj.hbm.xml" />
+		<mapping resource="platform/domain/Kjndgfjtjb.hbm.xml" />
+
+		<mapping resource="platform/domain/Kjkjxmxxb.hbm.xml" />
+		<mapping resource="platform/domain/Kjkjxmxxbcjdw.hbm.xml" />
+		<mapping resource="platform/domain/Wqwqxkzxq.hbm.xml" />
+		<mapping resource="platform/domain/Wqwqxkzxqxkzycp.hbm.xml" />
+		<mapping resource="platform/domain/Wqwqxkzxqsrqk.hbm.xml" />
+		<mapping resource="platform/domain/Wqwqxkzxq1.hbm.xml" />
+		<mapping resource="platform/domain/Wqwqxkzxq2.hbm.xml" />
+		<mapping resource="platform/domain/Wqwqxkzxq3.hbm.xml" />
+		<mapping resource="platform/domain/Wqwqxkzxq4.hbm.xml" />
+
+
+		<mapping resource="platform/domain/Jpjgdwjbqk.hbm.xml" />
+		<mapping resource="platform/domain/Jpjgdwjbqkry.hbm.xml" />
+		<mapping resource="platform/domain/Jpjgdwjbqksrqk.hbm.xml" />
+
+		<mapping resource="platform/domain/Kjgxqybab.hbm.xml" />
+		<mapping resource="platform/domain/Kjgxqybabzscq.hbm.xml" />
+		<mapping resource="platform/domain/Kjgxqybabyfxm.hbm.xml" />
+		<mapping resource="platform/domain/Kjgxqybabgxcp.hbm.xml" />
+
+		<mapping resource="platform/domain/Adduser.hbm.xml" />
+		<mapping resource="platform/domain/Addright.hbm.xml" />
+		<mapping resource="platform/domain/Zjtxl.hbm.xml" />
+		<mapping resource="platform/domain/Jpzlzkdwb.hbm.xml" />
+		<mapping resource="platform/domain/Jpzlbgtjb.hbm.xml" />
+
+		<mapping resource="platform/domain/Kjjszjcjb1.hbm.xml" />
+		<mapping resource="platform/domain/Kjjszjcjb2.hbm.xml" />
+		<mapping resource="platform/domain/Kjjszjcjb3.hbm.xml" />
+		<mapping resource="platform/domain/Kjjszjcjb4.hbm.xml" />
+
+
 	</session-factory>
 </hibernate-configuration>
