@@ -37,6 +37,35 @@ import container.ServiceProvider;
 public class JpzlbgtjbAction extends BaseAction implements ModelDriven<JpzlbgtjbForm>{
 	public int page = 0;
 	public boolean operateSuccess;
+	private List<String> nofirst;
+	private List<String> nosecond;
+	private List<String> nothird;
+	private List<String> nofourth;
+	
+	public List<String> getNofirst() {
+		return nofirst;
+	}
+	public void setNofirst(List<String> nofirst) {
+		this.nofirst = nofirst;
+	}
+	public List<String> getNosecond() {
+		return nosecond;
+	}
+	public void setNosecond(List<String> nosecond) {
+		this.nosecond = nosecond;
+	}
+	public List<String> getNothird() {
+		return nothird;
+	}
+	public void setNothird(List<String> nothird) {
+		this.nothird = nothird;
+	}
+	public List<String> getNofourth() {
+		return nofourth;
+	}
+	public void setNofourth(List<String> nofourth) {
+		this.nofourth = nofourth;
+	}
 	public boolean isOperateSuccess() {
 		return operateSuccess;
 	}
@@ -88,20 +117,17 @@ public class JpzlbgtjbAction extends BaseAction implements ModelDriven<Jpzlbgtjb
 		List<String> stringlist=jpzlbgtjbService.notInFirst(jpzlbgtjbForm);
 		/*for(int i=0;i<stringlist.size();i++){
 		System.out.println(stringlist.get(i));}*/
-		map.put("nofirst", stringlist);
-		this.setResponseJson(map);
+		this.setNofirst(stringlist);
 		return "noFirst";
 	}
 	public String noSecond(){
 		List<String> stringlist=jpzlbgtjbService.notInSecond(jpzlbgtjbForm);
-		map.put("noSecond", stringlist);
-		this.setResponseJson(map);
+		this.setNosecond(stringlist);
 		return "noSecond";
 	}
 	public String noThird(){
 		List<String> stringlist=jpzlbgtjbService.notInThird(jpzlbgtjbForm);
-		map.put("noThird", stringlist);
-		this.setResponseJson(map);
+		this.setNothird(stringlist);
 		return "noThird";
 	}
 	public String noFourth(){
@@ -110,8 +136,7 @@ public class JpzlbgtjbAction extends BaseAction implements ModelDriven<Jpzlbgtjb
 		List<String> stringlist=jpzlbgtjbService.notInFourth(jpzlbgtjbForm);
 	/*	for(int i=0;i<stringlist.size();i++){
 		System.out.println(stringlist.get(i));}*/
-		map.put("noFourth", stringlist);
-		this.setResponseJson(map);
+		this.setNofourth(stringlist);
 		return "noFourth";
 	}
 

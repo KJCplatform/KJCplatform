@@ -81,6 +81,24 @@
 			</result>
 			
 		</action>
+		
+		<action name="JpzlbgtjbAction_*" class="platform.action.JpzlbgtjbAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="noFirst" type="json">
+				<param name="root">nofirst</param>
+			</result>
+	    	<result name="noSecond" type="json">
+				<param name="root">nosecond</param>
+			</result>
+	    	<result name="noThird" type="json">
+				<param name="root">nothird</param>
+			</result>
+			<result name="noFourth" type="json">
+				<param name="root">nofourth</param>
+			</result>
+		</action>
 		<action name="UserAction_*" class="platform.action.UserAction" method="{1}">			
 			<result name="home" type="json">
             <param name="root">userList</param>
