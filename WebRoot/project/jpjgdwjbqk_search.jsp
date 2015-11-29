@@ -80,7 +80,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             } },
             {"id":"gfsyssl", "name": "国防实验室数量", "value": "", "group": "其他信息", "editor":{
             	"type": 'numberbox', 
-            } }
+            } },
+                        {"id":"jlnf", "name": "记录时间（年份） ", "group": "其他信息", "value": "", "editor": "text" },
+            {"id":"username", "name": "操作员", "group": "其他信息", "value": "", "editor":"text" },
+            {"id":"gxsj", "name": "更新时间", "value": "", "group": "其他信息", "editor":"text" },
+            {"id":"submit", "name": "是否提交", "group": "其他信息", "value": "", "editor": "text" }
         ];
 			
 		$(function() {
@@ -350,7 +354,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						display[24].value = info.jpkyrw;
 						display[25].value = info.gjsyssl;
 						display[26].value = info.gfsyssl;
-
+			            
+			            display[27].value = info.jlnf;
+						display[28].value = info.username;
+						display[29].value = info.gxsj;
+						display[30].value = info.submit;
 						
 						var srqkdata = {};
 						var rydata = {};

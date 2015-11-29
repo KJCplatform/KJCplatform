@@ -64,7 +64,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             {"id":"zc2", "name": "第2 年总资产", "group": "企业财务状况", "value": "", "editor":"text" },
             {"id":"zc3", "name": "第3 年总资产", "value": "", "group": "企业财务状况", "editor":"text" },
             {"id":"zczzl", "name": "总资产增长率", "group": "企业财务状况", "value": "", "editor":"text" },
-  
+              {"id":"jlnf", "name": "记录时间（年份） ", "group": "其他信息", "value": "", "editor": "text" },
+            {"id":"username", "name": "操作员", "group": "其他信息", "value": "", "editor":"text" },
+            {"id":"gxsj", "name": "更新时间", "value": "", "group": "其他信息", "editor":"text" },
+            {"id":"submit", "name": "是否提交", "group": "其他信息", "value": "", "editor": "text" }
         ];
 			
 		$(function() {
@@ -433,7 +436,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						display[16].value = info.zc2;
 						display[17].value = info.zc3;
 						display[18].value = info.zczzl;
-
+			            display[19].value = info.jlnf;
+						display[20].value = info.username;
+						display[21].value = info.gxsj;
+						display[22].value = info.submit;
 						
 						var gxcpdata = {};
 						var yfxmdata = {};
