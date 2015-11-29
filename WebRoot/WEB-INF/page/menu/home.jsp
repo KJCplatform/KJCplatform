@@ -686,9 +686,7 @@ var basePath = localhostPath + projectName;
         <div id="tabs" class="easyui-tabs"  fit="true" border="false" >
 			<div title="欢迎使用" style="padding:20px;overflow:hidden; color:red; text-align:center;" >
 				<br><br>
-						<h1 style="font-size:24px;">欢迎使用湖北省国防科学技术工业办公室软件平台</h1>
-				<h1 style="font-size:24px;"></h1>
-		
+				<h1 style="font-size:24px;">欢迎使用湖北省国防科学技术工业办公室软件平台</h1>
 				<h1 style="font-size:40px;">国家秘密高于一切</h1>
 				<h1 style="font-size:40px;">保密责任重于泰山</h1>
 			</div>
