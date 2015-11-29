@@ -15,11 +15,9 @@ import platform.dao.JpjgdwjbqkDao;
 import platform.domain.Jpjgdwjbqk;
 import platform.domain.Jpjgdwjbqksrqk;
 import platform.domain.Jpjgdwjbqkry;
-import platform.domain.Kjgxqybab;
 import platform.form.JpjgdwjbqkForm;
 import platform.form.JpjgdwjbqksrqkForm;
 import platform.form.JpjgdwjbqkryForm;
-import platform.form.KjgxqybabForm;
 import platform.service.JpjgdwjbqkService;
 
 @Transactional
@@ -253,6 +251,18 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 		jpjgdwjbqk.setGjsyssl(jpjgdwjbqkForm.getGjsyssl());
 		jpjgdwjbqk.setGfsyssl(jpjgdwjbqkForm.getGfsyssl());
 		jpjgdwjbqkDao.update(jpjgdwjbqk);
+		
+	}
+
+	@Override
+	public void showImportObject(String filePath) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void showExportObject(String items) throws Exception {
+		// TODO Auto-generated method stub
 		
 	}
 

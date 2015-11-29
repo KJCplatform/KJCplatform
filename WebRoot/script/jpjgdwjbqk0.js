@@ -22,24 +22,24 @@ $(function() {
 		required : true
 	});*/
 	// 给文本框加上验证器
-	$("#xmbh").validatebox({
+	$("#dwmc").validatebox({
 		required : true,
-		missingMessage : '项目编号不能为空'
+		missingMessage : '单位名称不能为空'
 	});
-	$("#xmmc").validatebox({
+	$("#dwdh").validatebox({
 		required : true,
-		missingMessage : '项目名称不能为空'
+		missingMessage : '单位代号不能为空'
 	});
-	$("#jbnr").validatebox({
+	/*$("#jbnr").validatebox({
 		required : true
-	});
+	});*/
 });
 //加载公文列表
 function listDoc() {
-	var actionPath = basePath + '/system/Kjkjxmxxb0Action_list.action';
+	var actionPath = basePath + '/system/Jpjgdwjbqk0Action_list.action';
 	 $('#dg').datagrid({
-            title : '科技项目信息汇总',
-            width : 4000,
+            title : '军工单位情况汇总',
+            width : 3600,
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      
@@ -50,8 +50,8 @@ function listDoc() {
             url:actionPath,//url调用Action方法
             loadMsg : '数据装载中......',
             singleSelect:true,//为true时只能选择单行
-            //sortName : 'xh',//当数据表格初始化时以哪一列来排序
-            //sortOrder : 'desc',//定义排序顺序，可以是'asc'或者'desc'（正序或者倒序）。
+            sortName : 'id',//当数据表格初始化时以哪一列来排序
+            sortOrder : 'desc',//定义排序顺序，可以是'asc'或者'desc'（正序或者倒序）。
             pagination : true,//分页
             rownumbers : true,//行数
 			
@@ -80,15 +80,15 @@ function listDoc() {
 //查询
 function doSearch(){
 	$('#dg').datagrid('load',{
-		xmbh: $('#fileName').val(),
-		xmmc: $('#fileId').val()
+		dwmc: $('#fileName').val(),
+		dwdh: $('#fileId').val()
 	});
 }
 // 显示编辑窗口
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '科技项目信息汇总',
+		title : '军工单位情况汇总',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',
@@ -137,63 +137,48 @@ function editDoc() {
 	$('#frmEdit').form('clear');
 	// 填充数据
 	$("#id").val(doc.id);
-	$("#xmbh").val(doc.xmbh);
-	$("#xmmc").val(doc.xmmc);
-	$("#cjdws").val(doc.cjdws);	
 	$("#dwmc").val(doc.dwmc);
-	$("#dwszd").val(doc.dwszd);
-	$("#txdz").val(doc.txdz);
-	$("#yb").val(doc.yb);	
-	$("#dwxz").val(doc.dwxz);
-	$("#sjbm").val(doc.sjbm);
-	$("#fzr").val(doc.fzr);
-	$("#xb").val(doc.xb);	
-	$("#csn").val(doc.csn);
-	$("#xl").val(doc.xl);
-	$("#zc").val(doc.zc);
-	$("#lxdh").val(doc.lxdh);	
-	$("#email").val(doc.email);
-	$("#xmzrs").val(doc.xmzrs);
-	$("#gj").val(doc.gj);
-	$("#zj").val(doc.zj);	
-	$("#cj").val(doc.cj);
-	$("#qt").val(doc.qt);
-	$("#qssj").val(doc.qssj);
-	$("#zzsj").val(doc.zzsj);	
-	$("#xmhdlx").val(doc.xmhdlx);
-	$("#ssly").val(doc.ssly);
-	$("#xmjsly").val(doc.xmjsly);
-	$("#zyyfnr").val(doc.zyyfnr);	
-	$("#cgxs").val(doc.cgxs);
-	$("#yqzl").val(doc.yqzl);
-	$("#zjf").val(doc.zjf);
-	$("#sbk").val(doc.sbk);	
-	$("#jlnf").val(doc.jlnf);
+	$("#qtmc").val(doc.qtmc);
+	$("#dwdh").val(doc.dwdh);	
+	$("#scdz").val(doc.scdz);
+	$("#jjxz").val(doc.jjxz);
+	$("#frdb").val(doc.frdb);
+	$("#dwdz").val(doc.dwdz);
+	$("#yzbm").val(doc.yzbm);
+	$("#lxr").val(doc.lxr);
+	$("#lxdh").val(doc.lxdh);
+	$("#zgzs").val(doc.zgzs);	
+	$("#gzgl").val(doc.gzgl);
+	$("#zzgl").val(doc.zzgl);
+	$("#czgl").val(doc.czgl);
+	$("#gzjs").val(doc.gzjs);
+	$("#zzjs").val(doc.zzjs);	
+	$("#czjs").val(doc.czjs);
+	$("#gzgr").val(doc.gzgr);
+	$("#zzgr").val(doc.zzgr);
+	$("#czgr").val(doc.czgr);
+	$("#gjjcgs").val(doc.gjjcgs);
+	$("#sbjcgs").val(doc.sbjcgs);
+	$("#jlz").val(doc.jlz);
+	$("#jlbzsl").val(doc.jlbzsl);	
+	$("#jpkyrw").val(doc.jpkyrw);
+	$("#gjsyssl").val(doc.gjsyssl);
+	$("#gfsyssl").val(doc.gfsyssl);
+	
+	
+	
+$("#jlnf").val(doc.jlnf);
 	$("#username").val(doc.username);
 	$("#gxsj").val(doc.gxsj);
 	$("#submit").val(doc.submit);
-	// 给默认值
-	/*$("#fwrq").datebox("setValue", doc.fwrq.substring(0, 10));
-	//$("#fwrq").datebox("getValue");
-	$("#jbnr").val(doc.jbnr);
-	//alert($("#jzrq").datebox("getValue"));
-	$("#jzrq").datebox("setValue", doc.jzrq.substring(0, 10));
-	//$("#jzrq").datebox("getValue");
-	$("#jbr").val(doc.jbr);
-	$("#cljg").val(doc.cljg);
-	
-	$("#jlnf").val(doc.jlnf);
-	$("#username").val(doc.username);
-	$("#gxsj").val(doc.gxsj);
-	$("#submit").val(doc.submit);*/
 	// 显示编辑页面
 	showEditForm();
 }
 function dealSave() {
 	// 表单数据序列化成一个字符串用&拼接
 	var params = $("#frmEdit").serialize();
-	var actionAdd = basePath + '/system/Kjkjxmxxb0Action_add.action';
-	var actionUpdate = basePath + '/system/Kjkjxmxxb0Action_update.action';
+	var actionAdd = basePath + '/system/Jpjgdwjbqk0Action_add.action';
+	var actionUpdate = basePath + '/system/Jpjgdwjbqk0Action_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
@@ -249,7 +234,7 @@ function deleteDoc() {
 	}
 	$.messager.confirm('确认', '真的要删除选中的记录吗？', function(r) {
 		if (r) {
-			var actionPath = basePath + '/system/Kjkjxmxxb0Action_delete.action?id=';
+			var actionPath = basePath + '/system/Jpjgdwjbqk0Action_delete.action?id=';
 			var url = actionPath + doc.id;
 			// 试一下get方法（地址，回调函数）
 			$.get(url, function(result) {

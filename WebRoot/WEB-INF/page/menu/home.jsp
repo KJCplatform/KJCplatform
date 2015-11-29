@@ -471,6 +471,11 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuname": "信息查询-军工单位基本情况信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/jpjgdwjbqk_search.jsp"
+			},{
+				"menuid": "443",
+				"menuname": "信息汇总-军工单位基本情况信息",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/jpjgdwjbqk0.jsp"
 			}]	
 		}
 		]
@@ -495,6 +500,11 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuname": "信息查询-武器装备科研生产许可取证单位信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/wqwqxkzxq_search.jsp"
+			},{
+				"menuid": "513",
+				"menuname": "信息汇总-武器装备科研生产许可取证单位信息",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/wqwqxkzxq0.jsp"
 			}]		
 		}
 		]	

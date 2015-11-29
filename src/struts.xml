@@ -739,6 +739,49 @@
 			</result>
 		</action>
 		
+		<action name="Wqwqxkzxq0Action_*" class="platform.action.Wqwqxkzxq0Action" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+		</action>
+		<action name="Jpjgdwjbqk0Action_*" class="platform.action.Jpjgdwjbqk0Action" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+		</action>
+		<action name="Kjkjxmxxb0Action_*" class="platform.action.Kjkjxmxxb0Action" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+		</action>
+		
 		
 		
 		
