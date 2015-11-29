@@ -64,6 +64,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 
+	    <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
+   选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
+       　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
+       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
+</form>
+
+
+
+
 <div data-options="region:'center',split:false">
 	<!-- 表格主题部分-->
 	<table id="dg">
@@ -98,6 +107,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</thead>
 	</table>
 </div>
+
+
+	<div id="divEdit2" style="display:none;">
+	<div id="tabEdit2" style="overflow-y:auto;">
+		<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
+		 >>>请选择导出项<<<
+		 <br> <br>
+<input name="Items" type="checkbox" checked="checked" value="1" />成果名称<br>
+<input name="Items" type="checkbox" checked="checked" value="2" />成果完成单位<br> 
+<input name="Items" type="checkbox" checked="checked" value="3" />主要完成人<br> 
+<input name="Items" type="checkbox" checked="checked" value="4" />完成时间<br>
+
+<input name="Items" type="checkbox" checked="checked" value="5" />软著编号<br>
+<input name="Items" type="checkbox" checked="checked" value="6" />成果简介<br> 
+<input name="Items" type="checkbox" checked="checked" value="7" />应用行业<br>
+<input name="Items" type="checkbox" checked="checked" value="8" />技术领域<br> 
+<input name="Items" type="checkbox" checked="checked" value="9" />成果阶段<br> 
+<input name="Items" type="checkbox" checked="checked" value="10" />交易方式<br>
+
+<input name="Items" type="checkbox" checked="checked" value="11" />是否委托中介<br>
+<input name="Items" type="checkbox" checked="checked" value="12" />供方定价<br> 
+<input name="Items" type="checkbox" checked="checked" value="13" />其他转化要求<br> 
+<input name="Items" type="checkbox" checked="checked" value="14" />以下信息是否公开<br>
+<input name="Items" type="checkbox" checked="checked" value="15" />发布人性质<br> 
+
+<input name="Items" type="checkbox" checked="checked" value="16" />联系人姓名<br> 
+<input name="Items" type="checkbox" checked="checked" value="17" />固定电话<br> 
+<input name="Items" type="checkbox" checked="checked" value="18" />所在地区<br>
+
+<input name="Items" type="checkbox" checked="checked" value="19" />手机<br>
+<input name="Items" type="checkbox" checked="checked" value="20" />电子邮箱<br> 
+<input name="Items" type="checkbox" checked="checked" value="21" />联系地址<br> 
+	</form>
+	</div>
+</div>	
+	
 
 	<!-- 编辑数据的div，默认看不到 -->
 <div id="divEdit" style="display:none;">
