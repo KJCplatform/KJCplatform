@@ -21,7 +21,6 @@ import platform.form.JpsgwtbbForm;
 import platform.service.JpsgwtbbService;
 import platform.util.StringHelper;
 
-@SuppressWarnings("unused")
 @Service(JpsgwtbbService.SERVICE_NAME)
 public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 	

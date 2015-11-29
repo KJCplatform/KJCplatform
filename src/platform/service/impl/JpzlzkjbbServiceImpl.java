@@ -1,4 +1,6 @@
 package platform.service.impl;
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -6,9 +8,13 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import jxl.Sheet;
+import jxl.Workbook;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
+import excel.CreateExcel;
 import platform.dao.JpzlzkjbbDao;
 import platform.domain.Jpzlzkjbb;
 import platform.form.JpzlzkjbbForm;
@@ -21,7 +27,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 	
 	@Resource(name=JpzlzkjbbDao.SERVICE_NAME)
 	private JpzlzkjbbDao jpzlzkjbbDao;
-	
+	private List<JpzlzkjbbForm> formListTemp ;
 	public List<JpzlzkjbbForm> findJpzlzkjbbList(){
 		String hqlWhere = "";
 		Object [] params = null;
@@ -49,6 +55,10 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		params = paramsList.toArray();
 		List<Jpzlzkjbb> list=jpzlzkjbbDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
 		List<JpzlzkjbbForm> formlist=this.JpzlzkjbbPOListToVOList(list);
+		if(pageno == 1){
+			formListTemp = 
+					JpzlzkjbbPOListToVOList(jpzlzkjbbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby));
+		}
 		return formlist;
 		
 	}
@@ -145,6 +155,132 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		}
 		return formlist;
 	}
+	@Override
+	public void showImportObject(String filePath) throws Exception {
+		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:");
+		Workbook workbook = Workbook.getWorkbook(new File(path));		
+		Sheet sheet = workbook.getSheet(0);
+		int rows = sheet.getRows();
+		Jpzlzkjbb jpzlzkjbb = new Jpzlzkjbb();
+		for(int i = 1; i < rows ; i ++){
+			jpzlzkjbb.setJd(sheet.getCell(0, i).getContents());
+			jpzlzkjbb.setDwmc(sheet.getCell(1, i).getContents());
+			jpzlzkjbb.setHgl(sheet.getCell(2, i).getContents());
+			jpzlzkjbb.setCgl(sheet.getCell(3, i).getContents());
+			jpzlzkjbb.setSsl(sheet.getCell(4, i).getContents());
+			jpzlzkjbb.setZlhdqk(sheet.getCell(5, i).getContents());
+			jpzlzkjbb.setTbr(sheet.getCell(6, i).getContents());
+			jpzlzkjbb.setZlbfzr(sheet.getCell(7, i).getContents());
+			jpzlzkjbb.setShr(sheet.getCell(8, i).getContents());
+			jpzlzkjbb.setBcrq(new SimpleDateFormat().parse(sheet.getCell(9, i).getContents()));
+			
+			jpzlzkjbbDao.save(jpzlzkjbb);
+		}
+		
+		workbook.close();
+	}
+		
+	/**
+	 * 将要导出的数据存成LinkedHashMap
+	 *
+	 * @return LinkedHashMap
+	 */
+	private LinkedHashMap<String, ArrayList<String>> getDataAsHashMap(String items){
+		LinkedHashMap<String, ArrayList<String>> lhm = new LinkedHashMap<String ,ArrayList<String>>();
+		List<String> li = new ArrayList<String>();
+		String[] item = items.split(" ");
+
+		int len =formListTemp.size();
+		for(int i = 0; i < item.length; i ++){
+			switch (item[i]) {
+			case "1":
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getJd());
+			    }
+			    lhm.put("季度", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "2":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getDwmc());
+			    }
+			    lhm.put("单位名称", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "3":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getHgl());
+			    }
+			    lhm.put("军品一次交验（检）合格率", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "4":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getCgl());
+			    }
+			    lhm.put("重大试验成功率", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "5":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getSsl());
+			    }
+			    lhm.put("军品质量损失率", new ArrayList<String>(li));
+			    li.clear();
+			    break;
+			case "6":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getZlhdqk());
+			    }
+			    lhm.put("单位重大质量活动情况", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "7":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getTbr());
+			    }
+			    lhm.put("填表人", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "8":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getZlbfzr());
+			    }
+			    lhm.put("质量部门负责人", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "9":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getShr());
+			    }
+			    lhm.put("审核人", new ArrayList<String>(li));
+			    li.clear();
+			    break;
+			case "10":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getBcrq());
+			    }
+			    lhm.put("报出日期", new ArrayList<String>(li));
+			    li.clear();
+				break;
+
+
+			}
+		}	
+		return lhm;
+	}
+	
+	
+	@Override
+	public void showExportObject(String items) throws Exception {
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
+		String time = df.format(new Date());
+		String path = "D:\\湖北省国防科技工业军工产品质量状况季报表  admin " + time + ".xls";	
+		CreateExcel.createExcel(getDataAsHashMap(items), path);
+		
+	}
 
 	
 }
+	
+
