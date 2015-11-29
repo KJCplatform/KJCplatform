@@ -250,8 +250,8 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		Workbook workbook = Workbook.getWorkbook(new File(path));		
 		Sheet sheet = workbook.getSheet(0);
 		int rows = sheet.getRows();
-		Jpzlzkjbb jpzlzkjbb = new Jpzlzkjbb();
 		for(int i = 1; i < rows ; i ++){
+			Jpzlzkjbb jpzlzkjbb = new Jpzlzkjbb();
 			jpzlzkjbb.setJd(sheet.getCell(0, i).getContents());
 			jpzlzkjbb.setDwmc(sheet.getCell(1, i).getContents());
 			jpzlzkjbb.setHgl(sheet.getCell(2, i).getContents());
@@ -261,7 +261,9 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			jpzlzkjbb.setTbr(sheet.getCell(6, i).getContents());
 			jpzlzkjbb.setZlbfzr(sheet.getCell(7, i).getContents());
 			jpzlzkjbb.sets2hr(sheet.getCell(8, i).getContents());
-			jpzlzkjbb.setBcrq(new SimpleDateFormat().parse(sheet.getCell(9, i).getContents()));
+			jpzlzkjbb.setBcrq(StringHelper.stringConvertDate(sheet.getCell(9, i).getContents()));
+			jpzlzkjbb.setJlnf(sheet.getCell(10, i).getContents());
+
 			
 			jpzlzkjbbDao.save(jpzlzkjbb);
 		}
@@ -352,7 +354,13 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			    lhm.put("报出日期", new ArrayList<String>(li));
 			    li.clear();
 				break;
-
+			case "11":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getJlnf());
+			    }
+			    lhm.put("记录日期(年份)", new ArrayList<String>(li));
+			    li.clear();
+				break;
 
 			}
 		}	

@@ -347,6 +347,12 @@
 	    	<result name="update" type="json">
 				
 			</result>
+			<result name="showimport" type="json">
+			</result>
+			
+			<result name="showexport" type="json">
+			</result>
+			
 		</action>
 		<action name="KjndjpptkyxmbAction_*" class="platform.action.KjndjpptkyxmbAction" method="{1}">			
 			<result name="list" type="json">
