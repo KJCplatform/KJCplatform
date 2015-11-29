@@ -50,6 +50,11 @@
 	    	<result name="update" type="json">
 				
 			</result>
+			<result name="showimport" type="json">
+			</result>
+			
+			<result name="showexport" type="json">
+			</result>
 		</action>
 		<action name="KjjszjcjbAction_*" class="platform.action.KjjszjcjbAction" method="{1}">
 		    <result name="list" type="json">
