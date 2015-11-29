@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 
 import jxl.Sheet;
 import jxl.Workbook;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -155,30 +156,32 @@ public class Kjjszjcjb4ServiceImpl implements Kjjszjcjb4Service{
 	@Override
 	public void showImportObject(String filePath) throws Exception {
 		// TODO Auto-generated method stub
+		//System.out.println("导入excel。。。");
 		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:");		
 		Workbook workbook = Workbook.getWorkbook(new File(path));		
 		Sheet sheet = workbook.getSheet(0);
 		int rows = sheet.getRows();
-		Kjjszjcjb4 kjjszjcjb4= new Kjjszjcjb4();
 		
-		for (int i = 1; i < rows; i++) {
+		for(int i = 1 ; i < rows; i ++){
+			Kjjszjcjb4 kjjszjcjb4 = new Kjjszjcjb4();
 			kjjszjcjb4.setXm(sheet.getCell(0, i).getContents());
 			kjjszjcjb4.setXb(sheet.getCell(1, i).getContents());
 			kjjszjcjb4.setGzdw(sheet.getCell(2, i).getContents());
-			kjjszjcjb4.setZw(sheet.getCell(3, i).getContents());
-			kjjszjcjb4.setJszc(sheet.getCell(4, i).getContents());
-			kjjszjcjb4.setSszy(sheet.getCell(5, i).getContents());
-			kjjszjcjb4.setYjfx(sheet.getCell(6, i).getContents());
-			kjjszjcjb4.setSj(sheet.getCell(7, i).getContents());
-			kjjszjcjb4.setDh(sheet.getCell(8, i).getContents());
-			kjjszjcjb4.setYx(sheet.getCell(9, i).getContents());
-			kjjszjcjb4.setSfzh(sheet.getCell(10, i).getContents());
-			kjjszjcjb4.setBz(sheet.getCell(11, i).getContents());
-			kjjszjcjb4.setJlnf(sheet.getCell(12, i).getContents());
-			kjjszjcjb4.setUsername(sheet.getCell(13, i).getContents());
-			kjjszjcjb4.setGxsj(sheet.getCell(14, i).getContents());
-			kjjszjcjb4.setSubmit(sheet.getCell(15, i).getContents());
-
+			kjjszjcjb4.setGzbm(sheet.getCell(3, i).getContents());
+			kjjszjcjb4.setZw(sheet.getCell(4, i).getContents());
+			kjjszjcjb4.setJszc(sheet.getCell(5, i).getContents());
+			kjjszjcjb4.setSszy(sheet.getCell(6, i).getContents());
+			kjjszjcjb4.setYjfx(sheet.getCell(7, i).getContents());
+			kjjszjcjb4.setSj(sheet.getCell(8, i).getContents());
+			kjjszjcjb4.setDh(sheet.getCell(9, i).getContents());
+			kjjszjcjb4.setYx(sheet.getCell(10, i).getContents());
+			kjjszjcjb4.setSfzh(sheet.getCell(11, i).getContents());
+			kjjszjcjb4.setBz(sheet.getCell(12, i).getContents());
+			kjjszjcjb4.setJlnf(sheet.getCell(13, i).getContents());
+			kjjszjcjb4.setUsername("");
+			kjjszjcjb4.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+			kjjszjcjb4.setSubmit("否");
+			
 			kjjszjcjb4Dao.save(kjjszjcjb4);
 		}
 		
@@ -222,89 +225,96 @@ public class Kjjszjcjb4ServiceImpl implements Kjjszjcjb4Service{
 				break;
 			case "4":
 			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getGzbm());
+			    }
+			    lhm.put("工作部门", new ArrayList<String>(li));
+			    li.clear();
+				break;
+			case "5":
+			    for(int j= 0;j< len; j++){
 			    	li.add(formListTemp.get(j).getZw());
 			    }
 			    lhm.put("职务", new ArrayList<String>(li));
 			    li.clear();
 				break;
-			case "5":
+			case "6":
 			    for(int j= 0;j< len; j++){
 			    	li.add(formListTemp.get(j).getJszc());
 			    }
 			    lhm.put("技术职称", new ArrayList<String>(li));
 			    li.clear();
 				break;
-			case "6":
+			case "7":
 			    for(int j= 0;j< len; j++){
 			    	li.add(formListTemp.get(j).getSszy());
 			    }
 			    lhm.put("所属专业", new ArrayList<String>(li));
 			    li.clear();
 				break;
-			case "7":
+			case "8":
 			    for(int j= 0;j< len; j++){
 			    	li.add(formListTemp.get(j).getYjfx());
 			    }
 			    lhm.put("研究方向", new ArrayList<String>(li));
 			    li.clear();
 				break;	
-			case "8":
+			case "9":
 			    for(int j= 0;j< len; j++){
 			    	li.add(formListTemp.get(j).getSj());
 			    }
 			    lhm.put("手机", new ArrayList<String>(li));
 			    li.clear();
 				break;
-			case "9":
+			case "10":
 			    for(int j= 0;j< len; j++){
 			    	li.add(formListTemp.get(j).getDh());
 			    }
 			    lhm.put("电话", new ArrayList<String>(li));
 			    li.clear();
 				break;
-			case "10":
+			case "11":
 			    for(int j= 0;j< len; j++){
 			    	li.add(formListTemp.get(j).getYx());
 			    }
 			    lhm.put("邮箱", new ArrayList<String>(li));
 			    li.clear();
 				break;	
-			case "11":
+			case "12":
 			    for(int j= 0;j< len; j++){
 			    	li.add(formListTemp.get(j).getSfzh());
 			    }
 			    lhm.put("身份证号", new ArrayList<String>(li));
 			    li.clear();
 				break;	
-			case "12":
+			case "13":
 			    for(int j= 0;j< len; j++){
 			    	li.add(formListTemp.get(j).getBz());
 			    }
 			    lhm.put("备注", new ArrayList<String>(li));
 			    li.clear();
 				break;		
-			case "13":
+			case "14":
 			    for(int j= 0;j< len; j++){
 			    	li.add(formListTemp.get(j).getJlnf());
 			    }
 			    lhm.put("记录年份", new ArrayList<String>(li));
 			    li.clear();
 				break;	
-			case "14":
+			case "15":
 			    for(int j= 0;j< len; j++){
 			    	li.add(formListTemp.get(j).getUsername());
 			    }
 			    lhm.put("操作员", new ArrayList<String>(li));
 			    li.clear();
 				break;	
-			case "15":
+			case "16":
 			    for(int j= 0;j< len; j++){
 			    	li.add(formListTemp.get(j).getGxsj());
 			    }
 			    lhm.put("更新时间", new ArrayList<String>(li));
 			    li.clear();
 				break;	
-			case "16":
+			case "17":
 			    for(int j= 0;j< len; j++){
 			    	li.add(formListTemp.get(j).getSubmit());
 			    }

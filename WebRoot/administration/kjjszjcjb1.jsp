@@ -63,6 +63,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </form>
 </div>
 
+<form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
+   选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
+       　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
+       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
+</form>
+
+<div id="divEdit2" style="display:none;">
+	<div id="tabEdit2" style="overflow-y:auto;">
+		<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
+		 >>>请选择导出项<<<
+		 <br> <br>
+<input name="Items" type="checkbox" checked="checked" value="1" />姓名<br>
+<input name="Items" type="checkbox" checked="checked" value="2" />性别	<br> 
+<input name="Items" type="checkbox" checked="checked" value="3" />工作单位<br> 
+<input name="Items" type="checkbox" checked="checked" value="4" />工作部门<br>
+<input name="Items" type="checkbox" checked="checked" value="5" />职务<br> 
+<input name="Items" type="checkbox" checked="checked" value="6" />技术职称<br> 
+<input name="Items" type="checkbox" checked="checked" value="7" />所属专业<br>
+<input name="Items" type="checkbox" checked="checked" value="8" />研究方向<br>
+<input name="Items" type="checkbox" checked="checked" value="9" />手机<br>
+<input name="Items" type="checkbox" checked="checked" value="10" />电话	<br>
+<input name="Items" type="checkbox" checked="checked" value="11" />邮箱	<br>
+<input name="Items" type="checkbox" checked="checked" value="12" />身份证号<br>
+<input name="Items" type="checkbox" checked="checked" value="13" />备注 <br>
+<input name="Items" type="checkbox" checked="checked" value="14" />记录时间<br>
+		</form>
+	</div>
+</div>								
+
 
 <div data-options="region:'center',split:false">
 	<!-- 表格主题部分-->

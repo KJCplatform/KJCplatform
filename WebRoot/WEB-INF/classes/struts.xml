@@ -752,6 +752,16 @@
 	    	<result name="update" type="json">
 				
 			</result>
+	
+			<result name="showimport" type="json">
+
+			</result>
+
+			<result name="showexport" type="json">
+
+			</result>
+			
+			
 		</action>
 		
 			<action name="Kjjszjcjb2Action_*" class="platform.action.Kjjszjcjb2Action" method="{1}">			
@@ -767,6 +777,11 @@
 	    	<result name="update" type="json">
 				
 			</result>
+			<result name="showimport" type="json">
+			</result>
+			<result name="showexport" type="json">
+			</result>
+			
 		</action>
 		
 			<action name="Kjjszjcjb3Action_*" class="platform.action.Kjjszjcjb3Action" method="{1}">			
@@ -782,6 +797,10 @@
 	    	<result name="update" type="json">
 				
 			</result>
+			<result name="showimport" type="json">
+			</result>
+			<result name="showexport" type="json">
+			</result>
 		</action>
 		
 			<action name="Kjjszjcjb4Action_*" class="platform.action.Kjjszjcjb4Action" method="{1}">			
@@ -796,6 +815,11 @@
 			</result>
 	    	<result name="update" type="json">
 				
+			</result>
+			<result name="showimport" type="json">
+			</result>
+			
+			<result name="showexport" type="json">
 			</result>
 		</action>
 		

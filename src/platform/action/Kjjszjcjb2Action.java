@@ -103,6 +103,21 @@ public class Kjjszjcjb2Action extends BaseAction implements ModelDriven<Kjjszjcj
 		operateSuccess=true;
 		return "add";
 	}
+	
+	public String showimport() throws Exception{
+		System.out.println(kjjszjcjb2Form.getXm());
+		kjjszjcjb2Service.showImportObject(kjjszjcjb2Form.getXm());
+		operateSuccess=true;
+		return "showimport";
+	}
+	
+	public String showexport() throws Exception{
+		System.out.println(kjjszjcjb2Form.getXm());
+		kjjszjcjb2Service.showExportObject(kjjszjcjb2Form.getXm());
+		operateSuccess=true;
+		return "showexport";
+	}
 }
+
 
 
