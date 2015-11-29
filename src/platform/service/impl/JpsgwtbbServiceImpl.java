@@ -158,6 +158,9 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 			jpsgwtbb.setZlbmfzr(sheet.getCell(5, i).getContents());
 			jpsgwtbb.setBcrq(StringHelper.stringConvertDate(sheet.getCell(6, i).getContents()));
 			jpsgwtbb.setJlnf(sheet.getCell(7, i).getContents());
+			jpsgwtbb.setSubmit("否");
+			jpsgwtbb.setUsername(formListTemp.get(0).getUsername());
+			jpsgwtbb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()).toString());
 			jpsgwtbbDao.save(jpsgwtbb);
 		}
 		

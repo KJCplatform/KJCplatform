@@ -105,6 +105,19 @@ public class JljlqjhzbAction extends BaseAction implements ModelDriven<Jljlqjhzb
 		operateSuccess=true;
 		return "add";
 	}
+	public String showimport() throws Exception{
+		System.out.println(jljlqjhzbForm.getFrmc());
+		jljlqjhzbService.showImportObject(jljlqjhzbForm.getFrmc());
+		operateSuccess=true;
+		return "showimport";
+	}
+	
+	public String showexport() throws Exception{
+		System.out.println(jljlqjhzbForm.getFrmc());
+		jljlqjhzbService.showExportObject(jljlqjhzbForm.getFrmc());
+		operateSuccess=true;
+		return "showexport";
+	}
 }
 
 
