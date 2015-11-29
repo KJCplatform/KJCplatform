@@ -13,5 +13,7 @@ public interface KjcgcjbService {
 	public void updateKjcgcjb(KjcgcjbForm kjcgcjbForm);
 	public void deleteObject(String id);
 	public void saveObject(KjcgcjbForm kjcgcjbForm);
+	public void showimportObject(String cgmc) throws Exception;
+	public void showexportObject(String cgmc) throws Exception;
 
 }

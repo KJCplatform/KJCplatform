@@ -67,6 +67,11 @@
 			</table>
 		</form>
 	</div>
+    <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
+   选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
+       　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
+       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
+</form>
 
 
 	<div data-options="region:'center',split:false">
@@ -107,6 +112,41 @@
 	</div>
 
 
+
+<div id="divEdit2" style="display:none;">
+	<div id="tabEdit2" style="overflow-y:auto;">
+		<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
+		 >>>请选择导出项<<<
+		 <br> <br>
+<input name="Items" type="checkbox" checked="checked" value="1" />成果名称<br>
+<input name="Items" type="checkbox" checked="checked" value="2" />成果完成单位<br> 
+<input name="Items" type="checkbox" checked="checked" value="3" />主要完成人<br> 
+<input name="Items" type="checkbox" checked="checked" value="4" />完成时间<br>
+
+<input name="Items" type="checkbox" checked="checked" value="5" />登记鉴定号<br>
+<input name="Items" type="checkbox" checked="checked" value="6" />成果体现形式<br> 
+<input name="Items" type="checkbox" checked="checked" value="7" />成果简介<br> 
+<input name="Items" type="checkbox" checked="checked" value="8" />应用行业<br>
+<input name="Items" type="checkbox" checked="checked" value="9" />技术领域<br> 
+<input name="Items" type="checkbox" checked="checked" value="10" />成果阶段<br> 
+<input name="Items" type="checkbox" checked="checked" value="11" />交易方式<br>
+
+<input name="Items" type="checkbox" checked="checked" value="12" />是否委托中介<br>
+<input name="Items" type="checkbox" checked="checked" value="13" />供方定价<br> 
+<input name="Items" type="checkbox" checked="checked" value="14" />其他转化要求<br> 
+<input name="Items" type="checkbox" checked="checked" value="15" />以下信息是否公开<br>
+<input name="Items" type="checkbox" checked="checked" value="16" />发布人性质<br> 
+
+<input name="Items" type="checkbox" checked="checked" value="17" />联系人姓名<br> 
+<input name="Items" type="checkbox" checked="checked" value="18" />固定电话<br> 
+<input name="Items" type="checkbox" checked="checked" value="19" />所在地区<br>
+
+<input name="Items" type="checkbox" checked="checked" value="20" />手机<br>
+<input name="Items" type="checkbox" checked="checked" value="21" />电子邮箱<br> 
+<input name="Items" type="checkbox" checked="checked" value="22" />联系地址<br> 
+		</form>
+	</div>
+</div>	
 
 	<!-- 编辑数据的div，默认看不到 -->
 	<div id="divEdit" style="display:none;">
@@ -246,8 +286,8 @@
 				<dl>
 					<dd>发布人性质:
 					<select id="fbrxz" name="fbrxz">
-							<option value="0" selected="selected">机构</option>
-							<option value="1">个人</option>
+							<option value="机构" selected="selected">机构</option>
+							<option value="个人">个人</option>
 						</select>
 					</dd>
 				</dl>
