@@ -144,7 +144,7 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 	 * @param 文件路径
 	 */
 	public void showImportObject(String filepath) throws Exception {
-		try{
+
 			String path = filepath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:");		
 			Workbook workbook = Workbook.getWorkbook(new File(path));		
 			Sheet sheet = workbook.getSheet(0);
@@ -168,11 +168,7 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 				jljlqjhzbDao.save(jljlqjhzb);
 			}		
 			workbook.close();
-		}
-		catch(Exception e){
-			e.printStackTrace();
-		}
-		
+			
 	}
 	
 	/**
