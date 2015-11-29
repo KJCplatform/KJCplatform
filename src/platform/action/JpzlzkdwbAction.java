@@ -16,6 +16,7 @@ import org.springframework.stereotype.Controller;
 
 import platform.action.BaseAction;
 import platform.dao.TestDataDao;
+import platform.domain.User;
 import platform.domain.Zjtxl;
 import platform.form.JpzlzkdwbForm;
 import platform.form.TestDataFrom;
@@ -32,6 +33,7 @@ import container.ServiceProvider;
 
 @SuppressWarnings({ "unused", "serial" })
 public class JpzlzkdwbAction extends BaseAction implements ModelDriven<JpzlzkdwbForm>{
+	String username=String.valueOf(request.getSession().getAttribute("hhs_user"));
 	public int page = 0;
 	public boolean operateSuccess;
 	public boolean isOperateSuccess() {
@@ -71,19 +73,24 @@ public class JpzlzkdwbAction extends BaseAction implements ModelDriven<Jpzlzkdwb
 	}
 	Map<String, Object> map = new HashMap<String, Object>();
 	public String list(){
-		
+		List<JpzlzkdwbForm>  formlist=jpzlzkdwbService.findJpzlzkdwbWithPage(rows,page);
+		map.put("rows", formlist);
+		map.put("total",jpzlzkdwbService.findJpzlzkdwbList().size());
 		return "list";
 	}
 	public String update(){
-		
+		jpzlzkdwbService.updateObject(jpzlzkdwbForm,username);
+		operateSuccess=true;
 		return "update";
 	}
 	public String delete(){
-	
+		jpzlzkdwbService.deleteObject(jpzlzkdwbForm.getId());
+		operateSuccess=true;
 		return   "delete";
 	}
 	public String add(){
-	
+		jpzlzkdwbService.saveObject(jpzlzkdwbForm,username);
+		operateSuccess=true;
 		return "add";
 	}
 }
