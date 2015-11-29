@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="platform.domain.Wqwqxkzxq3" table="wq_wqxkzxq3">
+		<id name="id" type="integer">
+			<column name="id"  not-null="true"/>
+			<generator class="identity"/>
+		</id>
+		<property name="xh" type="string">
+			<column name="xh" />
+		</property>
+		<property name="xmdm" type="date">
+			<column name="xmdm" />
+		</property>
+		<property name="xmmc" type="string">
+			<column name="xmmc" />
+		</property>
+		<property name="kysc" type="string">
+			<column name="kysc" />
+		</property>
+		<property name="xklx" type="string">
+			<column name="xklx" />	
+		</property>
+		
+	</class>
+</hibernate-mapping>

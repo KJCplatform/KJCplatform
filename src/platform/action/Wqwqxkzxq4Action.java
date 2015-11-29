@@ -1,4 +1,5 @@
 package platform.action;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -15,28 +16,28 @@ import org.springframework.stereotype.Controller;
 
 import platform.action.BaseAction;
 import platform.dao.TestDataDao;
-import platform.domain.Kjndjpptkyxmzxb;
+import platform.domain.Wqwqxkzxq4;
 import platform.form.TestDataFrom;
-import platform.form.KjndjpptkyxmzxbForm;
+
+
+import platform.form.Wqwqxkzxq4Form;
 import platform.service.TestDataService;
-import platform.service.KjndjpptkyxmzxbService;
+import platform.service.Wqwqxkzxq4Service;
 
 import com.opensymphony.xwork2.ModelDriven;
 
 import container.ServiceProvider;
 
-@SuppressWarnings({ "unused", "serial" })
-public class KjndjpptkyxmzxbAction extends BaseAction implements ModelDriven<KjndjpptkyxmzxbForm>{
+public class Wqwqxkzxq4Action extends BaseAction implements ModelDriven<Wqwqxkzxq4Form>{
 	public int page = 0;
-	public boolean operateSuccess;
-	public boolean isOperateSuccess() {
+	private boolean operateSuccess;
+	public boolean getOperateSuccess() {
 		return operateSuccess;
 	}
 	public void setOperateSuccess(boolean operateSuccess) {
 		this.operateSuccess = operateSuccess;
 	}
 	public int rows = 0;
-	@SuppressWarnings("rawtypes")
 	public Map responseJson;
 	public int getPage() {
 		return page;
@@ -50,60 +51,62 @@ public class KjndjpptkyxmzxbAction extends BaseAction implements ModelDriven<Kjn
 	public void setRows(int rows) {
 		this.rows = rows;
 	}
-	@SuppressWarnings("rawtypes")
 	public Map getResponseJson() {
 		return responseJson;
 	}
-	@SuppressWarnings("rawtypes")
 	public void setResponseJson(Map responseJson) {
 		this.responseJson = responseJson;
 	}
-	private  KjndjpptkyxmzxbService kjndjpptkyxmzxbService=(KjndjpptkyxmzxbService) ServiceProvider.getService(KjndjpptkyxmzxbService.SERVICE_NAME);
-	private KjndjpptkyxmzxbForm kjndjpptkyxmzxbForm=new KjndjpptkyxmzxbForm();
-	
-	public KjndjpptkyxmzxbForm getModel() {
+	private  Wqwqxkzxq4Service wqwqxkzxq4Service=(Wqwqxkzxq4Service) ServiceProvider.getService(Wqwqxkzxq4Service.SERVICE_NAME);
+	private Wqwqxkzxq4Form wqwqxkzxq4Form=new Wqwqxkzxq4Form();
+	public Wqwqxkzxq4Form getModel() {
 
-		return kjndjpptkyxmzxbForm;
+		return wqwqxkzxq4Form;
 	}
 	Map<String, Object> map = new HashMap<String, Object>();
 	public String list(){
 		//System.out.println(page+":"+rows);
-		//xzxzgzbForm.setWjm("test");
-		//xzxzgzbForm.setWjh("2");
-		List<KjndjpptkyxmzxbForm> formlist=kjndjpptkyxmzxbService.findKjndjpptkyxmzxbListWithPage(rows,page,kjndjpptkyxmzxbForm);
+		//wqwqxkzxq4Form.setWjm("test");
+		//wqwqxkzxq4Form.setWjh("2");
+		List<Wqwqxkzxq4Form> formlist=wqwqxkzxq4Service.findWqwqxkzxq4ListWithPage(rows,page,wqwqxkzxq4Form);
 		//System.out.println(formlist.get(formlist.size()-1).getCljg());
 		map.put("rows", formlist);
-		map.put("total", kjndjpptkyxmzxbService.findKjndjpptkyxmzxbList().size());
-		map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
+		map.put("total", wqwqxkzxq4Service.findWqwqxkzxq4List().size());
 		
 		this.setResponseJson(map);
+		
+		map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
+		//System.out.println(String.valueOf(request.getSession().getAttribute("hhs_user")));
+		//map.put("role", 1);
+		
+		
 		return "list";
 	}
 	public String update(){
-		/*XzxzgzbForm xzxzgzbForm1 = new XzxzgzbForm();
+		/*Wqwqxkzxq4Form wqwqxkzxq4Form1 = new Wqwqxkzxq4Form();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		String d=format.format(new Date());
-		xzxzgzbForm1.setId("1");
-		xzxzgzbForm1.setCljg("update");
-		xzxzgzbForm1.setFwjg("update");
-		xzxzgzbForm1.setFwrq(d);
-		xzxzgzbForm1.setJbnr("update");
-		xzxzgzbForm1.setJbr("update");
-		xzxzgzbForm1.setJzrq(d);
-		xzxzgzbForm1.setWjh("update");
-		xzxzgzbForm1.setWjm("update");*/
-		kjndjpptkyxmzxbService.updateKjndjpptkyxmzxb(kjndjpptkyxmzxbForm);
+		wqwqxkzxq4Form1.setId("1");
+		wqwqxkzxq4Form1.setCljg("update");
+		wqwqxkzxq4Form1.setFwjg("update");
+		wqwqxkzxq4Form1.setFwrq(d);
+		wqwqxkzxq4Form1.setJbnr("update");
+		wqwqxkzxq4Form1.setJbr("update");
+		wqwqxkzxq4Form1.setJzrq(d);
+		wqwqxkzxq4Form1.setWjh("update");
+		wqwqxkzxq4Form1.setWjm("update");*/
+		wqwqxkzxq4Service.updateWqwqxkzxq4(wqwqxkzxq4Form);
 		operateSuccess=true;
 		return "update";
 	}
 	public String delete(){
-		//xzxzgzbForm.setId("2");
-		kjndjpptkyxmzxbService.deleteObject(kjndjpptkyxmzxbForm.getId());
+		//wqwqxkzxq4Form.setId("2");
+		wqwqxkzxq4Service.deleteObject(wqwqxkzxq4Form.getId());
 		operateSuccess=true;
 		return   "delete";
 	}
 	public String add(){
-		kjndjpptkyxmzxbService.saveObject(kjndjpptkyxmzxbForm);
+		wqwqxkzxq4Service.saveObject(wqwqxkzxq4Form);
 		operateSuccess=true;
 		return "add";
 	}
