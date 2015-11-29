@@ -57,10 +57,10 @@
 		<mapping resource="platform/domain/Wqwqxkzxq.hbm.xml" />
 		<mapping resource="platform/domain/Wqwqxkzxqxkzycp.hbm.xml" />
 		<mapping resource="platform/domain/Wqwqxkzxqsrqk.hbm.xml" />
-		<mapping resource="platform/domain/Wqwqxkzxq1.hbm.xml" />
-		<mapping resource="platform/domain/Wqwqxkzxq2.hbm.xml" />
-		<mapping resource="platform/domain/Wqwqxkzxq3.hbm.xml" />
-		<mapping resource="platform/domain/Wqwqxkzxq4.hbm.xml" />
+<!-- 		<mapping resource="platform/domain/Wqwqxkzxq1.hbm.xml" /> -->
+<!-- 		<mapping resource="platform/domain/Wqwqxkzxq2.hbm.xml" /> -->
+<!-- 		<mapping resource="platform/domain/Wqwqxkzxq3.hbm.xml" /> -->
+<!-- 		<mapping resource="platform/domain/Wqwqxkzxq4.hbm.xml" /> -->
 
 
 		<mapping resource="platform/domain/Jpjgdwjbqk.hbm.xml" />
