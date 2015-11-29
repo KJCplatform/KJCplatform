@@ -13,5 +13,9 @@ public interface AaaService {
 	public void updateAaa(AaaForm aaaForm);
 	public void deleteObject(String id);
 	public void saveObject(AaaForm aaaForm);
+	
+	
+	public void showimportObject(String kjgfjflqkForm) throws Exception;
+	public void showexportObject(String string) throws Exception;
 
 }

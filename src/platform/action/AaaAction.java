@@ -76,8 +76,6 @@ public class AaaAction extends BaseAction implements ModelDriven<AaaForm>{
 		//System.out.println(formlist.get(formlist.size()-1).getCljg());
 		map.put("rows", formlist);
 		map.put("total", aaaService.findAaaList().size());
-		map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
-		
 		this.setResponseJson(map);
 		return "list";
 	}
@@ -108,6 +106,20 @@ public class AaaAction extends BaseAction implements ModelDriven<AaaForm>{
 		aaaService.saveObject(aaaForm);
 		operateSuccess=true;
 		return "add";
+	}
+	
+	public String showimport() throws Exception{
+		System.out.println(aaaForm.getYqbh());
+		aaaService.showimportObject(aaaForm.getYqbh());
+		operateSuccess=true;
+		return "showimport";
+	}
+	
+	public String showexport() throws Exception{
+		//System.out.println(kjsjjljgxxbForm.getFrmc());
+		aaaService.showexportObject(aaaForm.getYqbh());
+		operateSuccess=true;
+		return "showexport";
 	}
 }
 

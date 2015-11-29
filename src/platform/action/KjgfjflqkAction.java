@@ -73,8 +73,6 @@ public class KjgfjflqkAction extends BaseAction implements ModelDriven<Kjgfjflqk
 		//System.out.println(formlist.get(formlist.size()-1).getCljg());
 		map.put("rows", formlist);
 		map.put("total", kjgfjflqkService.findKjgfjflqkList().size());
-		map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
-		
 		this.setResponseJson(map);
 		return "list";
 	}
@@ -105,6 +103,21 @@ public class KjgfjflqkAction extends BaseAction implements ModelDriven<Kjgfjflqk
 		kjgfjflqkService.saveObject(kjgfjflqkForm);
 		operateSuccess=true;
 		return "add";
+	}
+	
+	
+	public String showimport() throws Exception{
+		System.out.println(kjgfjflqkForm.getDj());
+		kjgfjflqkService.showimportObject(kjgfjflqkForm.getDj());
+		operateSuccess=true;
+		return "showimport";
+	}
+	
+	public String showexport() throws Exception{
+		//System.out.println(kjsjjljgxxbForm.getFrmc());
+		kjgfjflqkService.showexportObject(kjgfjflqkForm.getDj());
+		operateSuccess=true;
+		return "showexport";
 	}
 }
 

@@ -227,6 +227,10 @@
 	    	<result name="update" type="json">
 				
 			</result>
+				<result name="showimport" type="json">
+			</result>
+			<result name="showexport" type="json">
+			</result>
 		</action>
 		<action name="KjjsxqcjbAction_*" class="platform.action.KjjsxqcjbAction" method="{1}">			
 			<result name="list" type="json">
@@ -490,6 +494,10 @@
 			</result>
 	    	<result name="update" type="json">
 				
+			</result>
+				<result name="showimport" type="json">
+			</result>
+			<result name="showexport" type="json">
 			</result>
 		</action>
 		
