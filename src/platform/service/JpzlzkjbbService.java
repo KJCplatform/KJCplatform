@@ -1,6 +1,8 @@
 package platform.service;
 
 import java.util.List;
+
+import platform.form.JpzlbgtjbForm;
 import platform.form.JpzlzkjbbForm;
 
 
@@ -12,7 +14,8 @@ public interface JpzlzkjbbService {
 	public void updateJpzlzkjbb(JpzlzkjbbForm jpzlzkjbbForm);
 	public void deleteObject(String id);
 	public void saveObject(JpzlzkjbbForm jpzlzkjbbForm);
-	public void showImportObject(String filePath) throws Exception;
-	public void showExportObject(String items)throws Exception;
+	void showImportObject(String filePath) throws Exception;
+	void showExportObject(String items) throws Exception;
+
 
 }

@@ -15,8 +15,11 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
 import excel.CreateExcel;
+import platform.dao.JpzlbgtjbDao;
 import platform.dao.JpzlzkjbbDao;
+import platform.domain.Jpzlbgtjb;
 import platform.domain.Jpzlzkjbb;
+import platform.form.JpzlbgtjbForm;
 import platform.form.JpzlzkjbbForm;
 import platform.service.JpzlzkjbbService;
 import platform.util.StringHelper;
@@ -27,6 +30,9 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 	
 	@Resource(name=JpzlzkjbbDao.SERVICE_NAME)
 	private JpzlzkjbbDao jpzlzkjbbDao;
+	
+	@Resource(name=JpzlbgtjbDao.SERVICE_NAME)
+	private JpzlbgtjbDao jpzlbgtjbDao;
 	private List<JpzlzkjbbForm> formListTemp ;
 	public List<JpzlzkjbbForm> findJpzlzkjbbList(){
 		String hqlWhere = "";
@@ -55,6 +61,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		params = paramsList.toArray();
 		List<Jpzlzkjbb> list=jpzlzkjbbDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
 		List<JpzlzkjbbForm> formlist=this.JpzlzkjbbPOListToVOList(list);
+		
 		if(pageno == 1){
 			formListTemp = 
 					JpzlzkjbbPOListToVOList(jpzlzkjbbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby));
@@ -71,7 +78,14 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 	  private String zlbmfzr;
 	  private Date bcrq;*/
 	public void updateJpzlzkjbb(JpzlzkjbbForm jpzlzkjbbForm){
-		Jpzlzkjbb jpzlzkjbb=new Jpzlzkjbb();
+		Jpzlzkjbb old=jpzlzkjbbDao.findObjectByID(Integer.valueOf(jpzlzkjbbForm.getId()));
+	     String oldjd=old.getJd();
+	     String olddwmc= old.getDwmc();
+	     String oldnf=old.getJlnf();   	    
+		
+		
+		
+		    Jpzlzkjbb jpzlzkjbb=new Jpzlzkjbb();
         //  jljlqjhzb.setCljg(jljlqjhzbForm.getCljg());
 		//	jljlqjhzb.setFwrq(StringHelper.stringConvertDate(jljlqjhzbForm.getFwrq()));
 			jpzlzkjbb.setId(Integer.valueOf(jpzlzkjbbForm.getId()));
@@ -83,20 +97,82 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			jpzlzkjbb.setZlhdqk(jpzlzkjbbForm.getZlhdqk());
 			jpzlzkjbb.setTbr(jpzlzkjbbForm.getTbr());
 			jpzlzkjbb.setZlbfzr(jpzlzkjbbForm.getZlbfzr());
-//			jpzlzkjbb.setShr(jpzlzkjbbForm.getShr());
-			jpzlzkjbb.setShr("123");
-			jpzlzkjbb.setBcrq(StringHelper.stringConvertDate2(jpzlzkjbbForm.getBcrq()));
-			
+			jpzlzkjbb.sets2hr(jpzlzkjbbForm.getS2hr());
 			jpzlzkjbb.setJlnf(jpzlzkjbbForm.getJlnf());
-			jpzlzkjbb.setUsername(jpzlzkjbbForm.getUsername());
-			jpzlzkjbb.setGxsj(jpzlzkjbbForm.getGxsj());
-			jpzlzkjbb.setSubmit(jpzlzkjbbForm.getSubmit());
-			
+			//jpzlzkjbb.sets2hr("123");
+			if(jpzlzkjbbForm.getBcrq()!=null&&!jpzlzkjbbForm.getBcrq().equals(""))
+			jpzlzkjbb.setBcrq(StringHelper.stringConvertDate2(jpzlzkjbbForm.getBcrq()));
 		    jpzlzkjbbDao.update(jpzlzkjbb);
-		
+		    
+		    
+		    String hqlWhere = "";
+			Object [] params = null;
+			List<String> paramsList=new ArrayList<String>();
+				hqlWhere += " and o.dwmc = ?";
+				paramsList.add(olddwmc);
+				hqlWhere += " and o.year = ?";
+				paramsList.add(oldnf);
+			params = paramsList.toArray();
+		    Jpzlbgtjb oldJpzlbgtjb=jpzlbgtjbDao.findCollectionByConditionNoPage(hqlWhere, params, null).get(0);
+		    switch(oldjd){
+		    case "1": oldJpzlbgtjb.setFirst(null);break;
+		    case "2": oldJpzlbgtjb.setSecond(null);break;
+		    case "3": oldJpzlbgtjb.setThird(null);break;
+		    case "4": oldJpzlbgtjb.setFourth(null);break;
+		    }
+		    oldJpzlbgtjb.setSubmit(false);
+		    //oldJpzlbgtjb.setUsername();
+		    oldJpzlbgtjb.setGxsj(new Date().toString());
+		    jpzlbgtjbDao.save(oldJpzlbgtjb);
+		    String hqlWhere1 = "";
+			Object [] params1 = null;
+			List<String> paramsList1=new ArrayList<String>();
+				hqlWhere1 += " and o.dwmc = ?";
+				paramsList1.add(jpzlzkjbbForm.getDwmc());
+				hqlWhere1 += " and o.year = ?";
+				paramsList1.add(jpzlzkjbbForm.getJlnf());
+				params1 = paramsList1.toArray();
+			    Jpzlbgtjb newJpzlbgtjb=(jpzlbgtjbDao.findCollectionByConditionNoPage(hqlWhere1, params1, null).size()==0)?(new Jpzlbgtjb()): (jpzlbgtjbDao.findCollectionByConditionNoPage(hqlWhere1, params1, null).get(0));
+			    newJpzlbgtjb.setDwmc(jpzlzkjbbForm.getDwmc());
+			    newJpzlbgtjb.setYear(jpzlzkjbbForm.getJlnf());
+			    switch(jpzlzkjbbForm.getJd()){
+			    case "1": newJpzlbgtjb.setFirst("是");break;
+			    case "2": newJpzlbgtjb.setSecond("是");break;
+			    case "3": newJpzlbgtjb.setThird("是");break;
+			    case "4": newJpzlbgtjb.setFourth("是");break;
+			    }
+			    newJpzlbgtjb.setSubmit(false);
+			    //oldJpzlbgtjb.setUsername();
+			    newJpzlbgtjb.setGxsj(new Date().toString());
+			    jpzlbgtjbDao.save(newJpzlbgtjb);
 	}
 	public void deleteObject(String id){
+		Jpzlzkjbb old=jpzlzkjbbDao.findObjectByID(Integer.valueOf(id));
+	     String oldjd=old.getJd();
+	     String olddwmc= old.getDwmc();
+	     String oldnf=old.getJlnf();  
+	     
 		jpzlzkjbbDao.deleteObjectByIDs(Integer.valueOf(id));
+		
+		String hqlWhere = "";
+		Object [] params = null;
+		List<String> paramsList=new ArrayList<String>();
+			hqlWhere += " and o.dwmc = ?";
+			paramsList.add(olddwmc);
+			hqlWhere += " and o.year = ?";
+			paramsList.add(oldnf);
+		params = paramsList.toArray();
+	    Jpzlbgtjb oldJpzlbgtjb=jpzlbgtjbDao.findCollectionByConditionNoPage(hqlWhere, params, null).get(0);
+	    switch(oldjd){
+	    case "1": oldJpzlbgtjb.setFirst(null);break;
+	    case "2": oldJpzlbgtjb.setSecond(null);break;
+	    case "3": oldJpzlbgtjb.setThird(null);break;
+	    case "4": oldJpzlbgtjb.setFourth(null);break;
+	    }
+	    oldJpzlbgtjb.setSubmit(false);
+	    //oldJpzlbgtjb.setUsername();
+	    oldJpzlbgtjb.setGxsj(new Date().toString());
+	    jpzlbgtjbDao.save(oldJpzlbgtjb);
 	}
 	public void saveObject(JpzlzkjbbForm jpzlzkjbbForm){
 		Jpzlzkjbb jpzlzkjbb=new Jpzlzkjbb();
@@ -110,20 +186,37 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		jpzlzkjbb.setZlhdqk(jpzlzkjbbForm.getZlhdqk());
 		jpzlzkjbb.setTbr(jpzlzkjbbForm.getTbr());
 		jpzlzkjbb.setZlbfzr(jpzlzkjbbForm.getZlbfzr());
-		//jpzlzkjbb.setShr(jpzlzkjbbForm.getShr());
-		jpzlzkjbb.setShr("123");
+		jpzlzkjbb.sets2hr(jpzlzkjbbForm.getS2hr());
+		jpzlzkjbb.setJlnf(jpzlzkjbbForm.getJlnf());
+		//jpzlzkjbb.sets2hr("123");
 		if(jpzlzkjbbForm.getBcrq()!=null&&!jpzlzkjbbForm.getBcrq().equals(""))
 		jpzlzkjbb.setBcrq(StringHelper.stringConvertDate2(jpzlzkjbbForm.getBcrq()));
-		
-		
-		jpzlzkjbb.setJlnf(jpzlzkjbbForm.getJlnf());
-		jpzlzkjbb.setUsername(jpzlzkjbbForm.getUsername());
-		jpzlzkjbb.setGxsj(jpzlzkjbbForm.getGxsj());
-		jpzlzkjbb.setSubmit(jpzlzkjbbForm.getSubmit());
 		
 		try{
 		jpzlzkjbbDao.save(jpzlzkjbb);
 		}catch(Exception e){System.out.println(e);}
+		
+		String hqlWhere1 = "";
+		Object [] params1 = null;
+		List<String> paramsList1=new ArrayList<String>();
+			hqlWhere1 += " and o.dwmc = ?";
+			paramsList1.add(jpzlzkjbbForm.getDwmc());
+			hqlWhere1 += " and o.year = ?";
+			paramsList1.add(jpzlzkjbbForm.getJlnf());
+			params1 = paramsList1.toArray();
+		    Jpzlbgtjb newJpzlbgtjb=(jpzlbgtjbDao.findCollectionByConditionNoPage(hqlWhere1, params1, null).size()==0)?(new Jpzlbgtjb()): (jpzlbgtjbDao.findCollectionByConditionNoPage(hqlWhere1, params1, null).get(0));
+		    newJpzlbgtjb.setDwmc(jpzlzkjbbForm.getDwmc());
+		    newJpzlbgtjb.setYear(jpzlzkjbbForm.getJlnf());
+		    switch(jpzlzkjbbForm.getJd()){
+		    case "1": newJpzlbgtjb.setFirst("是");break;
+		    case "2": newJpzlbgtjb.setSecond("是");break;
+		    case "3": newJpzlbgtjb.setThird("是");break;
+		    case "4": newJpzlbgtjb.setFourth("是");break;
+		    }
+		    newJpzlbgtjb.setSubmit(false);
+		    //oldJpzlbgtjb.setUsername();
+		    newJpzlbgtjb.setGxsj(new Date().toString());
+		    jpzlbgtjbDao.save(newJpzlbgtjb);
 	}
 	private List<JpzlzkjbbForm> JpzlzkjbbPOListToVOList(List<Jpzlzkjbb> list) {
 		// TODO Auto-generated method stub
@@ -142,19 +235,15 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			jpzlzkjbbForm.setZlhdqk(jpzlzkjbb.getZlhdqk());
 			jpzlzkjbbForm.setTbr(jpzlzkjbb.getTbr());
 			jpzlzkjbbForm.setZlbfzr(jpzlzkjbb.getZlbfzr());
-//			jpzlzkjbbForm.setShr(jpzlzkjbb.getShr());
-			jpzlzkjbbForm.setShr("123");
+			jpzlzkjbbForm.setS2hr(jpzlzkjbb.gets2hr());
+			//jpzlzkjbbForm.sets2hr("123");
 			jpzlzkjbbForm.setBcrq(String.valueOf(jpzlzkjbb.getBcrq()));
-			
 			jpzlzkjbbForm.setJlnf(jpzlzkjbb.getJlnf());
-			jpzlzkjbbForm.setUsername(jpzlzkjbb.getUsername());
-			jpzlzkjbbForm.setGxsj(jpzlzkjbb.getGxsj());
-			jpzlzkjbbForm.setSubmit(String.valueOf(jpzlzkjbb.getSubmit()));
-			
 			formlist.add(jpzlzkjbbForm);
 		}
 		return formlist;
 	}
+
 	@Override
 	public void showImportObject(String filePath) throws Exception {
 		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:");
@@ -171,7 +260,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			jpzlzkjbb.setZlhdqk(sheet.getCell(5, i).getContents());
 			jpzlzkjbb.setTbr(sheet.getCell(6, i).getContents());
 			jpzlzkjbb.setZlbfzr(sheet.getCell(7, i).getContents());
-			jpzlzkjbb.setShr(sheet.getCell(8, i).getContents());
+			jpzlzkjbb.sets2hr(sheet.getCell(8, i).getContents());
 			jpzlzkjbb.setBcrq(new SimpleDateFormat().parse(sheet.getCell(9, i).getContents()));
 			
 			jpzlzkjbbDao.save(jpzlzkjbb);
@@ -251,7 +340,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 				break;
 			case "9":
 			    for(int j= 0;j< len;j++){
-			    	li.add(formListTemp.get(j).getShr());
+			    	li.add(formListTemp.get(j).getS2hr());
 			    }
 			    lhm.put("审核人", new ArrayList<String>(li));
 			    li.clear();
@@ -280,7 +369,4 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		
 	}
 
-	
 }
-	
-
