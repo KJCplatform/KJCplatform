@@ -86,7 +86,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setZywcr(kjzlcjbForm.getZywcr());
 		kjzlcjb.setZlh(kjzlcjbForm.getZlh());
 		kjzlcjb.setGkh(kjzlcjbForm.getGkh());
-		kjzlcjb.setGkr(StringHelper.stringConvertDate2(kjzlcjbForm.getGkr()));
+		kjzlcjb.setGkr(StringHelper.stringConvertDate(kjzlcjbForm.getGkr()));
 		kjzlcjb.setZflh(kjzlcjbForm.getZflh());
 		kjzlcjb.setFlzt(kjzlcjbForm.getFlzt());
 		kjzlcjb.setCgjj(kjzlcjbForm.getCgjj());
@@ -147,7 +147,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setZywcr(kjzlcjbForm.getZywcr());
 		kjzlcjb.setZlh(kjzlcjbForm.getZlh());
 		kjzlcjb.setGkh(kjzlcjbForm.getGkh());
-		kjzlcjb.setGkr(StringHelper.stringConvertDate2(kjzlcjbForm.getGkr()));
+		kjzlcjb.setGkr(StringHelper.stringConvertDate(kjzlcjbForm.getGkr()));
 		kjzlcjb.setZflh(kjzlcjbForm.getZflh());
 		kjzlcjb.setFlzt(kjzlcjbForm.getFlzt());
 		kjzlcjb.setCgjj(kjzlcjbForm.getCgjj());
@@ -296,7 +296,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		
 		cell= sheet.getCell(1,8);
 		if(!cell.getContents().equals(""))
-		kjzlcjb.setGkr(StringHelper.stringConvertDate2(cell.getContents()));
+		kjzlcjb.setGkr(StringHelper.stringConvertDate(cell.getContents()));
 		
 		cell= sheet.getCell(1,9);
 		kjzlcjb.setZflh(cell.getContents());

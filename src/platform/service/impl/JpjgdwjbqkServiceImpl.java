@@ -26,7 +26,7 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 	
 	@Resource(name=JpjgdwjbqkDao.SERVICE_NAME)
 	private JpjgdwjbqkDao jpjgdwjbqkDao;
-
+	private JpjgdwjbqkForm jpjgdwjbqkFormTemp = null;
 	public String saveJpjgdwjbqk(JpjgdwjbqkForm jpjgdwjbqkForm){
 		Jpjgdwjbqk jpjgdwjbqk=this.VoObjecttoPoObject(jpjgdwjbqkForm);
 		jpjgdwjbqkDao.save(jpjgdwjbqk);
@@ -135,6 +135,7 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 		params = paramsList.toArray();
 		List<Jpjgdwjbqk> list=jpjgdwjbqkDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<JpjgdwjbqkForm> formlist=this.JpjgdwjbqkPoToVoList(list);
+		if(formlist.size() == 1) jpjgdwjbqkFormTemp = formlist.get(0);
 		return formlist;
 	}
 

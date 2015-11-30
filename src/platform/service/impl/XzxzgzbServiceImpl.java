@@ -69,11 +69,11 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		Xzxzgzb xzxzgzb=new Xzxzgzb();
 		xzxzgzb.setCljg(xzxzgzbForm.getCljg());
 		xzxzgzb.setFwjg(xzxzgzbForm.getFwjg());
-		xzxzgzb.setFwrq(StringHelper.stringConvertDate2(xzxzgzbForm.getFwrq()));
+		xzxzgzb.setFwrq(StringHelper.stringConvertDate(xzxzgzbForm.getFwrq()));
 		xzxzgzb.setId(Integer.valueOf(xzxzgzbForm.getId()));
 		xzxzgzb.setJbnr(xzxzgzbForm.getJbnr());
 		xzxzgzb.setJbr(xzxzgzbForm.getJbr());
-		xzxzgzb.setJzrq(StringHelper.stringConvertDate2(xzxzgzbForm.getJzrq()));
+		xzxzgzb.setJzrq(StringHelper.stringConvertDate(xzxzgzbForm.getJzrq()));
 		xzxzgzb.setWjh(xzxzgzbForm.getWjh());
 		xzxzgzb.setWjm(xzxzgzbForm.getWjm());
 		
@@ -96,10 +96,10 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		Xzxzgzb xzxzgzb=new Xzxzgzb();
 		xzxzgzb.setCljg(xzxzgzbForm.getCljg());
 		xzxzgzb.setFwjg(xzxzgzbForm.getFwjg());
-		xzxzgzb.setFwrq(StringHelper.stringConvertDate2(xzxzgzbForm.getFwrq()));
+		xzxzgzb.setFwrq(StringHelper.stringConvertDate(xzxzgzbForm.getFwrq()));
 		xzxzgzb.setJbnr(xzxzgzbForm.getJbnr());
 		xzxzgzb.setJbr(xzxzgzbForm.getJbr());
-		xzxzgzb.setJzrq(StringHelper.stringConvertDate2(xzxzgzbForm.getJzrq()));
+		xzxzgzb.setJzrq(StringHelper.stringConvertDate(xzxzgzbForm.getJzrq()));
 		xzxzgzb.setWjh(xzxzgzbForm.getWjh());
 		xzxzgzb.setWjm(xzxzgzbForm.getWjm());
 		

@@ -13,7 +13,19 @@ public class StringHelper {
 	* @Return: Date 日期类型
 	*/
 	public static Date stringConvertDate(String date) {
-		SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+		SimpleDateFormat format = new SimpleDateFormat();
+		if(date.matches("\\d{4}/\\d{2}/\\d{2}")){
+			 format = new SimpleDateFormat("yyyy/MM/dd");
+		}
+		if(date.matches("\\d{2}/\\d{2}/\\d{4}")){
+			format = new SimpleDateFormat("MM/dd/yyyy");
+		}
+		if(date.matches("\\d{4}-\\d{2}-\\d{2}")){
+			 format = new SimpleDateFormat("yyyy-MM-dd");
+		}
+		if(date.matches("\\d{2}-\\d{2}-\\d{4}")){
+			format = new SimpleDateFormat("MM-dd-yyyy");
+		}		
 		Date d = null;
 		try {
 			d = format.parse(date);
