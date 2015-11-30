@@ -361,6 +361,28 @@ function ShowExport(){
 	   }
 
 
+//Excelselect
+function selectExcel() {
+	$("#tabEdit2").dialog({
+		modal : true,// 模式窗口
+		title : '导出Excel',
+		iconCls : 'icon-save',
+		buttons : [ {
+			text : '确认',
+			handler : function() {
+				
+				ShowExport();
+				closeForm2();
+			}
+		}, {
+			text : '取消',
+			handler : function() {
+				closeForm2();
+			}
+		} ]
+	});
+}
+
 
 
 
