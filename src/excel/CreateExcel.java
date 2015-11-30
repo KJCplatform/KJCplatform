@@ -165,9 +165,9 @@ public class CreateExcel {
 			name = "导出信息.xls";
 		WritableWorkbook wwb = Workbook.createWorkbook(new File(name));
 		WritableSheet sheet = wwb.createSheet("第一页", 0);
-		WritableFont wf = new WritableFont(WritableFont.createFont("微软雅黑"), 10);
+		WritableFont wf = new WritableFont(WritableFont.createFont("宋体"), 12);
 		WritableCellFormat wcf = new WritableCellFormat(wf);
-		wcf.setBorder(jxl.format.Border.ALL, jxl.format.BorderLineStyle.HAIR);
+		wcf.setBorder(jxl.format.Border.ALL, jxl.format.BorderLineStyle.THIN);
 		wcf.setAlignment(Alignment.CENTRE);
 
 		sheet.setRowView(0, 800);

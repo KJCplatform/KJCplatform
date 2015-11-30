@@ -163,8 +163,8 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 		Workbook workbook = Workbook.getWorkbook(new File(path));		
 		Sheet sheet = workbook.getSheet(0);
 		int rows = sheet.getRows();
-		
-		
+	
+	
 		for(int i = 1 ; i < rows; i ++){
 			Jljlrytjb  jljlrytjb = new Jljlrytjb();
 			jljlrytjb.setDwmc(sheet.getCell(0, i).getContents());
@@ -181,6 +181,7 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 			jljlrytjb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()).toString());
 			jljlrytjb.setSubmit("");
 			jljlrytjb.setUsername(formListTemp.get(0).getUsername());
+			
 			jljlrytjbDao.save(jljlrytjb);
 		}
 		

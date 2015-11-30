@@ -449,7 +449,24 @@ function deleteInfo(){
 			
 		}
 		
-		
+		function ShowExport(){
+
+			var showimport = basePath + '/system/JpjgdwjbqkAction_showexport.action';
+			            				
+			$.post(showimport, function(result) {
+			        			if (result.operateSuccess) {
+			        					$('#dg').datagrid('reload');// 重新加载
+			        					$.messager.alert('导出', '导出Excel成功', 'info');
+			        				
+			        			}else {
+			        					$.messager.alert('导出', '文件被占用！导出Excel失败', 'warning');
+			        				}
+			        		});
+		  
+			            	  return false;
+			   }
+
+
 
 	</script>
 </head>
@@ -470,10 +487,14 @@ function deleteInfo(){
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0);" onclick="deleteInfo();">删除</a>
 					</td>	 
+					<td>
+						<a href="#" class="easyui-linkbutton" id="btnExport" onclick="ShowExport()" >导出</a>      
+					</td>
                 </tr>
             </table>
         </form>
 </div>
+
 
 <div data-options="region:'center',split:false">
 	

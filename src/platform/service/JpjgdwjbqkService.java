@@ -18,7 +18,7 @@ public interface JpjgdwjbqkService {
 	public void updateObject(JpjgdwjbqkForm jpjgdwjbqkForm);
 	public void deleteObject(String id);
 	public void showImportObject(String filePath) throws Exception;
-	public void showExportObject(String items) throws Exception;
+	public void showExportObject() throws Exception;
 
 
 }

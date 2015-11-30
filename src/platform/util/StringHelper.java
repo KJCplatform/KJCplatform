@@ -13,19 +13,25 @@ public class StringHelper {
 	* @Return: Date 日期类型
 	*/
 	public static Date stringConvertDate(String date) {
-		SimpleDateFormat format = new SimpleDateFormat();
+		SimpleDateFormat format = null;
 		if(date.matches("\\d{4}/\\d{2}/\\d{2}")){
 			 format = new SimpleDateFormat("yyyy/MM/dd");
 		}
-		if(date.matches("\\d{2}/\\d{2}/\\d{4}")){
+		if(format == null && date.matches("\\d{2}/\\d{2}/\\d{4}")){
 			format = new SimpleDateFormat("MM/dd/yyyy");
 		}
-		if(date.matches("\\d{4}-\\d{2}-\\d{2}")){
+		if(format == null && date.matches("\\d{4}-\\d{2}-\\d{2}")){
 			 format = new SimpleDateFormat("yyyy-MM-dd");
 		}
-		if(date.matches("\\d{2}-\\d{2}-\\d{4}")){
+		if(format == null && date.matches("\\d{2}-\\d{2}-\\d{4}")){
 			format = new SimpleDateFormat("MM-dd-yyyy");
 		}		
+		if(format == null && date.matches("\\d{4}\\.\\d{2}\\.\\d{2}")){
+			format = new SimpleDateFormat("yyyy.MM.dd");
+		}
+		if(format == null && date.matches("\\d{2}\\.\\d{2}\\.\\d{4}")){
+			format = new SimpleDateFormat("MM.dd.yyyy");
+		}
 		Date d = null;
 		try {
 			d = format.parse(date);
@@ -34,6 +40,8 @@ public class StringHelper {
 		}
 		return d;
 	}
+	
+	
 	public static Date stringConvertDate2(String date) {
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		Date d = null;
