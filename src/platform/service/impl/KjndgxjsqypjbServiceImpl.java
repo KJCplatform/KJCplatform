@@ -250,20 +250,32 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 		cell=sheet.getCell(9,2);
 		kjndgxjsqypjb.setCply(cell.getContents());
 	
+		try{
 		cell=sheet.getCell(2,3);
-		kjndgxjsqypjb.setZgzs(Integer.valueOf(cell.getContents().trim()));
-	
+		if(!cell.getContents().equals(""))
+		kjndgxjsqypjb.setZgzs(Integer.valueOf(cell.getContents()));
+		}catch(Exception e){System.out.println(e);}
+		
+		try{
 		cell=sheet.getCell(7,3);
-		kjndgxjsqypjb.setDzysrs(Integer.valueOf(cell.getContents().trim()));
-	
+		if(!cell.getContents().equals(""))
+		kjndgxjsqypjb.setDzysrs(Integer.valueOf(cell.getContents()));
+		}catch(Exception e){}
+		try{
 		cell=sheet.getCell(10,3);
-		kjndgxjsqypjb.setYfrys(Integer.valueOf(cell.getContents().trim()));
-	
+		if(!cell.getContents().equals(""))
+		kjndgxjsqypjb.setYfrys(Integer.valueOf(cell.getContents()));
+		}catch(Exception e){}
+		try{
 		cell=sheet.getCell(4,4);
-		kjndgxjsqypjb.setXmhds(Integer.valueOf(cell.getContents().trim()));
-	
+		if(!cell.getContents().equals(""))
+		kjndgxjsqypjb.setXmhds(Integer.valueOf(cell.getContents()));
+		}catch(Exception e){}
+		try{
 		cell=sheet.getCell(10,4);
-		kjndgxjsqypjb.setCphds(Integer.valueOf(cell.getContents().trim()));
+		if(!cell.getContents().equals(""))
+		kjndgxjsqypjb.setCphds(Integer.valueOf(cell.getContents()));
+		}catch(Exception e){}
 	
 		cell=sheet.getCell(4,6);
 		kjndgxjsqypjb.setJfze(cell.getContents());

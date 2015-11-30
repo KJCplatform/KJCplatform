@@ -93,11 +93,11 @@
 					<th field="jfze">研发项目经费核定总额</th>
 					<th field="yncpsr">近一年高新产品销售收入核定额</th>
 					<th field="jnyfze">在中国境内研发费用总额定数</th>
-					<th field="dzrybl">大专以上学历科技人员占企业职工总数比例</th>
-					<th field="yfrybl">研发人员占企89业职工总数的比例</th>
-					<th field="jsnyfbl">近3年研究开发费用总额占总销售收入比例</th>
-					<th field="jsnjnbl">近3年在中国境内研发费用总额占全部研发费用总额比例</th>
-					<th field="jyngxsrbl">近1年高新技术产品（服务）收入占当年总收入比例</th>
+					<th field="dzrybl">大专以上学历科技人员占企业职工总数比例(%)</th>
+					<th field="yfrybl">研发人员占企89业职工总数的比例(%)</th>
+					<th field="jsnyfbl">近3年研究开发费用总额占总销售收入比例(%)</th>
+					<th field="jsnjnbl">近3年在中国境内研发费用总额占全部研发费用总额比例(%)</th>
+					<th field="jyngxsrbl">近1年高新技术产品（服务）收入占当年总收入比例(%)</th>
 					<th field="zhdf">综合得分</th>
 					<th field="zscqdf">知识产权得分</th>
 					<th field="zhnldf">转化能力得分</th>
