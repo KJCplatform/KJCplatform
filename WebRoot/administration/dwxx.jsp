@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		});
 		//加载列表
 		function listDoc() {
-			var actionPath = basePath + '/system/list.action';
+			var actionPath = basePath + '/system/JpzlzkdwbAction_list.action';
 			 $('#dg').datagrid({
 		            title : '单位信息维护表',
 		            width : 1200,
@@ -93,7 +93,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		//查询
 		function doSearch(){
 			$('#dg').datagrid('load',{
-				dwmc: $('#dwmc').val()
+				dwmc: $('#dw').val()
 			});
 		}
 		// 显示编辑窗口
@@ -157,8 +157,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		function dealSave() {
 			// 表单数据序列化成一个字符串用&拼接
 			var params = $("#frmEdit").serialize();
-			var actionAdd = basePath + '/system/add.action';
-			var actionUpdate = basePath + '/system/update.action';
+			var actionAdd = basePath + '/system/JpzlzkdwbAction_add.action';
+			var actionUpdate = basePath + '/system/JpzlzkdwbAction_update.action';
 			// 得到doc的值，为空串表示添加的值，为空串表示添加
 			if ($("#id").val() == "") {
 				$.post(actionAdd, params, function(result) {
@@ -192,7 +192,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 			$.messager.confirm('确认', '真的要删除选中的记录吗？', function(r) {
 				if (r) {
-					var actionPath = basePath + '/system/delete.action?id=';
+					var actionPath = basePath + '/system/JpzlzkdwbAction_delete.action?id=';
 					var url = actionPath + doc.id;
 					// 试一下get方法（地址，回调函数）
 					$.get(url, function(result) {
@@ -214,13 +214,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-<div data-options="region:'north',title:'查询'" style="height: 60px;">
+<!-- <div data-options="region:'north',title:'查询'" style="height: 60px;">
         <form id="searchForm">
             <table>
                 <tr>
 					<th>单位名称：</th>
 					<td>
-                        <input id="dwmc" />
+                        <input id="dw" />
 					</td>
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>
@@ -229,7 +229,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </tr>
             </table>
         </form>
-</div>
+</div> -->
 
 
 <div data-options="region:'center',split:false">
@@ -246,7 +246,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <!-- 编辑数据的div，默认看不到 -->
 <div id="divEdit" style="display:none;">
 	<div id="tabEdit">
-		<form id="frmEdit" style="width:800px; height:400px; overflow:auto;" method= "post">
+		<form id="frmEdit" style="width:600px; height:400px; overflow:auto;" method= "post">
 			<input type="hidden" id="id" name="id" />
 			<dl>
 				<dd>单位名称:</dd>

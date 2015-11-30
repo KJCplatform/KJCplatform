@@ -33,7 +33,7 @@ import container.ServiceProvider;
 
 @SuppressWarnings({ "unused", "serial" })
 public class JpzlzkdwbAction extends BaseAction implements ModelDriven<JpzlzkdwbForm>{
-	String username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+	String username;	
 	public int page = 0;
 	public boolean operateSuccess;
 	public boolean isOperateSuccess() {
@@ -73,12 +73,16 @@ public class JpzlzkdwbAction extends BaseAction implements ModelDriven<Jpzlzkdwb
 	}
 	Map<String, Object> map = new HashMap<String, Object>();
 	public String list(){
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
 		List<JpzlzkdwbForm>  formlist=jpzlzkdwbService.findJpzlzkdwbWithPage(rows,page);
+		//System.out.println(formlist.get(0).getDwmc());
 		map.put("rows", formlist);
 		map.put("total",jpzlzkdwbService.findJpzlzkdwbList().size());
+		this.setResponseJson(map);
 		return "list";
 	}
 	public String update(){
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
 		jpzlzkdwbService.updateObject(jpzlzkdwbForm,username);
 		operateSuccess=true;
 		return "update";
@@ -89,6 +93,7 @@ public class JpzlzkdwbAction extends BaseAction implements ModelDriven<Jpzlzkdwb
 		return   "delete";
 	}
 	public String add(){
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
 		jpzlzkdwbService.saveObject(jpzlzkdwbForm,username);
 		operateSuccess=true;
 		return "add";

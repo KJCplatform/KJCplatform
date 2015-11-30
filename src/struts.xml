@@ -884,6 +884,21 @@
 			<result name="showexport" type="json">
 			</result>
 		</action>
+		<action name="JpzlzkdwbAction_*" class="platform.action.JpzlzkdwbAction"
+			method="{1}">
+			<result name="list" type="json">
+				<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+
+			</result>
+			<result name="delete" type="json">
+
+			</result>
+			<result name="update" type="json">
+
+			</result>	
+		</action>
 		
 			<action name="Kjjszjcjb4Action_*" class="platform.action.Kjjszjcjb4Action" method="{1}">			
 			<result name="list" type="json">
