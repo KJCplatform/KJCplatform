@@ -128,14 +128,24 @@
 				<input type="hidden" id="id" name="id" />
 				<dl>
 					<dd>
-						季度: <input size="15" id="jd" name="jd" />
+						季度: <select style="width: 150px" id="jd" name="jd" >
+				<option value="一季度">一季度</option>
+				<option value="二季度">二季度</option>
+				<option value="三季度">三季度</option>
+				<option value="四季度">四季度</option>
+				</select>
 					</dd>
 				</dl>
 
 
 				<dl>
 					<dd>
-						单位名称: <input size="15" id="dwmc" name="dwmc" />
+						单位名称:<select style="width: 150px" id="dwmc" name="dwmc" >
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				</select>
 					</dd>
 				</dl>
 				<dl>
@@ -197,7 +207,7 @@
 				<select style="width: 150px" id="submit" name="submit" >
 				<option value="是">是</option>
 				<option value="否">否</option>
-				
+				</select>
 				</dd>
 			</dl> 
 
