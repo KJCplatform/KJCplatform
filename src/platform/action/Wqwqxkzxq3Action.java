@@ -68,14 +68,18 @@ public class Wqwqxkzxq3Action extends BaseAction implements ModelDriven<Wqwqxkzx
 		//System.out.println(page+":"+rows);
 		//wqwqxkzxq3Form.setWjm("test");
 		//wqwqxkzxq3Form.setWjh("2");
+		try{
 		List<Wqwqxkzxq3Form> formlist=wqwqxkzxq3Service.findWqwqxkzxq3ListWithPage(rows,page,wqwqxkzxq3Form);
+		
+		
 		//System.out.println(formlist.get(formlist.size()-1).getCljg());
 		map.put("rows", formlist);
+		}catch(Exception e){System.out.println(e);}
 		map.put("total", wqwqxkzxq3Service.findWqwqxkzxq3List().size());
-		
+		map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
 		this.setResponseJson(map);
 		
-		map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
+		
 		//System.out.println(String.valueOf(request.getSession().getAttribute("hhs_user")));
 		//map.put("role", 1);
 		

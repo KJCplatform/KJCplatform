@@ -11,7 +11,7 @@
 				<property name="xh" type="string">
 			<column name="xh" />
 		</property>
-		<property name="xmdm" type="date">
+		<property name="xmdm" type="string">
 			<column name="xmdm" />
 		</property>
 		<property name="xmmc" type="string">

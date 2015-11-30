@@ -72,10 +72,10 @@ public class Wqwqxkzxq1Action extends BaseAction implements ModelDriven<Wqwqxkzx
 		//System.out.println(formlist.get(formlist.size()-1).getCljg());
 		map.put("rows", formlist);
 		map.put("total", wqwqxkzxq1Service.findWqwqxkzxq1List().size());
-		
+		map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
 		this.setResponseJson(map);
 		
-		map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
+		
 		//System.out.println(String.valueOf(request.getSession().getAttribute("hhs_user")));
 		//map.put("role", 1);
 		
