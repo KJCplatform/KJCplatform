@@ -106,7 +106,9 @@ public class AddrightAction extends BaseAction implements ModelDriven<AddrightFo
 		return   "delete";
 	}
 	public String add(){
-		addrightService.saveObject(addrightForm);
+		System.out.println(addrightForm.getUserid());
+		System.out.println(addrightForm.getRightid());
+		addrightService.saveObject(addrightForm.getUserid(),addrightForm.getRightid());
 		operateSuccess=true;
 		return "add";
 	}

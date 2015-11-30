@@ -154,7 +154,7 @@ function loadcombotree() {
 //查询
 function doSearch(){
 	$('#dg').datagrid('load',{
-		name: $('#rightname').val(),
+		userid: $('#rightname').val(),
 		
 	});
 }
@@ -220,33 +220,34 @@ function editDoc() {
 	showEditForm();
 }
 function dealSave() {
-	// 表单数据序列化成一个字符串用&拼接
-	var params = $("#frmEdit").serialize();
-	var actionAdd = basePath + '/system/AddrightAction_add.action';
-	var actionUpdate = basePath + '/system/AddrightAction_update.action';
-	// 得到doc的值，为空串表示添加的值，为空串表示添加
 
-	if ($("#id").val() == "") {
-		$.post(actionAdd, params, function(result) {
-			if (result.operateSuccess) {
-				//	alert(result);
-					$('#dg').datagrid('reload');// 重新加载
-					$.messager.alert('添加', '添加成功', 'info');
-			} else {
-					$.messager.alert('添加', '添加失败', 'warning');
-				}
-		});
-		} else {
-		// 表示更新
-			$.post(actionUpdate, params, function(result) {
-				if (result.operateSuccess) {
-					$('#dg').datagrid('reload');// 重新加载
-						$.messager.alert('更新', '更新成功', 'info');
-				} else {
-						$.messager.alert('更新', '更新失败', 'warning');
-					}
-			});
-		}
+	var Items = document.getElementsByName("rightid"); 
+	var params ="rightid=";
+	
+    for(var i = 0; i < Items.length; i++) 
+    { 
+       if(Items[i].checked == true) 
+       { 
+    	   params+=Items[i].value+" "; 
+       } 
+    } 
+    params+="&userid="+$('#userid').combobox('getValue');
+    
+	//alert(params);
+
+	var showimport =  basePath + '/system/AddrightAction_add.action';
+	            				
+	$.post(showimport, params, function(result) {
+	        			if (result.operateSuccess) {
+	        					$('#dg').datagrid('reload');// 重新加载
+	        					$.messager.alert('添加', '添加用户权限成功', 'info');
+	        				
+	        			}else {
+	        					$.messager.alert('添加', '添加用户权限失败', 'warning');
+	        				}
+	        		});
+  
+	            	  return false;
 	}
 //保存操作第二种实现方法
 function save(){

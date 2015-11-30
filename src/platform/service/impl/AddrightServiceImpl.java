@@ -55,8 +55,8 @@ public class AddrightServiceImpl implements AddrightService{
 		Addright addright=new Addright();
 		System.out.println(addrightForm.getId());
 		addright.setId(Integer.valueOf(addrightForm.getId()));
-		addright.setUserid(addrightForm.getUserid());
-		addright.setRightid(addrightForm.getRightid());
+		addright.setUserid(Integer.valueOf(addrightForm.getUserid()));
+		addright.setRightid(Integer.valueOf(addrightForm.getRightid()));
 		
 		addrightDao.update(addright);
 		
@@ -64,13 +64,14 @@ public class AddrightServiceImpl implements AddrightService{
 	public void deleteObject(String id){
 		addrightDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(AddrightForm addrightForm){
-		Addright addright=new Addright();
-		addright.setUserid(addrightForm.getUserid());
-		addright.setRightid(addrightForm.getRightid());
-		
-		addrightDao.save(addright);
-	}
+//	public void saveObject(AddrightForm addrightForm){
+//		Addright addright=new Addright();
+//		addright.setUserid(addrightForm.getUserid());
+//		addright.setRightid(addrightForm.getRightid());
+//		
+//		addrightDao.save(addright);
+//	}
+	
 	private List<AddrightForm> AddrightPOListToVOList(List<Addright> list) {
 		// TODO Auto-generated method stub
 		List<AddrightForm> formlist=new ArrayList<AddrightForm>();
@@ -78,13 +79,25 @@ public class AddrightServiceImpl implements AddrightService{
 			Addright addright=list.get(i);
 			AddrightForm addrightForm=new AddrightForm();
 			addrightForm.setId(String.valueOf(addright.getId()));
-			addrightForm.setUserid(addright.getUserid());
-			addrightForm.setRightid(addright.getRightid());
+			addrightForm.setUserid(String.valueOf(addright.getUserid()));
+			addrightForm.setRightid(String.valueOf(addright.getRightid()));
 			
 			formlist.add(addrightForm);
 		}
 		return formlist;
 	}
+
+public void saveObject(String userid, String rightid) {
+	String[] ss = rightid.split(" ");  
+	Addright addright=new Addright();
+	for(int i=0;i<ss.length;i++)
+	{
+		addright.setUserid(Integer.valueOf(userid));
+		addright.setRightid(Integer.valueOf(ss[i]));
+		addrightDao.save(addright);
+	}
+	
+}
 
 	
 }
