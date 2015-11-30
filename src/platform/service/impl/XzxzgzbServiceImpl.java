@@ -69,11 +69,11 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		Xzxzgzb xzxzgzb=new Xzxzgzb();
 		xzxzgzb.setCljg(xzxzgzbForm.getCljg());
 		xzxzgzb.setFwjg(xzxzgzbForm.getFwjg());
-		xzxzgzb.setFwrq(StringHelper.stringConvertDate2(xzxzgzbForm.getFwrq()));
+		xzxzgzb.setFwrq(StringHelper.stringConvertDate(xzxzgzbForm.getFwrq()));
 		xzxzgzb.setId(Integer.valueOf(xzxzgzbForm.getId()));
 		xzxzgzb.setJbnr(xzxzgzbForm.getJbnr());
 		xzxzgzb.setJbr(xzxzgzbForm.getJbr());
-		xzxzgzb.setJzrq(StringHelper.stringConvertDate2(xzxzgzbForm.getJzrq()));
+		xzxzgzb.setJzrq(StringHelper.stringConvertDate(xzxzgzbForm.getJzrq()));
 		xzxzgzb.setWjh(xzxzgzbForm.getWjh());
 		xzxzgzb.setWjm(xzxzgzbForm.getWjm());
 		
@@ -96,10 +96,10 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		Xzxzgzb xzxzgzb=new Xzxzgzb();
 		xzxzgzb.setCljg(xzxzgzbForm.getCljg());
 		xzxzgzb.setFwjg(xzxzgzbForm.getFwjg());
-		xzxzgzb.setFwrq(StringHelper.stringConvertDate2(xzxzgzbForm.getFwrq()));
+		xzxzgzb.setFwrq(StringHelper.stringConvertDate(xzxzgzbForm.getFwrq()));
 		xzxzgzb.setJbnr(xzxzgzbForm.getJbnr());
 		xzxzgzb.setJbr(xzxzgzbForm.getJbr());
-		xzxzgzb.setJzrq(StringHelper.stringConvertDate2(xzxzgzbForm.getJzrq()));
+		xzxzgzb.setJzrq(StringHelper.stringConvertDate(xzxzgzbForm.getJzrq()));
 		xzxzgzb.setWjh(xzxzgzbForm.getWjh());
 		xzxzgzb.setWjm(xzxzgzbForm.getWjm());
 		
@@ -140,20 +140,21 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 	public void showImportObject(String filePath) throws Exception {
 		// TODO Auto-generated method stub
 		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:");
+		
 		Workbook workbook = Workbook.getWorkbook(new File(path));		
 		Sheet sheet = workbook.getSheet(0);
-		int rows = sheet.getRows();
-		Xzxzgzb xzxzgzb = new Xzxzgzb();
-		
+		int rows = sheet.getRows();	
 		for(int i = 1 ; i < rows; i++){
+			Xzxzgzb xzxzgzb = new Xzxzgzb();
 			xzxzgzb.setWjm(sheet.getCell(0, i).getContents());
 			xzxzgzb.setWjh(sheet.getCell(1, i).getContents());
 			xzxzgzb.setFwjg(sheet.getCell(2, i).getContents());
-			xzxzgzb.setFwrq(new SimpleDateFormat().parse(sheet.getCell(3, i).getContents()));
+			xzxzgzb.setFwrq(StringHelper.stringConvertDate(sheet.getCell(3, i).getContents()));
 			xzxzgzb.setJbnr(sheet.getCell(4, i).getContents());
-			xzxzgzb.setJzrq(new SimpleDateFormat().parse(sheet.getCell(5, i).getContents()));
+			xzxzgzb.setJzrq(StringHelper.stringConvertDate(sheet.getCell(5, i).getContents()));
 			xzxzgzb.setJbr(sheet.getCell(6, i).getContents());
 			xzxzgzb.setCljg(sheet.getCell(7, i).getContents());
+			xzxzgzb.setGxsj(sheet.getCell(8, i).getContents());
 			
 			xzxzgzbDao.save(xzxzgzb);
 		}
@@ -229,12 +230,18 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 			    lhm.put("处理结果", new ArrayList<String>(li));
 			    li.clear();
 				break;
+			case "9":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getGxsj());
+			    }
+			    lhm.put("记录时间", new ArrayList<String>(li));
+			    li.clear();
+				break;	
 			}
 		}
 					
 		return lhm;
-	}
-	
+	}	
 	@Override
 	public void showExportObject(String items) throws Exception {
 		// TODO Auto-generated method stub

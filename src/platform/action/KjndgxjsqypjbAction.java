@@ -122,6 +122,16 @@ public class KjndgxjsqypjbAction extends BaseAction implements ModelDriven<Kjndg
 		return "showexport";
 	}
 	
+	public String showexportone() throws Exception{
+		
+		System.out.println(kjndgxjsqypjbForm.getId());
+    	List<KjndgxjsqypjbForm> formlist=kjndgxjsqypjbService.findKjndgxjsqypjbById(kjndgxjsqypjbForm);
+    	 System.out.println("start!");
+    System.out.println(formlist.get(0).getId());
+		kjndgxjsqypjbService.showexportoneObject(formlist);
+		operateSuccess=true;
+		return "showexport";
+	}
 	
 	
 	

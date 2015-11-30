@@ -63,6 +63,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </form>
 </div>
 
+<form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
+   选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
+       　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
+       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
+</form>
+
+<div id="divEdit2" style="display:none;">
+	<div id="tabEdit2" style="overflow-y:auto;">
+		<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
+		 >>>请选择导出项<<<
+		 <br> <br>
+<input name="Items" type="checkbox" checked="checked" value="1" />法人单位名称<br>
+<input name="Items" type="checkbox" checked="checked" value="2" />所属计量专业<br> 
+<input name="Items" type="checkbox" checked="checked" value="3" />企事业最高计量标准器具名称 <br> 
+<input name="Items" type="checkbox" checked="checked" value="4" />证书号<br> 
+<input name="Items" type="checkbox" checked="checked" value="5" />主标准器名称型号<br> 
+<input name="Items" type="checkbox" checked="checked" value="6" />配套设备名称型号<br>
+<input name="Items" type="checkbox" checked="checked" value="7" />测量参数及范围<br>
+<input name="Items" type="checkbox" checked="checked" value="8" />不确定度或准确度等级或最大允许误差<br>
+<input name="Items" type="checkbox" checked="checked" value="9" />主标准器溯源机构		<br>
+<input name="Items" type="checkbox" checked="checked" value="10" />记录日期(年份)	<br>
+
+		</form>
+	</div>
+</div>				        					         	
+
 
 <div data-options="region:'center',split:false">
 	<!-- 表格主题部分-->

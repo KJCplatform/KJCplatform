@@ -8,10 +8,10 @@
 			<column name="id"  not-null="true"/>
 			<generator class="identity"/>
 		</id>
-        <property name="userid" type="string">
+        <property name="userid" type="integer">
 			<column name="userid" />
 		</property>
-		<property name="rightid" type="string">
+		<property name="rightid" type="integer">
 			<column name="rightid" />
 		</property>
 		

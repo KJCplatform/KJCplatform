@@ -49,6 +49,10 @@
 
 <body>
 
+  
+
+
+
 	<div data-options="region:'north',title:'高级查询'" style="height: 60px;">
 		<form id="searchForm">
 			<table>
@@ -66,7 +70,13 @@
 				</tr>
 			</table>
 		</form>
-	</div>
+	</div> 
+	
+	 <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
+   选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
+       　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
+       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
+</form>
 
 
 	<div data-options="region:'center',split:false">
@@ -110,13 +120,53 @@
 						主要完成单位: <input size="15" id="zywcdw" name="zywcdw" />
 					</dd>
 				</dl>
-
-
-
-
-			</form>
-		</div>
+</form>
 	</div>
+</div>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="divEdit2" style="display:none;">
+	<div id="tabEdit2" style="overflow-y:auto;">
+		<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
+		 >>>请选择导出项<<<
+		 <br> <br>
+<input name="Items" type="checkbox" checked="checked" value="1" />奖励等级<br>
+<input name="Items" type="checkbox" checked="checked" value="2" />项目名称<br> 
+<input name="Items" type="checkbox" checked="checked" value="3" />主要完成单位<br> 
+<input name="Items" type="checkbox" checked="checked" value="4" />记录时间（年份）<br>
+<input name="Items" type="checkbox" checked="checked" value="5" />操作员<br> 
+<input name="Items" type="checkbox" checked="checked" value="6" />更新时间<br> 
+<input name="Items" type="checkbox" checked="checked" value="7" />是否提交<br>
+		</form>
+	</div>
+</div>	
+
+
+
 </body>
 
 </html>

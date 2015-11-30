@@ -12,23 +12,13 @@ public interface JpjgdwjbqkService {
 	public final static String SERVICE_NAME = "platform.service.impl.JpjgdwjbqkServiceImpl";
 
 	public String saveJpjgdwjbqk(JpjgdwjbqkForm kjjszjcjbForm);
-
-	
-
 	public void addSrqkListWithExpertId(int id, List<JpjgdwjbqksrqkForm> list);
-
 	public void addRyListWithExpertId(int id, List<JpjgdwjbqkryForm> list);
-
 	public List<JpjgdwjbqkForm> findJpjgdwjbqkList(JpjgdwjbqkForm jpjgdwjbqkForm);
-
-
-
 	public void updateObject(JpjgdwjbqkForm jpjgdwjbqkForm);
-
-
-
 	public void deleteObject(String id);
-
+	public void showImportObject(String filePath) throws Exception;
+	public void showExportObject() throws Exception;
 
 
 }

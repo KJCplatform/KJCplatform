@@ -13,6 +13,8 @@ public interface Kjjszjcjb4Service {
 	public void updateKjjszjcjb4(Kjjszjcjb4Form Kjjszjcjb4Form);
 	public void deleteObject(String id);
 	public void saveObject(Kjjszjcjb4Form Kjjszjcjb4Form);
+	public void showImportObject(String filePath) throws Exception;
+	public void showExportObject(String items) throws Exception;
 	//public void updateKjjszjcjb4Withget(Kjjszjcjb4Form Kjjszjcjb4Form);
 
 }

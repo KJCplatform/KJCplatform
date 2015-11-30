@@ -34,6 +34,7 @@ import platform.service.TestDataService;
 
 
 
+
 import com.opensymphony.xwork2.ModelDriven;
 
 import container.ServiceProvider;
@@ -176,6 +177,21 @@ public class JpjgdwjbqkAction extends BaseAction implements ModelDriven<Jpjgdwjb
 		return "addry";
 		
 	}
+	
+	public String showimport() throws Exception{
+		
+		jpjgdwjbqkService.showImportObject(jpjgdwjbqkForm.getDwmc());
+		operateSuccess=true;
+		return "showimport";
+	}
+	
+	public String showexport() throws Exception{
+		jpjgdwjbqkService.showExportObject();
+		operateSuccess=true;
+		return "showexport";
+	}
+	
+	
 	
 }
 

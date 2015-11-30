@@ -110,6 +110,20 @@ public class XzxzgzbAction extends BaseAction implements ModelDriven<XzxzgzbForm
 		operateSuccess=true;
 		return "add";
 	}
+	
+	public String showimport() throws Exception{
+		System.out.println(xzxzgzbForm.getId());
+		xzxzgzbService.showImportObject(xzxzgzbForm.getId());
+		operateSuccess=true;
+		return "showimport";
+	}
+	
+	public String showexport() throws Exception{
+		System.out.println(xzxzgzbForm.getId());
+		xzxzgzbService.showExportObject(xzxzgzbForm.getId());
+		operateSuccess=true;
+		return "showexport";
+	}
 }
 
 

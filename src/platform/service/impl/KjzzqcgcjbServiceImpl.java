@@ -82,7 +82,7 @@ if(pageno==1){
 		kjzzqcgcjb.setCgmc(kjzzqcgcjbForm.getCgmc());
 		kjzzqcgcjb.setWcdw(kjzzqcgcjbForm.getWcdw());
 		kjzzqcgcjb.setZywcr(kjzzqcgcjbForm.getZywcr());
-		kjzzqcgcjb.setWcsj(StringHelper.stringConvertDate2(kjzzqcgcjbForm.getWcsj()));
+		kjzzqcgcjb.setWcsj(StringHelper.stringConvertDate(kjzzqcgcjbForm.getWcsj()));
 		kjzzqcgcjb.setRzbh(kjzzqcgcjbForm.getRzbh());
 		kjzzqcgcjb.setCgjj(kjzzqcgcjbForm.getCgjj());
 		kjzzqcgcjb.setYyhy(kjzzqcgcjbForm.getYyhy());
@@ -132,7 +132,7 @@ if(pageno==1){
 		kjzzqcgcjb.setCgmc(kjzzqcgcjbForm.getCgmc());
 		kjzzqcgcjb.setWcdw(kjzzqcgcjbForm.getWcdw());
 		kjzzqcgcjb.setZywcr(kjzzqcgcjbForm.getZywcr());
-		kjzzqcgcjb.setWcsj(StringHelper.stringConvertDate2(kjzzqcgcjbForm.getWcsj()));
+		kjzzqcgcjb.setWcsj(StringHelper.stringConvertDate(kjzzqcgcjbForm.getWcsj()));
 		kjzzqcgcjb.setRzbh(kjzzqcgcjbForm.getRzbh());
 		kjzzqcgcjb.setCgjj(kjzzqcgcjbForm.getCgjj());
 		kjzzqcgcjb.setYyhy(kjzzqcgcjbForm.getYyhy());

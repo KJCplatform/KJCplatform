@@ -9,10 +9,10 @@ var localhostPath = curWwwPath.substring(0, pos);
 //获取带"/"的项目名，如：/ems
 var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
 var basePath = localhostPath + projectName;
-var user;
+
 $(function() {
 	listDoc();
-	// 日期加上日期控件
+	/*// 日期加上日期控件
 	$("#fwrq").datebox({
 		editable:false,
 		required : true
@@ -20,15 +20,15 @@ $(function() {
 	$("#jzrq").datebox({
 		editable:false,
 		required : true
-	});
+	});*/
 	// 给文本框加上验证器
-	$("#wjm").validatebox({
+	$("#xmbh").validatebox({
 		required : true,
-		missingMessage : '文件名不能为空'
+		missingMessage : '项目编号不能为空'
 	});
-	$("#wjh").validatebox({
+	$("#xmmc").validatebox({
 		required : true,
-		missingMessage : '文件号不能为空'
+		missingMessage : '项目名称不能为空'
 	});
 	$("#jbnr").validatebox({
 		required : true
@@ -36,10 +36,10 @@ $(function() {
 });
 //加载公文列表
 function listDoc() {
-	var actionPath = basePath + '/system/KjkjxmxxbAction_list.action';
+	var actionPath = basePath + '/system/Kjkjxmxxb0Action_list.action';
 	 $('#dg').datagrid({
-            title : '公文管理',
-            width : 3600,
+            title : '科技项目信息汇总',
+            width : 4000,
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      
@@ -55,68 +55,40 @@ function listDoc() {
             pagination : true,//分页
             rownumbers : true,//行数
 			
-            onLoadSuccess: function (data) { 
-				user=eval(data).user;
-			//	alert("user="+user);
+			toolbar:[ {// 工具栏
+				text : '添加',
+				iconCls : 'icon-add', // 图标
+				handler : function() { // 处理函数
+					addDoc();
+				}
 			}
+			, {
+				text : '删除',
+				iconCls : 'icon-cancel', // 图标
+				handler : function() { // 处理函数
+					deleteDoc();
+				}
+			}, {
+				text : '编辑',
+				iconCls : 'icon-edit',// 图标
+				handler : function() {// 处理函数
+					editDoc();
+				}
+			} ]
         });
-	 
-	 setTimeout(
-			 function(){
-				// alert("Hello world");
-				 if(user=="admin"){
-					// alert("admin");
-					 $('#dg').datagrid({
-						 toolbar:[ {// 工具栏
-								text : '添加',
-								iconCls : 'icon-add', // 图标
-								handler : function() { // 处理函数
-									addDoc();
-								}
-							}, {
-								text : '删除',
-								iconCls : 'icon-cancel', // 图标
-								handler : function() { // 处理函数
-									deleteDoc();
-								}
-							}, {
-								text : '编辑',
-								iconCls : 'icon-edit',// 图标
-								handler : function() {// 处理函数
-									editDoc();
-								}
-							}
-						 ]
-					 });
-				 }
-				 else{
-					// alert("user1");
-				 $('#dg').datagrid({
-					 toolbar:[ {// 工具栏
-							text : '添加',
-							iconCls : 'icon-add', // 图标
-							handler : function() { // 处理函数
-								addDoc();
-							}
-						} ]
-				 });
-				 
-				 }
-			 },300);
-	 
 }
 //查询
 function doSearch(){
 	$('#dg').datagrid('load',{
-		wjm: $('#fileName').val(),
-		wjh: $('#fileId').val()
+		xmbh: $('#fileName').val(),
+		xmmc: $('#fileId').val()
 	});
 }
 // 显示编辑窗口
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '公文操作',
+		title : '科技项目信息汇总',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',
@@ -196,7 +168,10 @@ function editDoc() {
 	$("#yqzl").val(doc.yqzl);
 	$("#zjf").val(doc.zjf);
 	$("#sbk").val(doc.sbk);	
-	
+	$("#jlnf").val(doc.jlnf);
+	$("#username").val(doc.username);
+	$("#gxsj").val(doc.gxsj);
+	$("#submit").val(doc.submit);
 	// 给默认值
 	/*$("#fwrq").datebox("setValue", doc.fwrq.substring(0, 10));
 	//$("#fwrq").datebox("getValue");
@@ -217,8 +192,8 @@ function editDoc() {
 function dealSave() {
 	// 表单数据序列化成一个字符串用&拼接
 	var params = $("#frmEdit").serialize();
-	var actionAdd = basePath + '/system/KjkjxmxxbAction_add.action';
-	var actionUpdate = basePath + '/system/KjkjxmxxbAction_update.action';
+	var actionAdd = basePath + '/system/Kjkjxmxxb0Action_add.action';
+	var actionUpdate = basePath + '/system/Kjkjxmxxb0Action_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
@@ -274,7 +249,7 @@ function deleteDoc() {
 	}
 	$.messager.confirm('确认', '真的要删除选中的记录吗？', function(r) {
 		if (r) {
-			var actionPath = basePath + '/system/KjkjxmxxbAction_delete.action?id=';
+			var actionPath = basePath + '/system/Kjkjxmxxb0Action_delete.action?id=';
 			var url = actionPath + doc.id;
 			// 试一下get方法（地址，回调函数）
 			$.get(url, function(result) {

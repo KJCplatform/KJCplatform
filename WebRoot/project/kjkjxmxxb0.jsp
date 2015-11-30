@@ -6,7 +6,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head >
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>公文管理</title>
+    <title>科技项目信息汇总</title>
     <link href="<%=path%>/css/default.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/icon.css" />
@@ -43,16 +43,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <form id="searchForm">
             <table>
                 <tr>
-                    <th>文件名：</th>
+                    <th>项目编号：</th>
                     <td>
 						<input id="fileName" />
 					</td>
                 </tr>
                 <tr>
-					<th>文件号：</th>
+					<th>项目名称：</th>
 					<td>
                         <input id="fileId" />
 					</td>
+					
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>
 					</td>
@@ -99,10 +100,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="yqzl" width="130">预期取得专利</th>
 			<th field="zjf" width="130">总经费</th>
 			<th field="sbk" width="130">省拨款</th>
-			<!-- <th field="sjbm" width="130">记录时间(年份)</th>
+			 <th field="sjbm" width="130">记录时间(年份)</th>
 			<th field="username" width="130">操作员</th>
 			<th field="gxsj" width="130">更新时间</th>
-			<th field="submit" width="130">是否提交</th> -->
+			<th field="submit" width="130">是否提交</th>
 			
 		</tr>
 	</thead>
@@ -242,7 +243,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			
 			
-			<!--  <dl>
+			 <dl>
 				<dd>记录时间:</dd>
 				<dd><input size="15" id="jlnf" name="jlnf" /></dd>
 			</dl>
@@ -262,7 +263,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<option value="否">否</option>
 				
 				</dd>
-			</dl>  -->
+			</dl> 
 		</form>
 	</div>
 </div>	

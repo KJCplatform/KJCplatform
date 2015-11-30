@@ -147,16 +147,20 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 		Sheet sheet = workbook.getSheet(0);
 		int rows = sheet.getRows();
 		
-		Jpsgwtbb jpsgwtbb = new Jpsgwtbb();
+		
 		for(int i = 1; i < rows ; i ++){
+			Jpsgwtbb jpsgwtbb = new Jpsgwtbb();
 			jpsgwtbb.setCpmc(sheet.getCell(0, i).getContents());
-			jpsgwtbb.setFsrq(new SimpleDateFormat().parse(sheet.getCell(1, i).getContents()));
+			jpsgwtbb.setFsrq(StringHelper.stringConvertDate(sheet.getCell(1, i).getContents()));
 			jpsgwtbb.setYyqk(sheet.getCell(2, i).getContents());
 			jpsgwtbb.setBz(sheet.getCell(3, i).getContents());
 			jpsgwtbb.setTbr(sheet.getCell(4, i).getContents());
 			jpsgwtbb.setZlbmfzr(sheet.getCell(5, i).getContents());
-			jpsgwtbb.setBcrq(new SimpleDateFormat().parse(sheet.getCell(6, i).getContents()));
-			
+			jpsgwtbb.setBcrq(StringHelper.stringConvertDate(sheet.getCell(6, i).getContents()));
+			jpsgwtbb.setJlnf(sheet.getCell(7, i).getContents());
+			jpsgwtbb.setSubmit("否");
+			jpsgwtbb.setUsername(formListTemp.get(0).getUsername());
+			jpsgwtbb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()).toString());
 			jpsgwtbbDao.save(jpsgwtbb);
 		}
 		
@@ -224,7 +228,13 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 			    lhm.put("报出日期", new ArrayList<String>(li));
 			    li.clear();
 				break;
-
+			case "8":
+			    for(int j= 0;j< len;j++){
+			    	li.add(formListTemp.get(j).getJlnf());
+			    }
+			    lhm.put("记录日期(年份)", new ArrayList<String>(li));
+			    li.clear();
+				break;
 			}
 		}	
 		return lhm;

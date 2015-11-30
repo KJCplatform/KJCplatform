@@ -68,6 +68,32 @@
 		</form>
 	</div>
 
+<form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
+   选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
+       　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
+       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
+</form>
+
+<div id="divEdit2" style="display:none;">
+	<div id="tabEdit2" style="overflow-y:auto;">
+		<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
+		 >>>请选择导出项<<<
+		 <br> <br>
+<input name="Items" type="checkbox" checked="checked" value="1" />季度<br>
+<input name="Items" type="checkbox" checked="checked" value="2" />单位名称<br> 
+<input name="Items" type="checkbox" checked="checked" value="3" />军品一次交验（检）合格率<br> 
+<input name="Items" type="checkbox" checked="checked" value="4" />重大试验成功率	<br>
+<input name="Items" type="checkbox" checked="checked" value="5" />军品质量损失率	<br> 
+<input name="Items" type="checkbox" checked="checked" value="6" />单位重大质量活动情况<br> 
+<input name="Items" type="checkbox" checked="checked" value="7" />填表人	<br>
+<input name="Items" type="checkbox" checked="checked" value="8" />质量部门负责人	<br>
+<input name="Items" type="checkbox" checked="checked" value="9" />审核人	<br>
+<input name="Items" type="checkbox" checked="checked" value="10" />报出日期	<br>
+<input name="Items" type="checkbox" checked="checked" value="11" />记录时间(年份)<br>
+
+		</form>
+	</div>
+</div>		
 
 	<div data-options="region:'center',split:false">
 		<!-- 表格主题部分-->
@@ -102,14 +128,24 @@
 				<input type="hidden" id="id" name="id" />
 				<dl>
 					<dd>
-						季度: <input size="15" id="jd" name="jd" />
+						季度: <select style="width: 150px" id="jd" name="jd" >
+				<option value="一季度">一季度</option>
+				<option value="二季度">二季度</option>
+				<option value="三季度">三季度</option>
+				<option value="四季度">四季度</option>
+				</select>
 					</dd>
 				</dl>
 
 
 				<dl>
 					<dd>
-						单位名称: <input size="15" id="dwmc" name="dwmc" />
+						单位名称:<select style="width: 150px" id="dwmc" name="dwmc" >
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				</select>
 					</dd>
 				</dl>
 				<dl>
@@ -171,7 +207,7 @@
 				<select style="width: 150px" id="submit" name="submit" >
 				<option value="是">是</option>
 				<option value="否">否</option>
-				
+				</select>
 				</dd>
 			</dl> 
 

@@ -63,6 +63,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </form>
 </div>
 
+<form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
+   选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
+       　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
+       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
+</form>
+
+<div id="divEdit2" style="display:none;">
+	<div id="tabEdit2" style="overflow-y:auto;">
+		<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
+		 >>>请选择导出项<<<
+		 <br> <br>
+<input name="Items" type="checkbox" checked="checked" value="1" />单位名称<br>
+<input name="Items" type="checkbox" checked="checked" value="2" />姓名<br> 
+<input name="Items" type="checkbox" checked="checked" value="3" />性别 <br> 
+<input name="Items" type="checkbox" checked="checked" value="4" />文化程度	<br> 
+<input name="Items" type="checkbox" checked="checked" value="5" />出生年月	<br> 
+<input name="Items" type="checkbox" checked="checked" value="6" />计量检定员证号	<br>
+<input name="Items" type="checkbox" checked="checked" value="7" />首次取证日期<br>
+<input name="Items" type="checkbox" checked="checked" value="8" />有效期<br>
+<input name="Items" type="checkbox" checked="checked" value="9" />可从事检定项目	<br>
+<input name="Items" type="checkbox" checked="checked" value="10" />签发日期<br>
+<input name="Items" type="checkbox" checked="checked" value="11" />记录日期(年份)<br>
+		</form>
+	</div>
+</div>					
 
 <div data-options="region:'center',split:false">
 	<!-- 表格主题部分-->

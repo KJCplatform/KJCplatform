@@ -6,7 +6,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head >
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>公文管理</title>
+    <title>已获得许可的武器生产专业(产品)</title>
     <link href="<%=path%>/css/default.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/icon.css" />
@@ -43,13 +43,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <form id="searchForm">
             <table>
                 <tr>
-                    <th>文件名：</th>
+                    <th>序号：</th>
                     <td>
 						<input id="fileName" />
 					</td>
                 </tr>
                 <tr>
-					<th>文件号：</th>
+					<th>专业名称：</th>
 					<td>
                         <input id="fileId" />
 					</td>
@@ -62,6 +62,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </form>
 </div>
 
+<form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
+   选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
+       　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
+       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
+</form>
+
+<div id="divEdit2" style="display:none;">
+	<div id="tabEdit2" style="overflow-y:auto;">
+		<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
+		 >>>请选择导出项<<<
+		 <br> <br>
+<input name="Items" type="checkbox" checked="checked" value="1" />文件名	<br>
+<input name="Items" type="checkbox" checked="checked" value="2" />文件编号<br> 
+<input name="Items" type="checkbox" checked="checked" value="3" />发文机关<br> 
+<input name="Items" type="checkbox" checked="checked" value="4" />发文日期<br>
+<input name="Items" type="checkbox" checked="checked" value="5" />交办内容<br> 
+<input name="Items" type="checkbox" checked="checked" value="6" />截止日期<br> 
+<input name="Items" type="checkbox" checked="checked" value="7" />交办人<br>
+<input name="Items" type="checkbox" checked="checked" value="8" />处理结果<br>
+<input name="Items" type="checkbox" checked="checked" value="9" />记录时间<br>
+		</form>
+	</div>
+</div>		
 
 <div data-options="region:'center',split:false">
 	<!-- 表格主题部分-->

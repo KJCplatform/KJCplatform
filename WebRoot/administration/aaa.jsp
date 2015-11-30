@@ -61,8 +61,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 </tr>
             </table>
         </form>
+  
 </div>
-
+          
+    <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
+   选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
+       　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
+       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
+</form>
 
 <div data-options="region:'center',split:false" >
 	<!-- 表格主题部分-->
@@ -84,6 +90,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="cdgb" >产地国别</th>
      		<th field="yqyz">仪器原值</th>
 			<th field="qyrq" >启用日期</th>
+			
 			<th field="szdwmc" >所在单位名称</th>
 			<th field="sysmc" >实验室名称</th>
 			<th field="afdz" >仪器安放地址</th>
@@ -101,8 +108,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="zmyh" >知名用户及联系方式</th>
 			<th field="yycg" >应用成果</th>
 			<th field="yqtp" >仪器图片</th>
-			<th field="bz" >备注</th>     
-			    <th field="jlnf">记录年份</th>
+			<th field="bz" >备注</th>   
+			  
+			<th field="jlnf">记录年份</th>
 		    <th field="username">记录人</th>
 			<th field="gxsj">更新时间</th>
 			<th field="submit">是否提交</th>
@@ -177,6 +185,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd>启用日期:</dd>
 				<dd><input  type="text" style="width: 150px" id="qyrq" name="qyrq" /></dd>
 			</dl>
+			
+			
 			<dl>
 				<dd>所在单位名称:</dd>
 				<dd><input size="20" id="szdwmc" name="szdwmc" /></dd>
@@ -249,6 +259,53 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd>备注:</dd>
 				<dd><input size="20" id="bz" name="bz" /></dd>
 			</dl>                    
+		</form>
+	</div>
+</div>	
+
+<div id="divEdit2" style="display:none;">
+	<div id="tabEdit2" style="overflow-y:auto;">
+		<form id="frmEdit2" style="height:400px;margin:0px 0px 0px 0px"  method= "post">
+		 >>>请选择导出项<<<
+		 <br> <br>
+<input name="Items" type="checkbox" checked="checked" value="1" />仪器编号<br>
+<input name="Items" type="checkbox" checked="checked" value="2" />仪器分类编码<br> 
+<input name="Items" type="checkbox" checked="checked" value="3" />所在单位内仪器编号<br> 
+<input name="Items" type="checkbox" checked="checked" value="4" />仪器中文名称<br>
+<input name="Items" type="checkbox" checked="checked" value="5" />仪器英文名称<br> 
+<input name="Items" type="checkbox" checked="checked" value="6" />仪器型号规格<br> 
+<input name="Items" type="checkbox" checked="checked" value="7" />主要技术指标<br>
+<input name="Items" type="checkbox" checked="checked" value="8" />主要测试和研究领域<br>
+<input name="Items" type="checkbox" checked="checked" value="9" />主要用途<br>
+<input name="Items" type="checkbox" checked="checked" value="10" />主要附件及功能<br>
+<input name="Items" type="checkbox" checked="checked" value="11" />仪器认证情况<br>
+<input name="Items" type="checkbox" checked="checked" value="12" />生产厂商<br>
+<input name="Items" type="checkbox" checked="checked" value="13" />产地国别<br>
+<input name="Items" type="checkbox" checked="checked" value="14" />仪器原值<br>
+<input name="Items" type="checkbox" checked="checked" value="15" />启用日期<br>
+<input name="Items" type="checkbox" checked="checked" value="16" />所在单位名称<br>
+<input name="Items" type="checkbox" checked="checked" value="17" />实验室名称<br>
+<input name="Items" type="checkbox" checked="checked" value="18" />仪器安放地址<br>
+<input name="Items" type="checkbox" checked="checked" value="19" />邮政编码<br>
+<input name="Items" type="checkbox" checked="checked" value="20" />仪器联系人<br>
+<input name="Items" type="checkbox" checked="checked" value="21" />电话<br>
+<input name="Items" type="checkbox" checked="checked" value="22" />电子邮件<br>
+<input name="Items" type="checkbox" checked="checked" value="23" />是否共享<br>
+<input name="Items" type="checkbox" checked="checked" value="24" />仪器状态<br>
+<input name="Items" type="checkbox" checked="checked" value="25" />开放机时安排<br>
+<input name="Items" type="checkbox" checked="checked" value="26" />参考收费标准<br>
+<input name="Items" type="checkbox" checked="checked" value="27" />服务统计年份<br>
+<input name="Items" type="checkbox" checked="checked" value="28" />年对外服务机时<br>
+<input name="Items" type="checkbox" checked="checked" value="29" />年对外服务收入<br>
+<input name="Items" type="checkbox" checked="checked" value="30" />知名用户及联系方式<br>
+<input name="Items" type="checkbox" checked="checked" value="31" />应用成果<br>
+<input name="Items" type="checkbox" checked="checked" value="32" />仪器图片<br>
+<input name="Items" type="checkbox" checked="checked" value="33" />备注<br>
+<input name="Items" type="checkbox" checked="checked" value="34" />记录年份<br>
+<input name="Items" type="checkbox" checked="checked" value="35" />操作员<br>
+<input name="Items" type="checkbox" checked="checked" value="36" />更新时间<br>
+<input name="Items" type="checkbox" checked="checked" value="37" />是否提交<br>
+
 		</form>
 	</div>
 </div>	

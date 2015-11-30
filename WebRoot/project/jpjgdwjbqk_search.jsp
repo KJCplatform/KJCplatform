@@ -80,7 +80,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             } },
             {"id":"gfsyssl", "name": "国防实验室数量", "value": "", "group": "其他信息", "editor":{
             	"type": 'numberbox', 
-            } }
+            } },
+                        {"id":"jlnf", "name": "记录时间（年份） ", "group": "其他信息", "value": "", "editor": "text" },
+            {"id":"username", "name": "操作员", "group": "其他信息", "value": "", "editor":"text" },
+            {"id":"gxsj", "name": "更新时间", "value": "", "group": "其他信息", "editor":"text" },
+            {"id":"submit", "name": "是否提交", "group": "其他信息", "value": "", "editor": "text" }
         ];
 			
 		$(function() {
@@ -350,7 +354,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						display[24].value = info.jpkyrw;
 						display[25].value = info.gjsyssl;
 						display[26].value = info.gfsyssl;
-
+			            
+			            display[27].value = info.jlnf;
+						display[28].value = info.username;
+						display[29].value = info.gxsj;
+						display[30].value = info.submit;
 						
 						var srqkdata = {};
 						var rydata = {};
@@ -441,7 +449,24 @@ function deleteInfo(){
 			
 		}
 		
-		
+		function ShowExport(){
+
+			var showimport = basePath + '/system/JpjgdwjbqkAction_showexport.action';
+			            				
+			$.post(showimport, function(result) {
+			        			if (result.operateSuccess) {
+			        					$('#dg').datagrid('reload');// 重新加载
+			        					$.messager.alert('导出', '导出Excel成功', 'info');
+			        				
+			        			}else {
+			        					$.messager.alert('导出', '文件被占用！导出Excel失败', 'warning');
+			        				}
+			        		});
+		  
+			            	  return false;
+			   }
+
+
 
 	</script>
 </head>
@@ -462,10 +487,14 @@ function deleteInfo(){
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0);" onclick="deleteInfo();">删除</a>
 					</td>	 
+					<td>
+						<a href="#" class="easyui-linkbutton" id="btnExport" onclick="ShowExport()" >导出</a>      
+					</td>
                 </tr>
             </table>
         </form>
 </div>
+
 
 <div data-options="region:'center',split:false">
 	

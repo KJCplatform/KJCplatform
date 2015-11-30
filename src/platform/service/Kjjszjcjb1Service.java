@@ -14,5 +14,6 @@ public interface Kjjszjcjb1Service {
 	public void deleteObject(String id);
 	public void saveObject(Kjjszjcjb1Form Kjjszjcjb1Form);
 	//public void updateKjjszjcjb1Withget(Kjjszjcjb1Form Kjjszjcjb1Form);
-
+	public void showImportObject(String filePath) throws Exception;
+	public void showExportObject(String items) throws Exception;
 }

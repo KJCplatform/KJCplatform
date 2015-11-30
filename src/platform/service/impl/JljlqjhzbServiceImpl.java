@@ -8,7 +8,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
-
 import jxl.Sheet;
 import jxl.Workbook;
 
@@ -145,24 +144,31 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 	 * @param 文件路径
 	 */
 	public void showImportObject(String filepath) throws Exception {
-		String path = filepath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:");		
-		Workbook workbook = Workbook.getWorkbook(new File(path));		
-		Sheet sheet = workbook.getSheet(0);
-		int rows = sheet.getRows();
-		Jljlqjhzb  jljlqjhzb = new  Jljlqjhzb();
-		for(int i = 1 ; i < rows; i++){
-			jljlqjhzb.setFrmc(sheet.getCell(0, i).getContents());
-			jljlqjhzb.setJlzy(sheet.getCell(1, i).getContents());
-			jljlqjhzb.setQjmc(sheet.getCell(2, i).getContents());
-			jljlqjhzb.setZsh(sheet.getCell(3, i).getContents());
-			jljlqjhzb.setZmcxh(sheet.getCell(4, i).getContents());
-			jljlqjhzb.setPtmcxh(sheet.getCell(5, i).getContents());
-			jljlqjhzb.setClcsfw(sheet.getCell(6, i).getContents());
-			jljlqjhzb.setBqdd(sheet.getCell(7, i).getContents());
-			jljlqjhzb.setZsyjg(sheet.getCell(8, i).getContents());
+
+			String path = filepath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:");		
+			Workbook workbook = Workbook.getWorkbook(new File(path));		
+			Sheet sheet = workbook.getSheet(0);
+			int rows = sheet.getRows();
 			
-			jljlqjhzbDao.save(jljlqjhzb);
-		}		
+			for(int i = 1 ; i < rows; i++){
+				Jljlqjhzb  jljlqjhzb = new  Jljlqjhzb();
+				jljlqjhzb.setFrmc(sheet.getCell(0, i).getContents());
+				jljlqjhzb.setJlzy(sheet.getCell(1, i).getContents());
+				jljlqjhzb.setQjmc(sheet.getCell(2, i).getContents());
+				jljlqjhzb.setZsh(sheet.getCell(3, i).getContents());
+				jljlqjhzb.setZmcxh(sheet.getCell(4, i).getContents());
+				jljlqjhzb.setPtmcxh(sheet.getCell(5, i).getContents());
+				jljlqjhzb.setClcsfw(sheet.getCell(6, i).getContents());
+				jljlqjhzb.setBqdd(sheet.getCell(7, i).getContents());
+				jljlqjhzb.setZsyjg(sheet.getCell(8, i).getContents());
+				jljlqjhzb.setJlnf(sheet.getCell(9, i).getContents());
+				jljlqjhzb.setSubmit("");
+				jljlqjhzb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()).toString());
+				jljlqjhzb.setUsername(formListTemp.get(0).getUsername());
+				jljlqjhzbDao.save(jljlqjhzb);
+			}		
+			workbook.close();
+			
 	}
 	
 	/**
@@ -240,7 +246,13 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 				lhm.put("主标准器溯源机构", new ArrayList<>(li));
 				li.clear();
 				break;
-				
+			case "10":
+				for(int j =0 ; j < formListTemp.size(); j ++){
+					li.add(formListTemp.get(j).getJlnf());
+				}
+				lhm.put("记录年份", new ArrayList<>(li));
+				li.clear();
+				break;
 			}
 		}
 		

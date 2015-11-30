@@ -1,11 +1,21 @@
 package platform.service.impl;
-
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
 
 import javax.annotation.Resource;
+
+import jxl.Workbook;
+import jxl.format.Alignment;
+import jxl.write.WritableCellFormat;
+import jxl.write.WritableFont;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+import jxl.write.Label;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
@@ -15,11 +25,9 @@ import platform.dao.JpjgdwjbqkDao;
 import platform.domain.Jpjgdwjbqk;
 import platform.domain.Jpjgdwjbqksrqk;
 import platform.domain.Jpjgdwjbqkry;
-import platform.domain.Kjgxqybab;
 import platform.form.JpjgdwjbqkForm;
 import platform.form.JpjgdwjbqksrqkForm;
 import platform.form.JpjgdwjbqkryForm;
-import platform.form.KjgxqybabForm;
 import platform.service.JpjgdwjbqkService;
 
 @Transactional
@@ -28,7 +36,7 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 	
 	@Resource(name=JpjgdwjbqkDao.SERVICE_NAME)
 	private JpjgdwjbqkDao jpjgdwjbqkDao;
-
+	private JpjgdwjbqkForm jpjgdwjbqkFormTemp = null;
 	public String saveJpjgdwjbqk(JpjgdwjbqkForm jpjgdwjbqkForm){
 		Jpjgdwjbqk jpjgdwjbqk=this.VoObjecttoPoObject(jpjgdwjbqkForm);
 		jpjgdwjbqkDao.save(jpjgdwjbqk);
@@ -137,6 +145,7 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 		params = paramsList.toArray();
 		List<Jpjgdwjbqk> list=jpjgdwjbqkDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<JpjgdwjbqkForm> formlist=this.JpjgdwjbqkPoToVoList(list);
+		if(formlist.size() == 1) jpjgdwjbqkFormTemp = formlist.get(0);
 		return formlist;
 	}
 
@@ -254,6 +263,253 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 		jpjgdwjbqk.setGfsyssl(jpjgdwjbqkForm.getGfsyssl());
 		jpjgdwjbqkDao.update(jpjgdwjbqk);
 		
+	}
+
+	@Override
+	public void showImportObject(String filePath) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void showExportObject() throws Exception {
+		// TODO Auto-generated method stub
+		SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
+		String date = formater.format(new Date());
+		String filePath = "D:\\军工单位基本情况表   admin "+ date+".xls";
+		
+		WritableWorkbook workbook = Workbook.createWorkbook(new File(filePath));
+		
+		WritableSheet sheet = workbook.createSheet("军工单位基本信息", 0);
+		WritableFont wf = new WritableFont(WritableFont.createFont("宋体"), 12);
+		WritableCellFormat wcf = new WritableCellFormat(wf);
+		wcf.setBorder(jxl.format.Border.ALL, jxl.format.BorderLineStyle.THIN);
+		wcf.setAlignment(Alignment.CENTRE);
+		sheet.setColumnView(0, 30);
+		Label label = new Label(0, 0, "单位名称", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 0, 9, 0);
+		label = new Label(1, 0, jpjgdwjbqkFormTemp.getDwmc(), wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 1, "其他名称", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 1, 9, 1);
+		label = new Label(1, 1, jpjgdwjbqkFormTemp.getQtmc() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 2, "单位代号", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 2, 9, 2);
+		label = new Label(1, 2, jpjgdwjbqkFormTemp.getQtmc() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 3, "军品科研生产场所地址", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 3, 9, 3);
+		label = new Label(1, 3, jpjgdwjbqkFormTemp.getQtmc() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 4, "经济性质", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 4, 4, 4);
+		label = new Label(1, 4, jpjgdwjbqkFormTemp.getJjxz() , wcf);
+		sheet.addCell(label);
+		label = new Label(5, 4, "法人代表", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(6, 4, 9, 4);
+		label = new Label(6, 4, jpjgdwjbqkFormTemp.getFrdb() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 5, "单位地址", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 5, 4, 5);
+		label = new Label(1, 5, jpjgdwjbqkFormTemp.getDwdz() , wcf);
+		sheet.addCell(label);
+		label = new Label(5, 5, "邮政编码", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(6, 5, 9, 5);
+		label = new Label(6, 5, jpjgdwjbqkFormTemp.getYzbm() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 6, "联系人", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 6, 4, 6);
+		label = new Label(1, 6, jpjgdwjbqkFormTemp.getLxr() , wcf);
+		sheet.addCell(label);
+		label = new Label(5, 6, "联系电话", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(6, 6, 9, 6);
+		label = new Label(6, 6, jpjgdwjbqkFormTemp.getYzbm() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 7, "在岗职工总人数", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 7, 9, 7);
+		label = new Label(1, 8, jpjgdwjbqkFormTemp.getZgzs() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 8, "高职管理", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 8, 9, 8);
+		label = new Label(1, 8, jpjgdwjbqkFormTemp.getGzgl() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 9, "中职管理", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 9, 9, 9);
+		label = new Label(1, 9, jpjgdwjbqkFormTemp.getGzgl() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 10, "初职管理", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 10, 9, 10);
+		label = new Label(1, 10, jpjgdwjbqkFormTemp.getCzgl() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 11, "高职技术", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 11, 9, 11);
+		label = new Label(1, 11, jpjgdwjbqkFormTemp.getGzjs() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 12, "中职技术", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 12, 9, 12);
+		label = new Label(1, 12, jpjgdwjbqkFormTemp.getZzjs() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 13, "初职技术", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 13, 9, 13);
+		label = new Label(1, 13, jpjgdwjbqkFormTemp.getCzjs() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 14, "高职工人", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 14, 9, 14);
+		label = new Label(1, 14, jpjgdwjbqkFormTemp.getGzgr() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 15, "中职工人", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 15, 9, 15);
+		label = new Label(1, 15, jpjgdwjbqkFormTemp.getZzgr() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 16, "初职工人", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 16, 9, 16);
+		label = new Label(1, 16, jpjgdwjbqkFormTemp.getCzgr() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 17, "国家级科技成果数量", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 17, 9, 17);
+		label = new Label(1, 17, jpjgdwjbqkFormTemp.getGjjcgs() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 18, "省部级科技成果数量", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 18, 9, 18);
+		label = new Label(1, 18, jpjgdwjbqkFormTemp.getSbjcgs() , wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 19, "计量站", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 19, 9, 19);
+		label = new Label(1, 19, jpjgdwjbqkFormTemp.getJlz(), wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 20, "建立计量标准数量", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 20, 9, 20);
+		label = new Label(1, 20, jpjgdwjbqkFormTemp.getJlbzsl(), wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 21, "主要军品科研生产任务", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 21, 9, 21);
+		label = new Label(1, 21, jpjgdwjbqkFormTemp.getJpkyrw(), wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 22, "国家级实验室数量", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 22, 9, 22);
+		label = new Label(1, 22, jpjgdwjbqkFormTemp.getGjsyssl(), wcf);
+		sheet.addCell(label);
+		
+		label = new Label(0, 23, "国防级实验室数量", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 23, 9, 23);
+		label = new Label(1, 23, jpjgdwjbqkFormTemp.getGfsyssl(), wcf);
+		sheet.addCell(label);
+		
+		sheet.mergeCells(0, 24, 9, 24);
+		label = new Label(0, 24, "产值或销售收入情况", wcf);
+		sheet.addCell(label);
+		label = new Label(0, 25, "年度", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, 25, 3, 25);
+		label = new Label(1, 25, "总产值（或销售收入）", wcf);
+		sheet.mergeCells(4, 25, 6, 25);
+		label = new Label(4, 25, "军品", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(7, 25, 9, 25);
+		label = new Label(7, 25, "民品", wcf);
+		sheet.addCell(label);
+		
+	
+		List<JpjgdwjbqksrqkForm> jpjgdwjbqksrqkForm = jpjgdwjbqkFormTemp.getJpjgdwjbqksrqks();
+		int sizeOne = jpjgdwjbqksrqkForm.size();
+		for(int i = 1 ; i <= sizeOne ; i ++){
+			label = new Label(0, 25+i, jpjgdwjbqksrqkForm.get(i-1).getYear(), wcf);
+			sheet.addCell(label);
+			sheet.mergeCells(1, 25+i, 3, 25+i);
+			label = new Label(1, 25+i, jpjgdwjbqksrqkForm.get(i-1).getZcz(), wcf);
+			sheet.addCell(label);
+			sheet.mergeCells(4, 25+i, 6, 25+i);
+			label = new Label(4, 25+i, jpjgdwjbqksrqkForm.get(i-1).getJp(), wcf);
+			sheet.addCell(label);
+			sheet.mergeCells(7, 25+i, 9, 25+i);
+			label = new Label(7, 25+i, jpjgdwjbqksrqkForm.get(i-1).getMp(), wcf);
+			sheet.addCell(label);
+			
+		}
+		
+		int index = 25 + sizeOne + 1;
+		sheet.mergeCells(0, index, 9, index);
+		label = new Label(0, index, "武器装备科研生产的许可专业（产品）", wcf);
+		sheet.addCell(label);
+		index ++;
+		label = new Label(0, index, "部门及职务", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(1, index, 3, index);
+		label = new Label(1, index, "姓名", wcf);
+		sheet.mergeCells(4, index, 6, index);
+		label = new Label(4, index, "职务", wcf);
+		sheet.addCell(label);
+		sheet.mergeCells(7, index, 9, index);
+		label = new Label(7, index, "办公电话", wcf);
+		sheet.addCell(label);
+		
+		List<JpjgdwjbqkryForm> jpjgdwjbqkrysForms = jpjgdwjbqkFormTemp.getJpjgdwjbqkrys();
+		int sizeTwo = jpjgdwjbqkrysForms.size();
+		for(int i = 1; i <= sizeTwo; i++){
+			label = new Label(0, index+ i, jpjgdwjbqkrysForms.get(i-1).getBmzw(), wcf);
+			sheet.addCell(label);
+			sheet.mergeCells(1, index+i, 3, index+i);
+			label = new Label(1, index+i, jpjgdwjbqkrysForms.get(i-1).getXm(), wcf);
+			sheet.addCell(label);
+			sheet.mergeCells(4, index+i, 6, index+i);
+			label = new Label(4, index+i, jpjgdwjbqkrysForms.get(i-1).getBgdh(), wcf);
+			sheet.addCell(label);
+			sheet.mergeCells(7, index+i, 9, index+i);
+			label = new Label(7, index+i, jpjgdwjbqkrysForms.get(i-1).getSj(), wcf);
+			sheet.addCell(label);
+		}
+		workbook.write();
+		workbook.close();
 	}
 
 	

@@ -125,7 +125,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			
 		]
 		
-	},<%}if(rights.contains("2")){%>
+	}<%}if(rights.contains("2")){%>,
 	{
 		"menuid": "2",
 		"icon": "icon-sys",
@@ -400,7 +400,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 		
 	]
 		
-	},<%}if(rights.contains("3")){%>
+	}<%}if(rights.contains("3")){%>,
 	{
 		"menuid": "3",
 		"icon": "icon-sys",
@@ -418,8 +418,21 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuname": "质量事故",
 			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/jpsgwtbb.jsp"			
-		}]
-	},<%}if(rights.contains("4")){%>
+		},
+		{
+			"menuid": "33",
+			"menuname": "国防质量报告统计表",
+			"icon": "icon-nav",
+			"url": "<%=basePath%>/administration/zlbgtjb.jsp"		
+		},
+		{
+			"menuid": "34",
+			"menuname": "单位信息维护",
+			"icon": "icon-nav",
+			"url": "<%=basePath%>/administration/dwxx.jsp"
+		}
+		]		
+	}<%}if(rights.contains("4")){%>,
 	{
 		"menuid": "4",
 		"icon": "icon-sys",
@@ -458,10 +471,15 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuname": "信息查询-军工单位基本情况信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/jpjgdwjbqk_search.jsp"
+			},{
+				"menuid": "443",
+				"menuname": "信息汇总-军工单位基本情况信息",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/jpjgdwjbqk0.jsp"
 			}]	
 		}
 		]
-	},<%}if(rights.contains("5")){%>
+	}<%}if(rights.contains("5")){%>,
 	{
 		"menuid": "5",
 		"icon": "icon-sys",
@@ -482,10 +500,41 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuname": "信息查询-武器装备科研生产许可取证单位信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/wqwqxkzxq_search.jsp"
+			},
+			{
+				"menuid": "512A",
+				"menuname": "已获得许可的武器生产专业(产品)",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/wqwqxkzxq1.jsp"	
+			},
+			{
+				"menuid": "512B",
+				"menuname": "已获得许可的武器科研专业",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/wqwqxkzxq2.jsp"	
+			},
+			{
+				"menuid": "512C",
+				"menuname": "申请延续的武器装备科研生产许可专业产品",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/wqwqxkzxq3.jsp"	
+			},
+			{
+				"menuid": "512D",
+				"menuname": "申请增加的武器装备科研生产许可专业产品",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/wqwqxkzxq4.jsp"	
+			},
+			
+			{
+				"menuid": "513",
+				"menuname": "信息汇总-武器装备科研生产许可取证单位信息",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/wqwqxkzxq0.jsp"
 			}]		
 		}
 		]	
-	},<%}if(rights.contains("6")){%>
+	}<%}if(rights.contains("6")){%>,
 	{
 		"menuid": "6",
 		"icon": "icon-sys",
@@ -510,7 +559,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 // 			"url": "demo.html"
 // 		}
 		]	
-	},<%}if(rights.contains("7")){%>
+	}<%}if(rights.contains("7")){%>,
 	{
 		"menuid": "7",
 		"icon": "icon-sys",
@@ -673,9 +722,7 @@ var basePath = localhostPath + projectName;
         <div id="tabs" class="easyui-tabs"  fit="true" border="false" >
 			<div title="欢迎使用" style="padding:20px;overflow:hidden; color:red; text-align:center;" >
 				<br><br>
-						<h1 style="font-size:24px;">欢迎使用湖北省国防科学技术工业办公室软件平台</h1>
-				<h1 style="font-size:24px;">系统须知:</h1>
-		
+				<h1 style="font-size:24px;">欢迎使用湖北省国防科学技术工业办公室软件平台</h1>
 				<h1 style="font-size:40px;">国家秘密高于一切</h1>
 				<h1 style="font-size:40px;">保密责任重于泰山</h1>
 			</div>

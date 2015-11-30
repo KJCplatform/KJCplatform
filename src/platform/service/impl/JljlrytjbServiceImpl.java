@@ -67,9 +67,9 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 		Jljlrytjb jljlrytjb=new Jljlrytjb();
 		jljlrytjb.setDwmc(jljlrytjbForm.getDwmc());
 		jljlrytjb.setXm(jljlrytjbForm.getXm());
-		jljlrytjb.setCsny(StringHelper.stringConvertDate2(jljlrytjbForm.getCsny()));
-		jljlrytjb.setQzrq(StringHelper.stringConvertDate2(jljlrytjbForm.getQzrq()));
-		jljlrytjb.setQfrq(StringHelper.stringConvertDate2(jljlrytjbForm.getQfrq()));
+		jljlrytjb.setCsny(StringHelper.stringConvertDate(jljlrytjbForm.getCsny()));
+		jljlrytjb.setQzrq(StringHelper.stringConvertDate(jljlrytjbForm.getQzrq()));
+		jljlrytjb.setQfrq(StringHelper.stringConvertDate(jljlrytjbForm.getQfrq()));
 		jljlrytjb.setId(Integer.valueOf(jljlrytjbForm.getId()));
 		//数据校验
 		if(jljlrytjbForm.getXb()!=null&&!jljlrytjbForm.getXb().equals(""))
@@ -95,9 +95,9 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 		Jljlrytjb jljlrytjb=new Jljlrytjb();
 		jljlrytjb.setDwmc(jljlrytjbForm.getDwmc());
 		jljlrytjb.setXm(jljlrytjbForm.getXm());
-		jljlrytjb.setCsny(StringHelper.stringConvertDate2(jljlrytjbForm.getCsny()));
-		jljlrytjb.setQzrq(StringHelper.stringConvertDate2(jljlrytjbForm.getQzrq()));
-		jljlrytjb.setQfrq(StringHelper.stringConvertDate2(jljlrytjbForm.getQfrq()));
+		jljlrytjb.setCsny(StringHelper.stringConvertDate(jljlrytjbForm.getCsny()));
+		jljlrytjb.setQzrq(StringHelper.stringConvertDate(jljlrytjbForm.getQzrq()));
+		jljlrytjb.setQfrq(StringHelper.stringConvertDate(jljlrytjbForm.getQfrq()));
 		
 		//数据校验
 		if(jljlrytjbForm.getXb()!=null&&!jljlrytjbForm.getXb().equals(""))
@@ -163,19 +163,24 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 		Workbook workbook = Workbook.getWorkbook(new File(path));		
 		Sheet sheet = workbook.getSheet(0);
 		int rows = sheet.getRows();
-		Jljlrytjb  jljlrytjb = new Jljlrytjb();
-		
+	
+	
 		for(int i = 1 ; i < rows; i ++){
+			Jljlrytjb  jljlrytjb = new Jljlrytjb();
 			jljlrytjb.setDwmc(sheet.getCell(0, i).getContents());
 			jljlrytjb.setXm(sheet.getCell(1, i).getContents());
 			jljlrytjb.setXb(sheet.getCell(2, i).getContents());
 			jljlrytjb.setWhcd(sheet.getCell(3, i).getContents());
-			jljlrytjb.setCsny(new SimpleDateFormat().parse(sheet.getCell(4, i).getContents()));
+			jljlrytjb.setCsny(StringHelper.stringConvertDate(sheet.getCell(4, i).getContents()));
 			jljlrytjb.setJlzh(sheet.getCell(5, i).getContents());
-			jljlrytjb.setQzrq(new SimpleDateFormat().parse(sheet.getCell(6, i).getContents()));
+			jljlrytjb.setQzrq(StringHelper.stringConvertDate(sheet.getCell(6, i).getContents()));
 			jljlrytjb.setYxq(sheet.getCell(7, i).getContents());
 			jljlrytjb.setKjxm(sheet.getCell(8, i).getContents());
-			jljlrytjb.setQfrq(new SimpleDateFormat().parse(sheet.getCell(9, i).getContents()));
+			jljlrytjb.setQfrq(StringHelper.stringConvertDate(sheet.getCell(9, i).getContents()));
+			jljlrytjb.setJlnf(sheet.getCell(10, i).getContents());
+			jljlrytjb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()).toString());
+			jljlrytjb.setSubmit("");
+			jljlrytjb.setUsername(formListTemp.get(0).getUsername());
 			
 			jljlrytjbDao.save(jljlrytjb);
 		}
@@ -263,10 +268,17 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 			    }
 			    lhm.put("签发日期", new ArrayList<String>(li));
 			    li.clear();
+				break;		
+			case "11":
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getJlnf());
+			    }
+			    lhm.put("记录日期(年份)", new ArrayList<String>(li));
+			    li.clear();
 				break;				
 			}
-			
 		}
+
 		return lhm;
 	}
 	
