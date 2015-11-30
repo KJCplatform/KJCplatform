@@ -462,8 +462,6 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 	
 		List<JpjgdwjbqksrqkForm> jpjgdwjbqksrqkForm = jpjgdwjbqkFormTemp.getJpjgdwjbqksrqks();
 		int sizeOne = jpjgdwjbqksrqkForm.size();
-		System.out.println(sizeOne);
-
 		for(int i = 1 ; i <= sizeOne ; i ++){
 			label = new Label(0, 25+i, jpjgdwjbqksrqkForm.get(i-1).getYear(), wcf);
 			sheet.addCell(label);
@@ -497,9 +495,9 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 		
 		List<JpjgdwjbqkryForm> jpjgdwjbqkrysForms = jpjgdwjbqkFormTemp.getJpjgdwjbqkrys();
 		int sizeTwo = jpjgdwjbqkrysForms.size();
-		System.out.println(sizeTwo);
 		for(int i = 1; i <= sizeTwo; i++){
 			label = new Label(0, index+ i, jpjgdwjbqkrysForms.get(i-1).getBmzw(), wcf);
+			sheet.addCell(label);
 			sheet.mergeCells(1, index+i, 3, index+i);
 			label = new Label(1, index+i, jpjgdwjbqkrysForms.get(i-1).getXm(), wcf);
 			sheet.addCell(label);

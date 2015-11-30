@@ -186,7 +186,6 @@ public class JpjgdwjbqkAction extends BaseAction implements ModelDriven<Jpjgdwjb
 	}
 	
 	public String showexport() throws Exception{
-		System.out.println(".............");
 		jpjgdwjbqkService.showExportObject();
 		operateSuccess=true;
 		return "showexport";
