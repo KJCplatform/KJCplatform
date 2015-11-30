@@ -87,6 +87,12 @@ function listDoc() {
 								handler : function() {// 处理函数
 									editDoc();
 								}
+							}, {
+								text : '导出',
+								iconCls : 'icon-add',// 图标
+								handler : function() {// 处理函数
+									ShowExportone();
+								}
 							}
 						 ]
 					 });
@@ -357,4 +363,31 @@ function ShowExport(){
 
 
 
+
+//导出一条
+function ShowExportone() {
+	var doc = $('#dg').datagrid('getSelected');// 得到选中的一行数据
+	// 如果没有选中记录
+	if (doc == null) {
+		$.messager.alert('导出', '请先选中要导出的文件', 'info');
+		return;
+	}
+	$.messager.confirm('确认', '真的要导出选中的记录吗？', function(r) {
+		if (r) {
+			var actionPath = basePath + '/system/KjndgxjsqypjbAction_showexportone.action?id=';
+			var url = actionPath + doc.id;
+			// 试一下get方法（地址，回调函数）
+			$.get(url, function(result) {
+			//	alert(result);
+				if (result.operateSuccess) {
+					$('#dg').datagrid('reload');// 重新加载
+					$.messager.alert('导出', '导出Excel成功', 'info');
+				
+			}else {
+					$.messager.alert('导出', '文件被占用！导出Excel失败', 'warning');
+				}
+			});
+		}
+	});
+}
 	

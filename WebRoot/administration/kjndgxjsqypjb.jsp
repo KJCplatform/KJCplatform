@@ -137,12 +137,12 @@
 <input name="Items" type="checkbox" checked="checked" value="10" />研发项目经费核定总额<br> 
 <input name="Items" type="checkbox" checked="checked" value="11" />近一年高新产品销售收入核定额<br>
 <input name="Items" type="checkbox" checked="checked" value="12" />在中国境内研发费用总额定数<br> 
-<input name="Items" type="checkbox" checked="checked" value="13" />大专以上学历科技人员占企业职工总数比例<br> 
-<input name="Items" type="checkbox" checked="checked" value="14" />研发人员占企89业职工总数的比例<br>
+<input name="Items" type="checkbox" checked="checked" value="13" />大专以上学历科技人员占企业职工总数比例（%）<br> 
+<input name="Items" type="checkbox" checked="checked" value="14" />研发人员占企89业职工总数的比例（%）<br>
 
-<input name="Items" type="checkbox" checked="checked" value="15" />近3年研究开发费用总额占总销售收入比例<br>
-<input name="Items" type="checkbox" checked="checked" value="16" />近3年在中国境内研发费用总额占全部研发费用总额比例<br> 
-<input name="Items" type="checkbox" checked="checked" value="17" />近1年高新技术产品（服务）收入占当年总收入比例<br> 
+<input name="Items" type="checkbox" checked="checked" value="15" />近3年研究开发费用总额占总销售收入比例（%）<br>
+<input name="Items" type="checkbox" checked="checked" value="16" />近3年在中国境内研发费用总额占全部研发费用总额比例（%）<br> 
+<input name="Items" type="checkbox" checked="checked" value="17" />近1年高新技术产品（服务）收入占当年总收入比例（%）<br> 
 <input name="Items" type="checkbox" checked="checked" value="18" />综合得分<br>
 <input name="Items" type="checkbox" checked="checked" value="19" />知识产权得分<br> 
 <input name="Items" type="checkbox" checked="checked" value="20" />转化能力得分<br> 
@@ -227,30 +227,30 @@
 				</dl>
 								<dl>
 					<dd>
-						大专以上学历科技人员占企业职工总数比例: <input size="15" id="dzrybl" name="dzrybl" />
+						大专以上学历科技人员占企业职工总数比例（%）: <input size="15" id="dzrybl" name="dzrybl" />
 					</dd>
 				</dl>
 				
 								<dl>
 					<dd>
-						研发人员占企业职工总数的比例: <input size="15" id="yfrybl" name="yfrybl" />
+						研发人员占企业职工总数的比例（%）: <input size="15" id="yfrybl" name="yfrybl" />
 					</dd>
 				</dl>
 
 
 				<dl>
 					<dd>
-						近3年研究开发费用总额占总销售收入比例: <input size="15" id="jsnyfbl" name="jsnyfbl" />
+						近3年研究开发费用总额占总销售收入比例（%）: <input size="15" id="jsnyfbl" name="jsnyfbl" />
 					</dd>
 				</dl>
 				<dl>
 					<dd>
-						近3年在中国境内研发费用总额占全部研发费用总额比例: <input size="15" id="jsnjnbl" name="jsnjnbl" />
+						近3年在中国境内研发费用总额占全部研发费用总额比例（%）: <input size="15" id="jsnjnbl" name="jsnjnbl" />
 					</dd>
 				</dl>
 				<dl>
 					<dd>
-						近1年高新技术产品（服务）收入占当年总收入比例: <input size="15" id="jyngxsrbl" name="jyngxsrbl" />
+						近1年高新技术产品（服务）收入占当年总收入比例（%）: <input size="15" id="jyngxsrbl" name="jyngxsrbl" />
 					</dd>
 				</dl>
 				<dl>

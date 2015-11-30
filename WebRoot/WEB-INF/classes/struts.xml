@@ -446,6 +446,9 @@
 			<result name="showexport" type="json">
 
 			</result>
+				<result name="showexportone" type="json">
+
+			</result>
 			
 		</action>
 		<action name="KjndjgkjjlqkbAction_*" class="platform.action.KjndjgkjjlqkbAction" method="{1}">			

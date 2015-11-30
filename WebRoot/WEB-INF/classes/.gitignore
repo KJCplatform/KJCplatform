@@ -1,15 +1,9 @@
-/beans.xml
-/container
-/excel
-/hibernate.cfg.xml
 /platform
-/struts.xml
-/test1.class
-/test3.class
-/test4.class
 /CopyOfTest.class
 /CopyOftest4.class
 /Copy_2_of_Test.class
 /Test.class
 /TestDao.class
 /TestHibernate.class
+/container
+/excel
