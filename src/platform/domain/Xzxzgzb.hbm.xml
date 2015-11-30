@@ -29,7 +29,7 @@
             </column>
         </property>
         <property name="fwrq" type="date">
-            <column name="sfwrq" length="19">
+            <column name="sfwrq" >
                 <comment>收发文日期</comment>
             </column>
         </property>
@@ -39,7 +39,7 @@
             </column>
         </property>
         <property name="blrq" type="date">
-            <column name="blrq" length="19">
+            <column name="blrq" >
                 <comment>办理日期</comment>
             </column>
         </property>
