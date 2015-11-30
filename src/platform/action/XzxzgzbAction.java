@@ -29,6 +29,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import container.ServiceProvider;
 
 public class XzxzgzbAction extends BaseAction implements ModelDriven<XzxzgzbForm>{
+	String username;
 	public int page = 0;
 	private boolean operateSuccess;
 	public boolean getOperateSuccess() {
@@ -68,10 +69,11 @@ public class XzxzgzbAction extends BaseAction implements ModelDriven<XzxzgzbForm
 		//System.out.println(page+":"+rows);
 		//xzxzgzbForm.setWjm("test");
 		//xzxzgzbForm.setWjh("2");
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
 		List<XzxzgzbForm> formlist=xzxzgzbService.findXzxzgzbListWithPage(rows,page,xzxzgzbForm);
 		//System.out.println(formlist.get(formlist.size()-1).getCljg());
 		map.put("rows", formlist);
-		map.put("total", xzxzgzbService.findXzxzgzbList().size());
+		map.put("total", xzxzgzbService.findXzxzgzbList(xzxzgzbForm).size());
 		
 		this.setResponseJson(map);
 		
@@ -95,7 +97,8 @@ public class XzxzgzbAction extends BaseAction implements ModelDriven<XzxzgzbForm
 		xzxzgzbForm1.setJzrq(d);
 		xzxzgzbForm1.setWjh("update");
 		xzxzgzbForm1.setWjm("update");*/
-		xzxzgzbService.updateXzxzgzb(xzxzgzbForm);
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		xzxzgzbService.updateXzxzgzb(xzxzgzbForm,username);
 		operateSuccess=true;
 		return "update";
 	}
@@ -106,7 +109,8 @@ public class XzxzgzbAction extends BaseAction implements ModelDriven<XzxzgzbForm
 		return   "delete";
 	}
 	public String add(){
-		xzxzgzbService.saveObject(xzxzgzbForm);
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		xzxzgzbService.saveObject(xzxzgzbForm,username);
 		operateSuccess=true;
 		return "add";
 	}

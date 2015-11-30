@@ -679,6 +679,11 @@
 			<result name="addsrqk" type="json">
 				
 			</result>
+			<result name="showimport" type="json">
+			</result>
+			
+			<result name="showexport" type="json">
+			</result>
 		</action>
 		<action name="KjgxqybabAction_*" class="platform.action.KjgxqybabAction" method="{1}">			
 			<result name="list" type="json">

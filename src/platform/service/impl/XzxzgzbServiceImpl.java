@@ -30,11 +30,21 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 	private XzxzgzbDao xzxzgzbDao;
 	private List<XzxzgzbForm> formListTemp = new ArrayList<XzxzgzbForm>();
 	
-	public List<XzxzgzbForm> findXzxzgzbList(){
+	public List<XzxzgzbForm> findXzxzgzbList(XzxzgzbForm xzxzgzbForm){
 		String hqlWhere = "";
 		Object [] params = null;
+		List<String> paramsList=new ArrayList<String>();
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getWjm())){
+			hqlWhere += " and o.wjm like ?";
+			paramsList.add("%"+xzxzgzbForm.getWjm()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getWjh())){
+			hqlWhere += " and o.jbnr like ?";
+			paramsList.add("%"+xzxzgzbForm.getJbnr()+"%");
+		}
 		orderby.put(" o.fwrq", "desc");
+		params = paramsList.toArray();
 		List<Xzxzgzb> list=xzxzgzbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<XzxzgzbForm> formlist=this.XzxzgzbPOListToVOList(list);
 		return formlist;
@@ -50,8 +60,8 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 			paramsList.add("%"+xzxzgzbForm.getWjm()+"%");
 		}
 		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getWjh())){
-			hqlWhere += " and o.wjh like ?";
-			paramsList.add("%"+xzxzgzbForm.getWjh()+"%");
+			hqlWhere += " and o.jbnr like ?";
+			paramsList.add("%"+xzxzgzbForm.getJbnr()+"%");
 		}
 		orderby.put(" o.fwrq", "desc");
 		params = paramsList.toArray();
@@ -65,22 +75,24 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		
 	}
 	
-	public void updateXzxzgzb(XzxzgzbForm xzxzgzbForm){
+	public void updateXzxzgzb(XzxzgzbForm xzxzgzbForm, String username){
 		Xzxzgzb xzxzgzb=new Xzxzgzb();
-		xzxzgzb.setCljg(xzxzgzbForm.getCljg());
-		xzxzgzb.setFwjg(xzxzgzbForm.getFwjg());
-		xzxzgzb.setFwrq(StringHelper.stringConvertDate(xzxzgzbForm.getFwrq()));
 		xzxzgzb.setId(Integer.valueOf(xzxzgzbForm.getId()));
-		xzxzgzb.setJbnr(xzxzgzbForm.getJbnr());
-		xzxzgzb.setJbr(xzxzgzbForm.getJbr());
-		xzxzgzb.setJzrq(StringHelper.stringConvertDate(xzxzgzbForm.getJzrq()));
 		xzxzgzb.setWjh(xzxzgzbForm.getWjh());
 		xzxzgzb.setWjm(xzxzgzbForm.getWjm());
-		
+		xzxzgzb.setFwjg(xzxzgzbForm.getFwjg());
+		xzxzgzb.setMiji(xzxzgzbForm.getMiji());
+		xzxzgzb.setFwrq(StringHelper.stringConvertDate(xzxzgzbForm.getFwrq()));
+		xzxzgzb.setJbnr(xzxzgzbForm.getJbnr());
+		xzxzgzb.setBlrq(StringHelper.stringConvertDate(xzxzgzbForm.getBlrq()));
+		xzxzgzb.setJbr(xzxzgzbForm.getJbr());
+		xzxzgzb.setCljg(xzxzgzbForm.getCljg());	
+		xzxzgzb.setFj1(xzxzgzbForm.getFj1());
+		xzxzgzb.setFj1(xzxzgzbForm.getFj2());
 		xzxzgzb.setJlnf(xzxzgzbForm.getJlnf());
-		xzxzgzb.setUsername(xzxzgzbForm.getUsername());
-		xzxzgzb.setGxsj(xzxzgzbForm.getGxsj());
-		xzxzgzb.setSubmit(xzxzgzbForm.getSubmit());
+		xzxzgzb.setUsername(username);
+		xzxzgzb.setGxsj(new Date().toString());
+		xzxzgzb.setSubmit(false);
 		
 		xzxzgzbDao.update(xzxzgzb);
 		
@@ -92,22 +104,23 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 	public void deleteObject(String id){
 		xzxzgzbDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(XzxzgzbForm xzxzgzbForm){
-		Xzxzgzb xzxzgzb=new Xzxzgzb();
-		xzxzgzb.setCljg(xzxzgzbForm.getCljg());
-		xzxzgzb.setFwjg(xzxzgzbForm.getFwjg());
-		xzxzgzb.setFwrq(StringHelper.stringConvertDate(xzxzgzbForm.getFwrq()));
-		xzxzgzb.setJbnr(xzxzgzbForm.getJbnr());
-		xzxzgzb.setJbr(xzxzgzbForm.getJbr());
-		xzxzgzb.setJzrq(StringHelper.stringConvertDate(xzxzgzbForm.getJzrq()));
+	public void saveObject(XzxzgzbForm xzxzgzbForm, String username){
+		Xzxzgzb xzxzgzb=new Xzxzgzb();	
 		xzxzgzb.setWjh(xzxzgzbForm.getWjh());
 		xzxzgzb.setWjm(xzxzgzbForm.getWjm());
-		
+		xzxzgzb.setFwjg(xzxzgzbForm.getFwjg());
+		xzxzgzb.setMiji(xzxzgzbForm.getMiji());
+		xzxzgzb.setFwrq(StringHelper.stringConvertDate(xzxzgzbForm.getFwrq()));
+		xzxzgzb.setJbnr(xzxzgzbForm.getJbnr());
+		xzxzgzb.setBlrq(StringHelper.stringConvertDate(xzxzgzbForm.getBlrq()));
+		xzxzgzb.setJbr(xzxzgzbForm.getJbr());
+		xzxzgzb.setCljg(xzxzgzbForm.getCljg());	
+		xzxzgzb.setFj1(xzxzgzbForm.getFj1());
+		xzxzgzb.setFj1(xzxzgzbForm.getFj2());
 		xzxzgzb.setJlnf(xzxzgzbForm.getJlnf());
-		xzxzgzb.setUsername(xzxzgzbForm.getUsername());
-		xzxzgzb.setGxsj(xzxzgzbForm.getGxsj());
-		xzxzgzb.setSubmit(xzxzgzbForm.getSubmit());
-		
+		xzxzgzb.setUsername(username);
+		xzxzgzb.setGxsj(new Date().toString());
+		xzxzgzb.setSubmit(false);
 		xzxzgzbDao.save(xzxzgzb);
 	}
 	private List<XzxzgzbForm> XzxzgzbPOListToVOList(List<Xzxzgzb> list) {
@@ -116,21 +129,19 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		for(int i=0;i<list.size();i++){
 			Xzxzgzb xzxzgzb=list.get(i);
 			XzxzgzbForm xzxzgzbForm=new XzxzgzbForm();
-			xzxzgzbForm.setCljg(xzxzgzb.getCljg());
-			xzxzgzbForm.setFwjg(xzxzgzb.getFwjg());
-			xzxzgzbForm.setFwrq(String.valueOf(xzxzgzb.getFwrq()));
 			xzxzgzbForm.setId(String.valueOf(xzxzgzb.getId()));
-			xzxzgzbForm.setJbnr(xzxzgzb.getJbnr());
-			xzxzgzbForm.setJbr(xzxzgzb.getJbr());
-			xzxzgzbForm.setJzrq(String.valueOf(xzxzgzb.getJzrq()));
 			xzxzgzbForm.setWjh(xzxzgzb.getWjh());
 			xzxzgzbForm.setWjm(xzxzgzb.getWjm());
-			
+			xzxzgzbForm.setFwjg(xzxzgzb.getFwjg());
+			xzxzgzbForm.setMiji(xzxzgzb.getMiji());
+			xzxzgzbForm.setFwrq(String.valueOf(xzxzgzb.getFwrq()));
+			xzxzgzbForm.setJbnr(xzxzgzb.getJbnr());
+			xzxzgzbForm.setBlrq(String.valueOf(xzxzgzb.getBlrq()));
+			xzxzgzbForm.setJbr(xzxzgzb.getJbr());
+			xzxzgzbForm.setCljg(xzxzgzb.getCljg());
+			xzxzgzbForm.setFj1(xzxzgzb.getFj1());
+			xzxzgzbForm.setFj2(xzxzgzb.getFj2());
 			xzxzgzbForm.setJlnf(xzxzgzb.getJlnf());
-			xzxzgzbForm.setUsername(xzxzgzb.getUsername());
-			xzxzgzbForm.setGxsj(xzxzgzb.getGxsj());
-			xzxzgzbForm.setSubmit(String.valueOf(xzxzgzb.getSubmit()));
-			
 			formlist.add(xzxzgzbForm);
 		}
 		return formlist;

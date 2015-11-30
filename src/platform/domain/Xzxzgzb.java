@@ -1,49 +1,28 @@
 package platform.domain;
 
+import java.sql.Timestamp;
 import java.util.Date;
 public class Xzxzgzb implements java.io.Serializable{
-	  private int id;
-	  private String wjm;
-	  private String wjh;
-	  private String fwjg;
-	  private Date fwrq;
-	  private String jbnr;
-	  private Date jzrq;
-	  private String jbr;
-	  private String cljg;
-	  
-	  private String jlnf;
-	  private String username;
-	  private String gxsj;
-	  private String submit;
-	public String getJlnf() {
-		return jlnf;
-	}
-	public void setJlnf(String jlnf) {
-		this.jlnf = jlnf;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getGxsj() {
-		return gxsj;
-	}
-	public void setGxsj(String gxsj) {
-		this.gxsj = gxsj;
-	}
-	public String getSubmit() {
-		return submit;
-	}
-	public void setSubmit(String submit) {
-		this.submit = submit;
-	}
-	public int getId() {
+	private Integer id;
+	private String wjm;
+	private String wjh;
+	private String fwjg;
+	private String miji;
+	private Date fwrq;
+	private String jbnr;
+	private Date blrq;
+	private String jbr;
+	private String cljg;
+	private String fj1;
+	private String fj2;
+	private String jlnf;
+	private String username;
+	private String gxsj;
+	private Boolean submit;
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getWjm() {
@@ -64,6 +43,13 @@ public class Xzxzgzb implements java.io.Serializable{
 	public void setFwjg(String fwjg) {
 		this.fwjg = fwjg;
 	}
+	
+	public String getMiji() {
+		return miji;
+	}
+	public void setMiji(String miji) {
+		this.miji = miji;
+	}
 	public Date getFwrq() {
 		return fwrq;
 	}
@@ -76,11 +62,11 @@ public class Xzxzgzb implements java.io.Serializable{
 	public void setJbnr(String jbnr) {
 		this.jbnr = jbnr;
 	}
-	public Date getJzrq() {
-		return jzrq;
+	public Date getBlrq() {
+		return blrq;
 	}
-	public void setJzrq(Date jzrq) {
-		this.jzrq = jzrq;
+	public void setBlrq(Date blrq) {
+		this.blrq = blrq;
 	}
 	public String getJbr() {
 		return jbr;
@@ -94,7 +80,42 @@ public class Xzxzgzb implements java.io.Serializable{
 	public void setCljg(String cljg) {
 		this.cljg = cljg;
 	}
-	
+	public String getFj1() {
+		return fj1;
+	}
+	public void setFj1(String fj1) {
+		this.fj1 = fj1;
+	}
+	public String getFj2() {
+		return fj2;
+	}
+	public void setFj2(String fj2) {
+		this.fj2 = fj2;
+	}
+	public String getJlnf() {
+		return jlnf;
+	}
+	public void setJlnf(String jlnf) {
+		this.jlnf = jlnf;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getGxsj() {
+		return gxsj;
+	}
+	public void setGxsj(String gxsj) {
+		this.gxsj = gxsj;
+	}
+	public Boolean getSubmit() {
+		return submit;
+	}
+	public void setSubmit(Boolean submit) {
+		this.submit = submit;
+	}
 	
 	 
 }

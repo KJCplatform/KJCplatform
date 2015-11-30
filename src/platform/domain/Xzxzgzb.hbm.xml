@@ -3,48 +3,85 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="platform.domain.Xzxzgzb" table="xz_xzgzb">
-		<id name="id" type="integer">
-			<column name="id"  not-null="true"/>
-			<generator class="identity"/>
-		</id>
-		<property name="wjm" type="string">
-			<column name="wjm" />
-		</property>
-		<property name="fwrq" type="date">
-			<column name="fwrq" />
-		</property>
-		<property name="wjh" type="string">
-			<column name="wjh" />
-		</property>
-		<property name="fwjg" type="string">
-			<column name="fwjg" />
-		</property>
-		<property name="jbnr" type="string">
-			<column name="jbnr" />	
-		</property>
-		<property name="jbr" type="string">
-			<column name="jbr" />	
-		</property>
-		<property name="cljg" type="string">
-			<column name="cljg" />	
-		</property>
-		<property name="jzrq" type="date">
-			<column name="jzrq" />
-		</property>
-		
-		
-		<property name="jlnf" type="string">
-			<column name="jlnf" />	
-		</property>
-		<property name="username" type="string">
-			<column name="username" />	
-		</property>
-		<property name="gxsj" type="string">
-			<column name="gxsj" />	
-		</property>
-		<property name="submit" type="string">
-			<column name="submit" />	
-		</property>
-	</class>
+    <class name="platform.domain.Xzxzgzb" table="xz_xzgzb" catalog="kjcplatform">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="wjm" type="java.lang.String">
+            <column name="wjm">
+                <comment>文件名</comment>
+            </column>
+        </property>
+        <property name="wjh" type="java.lang.String">
+            <column name="wjh">
+                <comment>文件号</comment>
+            </column>
+        </property>
+        <property name="fwjg" type="java.lang.String">
+            <column name="fwjg">
+                <comment>发文机关</comment>
+            </column>
+        </property>
+        <property name="miji" type="java.lang.String">
+            <column name="miji">
+                <comment>密级</comment>
+            </column>
+        </property>
+        <property name="fwrq" type="date">
+            <column name="sfwrq" length="19">
+                <comment>收发文日期</comment>
+            </column>
+        </property>
+        <property name="jbnr" type="java.lang.String">
+            <column name="jbnr">
+                <comment>交办内容</comment>
+            </column>
+        </property>
+        <property name="blrq" type="date">
+            <column name="blrq" length="19">
+                <comment>办理日期</comment>
+            </column>
+        </property>
+        <property name="jbr" type="java.lang.String">
+            <column name="jbr">
+                <comment>经办人</comment>
+            </column>
+        </property>
+        <property name="cljg" type="java.lang.String">
+            <column name="cljg">
+                <comment>处理结果</comment>
+            </column>
+        </property>
+        <property name="fj1" type="java.lang.String">
+            <column name="fj1" length="65535">
+                <comment>附件1</comment>
+            </column>
+        </property>
+        <property name="fj2" type="java.lang.String">
+            <column name="fj2" length="65535">
+                <comment>附件2</comment>
+            </column>
+        </property>
+        <property name="jlnf" type="java.lang.String">
+            <column name="jlnf">
+                <comment>记录时间（年份）</comment>
+            </column>
+        </property>
+        <property name="username" type="java.lang.String">
+            <column name="username">
+                <comment>操作员</comment>
+            </column>
+        </property>
+        <property name="gxsj" type="java.lang.String">
+            <column name="gxsj">
+                <comment>更新时间</comment>
+            </column>
+        </property>
+        <property name="submit" type="java.lang.Boolean">
+            <column name="submit">
+                <comment>是否提交</comment>
+            </column>
+        </property>
+    </class>
 </hibernate-mapping>
