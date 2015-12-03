@@ -208,7 +208,9 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 			if (i == 0) {
 				for (int j = 0; j < columnum; j++) {
 					Cell cell0 = sheet.getCell(j, i);
+					System.out.println(cell0.getContents().trim());
 					switch (cell0.getContents().trim()) {
+					
 					case "法人单位名称":
 						array[j] = 1;
 						break;
@@ -262,7 +264,7 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 						kjsjjljgxxb.setBgdh(cell0.getContents());
 						break;
 					case 7:
-						kjsjjljgxxb.setSj(Integer.valueOf(cell0.getContents()));
+						kjsjjljgxxb.setSj(Long.valueOf(cell0.getContents()));
 						break;
 					}
 				}

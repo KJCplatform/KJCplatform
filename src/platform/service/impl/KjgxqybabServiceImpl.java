@@ -88,7 +88,7 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 		List<Kjgxqybabyfxm> Plist=this.yfxmPoToVoList(list);
 		Kjgxqybab kjgxqybab= kjgxqybabDao.findObjectByID(id);
 		
-		kjgxqybab.setKjgxqybabyfxms(null);
+		kjgxqybab.setKjgxqybabyfxms(new HashSet<Kjgxqybabyfxm>());
 		for(int i=0;i<Plist.size();i++){
 			kjgxqybab.getKjgxqybabyfxms().add(Plist.get(i));
 		}
@@ -98,7 +98,7 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 		List<Kjgxqybabgxcp> Plist=this.gxcpPoToVoList(list);
 		Kjgxqybab kjgxqybab= kjgxqybabDao.findObjectByID(id);
 		
-		kjgxqybab.setKjgxqybabgxcps(null);
+		kjgxqybab.setKjgxqybabgxcps(new HashSet<Kjgxqybabgxcp>());
 		for(int i=0;i<Plist.size();i++){
 			kjgxqybab.getKjgxqybabgxcps().add(Plist.get(i));
 		}

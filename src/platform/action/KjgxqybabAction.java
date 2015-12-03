@@ -143,7 +143,9 @@ public String update(){
 		return "add";
 	}
 	public String addzscq(){
-		//System.out.println(cxyform);
+		
+		
+	
 		//JSONObject jsonObj = JSONObject.fromObject(cxyform);
 		List<KjgxqybabzscqForm> list=new ArrayList<KjgxqybabzscqForm>();
 		JSONArray  arrays=JSONArray.fromObject(zscqform);
@@ -154,8 +156,9 @@ public String update(){
         	//System.out.println(kjjszjcjbxmForm.getXmmc());
    //     	kjgxqybabzscqForm.setFk_gxqybab_id(jsonJ.getString("fk_gxqybab_id"));
         	kjgxqybabzscqForm.setXmbh(jsonJ.getString("xmbh"));
-        	System.out.println(kjgxqybabzscqForm.getXmbh());
+        	//System.out.println(kjgxqybabzscqForm.getXmbh());
         	kjgxqybabzscqForm.setSqmc(jsonJ.getString("sqmc"));
+
         	kjgxqybabzscqForm.setLb(jsonJ.getString("lb"));
         	kjgxqybabzscqForm.setSqh(jsonJ.getString("sqh"));
         	kjgxqybabzscqForm.setSqrq(jsonJ.getString("sqrq"));

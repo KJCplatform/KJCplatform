@@ -112,6 +112,8 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		xzxzgzb.setMiji(xzxzgzbForm.getMiji());
 		xzxzgzb.setFwrq(StringHelper.stringConvertDate(xzxzgzbForm.getFwrq()));
 		xzxzgzb.setJbnr(xzxzgzbForm.getJbnr());
+		
+		if(xzxzgzbForm.getBlrq()!=null)
 		xzxzgzb.setBlrq(StringHelper.stringConvertDate(xzxzgzbForm.getBlrq()));
 		xzxzgzb.setJbr(xzxzgzbForm.getJbr());
 		xzxzgzb.setCljg(xzxzgzbForm.getCljg());	

@@ -371,7 +371,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 									}
 									//alert(resultid);
 									var data = {'zscqform': JSON.stringify(rows)};
-	//								alert(rows);
+								
 									$.post(action, data, function(result){
 										if (result.operateSuccess) {
 										//alert(result);

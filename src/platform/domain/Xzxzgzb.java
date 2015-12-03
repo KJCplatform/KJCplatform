@@ -19,6 +19,17 @@ public class Xzxzgzb implements java.io.Serializable{
 	private String username;
 	private String gxsj;
 	private Boolean submit;
+	
+	private Date jzrq;
+	
+	
+
+	public Date getJzrq() {
+		return jzrq;
+	}
+	public void setJzrq(Date jzrq) {
+		this.jzrq = jzrq;
+	}
 	public Integer getId() {
 		return id;
 	}

@@ -369,7 +369,7 @@ $(function() {
 								if (result.operateSuccess) {
 								//alert(result);
 									$('#zscq').datagrid('reload');// 重新加载
-									$.messager.alert('提交', '提交成功', 'info');
+									$.messager.alert('提交', '提交成功z', 'info');
 								} else {
 									$.messager.alert('提交', '提交失败', 'warning');
 								}

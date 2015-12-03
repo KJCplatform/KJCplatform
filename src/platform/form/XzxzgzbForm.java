@@ -16,6 +16,23 @@ public class XzxzgzbForm implements java.io.Serializable{
 		private String fj1;
 		private String fj2;
 		private String jlnf;
+		
+		private String jzrq;
+		private String gxsj;
+		
+		
+		public String getGxsj() {
+			return gxsj;
+		}
+		public void setGxsj(String gxsj) {
+			this.gxsj = gxsj;
+		}
+		public String getJzrq() {
+			return jzrq;
+		}
+		public void setJzrq(String jzrq) {
+			this.jzrq = jzrq;
+		}
 		public String getId() {
 			return id;
 		}
