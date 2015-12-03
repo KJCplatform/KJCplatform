@@ -2,6 +2,7 @@ package platform.service.impl;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
@@ -77,6 +78,8 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 	public void addZscqListWithExpertId(int id, List<KjgxqybabzscqForm> list){
 		List<Kjgxqybabzscq> Plist=this.zscqPoToVoList(list);
 		Kjgxqybab kjgxqybab= kjgxqybabDao.findObjectByID(id);
+		
+		kjgxqybab.setKjgxqybabzscqs(new HashSet<Kjgxqybabzscq>());
 		for(int i=0;i<Plist.size();i++){
 			kjgxqybab.getKjgxqybabzscqs().add(Plist.get(i));
 		}
@@ -84,6 +87,8 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 	public void addYfxmListWithExpertId(int id, List<KjgxqybabyfxmForm> list){
 		List<Kjgxqybabyfxm> Plist=this.yfxmPoToVoList(list);
 		Kjgxqybab kjgxqybab= kjgxqybabDao.findObjectByID(id);
+		
+		kjgxqybab.setKjgxqybabyfxms(null);
 		for(int i=0;i<Plist.size();i++){
 			kjgxqybab.getKjgxqybabyfxms().add(Plist.get(i));
 		}
@@ -92,6 +97,8 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 	public void addGxcpListWithExpertId(int id, List<KjgxqybabgxcpForm> list){
 		List<Kjgxqybabgxcp> Plist=this.gxcpPoToVoList(list);
 		Kjgxqybab kjgxqybab= kjgxqybabDao.findObjectByID(id);
+		
+		kjgxqybab.setKjgxqybabgxcps(null);
 		for(int i=0;i<Plist.size();i++){
 			kjgxqybab.getKjgxqybabgxcps().add(Plist.get(i));
 		}
@@ -249,6 +256,7 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 	
 	public void deleteObject(String id){
 		kjgxqybabDao.deleteObjectByIDs(Integer.valueOf(id));
+		
 	}
 	
 	

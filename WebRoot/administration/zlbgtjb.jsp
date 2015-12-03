@@ -105,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<input id="year" />
 					</td>
 					<td>
-						<a class="easyui-linkbutton" data-options="iconCls:'icon-tip'" href="javascript:void(0);" onclick="showInfo('noFisrt');">一季度未报</a>
+						<a class="easyui-linkbutton" data-options="iconCls:'icon-tip'" href="javascript:void(0);" onclick="showInfo('noFirst');">一季度未报</a>
 					</td>
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-tip'" href="javascript:void(0);" onclick="showInfo('noSecond');">二季度未报</a>

@@ -17,7 +17,7 @@ public class test1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		JpzlbgtjbAction userAction=new JpzlbgtjbAction();
-	   userAction.noFourth();
+	   userAction.noFirst();
 		//Kjzlcjb kjzlcjb=new Kjzlcjb();
 		//kjzlcjb.setGkr(StringHelper.stringConvertDate(null));	
 	}

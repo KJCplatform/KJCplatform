@@ -36,7 +36,7 @@
                 <comment>项目研发经费-外部</comment>
             </column>
         </property>
-         <set name="kjgxqybabs" table="kj_qy_yfxm" >
+         <set name="kjgxqybabs" table="kj_qy_yfxm" cascade="all" >
             <key>
                 <column name="FK_kj_yfxm" not-null="true" />
             </key>

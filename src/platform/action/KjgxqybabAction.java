@@ -120,6 +120,12 @@ public String update(){
 	}
 	public String delete(){
 		kjgxqybabService.deleteObject(kjgxqybabForm.getId());
+//		for(int i=1;i<=1000;i++){
+//			try{
+//		kjgxqybabService.deleteObject(String.valueOf(i));
+//		}catch(Exception e){}
+//		}
+		
 		operateSuccess=true;
 		return   "delete";
 	}

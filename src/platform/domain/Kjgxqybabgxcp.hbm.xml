@@ -31,7 +31,7 @@
             </column>
         </property>
 
-         <set name="kjgxqybabs" table="kj_qy_gxcp" >
+         <set name="kjgxqybabs" table="kj_qy_gxcp" cascade="all">
             <key>
                 <column name="FK_kj_gxcp" not-null="true" />
             </key>

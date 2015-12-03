@@ -112,11 +112,12 @@ public class JpzlbgtjbAction extends BaseAction implements ModelDriven<Jpzlbgtjb
 		return "list";
 	}
 	public String noFirst(){
-		/*JpzlbgtjbForm jpzlbgtjbForm1=new JpzlbgtjbForm();
-		jpzlbgtjbForm1.setYear("2015");*/
+		System.out.println("111111111111111111");
+		//JpzlbgtjbForm jpzlbgtjbForm1=new JpzlbgtjbForm();
+		//jpzlbgtjbForm1.setYear("2015");
 		List<String> stringlist=jpzlbgtjbService.notInFirst(jpzlbgtjbForm);
-		/*for(int i=0;i<stringlist.size();i++){
-		System.out.println(stringlist.get(i));}*/
+		//for(int i=0;i<stringlist.size();i++){
+		//System.out.println(stringlist.get(i));}
 		this.setNofirst(stringlist);
 		return "noFirst";
 	}

@@ -22,6 +22,11 @@ $(function() {
 		editable:false,
 		required : true
 	});
+	$("#dwmc").validatebox({
+		required : true,
+		missingMessage : '不能为空'
+	});
+	
 });
 //加载公文列表
 function listDoc() {

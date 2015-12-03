@@ -32,7 +32,7 @@
             </column>
         </property>
 
-          <set name="kjgxqybabs" table="kj_qy_zscq" >
+          <set name="kjgxqybabs" table="kj_qy_zscq" cascade="all">
             <key>
                 <column name="FK_kj_zscq" not-null="true" />
             </key>
