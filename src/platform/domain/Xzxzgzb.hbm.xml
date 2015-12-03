@@ -34,7 +34,7 @@
             </column>
         </property>
         <property name="jbnr" type="java.lang.String">
-            <column name="jbnr">
+            <column name="jbnr" length="65535">
                 <comment>交办内容</comment>
             </column>
         </property>
