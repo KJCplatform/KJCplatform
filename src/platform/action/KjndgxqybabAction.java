@@ -32,6 +32,7 @@ import container.ServiceProvider;
 public class KjndgxqybabAction extends BaseAction implements ModelDriven<KjndgxqybabForm>{
 	public int page = 0;
 	public boolean operateSuccess;
+	String username;
 	public boolean isOperateSuccess() {
 		return operateSuccess;
 	}
@@ -94,7 +95,8 @@ public class KjndgxqybabAction extends BaseAction implements ModelDriven<Kjndgxq
 		xzxzgzbForm1.setJzrq(d);
 		xzxzgzbForm1.setWjh("update");
 		xzxzgzbForm1.setWjm("update");*/
-		kjndgxqybabService.updateKjndgxqybab(kjndgxqybabForm);
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		kjndgxqybabService.updateKjndgxqybab(kjndgxqybabForm,username);
 		operateSuccess=true;
 		return "update";
 	}
@@ -105,7 +107,8 @@ public class KjndgxqybabAction extends BaseAction implements ModelDriven<Kjndgxq
 		return   "delete";
 	}
 	public String add(){
-		kjndgxqybabService.saveObject(kjndgxqybabForm);
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		kjndgxqybabService.saveObject(kjndgxqybabForm,username);
 		operateSuccess=true;
 		return "add";
 	}

@@ -39,7 +39,7 @@ function listDoc() {
 	var actionPath = basePath + '/system/Kjkjxmxxb0Action_list.action';
 	 $('#dg').datagrid({
             title : '科技项目信息汇总',
-            width : 4000,
+            //width : 4000,
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      
@@ -168,10 +168,7 @@ function editDoc() {
 	$("#yqzl").val(doc.yqzl);
 	$("#zjf").val(doc.zjf);
 	$("#sbk").val(doc.sbk);	
-	$("#jlnf").val(doc.jlnf);
-	$("#username").val(doc.username);
-	$("#gxsj").val(doc.gxsj);
-	$("#submit").val(doc.submit);
+
 	// 给默认值
 	/*$("#fwrq").datebox("setValue", doc.fwrq.substring(0, 10));
 	//$("#fwrq").datebox("getValue");

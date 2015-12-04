@@ -176,8 +176,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             {"id":"jlnf", "name": "记录时间（年份） ", "group": "其他信息", "value": "", "editor": "text" },
             {"id":"username", "name": "操作员", "group": "其他信息", "value": "", "editor":"text" },
             {"id":"gxsj", "name": "更新时间", "value": "", "group": "其他信息", "editor":"text" },
-            {"id":"submit", "name": "是否提交", "group": "其他信息", "value": "", "editor": "text" }
-            
+             
         ];
 
             
@@ -324,39 +323,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						display[0].value = info.xmbh;
 						display[1].value = info.xmmc;
 // 						display[2].value = info.cjdws;
-						display[3].value = info.dwmc;
-						display[4].value = info.dwszd;
-						display[5].value = info.txdz;
-						display[6].value = info.yb;
-						display[7].value = info.dwxz;
-						display[8].value = info.sjbm;
-						display[9].value = info.fzr;
-						display[10].value = info.xb;
-						display[11].value = info.csn;
-						display[12].value = info.xl;
-						display[13].value = info.zc;
-						display[14].value = info.lxdh;
-						display[15].value = info.email;
-						display[16].value = info.xmzrs;
+						display[2].value = info.dwmc;
+						display[3].value = info.dwszd;
+						display[4].value = info.txdz;
+						display[5].value = info.yb;
+						display[6].value = info.dwxz;
+						display[7].value = info.sjbm;
+						display[8].value = info.fzr;
+						display[9].value = info.xb;
+						display[10].value = info.csn;
+						display[11].value = info.xl;
+						display[12].value = info.zc;
+						display[13].value = info.lxdh;
+						display[14].value = info.email;
+						display[15].value = info.xmzrs;
 						
-						display[17].value = info.gj;
-						display[18].value = info.zj;
-						display[19].value = info.cj;
-						display[20].value = info.qt;
-						display[21].value = info.qssj;
-						display[22].value = info.zzsj;
-						display[23].value = info.xmhdlx;
-						display[24].value = info.ssly;
-						display[25].value = info.xmjsly;
-						display[26].value = info.zyyfnr;
-						display[27].value = info.cgxs;
-						display[28].value = info.yqzl;
-						display[29].value = info.zjf;
-						display[30].value = info.sbk;
-									display[31].value = info.jlnf;
-						display[32].value = info.username;
-						display[33].value = info.gxsj;
-						display[34].value = info.submit;
+						display[16].value = info.gj;
+						display[17].value = info.zj;
+						display[18].value = info.cj;
+						display[19].value = info.qt;
+						display[20].value = info.qssj;
+						display[21].value = info.zzsj;
+						display[22].value = info.xmhdlx;
+						display[23].value = info.ssly;
+						display[24].value = info.xmjsly;
+						display[25].value = info.zyyfnr;
+						display[26].value = info.cgxs;
+						display[27].value = info.yqzl;
+						display[28].value = info.zjf;
+						display[29].value = info.sbk;
+						display[30].value = info.jlnf;
+						display[31].value = info.username;
+						display[32].value = info.gxsj;
+			
 						var cjdwdata = {};
 				
 						if(info.kjkjxmxxbcjdws != null){

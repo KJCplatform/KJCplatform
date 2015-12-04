@@ -36,6 +36,8 @@ import platform.service.TestDataService;
 
 
 
+
+
 import com.opensymphony.xwork2.ModelDriven;
 
 import container.ServiceProvider;
@@ -43,7 +45,7 @@ import container.ServiceProvider;
 @SuppressWarnings("serial")
 public class KjkjxmxxbAction extends BaseAction implements ModelDriven<KjkjxmxxbForm>{
 	String cjdwform;
-	
+	String username;
 	public String getCjdwform() {
 		return cjdwform;
 	}
@@ -116,12 +118,12 @@ public class KjkjxmxxbAction extends BaseAction implements ModelDriven<Kjkjxmxxb
 		//map.put("total", xzxzgzbService.findXzxzgzbList().size());
 		//this.setResponseJson(map);
 		  
-		  System.out.println("succedd!");
+//		  System.out.println("succedd!");
 		return "list";
 	}
 	public String update(){
-		
-		kjkjxmxxbService.updateObject(kjkjxmxxbForm);
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		kjkjxmxxbService.updateObject(kjkjxmxxbForm,username);
 		operateSuccess=true;
 		return "update";
 	}
@@ -131,14 +133,15 @@ public class KjkjxmxxbAction extends BaseAction implements ModelDriven<Kjkjxmxxb
 		return   "delete";
 	}
 	public String add(){
-		System.out.println(resultid);
+//		System.out.println(resultid);
 		/*KjjszjcjbForm kjjszjcjbForm1=new KjjszjcjbForm();
 		kjjszjcjbForm1.setFwyy("哈哈哈");
 		kjjszjcjbForm1.setGzbm("哈哈哈");
 		kjjszjcjbForm1.setZytc("哈哈哈");
 		kjjszjcjbForm1.setSfgk("否");*/
-		resultid=kjkjxmxxbService.saveKjkjxmxxb(kjkjxmxxbForm);
-		System.out.println(resultid);
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		resultid=kjkjxmxxbService.saveKjkjxmxxb(kjkjxmxxbForm,username);
+//		System.out.println(resultid);
 		//System.out.println(resultid);
 		operateSuccess=true;
 		return "add";

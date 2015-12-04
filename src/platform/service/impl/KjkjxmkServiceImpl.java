@@ -2,6 +2,7 @@ package platform.service.impl;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -68,7 +69,7 @@ public class KjkjxmkServiceImpl implements KjkjxmkService{
 		
 	}
 	
-	public void updateKjkjxmk(KjkjxmkForm kjkjxmkForm){
+	public void updateKjkjxmk(KjkjxmkForm kjkjxmkForm,String username){
 		Kjkjxmk kjkjxmk=new Kjkjxmk();
 		kjkjxmk.setId(Integer.valueOf(kjkjxmkForm.getId()));
 		kjkjxmk.setLb(kjkjxmkForm.getLb());
@@ -82,6 +83,11 @@ public class KjkjxmkServiceImpl implements KjkjxmkService{
 		kjkjxmk.setYwctz(kjkjxmkForm.getYwctz());
 		kjkjxmk.setBz(kjkjxmkForm.getBz());
 		kjkjxmk.setBntz(kjkjxmkForm.getBntz());
+		
+		kjkjxmk.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjkjxmk.setUsername(username);
+		kjkjxmk.setGxsj(new Date().toString());
+		kjkjxmk.setSubmit(0);
 		kjkjxmkDao.update(kjkjxmk);
 		
 	}
@@ -89,7 +95,7 @@ public class KjkjxmkServiceImpl implements KjkjxmkService{
 		kjkjxmkDao.deleteObjectByIDs(Integer.parseInt(id));
 	}
 	
-	public void saveObject(KjkjxmkForm kjkjxmkForm){
+	public void saveObject(KjkjxmkForm kjkjxmkForm,String username){
 		Kjkjxmk kjkjxmk=new Kjkjxmk();
 //		kjkjxmk.setId(Integer.valueOf(kjkjxmkForm.getId()));
 		kjkjxmk.setLb(kjkjxmkForm.getLb());
@@ -103,6 +109,11 @@ public class KjkjxmkServiceImpl implements KjkjxmkService{
 		kjkjxmk.setYwctz(kjkjxmkForm.getYwctz());
 		kjkjxmk.setBntz(kjkjxmkForm.getBntz());
 		kjkjxmk.setBz(kjkjxmkForm.getBz());
+		
+		kjkjxmk.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjkjxmk.setUsername(username);
+		kjkjxmk.setGxsj(new Date().toString());
+		kjkjxmk.setSubmit(0);
 		kjkjxmkDao.save(kjkjxmk);
 	}
 	private List<KjkjxmkForm> KjkjxmkPOListToVOList(List<Kjkjxmk> list) {
@@ -123,6 +134,11 @@ public class KjkjxmkServiceImpl implements KjkjxmkService{
 			kjkjxmkForm.setYwctz(kjkjxmk.getYwctz());
 			kjkjxmkForm.setBntz(kjkjxmk.getBntz());
 			kjkjxmkForm.setBz(kjkjxmk.getBz());
+			
+			kjkjxmkForm.setJlnf(kjkjxmk.getJlnf());
+			kjkjxmkForm.setUsername(kjkjxmk.getUsername());
+			kjkjxmkForm.setGxsj(kjkjxmk.getGxsj());
+			kjkjxmkForm.setSubmit(String.valueOf(kjkjxmk.getSubmit()));
 			formlist.add(kjkjxmkForm);
 		}
 		return formlist;

@@ -29,7 +29,7 @@ function listDoc() {
 	var actionPath = basePath + '/system/KjndgxqybabAction_list.action';
 	 $('#dg').datagrid({
             title : '高新技术企业认定备案信息汇总表',
-            width : 1200,
+           // width : 1200,
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      

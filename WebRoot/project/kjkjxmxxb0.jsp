@@ -100,10 +100,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="yqzl" width="130">预期取得专利</th>
 			<th field="zjf" width="130">总经费</th>
 			<th field="sbk" width="130">省拨款</th>
-			 <th field="sjbm" width="130">记录时间(年份)</th>
-			<th field="username" width="130">操作员</th>
+			 <th field="sjbm" width="130">上级行政主管部门 </th>
+			<th field="sjbm" width="130">上级行政主管部门 </th>
+		    <th field="username" width="130">操作员</th>
+			<th field="jlnf" width="130">记录年份</th>
 			<th field="gxsj" width="130">更新时间</th>
-			<th field="submit" width="130">是否提交</th>
+	
 			
 		</tr>
 	</thead>
@@ -240,30 +242,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd><input size="15" id="sbk" name="sbk" /></dd>
 			</dl>
 			
-			
-			
-			
-			 <dl>
-				<dd>记录时间:</dd>
-				<dd><input size="15" id="jlnf" name="jlnf" /></dd>
-			</dl>
-			<dl>
-				<dd>操作员:</dd>
-				<dd><input size="15" id="username" name="username" /></dd>
-			</dl>
-			<dl>
-				<dd>更新时间:</dd>
-				<dd><input size="15" id="gxsj" name="gxsj" /></dd>
-			</dl>
-			<dl>
-				<dd>是否提交:</dd>
-				<dd>
-				<select style="width: 150px" id="submit" name="submit" >
-				<option value="是">是</option>
-				<option value="否">否</option>
-				
-				</dd>
-			</dl> 
+	
 		</form>
 	</div>
 </div>	

@@ -11,7 +11,7 @@ import platform.form.KjgxqybabgxcpForm;
 public interface KjgxqybabService {
 	public final static String SERVICE_NAME = "platform.service.impl.KjgxqybabServiceImpl";
 
-	public String saveKjgxqybab(KjgxqybabForm kjgxqybabForm);
+	public String saveKjgxqybab(KjgxqybabForm kjgxqybabForm, String username);
 
 	public void addZscqListWithExpertId(int id, List<KjgxqybabzscqForm> list);
 
@@ -21,7 +21,7 @@ public interface KjgxqybabService {
 
 	public List<KjgxqybabForm> findKjgxqybabList(KjgxqybabForm kjgxqybabForm);
 
-	public void updateObject(KjgxqybabForm kjgxqybabForm);
+	public void updateObject(KjgxqybabForm kjgxqybabForm, String username);
 
 	public void deleteObject(String id);
 

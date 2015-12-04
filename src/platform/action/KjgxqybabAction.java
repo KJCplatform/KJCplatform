@@ -37,6 +37,7 @@ public class KjgxqybabAction extends BaseAction implements ModelDriven<Kjgxqybab
 	String zscqform;
 	String yfxmform;
 	String gxcpform;
+	String username;
 	
 	public String getZscqform() {
 		return zscqform;
@@ -113,8 +114,8 @@ public class KjgxqybabAction extends BaseAction implements ModelDriven<Kjgxqybab
 		return "list";
 	}
 public String update(){
-		
-	kjgxqybabService.updateObject(kjgxqybabForm);
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+	kjgxqybabService.updateObject(kjgxqybabForm,username);
 		operateSuccess=true;
 		return "update";
 	}
@@ -136,7 +137,8 @@ public String update(){
 		kjjszjcjbForm1.setZytc("哈哈哈");
 		kjjszjcjbForm1.setSfgk("否");*/
 		//System.out.println("123");
-		resultid=kjgxqybabService.saveKjgxqybab(kjgxqybabForm);
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		resultid=kjgxqybabService.saveKjgxqybab(kjgxqybabForm,username);
 		//System.out.println(resultid);
 		//System.out.println("123");
 		operateSuccess=true;

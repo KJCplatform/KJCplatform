@@ -1,12 +1,16 @@
 package platform.service.impl;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
+
 import javax.annotation.Resource;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import platform.dao.KjndgxqybabDao;
 import platform.domain.Kjndgxqybab;
 import platform.form.KjndgxqybabForm;
@@ -51,7 +55,7 @@ public class KjndgxqybabServiceImpl implements KjndgxqybabService{
 		
 	}
 	
-	public void updateKjndgxqybab(KjndgxqybabForm kjndgxqybabForm){
+	public void updateKjndgxqybab(KjndgxqybabForm kjndgxqybabForm,String username){
 		Kjndgxqybab kjndgxqybab=new Kjndgxqybab();
 		kjndgxqybab.setId(Integer.valueOf(kjndgxqybabForm.getId()));
 		kjndgxqybab.setYear(kjndgxqybabForm.getYear());
@@ -73,13 +77,18 @@ public class KjndgxqybabServiceImpl implements KjndgxqybabService{
 		kjndgxqybab.setZc2(kjndgxqybabForm.getZc2());
 		kjndgxqybab.setZc3(kjndgxqybabForm.getZc3());
 		kjndgxqybab.setZczzl(kjndgxqybabForm.getZczzl());
+		
+		kjndgxqybab.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjndgxqybab.setUsername(username);
+		kjndgxqybab.setGxsj(new Date().toString());
+		kjndgxqybab.setSubmit(0);
 		kjndgxqybabDao.update(kjndgxqybab);
 		
 	}
 	public void deleteObject(String id){
 		kjndgxqybabDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(KjndgxqybabForm kjndgxqybabForm){
+	public void saveObject(KjndgxqybabForm kjndgxqybabForm,String username){
 		Kjndgxqybab kjndgxqybab=new Kjndgxqybab();
 		kjndgxqybab.setYear(kjndgxqybabForm.getYear());
 		kjndgxqybab.setNf(kjndgxqybabForm.getNf());
@@ -100,6 +109,11 @@ public class KjndgxqybabServiceImpl implements KjndgxqybabService{
 		kjndgxqybab.setZc2(kjndgxqybabForm.getZc2());
 		kjndgxqybab.setZc3(kjndgxqybabForm.getZc3());
 		kjndgxqybab.setZczzl(kjndgxqybabForm.getZczzl());
+		
+		kjndgxqybab.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjndgxqybab.setUsername(username);
+		kjndgxqybab.setGxsj(new Date().toString());
+		kjndgxqybab.setSubmit(0);
 	    kjndgxqybabDao.save(kjndgxqybab);
 	}
 	private List<KjndgxqybabForm> XzxzgzbPOListToVOList(List<Kjndgxqybab> list) {
@@ -128,6 +142,12 @@ public class KjndgxqybabServiceImpl implements KjndgxqybabService{
 			kjndgxqybabForm.setZc2(kjndgxqybab.getZc2());
 			kjndgxqybabForm.setZc3(kjndgxqybab.getZc3());
 			kjndgxqybabForm.setZczzl(kjndgxqybab.getZczzl());
+			
+			kjndgxqybabForm.setJlnf(kjndgxqybab.getJlnf());
+			kjndgxqybabForm.setUsername(kjndgxqybab.getUsername());
+			kjndgxqybabForm.setGxsj(kjndgxqybab.getGxsj());
+			kjndgxqybabForm.setSubmit(String.valueOf(kjndgxqybab.getSubmit()));
+			
 			formlist.add(kjndgxqybabForm);
 		}
 		return formlist;

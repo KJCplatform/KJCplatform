@@ -1,6 +1,7 @@
 package platform.service.impl;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -35,9 +36,16 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 	@Resource(name=KjgxqybabDao.SERVICE_NAME)
 	private KjgxqybabDao kjgxqybabDao;
 
-	public String saveKjgxqybab(KjgxqybabForm kjgxqybabForm){
+	public String saveKjgxqybab(KjgxqybabForm kjgxqybabForm,String username){
 		
 		Kjgxqybab kjgxqybab=this.VoObjecttoPoObject(kjgxqybabForm);
+		
+		
+		kjgxqybab.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjgxqybab.setUsername(username);
+		kjgxqybab.setGxsj(new Date().toString());
+		kjgxqybab.setSubmit(0);
+		
 		kjgxqybabDao.save(kjgxqybab);
 	//	try{
 	//	Kjgxqybab kjgxqybab=this.VoObjecttoPoObject(kjgxqybabForm);
@@ -192,6 +200,11 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 			kjgxqybabForm.setZc3(list.get(i).getZc3());
 			kjgxqybabForm.setZczzl(list.get(i).getZczzl());
 			
+			kjgxqybabForm.setJlnf(list.get(i).getJlnf());
+			kjgxqybabForm.setUsername(list.get(i).getUsername());
+			kjgxqybabForm.setGxsj(list.get(i).getGxsj());
+			kjgxqybabForm.setSubmit(String.valueOf(list.get(i).getSubmit()));
+			
 			
 			kjgxqybabForm.setKjgxqybabzscqs(KjgxqybabzscqSetToFormList(list.get(i).getKjgxqybabzscqs()));
 			kjgxqybabForm.setKjgxqybabyfxms(KjgxqybabyfxmSetToFormList(list.get(i).getKjgxqybabyfxms()));
@@ -260,7 +273,7 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 	}
 	
 	
-	public void updateObject(KjgxqybabForm kjgxqybabForm){
+	public void updateObject(KjgxqybabForm kjgxqybabForm,String username){
 		Kjgxqybab kjgxqybab=new Kjgxqybab();
 		kjgxqybab.setId(Integer.valueOf(kjgxqybabForm.getId()));
 		kjgxqybab.setYear(kjgxqybabForm.getYear());
@@ -283,6 +296,10 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 		kjgxqybab.setZc3(kjgxqybabForm.getZc3());
 		kjgxqybab.setZczzl(kjgxqybabForm.getZczzl());
 		
+		kjgxqybab.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjgxqybab.setUsername(username);
+		kjgxqybab.setGxsj(new Date().toString());
+		kjgxqybab.setSubmit(0);
 		
 		kjgxqybabDao.update(kjgxqybab);
 		
