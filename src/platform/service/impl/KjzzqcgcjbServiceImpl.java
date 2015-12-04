@@ -3,6 +3,7 @@ package platform.service.impl;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -74,7 +75,7 @@ if(pageno==1){
 		
 	}
 	
-	public void updateKjzzqcgcjb(KjzzqcgcjbForm kjzzqcgcjbForm){
+	public void updateKjzzqcgcjb(KjzzqcgcjbForm kjzzqcgcjbForm,String username){
 		Kjzzqcgcjb kjzzqcgcjb=new Kjzzqcgcjb();
 		
 		kjzzqcgcjb.setId(Integer.valueOf(kjzzqcgcjbForm.getId()));
@@ -120,6 +121,11 @@ if(pageno==1){
 		kjzzqcgcjb.setDzyx(kjzzqcgcjbForm.getDzyx());
 		kjzzqcgcjb.setLxdz(kjzzqcgcjbForm.getLxdz());
 		
+		kjzzqcgcjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjzzqcgcjb.setUsername(username);
+		kjzzqcgcjb.setGxsj(new Date().toString());
+		kjzzqcgcjb.setSubmit(0);
+		
 		
 		kjzzqcgcjbDao.update(kjzzqcgcjb);
 		
@@ -127,7 +133,7 @@ if(pageno==1){
 	public void deleteObject(String id){
 		kjzzqcgcjbDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(KjzzqcgcjbForm kjzzqcgcjbForm){
+	public void saveObject(KjzzqcgcjbForm kjzzqcgcjbForm,String username){
 		Kjzzqcgcjb kjzzqcgcjb=new Kjzzqcgcjb();
 		kjzzqcgcjb.setCgmc(kjzzqcgcjbForm.getCgmc());
 		kjzzqcgcjb.setWcdw(kjzzqcgcjbForm.getWcdw());
@@ -167,6 +173,11 @@ if(pageno==1){
 		kjzzqcgcjb.setSj(kjzzqcgcjbForm.getSj());
 		kjzzqcgcjb.setDzyx(kjzzqcgcjbForm.getDzyx());
 		kjzzqcgcjb.setLxdz(kjzzqcgcjbForm.getLxdz());
+		
+		kjzzqcgcjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjzzqcgcjb.setUsername(username);
+		kjzzqcgcjb.setGxsj(new Date().toString());
+		kjzzqcgcjb.setSubmit(0);
 		
 		kjzzqcgcjbDao.save(kjzzqcgcjb);
 	}
@@ -218,6 +229,10 @@ if(pageno==1){
 			kjzzqcgcjbForm.setDzyx(kjzzqcgcjb.getDzyx());
 			kjzzqcgcjbForm.setLxdz(kjzzqcgcjb.getLxdz());
 			
+			kjzzqcgcjbForm.setJlnf(kjzzqcgcjb.getJlnf());
+			kjzzqcgcjbForm.setUsername(kjzzqcgcjb.getUsername());
+			kjzzqcgcjbForm.setGxsj(kjzzqcgcjb.getGxsj());
+			kjzzqcgcjbForm.setSubmit(String .valueOf(kjzzqcgcjb.getSubmit()));
 			
 			formlist.add(kjzzqcgcjbForm);
 		}
@@ -248,7 +263,7 @@ if(pageno==1){
 	
 	
 	@Override
-	public void showimportObject(String showimport)  throws Exception {
+	public void showimportObject(String showimport,String username)  throws Exception {
 		
 		String b = showimport.replace("\\", "\\\\");
 		String c = b.replace("C:\\\\fakepath", "D:");
@@ -289,14 +304,14 @@ if(pageno==1){
 		cell= sheet.getCell(1,8);
 		kjzzqcgcjb.setJsly(cell.getContents());
 		
-		cell= sheet.getCell(1,10);
+		cell= sheet.getCell(1,9);
 		kjzzqcgcjb.setCgjd(cell.getContents());
 		
-		cell= sheet.getCell(1,12);
+		cell= sheet.getCell(1,11);
 		kjzzqcgcjb.setJyfs(cell.getContents());
 		
 		
-		cell= sheet.getCell(1,14);
+		cell= sheet.getCell(1,13);
 		if(!cell.getContents().equals("")){
 		if(cell.equals("是"))
 			kjzzqcgcjb.setSfzj(1);
@@ -304,13 +319,13 @@ if(pageno==1){
 			kjzzqcgcjb.setSfzj(0);
 		}
 		
-		cell= sheet.getCell(1,17);
+		cell= sheet.getCell(1,15);
 		kjzzqcgcjb.setGfdj(cell.getContents());
 		
 		cell= sheet.getCell(1,18);
 		kjzzqcgcjb.setZhyq(cell.getContents());
 		
-		cell= sheet.getCell(1,19);
+		cell= sheet.getCell(1,18);
 		if(!cell.getContents().equals(""))
 		{
 			if(cell.equals("是"))
@@ -353,6 +368,11 @@ if(pageno==1){
 		
 		cell= sheet.getCell(1,24);
 		kjzzqcgcjb.setLxdz(cell.getContents());
+		
+		kjzzqcgcjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjzzqcgcjb.setUsername(username);
+		kjzzqcgcjb.setGxsj(new Date().toString());
+		kjzzqcgcjb.setSubmit(0);
 		
 		kjzzqcgcjbDao.save(kjzzqcgcjb);
 			

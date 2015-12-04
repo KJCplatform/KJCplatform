@@ -3,6 +3,8 @@ package platform.service;
 import java.util.List;
 
 
+
+
 import platform.form.KjqtcgcjbForm;
 
 
@@ -11,9 +13,9 @@ public interface KjqtcgcjbService {
 
 	public List<KjqtcgcjbForm> findKjqtcgcjbList();
 	public List<KjqtcgcjbForm> findKjqtcgcjbListWithPage(int pagesize,int pageno, KjqtcgcjbForm kjqtcgcjbForm);
-	public void updateKjqtcgcjb(KjqtcgcjbForm kjqtcgcjbForm);
+	public void updateKjqtcgcjb(KjqtcgcjbForm kjqtcgcjbForm, String username);
 	public void deleteObject(String id);
-	public void saveObject(KjqtcgcjbForm kjqtcgcjbForm);
+	public void saveObject(KjqtcgcjbForm kjqtcgcjbForm, String username);
 
 	
 }

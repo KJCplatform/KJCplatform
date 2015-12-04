@@ -44,7 +44,7 @@ PRIMARY KEY (`id`) )COMMENT='技术需求数据采集表'
 	  private String jlnf;
 	  private String username;
 	  private String gxsj;
-	  private String submit;
+	  private int submit;
 	  
 	  
 	public String getJlnf() {
@@ -65,10 +65,10 @@ PRIMARY KEY (`id`) )COMMENT='技术需求数据采集表'
 	public void setGxsj(String gxsj) {
 		this.gxsj = gxsj;
 	}
-	public String getSubmit() {
+	public int getSubmit() {
 		return submit;
 	}
-	public void setSubmit(String submit) {
+	public void setSubmit(int submit) {
 		this.submit = submit;
 	}
 	  
