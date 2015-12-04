@@ -14,7 +14,7 @@ public class Kjndgfjtjb implements java.io.Serializable{
 	  private String jlnf;
 	  private String username;
 	  private String gxsj;
-	  private String submit;
+	  private int submit;
 	  
 	  
 	public String getJlnf() {
@@ -35,10 +35,10 @@ public class Kjndgfjtjb implements java.io.Serializable{
 	public void setGxsj(String gxsj) {
 		this.gxsj = gxsj;
 	}
-	public String getSubmit() {
+	public int getSubmit() {
 		return submit;
 	}
-	public void setSubmit(String submit) {
+	public void setSubmit(int submit) {
 		this.submit = submit;
 	}
 	public int getId() {

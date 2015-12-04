@@ -1,5 +1,6 @@
 package platform.service.impl;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -56,7 +57,7 @@ public class KjgjkjjgftdtjServiceImpl implements KjgjkjjgftdtjService{
 	  private String nd;
 	  private String xmmc;
 	  private String zywcdw;*/
-	public void updateKjgjkjjgftdtj(KjgjkjjgftdtjForm kjgjkjjgftdtjForm){
+	public void updateKjgjkjjgftdtj(KjgjkjjgftdtjForm kjgjkjjgftdtjForm,String username){
 		Kjgjkjjgftdtj kjgjkjjgftdtj=new Kjgjkjjgftdtj();
 //		jljlqjhzb.setCljg(jljlqjhzbForm.getCljg());
 		//	jljlqjhzb.setFwrq(StringHelper.stringConvertDate(jljlqjhzbForm.getFwrq()));
@@ -64,17 +65,30 @@ public class KjgjkjjgftdtjServiceImpl implements KjgjkjjgftdtjService{
 		kjgjkjjgftdtj.setNd(kjgjkjjgftdtjForm.getNd());
 		kjgjkjjgftdtj.setXmmc(kjgjkjjgftdtjForm.getXmmc());
 		kjgjkjjgftdtj.setZywcdw(kjgjkjjgftdtjForm.getZywcdw());
+		
+		kjgjkjjgftdtj.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjgjkjjgftdtj.setUsername(username);
+		kjgjkjjgftdtj.setGxsj(new Date().toString());
+		kjgjkjjgftdtj.setSubmit(0);
+		
 		kjgjkjjgftdtjDao.update(kjgjkjjgftdtj);
 		
 	}
 	public void deleteObject(String id){
 		kjgjkjjgftdtjDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(KjgjkjjgftdtjForm kjgjkjjgftdtjForm){
+	public void saveObject(KjgjkjjgftdtjForm kjgjkjjgftdtjForm,String username){
 		Kjgjkjjgftdtj kjgjkjjgftdtj=new Kjgjkjjgftdtj();
 		kjgjkjjgftdtj.setNd(kjgjkjjgftdtjForm.getNd());
 		kjgjkjjgftdtj.setXmmc(kjgjkjjgftdtjForm.getXmmc());
 		kjgjkjjgftdtj.setZywcdw(kjgjkjjgftdtjForm.getZywcdw());
+		
+		
+		kjgjkjjgftdtj.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjgjkjjgftdtj.setUsername(username);
+		kjgjkjjgftdtj.setGxsj(new Date().toString());
+		kjgjkjjgftdtj.setSubmit(0);
+		
 		kjgjkjjgftdtjDao.save(kjgjkjjgftdtj);
 	}
 	private List<KjgjkjjgftdtjForm> KjgjkjjgftdtjPOListToVOList(List<Kjgjkjjgftdtj> list) {
@@ -89,6 +103,13 @@ public class KjgjkjjgftdtjServiceImpl implements KjgjkjjgftdtjService{
 			kjgjkjjgftdtjForm.setNd(kjgjkjjgftdtj.getNd());
 			kjgjkjjgftdtjForm.setXmmc(kjgjkjjgftdtj.getXmmc());
 			kjgjkjjgftdtjForm.setZywcdw(kjgjkjjgftdtj.getZywcdw());
+			
+			kjgjkjjgftdtjForm.setJlnf(kjgjkjjgftdtj.getJlnf());
+			kjgjkjjgftdtjForm.setUsername(kjgjkjjgftdtj.getUsername());
+			kjgjkjjgftdtjForm.setGxsj(kjgjkjjgftdtj.getGxsj());
+			kjgjkjjgftdtjForm.setSubmit(String.valueOf(kjgjkjjgftdtj.getSubmit()));
+			
+			
 			formlist.add(kjgjkjjgftdtjForm);
 		}
 		return formlist;

@@ -42,7 +42,7 @@ $(function() {
 });
 //加载公文列表
 function listDoc() {
-	var actionPath = basePath + '/system/KjndgfjtjbAction_list.action';
+	var actionPath = basePath + '/system/KjgjkjjgfxmtjAction_list.action';
 	 $('#dg').datagrid({
             title : '国家科学技术奖国防科技工业专用项目特等奖统计',
             width : 1200,
@@ -183,8 +183,8 @@ function editDoc() {
 function dealSave() {
 	// 表单数据序列化成一个字符串用&拼接
 	var params = $("#frmEdit").serialize();
-	var actionAdd = basePath + '/system/KjndgfjtjbAction_add.action';
-	var actionUpdate = basePath + '/system/KjndgfjtjbAction_update.action';
+	var actionAdd = basePath + '/system/KjgjkjjgfxmtjAction_add.action';
+	var actionUpdate = basePath + '/system/KjgjkjjgfxmtjAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
@@ -239,7 +239,7 @@ function deleteDoc() {
 	}
 	$.messager.confirm('确认', '真的要删除选中的记录吗？', function(r) {
 		if (r) {
-			var actionPath = basePath + '/system/KjndgfjtjbAction_delete.action?id=';
+			var actionPath = basePath + '/system/KjgjkjjgfxmtjAction_delete.action?id=';
 			var url = actionPath + doc.id;
 			// 试一下get方法（地址，回调函数）
 			$.get(url, function(result) {

@@ -10,8 +10,8 @@ public interface KjgjkjjgfxmtjService {
 
 	public List<KjgjkjjgfxmtjForm> findKjgjkjjgfxmtjList();
 	public List<KjgjkjjgfxmtjForm> findKjgjkjjgfxmtjListWithPage(int pagesize,int pageno, KjgjkjjgfxmtjForm kjgjkjjgfxmtjForm);
-	public void updateKjgjkjjgfxmtj(KjgjkjjgfxmtjForm kjgjkjjgfxmtjForm);
+	public void updateKjgjkjjgfxmtj(KjgjkjjgfxmtjForm kjgjkjjgfxmtjForm, String username);
 	public void deleteObject(String id);
-	public void saveObject(KjgjkjjgfxmtjForm kjgjkjjgfxmtjForm);
+	public void saveObject(KjgjkjjgfxmtjForm kjgjkjjgfxmtjForm, String username);
 
 }

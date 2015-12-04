@@ -1,5 +1,6 @@
 package platform.service.impl;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -60,7 +61,7 @@ public class KjndgfjtjbServiceImpl implements KjndgfjtjbService{
 	  private int edj;
 	  private int sdj;
 	  private int hj;*/
-	public void updateKjndgfjtjb(KjndgfjtjbForm kjndgfjtjbForm){
+	public void updateKjndgfjtjb(KjndgfjtjbForm kjndgfjtjbForm,String username){
 		Kjndgfjtjb kjndgfjtjb=new Kjndgfjtjb();
 //		jljlqjhzb.setCljg(jljlqjhzbForm.getCljg());
 		//	jljlqjhzb.setFwrq(StringHelper.stringConvertDate(jljlqjhzbForm.getFwrq()));
@@ -82,14 +83,17 @@ public class KjndgfjtjbServiceImpl implements KjndgfjtjbService{
 		
 		if(kjndgfjtjbForm.getHj()!=null&&!kjndgfjtjbForm.getHj().equals(""))
 		kjndgfjtjb.setHj(Integer.valueOf(kjndgfjtjbForm.getHj()));
-		
+		kjndgfjtjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjndgfjtjb.setUsername(username);
+		kjndgfjtjb.setGxsj(new Date().toString());
+		kjndgfjtjb.setSubmit(0);
 		kjndgfjtjbDao.update(kjndgfjtjb);
 		
 	}
 	public void deleteObject(String id){
 		kjndgfjtjbDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(KjndgfjtjbForm kjndgfjtjbForm){
+	public void saveObject(KjndgfjtjbForm kjndgfjtjbForm,String username){
 		Kjndgfjtjb kjndgfjtjb=new Kjndgfjtjb();
 		kjndgfjtjb.setYear(kjndgfjtjbForm.getYear());
 		kjndgfjtjb.setType(kjndgfjtjbForm.getType());
@@ -107,6 +111,10 @@ public class KjndgfjtjbServiceImpl implements KjndgfjtjbService{
 		
 		if(kjndgfjtjbForm.getHj()!=null&&!kjndgfjtjbForm.getHj().equals(""))
 		kjndgfjtjb.setHj(Integer.valueOf(kjndgfjtjbForm.getHj()));
+		kjndgfjtjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjndgfjtjb.setUsername(username);
+		kjndgfjtjb.setGxsj(new Date().toString());
+		kjndgfjtjb.setSubmit(0);
 		kjndgfjtjbDao.save(kjndgfjtjb);
 	}
 	private List<KjndgfjtjbForm> KjndgfjtjbPOListToVOList(List<Kjndgfjtjb> list) {
@@ -125,6 +133,11 @@ public class KjndgfjtjbServiceImpl implements KjndgfjtjbService{
 			kjndgfjtjbForm.setEdj(String.valueOf(kjndgfjtjb.getEdj()));
 			kjndgfjtjbForm.setSdj(String.valueOf(kjndgfjtjb.getSdj()));
 			kjndgfjtjbForm.setHj(String.valueOf(kjndgfjtjb.getHj()));
+			
+			kjndgfjtjbForm.setJlnf(kjndgfjtjb.getJlnf());
+			kjndgfjtjbForm.setUsername(kjndgfjtjb.getUsername());
+			kjndgfjtjbForm.setGxsj(kjndgfjtjb.getGxsj());
+			kjndgfjtjbForm.setSubmit(String.valueOf(kjndgfjtjb.getSubmit()));
 			formlist.add(kjndgfjtjbForm);
 		}
 		return formlist;
