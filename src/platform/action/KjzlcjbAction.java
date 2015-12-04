@@ -31,6 +31,9 @@ import container.ServiceProvider;
 public class KjzlcjbAction extends BaseAction implements ModelDriven<KjzlcjbForm>{
 	public int page = 0;
 	public boolean operateSuccess;
+	
+	String username;
+	
 	public boolean isOperateSuccess() {
 		return operateSuccess;
 	}
@@ -90,7 +93,9 @@ public class KjzlcjbAction extends BaseAction implements ModelDriven<KjzlcjbForm
 		kjzlcjbForm1.setJzrq(d);
 		kjzlcjbForm1.setWjh("update");
 		kjzlcjbForm1.setWjm("update");*/
-		kjzlcjbService.updateKjzlcjb(kjzlcjbForm);
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		
+		kjzlcjbService.updateKjzlcjb(kjzlcjbForm,username);
 		operateSuccess=true;
 		return "update";
 	}
@@ -101,15 +106,19 @@ public class KjzlcjbAction extends BaseAction implements ModelDriven<KjzlcjbForm
 		return   "delete";
 	}
 	public String add(){
-		System.out.println(kjzlcjbForm.getGkr());
-		kjzlcjbService.saveObject(kjzlcjbForm);
+//		System.out.println(kjzlcjbForm.getGkr());
+		
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		
+		kjzlcjbService.saveObject(kjzlcjbForm,username);
 		operateSuccess=true;
 		return "add";
 	}
 	
 	public String showimport() throws Exception{
-		System.out.println(kjzlcjbForm.getCgmc());
-		kjzlcjbService.showimportObject(kjzlcjbForm.getCgmc());
+//		System.out.println(kjzlcjbForm.getCgmc());
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		kjzlcjbService.showimportObject(kjzlcjbForm.getCgmc(), username);
 		operateSuccess=true;
 		return "showimport";
 	}

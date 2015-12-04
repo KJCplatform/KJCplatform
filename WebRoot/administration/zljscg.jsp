@@ -112,7 +112,7 @@
 					<th field="jlnf">记录年份</th>
 					<th field="username">记录人</th>
 					<th field="gxsj">更新时间</th>
-					<th field="submit">是否提交</th>
+			
 				</tr>
 			</thead>
 		</table>
@@ -324,7 +324,8 @@
 
 				<dl>
 					<dd>
-						所在地区: <select id="szdq" name="szdq">
+						所在地区: 
+						<select id="szdq" name="szdq">
 							<option value=""></option>
 							<option value="武汉市">武汉市</option>
 							<option value="北京市">北京市</option>

@@ -3,6 +3,7 @@ package platform.service.impl;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -74,7 +75,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		
 	}
 	
-	public void updateKjzlcjb(KjzlcjbForm kjzlcjbForm){
+	public void updateKjzlcjb(KjzlcjbForm kjzlcjbForm,String username){
 	Kjzlcjb kjzlcjb=new Kjzlcjb();
 		
 		kjzlcjb.setId(Integer.valueOf(kjzlcjbForm.getId()));
@@ -131,6 +132,10 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setDzyx(kjzlcjbForm.getDzyx());
 		kjzlcjb.setLxdz(kjzlcjbForm.getLxdz());
 		
+		kjzlcjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjzlcjb.setUsername(username);
+		kjzlcjb.setGxsj(new Date().toString());
+		kjzlcjb.setSubmit(0);
 		
 		kjzlcjbDao.update(kjzlcjb);
 		
@@ -138,7 +143,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 	public void deleteObject(String id){
 		kjzlcjbDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(KjzlcjbForm kjzlcjbForm){
+	public void saveObject(KjzlcjbForm kjzlcjbForm,String username){
 		Kjzlcjb kjzlcjb=new Kjzlcjb();
 
 		kjzlcjb.setCgmc(kjzlcjbForm.getCgmc());
@@ -189,13 +194,12 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setDzyx(kjzlcjbForm.getDzyx());
 		kjzlcjb.setLxdz(kjzlcjbForm.getLxdz());
 		
-		
-		
-//		kjzlcjb.setJlnf("test1");
-//		kjzlcjb.setUser("test2");
-//		kjzlcjb.setGxsj("test3");
-//		kjzlcjb.setSubmit("0");
-		
+
+		kjzlcjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjzlcjb.setUsername(username);
+		kjzlcjb.setGxsj(new Date().toString());
+		kjzlcjb.setSubmit(0);
+
 		kjzlcjbDao.save(kjzlcjb);
 	}
 	private List<KjzlcjbForm> KjzlcjbPOListToVOList(List<Kjzlcjb> list) {
@@ -249,7 +253,10 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 			kjzlcjbForm.setDzyx(kjzlcjb.getDzyx());
 			kjzlcjbForm.setLxdz(kjzlcjb.getLxdz());
 			
-			
+			kjzlcjbForm.setJlnf(kjzlcjb.getJlnf());
+			kjzlcjbForm.setUsername(kjzlcjb.getUsername());
+			kjzlcjbForm.setGxsj(kjzlcjb.getGxsj());
+			kjzlcjbForm.setSubmit(String.valueOf(kjzlcjb.getSubmit()));
 			
 			
 			formlist.add(kjzlcjbForm);
@@ -259,7 +266,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 	
 	
 	@Override
-	public void showimportObject(String showimport)  throws Exception {
+	public void showimportObject(String showimport,String username)  throws Exception {
 		
 		String b = showimport.replace("\\", "\\\\");
 		String c = b.replace("C:\\\\fakepath", "D:");
@@ -279,7 +286,8 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		Cell cell= sheet.getCell(1,1);
 		kjzlcjb.setCgmc(cell.getContents());
 		
-		cell= sheet.getCell(1,3);
+		cell= sheet.getCell(1,2);
+		System.out.println("test:"+String.valueOf(cell.getContents()));
 		kjzlcjb.setZllx(cell.getContents());
 		
 		cell= sheet.getCell(1,4);
@@ -313,14 +321,14 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		cell= sheet.getCell(1,13);
 		kjzlcjb.setJsly(cell.getContents());
 		
-		cell= sheet.getCell(1,15);
+		cell= sheet.getCell(1,14);
 		kjzlcjb.setCgjd(cell.getContents());
 		
-		cell= sheet.getCell(1,17);
+		cell= sheet.getCell(1,16);
 		kjzlcjb.setJyfs(cell.getContents());
 		
 		
-		cell= sheet.getCell(1,19);
+		cell= sheet.getCell(1,18);
 		if(!cell.getContents().equals("")){
 		if(cell.equals("是"))
 			kjzlcjb.setSfzj(1);
@@ -328,7 +336,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 			kjzlcjb.setSfzj(0);
 		}
 		
-		cell= sheet.getCell(1,22);
+		cell= sheet.getCell(1,21);
 		kjzlcjb.setGfdj(cell.getContents());
 		
 		cell= sheet.getCell(1,23);
@@ -365,6 +373,13 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		
 		cell= sheet.getCell(1,28);
 		kjzlcjb.setLxdz(cell.getContents());
+		
+		
+		kjzlcjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjzlcjb.setUsername(username);
+		kjzlcjb.setGxsj(new Date().toString());
+		kjzlcjb.setSubmit(0);
+		
 		
 		kjzlcjbDao.save(kjzlcjb);
 			
