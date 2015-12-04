@@ -2,6 +2,7 @@ package platform.service.impl;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -65,7 +66,7 @@ public class KjgfjflqkServiceImpl implements KjgfjflqkService{
 	  private String dj;
 	  private String xmmc;
 	  private String zywcdw;*/
-	public void updateKjgfjflqk(KjgfjflqkForm kjgfjflqkForm){
+	public void updateKjgfjflqk(KjgfjflqkForm kjgfjflqkForm,String username){
 		Kjgfjflqk kjgfjflqk=new Kjgfjflqk();
 //		jljlqjhzb.setCljg(jljlqjhzbForm.getCljg());
 		//	jljlqjhzb.setFwrq(StringHelper.stringConvertDate(jljlqjhzbForm.getFwrq()));
@@ -73,17 +74,29 @@ public class KjgfjflqkServiceImpl implements KjgfjflqkService{
 		kjgfjflqk.setDj(kjgfjflqkForm.getDj());
 		kjgfjflqk.setXmmc(kjgfjflqkForm.getXmmc());
 		kjgfjflqk.setZywcdw(kjgfjflqkForm.getZywcdw());
+		
+		kjgfjflqk.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjgfjflqk.setUsername(username);
+		kjgfjflqk.setGxsj(new Date().toString());
+		kjgfjflqk.setSubmit(0);
+		
 		kjgfjflqkDao.update(kjgfjflqk);
 		
 	}
 	public void deleteObject(String id){
 		kjgfjflqkDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(KjgfjflqkForm kjgfjflqkForm){
+	public void saveObject(KjgfjflqkForm kjgfjflqkForm,String username){
 		Kjgfjflqk kjgfjflqk=new Kjgfjflqk();
 		kjgfjflqk.setDj(kjgfjflqkForm.getDj());
 		kjgfjflqk.setXmmc(kjgfjflqkForm.getXmmc());
 		kjgfjflqk.setZywcdw(kjgfjflqkForm.getZywcdw());
+		
+		kjgfjflqk.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjgfjflqk.setUsername(username);
+		kjgfjflqk.setGxsj(new Date().toString());
+		kjgfjflqk.setSubmit(0);
+		
 		kjgfjflqkDao.save(kjgfjflqk);
 	}
 	private List<KjgfjflqkForm> KjgfjflqkPOListToVOList(List<Kjgfjflqk> list) {
@@ -98,6 +111,13 @@ public class KjgfjflqkServiceImpl implements KjgfjflqkService{
 			kjgfjflqkForm.setDj(kjgfjflqk.getDj());
 			kjgfjflqkForm.setXmmc(kjgfjflqk.getXmmc());
 			kjgfjflqkForm.setZywcdw(kjgfjflqk.getZywcdw());
+			
+			kjgfjflqkForm.setJlnf(kjgfjflqk.getJlnf());
+			kjgfjflqkForm.setUsername(kjgfjflqk.getUsername());
+			kjgfjflqkForm.setGxsj(kjgfjflqk.getGxsj());
+			kjgfjflqkForm.setSubmit(String .valueOf(kjgfjflqk.getSubmit()));
+			
+			
 			formlist.add(kjgfjflqkForm);
 		}
 		return formlist;
@@ -204,7 +224,9 @@ public class KjgfjflqkServiceImpl implements KjgfjflqkService{
 						kjgfjflqk.setGxsj(cell0.getContents());
 						break;
 					case 7:
-						kjgfjflqk.setSubmit(cell0.getContents());
+						try{
+						kjgfjflqk.setSubmit(Integer.valueOf(cell0.getContents()));
+						}catch(Exception e){System.out.println("submit转化错误！");}
 						break;
 					}
 				}

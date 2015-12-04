@@ -160,7 +160,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								var action = basePath + '/system/KjgxqybabAction_addgxcp.action';
 
 								var rows = $('#gxcp').datagrid('getRows');
-								if(rows.length != 0){
+// 								if(rows.length != 0){
 									for(i=0; i<rows.length; i++) {
 										rows[i].id = resultid;
 									}
@@ -177,7 +177,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										}
 									}); 
 								}
-							}
+								
+// 							}
 				}]
 		      
 		      
@@ -263,7 +264,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								var action = basePath + '/system/KjgxqybabAction_addyfxm.action';
 
 								var rows = $('#yfxm').datagrid('getRows');
-								if(rows.length != 0){
+// 								if(rows.length != 0){
 									for(i=0; i<rows.length; i++) {
 										rows[i].id = resultid;
 									}
@@ -279,7 +280,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											$.messager.alert('提交', '提交失败', 'warning');
 										}
 									}); 
-								}
+// 								}
 							}
 				}]
 		       
@@ -365,7 +366,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 								var action = basePath + '/system/KjgxqybabAction_addzscq.action';
 
 								var rows = $('#zscq').datagrid('getRows');
-								if(rows.length != 0){
+// 								if(rows.length != 0){
 									for(i=0; i<rows.length; i++) {
 										rows[i].id = resultid;
 									}
@@ -381,7 +382,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 											$.messager.alert('提交', '提交失败', 'warning');
 										}
 									}); 
-								}
+// 								}
 							}
 				}] 
 			});

@@ -25,7 +25,7 @@ function listDoc() {
 	var actionPath = basePath + '/system/KjndjpptkyxmzxbAction_list.action';
 	 $('#dg').datagrid({
             title : '军品科研项目执行情况表',
-            width : 1200,
+           // width : 1200,
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      

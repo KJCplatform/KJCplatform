@@ -1,5 +1,6 @@
 package platform.service.impl;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -75,7 +76,7 @@ public class KjndjpptkyxmbServiceImpl implements KjndjpptkyxmbService{
 	  private String czwt;
 	  private String csjy;
 	  private String bz;*/
-	public void updateKjndjpptkyxmb(KjndjpptkyxmbForm kjndjpptkyxmbForm){
+	public void updateKjndjpptkyxmb(KjndjpptkyxmbForm kjndjpptkyxmbForm,String username){
 		Kjndjpptkyxmb kjndjpptkyxmb=new Kjndjpptkyxmb();
 //		jljlqjhzb.setCljg(jljlqjhzbForm.getCljg());
 		//	jljlqjhzb.setFwrq(StringHelper.stringConvertDate(jljlqjhzbForm.getFwrq()));
@@ -101,13 +102,19 @@ public class KjndjpptkyxmbServiceImpl implements KjndjpptkyxmbService{
 		kjndjpptkyxmb.setCzwt(kjndjpptkyxmbForm.getCzwt());
 		kjndjpptkyxmb.setCsjy(kjndjpptkyxmbForm.getCsjy());
 		kjndjpptkyxmb.setBz(kjndjpptkyxmbForm.getBz());
+		
+		kjndjpptkyxmb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjndjpptkyxmb.setUsername(username);
+		kjndjpptkyxmb.setGxsj(new Date().toString());
+		kjndjpptkyxmb.setSubmit(0);
+		
 		kjndjpptkyxmbDao.update(kjndjpptkyxmb);
 		
 	}
 	public void deleteObject(String id){
 		kjndjpptkyxmbDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(KjndjpptkyxmbForm kjndjpptkyxmbForm){
+	public void saveObject(KjndjpptkyxmbForm kjndjpptkyxmbForm,String username){
 		Kjndjpptkyxmb kjndjpptkyxmb=new Kjndjpptkyxmb();
 		kjndjpptkyxmb.setXmbh(kjndjpptkyxmbForm.getXmbh());
 		kjndjpptkyxmb.setXmmc(kjndjpptkyxmbForm.getXmmc());
@@ -130,6 +137,12 @@ public class KjndjpptkyxmbServiceImpl implements KjndjpptkyxmbService{
 		kjndjpptkyxmb.setCzwt(kjndjpptkyxmbForm.getCzwt());
 		kjndjpptkyxmb.setCsjy(kjndjpptkyxmbForm.getCsjy());
 		kjndjpptkyxmb.setBz(kjndjpptkyxmbForm.getBz());
+		
+		kjndjpptkyxmb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjndjpptkyxmb.setUsername(username);
+		kjndjpptkyxmb.setGxsj(new Date().toString());
+		kjndjpptkyxmb.setSubmit(0);
+		
 		kjndjpptkyxmbDao.save(kjndjpptkyxmb);
 	}
 	private List<KjndjpptkyxmbForm> KjndjpptkyxmbPOListToVOList(List<Kjndjpptkyxmb> list) {
@@ -162,6 +175,13 @@ public class KjndjpptkyxmbServiceImpl implements KjndjpptkyxmbService{
 			kjndjpptkyxmbForm.setCzwt(kjndjpptkyxmb.getCzwt());
 			kjndjpptkyxmbForm.setCsjy(kjndjpptkyxmb.getCsjy());
 			kjndjpptkyxmbForm.setBz(kjndjpptkyxmb.getBz());
+			
+			kjndjpptkyxmbForm.setJlnf(kjndjpptkyxmb.getJlnf());
+			kjndjpptkyxmbForm.setUsername(kjndjpptkyxmb.getUsername());
+			kjndjpptkyxmbForm.setGxsj(kjndjpptkyxmb.getGxsj());
+			kjndjpptkyxmbForm.setSubmit(String.valueOf(kjndjpptkyxmb.getSubmit()));
+			
+			
 			formlist.add(kjndjpptkyxmbForm);
 		}
 		return formlist;

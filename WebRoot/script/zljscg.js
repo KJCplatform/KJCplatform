@@ -240,9 +240,9 @@ function editDoc() {
 	$("#zhyq").val(doc.zhyq);
 	$("#sfgk").val(doc.sfgk);
 	$("#lxrxm").val(doc.lxrxm);	
-	$("#gddh").val(doc.gddh);	
+	$("#gddh").numberbox("setValue", doc.gddh);	
 	$("#szdq").val(doc.szdq);
-	$("#sj").val(doc.sj);
+	$("#sj").numberbox("setValue", doc.sj);
 	$("#dzyx").val(doc.dzyx);
 	$("#lxdz").val(doc.lxdz);
 	

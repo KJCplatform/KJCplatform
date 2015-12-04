@@ -10,9 +10,9 @@ public interface KjndjpptkyxmbService {
 
 	public List<KjndjpptkyxmbForm> findKjndjpptkyxmbList();
 	public List<KjndjpptkyxmbForm> findKjndjpptkyxmbListWithPage(int pagesize,int pageno, KjndjpptkyxmbForm kjndjpptkyxmbForm);
-	public void updateKjndjpptkyxmb(KjndjpptkyxmbForm kjndjpptkyxmbForm);
+	public void updateKjndjpptkyxmb(KjndjpptkyxmbForm kjndjpptkyxmbForm, String username);
 	public void deleteObject(String id);
-	public void saveObject(KjndjpptkyxmbForm kjndjpptkyxmbForm);
+	public void saveObject(KjndjpptkyxmbForm kjndjpptkyxmbForm, String username);
 
 
 }

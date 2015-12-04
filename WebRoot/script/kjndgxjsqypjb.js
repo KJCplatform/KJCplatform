@@ -176,11 +176,13 @@ function editDoc() {
 	$("#year").val(doc.year);
 	$("#qymc").val(doc.qymc);
 	$("#cply").val(doc.cply);
-	$("#zgzs").val(doc.zgzs);
-	$("#dzysrs").val(doc.dzysrs);
-	$("#yfrys").val(doc.yfrys);
-	$("#xmhds").val(doc.xmhds);
-	$("#cphds").val(doc.cphds);
+//	$("#zgzs").val(doc.zgzs);
+    $("#zgzs").numberbox("setValue",doc.zgzs);
+
+	$("#dzysrs").numberbox("setValue",doc.dzysrs);
+	$("#yfrys").numberbox("setValue",doc.yfrys);
+	$("#xmhds").numberbox("setValue",doc.xmhds);
+	$("#cphds").numberbox("setValue",doc.cphds);
 	$("#jfze").val(doc.jfze);
 	$("#yncpsr").val(doc.yncpsr);
 	$("#jnyfze").val(doc.jnyfze);

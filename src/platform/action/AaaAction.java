@@ -32,6 +32,7 @@ import container.ServiceProvider;
 public class AaaAction extends BaseAction implements ModelDriven<AaaForm>{
 	public int page = 0;
 	public boolean operateSuccess;
+	String username;
 	public boolean isOperateSuccess() {
 		return operateSuccess;
 	}
@@ -92,7 +93,8 @@ public class AaaAction extends BaseAction implements ModelDriven<AaaForm>{
 		xzxzgzbForm1.setJzrq(d);
 		xzxzgzbForm1.setWjh("update");
 		xzxzgzbForm1.setWjm("update");*/
-		aaaService.updateAaa(aaaForm);
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		aaaService.updateAaa(aaaForm,username);
 		operateSuccess=true;
 		return "update";
 	}
@@ -103,7 +105,8 @@ public class AaaAction extends BaseAction implements ModelDriven<AaaForm>{
 		return   "delete";
 	}
 	public String add(){
-		aaaService.saveObject(aaaForm);
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		aaaService.saveObject(aaaForm,username);
 		operateSuccess=true;
 		return "add";
 	}

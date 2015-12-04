@@ -10,9 +10,9 @@ public interface AaaService {
 
 	public List<AaaForm> findAaaList();
 	public List<AaaForm> findAaaListWithPage(int pagesize,int pageno, AaaForm aaaForm);
-	public void updateAaa(AaaForm aaaForm);
+	public void updateAaa(AaaForm aaaForm, String username);
 	public void deleteObject(String id);
-	public void saveObject(AaaForm aaaForm);
+	public void saveObject(AaaForm aaaForm, String username);
 	
 	
 	public void showimportObject(String kjgfjflqkForm) throws Exception;

@@ -165,6 +165,7 @@ public String update(){
         	list.add(kjgxqybabzscqForm);   	
         }
         try{
+        	  if(arrays.size()>0)
         kjgxqybabService.addZscqListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
 	}catch(Exception e){System.out.println(e);}
 		operateSuccess=true;
@@ -189,6 +190,7 @@ public String update(){
         	list.add(kjgxqybabyfxmForm);   	
         }
         try{
+        if(arrays.size()>0)
         kjgxqybabService.addYfxmListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
 	}catch(Exception e){System.out.println(e);}
 		operateSuccess=true;
@@ -215,6 +217,7 @@ public String update(){
         
 //        kjgxqybabService.addGxcpListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
         try{
+        	  if(arrays.size()>0)
         kjgxqybabService.addGxcpListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
         }catch(Exception e){System.out.println(e);}
         

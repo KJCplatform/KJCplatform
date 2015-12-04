@@ -2,6 +2,7 @@ package platform.service.impl;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -96,7 +97,7 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 	  private String Czzbdf;
 	  private String Zhpj;
 	  private String Pdzjz;*/
-	public void updateKjndgxjsqypjb(KjndgxjsqypjbForm kjndgxjsqypjbForm){
+	public void updateKjndgxjsqypjb(KjndgxjsqypjbForm kjndgxjsqypjbForm,String username){
 		Kjndgxjsqypjb kjndgxjsqypjb=new Kjndgxjsqypjb();
 //		jljlqjhzb.setCljg(jljlqjhzbForm.getCljg());
 		//	jljlqjhzb.setFwrq(StringHelper.stringConvertDate(jljlqjhzbForm.getFwrq()));
@@ -136,6 +137,10 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 		kjndgxjsqypjb.setZhpj(kjndgxjsqypjbForm.getZhpj());
 		kjndgxjsqypjb.setPdzjz(kjndgxjsqypjbForm.getPdzjz());
 		
+		kjndgxjsqypjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjndgxjsqypjb.setUsername(username);
+		kjndgxjsqypjb.setGxsj(new Date().toString());
+		kjndgxjsqypjb.setSubmit(0);
 		
 		kjndgxjsqypjbDao.update(kjndgxjsqypjb);
 		
@@ -143,7 +148,7 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 	public void deleteObject(String id){
 		kjndgxjsqypjbDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(KjndgxjsqypjbForm kjndgxjsqypjbForm){
+	public void saveObject(KjndgxjsqypjbForm kjndgxjsqypjbForm,String username){
 		Kjndgxjsqypjb kjndgxjsqypjb=new Kjndgxjsqypjb();
 //		jljlqjhzb.setCljg(jljlqjhzbForm.getCljg());
 		//	jljlqjhzb.setFwrq(StringHelper.stringConvertDate(jljlqjhzbForm.getFwrq()));
@@ -182,6 +187,11 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 		kjndgxjsqypjb.setCzzbdf(kjndgxjsqypjbForm.getCzzbdf());
 		kjndgxjsqypjb.setZhpj(kjndgxjsqypjbForm.getZhpj());
 		kjndgxjsqypjb.setPdzjz(kjndgxjsqypjbForm.getPdzjz());
+		
+		kjndgxjsqypjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjndgxjsqypjb.setUsername(username);
+		kjndgxjsqypjb.setGxsj(new Date().toString());
+		kjndgxjsqypjb.setSubmit(0);
 		kjndgxjsqypjbDao.save(kjndgxjsqypjb);
 	}
 	private List<KjndgxjsqypjbForm> KjndgxjsqypjbPOListToVOList(List<Kjndgxjsqypjb> list) {
@@ -218,13 +228,19 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 			kjndgxjsqypjbForm.setZhpj(kjndgxjsqypjb.getZhpj());
 			kjndgxjsqypjbForm.setPdzjz(kjndgxjsqypjb.getPdzjz());
 			
+			kjndgxjsqypjbForm.setJlnf(kjndgxjsqypjb.getJlnf());
+			kjndgxjsqypjbForm.setUsername(kjndgxjsqypjb.getUsername());
+			kjndgxjsqypjbForm.setGxsj(kjndgxjsqypjb.getGxsj());
+			kjndgxjsqypjbForm.setSubmit(String.valueOf(kjndgxjsqypjb.getSubmit()));
+			
+			
 			formlist.add(kjndgxjsqypjbForm);
 		}
 		return formlist;
 	}
 	
 	@Override
-	public void showimportObject(String showimport)  throws Exception {
+	public void showimportObject(String showimport,String username)  throws Exception {
 		
 		String b = showimport.replace("\\", "\\\\");
 		String c = b.replace("C:\\\\fakepath", "D:");
@@ -322,8 +338,10 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 		cell=sheet.getCell(1,23);
 		kjndgxjsqypjb.setPdzjz(cell.getContents());
 		
-		
-		
+		kjndgxjsqypjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjndgxjsqypjb.setUsername(username);
+		kjndgxjsqypjb.setGxsj(new Date().toString());
+		kjndgxjsqypjb.setSubmit(0);
 		
 		kjndgxjsqypjbDao.save(kjndgxjsqypjb);
 			

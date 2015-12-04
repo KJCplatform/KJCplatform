@@ -11,10 +11,10 @@ public interface KjndgxjsqypjbService {
 	public List<KjndgxjsqypjbForm> findKjndgxjsqypjbList();
 	public List<KjndgxjsqypjbForm> findKjndgxjsqypjbListWithPage(int pagesize,int pageno, KjndgxjsqypjbForm kjndgxjsqypjbForm);
 	
-	public void updateKjndgxjsqypjb(KjndgxjsqypjbForm kjndgxjsqypjbForm);
+	public void updateKjndgxjsqypjb(KjndgxjsqypjbForm kjndgxjsqypjbForm, String username);
 	public void deleteObject(String id);
-	public void saveObject(KjndgxjsqypjbForm kjndgxjsqypjbForm);
-	public void showimportObject(String qymc) throws Exception;
+	public void saveObject(KjndgxjsqypjbForm kjndgxjsqypjbForm, String username);
+	public void showimportObject(String qymc, String username) throws Exception;
 	public void showexportObject(String qymc) throws Exception;
 
 	public void showexportoneObject(List<KjndgxjsqypjbForm> formlist)throws Exception;

@@ -2,6 +2,7 @@ package platform.service.impl;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -19,10 +20,8 @@ import org.springframework.transaction.annotation.Transactional;
 import excel.CreateExcel;
 import platform.dao.AaaDao;
 import platform.domain.Aaa;
-
 import platform.domain.Kjrzxqcjb;
 import platform.form.AaaForm;
-
 import platform.form.KjrzxqcjbForm;
 import platform.service.AaaService;
 import platform.util.StringHelper;
@@ -65,7 +64,7 @@ public class AaaServiceImpl implements AaaService{
 		
 	}
 	
-	public void updateAaa(AaaForm aaaForm){
+	public void updateAaa(AaaForm aaaForm,String username){
 		Aaa aaa=new Aaa();
 		aaa.setYqbh(aaaForm.getYqbh());
 		aaa.setFlbm(aaaForm.getFlbm());
@@ -105,13 +104,19 @@ public class AaaServiceImpl implements AaaService{
 		aaa.setYycg(aaaForm.getYycg());
 		aaa.setYqtp(aaaForm.getYqtp());
 		aaa.setBz(aaaForm.getBz());
+		
+		aaa.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		aaa.setUsername(username);
+		aaa.setGxsj(new Date().toString());
+		aaa.setSubmit(0);
+		
 		aaaDao.update(aaa);
 		
 	}
 	public void deleteObject(String id){
 		aaaDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(AaaForm aaaForm){
+	public void saveObject(AaaForm aaaForm,String username){
 		Aaa aaa=new Aaa();
 		aaa.setYqbh(aaaForm.getYqbh());
 		aaa.setFlbm(aaaForm.getFlbm());
@@ -146,6 +151,12 @@ public class AaaServiceImpl implements AaaService{
 		aaa.setYycg(aaaForm.getYycg());
 		aaa.setYqtp(aaaForm.getYqtp());
 		aaa.setBz(aaaForm.getBz());
+		
+		aaa.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		aaa.setUsername(username);
+		aaa.setGxsj(new Date().toString());
+		aaa.setSubmit(0);
+		
 		aaaDao.save(aaa);
 	}
 	private List<AaaForm> AaaPOListToVOList(List<Aaa> list) {
@@ -188,6 +199,12 @@ public class AaaServiceImpl implements AaaService{
 			aaaForm.setYycg(aaa.getYycg());
 			aaaForm.setYqtp(aaa.getYqtp());
 			aaaForm.setBz(aaa.getBz());
+			
+			aaaForm.setJlnf(aaa.getJlnf());
+			aaaForm.setUsername(aaa.getUsername());
+			aaaForm.setGxsj(aaa.getGxsj());
+			aaaForm.setSubmit(String.valueOf(aaa.getSubmit()));
+			
 			formlist.add(aaaForm);
 			
 		}
@@ -466,7 +483,9 @@ public class AaaServiceImpl implements AaaService{
 						aaa.setGxsj(cell0.getContents());
 						break;
 					case 37:
-						aaa.setSubmit(cell0.getContents());
+						try{
+						aaa.setSubmit(Integer.valueOf(cell0.getContents()));
+						}catch(Exception e){System.out.println("submit格式转换失败！");}
 						break;
 					}
 				}

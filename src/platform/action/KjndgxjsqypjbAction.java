@@ -29,6 +29,7 @@ import container.ServiceProvider;
 public class KjndgxjsqypjbAction extends BaseAction implements ModelDriven<KjndgxjsqypjbForm>{
 	public int page = 0;
 	public boolean operateSuccess;
+	String username;
 	public boolean isOperateSuccess() {
 		return operateSuccess;
 	}
@@ -91,7 +92,8 @@ public class KjndgxjsqypjbAction extends BaseAction implements ModelDriven<Kjndg
 		xzxzgzbForm1.setJzrq(d);
 		xzxzgzbForm1.setWjh("update");
 		xzxzgzbForm1.setWjm("update");*/
-		kjndgxjsqypjbService.updateKjndgxjsqypjb(kjndgxjsqypjbForm);
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		kjndgxjsqypjbService.updateKjndgxjsqypjb(kjndgxjsqypjbForm,username);
 		operateSuccess=true;
 		return "update";
 	}
@@ -102,15 +104,17 @@ public class KjndgxjsqypjbAction extends BaseAction implements ModelDriven<Kjndg
 		return   "delete";
 	}
 	public String add(){
-		kjndgxjsqypjbService.saveObject(kjndgxjsqypjbForm);
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		kjndgxjsqypjbService.saveObject(kjndgxjsqypjbForm,username);
 		operateSuccess=true;
 		return "add";
 	}
 	
 	
 	public String showimport() throws Exception{
-		System.out.println(kjndgxjsqypjbForm.getQymc());
-		kjndgxjsqypjbService.showimportObject(kjndgxjsqypjbForm.getQymc());
+//		System.out.println(kjndgxjsqypjbForm.getQymc());
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		kjndgxjsqypjbService.showimportObject(kjndgxjsqypjbForm.getQymc(),username);
 		operateSuccess=true;
 		return "showimport";
 	}
@@ -124,10 +128,10 @@ public class KjndgxjsqypjbAction extends BaseAction implements ModelDriven<Kjndg
 	
 	public String showexportone() throws Exception{
 		
-		System.out.println(kjndgxjsqypjbForm.getId());
+	//	System.out.println(kjndgxjsqypjbForm.getId());
     	List<KjndgxjsqypjbForm> formlist=kjndgxjsqypjbService.findKjndgxjsqypjbById(kjndgxjsqypjbForm);
     	 System.out.println("start!");
-    System.out.println(formlist.get(0).getId());
+   // System.out.println(formlist.get(0).getId());
 		kjndgxjsqypjbService.showexportoneObject(formlist);
 		operateSuccess=true;
 		return "showexport";
