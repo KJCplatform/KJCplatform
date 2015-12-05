@@ -83,7 +83,7 @@ function listDoc() {
 	var actionPath = basePath + '/system/KjjsxqcjbAction_list.action';
 	 $('#dg').datagrid({
             title : '技术需求数据采集表',
-            width : 1200,
+         //  width : 1200,
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      

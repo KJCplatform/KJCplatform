@@ -74,16 +74,16 @@
 		<table id="dg">
 			<thead>
 				<tr>
-					<th field="year">年度</th>
-					<th field="type">类别</th>
-					<th field="tdj">特等奖</th>
-					<th field="ydj">一等奖</th>
-					<th field="edj">二等奖</th>
-					<th field="sdj">三等奖</th>
-					<th field="hj">合计</th>
-			    <th field="jlnf">记录年份</th>
-		    <th field="username">记录人</th>
-			<th field="gxsj">更新时间</th>
+					<th field="year"  width="130">年度</th>
+					<th field="type" width="130">类别</th>
+					<th field="tdj" width="130">特等奖</th>
+					<th field="ydj" width="130">一等奖</th>
+					<th field="edj" width="130">二等奖</th>
+					<th field="sdj" width="130">三等奖</th>
+					<th field="hj" width="130">合计</th>
+			    <th field="jlnf" width="130">记录年份</th>
+		    <th field="username" width="130">记录人</th>
+			<th field="gxsj" width="130" >更新时间</th>
 		
 				</tr>
 			</thead>

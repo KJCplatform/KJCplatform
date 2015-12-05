@@ -392,7 +392,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		
 	}
 	
-	public void showexportObject(String str) throws Exception {
+	public void showexportObject(String str,String username) throws Exception {
 
 		 
 		String[] ss = str.split(" ");  
@@ -410,7 +410,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		// System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
 		String time = df.format(new Date());
-		String path = "D:\\国防专利    admin  " + time + ".xls";
+		String path = "D:\\国防专利  操作员-"+username+" " + time + ".xls";
 
 		// 打开文件
 		WritableWorkbook book = Workbook.createWorkbook(new File(path));

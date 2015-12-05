@@ -37,7 +37,7 @@ function listDoc() {
 	var actionPath = basePath + '/system/KjkjxmkAction_list.action';
 	 $('#dg').datagrid({
             title : '科技项目库',
-           // width : 1200,
+           //width : 1200,
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      

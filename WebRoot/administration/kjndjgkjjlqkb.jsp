@@ -74,16 +74,16 @@
 		<table id="dg">
 			<thead>
 				<tr>
-					<th field="year">年度</th>
-					<th field="jz">奖种</th>
-					<th field="dj">等级</th>
-					<th field="xmmc">项目名称</th>
-					<th field="wcdw">完成单位</th>
-					<th field="djdw">推荐单位</th>
+					<th field="year" width="130">年度</th>
+					<th field="jz" width="130">奖种</th>
+					<th field="dj" width="130">等级</th>
+					<th field="xmmc" width="130">项目名称</th>
+					<th field="wcdw" width="130">完成单位</th>
+					<th field="djdw" width="130">推荐单位</th>
 		
-			    <th field="jlnf">记录年份</th>
-		    <th field="username">记录人</th>
-			<th field="gxsj">更新时间</th>
+			    <th field="jlnf" width="130">记录年份</th>
+		    <th field="username" width="130">记录人</th>
+			<th field="gxsj" width="130">更新时间</th>
 	
 				</tr>
 			</thead>

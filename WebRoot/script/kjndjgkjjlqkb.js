@@ -25,7 +25,7 @@ function listDoc() {
 	var actionPath = basePath + '/system/KjndjgkjjlqkbAction_list.action';
 	 $('#dg').datagrid({
             title : '湖北省科学技术奖励情况表',
-            width : 1200,
+            //width : 1200,
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      

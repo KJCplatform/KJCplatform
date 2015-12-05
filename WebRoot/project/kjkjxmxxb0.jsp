@@ -69,42 +69,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<table id="dg">
 	<thead>
 		<tr>
-			<th field="xmbh" width="130">项目编号</th>
-			<th field="xmmc" width="130">项目名称</th>
-			<th field="cjdws" width="130">参加单位总数</th>
-			<th field="dwmc" width="130">承担单位名称</th>
-			<th field="dwszd" width="130">单位所在地</th>
-			<th field="txdz" width="130">通讯地址</th>
-			<th field="yb" width="130">邮编</th>
-			<th field="dwxz" width="130">单位性质</th>
-			<th field="sjbm" width="130">上级行政主管部门</th>
-			<th field="fzr" width="130">项目负责人姓名</th>
-			<th field="xb" width="130">性别</th>
-			<th field="csn" width="130">出生年</th>
-			<th field="xl" width="130">学历</th>
-			<th field="zc" width="130">职称</th>
-			<th field="lxdh" width="130">联系电话</th>
-			<th field="email" width="130">Email</th>
-			<th field="xmzrs" width="130">项目组人数</th>
-			<th field="gj" width="130">高级</th>
-			<th field="zj" width="130">中级</th>
-			<th field="cj" width="130">初级</th>
-			<th field="qt" width="130">其他</th>
-			<th field="qssj" width="130">起始时间</th>
-			<th field="zzsj" width="130">终止时间</th>
-			<th field="xmhdlx" width="130">项目活动类型</th>
-			<th field="ssly" width="130">所属领域</th>
-			<th field="xmjsly" width="130">项目技术来源</th>
-			<th field="zyyfnr" width="130">主要研发内容</th>
-			<th field="cgxs" width="130">预期成果形式</th>
-			<th field="yqzl" width="130">预期取得专利</th>
-			<th field="zjf" width="130">总经费</th>
-			<th field="sbk" width="130">省拨款</th>
-			 <th field="sjbm" width="130">上级行政主管部门 </th>
-			<th field="sjbm" width="130">上级行政主管部门 </th>
-		    <th field="username" width="130">操作员</th>
-			<th field="jlnf" width="130">记录年份</th>
-			<th field="gxsj" width="130">更新时间</th>
+			<th field="xmbh" >项目编号</th>
+			<th field="xmmc" >项目名称</th>
+			<th field="cjdws" >参加单位总数</th>
+			<th field="dwmc">承担单位名称</th>
+			<th field="dwszd" >单位所在地</th>
+			<th field="txdz">通讯地址</th>
+			<th field="yb"  >邮编</th>
+			<th field="dwxz"  >单位性质</th>
+			<th field="sjbm"  >上级行政主管部门</th>
+			<th field="fzr"  >项目负责人姓名</th>
+			<th field="xb"  >性别</th>
+			<th field="csn"  >出生年</th>
+			<th field="xl"  >学历</th>
+			<th field="zc"  >职称</th>
+			<th field="lxdh"  >联系电话</th>
+			<th field="email"  >Email</th>
+			<th field="xmzrs"  >项目组人数</th>
+			<th field="gj"  >高级</th>
+			<th field="zj"  >中级</th>
+			<th field="cj"  >初级</th>
+			<th field="qt"  >其他</th>
+			<th field="qssj"  >起始时间</th>
+			<th field="zzsj"  >终止时间</th>
+			<th field="xmhdlx"  >项目活动类型</th>
+			<th field="ssly"  >所属领域</th>
+			<th field="xmjsly"  >项目技术来源</th>
+			<th field="zyyfnr"  >主要研发内容</th>
+			<th field="cgxs"  >预期成果形式</th>
+			<th field="yqzl"  >预期取得专利</th>
+			<th field="zjf"  >总经费</th>
+			<th field="sbk"  >省拨款</th>
+			 <th field="sjbm"  >上级行政主管部门 </th>
+			<th field="sjbm"  >上级行政主管部门 </th>
+		    <th field="username"  >操作员</th>
+			<th field="jlnf"  >记录年份</th>
+			<th field="gxsj"  >更新时间</th>
 	
 			
 		</tr>

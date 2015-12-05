@@ -125,7 +125,8 @@ public class KjzlcjbAction extends BaseAction implements ModelDriven<KjzlcjbForm
 	
 	public String showexport() throws Exception{
 		//System.out.println(kjzlcjbForm.getFrmc());
-		kjzlcjbService.showexportObject(kjzlcjbForm.getCgmc());
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		kjzlcjbService.showexportObject(kjzlcjbForm.getCgmc(),username);
 		operateSuccess=true;
 		return "showexport";
 	}

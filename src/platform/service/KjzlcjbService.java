@@ -14,6 +14,6 @@ public interface KjzlcjbService {
 	public void deleteObject(String id);
 	public void saveObject(KjzlcjbForm kjzlcjbForm, String username);
 	public void showimportObject(String cgmc, String username) throws Exception;
-	public void showexportObject(String cgmc) throws Exception;
+	public void showexportObject(String cgmc, String username) throws Exception;
 
 }

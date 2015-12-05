@@ -93,7 +93,7 @@ function listDoc() {
 	var actionPath = basePath + '/system/KjqtcgcjbAction_list.action';
 	 $('#dg').datagrid({
             title : '其他技术成果采集',
-            width : 1200,
+            //width : 1200,
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      

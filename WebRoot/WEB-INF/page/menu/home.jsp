@@ -226,21 +226,21 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"url": "demo.html",
 			"child":[{
 				"menuid": "251",
-				"menuname": "1.****年度我省获国防科学技术进步奖和发明奖统计表",
+				"menuname": "1.年度我省获国防科学技术进步奖和发明奖统计表",
 				"icon": "icon-nav",
 			    "url": "<%=basePath%>/administration/kjndgfjtjb.jsp"
 				
 			},
 			{
 				"menuid": "252",
-				"menuname": "2.****期间至****年度我省获国家科学技术奖国防科技工业专用项目特等奖统计",
+				"menuname": "2.年度我省获国家科学技术奖国防科技工业专用项目特等奖统计",
 				"icon": "icon-nav",
 			    "url": "<%=basePath%>/administration/kjgjkjjgfxmtj.jsp"
 				
 			},
 			{
 				"menuid": "253",
-				"menuname": "3.****至****年度我省获国家科学技术奖国防科技工业专用项目统计",
+				"menuname": "3.年度我省获国家科学技术奖国防科技工业专用项目统计",
 				"icon": "icon-nav",
 			    "url": "<%=basePath%>/administration/kjgjkjjgftdtj.jsp"
 				

@@ -69,17 +69,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<table id="dg">
 	<thead>
 		<tr>
-			<th field="lb" width="130">类别</th>
-			<th field="xh" width="130">序号</th>
-			<th field="dwmc" width="130">单位名称</th>
-			<th field="xmmc" width="130">项目名称</th>
-			<th field="jsgmnr" width="130">建设规模及内容</th>
-			<th field="xmjszq" width="130">项目建设周期</th>
-			<th field="ymjd" width="130">项目进度</th>
-			<th field="ztz" width="130">总投资</th>
-			<th field="ywctz" width="130">已完成投资</th>
-			<th field="bntz" width="130">本年度计划投资</th>
-			<th field="bz" width="130">备注</th>
+			<th field="lb"  >类别</th>
+			<th field="xh"  >序号</th>
+			<th field="dwmc"  >单位名称</th>
+			<th field="xmmc"  >项目名称</th>
+			<th field="jsgmnr"  >建设规模及内容</th>
+			<th field="xmjszq"  >项目建设周期</th>
+			<th field="ymjd"  >项目进度</th>
+			<th field="ztz"  >总投资</th>
+			<th field="ywctz"  >已完成投资</th>
+			<th field="bntz"  >本年度计划投资</th>
+			<th field="bz"  >备注</th>
 			
 				    <th field="jlnf">记录年份</th>
 		    <th field="username">记录人</th>

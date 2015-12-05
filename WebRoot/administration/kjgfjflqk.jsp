@@ -84,12 +84,12 @@
 		<table id="dg">
 			<thead>
 				<tr>
-					<th field="dj">奖励等级</th>
-					<th field="xmmc">项目名称</th>
-					<th field="zywcdw">主要完成单位</th>
-					 <th field="jlnf">记录年份</th>
-		    <th field="username">记录人</th>
-			<th field="gxsj">更新时间</th>
+					<th field="dj" width="130">奖励等级</th>
+					<th field="xmmc" width="130">项目名称</th>
+					<th field="zywcdw" width="130">主要完成单位</th>
+					 <th field="jlnf" width="130">记录年份</th>
+		    <th field="username" width="130">记录人</th>
+			<th field="gxsj" width="130">更新时间</th>
 
 				</tr>
 			</thead>
