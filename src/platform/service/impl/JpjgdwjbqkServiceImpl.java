@@ -9,6 +9,7 @@ import java.util.Set;
 
 import javax.annotation.Resource;
 
+import jxl.Sheet;
 import jxl.Workbook;
 import jxl.format.Alignment;
 import jxl.write.WritableCellFormat;
@@ -268,10 +269,18 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 	@Override
 	public void showImportObject(String filePath) throws Exception {
 		// TODO Auto-generated method stub
+		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:");		
+		Workbook workbook = Workbook.getWorkbook(new File(path));		
+		Sheet sheet = workbook.getSheet(0);
+		Jpjgdwjbqk jpjgdwjbqk = new Jpjgdwjbqk();
+		
+		jpjgdwjbqk.setDwmc(sheet.getCell(1, 0).getContents());
+		
+		
 		
 	}
 
-	@Override
+	
 	public void showExportObject() throws Exception {
 		// TODO Auto-generated method stub
 		SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
