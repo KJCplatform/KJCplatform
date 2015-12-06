@@ -355,7 +355,7 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 		label = new Label(0, 7, "在岗职工总人数", wcf);
 		sheet.addCell(label);
 		sheet.mergeCells(1, 7, 9, 7);
-		label = new Label(1, 8, jpjgdwjbqkFormTemp.getZgzs() , wcf);
+		label = new Label(1, 7, jpjgdwjbqkFormTemp.getZgzs() , wcf);
 		sheet.addCell(label);
 		
 		label = new Label(0, 8, "高职管理", wcf);
