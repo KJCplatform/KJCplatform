@@ -488,8 +488,7 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 			label = new Label(7, 25+i, jpjgdwjbqksrqkForm.get(i-1).getMp(), wcf);
 			sheet.addCell(label);
 			
-		}
-		
+		}		
 		int index = 25 + sizeOne + 1;
 		sheet.mergeCells(0, index, 9, index);
 		label = new Label(0, index, "武器装备科研生产的许可专业（产品）", wcf);
