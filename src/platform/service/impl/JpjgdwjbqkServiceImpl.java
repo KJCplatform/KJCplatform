@@ -459,11 +459,15 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 		sheet.addCell(label);
 		label = new Label(0, 25, "年度", wcf);
 		sheet.addCell(label);
+		
 		sheet.mergeCells(1, 25, 3, 25);
 		label = new Label(1, 25, "总产值（或销售收入）", wcf);
+		sheet.addCell(label);
+		
 		sheet.mergeCells(4, 25, 6, 25);
 		label = new Label(4, 25, "军品", wcf);
 		sheet.addCell(label);
+		
 		sheet.mergeCells(7, 25, 9, 25);
 		label = new Label(7, 25, "民品", wcf);
 		sheet.addCell(label);
@@ -493,11 +497,15 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 		index ++;
 		label = new Label(0, index, "部门及职务", wcf);
 		sheet.addCell(label);
+		
 		sheet.mergeCells(1, index, 3, index);
 		label = new Label(1, index, "姓名", wcf);
+		sheet.addCell(label);
+		
 		sheet.mergeCells(4, index, 6, index);
 		label = new Label(4, index, "职务", wcf);
 		sheet.addCell(label);
+		
 		sheet.mergeCells(7, index, 9, index);
 		label = new Label(7, index, "办公电话", wcf);
 		sheet.addCell(label);
