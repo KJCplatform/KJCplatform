@@ -167,8 +167,11 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 			xzxzgzb.setJzrq(StringHelper.stringConvertDate(sheet.getCell(5, i).getContents()));
 			xzxzgzb.setJbr(sheet.getCell(6, i).getContents());
 			xzxzgzb.setCljg(sheet.getCell(7, i).getContents());
-			xzxzgzb.setGxsj(sheet.getCell(8, i).getContents());
+			xzxzgzb.setJlnf(sheet.getCell(8, i).getContents());
 			
+			xzxzgzb.setSubmit(false);
+			xzxzgzb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+			//xzxzgzb.setUsername();
 			xzxzgzbDao.save(xzxzgzb);
 		}
 				

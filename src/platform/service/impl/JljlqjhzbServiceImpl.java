@@ -161,8 +161,9 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 				jljlqjhzb.setClcsfw(sheet.getCell(6, i).getContents());
 				jljlqjhzb.setBqdd(sheet.getCell(7, i).getContents());
 				jljlqjhzb.setZsyjg(sheet.getCell(8, i).getContents());
-				jljlqjhzb.setJlnf(sheet.getCell(9, i).getContents());
-				jljlqjhzb.setSubmit("");
+				
+				jljlqjhzb.setJlnf(sheet.getCell(9, i).getContents());				
+				jljlqjhzb.setSubmit("否");
 				jljlqjhzb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()).toString());
 				jljlqjhzb.setUsername(formListTemp.get(0).getUsername());
 				jljlqjhzbDao.save(jljlqjhzb);

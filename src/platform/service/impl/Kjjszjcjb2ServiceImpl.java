@@ -174,7 +174,8 @@ public class Kjjszjcjb2ServiceImpl implements Kjjszjcjb2Service{
 			kjjszjcjb2.setSfzh(sheet.getCell(11, i).getContents());
 			kjjszjcjb2.setBz(sheet.getCell(12, i).getContents());
 			kjjszjcjb2.setJlnf(sheet.getCell(13, i).getContents());
-			kjjszjcjb2.setUsername("");
+			
+			kjjszjcjb2.setUsername(formListTemp.get(0).getUsername());
 			kjjszjcjb2.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 			kjjszjcjb2.setSubmit("否");
 			kjjszjcjb2Dao.save(kjjszjcjb2);

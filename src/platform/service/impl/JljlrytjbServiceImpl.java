@@ -177,9 +177,10 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 			jljlrytjb.setYxq(sheet.getCell(7, i).getContents());
 			jljlrytjb.setKjxm(sheet.getCell(8, i).getContents());
 			jljlrytjb.setQfrq(StringHelper.stringConvertDate(sheet.getCell(9, i).getContents()));
+			
 			jljlrytjb.setJlnf(sheet.getCell(10, i).getContents());
 			jljlrytjb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()).toString());
-			jljlrytjb.setSubmit("");
+			jljlrytjb.setSubmit("否");
 			jljlrytjb.setUsername(formListTemp.get(0).getUsername());
 			
 			jljlrytjbDao.save(jljlrytjb);

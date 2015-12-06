@@ -8,7 +8,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.enterprise.inject.New;
 
 import jxl.Sheet;
 import jxl.Workbook;
@@ -176,8 +175,9 @@ public class Kjjszjcjb1ServiceImpl implements Kjjszjcjb1Service{
 			kjjszjcjb1.setYx(sheet.getCell(10, i).getContents());
 			kjjszjcjb1.setSfzh(sheet.getCell(11, i).getContents());
 			kjjszjcjb1.setBz(sheet.getCell(12, i).getContents());
+			
 			kjjszjcjb1.setJlnf(sheet.getCell(13, i).getContents());
-			kjjszjcjb1.setUsername("");
+			kjjszjcjb1.setUsername(formListTemp.get(0).getUsername());
 			kjjszjcjb1.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 			kjjszjcjb1.setSubmit("否");
 			

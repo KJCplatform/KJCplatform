@@ -157,6 +157,7 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 			jpsgwtbb.setTbr(sheet.getCell(4, i).getContents());
 			jpsgwtbb.setZlbmfzr(sheet.getCell(5, i).getContents());
 			jpsgwtbb.setBcrq(StringHelper.stringConvertDate(sheet.getCell(6, i).getContents()));
+			
 			jpsgwtbb.setJlnf(sheet.getCell(7, i).getContents());
 			jpsgwtbb.setSubmit("否");
 			jpsgwtbb.setUsername(formListTemp.get(0).getUsername());
