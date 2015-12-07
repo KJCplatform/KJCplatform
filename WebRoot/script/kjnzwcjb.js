@@ -73,7 +73,7 @@ function listDoc() {
 	var actionPath = basePath + '/system/KjnzwcjbAction_list.action';
 	 $('#dg').datagrid({
             title : '农作物新品种成果',
-            width : 1200,
+            //width : 1200,
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      
@@ -149,9 +149,12 @@ function doSearch(){
 // 显示编辑窗口
 function showEditForm() {
 	$("#tabEdit").dialog({
+		
 		modal : true,// 模式窗口
 		title : '农作物新品种成果',
 		iconCls : 'icon-save',
+		width :  '55%',
+	       height:  '100%',
 		buttons : [ {
 			text : '确认',
 			handler : function() {

@@ -88,9 +88,7 @@
 					<th field="xmmc" width="130">项目名称</th>
 					<th field="zywcdw" width="130">主要完成单位</th>
 					 <th field="jlnf" width="130">记录年份</th>
-		    <th field="username" width="130">记录人</th>
-			<th field="gxsj" width="130">更新时间</th>
-
+	
 				</tr>
 			</thead>
 		</table>

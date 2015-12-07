@@ -150,6 +150,10 @@ function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
 		title : '登记鉴定成果',
+//		width : 500,
+//        height: 800,
+		width :  '55%',
+	       height:  '100%',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',

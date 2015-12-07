@@ -108,6 +108,8 @@ function showEditForm() {
 		modal : true,// 模式窗口
 		title : '企业备案表',
 		iconCls : 'icon-save',
+		width :  '55%',
+	       height:  '100%',
 		buttons : [ {
 			text : '确认',
 			handler : function() {

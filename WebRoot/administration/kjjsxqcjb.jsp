@@ -69,25 +69,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<table id="dg">
 	<thead>
 		<tr>
-			<th field="xqmc" width="130">需求名称</th>
-			<th field="jjfs" width="130">解决方式</th>
-			<th field="sfzj" width="130">是否中介</th>
-			<th field="yqrq" width="130">逾期日期</th>
-			<th field="sshy" width="130">所属行业</th>
-			<th field="jsly" width="130">技术领域</th>
-			<th field="xqms" width="130">需求描述</th>
-			<th field="ngzj" width="130">拟提供资金</th>
-			<th field="fbrxz" width="130">发布人性质</th>
-			<th field="sfgk" width="130">是否公开</th>
-			<th field="lxrxm" width="130">联系人姓名</th>
-			<th field="gddh" width="130">固定电话</th>
-			<th field="szdq" width="130">所在地区</th>
-			<th field="sj" width="130">手机</th>
-			<th field="dzyx" width="130">电子邮箱</th>
-			<th field="lxdz" width="130">联系地址</th>
+			<th field="xqmc"  >需求名称</th>
+			<th field="jjfs"  >解决方式</th>
+			<th field="sfzj"  >是否中介</th>
+			<th field="yqrq"  >逾期日期</th>
+			<th field="sshy"  >所属行业</th>
+			<th field="jsly"  >技术领域</th>
+			<th field="xqms"  >需求描述</th>
+			<th field="ngzj"  >拟提供资金</th>
+			<th field="fbrxz"  >发布人性质</th>
+			<th field="sfgk"  >是否公开</th>
+			<th field="lxrxm"  >联系人姓名</th>
+			<th field="gddh"  >固定电话</th>
+			<th field="szdq"  >所在地区</th>
+			<th field="sj"  >手机</th>
+			<th field="dzyx"  >电子邮箱</th>
+			<th field="lxdz"  >联系地址</th>
 			    <th field="jlnf">记录年份</th>
-		    <th field="username">记录人</th>
-			<th field="gxsj">更新时间</th>
+		 
 		
 		</tr>
 	</thead>

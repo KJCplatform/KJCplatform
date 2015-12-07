@@ -69,30 +69,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<table id="dg">
 	<thead>
 		<tr>
-			<th field="cgmc" width="100">名称</th>
-			<th field="wcdw" width="120">完成单位</th>
-			<th field="zywcr" width="110">完成人</th>
-			<th field="wcsj" width="120">完成时间</th>
-			<th field="cgjj" width="120">成果简介</th>
-			<th field="yyhy" width="120">应用行业</th>
-			<th field="jsly" width="120">技术领域</th>
-			<th field="cgjd" width="120">成果阶段</th>
-			<th field="zhfs" width="120">转化方式</th>
-			<th field="sfzj" width="120">是否中介</th>
-			<th field="gfdj" width="120">供方定价</th>
-			<th field="zhyq" width="120">转化要求</th>
-			<th field="sfgk" width="120">是否公开</th>
-			<th field="fbrxz" width="130">发布人性质</th>
-			<th field="lxrxm" width="130">联系人姓名</th>
-			<th field="gddh" width="120">固定电话</th>
-			<th field="szdq" width="120">所在地区</th>
-			<th field="sj" width="100">手机</th>
-			<th field="dzyx" width="120">电子邮箱</th>
-			<th field="lxdz" width="120">联系地址</th>
+			<th field="cgmc" >名称</th>
+			<th field="wcdw"  >完成单位</th>
+			<th field="zywcr" >完成人</th>
+			<th field="wcsj"  >完成时间</th>
+			<th field="cgjj"  >成果简介</th>
+			<th field="yyhy"  >应用行业</th>
+			<th field="jsly"  >技术领域</th>
+			<th field="cgjd"  >成果阶段</th>
+			<th field="zhfs"  >转化方式</th>
+			<th field="sfzj"  >是否中介</th>
+			<th field="gfdj"  >供方定价</th>
+			<th field="zhyq"  >转化要求</th>
+			<th field="sfgk"  >是否公开</th>
+			<th field="fbrxz"  >发布人性质</th>
+			<th field="lxrxm"  >联系人姓名</th>
+			<th field="gddh"  >固定电话</th>
+			<th field="szdq"  >所在地区</th>
+			<th field="sj" >手机</th>
+			<th field="dzyx"  >电子邮箱</th>
+			<th field="lxdz"  >联系地址</th>
 			
 			    <th field="jlnf">记录年份</th>
-		    <th field="username">记录人</th>
-			<th field="gxsj">更新时间</th>
+		  
 	
 		</tr>
 	</thead>

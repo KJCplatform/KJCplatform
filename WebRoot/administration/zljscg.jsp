@@ -110,8 +110,7 @@
 					<th field="lxdz">联系地址</th>
 					
 					<th field="jlnf">记录年份</th>
-					<th field="username">记录人</th>
-					<th field="gxsj">更新时间</th>
+			
 			
 				</tr>
 			</thead>
@@ -160,7 +159,7 @@
 	<!-- 编辑数据的div，默认看不到 -->
 	<div id="divEdit" style="display:none;">
 		<div id="tabEdit" style="overflow-y:auto;">
-			<form id="frmEdit" style="width:400px;height:400px"
+			<form id="frmEdit" style="width:50%;height:400"
 				method="post">
 				<input type="hidden" id="id" name="id" />
 				<dl>

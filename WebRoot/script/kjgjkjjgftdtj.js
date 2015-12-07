@@ -105,6 +105,8 @@ function showEditForm() {
 		modal : true,// 模式窗口
 		title : '国家科学技术奖国防科技工业专用项目统计',
 		iconCls : 'icon-save',
+		width :  '55%',
+	       height:  '100%',
 		buttons : [ {
 			text : '确认',
 			handler : function() {

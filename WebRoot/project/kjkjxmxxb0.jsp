@@ -102,11 +102,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="sbk"  >省拨款</th>
 			 <th field="sjbm"  >上级行政主管部门 </th>
 			<th field="sjbm"  >上级行政主管部门 </th>
-		    <th field="username"  >操作员</th>
-			<th field="jlnf"  >记录年份</th>
-			<th field="gxsj"  >更新时间</th>
-	
-			
+		 <th field="jlnf"  >记录年份</th>
+		
 		</tr>
 	</thead>
 	</table>

@@ -124,6 +124,8 @@ function showEditForm() {
 		modal : true,// 模式窗口
 		title : '国防科学技术进步奖和发明奖统计表',
 		iconCls : 'icon-save',
+		width :  '55%',
+	       height:  '100%',
 		buttons : [ {
 			text : '确认',
 			handler : function() {

@@ -172,6 +172,8 @@ function showEditForm() {
 		modal : true,// 模式窗口
 		title : '其他技术成果采集',
 		iconCls : 'icon-save',
+		width :  '55%',
+	       height:  '100%',
 		buttons : [ {
 			text : '确认',
 			handler : function() {

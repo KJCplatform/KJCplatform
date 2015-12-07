@@ -82,9 +82,7 @@
 					<th field="djdw" width="130">推荐单位</th>
 		
 			    <th field="jlnf" width="130">记录年份</th>
-		    <th field="username" width="130">记录人</th>
-			<th field="gxsj" width="130">更新时间</th>
-	
+		
 				</tr>
 			</thead>
 		</table>

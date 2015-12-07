@@ -89,9 +89,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="zc3" >第3年总资产</th>
 			<th field="zczzl" >总资产增长率</th>  
 			    <th field="jlnf">记录年份</th>
-		    <th field="username">记录人</th>
-			<th field="gxsj">更新时间</th>
-			
+		 
 			
 		</tr>
 	</thead>

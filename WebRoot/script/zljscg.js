@@ -91,7 +91,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/KjzlcjbAction_list.action';
 	 $('#dg').datagrid({
-            title : '专利技术成果',
+            title : '国防专利',
           //  width : 1200,
             height: 400,
             //fit: true,
@@ -170,8 +170,8 @@ function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
 		title : '专利技术成果',
-		width : 500,
-        height: 800,
+		width :  '55%',
+       height:  '100%',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',
