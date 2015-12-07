@@ -75,9 +75,10 @@ public class XzxzgzbAction extends BaseAction implements ModelDriven<XzxzgzbForm
 		map.put("rows", formlist);
 		map.put("total", xzxzgzbService.findXzxzgzbList(xzxzgzbForm).size());
 		
-		this.setResponseJson(map);
-		
 		map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
+		
+		this.setResponseJson(map);
+
 		//System.out.println(String.valueOf(request.getSession().getAttribute("hhs_user")));
 		//map.put("role", 1);
 		

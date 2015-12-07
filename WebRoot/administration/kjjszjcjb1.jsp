@@ -133,7 +133,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dl>
 			<dl>
 				<dd>性别:</dd>
-				<dd><input size="20" id="xb" name="xb" /></dd>
+				<dd> <select id="xb" name="xb">
+							<option value=""></option>
+							<option value="男">男</option>
+							<option value="女">女</option>
+						</select></dd>
 			</dl>
 			<dl>
 				<dd>工作单位:</dd>

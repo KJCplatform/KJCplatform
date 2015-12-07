@@ -101,8 +101,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="cljg" width="130">处理结果</th>
 			
 			 <th field="jlnf" width="130">记录时间(年份)</th>
-			<th field="username" width="130">操作员</th>
-			<th field="gxsj" width="130">更新时间</th>
+<!-- 			<th field="username" width="130">操作员</th> -->
+<!-- 			<th field="gxsj" width="130">更新时间</th> -->
 			<!-- <th field="submit" width="130">是否提交</th> -->
 			
 		</tr>
