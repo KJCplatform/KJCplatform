@@ -566,27 +566,39 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 		"menuname": "数据库管理",
 		"menus":[{
 			"menuid": "71",
-			"menuname": "数据一致性管理",
+			"menuname": "上传数据到光盘",
 			"icon": "icon-set",
-			"url": "demo2.html"
+			"url": "<%=basePath%>/administration/datatocd.jsp"
 		},
 		{
 			"menuid": "72",
-			"menuname": "数据库更新",
+			"menuname": "从光盘更新数据",
 			"icon": "icon-set",
-			"url": "demo2.html"
+			"url": "<%=basePath%>/administration/dataformcd.jsp"
 		},
 		{
 			"menuid": "73",
-			"menuname": "数据库备份",
+			"menuname": "数据备份与还原",
 			"icon": "icon-set",
-			"url": "demo2.html"
+			"url": "<%=basePath%>/administration/dataarrange.jsp"
+		}
+		]		
+	}<%}if(rights.contains("8")){%>
+	{
+		"menuid": "8",
+		"icon": "icon-sys",
+		"menuname": "数据更新",
+		"menus":[{
+			"menuid": "71",
+			"menuname": "上传数据到光盘",
+			"icon": "icon-set",
+			"url": "<%=basePath%>/administration/datatocd.jsp"
 		},
 		{
-			"menuid": "74",
-			"menuname": "数据库还原",
+			"menuid": "72",
+			"menuname": "从光盘更新数据",
 			"icon": "icon-set",
-			"url": "demo2.html"
+			"url": "<%=basePath%>/administration/dataformcd.jsp"
 		}
 		]		
 	}

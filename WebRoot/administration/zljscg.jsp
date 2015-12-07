@@ -160,7 +160,7 @@
 	<!-- 编辑数据的div，默认看不到 -->
 	<div id="divEdit" style="display:none;">
 		<div id="tabEdit" style="overflow-y:auto;">
-			<form id="frmEdit" style="width:800px;height:400px"
+			<form id="frmEdit" style="width:400px;height:400px"
 				method="post">
 				<input type="hidden" id="id" name="id" />
 				<dl>

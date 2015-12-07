@@ -928,5 +928,17 @@
 			</result>
 		</action>
 		
+		<action name="DbbackupAction_*" class="platform.action.DbbackupAction" method="{1}">
+		    <result name="sjbf" type="json">
+		    </result>
+		    <result name="tocd" type="json">
+		    </result>
+		</action>
+		<action name="HuanyuanAction_*" class="platform.action.HuanyuanAction" method="{1}">
+		    <result name="sjhy" type="json">
+		    </result>
+		     <result name="fromcd" type="json">
+		    </result>
+		</action>
 	</package>
 </struts>

@@ -170,6 +170,8 @@ function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
 		title : '专利技术成果',
+		width : 500,
+        height: 800,
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',

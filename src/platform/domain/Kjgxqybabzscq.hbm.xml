@@ -21,6 +21,11 @@
                 <comment>授权项目名称</comment>
             </column>
         </property>
+               <property name="lb" type="java.lang.String">
+            <column name="lb">
+                <comment>类别</comment>
+            </column>
+        </property>
         <property name="sqh" type="java.lang.String">
             <column name="sqh">
                 <comment>授权号</comment>
