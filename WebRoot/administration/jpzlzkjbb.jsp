@@ -111,10 +111,10 @@
 			    	<th field="shr">审核人</th>
 					<th field="bcrq">报出日期</th>
 					
-					<th field="jlnf" width="130">记录时间(年份)</th>
+					<!-- <th field="jlnf" width="130">记录时间(年份)</th>
 			<th field="username" width="130">操作员</th>
 			<th field="gxsj" width="130">更新时间</th>
-			<th field="submit" width="130">是否提交</th>
+			<th field="submit" width="130">是否提交</th> -->
 			
 				</tr>
 			</thead>
@@ -184,7 +184,7 @@
 						报出日期: <input  type="text" style="width: 150px" id="bcrq" name="bcrq" />
 					</dd>
 				</dl>
-				
+				<!-- 
 				 <dl>
 				<dd>记录时间:</dd>
 				<dd><input size="15" id="jlnf" name="jlnf" /></dd>
@@ -206,7 +206,7 @@
 				</select>
 				</dd>
 			</dl> 
-
+ -->
 			</form>
 		</div>
 	</div>
