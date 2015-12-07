@@ -42,7 +42,7 @@ public class Jpjgdwjbqk0 implements java.io.Serializable {
 	private String jlnf;
 	  private String username;
 	  private String gxsj;
-	  private String submit;
+	  private int submit;
 	public int getId() {
 		return id;
 	}
@@ -229,34 +229,12 @@ public class Jpjgdwjbqk0 implements java.io.Serializable {
 	public void setGxsj(String gxsj) {
 		this.gxsj = gxsj;
 	}
-	public String getSubmit() {
+	public int getSubmit() {
 		return submit;
 	}
-	public void setSubmit(String submit) {
+	public void setSubmit(int submit) {
 		this.submit = submit;
 	}
+
 	  
-	  
-	  
-	  
-
-	/*public Set<Jpjgdwjbqksrqk> getJpjgdwjbqksrqks() {
-		return jpjgdwjbqksrqks;
-	}
-	public void setJpjgdwjbqksrqks(Set<Jpjgdwjbqksrqk> jpjgdwjbqksrqks) {
-		this.jpjgdwjbqksrqks = jpjgdwjbqksrqks;
-	}
-	public Set<Jpjgdwjbqkry> getJpjgdwjbqkrys() {
-		return jpjgdwjbqkrys;
-	}
-	public void setJpjgdwjbqkrys(Set<Jpjgdwjbqkry> jpjgdwjbqkrys) {
-		this.jpjgdwjbqkrys = jpjgdwjbqkrys;
-	}*/
-	
-
-	
-
-	
-
-
 }

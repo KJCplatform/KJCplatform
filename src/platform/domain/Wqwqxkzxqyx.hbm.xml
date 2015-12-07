@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="platform.domain.Wqwqxkzxqyx" table="wq_wqxkzxqyx" catalog="kjcplatform">
+		<id name="id" type="java.lang.Integer">
+			<column name="id"  not-null="true"/>
+			<generator class="identity"/>
+		</id>
+		<property name="dwmc" type="java.lang.String">
+			<column name="dwmc" />
+		</property>
+		<property name="qtmc" type="java.lang.String">
+			<column name="qtmc" />
+		</property>
+		<property name="dwdh" type="java.lang.String">
+			<column name="dwdh" />
+		</property>
+		<property name="scdz" type="java.lang.String">
+			<column name="scdz" />
+		</property>
+		<property name="jjxz" type="java.lang.String">
+			<column name="jjxz" />	
+		</property>
+		<property name="frdb" type="java.lang.String">
+			<column name="frdb" />	
+		</property>
+		<property name="dwdz" type="java.lang.String">
+			<column name="dwdz" />	
+		</property>
+		<property name="yzbm" type="java.lang.String">
+			<column name="yzbm" />
+		</property>
+		<property name="lxr" type="java.lang.String">
+			<column name="lxr" />
+		</property>
+		<property name="lxdh" type="java.lang.String">
+			<column name="lxdh" />
+		</property>
+		<property name="zgzs" type="java.lang.String">
+			<column name="zgzs" />
+		</property>
+		<property name="gzgl" type="java.lang.String">
+			<column name="gzgl" />
+		</property>
+		<property name="zzgl" type="java.lang.String">
+			<column name="zzgl" />
+		</property>
+		<property name="czgl" type="java.lang.String">
+			<column name="czgl" />
+		</property>
+		<property name="gzjs" type="java.lang.String">
+			<column name="gzjs" />
+		</property>
+		<property name="zzjs" type="java.lang.String">
+			<column name="zzjs" />
+		</property>
+		<property name="czjs" type="java.lang.String">
+			<column name="czjs" />
+		</property>
+		<property name="gzgr" type="java.lang.String">
+			<column name="gzgr" />
+		</property>
+		<property name="zzgr" type="java.lang.String">
+			<column name="zzgr" />
+		</property>
+		<property name="czgr" type="java.lang.String">
+			<column name="czgr" />
+		</property>
+		<property name="gjjcgs" type="java.lang.String">
+			<column name="gjjcgs" />
+		</property>
+		<property name="sbjcgs" type="java.lang.String">
+			<column name="sbjcgs" />
+		</property>
+		<property name="jbqk" type="java.lang.String">
+			<column name="jbqk" />
+		</property>
+		<property name="kyfx" type="java.lang.String">
+			<column name="kyfx" />
+		</property>
+		<property name="qyscgl" type="java.lang.String">
+			<column name="qyscgl" />
+		</property>
+		
+		<property name="kyzk" type="java.lang.String">
+			<column name="kyzk" />
+		</property>
+		<property name="zlglzk" type="java.lang.String">
+			<column name="zlglzk" />
+		</property>
+		<property name="bmaqzk" type="java.lang.String">
+			<column name="bmaqzk" />
+		</property>
+		<property name="jpyfqk" type="java.lang.String">
+			<column name="jpyfqk" />
+		</property>
+		<property name="jpjcqk" type="java.lang.String">
+			<column name="jpjcqk" />
+		</property>
+		<property name="jpzzqk" type="java.lang.String">
+			<column name="jpzzqk" />
+		</property>
+		<property name="wcjpqk" type="java.lang.String">
+			<column name="wcjpqk" />
+		</property>
+		<property name="xcjpxmqk" type="java.lang.String">
+			<column name="xcjpxmqk" />
+		</property>
+						<property name="jlnf" type="string">
+			<column name="jlnf" />
+		</property>
+			<property name="username" type="string">
+			<column name="username" />
+		</property>
+			<property name="gxsj" type="string">
+			<column name="gxsj" />
+		</property>
+			<property name="submit" type="integer">
+			<column name="submit" />
+		</property>
+		
+		
+		 <set name="Wqwqxkzxqyxxkzycps" table="wq_xkzyx_xkzycp" cascade="all">
+            <key>
+                <column name="FK_wq_wqxkzxqyx" not-null="true" />
+            </key>
+            <many-to-many class="platform.domain.Wqwqxkzxqyxxkzycp" column="FK_wq_xkzycp"/>
+        </set>
+        <set name="Wqwqxkzxqyxsrqks" table="wq_xkzyx_srqk" cascade="all">
+            <key>
+                <column name="FK_wq_wqxkzxqyx" not-null="true" />
+            </key>
+            <many-to-many class="platform.domain.Wqwqxkzxqyxsrqk" column="FK_wq_srqk"/>
+        </set>
+        
+	</class>
+</hibernate-mapping>

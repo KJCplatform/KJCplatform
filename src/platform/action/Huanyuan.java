@@ -89,7 +89,7 @@ public class Huanyuan {
 				String time = df.format(new Date());
 				
 				//需要把mysqldump.exe程序复制到执行目录下，如：项目文件的根目录，WEB应用部署时会有所变化，注意调整
-				String command = "load data infile 'C:/ProgramData/MySQL/MySQL Server 5.5/Data/D/data/"+tabs.get(i)+".sql' into table kjcplatform."+tabs.get(i)+"("+cols+")";
+				String command = "load data infile 'D:/data/"+tabs.get(i)+".sql' into table kjcplatform."+tabs.get(i)+"("+cols+")";
 				stmt.executeQuery(command);
 				System.out.println(command);
 			}

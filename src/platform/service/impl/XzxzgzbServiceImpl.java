@@ -3,6 +3,7 @@ package platform.service.impl;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -84,15 +85,17 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		xzxzgzb.setMiji(xzxzgzbForm.getMiji());
 		xzxzgzb.setFwrq(StringHelper.stringConvertDate(xzxzgzbForm.getFwrq()));
 		xzxzgzb.setJbnr(xzxzgzbForm.getJbnr());
-		xzxzgzb.setBlrq(StringHelper.stringConvertDate(xzxzgzbForm.getBlrq()));
+		//xzxzgzb.setBlrq(StringHelper.stringConvertDate(xzxzgzbForm.getBlrq()));
 		xzxzgzb.setJbr(xzxzgzbForm.getJbr());
 		xzxzgzb.setCljg(xzxzgzbForm.getCljg());	
 		xzxzgzb.setFj1(xzxzgzbForm.getFj1());
 		xzxzgzb.setFj1(xzxzgzbForm.getFj2());
-		xzxzgzb.setJlnf(xzxzgzbForm.getJlnf());
+		
+		
+		xzxzgzb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		xzxzgzb.setUsername(username);
 		xzxzgzb.setGxsj(new Date().toString());
-		xzxzgzb.setSubmit(false);
+		xzxzgzb.setSubmit(0);
 		
 		xzxzgzbDao.update(xzxzgzb);
 		
@@ -112,17 +115,20 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		xzxzgzb.setMiji(xzxzgzbForm.getMiji());
 		xzxzgzb.setFwrq(StringHelper.stringConvertDate(xzxzgzbForm.getFwrq()));
 		xzxzgzb.setJbnr(xzxzgzbForm.getJbnr());
+		xzxzgzb.setJzrq(StringHelper.stringConvertDate(xzxzgzbForm.getJzrq()));
 		
 		if(xzxzgzbForm.getBlrq()!=null)
-		xzxzgzb.setBlrq(StringHelper.stringConvertDate(xzxzgzbForm.getBlrq()));
+		//xzxzgzb.setBlrq(StringHelper.stringConvertDate(xzxzgzbForm.getBlrq()));
 		xzxzgzb.setJbr(xzxzgzbForm.getJbr());
 		xzxzgzb.setCljg(xzxzgzbForm.getCljg());	
 		xzxzgzb.setFj1(xzxzgzbForm.getFj1());
 		xzxzgzb.setFj1(xzxzgzbForm.getFj2());
-		xzxzgzb.setJlnf(xzxzgzbForm.getJlnf());
+		
+		
+		xzxzgzb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		xzxzgzb.setUsername(username);
 		xzxzgzb.setGxsj(new Date().toString());
-		xzxzgzb.setSubmit(false);
+		xzxzgzb.setSubmit(0);
 		xzxzgzbDao.save(xzxzgzb);
 	}
 	private List<XzxzgzbForm> XzxzgzbPOListToVOList(List<Xzxzgzb> list) {
@@ -138,12 +144,19 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 			xzxzgzbForm.setMiji(xzxzgzb.getMiji());
 			xzxzgzbForm.setFwrq(String.valueOf(xzxzgzb.getFwrq()));
 			xzxzgzbForm.setJbnr(xzxzgzb.getJbnr());
-			xzxzgzbForm.setBlrq(String.valueOf(xzxzgzb.getBlrq()));
+			//xzxzgzbForm.setBlrq(String.valueOf(xzxzgzb.getBlrq()));
 			xzxzgzbForm.setJbr(xzxzgzb.getJbr());
 			xzxzgzbForm.setCljg(xzxzgzb.getCljg());
 			xzxzgzbForm.setFj1(xzxzgzb.getFj1());
 			xzxzgzbForm.setFj2(xzxzgzb.getFj2());
 			xzxzgzbForm.setJlnf(xzxzgzb.getJlnf());
+			xzxzgzbForm.setJzrq(String.valueOf(xzxzgzb.getJzrq()));
+			
+			
+			xzxzgzbForm.setJlnf(xzxzgzb.getJlnf());
+			xzxzgzbForm.setUsername(xzxzgzb.getUsername());
+			xzxzgzbForm.setGxsj(xzxzgzb.getGxsj());
+			xzxzgzbForm.setSubmit(String.valueOf(xzxzgzb.getSubmit()));
 			formlist.add(xzxzgzbForm);
 		}
 		return formlist;
@@ -169,8 +182,10 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 			xzxzgzb.setCljg(sheet.getCell(7, i).getContents());
 			xzxzgzb.setJlnf(sheet.getCell(8, i).getContents());
 			
-			xzxzgzb.setSubmit(false);
+			xzxzgzb.setJlnf(sheet.getCell(13, i).getContents());
+			xzxzgzb.setUsername(formListTemp.get(0).getUsername());
 			xzxzgzb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+			xzxzgzb.setSubmit(0);
 			//xzxzgzb.setUsername();
 			xzxzgzbDao.save(xzxzgzb);
 		}
@@ -247,10 +262,31 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 			    li.clear();
 				break;
 			case "9":
-			    for(int j= 0;j< len;j++){
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getJlnf());
+			    }
+			    lhm.put("记录年份", new ArrayList<String>(li));
+			    li.clear();
+				break;	
+			case "10":
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getUsername());
+			    }
+			    lhm.put("操作员", new ArrayList<String>(li));
+			    li.clear();
+				break;	
+			case "11":
+			    for(int j= 0;j< len; j++){
 			    	li.add(formListTemp.get(j).getGxsj());
 			    }
-			    lhm.put("记录时间", new ArrayList<String>(li));
+			    lhm.put("更新时间", new ArrayList<String>(li));
+			    li.clear();
+				break;	
+			case "12":
+			    for(int j= 0;j< len; j++){
+			    	li.add(formListTemp.get(j).getSubmit());
+			    }
+			    lhm.put("是否提交", new ArrayList<String>(li));
 			    li.clear();
 				break;	
 			}

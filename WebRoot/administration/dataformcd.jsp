@@ -65,7 +65,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd>从光盘更新数据:&nbsp&nbsp&nbsp&nbsp
 				<form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
                 <input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:150px" data-options="prompt:'选择更新点'">  
-				<a href="#" class="easyui-linkbutton" id="btnImport" onclick="sjhy()" >从光盘更新数据</a>
+				<a href="#" class="easyui-linkbutton" id="btnImport" onclick="fromcd()" >从光盘更新数据</a>
 			    </form>
 				</dd>
 			</dl>

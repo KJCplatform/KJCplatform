@@ -16,32 +16,7 @@ public class Jljlqjhzb implements java.io.Serializable{
 	  private String jlnf;
 	  private String username;
 	  private String gxsj;
-	  private String submit;
-	  
-	public String getJlnf() {
-		return jlnf;
-	}
-	public void setJlnf(String jlnf) {
-		this.jlnf = jlnf;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getGxsj() {
-		return gxsj;
-	}
-	public void setGxsj(String gxsj) {
-		this.gxsj = gxsj;
-	}
-	public String getSubmit() {
-		return submit;
-	}
-	public void setSubmit(String submit) {
-		this.submit = submit;
-	}
+	  private int submit;
 	public int getId() {
 		return id;
 	}
@@ -102,6 +77,32 @@ public class Jljlqjhzb implements java.io.Serializable{
 	public void setZsyjg(String zsyjg) {
 		this.zsyjg = zsyjg;
 	}
+	public String getJlnf() {
+		return jlnf;
+	}
+	public void setJlnf(String jlnf) {
+		this.jlnf = jlnf;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getGxsj() {
+		return gxsj;
+	}
+	public void setGxsj(String gxsj) {
+		this.gxsj = gxsj;
+	}
+	public int getSubmit() {
+		return submit;
+	}
+	public void setSubmit(int submit) {
+		this.submit = submit;
+	}
+	  
+	
 	  
 		
 	

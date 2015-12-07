@@ -2,6 +2,7 @@ package platform.service.impl;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -16,6 +17,9 @@ import platform.dao.KjsjjljgxxbDao;
 import platform.domain.Kjsjjljgxxb;
 import platform.form.KjsjjljgxxbForm;
 import platform.service.KjsjjljgxxbService;
+
+
+
 
 
 
@@ -92,7 +96,7 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 
 	}
 
-	public void updateKjsjjljgxxb(KjsjjljgxxbForm kjsjjljgxxbForm) {
+	public void updateKjsjjljgxxb(KjsjjljgxxbForm kjsjjljgxxbForm,String username) {
 
 		Kjsjjljgxxb kjsjjljgxxb = new Kjsjjljgxxb();
 		// kjsjjljgxxb.readexcel();
@@ -117,10 +121,10 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 		
 		
 
-		kjsjjljgxxb.setJlnf(kjsjjljgxxbForm.getJlnf());
-		kjsjjljgxxb.setUsername(kjsjjljgxxbForm.getUsername());
-		kjsjjljgxxb.setGxsj(kjsjjljgxxbForm.getGxsj());
-		kjsjjljgxxb.setSubmit(kjsjjljgxxbForm.getSubmit());
+		kjsjjljgxxb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjsjjljgxxb.setUsername(username);
+		kjsjjljgxxb.setGxsj(new Date().toString());
+		kjsjjljgxxb.setSubmit(0);
 		kjsjjljgxxbDao.update(kjsjjljgxxb);
 
 	}
@@ -129,7 +133,7 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 		kjsjjljgxxbDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
 
-	public void saveObject(KjsjjljgxxbForm kjsjjljgxxbForm) {
+	public void saveObject(KjsjjljgxxbForm kjsjjljgxxbForm,String username) {
 
 		// CreateExcel cr=new CreateExcel();
 		// cr.createExcel(kjsjjljgxxbForm);
@@ -154,10 +158,10 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 		
 		
 		
-		kjsjjljgxxb.setJlnf(kjsjjljgxxbForm.getJlnf());
-		kjsjjljgxxb.setUsername(kjsjjljgxxbForm.getUsername());
-		kjsjjljgxxb.setGxsj(kjsjjljgxxbForm.getGxsj());
-		kjsjjljgxxb.setSubmit(kjsjjljgxxbForm.getSubmit());
+		kjsjjljgxxb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjsjjljgxxb.setUsername(username);
+		kjsjjljgxxb.setGxsj(new Date().toString());
+		kjsjjljgxxb.setSubmit(0);
 		kjsjjljgxxbDao.save(kjsjjljgxxb);
 	}
 

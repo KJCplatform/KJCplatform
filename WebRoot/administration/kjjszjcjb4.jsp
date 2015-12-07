@@ -116,7 +116,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="jlnf" width="130">记录时间(年份)</th>
 			<th field="username" width="130">操作员</th>
 			<th field="gxsj" width="130">更新时间</th>
-			<th field="submit" width="130">是否提交</th>
+			<!-- <th field="submit" width="130">是否提交</th> -->
 		</tr>
 	</thead>
 	</table>
@@ -182,7 +182,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dl>
 			
 			
-			 <dl>
+			<!--  <dl>
 				<dd>记录时间:</dd>
 				<dd><input size="15" id="jlnf" name="jlnf" /></dd>
 			</dl>
@@ -202,7 +202,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<option value="否">否</option>
 				
 				</dd>
-			</dl> 
+			</dl>  -->
 		</form>
 	</div>
 </div>	

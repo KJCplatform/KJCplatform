@@ -81,7 +81,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <input name="Items" type="checkbox" checked="checked" value="6" />截止日期<br> 
 <input name="Items" type="checkbox" checked="checked" value="7" />交办人<br>
 <input name="Items" type="checkbox" checked="checked" value="8" />处理结果<br>
-<input name="Items" type="checkbox" checked="checked" value="9" />记录时间<br>
+<input name="Items" type="checkbox" checked="checked" value="9" />记录年份<br>
 		</form>
 	</div>
 </div>		
@@ -100,10 +100,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="jbr" width="130">交办人</th>
 			<th field="cljg" width="130">处理结果</th>
 			
-			<th field="jlnf" width="130">记录时间(年份)</th>
+			 <th field="jlnf" width="130">记录时间(年份)</th>
 			<th field="username" width="130">操作员</th>
 			<th field="gxsj" width="130">更新时间</th>
-			<th field="submit" width="130">是否提交</th>
+			<!-- <th field="submit" width="130">是否提交</th> -->
 			
 		</tr>
 	</thead>
@@ -150,7 +150,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			
 			
-			 <dl>
+			 <!-- <dl>
 				<dd>记录时间:</dd>
 				<dd><input size="15" id="jlnf" name="jlnf" /></dd>
 			</dl>
@@ -170,7 +170,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<option value="否">否</option>
 				
 				</dd>
-			</dl> 
+			</dl>  -->
 		</form>
 	</div>
 </div>	

@@ -3,11 +3,13 @@ package platform.service.impl;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
+
 import jxl.Sheet;
 import jxl.Workbook;
 
@@ -63,7 +65,7 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 		
 	}
 	
-	public void updateJljlqjhzb(JljlqjhzbForm jljlqjhzbForm){
+	public void updateJljlqjhzb(JljlqjhzbForm jljlqjhzbForm,String username){
 		Jljlqjhzb jljlqjhzb=new Jljlqjhzb();
 		jljlqjhzb.setFrmc(jljlqjhzbForm.getFrmc());
 		jljlqjhzb.setJlzy(jljlqjhzbForm.getJlzy());
@@ -77,10 +79,10 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 		jljlqjhzb.setZsyjg(jljlqjhzbForm.getZsyjg());
 		
 		
-		jljlqjhzb.setJlnf(jljlqjhzbForm.getJlnf());
-		jljlqjhzb.setUsername(jljlqjhzbForm.getUsername());
-		jljlqjhzb.setGxsj(jljlqjhzbForm.getGxsj());
-		jljlqjhzb.setSubmit(jljlqjhzbForm.getSubmit());
+		jljlqjhzb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		jljlqjhzb.setUsername(username);
+		jljlqjhzb.setGxsj(new Date().toString());
+		jljlqjhzb.setSubmit(0);
 		
 		jljlqjhzbDao.update(jljlqjhzb);
 		
@@ -88,7 +90,7 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 	public void deleteObject(String id){
 		jljlqjhzbDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(JljlqjhzbForm jljlqjhzbForm){
+	public void saveObject(JljlqjhzbForm jljlqjhzbForm,String username){
 		Jljlqjhzb jljlqjhzb=new Jljlqjhzb();
 		
 		jljlqjhzb.setFrmc(jljlqjhzbForm.getFrmc());
@@ -102,10 +104,10 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 		jljlqjhzb.setZsyjg(jljlqjhzbForm.getZsyjg());
 		
 		
-		jljlqjhzb.setJlnf(jljlqjhzbForm.getJlnf());
-		jljlqjhzb.setUsername(jljlqjhzbForm.getUsername());
-		jljlqjhzb.setGxsj(jljlqjhzbForm.getGxsj());
-		jljlqjhzb.setSubmit(jljlqjhzbForm.getSubmit());
+		jljlqjhzb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		jljlqjhzb.setUsername(username);
+		jljlqjhzb.setGxsj(new Date().toString());
+		jljlqjhzb.setSubmit(0);
 		
 		jljlqjhzbDao.save(jljlqjhzb);
 	}
@@ -129,6 +131,7 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 			jljlqjhzbForm.setZsyjg(jljlqjhzb.getZsyjg());
 			
 			
+
 			jljlqjhzbForm.setJlnf(jljlqjhzb.getJlnf());
 			jljlqjhzbForm.setUsername(jljlqjhzb.getUsername());
 			jljlqjhzbForm.setGxsj(jljlqjhzb.getGxsj());
@@ -162,10 +165,10 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 				jljlqjhzb.setBqdd(sheet.getCell(7, i).getContents());
 				jljlqjhzb.setZsyjg(sheet.getCell(8, i).getContents());
 				
-				jljlqjhzb.setJlnf(sheet.getCell(9, i).getContents());				
-				jljlqjhzb.setSubmit("否");
-				jljlqjhzb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()).toString());
+				jljlqjhzb.setJlnf(sheet.getCell(13, i).getContents());
 				jljlqjhzb.setUsername(formListTemp.get(0).getUsername());
+				jljlqjhzb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+				jljlqjhzb.setSubmit(0);
 				jljlqjhzbDao.save(jljlqjhzb);
 			}		
 			workbook.close();

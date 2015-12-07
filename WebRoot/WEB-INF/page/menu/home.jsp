@@ -503,36 +503,25 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			},
 			{
 				"menuid": "512A",
-				"menuname": "已获得许可的武器生产专业(产品)",
+				"menuname": "数据录入-申请延续的武器装备科研生产许可取证单位信息",
 				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/wqwqxkzxq1.jsp"	
+				"url": "<%=basePath%>/project/wqwqxkzxqyx.jsp"	
 			},
 			{
 				"menuid": "512B",
-				"menuname": "已获得许可的武器科研专业",
+				"menuname": "信息查询-申请延续的武器装备科研生产许可取证单位信息",
 				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/wqwqxkzxq2.jsp"	
+				"url": "<%=basePath%>/project/wqwqxkzxqyx_search.jsp"	
 			},
-			{
-				"menuid": "512C",
-				"menuname": "申请延续的武器装备科研生产许可专业产品",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/wqwqxkzxq3.jsp"	
-			},
-			{
-				"menuid": "512D",
-				"menuname": "申请增加的武器装备科研生产许可专业产品",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/wqwqxkzxq4.jsp"	
-			},
+			
 			
 			{
 				"menuid": "513",
 				"menuname": "信息汇总-武器装备科研生产许可取证单位信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/wqwqxkzxq0.jsp"
-			}]		
-		}
+			}	]}
+		
 		]	
 	}<%}if(rights.contains("6")){%>,
 	{

@@ -10,9 +10,9 @@ public interface Kjjszjcjb3Service {
 
 	public List<Kjjszjcjb3Form> findKjjszjcjb3List();
 	public List<Kjjszjcjb3Form> findKjjszjcjb3ListWithPage(int pagesize,int pageno, Kjjszjcjb3Form Kjjszjcjb3Form);
-	public void updateKjjszjcjb3(Kjjszjcjb3Form Kjjszjcjb3Form);
+	public void updateKjjszjcjb3(Kjjszjcjb3Form kjjszjcjb3Form,String username);
 	public void deleteObject(String id);
-	public void saveObject(Kjjszjcjb3Form Kjjszjcjb3Form);
+	public void saveObject(Kjjszjcjb3Form kjjszjcjb3Form,String username);
 	public void showImportObject(String filePath) throws Exception;
 	public void showExportObject(String items) throws Exception;
 	//public void updateKjjszjcjb3Withget(Kjjszjcjb3Form Kjjszjcjb3Form);

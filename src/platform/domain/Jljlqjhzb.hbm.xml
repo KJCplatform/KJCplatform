@@ -45,7 +45,7 @@
 		<property name="gxsj" type="string">
 			<column name="gxsj" />	
 		</property>
-		<property name="submit" type="string">
+		<property name="submit" type="int">
 			<column name="submit" />	
 		</property>
 	</class>

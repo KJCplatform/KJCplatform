@@ -32,6 +32,7 @@ import excel.CreateExcel;
 public class KjsjjljgxxbAction extends BaseAction implements ModelDriven<KjsjjljgxxbForm>{
 	public int page = 0;
 	public boolean operateSuccess;
+	String username;
 	public boolean isOperateSuccess() {
 		return operateSuccess;
 	}
@@ -92,7 +93,8 @@ public class KjsjjljgxxbAction extends BaseAction implements ModelDriven<Kjsjjlj
 		kjsjjljgxxbForm1.setJzrq(d);
 		kjsjjljgxxbForm1.setWjh("update");
 		kjsjjljgxxbForm1.setWjm("update");*/
-		kjsjjljgxxbService.updateKjsjjljgxxb(kjsjjljgxxbForm);
+		username=String .valueOf(request.getSession().getAttribute("hhs_user"));
+		kjsjjljgxxbService.updateKjsjjljgxxb(kjsjjljgxxbForm,username);
 		operateSuccess=true;
 		return "update";
 	}
@@ -105,8 +107,8 @@ public class KjsjjljgxxbAction extends BaseAction implements ModelDriven<Kjsjjlj
 	public String add(){
 //		System.out.println(map);
 //		System.out.println(responseJson);
-
-		kjsjjljgxxbService.saveObject(kjsjjljgxxbForm);
+        username=String .valueOf(request.getSession().getAttribute("hhs_user"));
+		kjsjjljgxxbService.saveObject(kjsjjljgxxbForm,username);
 		operateSuccess=true;
 		return "add";
 	}

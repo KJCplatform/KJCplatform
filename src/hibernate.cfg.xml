@@ -21,6 +21,10 @@
 		<mapping resource="platform/domain/User.hbm.xml" />
 		<mapping resource="platform/domain/UserRight.hbm.xml" />
 		<mapping resource="platform/domain/Right.hbm.xml" />
+		
+		<mapping resource="platform/domain/Wqwqxkzxqyx.hbm.xml" />
+		<mapping resource="platform/domain/Wqwqxkzxqyxxkzycp.hbm.xml" />
+		<mapping resource="platform/domain/Wqwqxkzxqyxsrqk.hbm.xml" />
 
 		<mapping resource="platform/domain/Jljlrytjb.hbm.xml" />
 

@@ -78,7 +78,12 @@
                 <comment>更新时间</comment>
             </column>
         </property>
-        <property name="submit" type="java.lang.Boolean">
+                <property name="jzrq" type="date">
+            <column name="jzrq">
+                <comment>截止日期</comment>
+            </column>
+        </property>
+        <property name="submit" type="java.lang.Integer">
             <column name="submit">
                 <comment>是否提交</comment>
             </column>

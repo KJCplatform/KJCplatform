@@ -179,11 +179,11 @@ function editDoc() {
 	//$("#jzrq").datebox("getValue");
 	$("#jbr").val(doc.jbr);
 	$("#cljg").val(doc.cljg);
-	
+	/*
 	$("#jlnf").val(doc.jlnf);
 	$("#username").val(doc.username);
 	$("#gxsj").val(doc.gxsj);
-	$("#submit").val(doc.submit);
+	$("#submit").val(doc.submit);*/
 	// 显示编辑页面
 	showEditForm();
 }

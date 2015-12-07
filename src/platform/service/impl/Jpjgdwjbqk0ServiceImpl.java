@@ -1,6 +1,7 @@
 package platform.service.impl;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -56,7 +57,7 @@ public class Jpjgdwjbqk0ServiceImpl implements Jpjgdwjbqk0Service{
 		
 	}
 	
-	public void updateJpjgdwjbqk0(Jpjgdwjbqk0Form jpjgdwjbqk0Form){
+	public void updateJpjgdwjbqk0(Jpjgdwjbqk0Form jpjgdwjbqk0Form,String username){
 		Jpjgdwjbqk0 jpjgdwjbqk0=new Jpjgdwjbqk0();
 		jpjgdwjbqk0.setId(Integer.valueOf(jpjgdwjbqk0Form.getId()));
 		jpjgdwjbqk0.setDwmc(jpjgdwjbqk0Form.getDwmc());
@@ -87,10 +88,10 @@ public class Jpjgdwjbqk0ServiceImpl implements Jpjgdwjbqk0Service{
 		jpjgdwjbqk0.setGjsyssl(jpjgdwjbqk0Form.getGjsyssl());
 		jpjgdwjbqk0.setGfsyssl(jpjgdwjbqk0Form.getGfsyssl());
 		
-		jpjgdwjbqk0.setJlnf(jpjgdwjbqk0Form.getJlnf());
-		jpjgdwjbqk0.setUsername(jpjgdwjbqk0Form.getUsername());
-		jpjgdwjbqk0.setGxsj(jpjgdwjbqk0Form.getGxsj());
-		jpjgdwjbqk0.setSubmit(jpjgdwjbqk0Form.getSubmit());
+		jpjgdwjbqk0.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		jpjgdwjbqk0.setUsername(username);
+		jpjgdwjbqk0.setGxsj(new Date().toString());
+		jpjgdwjbqk0.setSubmit(0);
 		jpjgdwjbqk0Dao.update(jpjgdwjbqk0);
 		
 	}
@@ -101,7 +102,7 @@ public class Jpjgdwjbqk0ServiceImpl implements Jpjgdwjbqk0Service{
 	public void deleteObject(String id){
 		jpjgdwjbqk0Dao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(Jpjgdwjbqk0Form jpjgdwjbqk0Form){
+	public void saveObject(Jpjgdwjbqk0Form jpjgdwjbqk0Form,String username){
 		Jpjgdwjbqk0 jpjgdwjbqk0=new Jpjgdwjbqk0();
 		jpjgdwjbqk0.setDwmc(jpjgdwjbqk0Form.getDwmc());
 		jpjgdwjbqk0.setQtmc(jpjgdwjbqk0Form.getQtmc());
@@ -130,10 +131,11 @@ public class Jpjgdwjbqk0ServiceImpl implements Jpjgdwjbqk0Service{
 		jpjgdwjbqk0.setJpkyrw(jpjgdwjbqk0Form.getJpkyrw());
 		jpjgdwjbqk0.setGjsyssl(jpjgdwjbqk0Form.getGjsyssl());
 		jpjgdwjbqk0.setGfsyssl(jpjgdwjbqk0Form.getGfsyssl());
-		jpjgdwjbqk0.setJlnf(jpjgdwjbqk0Form.getJlnf());
-		jpjgdwjbqk0.setUsername(jpjgdwjbqk0Form.getUsername());
-		jpjgdwjbqk0.setGxsj(jpjgdwjbqk0Form.getGxsj());
-		jpjgdwjbqk0.setSubmit(jpjgdwjbqk0Form.getSubmit());
+		
+		jpjgdwjbqk0.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		jpjgdwjbqk0.setUsername(username);
+		jpjgdwjbqk0.setGxsj(new Date().toString());
+		jpjgdwjbqk0.setSubmit(0);
 		jpjgdwjbqk0Dao.save(jpjgdwjbqk0);
 	}
 	private List<Jpjgdwjbqk0Form> Jpjgdwjbqk0POListToVOList(List<Jpjgdwjbqk0> list) {
@@ -171,10 +173,10 @@ public class Jpjgdwjbqk0ServiceImpl implements Jpjgdwjbqk0Service{
 			jpjgdwjbqk0Form.setGjsyssl(list.get(i).getGjsyssl());
 			jpjgdwjbqk0Form.setGfsyssl(list.get(i).getGfsyssl());
 			
-			jpjgdwjbqk0Form.setJlnf(list.get(i).getJlnf());
-			jpjgdwjbqk0Form.setUsername(list.get(i).getUsername());
-			jpjgdwjbqk0Form.setGxsj(list.get(i).getGxsj());
-			jpjgdwjbqk0Form.setSubmit(list.get(i).getSubmit());
+			jpjgdwjbqk0Form.setJlnf(jpjgdwjbqk0.getJlnf());
+			jpjgdwjbqk0Form.setUsername(jpjgdwjbqk0.getUsername());
+			jpjgdwjbqk0Form.setGxsj(jpjgdwjbqk0.getGxsj());
+			jpjgdwjbqk0Form.setSubmit(String.valueOf(jpjgdwjbqk0.getSubmit()));
 			
 			formlist.add(jpjgdwjbqk0Form);
 		}

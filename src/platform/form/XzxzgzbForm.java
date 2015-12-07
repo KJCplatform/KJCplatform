@@ -15,24 +15,11 @@ public class XzxzgzbForm implements java.io.Serializable{
 		private String cljg;
 		private String fj1;
 		private String fj2;
-		private String jlnf;
-		
 		private String jzrq;
+		private String jlnf;
+		private String username;
 		private String gxsj;
-		
-		
-		public String getGxsj() {
-			return gxsj;
-		}
-		public void setGxsj(String gxsj) {
-			this.gxsj = gxsj;
-		}
-		public String getJzrq() {
-			return jzrq;
-		}
-		public void setJzrq(String jzrq) {
-			this.jzrq = jzrq;
-		}
+		private String submit;
 		public String getId() {
 			return id;
 		}
@@ -57,7 +44,6 @@ public class XzxzgzbForm implements java.io.Serializable{
 		public void setFwjg(String fwjg) {
 			this.fwjg = fwjg;
 		}
-		
 		public String getMiji() {
 			return miji;
 		}
@@ -106,12 +92,39 @@ public class XzxzgzbForm implements java.io.Serializable{
 		public void setFj2(String fj2) {
 			this.fj2 = fj2;
 		}
+		public String getJzrq() {
+			return jzrq;
+		}
+		public void setJzrq(String jzrq) {
+			this.jzrq = jzrq;
+		}
 		public String getJlnf() {
 			return jlnf;
 		}
 		public void setJlnf(String jlnf) {
 			this.jlnf = jlnf;
 		}
+		public String getUsername() {
+			return username;
+		}
+		public void setUsername(String username) {
+			this.username = username;
+		}
+		public String getGxsj() {
+			return gxsj;
+		}
+		public void setGxsj(String gxsj) {
+			this.gxsj = gxsj;
+		}
+		public String getSubmit() {
+			return submit;
+		}
+		public void setSubmit(String submit) {
+			this.submit = submit;
+		}
+		
+		
+		
 	  
 	
 	

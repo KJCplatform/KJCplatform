@@ -17,6 +17,9 @@
 		<property name="gzdw" type="string">
 			<column name="gzdw" />
 		</property>
+		<property name="gzbm" type="string">
+			<column name="gzbm" />
+		</property>
 		<property name="zw" type="string">
 			<column name="zw" />
 		</property>
@@ -53,7 +56,7 @@
 		<property name="gxsj" type="string">
 			<column name="gxsj" />	
 		</property>
-		<property name="submit" type="string">
+		<property name="submit" type="integer">
 			<column name="submit" />	
 		</property>
 	</class>

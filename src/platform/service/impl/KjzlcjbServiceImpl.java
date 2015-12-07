@@ -423,7 +423,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		String time = df.format(new Date());
 		String path = "D:\\湖北省国防科技工业科技信息管理系统excel导出\\国防专利  操作员-"+username+" " + time + ".xls";
 
-		
+		 
 		// 打开文件
 		WritableWorkbook book = Workbook.createWorkbook(new File(path));
 		// 生成名为“第一页”的工作表，参数0表示这是第一页

@@ -175,10 +175,10 @@ function editDoc() {
 	$("#zsyjg").val(doc.zsyjg);
 	
 	
-	$("#jlnf").val(doc.jlnf);
+	/*$("#jlnf").val(doc.jlnf);
 	$("#username").val(doc.username);
 	$("#gxsj").val(doc.gxsj);
-	$("#submit").val(doc.submit);
+	$("#submit").val(doc.submit);*/
 	// 显示编辑页面
 	showEditForm();
 }
