@@ -174,9 +174,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             {"id":"zjf", "name": "总经费", "value": "", "group": "经费投入", "editor":"text" },
             {"id":"sbk", "name": "省拨款", "group": "经费投入", "value": "", "editor": "text" },
             {"id":"jlnf", "name": "记录时间（年份） ", "group": "其他信息", "value": "", "editor": "text" },
-            {"id":"username", "name": "操作员", "group": "其他信息", "value": "", "editor":"text" },
-            {"id":"gxsj", "name": "更新时间", "value": "", "group": "其他信息", "editor":"text" },
-             
+      
         ];
 
             
@@ -353,8 +351,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						display[28].value = info.zjf;
 						display[29].value = info.sbk;
 						display[30].value = info.jlnf;
-						display[31].value = info.username;
-						display[32].value = info.gxsj;
+			
 			
 						var cjdwdata = {};
 				
