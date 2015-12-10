@@ -43,7 +43,7 @@ function listDoc() {
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      
-            pageSize : 5,//默认选择的分页是每页5行数据
+            pageSize : 10,//默认选择的分页是每页5行数据
             pageList : [ 5, 10, 15, 20 ],//可以选择的分页集合
             nowrap : true,//设置为true，当数据长度超出列宽时将会自动截取
             toolbar:"#toolbar",//在添加 增添、删除、修改操作的按钮要用到这个
@@ -155,7 +155,10 @@ function addDoc() {
 	// 清空原有的数据
 	$('#frmEdit').form('clear');
 	// 显示添加对话框
+	$("#fj1_open").hide();
+	$("#fj2_open").hide();
 	showEditForm();
+
 }
 
 // 编辑按钮的操作
@@ -181,12 +184,20 @@ function editDoc() {
 	//$("#jzrq").datebox("getValue");
 	$("#jbr").val(doc.jbr);
 	$("#cljg").val(doc.cljg);
+	
+//	$('#fb').filebox({ 
+//		 buttonText: 'Choose File', 
+//		 buttonAlign: 'left' 
+//		}) 
+		
 	/*
 	$("#jlnf").val(doc.jlnf);
 	$("#username").val(doc.username);
 	$("#gxsj").val(doc.gxsj);
 	$("#submit").val(doc.submit);*/
 	// 显示编辑页面
+	$("#fj1_open").show();
+	$("#fj2_open").show();
 	showEditForm();
 }
 function dealSave() {
@@ -195,6 +206,14 @@ function dealSave() {
 	var actionAdd = basePath + '/system/XzxzgzbAction_add.action';
 	var actionUpdate = basePath + '/system/XzxzgzbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
+	
+	var fileName = $('#uploadExcel').filebox('getValue');
+	//	
+	//附件1 附件2
+	params+="&fj1="+$('#fj1').filebox('getValue');
+	params+="&fj2="+$('#fj2').filebox('getValue');
+		
+	//alert(params);
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {
@@ -367,3 +386,46 @@ function closeForm2() {
 	//$("#frmEdit2").form('clear');
 	$('#tabEdit2').dialog('close');
 }
+
+
+
+function openfj1(){
+	var doc = $('#dg').datagrid('getSelected');// 得到选中的一行数据
+	params="id="+doc.id;
+	var openfj1 = basePath + '/system/XzxzgzbAction_openfj1.action';
+
+	$.post(openfj1, params, function(result) {
+		if (result.operateSuccess) {
+			$.messager.alert('打开', '打开成功！', 'info');
+
+		} else {
+			$.messager.alert('打开', '格式不正确或不存在此文件！', 'warning');
+		}
+	});
+
+	return false;
+}
+
+
+function openfj2(){
+	var doc = $('#dg').datagrid('getSelected');// 得到选中的一行数据
+	params="id="+doc.id;
+	var openfj2 = basePath + '/system/XzxzgzbAction_openfj2.action';
+
+	$.post(openfj2, params, function(result) {
+		if (result.operateSuccess) {
+			$.messager.alert('打开', '打开成功！', 'info');
+
+		} else {
+			$.messager.alert('打开', '格式不正确或不存在此文件！', 'warning');
+		}
+	});
+
+	return false;
+}
+
+
+
+
+
+

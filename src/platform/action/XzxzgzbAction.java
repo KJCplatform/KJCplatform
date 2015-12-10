@@ -3,6 +3,7 @@ package platform.action;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Controller;
 
 import platform.action.BaseAction;
 import platform.dao.TestDataDao;
+import platform.domain.Kjjszjcjb;
 import platform.domain.Xzxzgzb;
 import platform.form.TestDataFrom;
 
@@ -117,17 +119,37 @@ public class XzxzgzbAction extends BaseAction implements ModelDriven<XzxzgzbForm
 	}
 	
 	public String showimport() throws Exception{
-		System.out.println(xzxzgzbForm.getId());
+
 		xzxzgzbService.showImportObject(xzxzgzbForm.getId());
 		operateSuccess=true;
 		return "showimport";
 	}
 	
 	public String showexport() throws Exception{
-		System.out.println(xzxzgzbForm.getId());
+//		System.out.println(xzxzgzbForm.getId());
 		xzxzgzbService.showExportObject(xzxzgzbForm.getId());
 		operateSuccess=true;
 		return "showexport";
+	}
+	
+	public String openfj1() throws Exception{
+//		System.out.println(xzxzgzbForm.getId());
+		if(xzxzgzbService.openFj1Object(xzxzgzbForm.getId()))
+		{operateSuccess=true;}
+		else 
+		{operateSuccess=false;}
+		
+		return "openfj1";
+	}
+	public String openfj2() throws Exception{
+//		System.out.println(xzxzgzbForm.getId());
+		if(xzxzgzbService.openFj2Object(xzxzgzbForm.getId()))
+		{operateSuccess=true;}
+		else 
+		{operateSuccess=false;}
+		
+		operateSuccess=true;
+		return "openfj2";
 	}
 }
 

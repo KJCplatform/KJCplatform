@@ -85,11 +85,13 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		xzxzgzb.setMiji(xzxzgzbForm.getMiji());
 		xzxzgzb.setFwrq(StringHelper.stringConvertDate(xzxzgzbForm.getFwrq()));
 		xzxzgzb.setJbnr(xzxzgzbForm.getJbnr());
+		xzxzgzb.setJzrq(StringHelper.stringConvertDate(xzxzgzbForm.getJzrq()));
+		
 		//xzxzgzb.setBlrq(StringHelper.stringConvertDate(xzxzgzbForm.getBlrq()));
 		xzxzgzb.setJbr(xzxzgzbForm.getJbr());
 		xzxzgzb.setCljg(xzxzgzbForm.getCljg());	
 		xzxzgzb.setFj1(xzxzgzbForm.getFj1());
-		xzxzgzb.setFj1(xzxzgzbForm.getFj2());
+		xzxzgzb.setFj2(xzxzgzbForm.getFj2());
 		
 		
 		xzxzgzb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
@@ -122,7 +124,7 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		xzxzgzb.setJbr(xzxzgzbForm.getJbr());
 		xzxzgzb.setCljg(xzxzgzbForm.getCljg());	
 		xzxzgzb.setFj1(xzxzgzbForm.getFj1());
-		xzxzgzb.setFj1(xzxzgzbForm.getFj2());
+		xzxzgzb.setFj2(xzxzgzbForm.getFj2());
 		
 		
 		xzxzgzb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
@@ -301,6 +303,54 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		String time = df.format(new Date());
 		String path = "D:\\行政管理表 admin " + time + ".xls";	
 		CreateExcel.createExcel(getDataAsHashMap(items), path);	
+		
+	}
+
+	public boolean openFj1Object(String id) {
+
+		String hqlWhere = "id="+id+" ";
+		Object[] params = null;
+		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+		orderby.put(" o.id", "desc");
+	
+		List<Xzxzgzb> list=xzxzgzbDao.findCollectionByConditionNoPage2(hqlWhere, params, orderby);
+		
+		String fj1=list.get(0).getFj1();
+		String path = fj1.replace("\\", "\\\\").replace("C:\\\\fakepath",  "D:\\上传文件");
+		if(path.endsWith(".xls")||path.endsWith(".doc")||path.endsWith(".pdf")){
+
+		      try{  
+		            Runtime.getRuntime().exec("cmd  /c  start  "+path);  
+		        }catch(Exception  e){System.out.println("Error!");}  
+		      return true;
+		}
+		else
+			return false;
+			
+		
+	      
+	}
+
+	public boolean openFj2Object(String id) {
+		String hqlWhere = "id="+id+" ";
+		Object[] params = null;
+		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+		orderby.put(" o.id", "desc");
+	
+		List<Xzxzgzb> list=xzxzgzbDao.findCollectionByConditionNoPage2(hqlWhere, params, orderby);
+		
+		String fj2=list.get(0).getFj2();
+		String path = fj2.replace("\\", "\\\\").replace("C:\\\\fakepath",  "D:\\上传文件");
+		if(path.endsWith(".xls")||path.endsWith(".doc")||path.endsWith(".pdf")){
+
+		      try{  
+		            Runtime.getRuntime().exec("cmd  /c  start  "+path);  
+		        }catch(Exception  e){System.out.println("Error!");}  
+		      return true;
+		}
+		else
+			return false;
+			
 		
 	}
 

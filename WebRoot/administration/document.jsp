@@ -143,34 +143,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd>交办人:</dd>
 				<dd><input size="15" id="jbr" name="jbr" /></dd>
 			</dl>
+			
+	
 			<dl>
 				<dd>处理结果:</dd>
 				<dd><textarea cols="45" rows="3" id="cljg" name="cljg"></textarea></dd>
 			</dl>
-			
-			
-			
-			 <!-- <dl>
-				<dd>记录时间:</dd>
-				<dd><input size="15" id="jlnf" name="jlnf" /></dd>
-			</dl>
-			<dl>
-				<dd>操作员:</dd>
-				<dd><input size="15" id="username" name="username" /></dd>
-			</dl>
-			<dl>
-				<dd>更新时间:</dd>
-				<dd><input size="15" id="gxsj" name="gxsj" /></dd>
-			</dl>
-			<dl>
-				<dd>是否提交:</dd>
-				<dd>
-				<select style="width: 150px" id="submit" name="submit" >
-				<option value="是">是</option>
-				<option value="否">否</option>
 				
-				</dd>
-			</dl>  -->
+				<dl>
+			<dd>
+			附件1:<input type="text" id="fj1" name="fj1" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
+
+			　<a href="#" class="easyui-linkbutton" id="fj1_open" style="display:none;"  onclick="openfj1()"  >打开</a> (请上传excel、word)      
+						</dd>    
+			</dl>
+			
+
+			
+				<dl>
+			<dd>
+			附件2:<input type="text" id="fj2" name="fj2" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...',title:'My Dialog'">  
+		
+			　<a href="#" class="easyui-linkbutton" id="fj2_open" style="display:none;" onclick="openfj2()"  >打开</a> (请上传PDF)   
+				</dd>   
+			</dl>
+			
+		
 		</form>
 	</div>
 </div>	

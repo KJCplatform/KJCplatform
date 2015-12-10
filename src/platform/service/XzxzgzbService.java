@@ -16,5 +16,7 @@ public interface XzxzgzbService {
 	//public void updateXzxzgzbWithget(XzxzgzbForm xzxzgzbForm);
 	public void showExportObject(String items) throws Exception;
 	public void showImportObject(String filePath) throws Exception;
+	public boolean openFj1Object(String id);
+	public boolean openFj2Object(String id);
 
 }
