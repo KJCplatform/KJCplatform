@@ -81,8 +81,13 @@ public class KjndgfjtjbServiceImpl implements KjndgfjtjbService{
 		if(kjndgfjtjbForm.getSdj()!=null&&!kjndgfjtjbForm.getSdj().equals(""))
 		kjndgfjtjb.setSdj(Integer.valueOf(kjndgfjtjbForm.getSdj()));
 		
-		if(kjndgfjtjbForm.getHj()!=null&&!kjndgfjtjbForm.getHj().equals(""))
-		kjndgfjtjb.setHj(Integer.valueOf(kjndgfjtjbForm.getHj()));
+		if(kjndgfjtjbForm.getTdj()!=null&&!kjndgfjtjbForm.getTdj().equals("")
+				&&kjndgfjtjbForm.getYdj()!=null&&!kjndgfjtjbForm.getYdj().equals("")
+				&&kjndgfjtjbForm.getEdj()!=null&&!kjndgfjtjbForm.getEdj().equals(""))
+		kjndgfjtjb.setHj(Integer.valueOf(kjndgfjtjbForm.getTdj())
+				+Integer.valueOf(kjndgfjtjbForm.getYdj())
+				+Integer.valueOf(kjndgfjtjbForm.getEdj()));
+		
 		kjndgfjtjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjndgfjtjb.setUsername(username);
 		kjndgfjtjb.setGxsj(new Date().toString());
@@ -109,8 +114,13 @@ public class KjndgfjtjbServiceImpl implements KjndgfjtjbService{
 		if(kjndgfjtjbForm.getSdj()!=null&&!kjndgfjtjbForm.getSdj().equals(""))
 		kjndgfjtjb.setSdj(Integer.valueOf(kjndgfjtjbForm.getSdj()));
 		
-		if(kjndgfjtjbForm.getHj()!=null&&!kjndgfjtjbForm.getHj().equals(""))
-		kjndgfjtjb.setHj(Integer.valueOf(kjndgfjtjbForm.getHj()));
+		if(kjndgfjtjbForm.getTdj()!=null&&!kjndgfjtjbForm.getTdj().equals("")
+				&&kjndgfjtjbForm.getYdj()!=null&&!kjndgfjtjbForm.getYdj().equals("")
+				&&kjndgfjtjbForm.getEdj()!=null&&!kjndgfjtjbForm.getEdj().equals(""))
+		kjndgfjtjb.setHj(Integer.valueOf(kjndgfjtjbForm.getTdj())
+				+Integer.valueOf(kjndgfjtjbForm.getYdj())
+				+Integer.valueOf(kjndgfjtjbForm.getEdj()));
+	
 		kjndgfjtjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjndgfjtjb.setUsername(username);
 		kjndgfjtjb.setGxsj(new Date().toString());

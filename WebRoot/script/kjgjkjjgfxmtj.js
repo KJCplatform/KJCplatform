@@ -172,7 +172,7 @@ function editDoc() {
 	$('#frmEdit').form('clear');
 	// 填充数据
 	$("#id").val(doc.id);
-	$("#year").val(doc.year);
+	$("#nd").val(doc.nd);
 	$("#tdj").val(doc.tdj);
 	$("#ydj").val(doc.ydj);
 	$("#edj").val(doc.edj);
@@ -188,6 +188,7 @@ function dealSave() {
 	var actionAdd = basePath + '/system/KjgjkjjgfxmtjAction_add.action';
 	var actionUpdate = basePath + '/system/KjgjkjjgfxmtjAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
+	
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {

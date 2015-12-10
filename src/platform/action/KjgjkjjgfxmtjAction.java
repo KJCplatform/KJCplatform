@@ -104,6 +104,7 @@ public class KjgjkjjgfxmtjAction extends BaseAction implements ModelDriven<Kjgjk
 		return   "delete";
 	}
 	public String add(){
+		
 		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
 		kjgjkjjgfxmtjService.saveObject(kjgjkjjgfxmtjForm,username);
 		operateSuccess=true;

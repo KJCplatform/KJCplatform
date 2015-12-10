@@ -74,7 +74,7 @@
 		<table id="dg">
 			<thead>
 				<tr>
-					<th field="year" width="130">年度</th>
+					<th field="nd" width="130">年度</th>
 					<th field="tdj" width="130">特等奖</th>
 					<th field="ydj" width="130">一等奖</th>
 					<th field="edj" width="130">二等奖</th>
@@ -95,10 +95,9 @@
 				<input type="hidden" id="id" name="id" />
 				<dl>
 					<dd>
-						年度: <input size="15" id="year" name="year" />
+						年度: <input size="15" id="nd" name="nd" />
 					</dd>
 				</dl>
-
 
 				<dl>
 					<dd>
@@ -115,15 +114,9 @@
 						二等奖: <input size="15" id="edj" name="edj" />
 					</dd>
 				</dl>
-				<dl>
-					<dd>
-						三等奖: <input size="15" id="sdj" name="sdj" />
-					</dd>
-				</dl>
+			
 								<dl>
-					<dd>
-						合计: <input size="15" id="hj" name="hj" />
-					</dd>
+				
 				</dl>
 
 

@@ -27,6 +27,9 @@
 	  
 	   
 	    </action>
+	    
+	    
+	    
 	    <action name="TestDataAction_*" class="platform.action.TestDataAction" method="{1}">
 	    	<result name="home">
 	    		/WEB-INF/page/system/actingIndex.jsp
@@ -37,6 +40,29 @@
 	    	</result>   
 	    </action>
 	    
+	    
+	    
+	    <action name="WqwqxkzxqyxAction_*" class="platform.action.WqwqxkzxqyxAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+			    	<result name="addxkzycp" type="json">
+				
+			</result>
+			    	<result name="addsrqk" type="json">
+				
+			</result>
+		</action>
+		
 	    <action name="XzxzgzbAction_*" class="platform.action.XzxzgzbAction" method="{1}">			
 			<result name="list" type="json">
 			<param name="root">responseJson</param>

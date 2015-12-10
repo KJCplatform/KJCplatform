@@ -351,14 +351,14 @@ function selectExcel() {
 			text : '确认',
 			handler : function() {
 
-				ShowExport();
+				ShowExport();	
 				closeForm2();
 			}
 		}, {
 			text : '取消',
 			handler : function() {
 				closeForm2();
-			}
+			}	
 		} ]
 	});
 }

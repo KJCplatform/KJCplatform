@@ -75,8 +75,12 @@ public class KjgjkjjgfxmtjServiceImpl implements KjgjkjjgfxmtjService{
 		if(kjgjkjjgfxmtjForm.getEdj()!=null&&!kjgjkjjgfxmtjForm.getEdj().equals(""))
 		kjgjkjjgfxmtj.setEdj(Integer.valueOf(kjgjkjjgfxmtjForm.getEdj()));
 		
-		if(kjgjkjjgfxmtjForm.getHj()!=null&&!kjgjkjjgfxmtjForm.getHj().equals(""))
-		kjgjkjjgfxmtj.setHj(Integer.valueOf(kjgjkjjgfxmtjForm.getHj()));
+		if(kjgjkjjgfxmtjForm.getTdj()!=null&&!kjgjkjjgfxmtjForm.getTdj().equals("")
+				&&kjgjkjjgfxmtjForm.getYdj()!=null&&!kjgjkjjgfxmtjForm.getYdj().equals("")
+				&&kjgjkjjgfxmtjForm.getEdj()!=null&&!kjgjkjjgfxmtjForm.getEdj().equals(""))
+		kjgjkjjgfxmtj.setHj(Integer.valueOf(kjgjkjjgfxmtjForm.getTdj())
+				+Integer.valueOf(kjgjkjjgfxmtjForm.getYdj())
+				+Integer.valueOf(kjgjkjjgfxmtjForm.getEdj()));
 		
 		kjgjkjjgfxmtj.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjgjkjjgfxmtj.setUsername(username);
@@ -90,7 +94,7 @@ public class KjgjkjjgfxmtjServiceImpl implements KjgjkjjgfxmtjService{
 	}
 	public void saveObject(KjgjkjjgfxmtjForm kjgjkjjgfxmtjForm,String username){
 		Kjgjkjjgfxmtj kjgjkjjgfxmtj=new Kjgjkjjgfxmtj();
-		kjgjkjjgfxmtj.setNd(kjgjkjjgfxmtj.getNd());
+		kjgjkjjgfxmtj.setNd(kjgjkjjgfxmtjForm.getNd());
 		if(kjgjkjjgfxmtjForm.getTdj()!=null&&!kjgjkjjgfxmtjForm.getTdj().equals(""))
 		kjgjkjjgfxmtj.setTdj(Integer.valueOf(kjgjkjjgfxmtjForm.getTdj()));
 		
@@ -100,8 +104,17 @@ public class KjgjkjjgfxmtjServiceImpl implements KjgjkjjgfxmtjService{
 		if(kjgjkjjgfxmtjForm.getEdj()!=null&&!kjgjkjjgfxmtjForm.getEdj().equals(""))
 		kjgjkjjgfxmtj.setEdj(Integer.valueOf(kjgjkjjgfxmtjForm.getEdj()));
 		
-		if(kjgjkjjgfxmtjForm.getHj()!=null&&!kjgjkjjgfxmtjForm.getHj().equals(""))
-		kjgjkjjgfxmtj.setHj(Integer.valueOf(kjgjkjjgfxmtjForm.getHj()));
+//		if(kjgjkjjgfxmtjForm.getHj()!=null&&!kjgjkjjgfxmtjForm.getHj().equals(""))
+//		kjgjkjjgfxmtj.setHj(Integer.valueOf(kjgjkjjgfxmtjForm.getHj()));
+		
+//		if(kjgjkjjgfxmtjForm.getHj()!=null&&!kjgjkjjgfxmtjForm.getHj().equals(""))
+		if(kjgjkjjgfxmtjForm.getTdj()!=null&&!kjgjkjjgfxmtjForm.getTdj().equals("")
+				&&kjgjkjjgfxmtjForm.getYdj()!=null&&!kjgjkjjgfxmtjForm.getYdj().equals("")
+				&&kjgjkjjgfxmtjForm.getEdj()!=null&&!kjgjkjjgfxmtjForm.getEdj().equals(""))
+		kjgjkjjgfxmtj.setHj(Integer.valueOf(kjgjkjjgfxmtjForm.getTdj())
+				+Integer.valueOf(kjgjkjjgfxmtjForm.getYdj())
+				+Integer.valueOf(kjgjkjjgfxmtjForm.getEdj()));
+		
 		
 		kjgjkjjgfxmtj.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjgjkjjgfxmtj.setUsername(username);
