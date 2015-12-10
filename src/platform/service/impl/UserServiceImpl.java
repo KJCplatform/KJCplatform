@@ -23,6 +23,9 @@ import platform.form.XzxzgzbForm;
 import platform.service.UserService;
 import platform.service.XzxzgzbService;
 import platform.util.StringHelper;
+
+import java.security.MessageDigest; 
+
 @Transactional
 @Service(UserService.SERVICE_NAME)
 public class UserServiceImpl implements UserService{
@@ -37,7 +40,8 @@ public class UserServiceImpl implements UserService{
 	public boolean checkNameAndPassword(UserForm userForm) {
 		// TODO Auto-generated method stub
 		String userPass=userDao.getPasswordByName(userForm.getName());
-		if( userForm.getPassword().equals(userPass))
+		System.out.println(MD5(userForm.getPassword()));
+		if( MD5(userForm.getPassword()).equals(userPass))
 		return true;
 		else 
 	    return false;
@@ -137,13 +141,14 @@ public class UserServiceImpl implements UserService{
 		String userId=userDao.getIdByName(valueOf);
 	   // System.out.println(userId);
 		
-		if(userPass.equals(userForm.getName())){
+		if(userPass.equals(MD5(userForm.getName()))){
 			System.out.println(userPass+"|"+userForm.getName());
 			User user = new User();
 		
 			user.setId(Integer.valueOf(userId));
 			user.setName(valueOf);
-		    user.setPassword(userForm.getPassword());
+			
+		    user.setPassword(MD5(userForm.getPassword()));
 		  	userDao.update(user);
 			
 			return true;
@@ -159,5 +164,27 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	
-	
+	   public final static String MD5(String s) {  
+	        char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',  
+	                'a', 'b', 'c', 'd', 'e', 'f' };  
+	        try {  
+	            byte[] strTemp = s.getBytes();  
+	            //如果输入“SHA”，就是实现SHA加密。  
+	            MessageDigest mdTemp = MessageDigest.getInstance("MD5");   
+	            mdTemp.update(strTemp);  
+	            byte[] md = mdTemp.digest();  
+	            int j = md.length;  
+	            char str[] = new char[j * 2];  
+	            int k = 0;  
+	            for (int i = 0; i < j; i++) {  
+	                byte byte0 = md[i];  
+	                str[k++] = hexDigits[byte0 >>> 4 & 0xf];  
+	                str[k++] = hexDigits[byte0 & 0xf];  
+	            }  
+	            return new String(str);  
+	        } catch (Exception e) {  
+	            return null;  
+	        }  
+	    }  
+	   
 }

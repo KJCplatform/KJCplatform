@@ -675,7 +675,7 @@ var basePath = localhostPath + projectName;
             }
 
 
-            alert($newpass.val());
+          //  alert($newpass.val());
             var actionChange = basePath + '/system/UserAction_change.action';
             
             var params ="name="+$oldpass.val()+"&"+"password="+$newpass.val();
@@ -684,8 +684,8 @@ var basePath = localhostPath + projectName;
             $.post(actionChange, params, function(result) {
             if (result.operateSuccess) {
             
-					 msgShow('系统提示', '恭喜,密码修改成功！<br>您的新密码为：' + $newpass.val(), 'info');
-            
+					// msgShow('系统提示', '恭喜,密码修改成功！<br>您的新密码为：' + $newpass.val(), 'info');
+            	 msgShow('系统提示', '恭喜,密码修改成功！' , 'info');
 			} else {
 					$.messager.alert('修改密码', '旧密码错误！', 'warning');
 			}
