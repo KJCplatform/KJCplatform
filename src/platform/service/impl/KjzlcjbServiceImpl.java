@@ -393,7 +393,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 	}
 	
 	public void showexportObject(String str,String username) throws Exception {
-		File file =new File("D:\\湖北省国防科技工业科技信息管理系统excel导出");    
+		File file =new File("D:\\kjcdata");    
 		//如果文件夹不存在则创建    
 		if  (!file .exists()  && !file .isDirectory())      
 		{       
@@ -421,7 +421,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		// System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
 		String time = df.format(new Date());
-		String path = "D:\\湖北省国防科技工业科技信息管理系统excel导出\\国防专利  操作员-"+username+" " + time + ".xls";
+		String path = "D:\\kjcdata\\国防专利  操作员-"+username+" " + time + ".xls";
 
 		 
 		// 打开文件
