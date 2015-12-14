@@ -1029,5 +1029,11 @@
 		     <result name="fromcd" type="json">
 		    </result>
 		</action>
+		<action name="CopyTextAction_*" class="platform.action.CopyTextAction" method="{1}">
+		    <result name="copytext" type="json">
+		    </result>
+		    <result name="copytext1" type="json">
+		    </result>
+		</action>
 	</package>
 </struts>

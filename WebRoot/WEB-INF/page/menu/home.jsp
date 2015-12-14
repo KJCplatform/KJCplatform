@@ -616,6 +616,12 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"menuname": "数据备份与还原",
 			"icon": "icon-set",
 			"url": "<%=basePath%>/administration/dataarrange.jsp"
+		},
+		{
+			"menuid": "74",
+			"menuname": "文件拷贝",
+			"icon": "icon-set",
+			"url": "<%=basePath%>/administration/copytext.jsp"
 		}
 		]		
 	}<%}if(rights.contains("8")){%>
@@ -624,13 +630,13 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 		"icon": "icon-sys",
 		"menuname": "数据更新",
 		"menus":[{
-			"menuid": "71",
+			"menuid": "81",
 			"menuname": "上传数据到光盘",
 			"icon": "icon-set",
 			"url": "<%=basePath%>/administration/datatocd.jsp"
 		},
 		{
-			"menuid": "72",
+			"menuid": "82",
 			"menuname": "从光盘更新数据",
 			"icon": "icon-set",
 			"url": "<%=basePath%>/administration/dataformcd.jsp"
