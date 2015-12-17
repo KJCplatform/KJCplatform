@@ -381,7 +381,7 @@ if(pageno==1){
 	
 	public void showexportObject(String str) throws Exception {
 
-		File file =new File("D:\\kjcdata");    
+		File file =new File("D:\\kjcoutput");    
 		//如果文件夹不存在则创建    
 		if  (!file .exists()  && !file .isDirectory())      
 		{       
@@ -403,7 +403,7 @@ if(pageno==1){
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		// System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
 		String time = df.format(new Date());
-		String path = "D:\\kjcdata\\登记鉴定成果    admin  " + time + ".xls";
+		String path = "D:\\kjcoutput\\登记鉴定成果    admin  " + time + ".xls";
 
 		// 打开文件
 		WritableWorkbook book = Workbook.createWorkbook(new File(path));

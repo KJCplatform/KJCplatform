@@ -316,7 +316,7 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		List<Xzxzgzb> list=xzxzgzbDao.findCollectionByConditionNoPage2(hqlWhere, params, orderby);
 		
 		String fj1=list.get(0).getFj1();
-		String path = fj1.replace("\\", "\\\\").replace("C:\\\\fakepath",  "D:\\上传文件");
+		String path = fj1.replace("\\", "\\\\").replace("C:\\\\fakepath",  "D:\\kjcdata");
 		if(path.endsWith(".xls")||path.endsWith(".doc")||path.endsWith(".pdf")){
 
 		      try{  
@@ -340,7 +340,7 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		List<Xzxzgzb> list=xzxzgzbDao.findCollectionByConditionNoPage2(hqlWhere, params, orderby);
 		
 		String fj2=list.get(0).getFj2();
-		String path = fj2.replace("\\", "\\\\").replace("C:\\\\fakepath",  "D:\\上传文件");
+		String path = fj2.replace("\\", "\\\\").replace("C:\\\\fakepath",  "D:\\kjcdata");
 		if(path.endsWith(".xls")||path.endsWith(".doc")||path.endsWith(".pdf")){
 
 		      try{  

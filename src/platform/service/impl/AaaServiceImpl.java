@@ -848,7 +848,7 @@ public class AaaServiceImpl implements AaaService{
 	@Override
 	public void showexportObject(String str) throws Exception {
 
-		File file =new File("D:\\kjcdata");    
+		File file =new File("D:\\kjcoutput");    
 		//如果文件夹不存在则创建    
 		if  (!file .exists()  && !file .isDirectory())      
 		{       
@@ -859,7 +859,7 @@ public class AaaServiceImpl implements AaaService{
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		// System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
 		String time = df.format(new Date());
-		String path = "D:\\kjcdata\\大型仪器信息表    admin  " + time + ".xls";	
+		String path = "D:\\kjcoutput\\大型仪器信息表    admin  " + time + ".xls";	
 		CreateExcel.createExcel(getDataAsHashMap(str), path);				
 	}
 	
