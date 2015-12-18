@@ -326,10 +326,17 @@ public class Kjjszjcjb2ServiceImpl implements Kjjszjcjb2Service{
 	@Override
 	public void showExportObject(String items) throws Exception {
 		// TODO Auto-generated method stub
+		File file =new File("D:\\kjcoutput");    
+		//如果文件夹不存在则创建    
+		if  (!file .exists()  && !file .isDirectory())      
+		{       
+		    System.out.println("文件夹不存在");  
+		    file .mkdir();    
+		} 
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		String time = df.format(new Date());
-		String path = "D:\\计量管理专家表  admin " + time + ".xls";	
-		CreateExcel.createExcel(getDataAsHashMap(items), path);		
+		String path = "D:\\kjcoutput\\计量管理专家表    admin "+ time+".xls";
+		CreateExcel.createExcel(getDataAsHashMap(items), path);	
 	}
 
 

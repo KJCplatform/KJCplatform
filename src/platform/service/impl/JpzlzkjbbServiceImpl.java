@@ -19,7 +19,6 @@ import platform.dao.JpzlbgtjbDao;
 import platform.dao.JpzlzkjbbDao;
 import platform.domain.Jpzlbgtjb;
 import platform.domain.Jpzlzkjbb;
-import platform.form.JpzlbgtjbForm;
 import platform.form.JpzlzkjbbForm;
 import platform.service.JpzlzkjbbService;
 import platform.util.StringHelper;
@@ -370,11 +369,17 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 	
 	@Override
 	public void showExportObject(String items) throws Exception {
+		File file =new File("D:\\kjcoutput");    
+		//如果文件夹不存在则创建    
+		if  (!file .exists()  && !file .isDirectory())      
+		{       
+		    System.out.println("文件夹不存在");  
+		    file .mkdir();    
+		} 
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		String time = df.format(new Date());
-		String path = "D:\\湖北省国防科技工业军工产品质量状况季报表  admin " + time + ".xls";	
-		CreateExcel.createExcel(getDataAsHashMap(items), path);
-		
+		String path = "D:\\kjcoutput\\湖北省国防科技工业军工产品质量状况季报表    admin "+ time+".xls";
+		CreateExcel.createExcel(getDataAsHashMap(items), path);			
 	}
 
 }

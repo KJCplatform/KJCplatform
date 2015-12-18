@@ -283,9 +283,16 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 	
 	public void showExportObject() throws Exception {
 		// TODO Auto-generated method stub
+		File file =new File("D:\\kjcoutput");    
+		//如果文件夹不存在则创建    
+		if  (!file .exists()  && !file .isDirectory())      
+		{       
+		    System.out.println("文件夹不存在");  
+		    file .mkdir();    
+		} 
 		SimpleDateFormat formater = new SimpleDateFormat("yyyy-MM-dd");
 		String date = formater.format(new Date());
-		String filePath = "D:\\军工单位基本情况表   admin "+ date+".xls";
+		String filePath = "D:\\kjcoutput\\军工单位基本情况表  "+ date+".xls";
 		
 		WritableWorkbook workbook = Workbook.createWorkbook(new File(filePath));
 		
