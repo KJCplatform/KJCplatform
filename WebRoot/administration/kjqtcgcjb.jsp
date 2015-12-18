@@ -134,13 +134,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<dl>
 				<dd>应用行业: </dd>
 			<dd>	
-			<select id="yyhy" multiple="true" name="yyhy" style="width:150px;"></select>
+			<select id="yyhy" multiple="true" name="yyhy" style="width:300px;"></select>
 			</dd>
 			</dl>
 			<dl>
 				<dd>技术领域:</dd>
 				<dd>
-				<select id="jsly" multiple="true" name="jsly" style="width:150px;"></select>
+				<select id="jsly" multiple="true" name="jsly" style="width:300px;"></select>
 				</dd>
 			</dl>
 			<dl>

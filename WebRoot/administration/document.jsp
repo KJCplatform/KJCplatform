@@ -6,7 +6,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head >
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>已获得许可的武器生产专业(产品)</title>
+    <title>公文管理</title>
     <link href="<%=path%>/css/default.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/icon.css" />
@@ -43,15 +43,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <form id="searchForm">
             <table>
                 <tr>
-                    <th>序号：</th>
+                    <th>文件名：</th>
                     <td>
 						<input id="fileName" />
 					</td>
                 </tr>
                 <tr>
-					<th>专业名称：</th>
+					<th>交办内容：</th>
 					<td>
-                        <input id="fileId" />
+                        <input id="content" />
 					</td>
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>

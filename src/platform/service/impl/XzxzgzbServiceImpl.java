@@ -40,7 +40,7 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 			hqlWhere += " and o.wjm like ?";
 			paramsList.add("%"+xzxzgzbForm.getWjm()+"%");
 		}
-		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getWjh())){
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getJbnr())){
 			hqlWhere += " and o.jbnr like ?";
 			paramsList.add("%"+xzxzgzbForm.getJbnr()+"%");
 		}
@@ -60,7 +60,7 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 			hqlWhere += " and o.wjm like ?";
 			paramsList.add("%"+xzxzgzbForm.getWjm()+"%");
 		}
-		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getWjh())){
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getJbnr())){
 			hqlWhere += " and o.jbnr like ?";
 			paramsList.add("%"+xzxzgzbForm.getJbnr()+"%");
 		}

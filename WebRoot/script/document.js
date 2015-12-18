@@ -31,7 +31,8 @@ $(function() {
 		missingMessage : '文件号不能为空'
 	});
 	$("#jbnr").validatebox({
-		required : true
+		required : true,
+		missingMessage : '交办内容不能为空'
 	});
 });
 //加载公文列表
@@ -111,7 +112,7 @@ function listDoc() {
 function doSearch(){
 	$('#dg').datagrid('load',{
 		wjm: $('#fileName').val(),
-		wjh: $('#fileId').val()
+		jbnr: $('#content').val()
 	});
 }
 // 显示编辑窗口
