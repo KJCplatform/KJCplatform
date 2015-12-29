@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import excel.CreateExcel;
+/*import excel.CreatePdf;*/
 import platform.dao.XzxzgzbDao;
 import platform.domain.Xzxzgzb;
 import platform.form.XzxzgzbForm;
@@ -32,6 +33,7 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 	private List<XzxzgzbForm> formListTemp = new ArrayList<XzxzgzbForm>();
 	
 	public List<XzxzgzbForm> findXzxzgzbList(XzxzgzbForm xzxzgzbForm){
+		
 		String hqlWhere = "";
 		Object [] params = null;
 		List<String> paramsList=new ArrayList<String>();
@@ -40,9 +42,49 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 			hqlWhere += " and o.wjm like ?";
 			paramsList.add("%"+xzxzgzbForm.getWjm()+"%");
 		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getWjh())){
+			hqlWhere += " and o.wjh like ?";
+			paramsList.add("%"+xzxzgzbForm.getWjh()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getFwjg())){
+			hqlWhere += " and o.fwjg like ?";
+			paramsList.add("%"+xzxzgzbForm.getFwjg()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getFwrq())){
+			hqlWhere += " and o.fwrq like ?";
+			paramsList.add("%"+xzxzgzbForm.getFwrq()+"%");
+		}
 		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getJbnr())){
 			hqlWhere += " and o.jbnr like ?";
 			paramsList.add("%"+xzxzgzbForm.getJbnr()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getBlrq())){
+			hqlWhere += " and o.blrq like ?";
+			paramsList.add("%"+xzxzgzbForm.getBlrq()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getJbr())){
+			hqlWhere += " and o.jbr like ?";
+			paramsList.add("%"+xzxzgzbForm.getJbr()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getCljg())){
+			hqlWhere += " and o.cljg like ?";
+			paramsList.add("%"+xzxzgzbForm.getCljg()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getJzrq())){
+			hqlWhere += " and o.jzrq like ?";
+			paramsList.add("%"+xzxzgzbForm.getJzrq()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getJlnf())){
+			hqlWhere += " and o.jlnf like ?";
+			paramsList.add("%"+xzxzgzbForm.getJlnf()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getUsername())){
+			hqlWhere += " and o.username like ?";
+			paramsList.add("%"+xzxzgzbForm.getUsername()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getGxsj())){
+			hqlWhere += " and o.gxsj like ?";
+			paramsList.add("%"+xzxzgzbForm.getGxsj()+"%");
 		}
 		orderby.put(" o.fwrq", "desc");
 		params = paramsList.toArray();
@@ -60,9 +102,49 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 			hqlWhere += " and o.wjm like ?";
 			paramsList.add("%"+xzxzgzbForm.getWjm()+"%");
 		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getWjh())){
+			hqlWhere += " and o.wjh like ?";
+			paramsList.add("%"+xzxzgzbForm.getWjh()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getFwjg())){
+			hqlWhere += " and o.fwjg like ?";
+			paramsList.add("%"+xzxzgzbForm.getFwjg()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getFwrq())){
+			hqlWhere += " and o.fwrq like ?";
+			paramsList.add("%"+xzxzgzbForm.getFwrq()+"%");
+		}
 		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getJbnr())){
 			hqlWhere += " and o.jbnr like ?";
 			paramsList.add("%"+xzxzgzbForm.getJbnr()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getBlrq())){
+			hqlWhere += " and o.blrq like ?";
+			paramsList.add("%"+xzxzgzbForm.getBlrq()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getJbr())){
+			hqlWhere += " and o.jbr like ?";
+			paramsList.add("%"+xzxzgzbForm.getJbr()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getCljg())){
+			hqlWhere += " and o.cljg like ?";
+			paramsList.add("%"+xzxzgzbForm.getCljg()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getJzrq())){
+			hqlWhere += " and o.jzrq like ?";
+			paramsList.add("%"+xzxzgzbForm.getJzrq()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getJlnf())){
+			hqlWhere += " and o.jlnf like ?";
+			paramsList.add("%"+xzxzgzbForm.getJlnf()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getUsername())){
+			hqlWhere += " and o.username like ?";
+			paramsList.add("%"+xzxzgzbForm.getUsername()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getGxsj())){
+			hqlWhere += " and o.gxsj like ?";
+			paramsList.add("%"+xzxzgzbForm.getGxsj()+"%");
 		}
 		orderby.put(" o.fwrq", "desc");
 		params = paramsList.toArray();
@@ -200,7 +282,9 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 	 * @return LinkedHashMap
 	 */
 	private LinkedHashMap<String, ArrayList<String>> getDataAsHashMap(String items){
+		System.out.println("getDataAsHashMap:"+items);
 		LinkedHashMap<String, ArrayList<String>> lhm = new LinkedHashMap<String ,ArrayList<String>>();
+		System.out.println("LinkedHashMap:"+lhm);
 		List<String> li = new ArrayList<String>();
 		String[] item = items.split(" ");
 
@@ -299,6 +383,7 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 	@Override
 	public void showExportObject(String items) throws Exception {
 		// TODO Auto-generated method stub
+		System.out.println("items:"+items);
 		File file =new File("D:\\kjcoutput");    
 		//如果文件夹不存在则创建    
 		if  (!file .exists()  && !file .isDirectory())      
@@ -309,14 +394,31 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		String time = df.format(new Date());
 		String path = "D:\\kjcoutput\\行政管理表   admin "+ time+".xls";
+		System.out.println("getDataAsHashMap(items):"+getDataAsHashMap(items));
 		CreateExcel.createExcel(getDataAsHashMap(items), path);	
 	}
+	
+	/*public void TopdfObject(String items) throws Exception {
+		
+		// TODO Auto-generated method stub
+		File file =new File("D:\\kjcoutput");    
+		//如果文件夹不存在则创建    
+		if  (!file .exists()  && !file .isDirectory())      
+		{       
+		    System.out.println("文件夹不存在");  
+		    file .mkdir();    
+		} 
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
+		String time = df.format(new Date());
+		String path = "D:\\kjcoutput\\行政管理表   admin "+ time+".pdf";
+		CreatePdf.createPdf(getDataAsHashMap(items), path);	
+	}*/
 
 	public boolean openFj1Object(String id) {
 
 		String hqlWhere = "id="+id+" ";
 		Object[] params = null;
-		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();//这句代码是干什么的
 		orderby.put(" o.id", "desc");
 	
 		List<Xzxzgzb> list=xzxzgzbDao.findCollectionByConditionNoPage2(hqlWhere, params, orderby);
@@ -338,7 +440,7 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 	}
 
 	public boolean openFj2Object(String id) {
-		String hqlWhere = "id="+id+" ";
+		String hqlWhere = "id="+id+" "; 
 		Object[] params = null;
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 		orderby.put(" o.id", "desc");

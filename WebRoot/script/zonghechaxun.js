@@ -19,7 +19,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/Action_list.action';
 	 $('#dg').datagrid({
-            title : '文件拷贝',
+            title : '综合查询',
             width : 1200,
             height: 400,
             //fit: true,
@@ -36,13 +36,13 @@ function listDoc() {
             pagination : true,//分页
             rownumbers : true,//行数
 			
-			toolbar:[ {// 工具栏
-				text : '文件拷贝',
+			/*toolbar:[ {// 工具栏
+				text : '综合查询',
 				iconCls : 'icon-add', // 图标
 				handler : function() { // 处理函数
 					addDoc();
 				}
-			}]
+			}]*/
         });
 }
 //查询
@@ -53,15 +53,15 @@ function doSearch(){
 	});
 }
 // 显示编辑窗口
-function showEditForm() {
+/*function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '文件拷贝',
+		title : '综合查询',
 		iconCls : 'icon-save',
 		
 	});
 }
-
+*/
 // 关闭窗口
 function closeForm() {
 	$("#frmEdit").form('clear');
@@ -86,49 +86,11 @@ function editDoc() {
 	}
 	$('#frmEdit').form('clear');
 	// 填充数据
-	$("#copytext").val(doc.copytext);
-	$("#copytext1").val(doc.copytext1);
+	$("#sjbf").val(doc.sjbf);
+	$("#sjhy").val(doc.sjhy);
 	$("#id").val(doc.id);
 
 	
 	// 显示编辑页面
 	showEditForm();
 }
-
-function copytext(){
-	//var fileNameyuan = $('#uploadExcelyuan').filebox('getValue');
-	/*var re=/(\\+)/g;
-	var fileName= fileNameyuan.replace(re,"#");
-	var one=fileName.split("#");//对路径字符串进行截取
-	var two=one[one.length-1];//获取文件名
-*/	
-	//var fileNamemudi = $('#uploadExcelmudi').filebox('getValue');
-	/*if (fileNameyuan == "") {
-		$.messager.alert('提示', '请选择文件', 'info');
-	} */
-	/*if (fileNamemudi == "") {
-		$.messager.alert('提示', '请选择文件', 'info');
-	} */
-	/*else {*/
-		/*var yuan1 =${fileNameyuan%+'/'+*};
-		var yuan2 =${fileNamemudi%+'/'+*}*/
-		
-		/*alert(yuan1);
-			
-		alert(yuan2);*/
-	/*$("#yuan").val();
-	$("#mudi").val();*/
-	//alert( "yuan1="+$("#yuan1").val()+"&"+"mudi1="+$("#mudi1").val());
-    var copytext = basePath + '/system/CopyTextAction_copytext.action';
-	/*$.post(copytext, "yuan1="+$("#yuan1").val()+"&"+"mudi1="+$("#mudi1").val(), function(result) {*/
-		$.post(copytext,"yuan1="+$("#yuan1").val()+"&"+"mudi1="+$("#mudi1").val(), function(result) {
-		if (result.operateSuccess) {
-			$('#dg').datagrid('reload');// 重新加载
-			$.messager.alert('拷贝', '拷贝成功', 'info');
-
-		} else {
-			$.messager.alert('拷贝', '拷贝失败', 'warning');
-		}
-	});
-}
-

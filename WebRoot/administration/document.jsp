@@ -43,20 +43,59 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <form id="searchForm">
             <table>
                 <tr>
-                    <th>文件名：</th>
+                    <th>选择查询条件1：</th>
                     <td>
-						<input id="fileName" />
+						<select id="select" name="select">
+						<option value="0"></option>
+						<option value="1">文件名</option>
+						<option value="2">文件编号</option>
+						<option value="3">发文机关</option>
+						<!-- <option value="4">发文日期</option> -->
+						<option value="5">交办内容</option>
+						<!-- <option value="6">截止日期</option> -->
+						<option value="7">交办人</option>
+						<option value="8">处理结果</option>
+						<!-- <option value="9">记录年份</option>
+						<option value="10">操作员</option>
+						<option value="11">更新时间</option> -->
+						
+						</select>
+						
+						 <input id="fileName" />
 					</td>
                 </tr>
-                <tr>
-					<th>交办内容：</th>
+               <!--  <tr>
+					<th>文件号：</th>
 					<td>
-                        <input id="content" />
+                        <input id="fileId" />
+					</td>
+					
+                
+                </tr> -->
+                <tr>
+                    <th>选择查询条件2：</th>
+                    <td>
+						<select id="select2" name="select2">
+						<option value="0"></option>
+						<option value="1">文件名</option>
+						<option value="2">文件编号</option>
+						<option value="3">发文机关</option>
+						<!-- <option value="4">发文日期</option> -->
+						<option value="5">交办内容</option>
+						<!-- <option value="6">截止日期</option> -->
+						<option value="7">交办人</option>
+						<option value="8">处理结果</option>
+						<!-- <option value="9">记录年份</option>
+						<option value="10">操作员</option>
+						<option value="11">更新时间</option> -->
+						
+						</select>
+						
+						 <input id="fileId" />
 					</td>
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>
 					</td>
-                
                 </tr>
             </table>
         </form>
@@ -65,7 +104,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
    选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
        　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
-       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
+       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 
+       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="writeFileToService()" >上传附件</a>　
+        <!-- <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="topdf()" >导出pdf</a>　 -->
 </form>
 
 <div id="divEdit2" style="display:none;">
@@ -101,8 +142,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="cljg" width="130">处理结果</th>
 			
 			 <th field="jlnf" width="130">记录时间(年份)</th>
-<!-- 			<th field="username" width="130">操作员</th> -->
-<!-- 			<th field="gxsj" width="130">更新时间</th> -->
+			<th field="username" width="130">操作员</th>
+			<th field="gxsj" width="130">更新时间</th>
 			<!-- <th field="submit" width="130">是否提交</th> -->
 			
 		</tr>
@@ -143,32 +184,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd>交办人:</dd>
 				<dd><input size="15" id="jbr" name="jbr" /></dd>
 			</dl>
-			
-	
 			<dl>
 				<dd>处理结果:</dd>
 				<dd><textarea cols="45" rows="3" id="cljg" name="cljg"></textarea></dd>
 			</dl>
+			
+			
+			
+			 <!-- <dl>
+				<dd>记录时间:</dd>
+				<dd><input size="15" id="jlnf" name="jlnf" /></dd>
+			</dl>
+			<dl>
+				<dd>操作员:</dd>
+				<dd><input size="15" id="username" name="username" /></dd>
+			</dl>
+			<dl>
+				<dd>更新时间:</dd>
+				<dd><input size="15" id="gxsj" name="gxsj" /></dd>
+			</dl>
+			<dl>
+				<dd>是否提交:</dd>
+				<dd>
+				<select style="width: 150px" id="submit" name="submit" >
+				<option value="是">是</option>
+				<option value="否">否</option>
 				
-				<dl>
-			<dd>
-			附件1:<input type="text" id="fj1" name="fj1" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
-
-			　<a href="#" class="easyui-linkbutton" id="fj1_open" style="display:none;"  onclick="openfj1()"  >打开</a> (请上传excel、word)      
-						</dd>    
-			</dl>
-			
-
-			
-				<dl>
-			<dd>
-			附件2:<input type="text" id="fj2" name="fj2" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...',title:'My Dialog'">  
-		
-			　<a href="#" class="easyui-linkbutton" id="fj2_open" style="display:none;" onclick="openfj2()"  >打开</a> (请上传PDF)   
-				</dd>   
-			</dl>
-			
-		
+				</dd>
+			</dl>  -->
 		</form>
 	</div>
 </div>	

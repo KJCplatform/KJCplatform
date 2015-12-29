@@ -114,6 +114,12 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 // 					"url": "demo.html"
 // 					}					
 // 				]
+			},{
+				"menuid": "13",
+				"menuname": "综合查询",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/zonghechaxun.jsp"
+				
 			}
 // 			,{
 // 				"menuid": "13",

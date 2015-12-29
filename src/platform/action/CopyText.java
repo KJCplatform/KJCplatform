@@ -1,11 +1,15 @@
 package platform.action;
 
+
 import java.io.*;
 
 public class CopyText {
-	public static void copytext(/*String[] args*/) throws Exception{
-		String yuan="D:\\kjcdata";
-		String mudi="E:\\kjcdata";
+	public static void copytext(String yuan1,String mudi1) throws Exception{
+		/*System.out.println(yuan1);
+		System.out.println(mudi1);*/
+		String yuan=yuan1;
+		String mudi=mudi1;
+		/*System.out.println(yuan);*/
 		(new File(mudi)).mkdirs();
 		File[] files =(new File(yuan)).listFiles();
 		for(File file:files){
@@ -19,7 +23,7 @@ public class CopyText {
 		}
 	}
 	
-	public static void copytext1(/*String[] args*/) throws Exception{
+	/*public static void copytext1(String[] args) throws Exception{
 		String yuan="E:\\kjcdata";
 		String mudi="D:\\kjcdata";
 		(new File(mudi)).mkdirs();
@@ -33,7 +37,7 @@ public class CopyText {
 				copyFile(file,new File(mudi+"\\"+file.getName()));
 			}
 		}
-	}
+	}*/
 	
 	
 	public static void copyDir(String yuanDir,String mudiDir)throws Exception{
@@ -88,18 +92,18 @@ public class CopyText {
 				}catch(IOException e){
 					e.printStackTrace();
 				}
-		}*/
-		/*FileReader fr=new FileReader("C:/IO流_2.txt");
+		}
+		FileReader fr=new FileReader("C:/IO流_2.txt");
 		FileWriter fw=new FileWriter("D:/copytext_1.txt");
 		int ch=0;
 		while((ch=fr.read())!=-1){
 			fw.write(ch);
 		}
 		fw.close();
-		fr.close();*/
+		fr.close();
 
 	
 	
 }
-
-
+*/
+}

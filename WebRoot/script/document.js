@@ -31,8 +31,7 @@ $(function() {
 		missingMessage : '文件号不能为空'
 	});
 	$("#jbnr").validatebox({
-		required : true,
-		missingMessage : '交办内容不能为空'
+		required : true
 	});
 });
 //加载公文列表
@@ -44,7 +43,7 @@ function listDoc() {
             height: 400,
             //fit: true,
 			fitColumns : true, // 自动适应列宽      
-            pageSize : 10,//默认选择的分页是每页5行数据
+            pageSize : 5,//默认选择的分页是每页5行数据
             pageList : [ 5, 10, 15, 20 ],//可以选择的分页集合
             nowrap : true,//设置为true，当数据长度超出列宽时将会自动截取
             toolbar:"#toolbar",//在添加 增添、删除、修改操作的按钮要用到这个
@@ -109,20 +108,435 @@ function listDoc() {
 	 
 }
 //查询
+
+
+
+
 function doSearch(){
+	var test=$('#select option:selected').val();
+	var test2=$('#select2 option:selected').val();
+	/*alert(test);
+	alert(test2);*/
+	/*alert($('#select option:selected').val());
+	var selectObj=document.getElementById("select");
+	var index=selectObj.selectedIndex;
+	var value=selectObj.options[index].value;
+	alert(selectObj);
+	alert(selectObj);*/
+if(test==0){
+	if(test2==0)
 	$('#dg').datagrid('load',{
-		wjm: $('#fileName').val(),
-		jbnr: $('#content').val()
 	});
-}
+	if(test2==1)
+		$('#dg').datagrid('load',{
+			wjm: $('#fileId').val()
+		});
+	if(test2==2)
+		$('#dg').datagrid('load',{
+			wjh: $('#fileId').val()
+		});
+	if(test2==3)
+		$('#dg').datagrid('load',{
+			fwjg: $('#fileId').val()
+		});
+	if(test2==4)
+		$('#dg').datagrid('load',{
+			fwrq: $('#fileId').val()
+		});
+	if(test2==5)
+		$('#dg').datagrid('load',{
+			fwrq: $('#fileId').val()
+		});
+	if(test2==6)
+		$('#dg').datagrid('load',{
+			jzrq: $('#fileId').val()
+		});
+	if(test2==7)
+		$('#dg').datagrid('load',{
+			jbr: $('#fileId').val()
+		});
+	if(test2==8)
+		$('#dg').datagrid('load',{
+			cljg: $('#fileId').val()
+		});};
+if(test==1){
+	if(test2==0)
+		$('#dg').datagrid('load',{
+			wjm: $('#fileName').val()
+		});
+		if(test2==1)
+			$('#dg').datagrid('load',{
+				wjm: $('#fileName').val(),
+				wjm: $('#fileId').val()
+			});
+		if(test2==2)
+			$('#dg').datagrid('load',{
+				wjm: $('#fileName').val(),
+				wjh: $('#fileId').val()
+			});
+		if(test2==3)
+			$('#dg').datagrid('load',{
+				wjm: $('#fileName').val(),
+				fwjg: $('#fileId').val()
+			});
+		if(test2==4)
+			$('#dg').datagrid('load',{
+				wjm: $('#fileName').val(),
+				fwrq: $('#fileId').val()
+			});
+		if(test2==5)
+			$('#dg').datagrid('load',{
+				wjm: $('#fileName').val(),
+				fwrq: $('#fileId').val()
+			});
+		if(test2==6)
+			$('#dg').datagrid('load',{
+				wjm: $('#fileName').val(),
+				jzrq: $('#fileId').val()
+			});
+		if(test2==7)
+			$('#dg').datagrid('load',{
+				wjm: $('#fileName').val(),
+				jbr: $('#fileId').val()
+			});
+		if(test2==8)
+			$('#dg').datagrid('load',{
+				wjm: $('#fileName').val(),
+				cljg: $('#fileId').val()
+			});};
+if(test==2){
+	if(test2==0)
+		$('#dg').datagrid('load',{
+			wjh: $('#fileName').val()
+		});
+		if(test2==1)
+			$('#dg').datagrid('load',{
+				wjh: $('#fileName').val(),
+				wjm: $('#fileId').val()
+			});
+		if(test2==2)
+			$('#dg').datagrid('load',{
+				wjh: $('#fileName').val(),
+				wjh: $('#fileId').val()
+			});
+		if(test2==3)
+			$('#dg').datagrid('load',{
+				wjh: $('#fileName').val(),
+				fwjg: $('#fileId').val()
+			});
+		if(test2==4)
+			$('#dg').datagrid('load',{
+				wjh: $('#fileName').val(),
+				fwrq: $('#fileId').val()
+			});
+		if(test2==5)
+			$('#dg').datagrid('load',{
+				wjh: $('#fileName').val(),
+				fwrq: $('#fileId').val()
+			});
+		if(test2==6)
+			$('#dg').datagrid('load',{
+				wjh: $('#fileName').val(),
+				jzrq: $('#fileId').val()
+			});
+		if(test2==7)
+			$('#dg').datagrid('load',{
+				wjh: $('#fileName').val(),
+				jbr: $('#fileId').val()
+			});
+		if(test2==8)
+			$('#dg').datagrid('load',{
+				wjh: $('#fileName').val(),
+				cljg: $('#fileId').val()
+			});};
+				
+if(test==3){
+	if(test2==0)
+		$('#dg').datagrid('load',{
+			fwjg: $('#fileName').val()
+		});
+		if(test2==1)
+			$('#dg').datagrid('load',{
+				fwjg: $('#fileName').val(),
+				wjm: $('#fileId').val()
+			});
+		if(test2==2)
+			$('#dg').datagrid('load',{
+				fwjg: $('#fileName').val(),
+				wjh: $('#fileId').val()
+			});
+		if(test2==3)
+			$('#dg').datagrid('load',{
+				fwjg: $('#fileName').val(),
+				fwjg: $('#fileId').val()
+			});
+		if(test2==4)
+			$('#dg').datagrid('load',{
+				fwjg: $('#fileName').val(),
+				fwrq: $('#fileId').val()
+			});
+		if(test2==5)
+			$('#dg').datagrid('load',{
+				fwjg: $('#fileName').val(),
+				fwrq: $('#fileId').val()
+			});
+		if(test2==6)
+			$('#dg').datagrid('load',{
+				fwjg: $('#fileName').val(),
+				jzrq: $('#fileId').val()
+			});
+		if(test2==7)
+			$('#dg').datagrid('load',{
+				fwjg: $('#fileName').val(),
+				jbr: $('#fileId').val()
+			});
+		if(test2==8)
+			$('#dg').datagrid('load',{
+				fwjg: $('#fileName').val(),
+				cljg: $('#fileId').val()
+			});};
+			
+if(test==4){
+	if(test2==0)
+		$('#dg').datagrid('load',{
+		fwrq: $('#fileName').val()
+	});
+	if(test2==1)
+		$('#dg').datagrid('load',{
+			fwrq: $('#fileName').val(),
+			wjm: $('#fileId').val()
+		});
+	if(test2==2)
+		$('#dg').datagrid('load',{
+			fwrq: $('#fileName').val(),
+			wjh: $('#fileId').val()
+		});
+	if(test2==3)
+		$('#dg').datagrid('load',{
+			fwrq: $('#fileName').val(),
+			fwjg: $('#fileId').val()
+		});
+	if(test2==4)
+		$('#dg').datagrid('load',{
+			fwrq: $('#fileName').val(),
+			fwrq: $('#fileId').val()
+		});
+	if(test2==5)
+		$('#dg').datagrid('load',{
+			fwrq: $('#fileName').val(),
+			fwrq: $('#fileId').val()
+		});
+	if(test2==6)
+		$('#dg').datagrid('load',{
+			fwrq: $('#fileName').val(),
+			jzrq: $('#fileId').val()
+		});
+	if(test2==7)
+		$('#dg').datagrid('load',{
+			fwrq: $('#fileName').val(),
+			jbr: $('#fileId').val()
+		});
+	if(test2==8)
+		$('#dg').datagrid('load',{
+			fwrq: $('#fileName').val(),
+			cljg: $('#fileId').val()
+		});};
+		
+if(test==5){
+	if(test2==0)
+		$('#dg').datagrid('load',{
+		jbnr: $('#fileName').val()
+	});
+	if(test2==1)
+		$('#dg').datagrid('load',{
+			jbnr: $('#fileName').val(),
+			wjm: $('#fileId').val()
+		});
+	if(test2==2)
+		$('#dg').datagrid('load',{
+			jbnr: $('#fileName').val(),
+			wjh: $('#fileId').val()
+		});
+	if(test2==3)
+		$('#dg').datagrid('load',{
+			jbnr: $('#fileName').val(),
+			fwjg: $('#fileId').val()
+		});
+	if(test2==4)
+		$('#dg').datagrid('load',{
+			jbnr: $('#fileName').val(),
+			fwrq: $('#fileId').val()
+		});
+	if(test2==5)
+		$('#dg').datagrid('load',{
+			jbnr: $('#fileName').val(),
+			fwrq: $('#fileId').val()
+		});
+	if(test2==6)
+		$('#dg').datagrid('load',{
+			jbnr: $('#fileName').val(),
+			jzrq: $('#fileId').val()
+		});
+	if(test2==7)
+		$('#dg').datagrid('load',{
+			jbnr: $('#fileName').val(),
+			jbr: $('#fileId').val()
+		});
+	if(test2==8)
+		$('#dg').datagrid('load',{
+			jbnr: $('#fileName').val(),
+			cljg: $('#fileId').val()
+		});};
+		
+if(test==6){
+	if(test2==0)
+		$('#dg').datagrid('load',{
+		jzrq: $('#fileName').val()
+	});
+	if(test2==1)
+		$('#dg').datagrid('load',{
+			jzrq: $('#fileName').val(),
+			wjm: $('#fileId').val()
+		});
+	if(test2==2)
+		$('#dg').datagrid('load',{
+			jzrq: $('#fileName').val(),
+			wjh: $('#fileId').val()
+		});
+	if(test2==3)
+		$('#dg').datagrid('load',{
+			jzrq: $('#fileName').val(),
+			fwjg: $('#fileId').val()
+		});
+	if(test2==4)
+		$('#dg').datagrid('load',{
+			jzrq: $('#fileName').val(),
+			fwrq: $('#fileId').val()
+		});
+	if(test2==5)
+		$('#dg').datagrid('load',{
+			jzrq: $('#fileName').val(),
+			fwrq: $('#fileId').val()
+		});
+	if(test2==6)
+		$('#dg').datagrid('load',{
+			jzrq: $('#fileName').val(),
+			jzrq: $('#fileId').val()
+		});
+	if(test2==7)
+		$('#dg').datagrid('load',{
+			jzrq: $('#fileName').val(),
+			jbr: $('#fileId').val()
+		});
+	if(test2==8)
+		$('#dg').datagrid('load',{
+			jzrq: $('#fileName').val(),
+			cljg: $('#fileId').val()
+		});};
+		
+if(test==7){
+	if(test2==0)
+		$('#dg').datagrid('load',{
+		jbr: $('#fileName').val()
+	});
+	if(test2==1)
+		$('#dg').datagrid('load',{
+			jbr: $('#fileName').val(),
+			wjm: $('#fileId').val()
+		});
+	if(test2==2)
+		$('#dg').datagrid('load',{
+			jbr: $('#fileName').val(),
+			wjh: $('#fileId').val()
+		});
+	if(test2==3)
+		$('#dg').datagrid('load',{
+			jbr: $('#fileName').val(),
+			fwjg: $('#fileId').val()
+		});
+	if(test2==4)
+		$('#dg').datagrid('load',{
+			jbr: $('#fileName').val(),
+			fwrq: $('#fileId').val()
+		});
+	if(test2==5)
+		$('#dg').datagrid('load',{
+			jbr: $('#fileName').val(),
+			fwrq: $('#fileId').val()
+		});
+	if(test2==6)
+		$('#dg').datagrid('load',{
+			jbr: $('#fileName').val(),
+			jzrq: $('#fileId').val()
+		});
+	if(test2==7)
+		$('#dg').datagrid('load',{
+			jbr: $('#fileName').val(),
+			jbr: $('#fileId').val()
+		});
+	if(test2==8)
+		$('#dg').datagrid('load',{
+			jbr: $('#fileName').val(),
+			cljg: $('#fileId').val()
+		});};
+	
+if(test==8){
+	if(test2==0)
+		$('#dg').datagrid('load',{
+		cljg: $('#fileName').val()
+	});
+	if(test2==1)
+		$('#dg').datagrid('load',{
+			cljg: $('#fileName').val(),
+			wjm: $('#fileId').val()
+		});
+	if(test2==2)
+		$('#dg').datagrid('load',{
+			cljg: $('#fileName').val(),
+			wjh: $('#fileId').val()
+		});
+	if(test2==3)
+		$('#dg').datagrid('load',{
+			cljg: $('#fileName').val(),
+			fwjg: $('#fileId').val()
+		});
+	if(test2==4)
+		$('#dg').datagrid('load',{
+			cljg: $('#fileName').val(),
+			fwrq: $('#fileId').val()
+		});
+	if(test2==5)
+		$('#dg').datagrid('load',{
+			cljg: $('#fileName').val(),
+			fwrq: $('#fileId').val()
+		});
+	if(test2==6)
+		$('#dg').datagrid('load',{
+			cljg: $('#fileName').val(),
+			jzrq: $('#fileId').val()
+		});
+	if(test2==7)
+		$('#dg').datagrid('load',{
+			cljg: $('#fileName').val(),
+			jbr: $('#fileId').val()
+		});
+	if(test2==8)
+		$('#dg').datagrid('load',{
+			cljg: $('#fileName').val(),
+			cljg: $('#fileId').val()
+		});};
+			
+	}
+	
+	
+			
+
 // 显示编辑窗口
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
 		title : '公文操作',
 		iconCls : 'icon-save',
-		width :  '55%',
-	       height:  '100%',
 		buttons : [ {
 			text : '确认',
 			handler : function() {
@@ -156,10 +570,7 @@ function addDoc() {
 	// 清空原有的数据
 	$('#frmEdit').form('clear');
 	// 显示添加对话框
-	$("#fj1_open").hide();
-	$("#fj2_open").hide();
 	showEditForm();
-
 }
 
 // 编辑按钮的操作
@@ -185,20 +596,12 @@ function editDoc() {
 	//$("#jzrq").datebox("getValue");
 	$("#jbr").val(doc.jbr);
 	$("#cljg").val(doc.cljg);
-	
-//	$('#fb').filebox({ 
-//		 buttonText: 'Choose File', 
-//		 buttonAlign: 'left' 
-//		}) 
-		
 	/*
 	$("#jlnf").val(doc.jlnf);
 	$("#username").val(doc.username);
 	$("#gxsj").val(doc.gxsj);
 	$("#submit").val(doc.submit);*/
 	// 显示编辑页面
-	$("#fj1_open").show();
-	$("#fj2_open").show();
 	showEditForm();
 }
 function dealSave() {
@@ -207,14 +610,6 @@ function dealSave() {
 	var actionAdd = basePath + '/system/XzxzgzbAction_add.action';
 	var actionUpdate = basePath + '/system/XzxzgzbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
-	
-	var fileName = $('#uploadExcel').filebox('getValue');
-	//	
-	//附件1 附件2
-	params+="&fj1="+$('#fj1').filebox('getValue');
-	params+="&fj2="+$('#fj2').filebox('getValue');
-		
-	//alert(params);
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {
@@ -371,14 +766,67 @@ function selectExcel() {
 			text : '确认',
 			handler : function() {
 
-				ShowExport();	
+				ShowExport();
 				closeForm2();
 			}
 		}, {
 			text : '取消',
 			handler : function() {
 				closeForm2();
-			}	
+			}
+		} ]
+	});
+}
+
+
+//导出pdf
+
+function ToPdf() {
+
+	var Items = document.getElementsByName("Items");
+	var params = "id=";
+
+	for (var i = 0; i < Items.length; i++) {
+		if (Items[i].checked == true) {
+			params += Items[i].value + " ";
+		}
+	}
+
+	//alert(params);
+
+	var topdf = basePath + '/system/XzxzgzbAction_topdf.action';
+
+	$.post(topdf, params, function(result) {
+		if (result.operateSuccess) {
+			$('#dg').datagrid('reload');// 重新加载
+			$.messager.alert('导出', '导出Excel成功', 'info');
+
+		} else {
+			$.messager.alert('导出', '文件被占用！导出Excel失败', 'warning');
+		}
+	});
+
+	return false;
+}
+
+function topdf() {
+
+	$("#tabEdit2").dialog({
+		modal : true,// 模式窗口
+		title : '导出pdf',
+		iconCls : 'icon-save',
+		buttons : [ {
+			text : '确认',
+			handler : function() {
+
+				ToPdf();
+				closeForm2();
+			}
+		}, {
+			text : '取消',
+			handler : function() {
+				closeForm2();
+			}
 		} ]
 	});
 }
@@ -389,44 +837,48 @@ function closeForm2() {
 }
 
 
+function writeFileToService() {
 
-function openfj1(){
-	var doc = $('#dg').datagrid('getSelected');// 得到选中的一行数据
-	params="id="+doc.id;
-	var openfj1 = basePath + '/system/XzxzgzbAction_openfj1.action';
+	//	  var file_upl = document.getElementById('uploadExcel');
+	//	  file_upl.select();
+	//	  var fileName = document.selection.createRange().text;
+	//	alert(fileName);
 
-	$.post(openfj1, params, function(result) {
-		if (result.operateSuccess) {
-			$.messager.alert('打开', '打开成功！', 'info');
+	//得到上传文件的全路径  
+	var fileName = $('#uploadExcel').filebox('getValue');
+	//	
 
+	// alert(fileName);
+	//进行基本校验  
+	if (fileName == "") {
+		$.messager.alert('提示', '请选择上传文件！', 'info');
+	} else {
+		//对文件格式进行校验  
+		var d1 = /\.[^\.]+$/.exec(fileName);
+		if (d1 == ".xls") {
+			//提交表单  
+			//document.getElementById("questionTypesManage").action="${pageContext.request.contextPath}/leadtoQuestionTypes/leadInExcelQuestionBank?questionType="+questionTypes+"&courseType="+courseType;  
+			//document.getElementById("questionTypesManage").submit();     
+			var params = "id=" + fileName;
+			var writeFileToService = basePath
+					+ '/system/FileOperateUtilAction_writeFileToService.action';
+
+			//alert(params);
+
+			$.post(writeFileToService, params, function(result) {
+				if (result.operateSuccess) {
+					$('#dg').datagrid('reload');// 重新加载
+					$.messager.alert('导入', '导入Excel成功', 'info');
+
+				} else {
+					$.messager.alert('导入', '导入Excel失败', 'warning');
+				}
+			});
+
+			return false;
 		} else {
-			$.messager.alert('打开', '格式不正确或不存在此文件！', 'warning');
+			$.messager.alert('提示', '请选择xls格式文件！', 'info');
+			$('#uploadExcel').filebox('setValue', '');
 		}
-	});
-
-	return false;
+	}
 }
-
-
-function openfj2(){
-	var doc = $('#dg').datagrid('getSelected');// 得到选中的一行数据
-	params="id="+doc.id;
-	var openfj2 = basePath + '/system/XzxzgzbAction_openfj2.action';
-
-	$.post(openfj2, params, function(result) {
-		if (result.operateSuccess) {
-			$.messager.alert('打开', '打开成功！', 'info');
-
-		} else {
-			$.messager.alert('打开', '格式不正确或不存在此文件！', 'warning');
-		}
-	});
-
-	return false;
-}
-
-
-
-
-
-
