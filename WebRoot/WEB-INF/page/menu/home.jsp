@@ -118,7 +118,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuid": "13",
 				"menuname": "综合查询",
 				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/zonghechaxun.jsp"
+				"url": "<%=basePath%>/administration/professor.jsp"
 				
 			}
 // 			,{
