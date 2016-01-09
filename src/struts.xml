@@ -1035,5 +1035,11 @@
 		    <result name="copytext1" type="json">
 		    </result>
 		</action>
+		
+		<action name="ProfessorAction_*" class="platform.action.ProfessorAction" method="{1}">
+		   <result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+		</action>
 	</package>
 </struts>
