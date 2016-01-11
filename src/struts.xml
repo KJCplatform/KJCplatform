@@ -1041,5 +1041,10 @@
 			<param name="root">responseJson</param>
 			</result>
 		</action>
+		<action name="CompanyAction_*" class="platform.action.CompanyAction" method="{1}">
+		   <result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+		</action>
 	</package>
 </struts>
