@@ -57,7 +57,7 @@
 					<td><input id="fileName" /></td>
 				</tr>
 				<tr>
-					<th>发生日期：</th>
+					<th>填表人：</th>
 					<td><input id="fileId" /></td>
 					<td><a class="easyui-linkbutton"
 						data-options="iconCls:'icon-search'" href="javascript:void(0);"
