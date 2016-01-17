@@ -105,7 +105,7 @@ function listDoc() {
 function doSearch(){
 	$('#dg').datagrid('load',{
 		cpmc: $('#fileName').val(),
-		fsrq: $('#fileId').val()
+		tbr: $('#fileId').val()
 	});
 }
 // 显示编辑窗口
