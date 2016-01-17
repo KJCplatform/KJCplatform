@@ -47,9 +47,9 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 			hqlWhere += " and o.cpmc like ?";
 			paramsList.add("%"+jpsgwtbbForm.getCpmc()+"%");
 		}
-		if(jpsgwtbbForm!=null&&StringUtils.isNotBlank(jpsgwtbbForm.getFsrq())){
-			hqlWhere += " and o.fsrq like ?";
-			paramsList.add("%"+jpsgwtbbForm.getFsrq()+"%");
+		if(jpsgwtbbForm!=null&&StringUtils.isNotBlank(jpsgwtbbForm.getTbr())){
+			hqlWhere += " and o.tbr like ?";
+			paramsList.add("%"+jpsgwtbbForm.getTbr()+"%");
 		}
 		orderby.put(" o.fsrq", "desc");
 		params = paramsList.toArray();
