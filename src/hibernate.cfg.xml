@@ -105,6 +105,7 @@
 	<mapping resource="platform/domain/Professor.hbm.xml" />
 	<mapping resource="platform/domain/Company.hbm.xml" />
 
+    <mapping resource="platform/domain/Kjzdzxhz.hbm.xml" />
 
 </session-factory>
 </hibernate-configuration>

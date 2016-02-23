@@ -406,14 +406,15 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			
 			
 			]	
-		},
-		{
-			"menuid": "30",
-			"menuname": "年度重大专项技术需求申报项目汇总表",
-			"icon": "icon-nav",
-			"url": "<%=basePath%>/administration/kjsbxmhzb.jsp"
-			
 		}
+// 		,
+// 		{
+// 			"menuid": "30",
+// 			"menuname": "年度重大专项技术需求申报项目汇总表",
+// 			"icon": "icon-nav",
+// 			"url": "<%=basePath%>/administration/kjsbxmhzb.jsp"
+			
+// 		}
 		
 		
 		

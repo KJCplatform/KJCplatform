@@ -43,15 +43,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <form id="searchForm">
             <table>
                 <tr>
-                    <th>记录年份：</th>
+                    <th>序号：</th>
                     <td>
-						<input id="nf" />
+						<input id="xh" />
 					</td>
                 </tr>
                 <tr>
-					<th>项目名称：</th>
+					<th>单位：</th>
 					<td>
-                        <input id="mc" />
+                        <input id="dw" />
 					</td>
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>

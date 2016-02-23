@@ -15,7 +15,7 @@ $(function() {
 });
 //加载公文列表
 function listDoc() {
-	var actionPath = basePath + '/system/ZdzxhzAction_list.action';
+	var actionPath = basePath + '/system/KjzdzxhzAction_list.action';
 	 $('#dg').datagrid({
             title : '重大专项技术需求申报项目汇总表',
             width : 1200,
@@ -36,7 +36,7 @@ function listDoc() {
 			
             onLoadSuccess: function (data) { 
 				user=eval(data).user;
-				alert("user="+user);
+				//alert("user="+user);
 			}
         });
 	 
@@ -89,8 +89,8 @@ function listDoc() {
 //查询
 function doSearch(){
 	$('#dg').datagrid('load',{
-		jlnf: $('#nf').val(),
-		xmmc: $('#mc').val()
+		xh: $('#xh').val(),
+		dw: $('#dw').val()
 	});
 }
 // 显示编辑窗口
@@ -155,8 +155,8 @@ function editDoc() {
 function dealSave() {
 	// 表单数据序列化成一个字符串用&拼接
 	var params = $("#frmEdit").serialize();
-	var actionAdd = basePath + '/system/ZdzxhzAction_add.action';
-	var actionUpdate = basePath + '/system/ZdzxhzAction_update.action';
+	var actionAdd = basePath + '/system/KjzdzxhzAction_add.action';
+	var actionUpdate = basePath + '/system/KjzdzxhzAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
@@ -192,7 +192,7 @@ function deleteDoc() {
 	}
 	$.messager.confirm('确认', '真的要删除选中的记录吗？', function(r) {
 		if (r) {
-			var actionPath = basePath + '/system/ZdzxhzAction_delete.action?id=';
+			var actionPath = basePath + '/system/KjzdzxhzAction_delete.action?id=';
 			var url = actionPath + doc.id;
 			// 试一下get方法（地址，回调函数）
 			$.get(url, function(result) {
@@ -233,7 +233,7 @@ function ShowImport() {
 			//document.getElementById("questionTypesManage").submit();     
 			var params = "id=" + fileName;
 			var showimport = basePath
-					+ '/system/XzxzgzbAction_showimport.action';
+					+ '/system/KjzdzxhzAction_showimport.action';
 
 			//alert(params);
 
@@ -268,7 +268,7 @@ function ShowExport() {
 
 	//alert(params);
 
-	var showimport = basePath + '/system/XzxzgzbAction_showexport.action';
+	var showimport = basePath + '/system/KjzdzxhzAction_showexport.action';
 
 	$.post(showimport, params, function(result) {
 		if (result.operateSuccess) {
