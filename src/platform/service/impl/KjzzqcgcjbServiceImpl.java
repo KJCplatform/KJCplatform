@@ -203,24 +203,26 @@ if(pageno==1){
 			kjzzqcgcjbForm.setJyfs(kjzzqcgcjb.getJyfs());
 
 			//数据校验
-			if(kjzzqcgcjbForm.getSfzj()!=null){
-			if(kjzzqcgcjbForm.getSfzj().equals("是"))
-				kjzzqcgcjb.setSfzj(1);
-			else if(kjzzqcgcjbForm.getSfzj().equals("否"))
-				kjzzqcgcjb.setSfzj(0);
+			//数据校验
+			if(kjzzqcgcjb.getSfzj()==1){
+				kjzzqcgcjbForm.setSfzj("是");
+			}
+			else if(kjzzqcgcjb.getSfzj()==0){
+				kjzzqcgcjbForm.setSfzj("否");
 			}
 			
 			kjzzqcgcjbForm.setGfdj(kjzzqcgcjb.getGfdj());
 			kjzzqcgcjbForm.setZhyq(kjzzqcgcjb.getZhyq());
 
 			//数据校验
-			if(kjzzqcgcjbForm.getSfgk()!=null)
-			{
-				if(kjzzqcgcjbForm.getSfgk().equals("是"))
-					kjzzqcgcjb.setSfgk(1);
-				else if(kjzzqcgcjbForm.getSfgk().equals("否"))
-					kjzzqcgcjb.setSfgk(0);
+			if(kjzzqcgcjb.getSfgk()==1){
+				kjzzqcgcjbForm.setSfgk("是");
 			}
+			else if(kjzzqcgcjb.getSfgk()==0){
+				kjzzqcgcjbForm.setSfgk("否");
+			}
+			
+			
 			kjzzqcgcjbForm.setFbrxz(String.valueOf(kjzzqcgcjb.getFbrxz()));
 			kjzzqcgcjbForm.setLxrxm(kjzzqcgcjb.getLxrxm());
 			kjzzqcgcjbForm.setGddh(kjzzqcgcjb.getGddh());

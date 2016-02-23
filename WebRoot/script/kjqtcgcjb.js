@@ -18,7 +18,7 @@ $(function() {
 		required : true
 	});
 	/*$("#jzrq").datebox({
-		required : true
+		required : true 
 	});*/
 	// 给文本框加上验证器
 	$("#cgmc").validatebox({
@@ -499,6 +499,9 @@ function editDoc() {
 	$("#sj").val(doc.sj);
 	$("#dzyx").val(doc.dzyx);
 	$("#lxdz").val(doc.lxdz);
+	
+	$("#sfzj").val(doc.sfzj);
+	$("#gfdj").val(doc.gfdj);
 	// 显示编辑页面
 	showEditForm();
 }

@@ -239,7 +239,7 @@
 
 				<dl>
 					<dd>
-						是否委托中介: <select id="sfwtzj" name="sfwtzj">
+						是否委托中介: <select id="sfzj" name="sfzj">
 							<option value="是" selected="selected">是</option>
 							<option value="否">否</option>
 						</select>
@@ -324,7 +324,7 @@
 					<dd>
 						电子邮箱: <input class="easyui-validatebox"
 							data-options="
-    required:true,
+    
     validType:['email','length[0,20]']
 "
 							,id="dzyx" ,name="dzyx">

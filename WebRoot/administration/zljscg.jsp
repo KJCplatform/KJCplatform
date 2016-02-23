@@ -355,7 +355,7 @@
 					<dd>
 						电子邮箱: <input class="easyui-validatebox"
 							data-options="
-    required:true,
+   
     validType:['email','length[0,20]']
 "
 							,id="dzyx" ,name="dzyx">
