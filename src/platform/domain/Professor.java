@@ -2,10 +2,17 @@ package platform.domain;
 
 import java.io.Serializable;
 
+
+
+
 public class Professor  implements Serializable {
 
 
-	private static final long serialVersionUID = -1216093061154074443L;   
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	// Fields    
 
      private String id;
      private String xm;
@@ -13,10 +20,10 @@ public class Professor  implements Serializable {
      private String gzdw;
      private String gzbm;
      private String zw;
+     private String cgmcZl;
      private String cgmcZzq;
      private String cgmcQt;
      private String cgmcDj;
-     private String cgmcZl;
 
 
     // Constructors
@@ -31,17 +38,17 @@ public class Professor  implements Serializable {
     }
     
     /** full constructor */
-    public Professor(String id, String xm, String xb, String gzdw, String gzbm, String zw, String cgmcZzq, String cgmcQt, String cgmcDj, String cgmcZl) {
+    public Professor(String id, String xm, String xb, String gzdw, String gzbm, String zw, String cgmcZl, String cgmcZzq, String cgmcQt, String cgmcDj) {
         this.id = id;
         this.xm = xm;
         this.xb = xb;
         this.gzdw = gzdw;
         this.gzbm = gzbm;
         this.zw = zw;
+        this.cgmcZl = cgmcZl;
         this.cgmcZzq = cgmcZzq;
         this.cgmcQt = cgmcQt;
         this.cgmcDj = cgmcDj;
-        this.cgmcZl = cgmcZl;
     }
 
    
@@ -95,6 +102,14 @@ public class Professor  implements Serializable {
         this.zw = zw;
     }
 
+    public String getCgmcZl() {
+        return this.cgmcZl;
+    }
+    
+    public void setCgmcZl(String cgmcZl) {
+        this.cgmcZl = cgmcZl;
+    }
+
     public String getCgmcZzq() {
         return this.cgmcZzq;
     }
@@ -117,14 +132,6 @@ public class Professor  implements Serializable {
     
     public void setCgmcDj(String cgmcDj) {
         this.cgmcDj = cgmcDj;
-    }
-
-    public String getCgmcZl() {
-        return this.cgmcZl;
-    }
-    
-    public void setCgmcZl(String cgmcZl) {
-        this.cgmcZl = cgmcZl;
     }
    
 

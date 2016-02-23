@@ -5,7 +5,7 @@
 <hibernate-configuration>
 <session-factory>
 	<property name="hibernate.connection.username">root</property>
-	<property name="hibernate.connection.password">123456</property>
+	<property name="hibernate.connection.password">wcw123456</property>
 	<property name="hibernate.connection.driver_class">
 		com.mysql.jdbc.Driver
 	</property>
@@ -103,8 +103,6 @@
 	<mapping resource="platform/domain/Jpjgdwjbqk0.hbm.xml" />
 	<mapping resource="platform/domain/Wqwqxkzxq0.hbm.xml" />
 	<mapping resource="platform/domain/Professor.hbm.xml" />
-	<mapping resource="platform/domain/Company.hbm.xml" />
-
     <mapping resource="platform/domain/Kjzdzxhz.hbm.xml" />
 
 </session-factory>

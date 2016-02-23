@@ -35,6 +35,11 @@
                 <comment>职务</comment>
             </column>
         </property>
+        <property name="cgmcZl" type="java.lang.String">
+            <column name="cgmc_zl">
+                <comment>成果名称</comment>
+            </column>
+        </property>
         <property name="cgmcZzq" type="java.lang.String">
             <column name="cgmc_zzq">
                 <comment>成果名称</comment>
@@ -47,11 +52,6 @@
         </property>
         <property name="cgmcDj" type="java.lang.String">
             <column name="cgmc_dj">
-                <comment>成果名称</comment>
-            </column>
-        </property>
-        <property name="cgmcZl" type="java.lang.String">
-            <column name="cgmc_zl">
                 <comment>成果名称</comment>
             </column>
         </property>
