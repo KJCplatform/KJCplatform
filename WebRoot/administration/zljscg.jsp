@@ -45,8 +45,9 @@
 	src="<%=basePath%>/script/easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>/script/zljscg.js"></script>
 
-  <script type="text/javascript" src="<%=basePath%>/script/easyui-lang-zh_CN.js"></script>
-  
+<script type="text/javascript"
+	src="<%=basePath%>/script/easyui-lang-zh_CN.js"></script>
+
 </head>
 
 <body>
@@ -69,13 +70,17 @@
 			</table>
 		</form>
 	</div>
-	
-	
-	    <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
-   选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
-       　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
-       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
-</form>
+
+
+	<form id="questionTypesManage" method="post"
+		enctype="multipart/form-data">
+		选择文件： <input type="text" id="uploadExcel" name="uploadExcel"
+			class="easyui-filebox" style="width:200px"
+			data-options="prompt:'请选择文件...'"> <a href="#"
+			class="easyui-linkbutton" id="btnImport" onclick="ShowImport()">导入</a>
+		<a href="#" class="easyui-linkbutton" id="btnExport"
+			onclick="selectExcel()">导出</a>
+	</form>
 
 
 	<div data-options="region:'center',split:false">
@@ -91,7 +96,7 @@
 					<th field="zflh">主分类号</th>
 					<th field="gkh">公开号</th>
 					<th field="gkr">公开日</th>
-					
+
 					<th field="flzt">法律状态</th>
 					<th field="cgjj">成果简介</th>
 					<th field="yyhy">应用行业</th>
@@ -108,59 +113,58 @@
 					<th field="sj">手机</th>
 					<th field="dzyx">电子邮箱</th>
 					<th field="lxdz">联系地址</th>
-					
+
 					<th field="jlnf">记录年份</th>
-			
-			
+
+
 				</tr>
 			</thead>
 		</table>
 	</div>
-	
+
 	<div id="divEdit2" style="display:none;">
-	<div id="tabEdit2" style="overflow-y:auto;">
-		<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
-		 >>>请选择导出项<<<
-		 <br> <br>
-<input name="Items" type="checkbox" checked="checked" value="1" />成果名称<br>
-<input name="Items" type="checkbox" checked="checked" value="2" />专利类型<br> 
-<input name="Items" type="checkbox" checked="checked" value="3" />专利权人<br> 
-<input name="Items" type="checkbox" checked="checked" value="4" />主要完成人<br>
-<input name="Items" type="checkbox" checked="checked" value="5" />专利号<br> 
-<input name="Items" type="checkbox" checked="checked" value="6" />主分类号<br> 
-<input name="Items" type="checkbox" checked="checked" value="7" />公开号<br>
+		<div id="tabEdit2" style="overflow-y:auto;">
+			<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"
+				method="post">
+				>>>请选择导出项<<< <br> <br> <input name="Items" type="checkbox"
+					checked="checked" value="1" />成果名称<br> <input name="Items"
+					type="checkbox" checked="checked" value="2" />专利类型<br> <input
+					name="Items" type="checkbox" checked="checked" value="3" />专利权人<br>
+				<input name="Items" type="checkbox" checked="checked" value="4" />主要完成人<br>
+				<input name="Items" type="checkbox" checked="checked" value="5" />专利号<br>
+				<input name="Items" type="checkbox" checked="checked" value="6" />主分类号<br>
+				<input name="Items" type="checkbox" checked="checked" value="7" />公开号<br>
 
-<input name="Items" type="checkbox" checked="checked" value="8" />公开日<br>
-<input name="Items" type="checkbox" checked="checked" value="9" />法律状态<br> 
-<input name="Items" type="checkbox" checked="checked" value="10" />成果简介<br> 
-<input name="Items" type="checkbox" checked="checked" value="11" />应用行业<br>
-<input name="Items" type="checkbox" checked="checked" value="12" />技术领域<br> 
-<input name="Items" type="checkbox" checked="checked" value="13" />成果阶段<br> 
-<input name="Items" type="checkbox" checked="checked" value="14" />交易方式<br>
+				<input name="Items" type="checkbox" checked="checked" value="8" />公开日<br>
+				<input name="Items" type="checkbox" checked="checked" value="9" />法律状态<br>
+				<input name="Items" type="checkbox" checked="checked" value="10" />成果简介<br>
+				<input name="Items" type="checkbox" checked="checked" value="11" />应用行业<br>
+				<input name="Items" type="checkbox" checked="checked" value="12" />技术领域<br>
+				<input name="Items" type="checkbox" checked="checked" value="13" />成果阶段<br>
+				<input name="Items" type="checkbox" checked="checked" value="14" />交易方式<br>
 
-<input name="Items" type="checkbox" checked="checked" value="15" />是否委托中介<br>
-<input name="Items" type="checkbox" checked="checked" value="16" />供方定价<br> 
-<input name="Items" type="checkbox" checked="checked" value="17" />其他转化要求<br> 
-<input name="Items" type="checkbox" checked="checked" value="18" />是否公开<br>
-<input name="Items" type="checkbox" checked="checked" value="19" />联系人姓名<br> 
-<input name="Items" type="checkbox" checked="checked" value="20" />固定电话<br> 
-<input name="Items" type="checkbox" checked="checked" value="21" />所在地区<br>
+				<input name="Items" type="checkbox" checked="checked" value="15" />是否委托中介<br>
+				<input name="Items" type="checkbox" checked="checked" value="16" />供方定价<br>
+				<input name="Items" type="checkbox" checked="checked" value="17" />其他转化要求<br>
+				<input name="Items" type="checkbox" checked="checked" value="18" />是否公开<br>
+				<input name="Items" type="checkbox" checked="checked" value="19" />联系人姓名<br>
+				<input name="Items" type="checkbox" checked="checked" value="20" />固定电话<br>
+				<input name="Items" type="checkbox" checked="checked" value="21" />所在地区<br>
 
-<input name="Items" type="checkbox" checked="checked" value="22" />手机<br>
-<input name="Items" type="checkbox" checked="checked" value="23" />电子邮箱<br> 
-<input name="Items" type="checkbox" checked="checked" value="24" />联系地址<br> 
-		</form>
+				<input name="Items" type="checkbox" checked="checked" value="22" />手机<br>
+				<input name="Items" type="checkbox" checked="checked" value="23" />电子邮箱<br>
+				<input name="Items" type="checkbox" checked="checked" value="24" />联系地址<br>
+			</form>
+		</div>
 	</div>
-</div>	
-	
-	
-	
+
+
+
 
 	<!-- 编辑数据的div，默认看不到 -->
 	<div id="divEdit" style="display:none;">
 		<div id="tabEdit" style="overflow-y:auto;">
-			<form id="frmEdit" style="width:50%;height:400"
-				method="post">
+			<form id="frmEdit" style="width:50%;height:400" method="post">
 				<input type="hidden" id="id" name="id" />
 				<dl>
 					<dd>
@@ -203,7 +207,7 @@
 				</dl>
 				<dl>
 					<dd>
-						公开日: <input  type="text" style="width: 150px" id="gkr" name="gkr" />
+						公开日: <input type="text" style="width: 150px" id="gkr" name="gkr" />
 					</dd>
 				</dl>
 				<dl>
@@ -226,7 +230,8 @@
 
 				<dl>
 					<dd>
-						应用行业: <select id="yyhy" multiple="true" name="yyhy" style="width:300px;">
+						应用行业: <select id="yyhy" multiple="true" name="yyhy"
+							style="width:300px;">
 							<!-- 				<option value="1" >1</option> -->
 							<!-- 				<option value="2" >2</option> -->
 							<!-- 				<option value="3" >3</option> -->
@@ -239,7 +244,8 @@
 
 				<dl>
 					<dd>
-						技术领域: <select id="jsly" multiple="true" name="jsly" style="width:300px;">
+						技术领域: <select id="jsly" multiple="true" name="jsly"
+							style="width:300px;">
 
 						</select>
 					</dd>
@@ -258,14 +264,15 @@
 						</select>
 					</dd>
 				</dl>
-				
+
 				<dl>
-				<dd>
-					交易方式: <select id="jyfs" multiple="true" name="jyfs" style="width:150px;" >
+					<dd>
+						交易方式: <select id="jyfs" multiple="true" name="jyfs"
+							style="width:150px;">
 
 
-					</select>
-				</dd>
+						</select>
+					</dd>
 				</dl>
 
 
@@ -315,16 +322,20 @@
 
 				<dl>
 					<dd>
-						联系人姓名: <input size="15" id="lxrxm" name="lxrxm" /> 固定电话: <input
-							type="text" style="width: 150px" id="gddh" name="gddh" style="width:150px;" />
+						联系人姓名: <input size="15" id="lxrxm" name="lxrxm" />
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						固定电话: <input type="text" style="width: 150px" id="gddh"
+							name="gddh" style="width:150px;" />
 					</dd>
 				</dl>
 
 
 				<dl>
 					<dd>
-						所在地区: 
-						<select id="szdq" name="szdq">
+						所在地区: <select id="szdq" name="szdq">
 							<option value=""></option>
 							<option value="武汉市">武汉市</option>
 							<option value="北京市">北京市</option>
@@ -336,8 +347,18 @@
 
 				<dl>
 					<dd>
-						手机: <input type="text" style="width: 150px" id="sj" name="sj" style="width:150px;" />
-						电子邮箱: <input size="15" id="dzyx" name="dzyx" />
+						手机: <input type="text" style="width: 150px" id="sj" name="sj"
+							style="width:150px;" />
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						电子邮箱: <input class="easyui-validatebox"
+							data-options="
+    required:true,
+    validType:['email','length[0,20]']
+"
+							,id="dzyx" ,name="dzyx">
 					</dd>
 				</dl>
 				<dl>

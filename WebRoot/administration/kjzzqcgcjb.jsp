@@ -268,7 +268,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				
 				<dl>
 					<dd>
-						联系人姓名: <input size="15" id="lxrxm" name="lxrxm" /> 固定电话: <input
+						联系人姓名: <input size="15" id="lxrxm" name="lxrxm" />
+						</dd>
+						</dl>
+						<dl>
+					<dd>	
+						 固定电话: <input
 							type="text" style="width: 150px" id="gddh" name="gddh" />
 					</dd>
 				</dl>
@@ -289,7 +294,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dl>
 					<dd>
 						手机: <input type="text" style="width: 150px" id="sj" name="sj" />
-						电子邮箱: <input size="15" id="dzyx" name="dzyx" />
+						
+				</dl>
+			
+					<dl>
+					<dd>
+						电子邮箱: <input class="easyui-validatebox"
+							data-options="
+    required:true,
+    validType:['email','length[0,20]']
+"
+							,id="dzyx" ,name="dzyx">
 					</dd>
 				</dl>
 				<dl>

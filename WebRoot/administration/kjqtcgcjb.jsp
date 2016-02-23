@@ -219,10 +219,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd>手机:</dd>
 				<dd><input size="20"  id="sj" name="sj"></dd>
 			</dl>
-			<dl>
-				<dd>电子邮箱:</dd>
-				<dd><input size="20"  id="dzyx" name="dzyx"></dd>
-			</dl>
+				<dl>
+					<dd>
+						电子邮箱:</dd><dd> <input class="easyui-validatebox"
+							data-options="
+    required:true,
+    validType:['email','length[0,20]']
+"
+							,id="dzyx" ,name="dzyx">
+					</dd>
+				</dl>
 			<dl>
 				<dd>联系地址:</dd>
 				<dd><input size="20" id="lxdz" name="lxdz"></dd>

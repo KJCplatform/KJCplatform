@@ -347,7 +347,17 @@ $(function() {
 //             message: '电子邮箱格式错误.'
 //    	 }
 //    });
-    
+	
+//	$("dzyx").validatebox({
+//              validType:"email"
+//     });
+  
+//	<input class="easyui-validatebox" data-options="
+//	    required:true,
+//	    validType:['email','length[0,20]']
+//	">
+	
+	
 });
 //加载公文列表
 function listDoc() {
