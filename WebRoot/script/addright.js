@@ -245,7 +245,7 @@ function dealSave() {
 	        					$.messager.alert('添加', '添加用户权限成功', 'info');
 	        				
 	        			}else {
-	        					$.messager.alert('添加', '添加用户权限成功！', 'info');
+	        					$.messager.alert('添加', '部分用户权限已经添加，请不要重复添加！', 'warning');
 	        				}
 	        		});
   
