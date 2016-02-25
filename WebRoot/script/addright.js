@@ -94,13 +94,15 @@ function listDoc() {
 				handler : function() { // 处理函数
 					deleteDoc();
 				}
-			}, {
-				text : '编辑用户权限',
-				iconCls : 'icon-edit',// 图标
-				handler : function() {// 处理函数
-					editDoc();
-				}
-			} ]
+			}
+//			, {
+//				text : '编辑用户权限',
+//				iconCls : 'icon-edit',// 图标
+//				handler : function() {// 处理函数
+//					editDoc();
+//				}
+//			} 
+			]
         });
 	 
 	 
@@ -243,7 +245,7 @@ function dealSave() {
 	        					$.messager.alert('添加', '添加用户权限成功', 'info');
 	        				
 	        			}else {
-	        					$.messager.alert('添加', '添加用户权限失败', 'warning');
+	        					$.messager.alert('添加', '添加用户权限成功！', 'info');
 	        				}
 	        		});
   

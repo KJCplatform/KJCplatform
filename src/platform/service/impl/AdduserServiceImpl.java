@@ -1,5 +1,6 @@
 package platform.service.impl;
 
+import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -27,7 +28,7 @@ public class AdduserServiceImpl implements AdduserService{
 		String hqlWhere = "";
 		Object [] params = null;
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
-		orderby.put(" o.id", "desc");
+		orderby.put(" o.name", "asc");
 		List<Adduser> list=adduserDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<AdduserForm> formlist=this.AdduserPOListToVOList(list);
 		return formlist;
@@ -43,7 +44,7 @@ public class AdduserServiceImpl implements AdduserService{
 			paramsList.add("%"+adduserForm.getName()+"%");
 		}
 		
-		orderby.put(" o.id", "desc");
+		orderby.put(" o.name", "asc");
 		params = paramsList.toArray();
 		List<Adduser> list=adduserDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
 		List<AdduserForm> formlist=this.AdduserPOListToVOList(list);
@@ -56,7 +57,7 @@ public class AdduserServiceImpl implements AdduserService{
 		System.out.println(adduserForm.getId());
 		adduser.setId(Integer.valueOf(adduserForm.getId()));
 		adduser.setName(adduserForm.getName());
-		adduser.setPassword(adduserForm.getPassword());
+		adduser.setPassword(MD5(adduserForm.getPassword()));
 		
 		adduserDao.update(adduser);
 		
@@ -67,8 +68,8 @@ public class AdduserServiceImpl implements AdduserService{
 	public void saveObject(AdduserForm adduserForm){
 		Adduser adduser=new Adduser();
 		adduser.setName(adduserForm.getName());
-		adduser.setPassword(adduserForm.getPassword());
-		
+		adduser.setPassword(MD5(adduserForm.getPassword()));
+		//System.out.println(MD5(userForm.getPassword()));
 		adduserDao.save(adduser);
 	}
 	private List<AdduserForm> AdduserPOListToVOList(List<Adduser> list) {
@@ -85,6 +86,27 @@ public class AdduserServiceImpl implements AdduserService{
 		}
 		return formlist;
 	}
-
+	  public final static String MD5(String s) {  
+	        char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',  
+	                'a', 'b', 'c', 'd', 'e', 'f' };  
+	        try {  
+	            byte[] strTemp = s.getBytes();  
+	            //如果输入“SHA”，就是实现SHA加密。  
+	            MessageDigest mdTemp = MessageDigest.getInstance("MD5");   
+	            mdTemp.update(strTemp);  
+	            byte[] md = mdTemp.digest();  
+	            int j = md.length;  
+	            char str[] = new char[j * 2];  
+	            int k = 0;  
+	            for (int i = 0; i < j; i++) {  
+	                byte byte0 = md[i];  
+	                str[k++] = hexDigits[byte0 >>> 4 & 0xf];  
+	                str[k++] = hexDigits[byte0 & 0xf];  
+	            }  
+	            return new String(str);  
+	        } catch (Exception e) {  
+	            return null;  
+	        }  
+	    }  
 	
 }

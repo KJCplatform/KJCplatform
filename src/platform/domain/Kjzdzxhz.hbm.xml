@@ -19,7 +19,7 @@
                 <comment>单位</comment>
             </column>
         </property>
-           <property name="xmmc" type="java.lang.String">
+           <property name="xmmc" type="java.lang.String"> 
             <column name="xmmc">
                 <comment>项目名称</comment>
             </column>

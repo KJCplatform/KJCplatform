@@ -27,7 +27,7 @@ public class AddrightServiceImpl implements AddrightService{
 		String hqlWhere = "";
 		Object [] params = null;
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
-		orderby.put(" o.id", "desc");
+		orderby.put(" o.userid", "asc");
 		List<Addright> list=addrightDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<AddrightForm> formlist=this.AddrightPOListToVOList(list);
 		return formlist;
@@ -43,7 +43,7 @@ public class AddrightServiceImpl implements AddrightService{
 			paramsList.add("%"+addrightForm.getUserid()+"%");
 		}
 		
-		orderby.put(" o.id", "desc");
+		orderby.put(" o.userid", "asc");
 		params = paramsList.toArray();
 		List<Addright> list=addrightDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
 		List<AddrightForm> formlist=this.AddrightPOListToVOList(list);

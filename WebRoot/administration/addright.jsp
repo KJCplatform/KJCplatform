@@ -104,7 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd>权限id:</dd>
 				<dd>
 				
-				&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<input type="checkbox" name="rightid" value="1"/><span>行政管理</span>
+				&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<input type="checkbox" name="rightid" value="1"/><span>内部管理</span>
 				</br>
 				&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<input type="checkbox" name="rightid" value="2"/><span>科技项目管理</span>
 				</br>

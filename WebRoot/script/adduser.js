@@ -67,13 +67,15 @@ function listDoc() {
 				handler : function() { // 处理函数
 					deleteDoc();
 				}
-			}, {
-				text : '编辑用户',
-				iconCls : 'icon-edit',// 图标
-				handler : function() {// 处理函数
-					editDoc();
-				}
-			} ]
+			}
+//			, {
+//				text : '编辑用户',
+//				iconCls : 'icon-edit',// 图标
+//				handler : function() {// 处理函数
+//					editDoc();
+//				}
+//			}
+			]
         });
 }
 //查询
