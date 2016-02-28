@@ -53,7 +53,7 @@ function listDoc() {
             rownumbers : true,//行数
             onLoadSuccess: function (data) { 
 				user=eval(data).user;
-			//	alert("user="+user);
+				//alert("user="+user);
 			}
         });
 	 

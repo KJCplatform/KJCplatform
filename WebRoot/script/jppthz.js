@@ -10,12 +10,13 @@ var localhostPath = curWwwPath.substring(0, pos);
 var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
 var basePath = localhostPath + projectName;
 var user;
+
 $(function() {
 	listDoc();
 });
 //加载公文列表
 function listDoc() {
-	var actionPath = basePath + '/system/JppthzAction_list.action';
+	var actionPath = basePath + '/system/JpptkyxmhzbAction_list.action';
 	 $('#dg').datagrid({
             title : '军品配套科研项目汇总表',
             width : 1200,
@@ -36,7 +37,6 @@ function listDoc() {
 			
             onLoadSuccess: function (data) { 
 				user=eval(data).user;
-				alert("user="+user);
 			}
         });
 	 
@@ -158,8 +158,8 @@ function editDoc() {
 function dealSave() {
 	// 表单数据序列化成一个字符串用&拼接
 	var params = $("#frmEdit").serialize();
-	var actionAdd = basePath + '/system/JppthzAction_add.action';
-	var actionUpdate = basePath + '/system/JppthzAction_update.action';
+	var actionAdd = basePath + '/system/JpptkyxmhzbAction_add.action';
+	var actionUpdate = basePath + '/system/JpptkyxmhzbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
@@ -195,7 +195,7 @@ function deleteDoc() {
 	}
 	$.messager.confirm('确认', '真的要删除选中的记录吗？', function(r) {
 		if (r) {
-			var actionPath = basePath + '/system/JppthzAction_delete.action?id=';
+			var actionPath = basePath + '/system/JpptkyxmhzbAction_delete.action?id=';
 			var url = actionPath + doc.id;
 			// 试一下get方法（地址，回调函数）
 			$.get(url, function(result) {
@@ -236,7 +236,7 @@ function ShowImport() {
 			//document.getElementById("questionTypesManage").submit();     
 			var params = "id=" + fileName;
 			var showimport = basePath
-					+ '/system/XzxzgzbAction_showimport.action';
+					+ '/system/JpptkyxmhzbAction_showimport.action';
 
 			//alert(params);
 
@@ -271,7 +271,7 @@ function ShowExport() {
 
 	//alert(params);
 
-	var showimport = basePath + '/system/XzxzgzbAction_showexport.action';
+	var showimport = basePath + '/system/JpptkyxmhzbAction_showexport.action';
 
 	$.post(showimport, params, function(result) {
 		if (result.operateSuccess) {

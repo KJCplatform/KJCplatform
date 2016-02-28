@@ -2,6 +2,7 @@ package platform.service.impl;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -84,7 +85,7 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 			jpsgwtbb.setZlbmfzr(jpsgwtbbForm.getZlbmfzr());
 			jpsgwtbb.setBcrq(StringHelper.stringConvertDate2(jpsgwtbbForm.getBcrq()));
 			
-			jpsgwtbb.setJlnf(jpsgwtbbForm.getJlnf());
+			jpsgwtbb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 			jpsgwtbb.setUsername(jpsgwtbbForm.getUsername());
 			jpsgwtbb.setGxsj(jpsgwtbbForm.getGxsj());
 			jpsgwtbb.setSubmit(jpsgwtbbForm.getSubmit());
@@ -107,7 +108,7 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 		jpsgwtbb.setZlbmfzr(jpsgwtbbForm.getZlbmfzr());
 		jpsgwtbb.setBcrq(StringHelper.stringConvertDate2(jpsgwtbbForm.getBcrq()));
 		
-		jpsgwtbb.setJlnf(jpsgwtbbForm.getJlnf());
+		jpsgwtbb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		jpsgwtbb.setUsername(jpsgwtbbForm.getUsername());
 		jpsgwtbb.setGxsj(jpsgwtbbForm.getGxsj());
 		jpsgwtbb.setSubmit(jpsgwtbbForm.getSubmit());

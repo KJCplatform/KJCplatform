@@ -2,6 +2,7 @@ package platform.service.impl;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -77,7 +78,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 	  private String zlbmfzr;
 	  private Date bcrq;*/
 	public void updateJpzlzkjbb(JpzlzkjbbForm jpzlzkjbbForm){
-		Jpzlzkjbb old=jpzlzkjbbDao.findObjectByID(Integer.valueOf(jpzlzkjbbForm.getId()));
+		Jpzlzkjbb old=jpzlzkjbbDao.findObjectByID( Integer.valueOf(jpzlzkjbbForm.getId()));
 	     String oldjd=old.getJd();
 	     String olddwmc= old.getDwmc();
 	     String oldnf=old.getJlnf();   	    
@@ -97,7 +98,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			jpzlzkjbb.setTbr(jpzlzkjbbForm.getTbr());
 			jpzlzkjbb.setZlbfzr(jpzlzkjbbForm.getZlbfzr());
 			jpzlzkjbb.sets2hr(jpzlzkjbbForm.getS2hr());
-			jpzlzkjbb.setJlnf(jpzlzkjbbForm.getJlnf());
+			jpzlzkjbb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 			//jpzlzkjbb.sets2hr("123");
 			if(jpzlzkjbbForm.getBcrq()!=null&&!jpzlzkjbbForm.getBcrq().equals(""))
 			jpzlzkjbb.setBcrq(StringHelper.stringConvertDate2(jpzlzkjbbForm.getBcrq()));
@@ -114,10 +115,10 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			params = paramsList.toArray();
 		    Jpzlbgtjb oldJpzlbgtjb=jpzlbgtjbDao.findCollectionByConditionNoPage(hqlWhere, params, null).get(0);
 		    switch(oldjd){
-		    case "1": oldJpzlbgtjb.setFirst(null);break;
-		    case "2": oldJpzlbgtjb.setSecond(null);break;
-		    case "3": oldJpzlbgtjb.setThird(null);break;
-		    case "4": oldJpzlbgtjb.setFourth(null);break;
+		    case "一": oldJpzlbgtjb.setFirst(null);break;
+		    case "二": oldJpzlbgtjb.setSecond(null);break;
+		    case "三": oldJpzlbgtjb.setThird(null);break;
+		    case "四": oldJpzlbgtjb.setFourth(null);break;
 		    }
 		    oldJpzlbgtjb.setSubmit(false);
 		    //oldJpzlbgtjb.setUsername();
@@ -129,16 +130,16 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 				hqlWhere1 += " and o.dwmc = ?";
 				paramsList1.add(jpzlzkjbbForm.getDwmc());
 				hqlWhere1 += " and o.year = ?";
-				paramsList1.add(jpzlzkjbbForm.getJlnf());
+				paramsList1.add(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 				params1 = paramsList1.toArray();
 			    Jpzlbgtjb newJpzlbgtjb=(jpzlbgtjbDao.findCollectionByConditionNoPage(hqlWhere1, params1, null).size()==0)?(new Jpzlbgtjb()): (jpzlbgtjbDao.findCollectionByConditionNoPage(hqlWhere1, params1, null).get(0));
 			    newJpzlbgtjb.setDwmc(jpzlzkjbbForm.getDwmc());
-			    newJpzlbgtjb.setYear(jpzlzkjbbForm.getJlnf());
+			    newJpzlbgtjb.setYear(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 			    switch(jpzlzkjbbForm.getJd()){
-			    case "1": newJpzlbgtjb.setFirst("是");break;
-			    case "2": newJpzlbgtjb.setSecond("是");break;
-			    case "3": newJpzlbgtjb.setThird("是");break;
-			    case "4": newJpzlbgtjb.setFourth("是");break;
+			    case "一": newJpzlbgtjb.setFirst("是");break;
+			    case "二": newJpzlbgtjb.setSecond("是");break;
+			    case "三·": newJpzlbgtjb.setThird("是");break;
+			    case "四": newJpzlbgtjb.setFourth("是");break;
 			    }
 			    newJpzlbgtjb.setSubmit(false);
 			    //oldJpzlbgtjb.setUsername();
@@ -146,11 +147,11 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			    jpzlbgtjbDao.save(newJpzlbgtjb);
 	}
 	public void deleteObject(String id){
+		System.out.println(Integer.valueOf(id));
 		Jpzlzkjbb old=jpzlzkjbbDao.findObjectByID(Integer.valueOf(id));
 	     String oldjd=old.getJd();
 	     String olddwmc= old.getDwmc();
 	     String oldnf=old.getJlnf();  
-	     
 		jpzlzkjbbDao.deleteObjectByIDs(Integer.valueOf(id));
 		
 		String hqlWhere = "";
@@ -163,10 +164,10 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		params = paramsList.toArray();
 	    Jpzlbgtjb oldJpzlbgtjb=jpzlbgtjbDao.findCollectionByConditionNoPage(hqlWhere, params, null).get(0);
 	    switch(oldjd){
-	    case "1": oldJpzlbgtjb.setFirst(null);break;
-	    case "2": oldJpzlbgtjb.setSecond(null);break;
-	    case "3": oldJpzlbgtjb.setThird(null);break;
-	    case "4": oldJpzlbgtjb.setFourth(null);break;
+	    case "一": oldJpzlbgtjb.setFirst(null);break;
+	    case "二": oldJpzlbgtjb.setSecond(null);break;
+	    case "三": oldJpzlbgtjb.setThird(null);break;
+	    case "四": oldJpzlbgtjb.setFourth(null);break;
 	    }
 	    oldJpzlbgtjb.setSubmit(false);
 	    //oldJpzlbgtjb.setUsername();
@@ -186,7 +187,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		jpzlzkjbb.setTbr(jpzlzkjbbForm.getTbr());
 		jpzlzkjbb.setZlbfzr(jpzlzkjbbForm.getZlbfzr());
 		jpzlzkjbb.sets2hr(jpzlzkjbbForm.getS2hr());
-		jpzlzkjbb.setJlnf(jpzlzkjbbForm.getJlnf());
+		jpzlzkjbb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		//jpzlzkjbb.sets2hr("123");
 		if(jpzlzkjbbForm.getBcrq()!=null&&!jpzlzkjbbForm.getBcrq().equals(""))
 		jpzlzkjbb.setBcrq(StringHelper.stringConvertDate2(jpzlzkjbbForm.getBcrq()));
@@ -201,16 +202,16 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			hqlWhere1 += " and o.dwmc = ?";
 			paramsList1.add(jpzlzkjbbForm.getDwmc());
 			hqlWhere1 += " and o.year = ?";
-			paramsList1.add(jpzlzkjbbForm.getJlnf());
+			paramsList1.add(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 			params1 = paramsList1.toArray();
 		    Jpzlbgtjb newJpzlbgtjb=(jpzlbgtjbDao.findCollectionByConditionNoPage(hqlWhere1, params1, null).size()==0)?(new Jpzlbgtjb()): (jpzlbgtjbDao.findCollectionByConditionNoPage(hqlWhere1, params1, null).get(0));
 		    newJpzlbgtjb.setDwmc(jpzlzkjbbForm.getDwmc());
-		    newJpzlbgtjb.setYear(jpzlzkjbbForm.getJlnf());
+		    newJpzlbgtjb.setYear(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		    switch(jpzlzkjbbForm.getJd()){
-		    case "1": newJpzlbgtjb.setFirst("是");break;
-		    case "2": newJpzlbgtjb.setSecond("是");break;
-		    case "3": newJpzlbgtjb.setThird("是");break;
-		    case "4": newJpzlbgtjb.setFourth("是");break;
+		    case "一": newJpzlbgtjb.setFirst("是");break;
+		    case "二": newJpzlbgtjb.setSecond("是");break;
+		    case "三": newJpzlbgtjb.setThird("是");break;
+		    case "四": newJpzlbgtjb.setFourth("是");break;
 		    }
 		    newJpzlbgtjb.setSubmit(false);
 		    //oldJpzlbgtjb.setUsername();

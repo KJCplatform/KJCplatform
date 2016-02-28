@@ -461,18 +461,7 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/jppthz.jsp"
 		}
-		,{
-			"menuid": "36",
-			"menuname": "军品民用需求调查表",
-			"icon": "icon-nav",
-			"url": "<%=basePath%>/administration/jgmyjsxqdcb.jsp" 
-		}
-		,{
-			"menuid": "36",
-			"menuname": "年度军品配套科研项目汇总表",
-			"icon": "icon-nav",
-			"url": "<%=basePath%>/administration/jpptkyxmhzb.jsp" 
-		}
+
 		]		
 	}<%}if(rights.contains("4")){%>,
 	{

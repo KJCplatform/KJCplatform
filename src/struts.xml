@@ -46,6 +46,7 @@
 			<result name="list" type="json">
 			<param name="root">responseJson</param>
 			</result>
+			
 			<result name="add" type="json">
 				
 			</result>
