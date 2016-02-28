@@ -59,5 +59,8 @@
 		<property name="submit" type="integer">
 			<column name="submit" />
 		</property>
+		<property name="lb" type="string">
+			<column name="lb" />
+		</property>
 	</class>
 </hibernate-mapping>

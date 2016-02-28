@@ -52,6 +52,10 @@ public class Kjjszjcjb1ServiceImpl implements Kjjszjcjb1Service{
 			hqlWhere += " and o.gzdw like ?";
 			paramsList.add("%"+Kjjszjcjb1Form.getGzdw()+"%");
 		}
+		if(Kjjszjcjb1Form!=null&&StringUtils.isNotBlank(Kjjszjcjb1Form.getLb())){
+			hqlWhere += " and o.lb like ?";
+			paramsList.add("%"+Kjjszjcjb1Form.getLb()+"%");
+		}
 		orderby.put(" o.sfzh", "desc");
 		params = paramsList.toArray();
 		List<Kjjszjcjb1> list=kjjszjcjb1Dao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
@@ -85,6 +89,7 @@ public class Kjjszjcjb1ServiceImpl implements Kjjszjcjb1Service{
 		kjjszjcjb1.setUsername(username);
 		kjjszjcjb1.setGxsj(new Date().toString());
 		kjjszjcjb1.setSubmit(0);
+		kjjszjcjb1.setLb(kjjszjcjb1Form.getLb());
 		kjjszjcjb1Dao.update(kjjszjcjb1);
 		
 	}
@@ -116,6 +121,8 @@ public class Kjjszjcjb1ServiceImpl implements Kjjszjcjb1Service{
 		kjjszjcjb1.setUsername(username);
 		kjjszjcjb1.setGxsj(new Date().toString());
 		kjjszjcjb1.setSubmit(0);
+		
+		kjjszjcjb1.setLb(kjjszjcjb1Form.getLb());
 		kjjszjcjb1Dao.save(kjjszjcjb1);
 	}
 	private List<Kjjszjcjb1Form> Kjjszjcjb1POListToVOList(List<Kjjszjcjb1> list) {
@@ -147,6 +154,7 @@ public class Kjjszjcjb1ServiceImpl implements Kjjszjcjb1Service{
 			kjjszjcjb1Form.setUsername(kjjszjcjb1.getUsername());
 			kjjszjcjb1Form.setGxsj(kjjszjcjb1.getGxsj());
 			kjjszjcjb1Form.setSubmit(String.valueOf(kjjszjcjb1.getSubmit()));
+			kjjszjcjb1Form.setLb(kjjszjcjb1.getLb());
 			formlist.add(kjjszjcjb1Form);
 		}
 		return formlist;

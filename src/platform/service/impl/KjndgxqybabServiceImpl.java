@@ -73,6 +73,8 @@ public class KjndgxqybabServiceImpl implements KjndgxqybabService{
 		kjndgxqybab.setSr3(kjndgxqybabForm.getSr3());
 		kjndgxqybab.setHj(kjndgxqybabForm.getHj());
 		kjndgxqybab.setXszzl(kjndgxqybabForm.getXszzl());
+		
+		
 		kjndgxqybab.setZc1(kjndgxqybabForm.getZc1());
 		kjndgxqybab.setZc2(kjndgxqybabForm.getZc2());
 		kjndgxqybab.setZc3(kjndgxqybabForm.getZc3());
@@ -142,6 +144,11 @@ public class KjndgxqybabServiceImpl implements KjndgxqybabService{
 			kjndgxqybabForm.setZc2(kjndgxqybab.getZc2());
 			kjndgxqybabForm.setZc3(kjndgxqybab.getZc3());
 			kjndgxqybabForm.setZczzl(kjndgxqybab.getZczzl());
+			
+			kjndgxqybabForm.setGxcp_merge(kjndgxqybab.getGxcp_merge());
+			kjndgxqybabForm.setYfxm_merge(kjndgxqybab.getYfxm_merge());
+			kjndgxqybabForm.setZscq_merge(kjndgxqybab.getZscq_merge());
+			
 			
 			kjndgxqybabForm.setJlnf(kjndgxqybab.getJlnf());
 			kjndgxqybabForm.setUsername(kjndgxqybab.getUsername());

@@ -77,6 +77,7 @@ function listDoc() {
 //查询
 function doSearch(){
 	$('#dg').datagrid('load',{
+		lb: $('#filelb').val(),
 		xm: $('#fileName').val(),
 		gzdw: $('#fileID').val()
 	});
@@ -153,7 +154,7 @@ function editDoc() {
 	$("#yx").val(doc.yx);
 	$("#sfzh").val(doc.sfzh);
 	$("#bz").val(doc.bz);
-	
+	$("#lb").val(doc.lb);
 	
 	/*$("#jlnf").val(doc.jlnf);
 	$("#username").val(doc.username);

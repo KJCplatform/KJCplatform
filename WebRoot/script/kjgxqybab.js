@@ -18,25 +18,25 @@ var rows = [
             {"id":"nssbh", "name": "纳税人识别号", "group": "基本信息", "value": "", "editor": "text" },
             {"id":"ssly", "name": "主营产品技术领域", "group": "基本信息", "value": "", "editor":"text" },
             {"id":"zgswjg", "name": "企业所得税主管税务机关", "value": "", "group": "基本信息", "editor":"text" },
-            {"id":"zgzs", "name": "职工总数", "group": "人力资源情况", "value": "", "editor":{
-            	"type": 'numberbox', 
-            } },
+//            {"id":"zgzs", "name": "职工总数", "group": "人力资源情况", "value": "", "editor":{
+//            	"type": 'numberbox', 
+//            } },
             {"id":"yjrys", "name": "人事研究开发人员数", "value": "", "group": "人力资源情况", "editor":{
             	"type": 'numberbox', 
             } },
             {"id":"dzrs", "name": "大专以上人员数", "group": "人力资源情况", "value": "", "editor": {
             	"type": 'numberbox', 
             } },
-            {"id":"ynzsr", "name": "近1年企业总收入", "group": "企业财务状况", "value": "", "editor":"text" },
+//            {"id":"ynzsr", "name": "近1年企业总收入", "group": "企业财务状况", "value": "", "editor":"text" },
             {"id":"sr1", "name": "第1年销售收入", "value": "", "group": "企业财务状况", "editor":"text" },
             {"id":"sr2", "name": "第2年销售总收入", "group": "企业财务状况", "value": "", "editor": "text" },
             {"id":"sr3", "name": "第3年销售总收入", "group": "企业财务状况", "value": "", "editor":"text" },
-            {"id":"hj", "name": "销售收入合计", "value": "", "group": "企业财务状况", "editor":"text" },
-            {"id":"xszzl", "name": "销售增长率", "group": "企业财务状况", "value": "", "editor": "text" },
+//            {"id":"hj", "name": "销售收入合计", "value": "", "group": "企业财务状况", "editor":"text" },
+//            {"id":"xszzl", "name": "销售增长率", "group": "企业财务状况", "value": "", "editor": "text" },
             {"id":"zc1", "name": "第1 年总资产", "group": "企业财务状况", "value": "", "editor": "text" },
             {"id":"zc2", "name": "第2 年总资产", "group": "企业财务状况", "value": "", "editor":"text" },
             {"id":"zc3", "name": "第3 年总资产", "value": "", "group": "企业财务状况", "editor":"text" },
-            {"id":"zczzl", "name": "总资产增长率", "group": "企业财务状况", "value": "", "editor":"text" },
+//            {"id":"zczzl", "name": "总资产增长率", "group": "企业财务状况", "value": "", "editor":"text" },
   
         ];
 

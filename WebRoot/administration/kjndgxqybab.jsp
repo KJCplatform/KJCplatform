@@ -88,6 +88,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="zc2" >第2年总资产</th>
 			<th field="zc3" >第3年总资产</th>
 			<th field="zczzl" >总资产增长率</th>  
+			
+			<th field="gxcp_merge" >上年度高新技术产品（服务）情况</th>
+			<th field="yfxm_merge" >企业研究开发项目情况</th>
+			<th field="zscq_merge" >近3年内获得的自主知识产权情况</th>  
+			
 			    <th field="jlnf">记录年份</th>
 		 
 			

@@ -22,6 +22,7 @@ public class Kjjszjcjb1 implements java.io.Serializable{
 	  private String username;
 	  private String gxsj;
 	  private int submit;
+	  private String lb;
 	public int getId() {
 		return id;
 	}
@@ -130,6 +131,14 @@ public class Kjjszjcjb1 implements java.io.Serializable{
 	public void setSubmit(int submit) {
 		this.submit = submit;
 	}
+	public String getLb() {
+		return lb;
+	}
+	public void setLb(String lb) {
+		this.lb = lb;
+	}
+	  
+	
 	
 	  
 	  

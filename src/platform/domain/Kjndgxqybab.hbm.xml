@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
                                    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field">
- <class name="platform.domain.Kjndgxqybab" table="kj_ndgxqybab">
+ <class name="platform.domain.Kjndgxqybab" table="kjgxqybab_hzb">
   <id name="id" type="integer">
    <column name="id" not-null="true"/>
    <generator class="identity"/>
@@ -79,6 +79,15 @@
 			<column name="submit" />
 		</property>
 		
+			<property name="gxcp_merge" type="string">
+			<column name="gxcp_merge" />
+		</property>
+			<property name="yfxm_merge" type="string">
+			<column name="yfxm_merge" />
+		</property>
+			<property name="zscq_merge" type="string">
+			<column name="zscq_merge" />
+		</property>
 		
  </class>
 </hibernate-mapping>

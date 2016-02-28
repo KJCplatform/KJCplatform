@@ -31,7 +31,7 @@ public class KjgxqybabForm implements java.io.Serializable{
 	  private String zc2;
 	  private String zc3;
 	  private String zczzl;
-	  
+	
 	  private String zcqznf;
 	  private String bz;
 	  private String jlnf;
@@ -43,7 +43,7 @@ public class KjgxqybabForm implements java.io.Serializable{
 	private List<KjgxqybabgxcpForm> kjgxqybabgxcps ;
 	
 	
-	
+
 	public String getZcqznf() {
 		return zcqznf;
 	}

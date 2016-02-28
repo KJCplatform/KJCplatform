@@ -45,25 +45,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             {"id":"nssbh", "name": "纳税人识别号", "group": "基本信息", "value": "", "editor": "text" },
             {"id":"ssly", "name": "主营产品技术领域", "group": "基本信息", "value": "", "editor":"text" },
             {"id":"zgswjg", "name": "企业所得税主管税务机关", "value": "", "group": "基本信息", "editor":"text" },
-            {"id":"zgzs", "name": "职工总数", "group": "人力资源情况", "value": "", "editor":{
-            	"type": 'numberbox', 
-            } },
+//             {"id":"zgzs", "name": "职工总数", "group": "人力资源情况", "value": "", "editor":{
+//             	"type": 'numberbox', 
+//             } },
             {"id":"yjrys", "name": "人事研究开发人员数", "value": "", "group": "人力资源情况", "editor":{
             	"type": 'numberbox', 
             } },
             {"id":"dzrs", "name": "大专以上人员数", "group": "人力资源情况", "value": "", "editor": {
             	"type": 'numberbox', 
             } },
-            {"id":"ynzsr", "name": "近1年企业总收入", "group": "企业财务状况", "value": "", "editor":"text" },
+//             {"id":"ynzsr", "name": "近1年企业总收入", "group": "企业财务状况", "value": "", "editor":"text" },
             {"id":"sr1", "name": "第1年销售收入", "value": "", "group": "企业财务状况", "editor":"text" },
             {"id":"sr2", "name": "第2年销售总收入", "group": "企业财务状况", "value": "", "editor": "text" },
             {"id":"sr3", "name": "第3年销售总收入", "group": "企业财务状况", "value": "", "editor":"text" },
-            {"id":"hj", "name": "销售收入合计", "value": "", "group": "企业财务状况", "editor":"text" },
-            {"id":"xszzl", "name": "销售增长率", "group": "企业财务状况", "value": "", "editor": "text" },
+//             {"id":"hj", "name": "销售收入合计", "value": "", "group": "企业财务状况", "editor":"text" },
+//             {"id":"xszzl", "name": "销售增长率", "group": "企业财务状况", "value": "", "editor": "text" },
             {"id":"zc1", "name": "第1 年总资产", "group": "企业财务状况", "value": "", "editor": "text" },
             {"id":"zc2", "name": "第2 年总资产", "group": "企业财务状况", "value": "", "editor":"text" },
             {"id":"zc3", "name": "第3 年总资产", "value": "", "group": "企业财务状况", "editor":"text" },
-            {"id":"zczzl", "name": "总资产增长率", "group": "企业财务状况", "value": "", "editor":"text" },
+//             {"id":"zczzl", "name": "总资产增长率", "group": "企业财务状况", "value": "", "editor":"text" },
               {"id":"jlnf", "name": "记录时间（年份） ", "group": "其他信息", "value": "", "editor": "text" },
          
         ];
@@ -406,12 +406,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					var rows = obj.rows;
 					//alert(rows.length);
 					//判断取出的专家记录是否唯一
-					if(rows.length == 0){
-						alert("系统无此企业名称，请检查输入信息");
-					}
-					else if(rows.length > 1){
+					
+					if(rows.length > 1){
 						alert("有多个企业名称，对应多条信息");
 					}
+					if(rows.length == 0){
+						alert("系统无此企业名称，请检查输入信息");
+						
+					}
+					
 					else{
 						info = rows[0];
 						//alert(info.fwyy);
@@ -422,20 +425,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						display[3].value = info.nssbh;
 						display[4].value = info.ssly;
 						display[5].value = info.zgswjg;
-						display[6].value = info.zgzs;
-						display[7].value = info.yjrys;
-						display[8].value = info.dzrs;
-						display[9].value = info.ynzsr;
-						display[10].value = info.sr1;
-						display[11].value = info.sr2;
-						display[12].value = info.sr3;
-						display[13].value = info.hj;
-						display[14].value = info.xszzl;
-						display[15].value = info.zc1;
-						display[16].value = info.zc2;
-						display[17].value = info.zc3;
-						display[18].value = info.zczzl;
-			            display[19].value = info.jlnf;
+// 						display[6].value = info.zgzs;
+						display[6].value = info.yjrys;
+						display[7].value = info.dzrs;
+// 						display[9].value = info.ynzsr;
+						display[8].value = info.sr1;
+						display[9].value = info.sr2;
+						display[10].value = info.sr3;
+// 						display[13].value = info.hj;
+// 						display[14].value = info.xszzl;
+						display[11].value = info.zc1;
+						display[12].value = info.zc2;
+						display[13].value = info.zc3;
+// 						display[18].value = info.zczzl;
+			            display[14].value = info.jlnf;
+			            
 // 						display[20].value = info.username;
 // 						display[21].value = info.gxsj;
 						//display[22].value = info.submit;

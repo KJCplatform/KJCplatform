@@ -23,7 +23,14 @@ public class Kjjszjcjb1Form implements java.io.Serializable{
 	  private String username;
 	  private String gxsj;
 	  private String submit;
+	  private String lb;
 	  
+	public String getLb() {
+		return lb;
+	}
+	public void setLb(String lb) {
+		this.lb = lb;
+	}
 	public String getJlnf() {
 		return jlnf;
 	}

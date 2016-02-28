@@ -44,12 +44,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <form id="searchForm">
             <table>
                 <tr>
+                <th>专家类别：</th>
+               <td>
+               <select id="filelb" name="filelb">
+               <option value="">请选择专家类型</option>
+               <option value="质量专家">质量专家</option>
+               <option value="计量专家">计量专家</option>
+               <option value="科技专家">科技专家</option>
+               <option value="许可专家">许可专家</option>
+               
+               </select>
+               </td>
+               </tr>
+                <tr>
                     <th>专家姓名：</th>
                     <td>
 						<input id="fileName"/>
 					</td>
-                </tr>
-                <tr>
+                
 					<th>工作单位：</th>
 					<td>
                         <input id="fileID"/>
@@ -116,6 +128,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="jlnf" width="130">记录时间(年份)</th>
 			<th field="username" width="130">操作员</th>
 			<th field="gxsj" width="130">更新时间</th>
+			<th field="lb" width="130">专家类别</th>
 			<!-- <th field="submit" width="130">是否提交</th> -->
 		</tr>
 	</thead>
@@ -184,7 +197,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd>备注:</dd>
 				<dd><textarea cols="20" rows="3" id="bz" name="bz"></textarea></dd>
 			</dl>
-			
+			<dl>
+				<dd>专家类别:</dd>
+				<dd><select id="lb" name="lb">
+							<option value="请选择专家类型">请选择专家类型</option>
+							<option value="质量专家">质量专家</option>
+							<option value="计量专家">计量专家</option>
+							<option value="科技专家">科技专家</option>
+							<option value="许可专家">许可专家</option>
+						</select></dd>
+			</dl>
 			
 			 <!-- <dl>
 				<dd>记录时间:</dd>

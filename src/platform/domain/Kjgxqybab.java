@@ -30,7 +30,7 @@ public class Kjgxqybab implements java.io.Serializable {
 	  private String zc3;
 	  private String zczzl;
 	  
-	  
+
 	  private String zcqznf;
 	  private String bz;
 	  private String jlnf;
@@ -38,7 +38,7 @@ public class Kjgxqybab implements java.io.Serializable {
 	  private String gxsj;
 	  private int submit;
 	  
-	  
+
 	public String getZcqznf() {
 		return zcqznf;
 	}

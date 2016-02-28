@@ -53,6 +53,28 @@ public class Kjndgxqybab implements java.io.Serializable{
 	  private int submit;
 	  
 	  
+	  private String gxcp_merge;
+	  private String yfxm_merge;
+	  private String zscq_merge;
+	  
+	public String getGxcp_merge() {
+		return gxcp_merge;
+	}
+	public void setGxcp_merge(String gxcp_merge) {
+		this.gxcp_merge = gxcp_merge;
+	}
+	public String getYfxm_merge() {
+		return yfxm_merge;
+	}
+	public void setYfxm_merge(String yfxm_merge) {
+		this.yfxm_merge = yfxm_merge;
+	}
+	public String getZscq_merge() {
+		return zscq_merge;
+	}
+	public void setZscq_merge(String zscq_merge) {
+		this.zscq_merge = zscq_merge;
+	}
 	  
 	public String getJlnf() {
 		return jlnf;
