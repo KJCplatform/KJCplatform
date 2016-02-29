@@ -63,7 +63,7 @@ function listDoc() {
             	
 				user=eval(data).user;
 			
-				 if(user=="admin"){
+				 if(user!="admin"){
 					// alert("123");
 					 $("#delete").linkbutton("disable");
 					 $("#edit").linkbutton("disable");

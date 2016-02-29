@@ -11,6 +11,7 @@ var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
 var basePath = localhostPath + projectName;
 var user;
 $(function() {
+	
 	listDoc();
 	// 日期加上日期控件
 	/*$("#fwrq").datebox({
@@ -36,7 +37,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/Kjjszjcjb1Action_list.action';
 	 $('#dg').datagrid({
-            title : '质量管理专家',
+            title : '专家库',
             width : 1500,
             height: 400,
             //fit: true,
@@ -51,42 +52,42 @@ function listDoc() {
             sortName : 'sfzh',//当数据表格初始化时以哪一列来排序
             sortOrder : 'desc',//定义排序顺序，可以是'asc'或者'desc'（正序或者倒序）。
             pagination : true,//分页
-            rownumbers : true,//行数
+            rownumbers : true//行数
 			
-            toolbar:[ {// 工具栏
-				text : '添加',
-				id:'add',
-				iconCls : 'icon-add', // 图标
-				handler : function() { // 处理函数
-					addDoc();
-				}
-			}, {
-				text : '删除',
-				id:'delete',
-				iconCls : 'icon-cancel', // 图标
-				handler : function() { // 处理函数
-					deleteDoc();
-				}
-			}, {
-				text : '编辑',
-				id:'edit',
-				iconCls : 'icon-edit',// 图标
-				handler : function() {// 处理函数
-					editDoc();
-				}
-			}
-		 ],
+//            toolbar:[ {// 工具栏
+//				text : '添加',
+//				id:'add',
+//				iconCls : 'icon-add', // 图标
+//				handler : function() { // 处理函数
+//					addDoc();
+//				}
+//			}, {
+//				text : '删除',
+//				id:'delete',
+//				iconCls : 'icon-cancel', // 图标
+//				handler : function() { // 处理函数
+//					deleteDoc();
+//				}
+//			}, {
+//				text : '编辑',
+//				id:'edit',
+//				iconCls : 'icon-edit',// 图标
+//				handler : function() {// 处理函数
+//					editDoc();
+//				}
+//			}
+//		 ],
 	 
-            onLoadSuccess: function (data) { 
-            	
-				user=eval(data).user;
-			
-				 if(user=="admin"){
-					// alert("123");
-					 $("#delete").linkbutton("disable");
-					 $("#edit").linkbutton("disable");
-				 }
-			}
+//            onLoadSuccess: function (data) { 
+//            	alert(user);
+//				user=eval(data).user;
+//			
+//				 if(user!="admin"){
+//					// alert("123");
+//					 $("#delete").linkbutton("disable");
+//					 $("#edit").linkbutton("disable");
+//				 }
+//			}
         });
 }
 //查询

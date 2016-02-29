@@ -37,7 +37,7 @@ public class Kjjszjcjb1ServiceImpl implements Kjjszjcjb1Service{
 		List<Kjjszjcjb1> list=kjjszjcjb1Dao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<Kjjszjcjb1Form> formlist=this.Kjjszjcjb1POListToVOList(list);
 		return formlist;
-		
+		 
 	}
 	public List<Kjjszjcjb1Form> findKjjszjcjb1ListWithPage(int pagesize,int pageno,Kjjszjcjb1Form Kjjszjcjb1Form){
 		String hqlWhere = "";

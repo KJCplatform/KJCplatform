@@ -47,7 +47,7 @@ function listDoc() {
 	 setTimeout(
 			 function(){
 				// alert("Hello world");
-				 if(user=="admin"){
+				 if(user!="admin"){
 					// alert("admin");
 					 $('#dg').datagrid({
 						 toolbar:[ {// 工具栏

@@ -11,7 +11,9 @@ var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
 var basePath = localhostPath + projectName;
 var user;
 $(function() {
+
 	listDoc();
+
 	// 日期加上日期控件
 	$("#fwrq").datebox({
 		editable:false,
@@ -37,6 +39,7 @@ $(function() {
 //加载公文列表
 function listDoc() {
 	var actionPath = basePath + '/system/XzxzgzbAction_list.action';
+
 	 $('#dg').datagrid({
             title : '公文管理',
             width : 1200,
@@ -83,7 +86,7 @@ function listDoc() {
             	
 				user=eval(data).user;
 			
-				 if(user=="admin"){
+				 if(user!="admin"){
 					// alert("123");
 					 $("#delete").linkbutton("disable");
 					 $("#edit").linkbutton("disable");
@@ -94,7 +97,7 @@ function listDoc() {
 //	 setTimeout(
 //			 function(){
 //				// alert("Hello world");
-//				 if(user=="admin"){
+//				 if(user!="admin"){
 //					// alert("admin");
 //					 $('#dg').datagrid({
 //						 toolbar:[ {// 工具栏
