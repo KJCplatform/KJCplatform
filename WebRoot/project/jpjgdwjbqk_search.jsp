@@ -200,7 +200,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 			
 					$('#ry').datagrid({
-				title : '武器装备科研生产的许可专业（产品）',
+				title : '人员信息',
 				width : 1000,
 				height: 400,
 				fitColumns : true, // 自动适应列宽      

@@ -49,54 +49,43 @@ function listDoc() {
             pagination : true,//分页
             rownumbers : true,//行数
 			
+            toolbar:[ {// 工具栏
+				text : '添加',
+				id:'add',
+				iconCls : 'icon-add', // 图标
+				handler : function() { // 处理函数
+					addDoc();
+				}
+			}, {
+				text : '删除',
+				id:'delete',
+				iconCls : 'icon-cancel', // 图标
+				handler : function() { // 处理函数
+					deleteDoc();
+				}
+			}, {
+				text : '编辑',
+				id:'edit',
+				iconCls : 'icon-edit',// 图标
+				handler : function() {// 处理函数
+					editDoc();
+				}
+			}
+		 ],
+	 
             onLoadSuccess: function (data) { 
+            	
 				user=eval(data).user;
-			//	alert("user="+user);
+			
+				 if(user=="admin"){
+					// alert("123");
+					 $("#delete").linkbutton("disable");
+					 $("#edit").linkbutton("disable");
+				 }
 			}
         });
 	 
-	 setTimeout(
-			 function(){
-				// alert("Hello world");
-				 if(user=="admin"){
-					// alert("admin");
-					 $('#dg').datagrid({
-						 toolbar:[ {// 工具栏
-								text : '添加',
-								iconCls : 'icon-add', // 图标
-								handler : function() { // 处理函数
-									addDoc();
-								}
-							}, {
-								text : '删除',
-								iconCls : 'icon-cancel', // 图标
-								handler : function() { // 处理函数
-									deleteDoc();
-								}
-							}, {
-								text : '编辑',
-								iconCls : 'icon-edit',// 图标
-								handler : function() {// 处理函数
-									editDoc();
-								}
-							}
-						 ]
-					 });
-				 }
-				 else{
-					// alert("user1");
-				 $('#dg').datagrid({
-					 toolbar:[ {// 工具栏
-							text : '添加',
-							iconCls : 'icon-add', // 图标
-							handler : function() { // 处理函数
-								addDoc();
-							}
-						} ]
-				 });
-				 
-				 }
-			 },300);
+	
 	 
 	 
 }

@@ -36,36 +36,38 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				"menuid": "12",
 				"menuname": "专家库",
 				"icon": "icon-nav",
-				"child":[
-							{
-								"menuid": "121",
-								"menuname": "质量管理专家",
-								"icon": "icon-nav",
-								"url": "<%=basePath%>/administration/kjjszjcjb1.jsp"
+				"url": "<%=basePath%>/administration/kjjszjcjb1.jsp"
+				
+// 				"child":[
+// 							{
+// 								"menuid": "121",
+// 								"menuname": "质量管理专家",
+// 								"icon": "icon-nav",
+// 								"url": "<%=basePath%>/administration/kjjszjcjb1.jsp"
 								
-							},
-							{
-								"menuid": "122",
-								"menuname": "计量管理专家",
-								"icon": "icon-nav",
-								"url": "<%=basePath%>/administration/kjjszjcjb2.jsp"
+// 							},
+// 							{
+// 								"menuid": "122",
+// 								"menuname": "计量管理专家",
+// 								"icon": "icon-nav",
+// 								"url": "<%=basePath%>/administration/kjjszjcjb2.jsp"
 								
-							},
-							{
-								"menuid": "123",
-								"menuname": "科技专家",
-								"icon": "icon-nav",
-								"url": "<%=basePath%>/administration/kjjszjcjb3.jsp"
+// 							},
+// 							{
+// 								"menuid": "123",
+// 								"menuname": "科技专家",
+// 								"icon": "icon-nav",
+// 								"url": "<%=basePath%>/administration/kjjszjcjb3.jsp"
 								
-							},
-							{
-								"menuid": "124",
-								"menuname": "许可专家",
-								"icon": "icon-nav",
-								"url": "<%=basePath%>/administration/kjjszjcjb4.jsp"
+// 							},
+// 							{
+// 								"menuid": "124",
+// 								"menuname": "许可专家",
+// 								"icon": "icon-nav",
+// 								"url": "<%=basePath%>/administration/kjjszjcjb4.jsp"
 								
-							}
-						]
+// 							}
+// 						]
 				
 				
 				//"url": "http://hxling.cnblogs.com",

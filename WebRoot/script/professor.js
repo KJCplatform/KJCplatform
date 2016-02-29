@@ -9,7 +9,7 @@ var localhostPath = curWwwPath.substring(0, pos);
 //获取带"/"的项目名，如：/ems
 var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
 var basePath = localhostPath + projectName;
-
+var user;
 $(function() {
 	listDoc();
 	/*// 日期加上日期控件
