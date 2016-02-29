@@ -209,15 +209,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dl>
 			<dl>
 				<dd>固定电话:</dd>
-				<dd><input size="20"  id="gddh" name="gddh"></dd>
+				<dd><input type="text" style="width: 150px" id="gddh" name="gddh"
+							style="width:150px;" /></dd>
 			</dl>
 			<dl>
 				<dd>所在地区:</dd>
 				<dd><input size="20"  id="szdq" name="szdq"></dd>
 			</dl>
 			<dl>
-				<dd>手机:</dd>
-				<dd><input size="20"  id="sj" name="sj"></dd>
+			
+				<dd>手机:</dd><dd> <input type="text" style="width: 150px" id="sj" name="sj"
+							style="width:150px;" /></dd>
 			</dl>
 				<dl>
 					<dd>

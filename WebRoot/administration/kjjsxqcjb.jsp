@@ -131,9 +131,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dl>
 			<dl>
 				<dd>所属行业:</dd>
-				<dd>
-				<select id="sshy" multiple="true" name="sshy" style="width:300px;">
-				</select></dd>
+					<dd><input size="20" id="sshy" name="sshy" /></dd>
 			</dl>
 			<dl>
 				<dd>技术领域:</dd>
@@ -181,17 +179,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dl>
 			<dl>
 				<dd>固定电话:</dd>
-				<dd><input size="20" id="gddh" name="gddh" /></dd>
+				<dd> <input type="text" style="width: 150px" id="gddh" name="gddh"
+							style="width:150px;" /></dd>
 			</dl>
-			<dl>
-				<dd>所在地区:</dd>
-				<dd>
-				<select id="szdq" multiple="true" name="szdq" style="width:150px;">
-				</select></dd>
-			</dl>
+				<dl>
+					<dd>
+						所在地区: <select id="szdq" name="szdq">
+							<option value=""></option>
+							<option value="武汉市">武汉市</option>
+							<option value="北京市">北京市</option>
+						</select>
+					</dd>
+				</dl>
+
 			<dl>
 				<dd>手机:</dd>
-				<dd><input size="20" id="sj" name="sj" /></dd>
+				<dd> <input type="text" style="width: 150px" id="sj" name="sj"
+							style="width:150px;" /></dd>
 			</dl>
 			<dl>
 				<dd>电子邮箱:</dd>
