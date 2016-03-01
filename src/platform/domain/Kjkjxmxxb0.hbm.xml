@@ -3,7 +3,7 @@
     "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
     "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-	<class name="platform.domain.Kjkjxmxxb0" table="kj_kjxmxxb">
+	<class name="platform.domain.Kjkjxmxxb0" table="kjkjxmxxb_hzb">
 		 <id name="id" type="java.lang.Integer">
             <column name="id" />
             <generator class="identity"></generator>
@@ -186,6 +186,12 @@
          <property name="submit" type="java.lang.Integer">
             <column name="submit">
                 <comment>是否提交</comment>
+            </column>
+        </property>
+        
+          <property name="cjdw_merge" type="java.lang.String">
+            <column name="cjdw_merge">
+                <comment>其他参加单位</comment>
             </column>
         </property>
 	</class>

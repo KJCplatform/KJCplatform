@@ -41,8 +41,16 @@ public class Kjkjxmxxb0 implements java.io.Serializable{
 	  private String gxsj;
 	  private int submit;
 	  
+	  private String cjdw_merge;
+
 	  
 	  
+	public String getCjdw_merge() {
+		return cjdw_merge;
+	}
+	public void setCjdw_merge(String cjdw_merge) {
+		this.cjdw_merge = cjdw_merge;
+	}
 	public String getJlnf() {
 		return jlnf;
 	}

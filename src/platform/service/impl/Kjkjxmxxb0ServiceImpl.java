@@ -94,6 +94,9 @@ public class Kjkjxmxxb0ServiceImpl implements Kjkjxmxxb0Service{
 		kjkjxmxxb0.setUsername(username);
 		kjkjxmxxb0.setGxsj(new Date().toString());
 		kjkjxmxxb0.setSubmit(0);
+		
+		kjkjxmxxb0.setCjdw_merge(kjkjxmxxb0Form.getCjdw_merge());
+		
 		kjkjxmxxb0Dao.update(kjkjxmxxb0);
 		
 	}
@@ -142,7 +145,7 @@ public class Kjkjxmxxb0ServiceImpl implements Kjkjxmxxb0Service{
 		kjkjxmxxb0.setUsername(username);
 		kjkjxmxxb0.setGxsj(new Date().toString());
 		kjkjxmxxb0.setSubmit(0);
-		
+		kjkjxmxxb0.setCjdw_merge(kjkjxmxxb0Form.getCjdw_merge());
 		kjkjxmxxb0Dao.save(kjkjxmxxb0);
 	}
 	private List<Kjkjxmxxb0Form> Kjkjxmxxb0POListToVOList(List<Kjkjxmxxb0> list) {
@@ -188,7 +191,7 @@ public class Kjkjxmxxb0ServiceImpl implements Kjkjxmxxb0Service{
 			kjkjxmxxb0Form.setUsername(list.get(i).getUsername());
 			kjkjxmxxb0Form.setGxsj(list.get(i).getGxsj());
 			kjkjxmxxb0Form.setSubmit(String.valueOf(list.get(i).getSubmit()));
-			
+			kjkjxmxxb0Form.setCjdw_merge(list.get(i).getCjdw_merge());
 			formlist.add(kjkjxmxxb0Form);
 		}
 		return formlist;
