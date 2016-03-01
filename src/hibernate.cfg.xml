@@ -68,6 +68,9 @@
 	<mapping resource="platform/domain/Kjndgfjtjb.hbm.xml" />
 
 	<mapping resource="platform/domain/Kjkjxmxxb.hbm.xml" />
+<!--  	<mapping resource="platform/domain/Kjkjxmxxb2.hbm.xml" />  -->
+<!--  	<mapping resource="platform/domain/Kjkjxmxxb2cjdw.hbm.xml" />  -->
+ 	
 	<mapping resource="platform/domain/Kjkjxmxxbcjdw.hbm.xml" />
 	<mapping resource="platform/domain/Wqwqxkzxq.hbm.xml" />
 	<mapping resource="platform/domain/Wqwqxkzxqxkzycp.hbm.xml" />

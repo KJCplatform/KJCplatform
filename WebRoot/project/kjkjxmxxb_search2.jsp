@@ -259,7 +259,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						iconCls : 'icon-ok',// 图标
 						handler : function() {// 处理函数
 
-								var action = basePath + '/system/KjkjxmxxbAction_addcjdw.action';
+								var action = basePath + '/system/Kjkjxmxxb2Action_addcjdw.action';
 
 								var rows = $('#cjdw').datagrid('getRows');
 								if(rows.length != 0){
@@ -289,7 +289,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 		});	
 		function doSearch(){
-			var action =  basePath + '/system/KjkjxmxxbAction_list.action';
+			var action =  basePath + '/system/Kjkjxmxxb2Action_list.action';
 			$('#searchForm').form('submit',{
 				url: action,
 				onSubmit:function(){
@@ -354,9 +354,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 						var cjdwdata = {};
 				
-						if(info.kjkjxmxxbcjdws != null){
-							cjdwdata.total = info.kjkjxmxxbcjdws.length;
-							cjdwdata.rows = info.kjkjxmxxbcjdws;
+						if(info.kjkjxmxxb2cjdws != null){
+							cjdwdata.total = info.kjkjxmxxb2cjdws.length;
+							cjdwdata.rows = info.kjkjxmxxb2cjdws;
 						}
 				
 					}
@@ -377,7 +377,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}
 			$.messager.confirm('确认', '真的要删除该记录吗？', function(r) {
 				if (r) {
-					var actionPath = basePath + '/system/KjkjxmxxbAction_delete.action?id=';
+					var actionPath = basePath + '/system/Kjkjxmxxb2Action_delete.action?id=';
 					var url = actionPath + resultid;
 					// 试一下get方法（地址，回调函数）
 					$.get(url, function(result) {
@@ -396,7 +396,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		//提交基本信息表
 		function update(){
 			var s = 'id=' + resultid + '&';
-			var action =  basePath + '/system/KjkjxmxxbAction_update.action';
+			var action =  basePath + '/system/Kjkjxmxxb2Action_update.action';
 			var rows = $('#kjxmxx').propertygrid('getRows');
 			var changes = $('#kjxmxx').propertygrid('getChanges');
 // 			if(changes.length == 0){

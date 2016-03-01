@@ -640,6 +640,31 @@
 			
 			
 		</action>
+		
+		
+		<action name="Kjkjxmxxb2Action_*" class="platform.action.Kjkjxmxxb2Action" method="{1}">
+		    <result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>			
+			<result name="add" type="json">
+				
+			</result>
+	    	
+             <result name="addcjdw" type="json">
+				
+			</result>
+			
+			  <result name="update" type="json">
+				
+			</result>
+			
+			  <result name="delete" type="json">
+				
+			</result>
+			
+			
+		</action>
+		
 		<action name="WqwqxkzxqAction_*" class="platform.action.WqwqxkzxqAction" method="{1}">			
 			<result name="list" type="json">
 			<param name="root">responseJson</param>

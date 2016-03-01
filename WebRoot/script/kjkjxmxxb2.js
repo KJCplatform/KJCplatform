@@ -236,7 +236,7 @@ $(function() {
 				iconCls : 'icon-ok',// 图标
 				handler : function() {// 处理函数
 
-							var action = basePath + '/system/KjkjxmxxbAction_addcjdw.action';
+							var action = basePath + '/system/Kjkjxmxxb2Action_addcjdw.action';
 
 							var rows = $('#cjdw').datagrid('getRows');
 							if(rows.length != 0){
@@ -287,7 +287,7 @@ $(function() {
 //提交基本信息表
 function submit(){
 	var s = '';
-	var action =  basePath + '/system/KjkjxmxxbAction_add.action';
+	var action =  basePath + '/system/Kjkjxmxxb2Action_add.action';
 	var rows = $('#kjxmxx').propertygrid('getRows');
 	var changes = $('#kjxmxx').propertygrid('getChanges');
 	if(rows.length != changes.length){
