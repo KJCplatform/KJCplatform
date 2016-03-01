@@ -64,16 +64,19 @@ public class Wqwqxkzxq0Action extends BaseAction implements ModelDriven<Wqwqxkzx
 		return Wqwqxkzxq0Form;
 	}
 	Map<String, Object> map = new HashMap<String, Object>();
+	
 	public String list(){
-		//System.out.println(page+":"+rows);
+		
+		System.out.println("hhssuccess!");
 		//Wqwqxkzxq0Form.setWjm("test");
 		//Wqwqxkzxq0Form.setWjh("2");
 		List<Wqwqxkzxq0Form> formlist=wqwqxkzxq0Service.findWqwqxkzxq0ListWithPage(rows,page,Wqwqxkzxq0Form);
 		//System.out.println(formlist.get(formlist.size()-1).getCljg());
+		System.out.println("hhssuccess2!");
 		map.put("rows", formlist);
 		map.put("total", wqwqxkzxq0Service.findWqwqxkzxq0List().size());
 		this.setResponseJson(map);
-		
+	
 		//map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
 		//System.out.println(String.valueOf(request.getSession().getAttribute("hhs_user")));
 		//map.put("role", 1);

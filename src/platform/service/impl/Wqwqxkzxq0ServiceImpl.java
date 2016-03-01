@@ -96,6 +96,10 @@ public class Wqwqxkzxq0ServiceImpl implements Wqwqxkzxq0Service{
 		wqwqxkzxq0.setUsername(wqwqxkzxq0Form.getUsername());
 		wqwqxkzxq0.setGxsj(wqwqxkzxq0Form.getGxsj());
 		wqwqxkzxq0.setSubmit(wqwqxkzxq0Form.getSubmit());	
+		
+		wqwqxkzxq0.setName1(wqwqxkzxq0Form.getName1());
+		wqwqxkzxq0.setName2(wqwqxkzxq0Form.getName2());
+		
 			wqwqxkzxq0Dao.update(wqwqxkzxq0);
 		
 	}
@@ -146,6 +150,10 @@ public class Wqwqxkzxq0ServiceImpl implements Wqwqxkzxq0Service{
 		wqwqxkzxq0.setUsername(wqwqxkzxq0Form.getUsername());
 		wqwqxkzxq0.setGxsj(wqwqxkzxq0Form.getGxsj());
 		wqwqxkzxq0.setSubmit(wqwqxkzxq0Form.getSubmit());
+		
+		
+		wqwqxkzxq0.setName1(wqwqxkzxq0Form.getName1());
+		wqwqxkzxq0.setName2(wqwqxkzxq0Form.getName2());
 			wqwqxkzxq0Dao.save(wqwqxkzxq0);
 	}
 	private List<Wqwqxkzxq0Form> Wqwqxkzxq0POListToVOList(List<Wqwqxkzxq0> list) {
@@ -194,6 +202,10 @@ Wqwqxkzxq0Form wqwqxkzxq0Form=new Wqwqxkzxq0Form();
 			wqwqxkzxq0Form.setUsername(list.get(i).getUsername());
 			wqwqxkzxq0Form.setGxsj(list.get(i).getGxsj());
 			wqwqxkzxq0Form.setSubmit(list.get(i).getSubmit());
+			
+			
+			wqwqxkzxq0Form.setName1(list.get(i).getName1());
+			wqwqxkzxq0Form.setName2(list.get(i).getName2());
 			formlist.add(wqwqxkzxq0Form);
 		}
 		return formlist;

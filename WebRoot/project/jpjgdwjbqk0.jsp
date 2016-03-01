@@ -98,8 +98,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			
 			 <th field="jlnf" width="130">记录时间(年份)</th>
-			        <th field="username" width="130">操作员</th>
-			        <th field="gxsj" width="130">更新时间</th>
+			 <th field="username" width="130">操作员</th>
+	        <th field="gxsj" width="130">更新时间</th>
+			        
+		 	<th field="name1" width="130">产值或销售收入情况</th>
+			<th field="name2" width="130">武器装备科研生产的许可专业（产品）</th>
+			 
 			  <!--       <th field="submit" width="130">是否提交</th>  -->
 			
 			

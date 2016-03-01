@@ -92,6 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="sbjcgs" width="130">省部级科技成果数</th>
 			
 			
+			
 			<th field="jbqk" width="130">单位基本情况</th>
 			<th field="kyfx" width="130">单位科研方向</th>
 			<th field="qyscgl" width="130">企业生产纲领</th>
@@ -106,6 +107,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="wcjpqk" width="130">已完成的主要军品科研生产项目情况</th>
 			<th field="xcjpxmqk" width="130">现承担的主要军品科研生产项目的执行情况</th>
 			
+						<th field="name1" width="130">产值或销售收入情况</th>
+									<th field="name2" width="130">武器装备科研生产的许可专业（产品）</th>
 			 
 			<!--  <th field="jlnf" width="130">记录时间(年份)</th>
 			        <th field="username" width="130">操作员</th>

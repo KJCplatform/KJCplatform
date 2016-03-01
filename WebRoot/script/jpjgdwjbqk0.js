@@ -179,7 +179,8 @@ function editDoc() {
 	$("#gjsyssl").val(doc.gjsyssl);
 	$("#gfsyssl").val(doc.gfsyssl);
 	
-	
+	$("#name1").val(doc.name1);
+	$("#name2").val(doc.name2);
 	
 /*$("#jlnf").val(doc.jlnf);
 	$("#username").val(doc.username);

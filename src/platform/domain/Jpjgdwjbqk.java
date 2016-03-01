@@ -43,12 +43,12 @@ public class Jpjgdwjbqk implements java.io.Serializable {
 	  private String gxsj;
 	  private String submit;
 	  
+	
 	  
 	private Set<Jpjgdwjbqksrqk> jpjgdwjbqksrqks = new HashSet<Jpjgdwjbqksrqk>();
 	private Set<Jpjgdwjbqkry> jpjgdwjbqkrys = new HashSet<Jpjgdwjbqkry>();
 	
-	
-	
+
 	public String getJlnf() {
 		return jlnf;
 	}

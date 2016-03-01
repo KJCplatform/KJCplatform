@@ -36,7 +36,9 @@ $(function() {
 });
 //加载公文列表
 function listDoc() {
+
 	var actionPath = basePath + '/system/Wqwqxkzxq0Action_list.action';
+	
 	 $('#dg').datagrid({
             title : '武器装备生产许可单位信息汇总',
             width : 3600,
@@ -55,40 +57,40 @@ function listDoc() {
             pagination : true,//分页
             rownumbers : true,//行数
 			
-            toolbar:[ {// 工具栏
-				text : '添加',
-				id:'add',
-				iconCls : 'icon-add', // 图标
-				handler : function() { // 处理函数
-					addDoc();
-				}
-			}, {
-				text : '删除',
-				id:'delete',
-				iconCls : 'icon-cancel', // 图标
-				handler : function() { // 处理函数
-					deleteDoc();
-				}
-			}, {
-				text : '编辑',
-				id:'edit',
-				iconCls : 'icon-edit',// 图标
-				handler : function() {// 处理函数
-					editDoc();
-				}
-			}
-		 ],
-	 
-            onLoadSuccess: function (data) { 
-            	
-				user=eval(data).user;
-			
-				 if(user!="admin"){
-					// alert("123");
-					 $("#delete").linkbutton("disable");
-					 $("#edit").linkbutton("disable");
-				 }
-			}
+//            toolbar:[ {// 工具栏
+//				text : '添加',
+//				id:'add',
+//				iconCls : 'icon-add', // 图标
+//				handler : function() { // 处理函数
+//					addDoc();
+//				}
+//			}, {
+//				text : '删除',
+//				id:'delete',
+//				iconCls : 'icon-cancel', // 图标
+//				handler : function() { // 处理函数
+//					deleteDoc();
+//				}
+//			}, {
+//				text : '编辑',
+//				id:'edit',
+//				iconCls : 'icon-edit',// 图标
+//				handler : function() {// 处理函数
+//					editDoc();
+//				}
+//			}
+//		 ],
+//	 
+//            onLoadSuccess: function (data) { 
+//            	
+//				user=eval(data).user;
+//			
+//				 if(user!="admin"){
+//					// alert("123");
+//					 $("#delete").linkbutton("disable");
+//					 $("#edit").linkbutton("disable");
+//				 }
+//			}
         });
 }
 //查询
@@ -194,6 +196,10 @@ function editDoc() {
 	$("#username").val(doc.username);
 	$("#gxsj").val(doc.gxsj);
 	$("#submit").val(doc.submit);
+	
+	$("#name1").val(doc.name1);
+	$("#name2").val(doc.name2);
+	
 	// 显示编辑页面
 	showEditForm();
 }

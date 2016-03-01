@@ -79,11 +79,22 @@ public class Wqwqxkzxq0 implements java.io.Serializable{
 	  private String gxsj;
 	  private String submit;
 	  
-	  //private Set<Wqwqxkzxqxkzycp> wqwqxkzxqxkzycps = new HashSet<Wqwqxkzxqxkzycp>();
-	  //private Set<Wqwqxkzxqsrqk> wqwqxkzxqsrqks = new HashSet<Wqwqxkzxqsrqk>();
+	  private String name1;
+	  private String name2;
+
 	  
-	  
-	  
+	public String getName1() {
+		return name1;
+	}
+	public void setName1(String name1) {
+		this.name1 = name1;
+	}
+	public String getName2() {
+		return name2;
+	}
+	public void setName2(String name2) {
+		this.name2 = name2;
+	}
 	public int getId() {
 		return id;
 	}
