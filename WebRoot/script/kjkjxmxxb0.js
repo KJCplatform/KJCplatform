@@ -53,7 +53,7 @@ function listDoc() {
             //sortName : 'xh',//当数据表格初始化时以哪一列来排序
             //sortOrder : 'desc',//定义排序顺序，可以是'asc'或者'desc'（正序或者倒序）。
             pagination : true,//分页
-            rownumbers : true,//行数
+            rownumbers : true//行数
 //            toolbar:[ {// 工具栏
 //				text : '添加',
 //				id:'add',
