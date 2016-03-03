@@ -153,6 +153,7 @@ public class AaaServiceImpl implements AaaService{
 		aaa.setBz(aaaForm.getBz());
 		
 		aaa.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		System.out.println("hhhhhhhh:"+aaa);
 		aaa.setUsername(username);
 		aaa.setGxsj(new Date().toString());
 		aaa.setSubmit(0);

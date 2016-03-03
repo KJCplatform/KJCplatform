@@ -67,6 +67,8 @@ public class KjndgfjtjbServiceImpl implements KjndgfjtjbService{
 		//	jljlqjhzb.setFwrq(StringHelper.stringConvertDate(jljlqjhzbForm.getFwrq()));
 		kjndgfjtjb.setId(Integer.valueOf(kjndgfjtjbForm.getId()));
 		kjndgfjtjb.setYear(kjndgfjtjbForm.getYear());
+		
+		
 		kjndgfjtjb.setType(kjndgfjtjbForm.getType());
 		
 		if(kjndgfjtjbForm.getTdj()!=null&&!kjndgfjtjbForm.getTdj().equals(""))
