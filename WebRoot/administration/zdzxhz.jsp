@@ -45,13 +45,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <tr>
                     <th>序号：</th>
                     <td>
-						<input id="xh" />
+						<input id="fileName" />
 					</td>
                 </tr>
                 <tr>
 					<th>单位：</th>
 					<td>
-                        <input id="dw" />
+                        <input id="fileName2" />
 					</td>
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>
@@ -88,10 +88,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<thead>
 		<tr>
 			<th field="xh" width="130">序号</th>
-			<th field="jlnf" width="130">记录年份</th>
+<!-- 			<th field="jlnf" width="130">记录年份</th> -->
 			<th field="dw" width="130">单位</th>
 			<th field="xmmc" width="130">项目名称</th>
-			<th field="jsmc" width="130">企业技术名称</th>
+			<th field="qyjsmc" width="130">企业技术名称</th>
 		</tr>
 	</thead>
 	</table>
@@ -104,15 +104,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<input type="hidden" id="id" name="id" />
 			<dl>
 				<dd>序号:</dd>
-				<dd><input size="15" id="xh" name="xh" /></dd>
+				<dd><input type="text" style="width: 150px" id="xh" name="xh" /></dd>
 			</dl>
-			<dl>
-				<dd>记录年份:</dd>
-				<dd><input size="15" id="jlnf" name="jlnf" /></dd>
-			</dl>
+
 			<dl>
 				<dd>单位:</dd>
-				<dd><input size="15" id="dw" name="dw" /></dd>
+				<dd><input type="text" style="width: 150px" id="dw" name="dw" /></dd>
 			</dl>
 			<dl>
 				<dd>项目名称:</dd>
@@ -120,7 +117,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dl>
 			<dl>
 				<dd>企业技术名称:</dd>
-				<dd><textarea cols="45" rows="3" id="jsmc" name="jsmc"></textarea></dd>
+			<dd><input type="text" style="width: 150px" id="qyjsmc" name="qyjsmc" /></dd>
 			</dl>
 		</form>
 	</div>

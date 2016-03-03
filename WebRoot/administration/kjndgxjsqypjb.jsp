@@ -175,7 +175,13 @@
 					<dd>
 						企业名称: <input size="15" id="qymc" name="qymc" />
 					</dd>
-				</dl>
+				</dl
+				
+							<dl>
+					<dd>
+						最初取证年份: <input size="15" id="zcqznf" name="zcqznf" />
+					</dd>
+				</dl>>
 				<dl>
 					<dd>
 						主营产品所属领域: <input size="15" id="cply" name="cply" />

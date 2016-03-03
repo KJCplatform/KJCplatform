@@ -137,9 +137,12 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 		kjndgxjsqypjb.setZhpj(kjndgxjsqypjbForm.getZhpj());
 		kjndgxjsqypjb.setPdzjz(kjndgxjsqypjbForm.getPdzjz());
 		
+		kjndgxjsqypjb.setZcqznf(kjndgxjsqypjbForm.getZcqznf());
+		
 		kjndgxjsqypjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjndgxjsqypjb.setUsername(username);
 		kjndgxjsqypjb.setGxsj(new Date().toString());
+		
 		kjndgxjsqypjb.setSubmit(0);
 		
 		kjndgxjsqypjbDao.update(kjndgxjsqypjb);
@@ -192,6 +195,7 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 		kjndgxjsqypjb.setUsername(username);
 		kjndgxjsqypjb.setGxsj(new Date().toString());
 		kjndgxjsqypjb.setSubmit(0);
+		kjndgxjsqypjb.setZcqznf(kjndgxjsqypjbForm.getZcqznf());
 		kjndgxjsqypjbDao.save(kjndgxjsqypjb);
 	}
 	private List<KjndgxjsqypjbForm> KjndgxjsqypjbPOListToVOList(List<Kjndgxjsqypjb> list) {
@@ -233,7 +237,7 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 			kjndgxjsqypjbForm.setGxsj(kjndgxjsqypjb.getGxsj());
 			kjndgxjsqypjbForm.setSubmit(String.valueOf(kjndgxjsqypjb.getSubmit()));
 			
-			
+			kjndgxjsqypjbForm.setZcqznf(kjndgxjsqypjb.getZcqznf());
 			formlist.add(kjndgxjsqypjbForm);
 		}
 		return formlist;

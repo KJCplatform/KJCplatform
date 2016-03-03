@@ -559,6 +559,7 @@ function editDoc() {
 function dealSave() {
 	// 表单数据序列化成一个字符串用&拼接
 	var params = $("#frmEdit").serialize();
+	alert(params);
 	var actionAdd = basePath + '/system/KjzlcjbAction_add.action';
 	var actionUpdate = basePath + '/system/KjzlcjbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
