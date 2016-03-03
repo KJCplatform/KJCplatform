@@ -550,6 +550,9 @@ function editDoc() {
 	$("#dzyx").val(doc.dzyx);
 	$("#lxdz").val(doc.lxdz);
 	
+	$("#sqh").val(doc.sqh);
+	$("#zjdw").val(doc.zjdw);
+	$("#zjlxr").val(doc.zjlxr);
 	// 显示编辑页面
 	showEditForm();
 }

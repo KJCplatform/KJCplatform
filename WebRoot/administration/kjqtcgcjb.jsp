@@ -91,7 +91,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="lxdz"  >联系地址</th>
 			
 			    <th field="jlnf">记录年份</th>
-		  
+		  <th field="zjdw">中介单位</th>
+<th field="zjlxr">中介联系人</th>
 	
 		</tr>
 	</thead>
@@ -236,6 +237,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd><input size="20" id="lxdz" name="lxdz"></dd>
 			</dl>
 			
+				<dl>
+					<dd>
+						中介单位: <input size="15" id="zjdw" name="zjdw">
+					</dd>
+				</dl>	<dl>
+					<dd>
+						中介联系人: <input size="15" id="zjlxr" name="zjlxr">
+					</dd>
+				</dl>
 		</form>
 	</div>
 	</div>

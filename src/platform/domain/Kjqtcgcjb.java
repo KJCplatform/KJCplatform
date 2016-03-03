@@ -32,7 +32,22 @@ public class Kjqtcgcjb implements java.io.Serializable{
 	  private String gxsj;
 	  private int submit;
 	  
+	  private String zjdw;
+	  private String zjlxr;
 	  
+
+	public String getZjdw() {
+		return zjdw;
+	}
+	public void setZjdw(String zjdw) {
+		this.zjdw = zjdw;
+	}
+	public String getZjlxr() {
+		return zjlxr;
+	}
+	public void setZjlxr(String zjlxr) {
+		this.zjlxr = zjlxr;
+	}
 	public String getJlnf() {
 		return jlnf;
 	}

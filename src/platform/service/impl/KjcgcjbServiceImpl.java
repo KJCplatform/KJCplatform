@@ -89,7 +89,8 @@ if(pageno==1){
 		kjcgcjb.setJsly(kjcgcjbForm.getJsly());
 		kjcgcjb.setCgjd(kjcgcjbForm.getCgjd());
 		kjcgcjb.setJyfs(kjcgcjbForm.getJyfs());
-		
+		kjcgcjb.setZjdw(kjcgcjbForm.getZjdw());
+		kjcgcjb.setZjlxr(kjcgcjbForm.getZjlxr());
 		//数据校验
 		if(kjcgcjbForm.getSfzj()!=null){
 		if(kjcgcjbForm.getSfzj().equals("是"))
@@ -186,7 +187,8 @@ if(pageno==1){
 		kjcgcjb.setUsername(username);
 		kjcgcjb.setGxsj(new Date().toString());
 		kjcgcjb.setSubmit(0);
-		
+		kjcgcjb.setZjdw(kjcgcjbForm.getZjdw());
+		kjcgcjb.setZjlxr(kjcgcjbForm.getZjlxr());
 		kjcgcjbDao.save(kjcgcjb);
 	}
 	private List<KjcgcjbForm> KjcgcjbPOListToVOList(List<Kjcgcjb> list) {
@@ -238,7 +240,8 @@ if(pageno==1){
 			kjcgcjbForm.setGxsj(kjcgcjb.getGxsj());
 			kjcgcjbForm.setSubmit(String.valueOf(kjcgcjb.getSubmit()));
 			
-			
+			kjcgcjbForm.setZjdw(kjcgcjb.getZjdw());
+			kjcgcjbForm.setZjlxr(kjcgcjb.getZjlxr());
 			
 			formlist.add(kjcgcjbForm);
 		}

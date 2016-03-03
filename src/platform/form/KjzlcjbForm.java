@@ -34,7 +34,29 @@ public class KjzlcjbForm implements java.io.Serializable{
 	  private String gxsj;
 	  private String submit;
 	  
+	  private String sqh;
+	  private String zjdw;
+	  private String zjlxr;
 	  
+	  
+	public String getSqh() {
+		return sqh;
+	}
+	public void setSqh(String sqh) {
+		this.sqh = sqh;
+	}
+	public String getZjdw() {
+		return zjdw;
+	}
+	public void setZjdw(String zjdw) {
+		this.zjdw = zjdw;
+	}
+	public String getZjlxr() {
+		return zjlxr;
+	}
+	public void setZjlxr(String zjlxr) {
+		this.zjlxr = zjlxr;
+	}
 	  
 	public String getId() {
 		return id;
