@@ -79,6 +79,7 @@
 		<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
 		 >>>请选择导出项<<<
 		 <br> <br>
+<input name="Items" type="checkbox" checked="checked" value="11" />年份<br>
 <input name="Items" type="checkbox" checked="checked" value="1" />季度<br>
 <input name="Items" type="checkbox" checked="checked" value="2" />单位名称<br> 
 <input name="Items" type="checkbox" checked="checked" value="3" />军品一次交验（检）合格率<br> 
@@ -89,7 +90,7 @@
 <input name="Items" type="checkbox" checked="checked" value="8" />质量部门负责人	<br>
 <input name="Items" type="checkbox" checked="checked" value="9" />审核人	<br>
 <input name="Items" type="checkbox" checked="checked" value="10" />报出日期	<br>
-<input name="Items" type="checkbox" checked="checked" value="11" />记录时间(年份)<br>
+
 
 		</form>
 	</div>
@@ -100,6 +101,7 @@
 		<table id="dg">
 			<thead>
 				<tr>
+					<th field="jlnf">年份</th>
 					<th field="jd">季度</th>
 					<th field="dwmc">单位名称</th>
 					<th field="hgl">军品一次交验（检）合格率</th>
@@ -109,12 +111,9 @@
 		            <th field="tbr">填表人</th>
 					<th field="zlbfzr">质量部门负责人</th>
 			    	<th field="shr">审核人</th>
-					<th field="bcrq">报出日期</th>
-					
-					<!-- <th field="jlnf" width="130">记录时间(年份)</th>
-			<th field="username" width="130">操作员</th>
-			<th field="gxsj" width="130">更新时间</th>
-			<th field="submit" width="130">是否提交</th> -->
+					<th field="bcrq">报出日期</th>					
+				
+
 			
 				</tr>
 			</thead>
@@ -136,8 +135,14 @@
 				</select>
 					</dd>
 				</dl>
-
-
+			
+				<dl>
+					<dd>
+						年份: <input size="15" id="jlnf" name="jlnf" />
+			
+					</dd>
+				</dl>
+				
 				<dl>
 					<dd>
 						单位名称: <input size="15" id="dwmc" name="dwmc" />(请严格填写单位名称)

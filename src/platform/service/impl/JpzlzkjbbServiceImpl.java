@@ -2,7 +2,6 @@ package platform.service.impl;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -17,8 +16,10 @@ import org.springframework.stereotype.Service;
 
 import excel.CreateExcel;
 import platform.dao.JpzlbgtjbDao;
+import platform.dao.JpzlzkdwbDao;
 import platform.dao.JpzlzkjbbDao;
 import platform.domain.Jpzlbgtjb;
+import platform.domain.Jpzlzkdwb;
 import platform.domain.Jpzlzkjbb;
 import platform.form.JpzlzkjbbForm;
 import platform.service.JpzlzkjbbService;
@@ -30,7 +31,8 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 	
 	@Resource(name=JpzlzkjbbDao.SERVICE_NAME)
 	private JpzlzkjbbDao jpzlzkjbbDao;
-	
+	@Resource(name = JpzlzkdwbDao.SERVICE_NAME)
+	private JpzlzkdwbDao jpzlzkdwbDao;
 	@Resource(name=JpzlbgtjbDao.SERVICE_NAME)
 	private JpzlbgtjbDao jpzlbgtjbDao;
 	private List<JpzlzkjbbForm> formListTemp ;
@@ -69,14 +71,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		return formlist;
 		
 	}
-	/*private int id;
-	  private String cpmc;
-	  private Date fsrq;
-	  private String yyqk;
-	  private String bz;
-	  private String tbr;
-	  private String zlbmfzr;
-	  private Date bcrq;*/
+
 	public void updateJpzlzkjbb(JpzlzkjbbForm jpzlzkjbbForm){
 		Jpzlzkjbb old=jpzlzkjbbDao.findObjectByID( Integer.valueOf(jpzlzkjbbForm.getId()));
 	     String oldjd=old.getJd();
@@ -86,8 +81,6 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		
 		
 		    Jpzlzkjbb jpzlzkjbb=new Jpzlzkjbb();
-        //  jljlqjhzb.setCljg(jljlqjhzbForm.getCljg());
-		//	jljlqjhzb.setFwrq(StringHelper.stringConvertDate(jljlqjhzbForm.getFwrq()));
 			jpzlzkjbb.setId(Integer.valueOf(jpzlzkjbbForm.getId()));
 			jpzlzkjbb.setJd(jpzlzkjbbForm.getJd());
 			jpzlzkjbb.setDwmc(jpzlzkjbbForm.getDwmc());
@@ -98,8 +91,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			jpzlzkjbb.setTbr(jpzlzkjbbForm.getTbr());
 			jpzlzkjbb.setZlbfzr(jpzlzkjbbForm.getZlbfzr());
 			jpzlzkjbb.sets2hr(jpzlzkjbbForm.getS2hr());
-			jpzlzkjbb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
-			//jpzlzkjbb.sets2hr("123");
+			jpzlzkjbb.setJlnf(jpzlzkjbbForm.getJlnf());
 			if(jpzlzkjbbForm.getBcrq()!=null&&!jpzlzkjbbForm.getBcrq().equals(""))
 			jpzlzkjbb.setBcrq(StringHelper.stringConvertDate2(jpzlzkjbbForm.getBcrq()));
 		    jpzlzkjbbDao.update(jpzlzkjbb);
@@ -130,21 +122,34 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 				hqlWhere1 += " and o.dwmc = ?";
 				paramsList1.add(jpzlzkjbbForm.getDwmc());
 				hqlWhere1 += " and o.year = ?";
-				paramsList1.add(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+				paramsList1.add(jpzlzkjbbForm.getJlnf());
 				params1 = paramsList1.toArray();
 			    Jpzlbgtjb newJpzlbgtjb=(jpzlbgtjbDao.findCollectionByConditionNoPage(hqlWhere1, params1, null).size()==0)?(new Jpzlbgtjb()): (jpzlbgtjbDao.findCollectionByConditionNoPage(hqlWhere1, params1, null).get(0));
 			    newJpzlbgtjb.setDwmc(jpzlzkjbbForm.getDwmc());
-			    newJpzlbgtjb.setYear(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+			    newJpzlbgtjb.setYear(jpzlzkjbbForm.getJlnf());
 			    switch(jpzlzkjbbForm.getJd()){
 			    case "一": newJpzlbgtjb.setFirst("是");break;
 			    case "二": newJpzlbgtjb.setSecond("是");break;
-			    case "三·": newJpzlbgtjb.setThird("是");break;
+			    case "三": newJpzlbgtjb.setThird("是");break;
 			    case "四": newJpzlbgtjb.setFourth("是");break;
 			    }
 			    newJpzlbgtjb.setSubmit(false);
 			    //oldJpzlbgtjb.setUsername();
 			    newJpzlbgtjb.setGxsj(new Date().toString());
 			    jpzlbgtjbDao.save(newJpzlbgtjb);
+			    
+			    ////向单位表中插入新的单位信息
+			    if( !olddwmc.equals(jpzlzkjbbForm.getDwmc())){
+				    String hqlString = " and o.dwmc = '" + jpzlzkjbbForm.getDwmc()+"'";
+				    if( jpzlzkdwbDao.findCollectionByConditionNoPage(hqlString, null, null).isEmpty() ){
+				    	Jpzlzkdwb jpzlzkdwb = new Jpzlzkdwb();
+				    	jpzlzkdwb.setDwmc(jpzlzkjbbForm.getDwmc());
+				    	jpzlzkdwb.setJinyong(false);
+				    	jpzlzkdwb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+				    	jpzlzkdwb.setSubmit(false);
+				    	jpzlzkdwbDao.save(jpzlzkdwb);
+				    }
+			    }
 	}
 	public void deleteObject(String id){
 		System.out.println(Integer.valueOf(id));
@@ -176,8 +181,6 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 	}
 	public void saveObject(JpzlzkjbbForm jpzlzkjbbForm){
 		Jpzlzkjbb jpzlzkjbb=new Jpzlzkjbb();
-        //  jljlqjhzb.setCljg(jljlqjhzbForm.getCljg());
-		//	jljlqjhzb.setFwrq(StringHelper.stringConvertDate(jljlqjhzbForm.getFwrq()));
 		jpzlzkjbb.setJd(jpzlzkjbbForm.getJd());
 		jpzlzkjbb.setDwmc(jpzlzkjbbForm.getDwmc());
 		jpzlzkjbb.setHgl(jpzlzkjbbForm.getHgl());
@@ -187,7 +190,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		jpzlzkjbb.setTbr(jpzlzkjbbForm.getTbr());
 		jpzlzkjbb.setZlbfzr(jpzlzkjbbForm.getZlbfzr());
 		jpzlzkjbb.sets2hr(jpzlzkjbbForm.getS2hr());
-		jpzlzkjbb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		jpzlzkjbb.setJlnf(jpzlzkjbbForm.getJlnf());
 		//jpzlzkjbb.sets2hr("123");
 		if(jpzlzkjbbForm.getBcrq()!=null&&!jpzlzkjbbForm.getBcrq().equals(""))
 		jpzlzkjbb.setBcrq(StringHelper.stringConvertDate2(jpzlzkjbbForm.getBcrq()));
@@ -202,11 +205,11 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			hqlWhere1 += " and o.dwmc = ?";
 			paramsList1.add(jpzlzkjbbForm.getDwmc());
 			hqlWhere1 += " and o.year = ?";
-			paramsList1.add(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+			paramsList1.add(jpzlzkjbbForm.getJlnf());
 			params1 = paramsList1.toArray();
 		    Jpzlbgtjb newJpzlbgtjb=(jpzlbgtjbDao.findCollectionByConditionNoPage(hqlWhere1, params1, null).size()==0)?(new Jpzlbgtjb()): (jpzlbgtjbDao.findCollectionByConditionNoPage(hqlWhere1, params1, null).get(0));
 		    newJpzlbgtjb.setDwmc(jpzlzkjbbForm.getDwmc());
-		    newJpzlbgtjb.setYear(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		    newJpzlbgtjb.setYear(jpzlzkjbbForm.getJlnf());
 		    switch(jpzlzkjbbForm.getJd()){
 		    case "一": newJpzlbgtjb.setFirst("是");break;
 		    case "二": newJpzlbgtjb.setSecond("是");break;
@@ -217,6 +220,17 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		    //oldJpzlbgtjb.setUsername();
 		    newJpzlbgtjb.setGxsj(new Date().toString());
 		    jpzlbgtjbDao.save(newJpzlbgtjb);
+		    
+		    //向单位表中插入新的单位信息
+		    String hqlString = " and o.dwmc = '" + jpzlzkjbbForm.getDwmc()+"'";
+		    if( jpzlzkdwbDao.findCollectionByConditionNoPage(hqlString, null, null).isEmpty() ){
+		    	Jpzlzkdwb jpzlzkdwb = new Jpzlzkdwb();
+		    	jpzlzkdwb.setDwmc(jpzlzkjbbForm.getDwmc());
+		    	jpzlzkdwb.setJinyong(false);
+		    	jpzlzkdwb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+		    	jpzlzkdwb.setSubmit(false);
+		    	jpzlzkdwbDao.save(jpzlzkdwb);
+		    }
 	}
 	private List<JpzlzkjbbForm> JpzlzkjbbPOListToVOList(List<Jpzlzkjbb> list) {
 		// TODO Auto-generated method stub
