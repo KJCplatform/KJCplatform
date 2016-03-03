@@ -79,6 +79,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="cgjd"  >成果阶段</th>
 			<th field="zhfs"  >转化方式</th>
 			<th field="sfzj"  >是否中介</th>
+			  <th field="zjdw">中介单位</th>
+<th field="zjlxr">中介联系人</th>
+	<th field="sj" >联系方式</th>
 			<th field="gfdj"  >供方定价</th>
 			<th field="zhyq"  >转化要求</th>
 			<th field="sfgk"  >是否公开</th>
@@ -86,14 +89,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="lxrxm"  >联系人姓名</th>
 			<th field="gddh"  >固定电话</th>
 			<th field="szdq"  >所在地区</th>
-			<th field="sj" >手机</th>
+			
 			<th field="dzyx"  >电子邮箱</th>
 			<th field="lxdz"  >联系地址</th>
 			
 			    <th field="jlnf">记录年份</th>
-		  <th field="zjdw">中介单位</th>
-<th field="zjlxr">中介联系人</th>
-	
+		
 		</tr>
 	</thead>
 	</table>
@@ -170,6 +171,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<option value="否">否</option>
 				</select></dd>
 			</dl>
+			
+				<dl>
+					<dd>
+						中介单位: <input size="15" id="zjdw" name="zjdw">
+					</dd>
+				</dl>	<dl>
+					<dd>
+						中介联系人: <input size="15" id="zjlxr" name="zjlxr">
+					</dd>
+				</dl>
+				<dl>
+			
+				<dd>联系方式:</dd><dd> <input type="text" style="width: 150px" id="sj" name="sj"
+							style="width:150px;" /></dd>
+			</dl>
 			<dl>
 				<dd>供方定价:</dd>
 				<dd><select   style="width: 150px" id="gfdj" name="gfdj" >
@@ -217,35 +233,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd>所在地区:</dd>
 				<dd><input size="20"  id="szdq" name="szdq"></dd>
 			</dl>
-			<dl>
 			
-				<dd>手机:</dd><dd> <input type="text" style="width: 150px" id="sj" name="sj"
-							style="width:150px;" /></dd>
-			</dl>
 				<dl>
-					<dd>
-						电子邮箱:</dd><dd> <input class="easyui-validatebox"
-							data-options="
- 
-    validType:['email','length[0,20]']
-"
-							,id="dzyx" ,name="dzyx">
+				<dd>
+						电子邮箱: <input type="text" style="width: 150px" id="dzyx" name="dzyx"
+							style="width:150px;" />
 					</dd>
 				</dl>
 			<dl>
-				<dd>联系地址:</dd>
-				<dd><input size="20" id="lxdz" name="lxdz"></dd>
+			<dd>
+				联系地址:
+				<input size="20" id="lxdz" name="lxdz">
+			</dd>
 			</dl>
 			
-				<dl>
-					<dd>
-						中介单位: <input size="15" id="zjdw" name="zjdw">
-					</dd>
-				</dl>	<dl>
-					<dd>
-						中介联系人: <input size="15" id="zjlxr" name="zjlxr">
-					</dd>
-				</dl>
 		</form>
 	</div>
 	</div>

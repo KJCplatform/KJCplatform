@@ -76,7 +76,7 @@ function listDoc() {
             onLoadSuccess: function (data) { 
             	
 				user=eval(data).user;
-				 alert(user); 
+			//	 alert(user); 
 				 if(user!="admin"){
 					
 					 $("#delete").linkbutton("disable");
