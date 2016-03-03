@@ -88,11 +88,13 @@
 		<table id="dg">
 			<thead>
 				<tr>
-					<th field="cgmc">成果名称</th>
-					<th field="zllx">专利类型</th>
+					<th field="sqh">申请号</th>
+					<th field="zlh">专利号</th>
+					<th field="cgmc">发明名称</th>
+
 					<th field="zlqr">专利权人</th>
 					<th field="zywcr">主要完成人</th>
-					<th field="zlh">专利号</th>
+
 					<th field="zflh">主分类号</th>
 					<th field="gkh">公开号</th>
 					<th field="gkr">公开日</th>
@@ -102,19 +104,24 @@
 					<th field="yyhy">应用行业</th>
 					<th field="jsly">技术领域</th>
 					<th field="cgjd">成果阶段</th>
+					<th field="lxrxm">成果联系人</th>
+					<th field="gddh">电话</th>
+					<th field="szdq">所在地区</th>
+					<th field="dzyx">电子邮箱</th>
+					<th field="lxdz">联系地址</th>
 					<th field="jyfs">交易方式</th>
 					<th field="sfzj">是否委托中介</th>
 					<th field="gfdj">供方定价</th>
 					<th field="zhyq">其他转化要求</th>
 					<th field="sfgk">是否公开</th>
-					<th field="lxrxm">联系人姓名</th>
-					<th field="gddh">固定电话</th>
-					<th field="szdq">所在地区</th>
-					<th field="sj">手机</th>
-					<th field="dzyx">电子邮箱</th>
-					<th field="lxdz">联系地址</th>
+					<th field="zjdw">中介单位</th>
+					<th field="zjlxr">中介联系人</th>
+					<th field="sj">联系方式</th>
+
+
 
 					<th field="jlnf">记录年份</th>
+
 
 
 				</tr>
@@ -168,20 +175,30 @@
 				<input type="hidden" id="id" name="id" />
 				<dl>
 					<dd>
-						成果名称: <input size="15" id="cgmc" name="cgmc" />
+						申请号: <input size="15" id="sqh" name="sqh">
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						专利号: <input type="text" style="width: 150px" id="zlh" name="zlh">
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						发明名称: <input size="15" id="cgmc" name="cgmc" />
 					</dd>
 				</dl>
 
-				<dl>
-					<dd>
-						专利类型: <select id="zllx" name="zllx">
-							<option value=""></option>
-							<option value="发明专利">发明专利</option>
-							<option value="实用新型专利">实用新型专利</option>
-							<option value="外观设计专利">外观设计专利</option>
-						</select>
-					</dd>
-				</dl>
+				<!-- 				<dl> -->
+				<!-- 					<dd> -->
+				<!-- 						专利类型: <select id="zllx" name="zllx"> -->
+				<!-- 							<option value=""></option> -->
+				<!-- 							<option value="发明专利">发明专利</option> -->
+				<!-- 							<option value="实用新型专利">实用新型专利</option> -->
+				<!-- 							<option value="外观设计专利">外观设计专利</option> -->
+				<!-- 						</select> -->
+				<!-- 					</dd> -->
+				<!-- 				</dl> -->
 
 
 				<dl>
@@ -197,7 +214,8 @@
 				</dl>
 				<dl>
 					<dd>
-						专利号: <input type="text" style="width: 150px" id="zlh" name="zlh">
+						主分类号: <input type="text" style="width: 150px" id="zflh"
+							name="zflh">
 					</dd>
 				</dl>
 				<dl>
@@ -210,12 +228,7 @@
 						公开日: <input type="text" style="width: 150px" id="gkr" name="gkr" />
 					</dd>
 				</dl>
-				<dl>
-					<dd>
-						主分类号: <input type="text" style="width: 150px" id="zflh"
-							name="zflh">
-					</dd>
-				</dl>
+
 				<dl>
 					<dd>
 						法律状态: <input size="15" id="flzt" name="flzt" />
@@ -264,7 +277,43 @@
 						</select>
 					</dd>
 				</dl>
+				<dl>
+					<dd>
+						成果联系人: <input size="15" id="lxrxm" name="lxrxm" />
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						电话: <input type="text" style="width: 150px" id="gddh" name="gddh"
+							style="width:150px;" />
+					</dd>
+				</dl>
 
+
+				<dl>
+					<dd>
+						所在地区: <select id="szdq" name="szdq">
+							<option value=""></option>
+							<option value="武汉市">武汉市</option>
+							<option value="北京市">北京市</option>
+						</select>
+					</dd>
+				</dl>
+
+
+
+				<dl>
+
+					<dd>
+						电子邮箱: <input type="text" style="width: 150px" id="dzyx"
+							name="dzyx" style="width:150px;" />
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						联系地址: <input size="15" id="lxdz" name="lxdz">
+					</dd>
+				</dl>
 				<dl>
 					<dd>
 						交易方式: <select id="jyfs" multiple="true" name="jyfs"
@@ -302,8 +351,6 @@
 						</select>
 					</dd>
 				</dl>
-
-
 				<dl>
 					<dd>
 						其他转化要求: <input size="15" id="zhyq" name="zhyq" />
@@ -320,52 +367,28 @@
 					</dd>
 				</dl>
 
+
 				<dl>
 					<dd>
-						联系人姓名: <input size="15" id="lxrxm" name="lxrxm" />
+						中介单位: <input size="15" id="zjdw" name="zjdw">
 					</dd>
 				</dl>
 				<dl>
 					<dd>
-						固定电话: <input type="text" style="width: 150px" id="gddh"
-							name="gddh" style="width:150px;" />
+						中介联系人: <input size="15" id="zjlxr" name="zjlxr">
 					</dd>
 				</dl>
 
-
 				<dl>
 					<dd>
-						所在地区: <select id="szdq" name="szdq">
-							<option value=""></option>
-							<option value="武汉市">武汉市</option>
-							<option value="北京市">北京市</option>
-						</select>
-					</dd>
-				</dl>
-
-
-
-				<dl>
-					<dd>
-						手机: <input type="text" style="width: 150px" id="sj" name="sj"
+						联系方式: <input type="text" style="width: 150px" id="sj" name="sj"
 							style="width:150px;" />
 					</dd>
 				</dl>
-				<dl>
-					<dd>
-						电子邮箱: <input class="easyui-validatebox"
-							data-options="
-   
-    validType:['email','length[0,20]']
-"
-							,id="dzyx" ,name="dzyx">
-					</dd>
-				</dl>
-				<dl>
-					<dd>
-						联系地址: <input size="15" id="lxdz" name="lxdz">
-					</dd>
-				</dl>
+
+
+
+
 
 
 			</form>

@@ -63,7 +63,7 @@ function listDoc() {
 					editDoc();
 				}
 			}
-		 ],
+		 ], 
 	 
             onLoadSuccess: function (data) { 
             	

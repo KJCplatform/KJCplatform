@@ -137,6 +137,11 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setGxsj(new Date().toString());
 		kjzlcjb.setSubmit(0);
 		
+		kjzlcjb.setSqh(kjzlcjbForm.getSqh());
+		kjzlcjb.setZjdw(kjzlcjbForm.getZjdw());
+		kjzlcjb.setZjlxr(kjzlcjbForm.getZjlxr());
+		
+		
 		kjzlcjbDao.update(kjzlcjb);
 		
 	}
@@ -199,6 +204,9 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setUsername(username);
 		kjzlcjb.setGxsj(new Date().toString());
 		kjzlcjb.setSubmit(0);
+		kjzlcjb.setSqh(kjzlcjbForm.getSqh());
+		kjzlcjb.setZjdw(kjzlcjbForm.getZjdw());
+		kjzlcjb.setZjlxr(kjzlcjbForm.getZjlxr());
 
 		kjzlcjbDao.save(kjzlcjb);
 	}
@@ -258,6 +266,9 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 			kjzlcjbForm.setGxsj(kjzlcjb.getGxsj());
 			kjzlcjbForm.setSubmit(String.valueOf(kjzlcjb.getSubmit()));
 			
+			kjzlcjbForm.setSqh(kjzlcjb.getSqh());
+			kjzlcjbForm.setZjdw(kjzlcjb.getZjdw());
+			kjzlcjbForm.setZjlxr(kjzlcjb.getZjlxr());
 			
 			formlist.add(kjzlcjbForm);
 		}

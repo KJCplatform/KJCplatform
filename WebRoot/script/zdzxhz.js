@@ -76,8 +76,8 @@ function listDoc() {
 //查询
 function doSearch(){
 	$('#dg').datagrid('load',{
-		xh: $('#xh').val(),
-		dw: $('#dw').val()
+		fileName: $('#xh').val(),
+		fileName2: $('#dw').val()
 	});
 }
 // 显示编辑窗口
@@ -134,9 +134,10 @@ function editDoc() {
 	// 填充数据
 	$("#id").val(doc.id);
 	$("#xh").val(doc.xh);
-	$("#dw").val(doc.dw);	
+	$("#dw").val(doc.dw);
+	$("#jlnf").val(doc.jlnf);
 	$("#xmmc").val(doc.xmmc);
-	$("#jsmc").val(doc.jsmc);
+	$("#qyjsmc").val(doc.qyjsmc);
 	showEditForm();
 }
 function dealSave() {

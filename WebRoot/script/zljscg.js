@@ -520,6 +520,9 @@ function editDoc() {
 		return;
 	}
 	$('#frmEdit').form('clear');
+	
+
+	
 	// 填充数据
 	$("#id").val(doc.id);
 	$("#cgmc").val(doc.cgmc);
@@ -550,12 +553,16 @@ function editDoc() {
 	$("#dzyx").val(doc.dzyx);
 	$("#lxdz").val(doc.lxdz);
 	
+	$("#sqh").val(doc.sqh);
+	$("#zjdw").val(doc.zjdw);
+	$("#zjlxr").val(doc.zjlxr);
 	// 显示编辑页面
 	showEditForm();
 }
 function dealSave() {
 	// 表单数据序列化成一个字符串用&拼接
 	var params = $("#frmEdit").serialize();
+	
 	var actionAdd = basePath + '/system/KjzlcjbAction_add.action';
 	var actionUpdate = basePath + '/system/KjzlcjbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加

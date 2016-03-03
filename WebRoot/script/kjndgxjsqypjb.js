@@ -181,6 +181,7 @@ function editDoc() {
 	$("#czzbdf").val(doc.czzbdf);
 	$("#zhpj").val(doc.zhpj);
 	$("#pdzjz").val(doc.pdzjz);
+	$("#zcqznf").val(doc.zcqznf);
 	// 显示编辑页面
 	showEditForm();
 }

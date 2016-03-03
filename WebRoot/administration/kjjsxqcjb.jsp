@@ -72,6 +72,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="xqmc"  >需求名称</th>
 			<th field="jjfs"  >解决方式</th>
 			<th field="sfzj"  >是否中介</th>
+				 
+		<th field="zjdw">中介单位</th>
+<th field="zjlxr">中介联系人</th>
+	<th field="sj"  >联系方式</th>
 			<th field="yqrq"  >逾期日期</th>
 			<th field="sshy"  >所属行业</th>
 			<th field="jsly"  >技术领域</th>
@@ -82,12 +86,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="lxrxm"  >联系人姓名</th>
 			<th field="gddh"  >固定电话</th>
 			<th field="szdq"  >所在地区</th>
-			<th field="sj"  >手机</th>
+		
 			<th field="dzyx"  >电子邮箱</th>
 			<th field="lxdz"  >联系地址</th>
 			    <th field="jlnf">记录年份</th>
-		 
-		
+	
 		</tr>
 	</thead>
 	</table>
@@ -124,6 +127,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<option value="是">是</option>
 				<option value="否">否</option>
 				</select></dd>
+			</dl>
+				<dl>
+					<dd>
+						中介单位: <input size="15" id="zjdw" name="zjdw">
+					</dd>
+				</dl>	<dl>
+					<dd>
+						中介联系人: <input size="15" id="zjlxr" name="zjlxr">
+					</dd>
+				</dl>
+				<dl>
+				<dd>联系方式:</dd>
+				<dd> <input type="text" style="width: 150px" id="sj" name="sj"
+							style="width:150px;" /></dd>
 			</dl>
 			<dl>
 				<dd>逾期日期:</dd>
@@ -192,11 +209,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</dd>
 				</dl>
 
-			<dl>
-				<dd>手机:</dd>
-				<dd> <input type="text" style="width: 150px" id="sj" name="sj"
-							style="width:150px;" /></dd>
-			</dl>
+			
 			<dl>
 				<dd>电子邮箱:</dd>
 				<dd><input size="20" id="dzyx" name="dzyx" /></dd>
@@ -205,6 +218,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd>联系地址:</dd>
 				<dd><input size="20" id="lxdz" name="lxdz" /></dd>
 			</dl>
+			
+			
 		</form>
 	</div>
 </div>

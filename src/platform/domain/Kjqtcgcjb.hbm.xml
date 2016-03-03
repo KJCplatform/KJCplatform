@@ -88,5 +88,11 @@
 		</property>
 		
 		
+			<property name="zjdw" type="string">
+			<column name="zjdw" />
+		</property>
+			<property name="zjlxr" type="string">
+			<column name="zjlxr" />
+		</property>
 </class>
 </hibernate-mapping>

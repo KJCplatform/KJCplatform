@@ -90,7 +90,8 @@ if(pageno==1){
 		kjzzqcgcjb.setJsly(kjzzqcgcjbForm.getJsly());
 		kjzzqcgcjb.setCgjd(kjzzqcgcjbForm.getCgjd());
 		kjzzqcgcjb.setJyfs(kjzzqcgcjbForm.getJyfs());
-		
+		kjzzqcgcjb.setZjdw(kjzzqcgcjbForm.getZjdw());
+		kjzzqcgcjb.setZjlxr(kjzzqcgcjbForm.getZjlxr());
 		//数据校验
 		if(kjzzqcgcjbForm.getSfzj()!=null){
 		if(kjzzqcgcjbForm.getSfzj().equals("是"))
@@ -145,7 +146,8 @@ if(pageno==1){
 		kjzzqcgcjb.setJsly(kjzzqcgcjbForm.getJsly());
 		kjzzqcgcjb.setCgjd(kjzzqcgcjbForm.getCgjd());
 		kjzzqcgcjb.setJyfs(kjzzqcgcjbForm.getJyfs());
-		
+		kjzzqcgcjb.setZjdw(kjzzqcgcjbForm.getZjdw());
+		kjzzqcgcjb.setZjlxr(kjzzqcgcjbForm.getZjlxr());
 		//数据校验
 		if(kjzzqcgcjbForm.getSfzj()!=null){
 		if(kjzzqcgcjbForm.getSfzj().equals("是"))
@@ -235,7 +237,8 @@ if(pageno==1){
 			kjzzqcgcjbForm.setUsername(kjzzqcgcjb.getUsername());
 			kjzzqcgcjbForm.setGxsj(kjzzqcgcjb.getGxsj());
 			kjzzqcgcjbForm.setSubmit(String .valueOf(kjzzqcgcjb.getSubmit()));
-			
+			kjzzqcgcjbForm.setZjdw(kjzzqcgcjb.getZjdw());
+			kjzzqcgcjbForm.setZjlxr(kjzzqcgcjb.getZjlxr());
 			formlist.add(kjzzqcgcjbForm);
 		}
 		return formlist;

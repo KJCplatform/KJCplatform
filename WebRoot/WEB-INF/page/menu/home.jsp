@@ -187,11 +187,39 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 //				"url": "<%=basePath%>/administration/kjrzxqcjb.jsp" }
 			]		
 		},
+		
 		{
 			"menuid": "22",
 			"menuname": "高新技术企业信息",
 			"icon": "icon-nav",
+			"url": "",
+			"child":[
+			{
+			"menuid": "290",
+			"menuname": "高新技术企业基本信息",
+			"icon": "icon-nav",
 			 "url": "<%=basePath%>/administration/kjndgxjsqypjb.jsp"
+		},
+			{
+				"menuid": "291",
+				"menuname": "数据录入-高新技术企业认定备案信息",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/kjgxqybab.jsp"
+			},{
+				"menuid": "292",
+				"menuname": "信息查询-高新技术企业认定备案信息",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/project/kjgxqybab_search.jsp"
+			},	{
+				"menuid": "293",
+				"menuname": "汇总表-高新技术企业认定备案信息",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
+				
+		}
+			
+			
+			]	
 		},
 		{
 			"menuid": "23",
@@ -382,42 +410,8 @@ String rights=(String)request.getSession().getAttribute("globle_rights");
 				
 		}
 				]
-		},
-		{
-			"menuid": "29",
-			"menuname": "高新技术企业认定备案信息",
-			"icon": "icon-nav",
-			"url": "",
-			"child":[{
-				"menuid": "291",
-				"menuname": "数据录入-高新技术企业认定备案信息",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/project/kjgxqybab.jsp"
-			},{
-				"menuid": "292",
-				"menuname": "信息查询-高新技术企业认定备案信息",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/project/kjgxqybab_search.jsp"
-			},	{
-				"menuid": "293",
-				"menuname": "汇总表-高新技术企业认定备案信息",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
-				
 		}
-			
-			
-			]	
-		}
-// 		,
-// 		{
-// 			"menuid": "30",
-// 			"menuname": "年度重大专项技术需求申报项目汇总表",
-// 			"icon": "icon-nav",
-// 			"url": "<%=basePath%>/administration/kjsbxmhzb.jsp"
-			
-// 		}
-		
+
 		
 		
 	]

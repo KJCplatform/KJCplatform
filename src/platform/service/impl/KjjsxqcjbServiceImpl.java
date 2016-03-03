@@ -75,11 +75,15 @@ public class KjjsxqcjbServiceImpl implements KjjsxqcjbService{
 		kjjsxqcjb.setSj(kjjsxqcjbForm.getSj());
 		kjjsxqcjb.setDzyx(kjjsxqcjbForm.getDzyx());
 		kjjsxqcjb.setLxdz(kjjsxqcjbForm.getLxdz());
-		
+		kjjsxqcjb.setZjdw(kjjsxqcjbForm.getZjdw());
+		kjjsxqcjb.setZjlxr(kjjsxqcjbForm.getZjlxr());
 		kjjsxqcjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjjsxqcjb.setUsername(username);
 		kjjsxqcjb.setGxsj(new Date().toString());
 		kjjsxqcjb.setSubmit(0);
+		kjjsxqcjb.setZjdw(kjjsxqcjbForm.getZjdw());
+		kjjsxqcjb.setZjlxr(kjjsxqcjbForm.getZjlxr());
+		
 		kjjsxqcjbDao.update(kjjsxqcjb);
 
 		
@@ -106,10 +110,15 @@ public class KjjsxqcjbServiceImpl implements KjjsxqcjbService{
 		kjjsxqcjb.setDzyx(kjjsxqcjbForm.getDzyx());
 		kjjsxqcjb.setLxdz(kjjsxqcjbForm.getLxdz());
 		
+		kjjsxqcjb.setZjdw(kjjsxqcjbForm.getZjdw());
+		kjjsxqcjb.setZjlxr(kjjsxqcjbForm.getZjlxr());
+		
 		kjjsxqcjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjjsxqcjb.setUsername(username);
 		kjjsxqcjb.setGxsj(new Date().toString());
 		kjjsxqcjb.setSubmit(0);
+		
+		
 		kjjsxqcjbDao.save(kjjsxqcjb);
 
 	}
@@ -141,6 +150,10 @@ public class KjjsxqcjbServiceImpl implements KjjsxqcjbService{
 			kjjsxqcjbForm.setUsername(kjjsxqcjb.getUsername());
 			kjjsxqcjbForm.setGxsj(kjjsxqcjb.getGxsj());
 			kjjsxqcjbForm.setSubmit(String.valueOf(kjjsxqcjb.getSubmit()));
+			
+			kjjsxqcjbForm.setZjdw(kjjsxqcjb.getZjdw());
+			kjjsxqcjbForm.setZjlxr(kjjsxqcjb.getZjlxr());
+			
 			formlist.add(kjjsxqcjbForm);
 
 		}

@@ -525,7 +525,8 @@ function editDoc() {
 	$("#sj").numberbox("setValue", doc.sj);
 	$("#dzyx").val(doc.dzyx);
 	$("#lxdz").val(doc.lxdz);
-	
+	$("#zjdw").val(doc.zjdw);
+	$("#zjlxr").val(doc.zjlxr);
 	// 显示编辑页面
 	showEditForm();
 }

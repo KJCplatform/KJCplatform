@@ -91,6 +91,9 @@
 					<th field="cgjd" >成果阶段</th>
 					<th field="jyfs" >交易方式</th>
 					<th field="sfzj" >是否委托中介</th>
+						<th field="zjdw">中介单位</th>
+<th field="zjlxr">中介联系人</th>
+<th field="sj" >联系方式</th>
 					<th field="gfdj" >供方定价</th>
 					<th field="zhyq" >其他转化要求</th>
 					<th field="sfgk" >以下信息是否公开</th>
@@ -98,12 +101,12 @@
 					<th field="lxrxm" >联系人姓名</th>
 					<th field="gddh" >固定电话</th>
 					<th field="szdq" >所在地区</th>
-					<th field="sj" >手机</th>
+					
 					<th field="dzyx" >电子邮箱</th>
 					<th field="lxdz" >联系地址</th>
 
 	                <th field="jlnf">记录年份</th>
-			
+		
 				</tr>
 			</thead>
 		</table>
@@ -246,7 +249,20 @@
 					</dd>
 				</dl>
 
-
+<dl>
+					<dd>
+						中介单位: <input size="15" id="zjdw" name="zjdw">
+					</dd>
+				</dl>	<dl>
+					<dd>
+						中介联系人: <input size="15" id="zjlxr" name="zjlxr">
+					</dd>
+				</dl>
+				<dl>
+					<dd>
+						联系方式: <input type="text" style="width: 150px" id="sj" name="sj" />
+								</dd>
+						</dl>
 				<dl>
 					<dd>
 						供方定价: <select id="gfdj" name="gfdj">
@@ -314,20 +330,12 @@
 
 
 
-				<dl>
-					<dd>
-						手机: <input type="text" style="width: 150px" id="sj" name="sj" />
-								</dd>
-						</dl>
+				
 						
 						<dl>
-					<dd>
-						电子邮箱: <input class="easyui-validatebox"
-							data-options="
-    
-    validType:['email','length[0,20]']
-"
-							,id="dzyx" ,name="dzyx">
+				<dd>
+						电子邮箱: <input type="text" style="width: 150px" id="dzyx" name="dzyx"
+							style="width:150px;" />
 					</dd>
 				</dl>
 				<dl>
@@ -337,7 +345,7 @@
 				</dl>
 
 
-
+	
 			</form>
 		</div>
 	</div>

@@ -103,8 +103,8 @@
 				<dl>
 					<dd>
 						类别: <select id="type" name="type">
-							<option value="1" selected="selected">进步奖</option>
-							<option value="0">发明奖</option>
+							<option value="进步奖" selected="selected">进步奖</option>
+							<option value="发明奖">发明奖</option>
 						</select>
 					</dd>
 				</dl>
