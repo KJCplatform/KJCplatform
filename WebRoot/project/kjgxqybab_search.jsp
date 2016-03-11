@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 //             {"id":"zgzs", "name": "职工总数", "group": "人力资源情况", "value": "", "editor":{
 //             	"type": 'numberbox', 
 //             } },
-            {"id":"yjrys", "name": "人事研究开发人员数", "value": "", "group": "人力资源情况", "editor":{
+            {"id":"yjrys", "name": "从事研究开发人员数", "value": "", "group": "人力资源情况", "editor":{
             	"type": 'numberbox', 
             } },
             {"id":"dzrs", "name": "大专以上人员数", "group": "人力资源情况", "value": "", "editor": {

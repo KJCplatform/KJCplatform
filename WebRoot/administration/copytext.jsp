@@ -44,14 +44,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div data-options="region:'center',split:false">
 	<!-- 表格主题部分-->
 	<table id="dg">
-	<thead>
+	<!-- <thead>
 		<tr>
 			<th field="copytext" width="130">拷贝的原地址</th>
 			<th field="copytext1" width="130">拷贝的目的地址</th>
 			
 			
 		</tr>
-	</thead>
+	</thead> -->
 	</table>
 </div>
 
@@ -91,7 +91,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd>目的地址:
 				<select id="mudi1" name="mudi1" >
 				<option value=""></option>
-				<option value="C:\\kjcdata">C:\\kjcdata</option>
+				
+			    <option value="C:\\kjcdata">C:\\kjcdata</option>
 				<option value="D:\\kjcdata">D:\\kjcdata</option>
 				<option value="E:\\kjcdata">E:\\kjcdata</option>
 				<option value="F:\\kjcdata">F:\\kjcdata</option>

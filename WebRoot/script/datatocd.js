@@ -99,7 +99,7 @@ function tocd(){
 	$.post(tocd, null, function(result) {
 		if (result.operateSuccess) {
 			$('#dg').datagrid('reload');// 重新加载
-			$.messager.alert('导入光盘', '导入光盘成功', 'info');
+			$.messager.alert('导入光盘', '数据成功导入到D盘kjcdata文件夹中', 'info');
 
 		} else {
 			$.messager.alert('导入光盘', '导入光盘失败', 'warning');

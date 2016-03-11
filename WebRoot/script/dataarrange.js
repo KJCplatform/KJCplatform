@@ -96,11 +96,11 @@ function editDoc() {
 }
 
 function tocd(){
-	var tocd = basePath + '/system/DbbackupAction_tocd.action';
+	var tocd = basePath + '/system/BeifenAction_tocd.action';
 	$.post(tocd, null, function(result) {
 		if (result.operateSuccess) {
 			$('#dg').datagrid('reload');// 重新加载
-			$.messager.alert('备份', '数据备份成功', 'info');
+			$.messager.alert('备份', '数据成功备份到D盘kjcdata文件夹中', 'info');
 
 		} else {
 			$.messager.alert('备份', '数据备份失败', 'warning');
@@ -111,18 +111,18 @@ function sjhy(){
 	/*<form id="questionTypesManage"  method="post" enctype="multipart/form-data"> 
 	请选择还原点　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择还原点'"> 
 	</form>*/
-	var fileName = $('#uploadExcel').filebox('getValue');
+	/*var fileName = $('#uploadExcel').filebox('getValue');
 	if (fileName == "") {
 		$.messager.alert('提示', '请选择还原点！', 'info');
 	} else {
 		//对文件格式进行校验  
 		var d1 = /\.[^\.]+$/.exec(fileName);
 		if (d1 == ".sql") {
-			var params = "id=" + fileName;
+			var params = "id=" + fileName;*/
 			var sjhy = basePath 
-			      +'/system/HuanyuanAction_sjhy.action';
+			      +'/system/SjhyAction_sjhy.action';
 			
-			$.post(sjhy, null, function(result) {
+			$.post(sjhy, "path="+$("#path").val(), function(result) {
 				if (result.operateSuccess) {
 					$('#dg').datagrid('reload');// 重新加载
 					$.messager.alert('还原', '数据还原成功', 'info');
@@ -132,11 +132,8 @@ function sjhy(){
 				}
 			});
 			return false;
-		} else {
+		} /*else {
 			$.messager.alert('提示', '请选择sql格式文件！', 'info');
 			$('#uploadExcel').filebox('setValue', '');
-		}
-	}
+		}*/
 	
-	
-}

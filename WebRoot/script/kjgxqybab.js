@@ -21,7 +21,7 @@ var rows = [
 //            {"id":"zgzs", "name": "职工总数", "group": "人力资源情况", "value": "", "editor":{
 //            	"type": 'numberbox', 
 //            } },
-            {"id":"yjrys", "name": "人事研究开发人员数", "value": "", "group": "人力资源情况", "editor":{
+            {"id":"yjrys", "name": "从事研究开发人员数", "value": "", "group": "人力资源情况", "editor":{
             	"type": 'numberbox', 
             } },
             {"id":"dzrs", "name": "大专以上人员数", "group": "人力资源情况", "value": "", "editor": {
@@ -369,7 +369,7 @@ $(function() {
 								if (result.operateSuccess) {
 								//alert(result);
 									$('#zscq').datagrid('reload');// 重新加载
-									$.messager.alert('提交', '提交成功z', 'info');
+									$.messager.alert('提交', '提交成功', 'info');
 								} else {
 									$.messager.alert('提交', '提交失败', 'warning');
 								}

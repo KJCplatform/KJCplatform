@@ -80,12 +80,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             {"id":"jpjcqk", "name": "现有军品试验检测部门情况", "group": "其他信息", "value": "", "editor": "text" },
             {"id":"jpzzqk", "name": "现有军品制造部门的生产能力和条件情况", "group": "其他信息", "value": "", "editor":"text" },
             {"id":"wcjpqk", "name": "已完成的主要军品科研生产项目情况", "value": "", "group": "其他信息", "editor":"text" },
-            {"id":"xcjpxmqk", "name": "现承担的主要军品科研生产项目的执行情况", "group": "其他信息", "value": "", "editor": "text" }/* ,
+            {"id":"xcjpxmqk", "name": "现承担的主要军品科研生产项目的执行情况", "group": "其他信息", "value": "", "editor": "text" }
+         
+//              ,
             
-            {"id":"jlnf", "name": "记录时间（年份） ", "group": "其他信息", "value": "", "editor": "text" },
-            {"id":"username", "name": "操作员", "group": "其他信息", "value": "", "editor":"text" },
-            {"id":"gxsj", "name": "更新时间", "value": "", "group": "其他信息", "editor":"text" },
-            {"id":"submit", "name": "是否提交", "group": "其他信息", "value": "", "editor": "text" } */
+//             {"id":"jlnf", "name": "记录时间（年份） ", "group": "其他信息", "value": "", "editor": "text" },
+//             {"id":"username", "name": "操作员", "group": "其他信息", "value": "", "editor":"text" },
+//             {"id":"gxsj", "name": "更新时间", "value": "", "group": "其他信息", "editor":"text" },
+//             {"id":"submit", "name": "是否提交", "group": "其他信息", "value": "", "editor": "text" } 
 
         ];
 			
@@ -360,10 +362,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						display[31].value = info.wcjpqk;
 						display[32].value = info.xcjpxmqk;
 					
-						display[33].value = info.jlnf;
-						display[34].value = info.username;
-						display[35].value = info.gxsj;
-						display[36].value = info.submit;
+// 						display[33].value = info.jlnf;
+// 						display[34].value = info.username;
+// 						display[35].value = info.gxsj;
+// 						display[36].value = info.submit;
 						
 						var srqkdata = {};
 						var xkzycpdata = {};

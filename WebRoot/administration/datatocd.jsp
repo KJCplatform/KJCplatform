@@ -44,14 +44,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div data-options="region:'center',split:false">
 	<!-- 表格主题部分-->
 	<table id="dg">
-	<thead>
+	<!-- <thead>
 		<tr>
 			<th field="datatocd" width="130">上传数据到光盘</th>
 			
 			
 			
 		</tr>
-	</thead>
+	</thead> -->
 	</table>
 </div>
 

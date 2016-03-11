@@ -41,19 +41,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 
 
-<div data-options="region:'center',split:false">
-	<!-- 表格主题部分-->
-	<table id="dg">
-	<thead>
+ <div data-options="region:'center',split:false">
+	<!-- 表格主题部分 -->
+	 <table id="dg">
+	<!-- <thead>
 		<tr>
 			<th field="sjbf" width="130">数据备份</th>
 			<th field="sjhy" width="130">数据还原</th>
 			
 			
 		</tr>
-	</thead>
-	</table>
-</div>
+	</thead> -->
+	</table> 
+</div> 
 
 	<!-- 编辑数据的div，默认看不到 -->
 <div id="divEdit" style="display:none;">
@@ -67,18 +67,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			&nbsp &nbsp &nbsp &nbsp
 			    </dd>
 			    <br></br>
-			    <dd>
+			   <!--  <dd>
 				数据还原:
 				
 				<form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
                 <input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:150px" data-options="prompt:'选择还原点'">  
 				<a href="#" class="easyui-linkbutton" id="btnExport"  onclick="sjhy()" >数据还原</a>
 				</form>
-				</dd>
+				</dd> -->
 				
 			</dl>
 			
-			
+			<dl>
+				<dd>&nbsp&nbsp 原地址:
+				<select id="path" name="path" >
+				<option value=""></option>
+				<option value="C:\\kjcdata。sql">C:kjcdata</option>
+				<option value="D:\\kjcdata。sql">D:kjcdata</option>
+				<option value="E:\\kjcdata。sql">E:kjcdata</option>
+				<option value="F:\\kjcdata。sql">F:kjcdata</option>
+				<option value="G:\\kjcdata。sql">G:kjcdata</option>
+				<option value="H:\\kjcdata。sql">H:kjcdata</option>
+				</select>
+				<a href="#" class="easyui-linkbutton" id="btnExport"  onclick="sjhy()" >还原</a>
+				</dd>
+				
+			</dl>
 		</form>
 	</div>
 </div>	

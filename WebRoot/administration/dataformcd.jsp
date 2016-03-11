@@ -44,14 +44,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div data-options="region:'center',split:false">
 	<!-- 表格主题部分-->
 	<table id="dg">
-	<thead>
+	<!-- <thead>
 		<tr>
 			<th field="datafromcd" width="130">从光盘更新数据</th>
 			
 			
 			
 		</tr>
-	</thead>
+	</thead> -->
 	</table>
 </div>
 

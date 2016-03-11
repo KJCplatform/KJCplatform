@@ -1044,18 +1044,46 @@
 		</action>
 		
 		<action name="DbbackupAction_*" class="platform.action.DbbackupAction" method="{1}">
+		<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
 		    <result name="sjbf" type="json">
 		    </result>
 		    <result name="tocd" type="json">
 		    </result>
 		</action>
 		<action name="HuanyuanAction_*" class="platform.action.HuanyuanAction" method="{1}">
+		<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
 		    <result name="sjhy" type="json">
 		    </result>
 		     <result name="fromcd" type="json">
 		    </result>
 		</action>
+		
+		
+		<action name="BeifenAction_*" class="platform.action.BeifenAction" method="{1}">
+		    <result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+		    <result name="tocd" type="json">
+		    </result>
+		</action>
+		
+		
+		<action name="SjhyAction_*" class="platform.action.SjhyAction" method="{1}">
+		<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+		    <result name="sjhy" type="json">
+		    </result>
+		   
+		</action>
 		<action name="CopyTextAction_*" class="platform.action.CopyTextAction" method="{1}">
+		<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
 		    <result name="copytext" type="json">
 		    </result>
 		    <result name="copytext1" type="json">
@@ -1063,6 +1091,7 @@
 		</action>
 		
 		<action name="ProfessorAction_*" class="platform.action.ProfessorAction" method="{1}">
+		
 		   <result name="list" type="json">
 			<param name="root">responseJson</param>
 			</result>

@@ -253,6 +253,21 @@ function deleteDoc() {
 }
 
 
+function getPath(obj) {
+	alert(obj);
+ if (obj) {
+  if (window.navigator.userAgent.indexOf("MSIE") >= 1) {
+   obj.select();
+   return document.selection.createRange().text;
+  } else if (window.navigator.userAgent.indexOf("Firefox") >= 1) {
+   if (obj.files) {
+    return obj.files.item(0).getAsDataURL();
+   }
+   return obj.value;
+  }
+  return obj.value;
+ }
+}
 
 function ShowImport() {
 
@@ -260,11 +275,11 @@ function ShowImport() {
 	//	  file_upl.select();
 	//	  var fileName = document.selection.createRange().text;
 	//	alert(fileName);
-
+	var url = getPath(document.getElementById("uploadExcel"));
 	//得到上传文件的全路径  
 	var fileName = $('#uploadExcel').filebox('getValue');
 	//	
-
+alert(url);
 	// alert(fileName);
 	//进行基本校验  
 	if (fileName == "") {
