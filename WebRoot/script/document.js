@@ -602,6 +602,8 @@ function closeForm() {
 function addDoc() {
 	// 清空原有的数据
 	$('#frmEdit').form('clear');
+		$("#fj1_open").hide();
+		$("#fj2_open").hide();
 	// 显示添加对话框
 	showEditForm();
 }
@@ -635,6 +637,8 @@ function editDoc() {
 	$("#gxsj").val(doc.gxsj);
 	$("#submit").val(doc.submit);*/
 	// 显示编辑页面
+		$("#fj1_open").show();
+		$("#fj2_open").show();
 	showEditForm();
 }
 function dealSave() {
@@ -643,6 +647,14 @@ function dealSave() {
 	var actionAdd = basePath + '/system/XzxzgzbAction_add.action';
 	var actionUpdate = basePath + '/system/XzxzgzbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
+	
+	var fileName = $('#uploadExcel').filebox('getValue');
+		//	
+	//附件1 附件2
+		params+="&fj1="+$('#fj1').filebox('getValue');
+		params+="&fj2="+$('#fj2').filebox('getValue');
+		//alert(params);
+		
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {
@@ -915,3 +927,39 @@ function writeFileToService() {
 		}
 	}
 }
+
+function openfj1(){
+		var doc = $('#dg').datagrid('getSelected');// 得到选中的一行数据
+	params="id="+doc.id;
+		var openfj1 = basePath + '/system/XzxzgzbAction_openfj1.action';
+	
+		$.post(openfj1, params, function(result) {
+			if (result.operateSuccess) {
+				$.messager.alert('打开', '打开成功！', 'info');
+	
+			} else {
+				$.messager.alert('打开', '格式不正确或不存在此文件！', 'warning');
+			}
+		});
+	
+		return false;
+	}
+	
+	
+	function openfj2(){
+		var doc = $('#dg').datagrid('getSelected');// 得到选中的一行数据
+		params="id="+doc.id;
+		var openfj2 = basePath + '/system/XzxzgzbAction_openfj2.action';
+	
+		$.post(openfj2, params, function(result) {
+			if (result.operateSuccess) {
+				$.messager.alert('打开', '打开成功！', 'info');
+	
+			} else {
+				$.messager.alert('打开', '格式不正确或不存在此文件！', 'warning');
+			}
+		});
+	
+		return false;
+	}
+

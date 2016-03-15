@@ -27,29 +27,29 @@ public class DBbackup {
 		hs.add("t2");
 		hs.add("t3");
 		hs.add("t4");
-		hs.add("kj_kjxmxxb_cjdw");
-		hs.add("kj_kjxmxxb_cjdw2");
+	//	hs.add("kj_kjxmxxb_cjdw");
+	//	hs.add("kj_kjxmxxb_cjdw2");
 		hs.add("jp_dw_ry");
 		hs.add("jp_dw_srqk");
-		hs.add("jp_jgdwjbqk_ry");
-		hs.add("jp_jgdwjbqk_srqk");
-		hs.add("kj_gxqybab_gxcp");
-		hs.add("kj_gxqybab_yfxm");
-		hs.add("kj_gxqybab_zscq");
-		hs.add("kj_jszjcjb_cg");
-		hs.add("kj_jszjcjb_xm");
-		hs.add("kj_jszjcjb_zy");
-		hs.add("kj_kjxmxxb_cjdw");
+	//	hs.add("jp_jgdwjbqk_ry");
+	//	hs.add("jp_jgdwjbqk_srqk");
+	//	hs.add("kj_gxqybab_gxcp");
+	//	hs.add("kj_gxqybab_yfxm");
+	//	hs.add("kj_gxqybab_zscq");
+	//	hs.add("kj_jszjcjb_cg");
+	//	hs.add("kj_jszjcjb_xm");
+	//	hs.add("kj_jszjcjb_zy");
+	//	hs.add("kj_kjxmxxb_cjdw");
 		hs.add("kj_qy_gxcp");
 		hs.add("kj_qy_yfxm");
 		hs.add("kj_qy_zscq");
-		hs.add("kj_rzxqcjb");
+	//	hs.add("kj_rzxqcjb");
 		hs.add("kj_xm_cjdw");
 		hs.add("kj_xm_cjdw2");
 		hs.add("kj_zj_cg");
 		hs.add("kj_zj_xm");
 		hs.add("kj_zj_zy");
-		hs.add("kpc_text");
+	//	hs.add("kpc_text");
 		hs.add("right");
 		hs.add("rights");
 		hs.add("user");
@@ -57,22 +57,22 @@ public class DBbackup {
 		hs.add("testdata");
 		//hs.add("kj_zlcjb");
 		//hs.add("kj_zzqcgcjb");//这张表出了问题
-		hs.add("wq_wqxkzxq");//多表表为甚么备份出了问题
-		hs.add("wq_wqxkzxq_srqk");
-		hs.add("wq_wqxkzxq_xkzycp");
-		hs.add("wq_wqxkzxq1");
-		hs.add("wq_wqxkzxq2");
-		hs.add("wq_wqxkzxq3");
-		hs.add("wq_wqxkzxq4");
-		hs.add("wq_wqxkzxqyx");
-		hs.add("wq_wqxkzxqyx_srqk");
-		hs.add("wq_wqxkzxqyx_xkzycp");
+	//	hs.add("wq_wqxkzxq");//多表表为甚么备份出了问题
+	//	hs.add("wq_wqxkzxq_srqk");
+	//	hs.add("wq_wqxkzxq_xkzycp");
+	//	hs.add("wq_wqxkzxq1");
+	//	hs.add("wq_wqxkzxq2");
+	//	hs.add("wq_wqxkzxq3");
+	//	hs.add("wq_wqxkzxq4");
+	//	hs.add("wq_wqxkzxqyx");
+	//	hs.add("wq_wqxkzxqyx_srqk");
+	//	hs.add("wq_wqxkzxqyx_xkzycp");
 		hs.add("wq_xkzyx_srqk");
 		hs.add("wq_xkzyx_xkzycp");
-		hs.add("kj_nzwcjb");						
+	//	hs.add("kj_nzwcjb");						
 		hs.add("wq_xkz_srqk");
 		hs.add("wq_xkz_xkzycp");
-		hs.add("zjtxl");
+	//	hs.add("zjtxl");
 		try {
 			String url = "jdbc:mysql://localhost/kjcplatform";
 			String user = "root";
@@ -124,12 +124,12 @@ public class DBbackup {
 						+ " where submit=0";
 
 
-				//System.out.println(command);
+			//	System.out.println(command);
 				stmt.executeQuery(command);
 				
 				
 				String command1	="UPDATE "+tabs.get(i)+ " SET submit=1";
-				//System.out.println(command1);
+			//	System.out.println(command1);
 				stmt.executeUpdate(command1);
 				
 //				String command1="update"+"set submit='1'+"where submit='0'";"
