@@ -106,7 +106,7 @@
 					<th field="dwmc">单位名称</th>
 					<th field="hgl">军品一次交验（检）合格率</th>
 					<th field="cgl">重大试验成功率</th>
-					<th field="ssl">军品质量损失率</th>
+					<th field="ssl2">军品质量损失率</th>
 					<th field="zlhdqk">单位重大质量活动情况</th>
 		            <th field="tbr">填表人</th>
 					<th field="zlbfzr">质量部门负责人</th>
@@ -161,7 +161,7 @@
 				</dl>
 				<dl>
 					<dd>
-						军品质量损失率: <input size="15" id="ssl" name="ssl" />
+						军品质量损失率: <input size="15" id="ssl2" name="ssl2" />
 					</dd>
 				</dl>
 								<dl>

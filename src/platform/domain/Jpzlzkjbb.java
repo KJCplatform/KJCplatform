@@ -10,13 +10,16 @@ public class Jpzlzkjbb implements java.io.Serializable{
 	  private String dwmc;
 	  private String hgl;
 	  private String cgl;
-	  private String ssl;
+	  private String ssl2;
 	  private String zlhdqk;
 	  private String tbr;
 	  private String zlbfzr;
-	  private String s2hr;
-	  private String jlnf;
+	  private String shr;
 	  private Date bcrq;
+	  private String jlnf;
+	  private String username;
+	  private String gxsj;
+	  private int submit;
 	public int getId() {
 		return id;
 	}
@@ -47,11 +50,11 @@ public class Jpzlzkjbb implements java.io.Serializable{
 	public void setCgl(String cgl) {
 		this.cgl = cgl;
 	}
-	public String getSsl() {
-		return ssl;
+	public String getSsl2() {
+		return ssl2;
 	}
-	public void setSsl(String ssl) {
-		this.ssl = ssl;
+	public void setSsl2(String ssl2) {
+		this.ssl2 = ssl2;
 	}
 	public String getZlhdqk() {
 		return zlhdqk;
@@ -71,11 +74,11 @@ public class Jpzlzkjbb implements java.io.Serializable{
 	public void setZlbfzr(String zlbfzr) {
 		this.zlbfzr = zlbfzr;
 	}
-	public String gets2hr() {
-		return s2hr;
+	public String getShr() {
+		return shr;
 	}
-	public void sets2hr(String s2hr) {
-		this.s2hr = s2hr;
+	public void setShr(String shr) {
+		this.shr = shr;
 	}
 	public Date getBcrq() {
 		return bcrq;
@@ -89,6 +92,26 @@ public class Jpzlzkjbb implements java.io.Serializable{
 	public void setJlnf(String jlnf) {
 		this.jlnf = jlnf;
 	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getGxsj() {
+		return gxsj;
+	}
+	public void setGxsj(String gxsj) {
+		this.gxsj = gxsj;
+	}
+	public int getSubmit() {
+		return submit;
+	}
+	public void setSubmit(int submit) {
+		this.submit = submit;
+	}
+	 
+	 
 	  
 	 
 	  

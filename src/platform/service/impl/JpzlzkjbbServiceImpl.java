@@ -86,11 +86,11 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			jpzlzkjbb.setDwmc(jpzlzkjbbForm.getDwmc());
 			jpzlzkjbb.setHgl(jpzlzkjbbForm.getHgl());
 			jpzlzkjbb.setCgl(jpzlzkjbbForm.getCgl());
-			jpzlzkjbb.setSsl(jpzlzkjbbForm.getSsl());
+			jpzlzkjbb.setSsl2(jpzlzkjbbForm.getSsl2());
 			jpzlzkjbb.setZlhdqk(jpzlzkjbbForm.getZlhdqk());
 			jpzlzkjbb.setTbr(jpzlzkjbbForm.getTbr());
 			jpzlzkjbb.setZlbfzr(jpzlzkjbbForm.getZlbfzr());
-			jpzlzkjbb.sets2hr(jpzlzkjbbForm.getS2hr());
+			jpzlzkjbb.setShr(jpzlzkjbbForm.getShr());
 			jpzlzkjbb.setJlnf(jpzlzkjbbForm.getJlnf());
 			if(jpzlzkjbbForm.getBcrq()!=null&&!jpzlzkjbbForm.getBcrq().equals(""))
 			jpzlzkjbb.setBcrq(StringHelper.stringConvertDate2(jpzlzkjbbForm.getBcrq()));
@@ -185,11 +185,11 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		jpzlzkjbb.setDwmc(jpzlzkjbbForm.getDwmc());
 		jpzlzkjbb.setHgl(jpzlzkjbbForm.getHgl());
 		jpzlzkjbb.setCgl(jpzlzkjbbForm.getCgl());
-		jpzlzkjbb.setSsl(jpzlzkjbbForm.getSsl());
+		jpzlzkjbb.setSsl2(jpzlzkjbbForm.getSsl2());
 		jpzlzkjbb.setZlhdqk(jpzlzkjbbForm.getZlhdqk());
 		jpzlzkjbb.setTbr(jpzlzkjbbForm.getTbr());
 		jpzlzkjbb.setZlbfzr(jpzlzkjbbForm.getZlbfzr());
-		jpzlzkjbb.sets2hr(jpzlzkjbbForm.getS2hr());
+		jpzlzkjbb.setShr(jpzlzkjbbForm.getShr());
 		jpzlzkjbb.setJlnf(jpzlzkjbbForm.getJlnf());
 		//jpzlzkjbb.sets2hr("123");
 		if(jpzlzkjbbForm.getBcrq()!=null&&!jpzlzkjbbForm.getBcrq().equals(""))
@@ -245,11 +245,11 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			jpzlzkjbbForm.setDwmc(jpzlzkjbb.getDwmc());
 			jpzlzkjbbForm.setHgl(jpzlzkjbb.getHgl());
 			jpzlzkjbbForm.setCgl(jpzlzkjbb.getCgl());
-			jpzlzkjbbForm.setSsl(jpzlzkjbb.getSsl());
+			jpzlzkjbbForm.setSsl2(jpzlzkjbb.getSsl2());
 			jpzlzkjbbForm.setZlhdqk(jpzlzkjbb.getZlhdqk());
 			jpzlzkjbbForm.setTbr(jpzlzkjbb.getTbr());
 			jpzlzkjbbForm.setZlbfzr(jpzlzkjbb.getZlbfzr());
-			jpzlzkjbbForm.setS2hr(jpzlzkjbb.gets2hr());
+			jpzlzkjbbForm.setShr(jpzlzkjbb.getShr());
 			//jpzlzkjbbForm.sets2hr("123");
 			jpzlzkjbbForm.setBcrq(String.valueOf(jpzlzkjbb.getBcrq()));
 			jpzlzkjbbForm.setJlnf(jpzlzkjbb.getJlnf());
@@ -270,11 +270,11 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			jpzlzkjbb.setDwmc(sheet.getCell(1, i).getContents());
 			jpzlzkjbb.setHgl(sheet.getCell(2, i).getContents());
 			jpzlzkjbb.setCgl(sheet.getCell(3, i).getContents());
-			jpzlzkjbb.setSsl(sheet.getCell(4, i).getContents());
+			jpzlzkjbb.setSsl2(sheet.getCell(4, i).getContents());
 			jpzlzkjbb.setZlhdqk(sheet.getCell(5, i).getContents());
 			jpzlzkjbb.setTbr(sheet.getCell(6, i).getContents());
 			jpzlzkjbb.setZlbfzr(sheet.getCell(7, i).getContents());
-			jpzlzkjbb.sets2hr(sheet.getCell(8, i).getContents());
+			jpzlzkjbb.setShr(sheet.getCell(8, i).getContents());
 			jpzlzkjbb.setBcrq(StringHelper.stringConvertDate(sheet.getCell(9, i).getContents()));
 			jpzlzkjbb.setJlnf(sheet.getCell(10, i).getContents());
 
@@ -328,7 +328,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 				break;
 			case "5":
 			    for(int j= 0;j< len;j++){
-			    	li.add(formListTemp.get(j).getSsl());
+			    	li.add(formListTemp.get(j).getSsl2());
 			    }
 			    lhm.put("军品质量损失率", new ArrayList<String>(li));
 			    li.clear();
@@ -356,7 +356,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 				break;
 			case "9":
 			    for(int j= 0;j< len;j++){
-			    	li.add(formListTemp.get(j).getS2hr());
+			    	li.add(formListTemp.get(j).getShr());
 			    }
 			    lhm.put("审核人", new ArrayList<String>(li));
 			    li.clear();

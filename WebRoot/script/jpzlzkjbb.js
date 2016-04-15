@@ -153,7 +153,7 @@ function editDoc() {
 	$("#dwmc").val(doc.dwmc);
 	$("#hgl").val(doc.hgl);
 	$("#cgl").val(doc.cgl);
-	$("#ssl").val(doc.ssl);
+	$("#ssl2").val(doc.ssl2);
 	$("#zlhdqk").val(doc.zlhdqk);
 	$("#tbr").val(doc.tbr);
 	$("#zlbfzr").val(doc.zlbfzr);
@@ -179,6 +179,7 @@ function dealSave() {
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {
+				
 					$('#dg').datagrid('reload');// 重新加载
 					$.messager.alert('添加', '添加成功', 'info');
 			} else {

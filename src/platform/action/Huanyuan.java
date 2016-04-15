@@ -126,6 +126,7 @@ public class Huanyuan {
 			conn.close();
 		} catch (Exception ex) {
 			System.out.println("Error : " + ex.toString());
+			
 		}
 	}
 
