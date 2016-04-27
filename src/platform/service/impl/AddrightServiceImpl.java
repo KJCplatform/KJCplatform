@@ -1,7 +1,6 @@
 package platform.service.impl;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 
@@ -14,26 +13,27 @@ import platform.dao.AddrightDao;
 import platform.domain.Addright;
 import platform.form.AddrightForm;
 import platform.service.AddrightService;
-import platform.util.StringHelper;
 
 @SuppressWarnings("unused")
 @Service(AddrightService.SERVICE_NAME)
 public class AddrightServiceImpl implements AddrightService{
-	
+
 	@Resource(name=AddrightDao.SERVICE_NAME)
 	private AddrightDao addrightDao;
-	
-	public List<AddrightForm> findAddrightList(){
+
+	@Override
+    public List<AddrightForm> findAddrightList(){
 		String hqlWhere = "";
 		Object [] params = null;
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 		orderby.put(" o.userid", "asc");
-		List<Addright> list=addrightDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
+		List<Addright> list=this.addrightDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<AddrightForm> formlist=this.AddrightPOListToVOList(list);
 		return formlist;
-		
+
 	}
-	public List<AddrightForm> findAddrightListWithPage(int pagesize,int pageno,AddrightForm addrightForm){
+	@Override
+    public List<AddrightForm> findAddrightListWithPage(int pagesize,int pageno,AddrightForm addrightForm){
 		String hqlWhere = "";
 		Object [] params = null;
 		List<String> paramsList=new ArrayList<String>();
@@ -42,36 +42,38 @@ public class AddrightServiceImpl implements AddrightService{
 			hqlWhere += " and o.userid like ?";
 			paramsList.add("%"+addrightForm.getUserid()+"%");
 		}
-		
+
 		orderby.put(" o.userid", "asc");
 		params = paramsList.toArray();
-		List<Addright> list=addrightDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
+		List<Addright> list=this.addrightDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
 		List<AddrightForm> formlist=this.AddrightPOListToVOList(list);
 		return formlist;
-		
+
 	}
-	
-	public void updateAddright(AddrightForm addrightForm){
+
+	@Override
+    public void updateAddright(AddrightForm addrightForm){
 		Addright addright=new Addright();
 		System.out.println(addrightForm.getId());
 		addright.setId(Integer.valueOf(addrightForm.getId()));
 		addright.setUserid(Integer.valueOf(addrightForm.getUserid()));
 		addright.setRightid(Integer.valueOf(addrightForm.getRightid()));
-		
-		addrightDao.update(addright);
-		
+
+		this.addrightDao.update(addright);
+
 	}
-	public void deleteObject(String id){
-		addrightDao.deleteObjectByIDs(Integer.valueOf(id));
+	@Override
+    public void deleteObject(String id){
+		this.addrightDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
 //	public void saveObject(AddrightForm addrightForm){
 //		Addright addright=new Addright();
 //		addright.setUserid(addrightForm.getUserid());
 //		addright.setRightid(addrightForm.getRightid());
-//		
+//
 //		addrightDao.save(addright);
 //	}
-	
+
 	private List<AddrightForm> AddrightPOListToVOList(List<Addright> list) {
 		// TODO Auto-generated method stub
 		List<AddrightForm> formlist=new ArrayList<AddrightForm>();
@@ -81,23 +83,25 @@ public class AddrightServiceImpl implements AddrightService{
 			addrightForm.setId(String.valueOf(addright.getId()));
 			addrightForm.setUserid(String.valueOf(addright.getUserid()));
 			addrightForm.setRightid(String.valueOf(addright.getRightid()));
-			
+
 			formlist.add(addrightForm);
 		}
 		return formlist;
 	}
 
+@Override
 public void saveObject(String userid, String rightid) {
-	String[] ss = rightid.split(" ");  
-	Addright addright=new Addright();
+	String[] ss = rightid.split(" ");
+
 	for(int i=0;i<ss.length;i++)
-	{
+	{   Addright addright=new Addright();
+	    System.out.println("ss:"+ss[i]);
 		addright.setUserid(Integer.valueOf(userid));
 		addright.setRightid(Integer.valueOf(ss[i]));
-		addrightDao.save(addright);
+		this.addrightDao.save(addright);
 	}
-	
+
 }
 
-	
+
 }

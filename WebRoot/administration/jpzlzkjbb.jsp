@@ -110,7 +110,7 @@
 					<th field="zlhdqk">单位重大质量活动情况</th>
 		            <th field="tbr">填表人</th>
 					<th field="zlbfzr">质量部门负责人</th>
-			    	<th field="shr">审核人</th>
+			    	<th field="shr2">审核人</th>
 					<th field="bcrq">报出日期</th>					
 				
 
@@ -181,7 +181,7 @@
 				</dl>
 												<dl>
 					<dd>
-						审核人: <input size="15" id="shr" name="shr" />
+						审核人: <input size="15" id="shr2" name="shr2" />
 					</dd>
 				</dl>
 												<dl>

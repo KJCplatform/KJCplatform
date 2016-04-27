@@ -23,30 +23,30 @@ import org.springframework.stereotype.Service;
 
 import platform.dao.KjzzqcgcjbDao;
 import platform.domain.Kjzzqcgcjb;
-import platform.domain.Kjzzqcgcjb;
-import platform.form.KjzzqcgcjbForm;
 import platform.form.KjzzqcgcjbForm;
 import platform.service.KjzzqcgcjbService;
 import platform.util.StringHelper;
 
 @Service(KjzzqcgcjbService.SERVICE_NAME)
 public class KjzzqcgcjbServiceImpl implements KjzzqcgcjbService{
-	
+
 	@Resource(name=KjzzqcgcjbDao.SERVICE_NAME)
 	private KjzzqcgcjbDao kjzzqcgcjbDao;
 	private List<KjzzqcgcjbForm>  listtemp=new ArrayList<KjzzqcgcjbForm> ();
-	
-	public List<KjzzqcgcjbForm> findKjzzqcgcjbList(){
+
+	@Override
+    public List<KjzzqcgcjbForm> findKjzzqcgcjbList(){
 		String hqlWhere = "";
 		Object [] params = null;
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 		orderby.put(" o.zywcr", "desc");
-		List<Kjzzqcgcjb> list=kjzzqcgcjbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
+		List<Kjzzqcgcjb> list=this.kjzzqcgcjbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<KjzzqcgcjbForm> formlist=this.KjzzqcgcjbPOListToVOList(list);
 		return formlist;
-		
+
 	}
-	public List<KjzzqcgcjbForm> findKjzzqcgcjbListWithPage(int pagesize,int pageno,KjzzqcgcjbForm kjzzqcgcjbForm){
+	@Override
+    public List<KjzzqcgcjbForm> findKjzzqcgcjbListWithPage(int pagesize,int pageno,KjzzqcgcjbForm kjzzqcgcjbForm){
 		String hqlWhere = "";
 		Object [] params = null;
 		List<String> paramsList=new ArrayList<String>();
@@ -61,25 +61,26 @@ public class KjzzqcgcjbServiceImpl implements KjzzqcgcjbService{
 		}
 		orderby.put(" o.zywcr", "desc");
 		params = paramsList.toArray();
-		List<Kjzzqcgcjb> list=kjzzqcgcjbDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
+		List<Kjzzqcgcjb> list=this.kjzzqcgcjbDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
 		List<KjzzqcgcjbForm> formlist=this.KjzzqcgcjbPOListToVOList(list);
-		
+
 if(pageno==1){
-			
-			listtemp = 
-					KjzzqcgcjbPOListToVOList(kjzzqcgcjbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby));
+
+			this.listtemp =
+					this.KjzzqcgcjbPOListToVOList(this.kjzzqcgcjbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby));
 			}
-			
-		
+
+
 		return formlist;
-		
+
 	}
-	
-	public void updateKjzzqcgcjb(KjzzqcgcjbForm kjzzqcgcjbForm,String username){
+
+	@Override
+    public void updateKjzzqcgcjb(KjzzqcgcjbForm kjzzqcgcjbForm,String username){
 		Kjzzqcgcjb kjzzqcgcjb=new Kjzzqcgcjb();
-		
+
 		kjzzqcgcjb.setId(Integer.valueOf(kjzzqcgcjbForm.getId()));
-		
+
 		kjzzqcgcjb.setCgmc(kjzzqcgcjbForm.getCgmc());
 		kjzzqcgcjb.setWcdw(kjzzqcgcjbForm.getWcdw());
 		kjzzqcgcjb.setZywcr(kjzzqcgcjbForm.getZywcr());
@@ -101,8 +102,8 @@ if(pageno==1){
 		}
 		kjzzqcgcjb.setGfdj(kjzzqcgcjbForm.getGfdj());
 		kjzzqcgcjb.setZhyq(kjzzqcgcjbForm.getZhyq());
-		
-		
+
+
 		//数据校验
 		if(kjzzqcgcjbForm.getSfgk()!=null)
 		{
@@ -111,8 +112,8 @@ if(pageno==1){
 			else if(kjzzqcgcjbForm.getSfgk().equals("否"))
 				kjzzqcgcjb.setSfgk(0);
 		}
-		
-		
+
+
 		if(kjzzqcgcjbForm.getFbrxz()!=null&&!kjzzqcgcjbForm.getFbrxz().equals(""))
 		kjzzqcgcjb.setFbrxz(Integer.valueOf(kjzzqcgcjbForm.getFbrxz()));
 		kjzzqcgcjb.setLxrxm(kjzzqcgcjbForm.getLxrxm());
@@ -121,20 +122,22 @@ if(pageno==1){
 		kjzzqcgcjb.setSj(kjzzqcgcjbForm.getSj());
 		kjzzqcgcjb.setDzyx(kjzzqcgcjbForm.getDzyx());
 		kjzzqcgcjb.setLxdz(kjzzqcgcjbForm.getLxdz());
-		
+
 		kjzzqcgcjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjzzqcgcjb.setUsername(username);
 		kjzzqcgcjb.setGxsj(new Date().toString());
 		kjzzqcgcjb.setSubmit(0);
-		
-		
-		kjzzqcgcjbDao.update(kjzzqcgcjb);
-		
+
+
+		this.kjzzqcgcjbDao.update(kjzzqcgcjb);
+
 	}
-	public void deleteObject(String id){
-		kjzzqcgcjbDao.deleteObjectByIDs(Integer.valueOf(id));
+	@Override
+    public void deleteObject(String id){
+		this.kjzzqcgcjbDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(KjzzqcgcjbForm kjzzqcgcjbForm,String username){
+	@Override
+    public void saveObject(KjzzqcgcjbForm kjzzqcgcjbForm,String username){
 		Kjzzqcgcjb kjzzqcgcjb=new Kjzzqcgcjb();
 		kjzzqcgcjb.setCgmc(kjzzqcgcjbForm.getCgmc());
 		kjzzqcgcjb.setWcdw(kjzzqcgcjbForm.getWcdw());
@@ -157,8 +160,8 @@ if(pageno==1){
 		}
 		kjzzqcgcjb.setGfdj(kjzzqcgcjbForm.getGfdj());
 		kjzzqcgcjb.setZhyq(kjzzqcgcjbForm.getZhyq());
-		
-		
+
+
 		//数据校验
 		if(kjzzqcgcjbForm.getSfgk()!=null)
 		{
@@ -175,13 +178,13 @@ if(pageno==1){
 		kjzzqcgcjb.setSj(kjzzqcgcjbForm.getSj());
 		kjzzqcgcjb.setDzyx(kjzzqcgcjbForm.getDzyx());
 		kjzzqcgcjb.setLxdz(kjzzqcgcjbForm.getLxdz());
-		
+
 		kjzzqcgcjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjzzqcgcjb.setUsername(username);
 		kjzzqcgcjb.setGxsj(new Date().toString());
 		kjzzqcgcjb.setSubmit(0);
-		
-		kjzzqcgcjbDao.save(kjzzqcgcjb);
+
+		this.kjzzqcgcjbDao.save(kjzzqcgcjb);
 	}
 	private List<KjzzqcgcjbForm> KjzzqcgcjbPOListToVOList(List<Kjzzqcgcjb> list) {
 		// TODO Auto-generated method stub
@@ -189,12 +192,12 @@ if(pageno==1){
 		for(int i=0;i<list.size();i++){
 			Kjzzqcgcjb kjzzqcgcjb=list.get(i);
 			KjzzqcgcjbForm kjzzqcgcjbForm=new KjzzqcgcjbForm();
-			
+
 			kjzzqcgcjbForm.setId(String.valueOf(kjzzqcgcjb.getId()));
 			kjzzqcgcjbForm.setCgmc(kjzzqcgcjb.getCgmc());
 			kjzzqcgcjbForm.setWcdw(kjzzqcgcjb.getWcdw());
 			kjzzqcgcjbForm.setZywcr(kjzzqcgcjb.getZywcr());
-			
+
 			if(kjzzqcgcjb.getWcsj()!=null)
 			kjzzqcgcjbForm.setWcsj(String.valueOf(kjzzqcgcjb.getWcsj()));
 			kjzzqcgcjbForm.setRzbh(kjzzqcgcjb.getRzbh());
@@ -212,7 +215,7 @@ if(pageno==1){
 			else if(kjzzqcgcjb.getSfzj()==0){
 				kjzzqcgcjbForm.setSfzj("否");
 			}
-			
+
 			kjzzqcgcjbForm.setGfdj(kjzzqcgcjb.getGfdj());
 			kjzzqcgcjbForm.setZhyq(kjzzqcgcjb.getZhyq());
 
@@ -223,8 +226,8 @@ if(pageno==1){
 			else if(kjzzqcgcjb.getSfgk()==0){
 				kjzzqcgcjbForm.setSfgk("否");
 			}
-			
-			
+
+
 			kjzzqcgcjbForm.setFbrxz(String.valueOf(kjzzqcgcjb.getFbrxz()));
 			kjzzqcgcjbForm.setLxrxm(kjzzqcgcjb.getLxrxm());
 			kjzzqcgcjbForm.setGddh(kjzzqcgcjb.getGddh());
@@ -232,7 +235,7 @@ if(pageno==1){
 			kjzzqcgcjbForm.setSj(kjzzqcgcjb.getSj());
 			kjzzqcgcjbForm.setDzyx(kjzzqcgcjb.getDzyx());
 			kjzzqcgcjbForm.setLxdz(kjzzqcgcjb.getLxdz());
-			
+
 			kjzzqcgcjbForm.setJlnf(kjzzqcgcjb.getJlnf());
 			kjzzqcgcjbForm.setUsername(kjzzqcgcjb.getUsername());
 			kjzzqcgcjbForm.setGxsj(kjzzqcgcjb.getGxsj());
@@ -244,34 +247,34 @@ if(pageno==1){
 		return formlist;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	@Override
 	public void showimportObject(String showimport,String username)  throws Exception {
-		
+
 		String b = showimport.replace("\\", "\\\\");
-		String c = b.replace("C:\\\\fakepath", "D:");
+		String c = b.replace("C:\\\\fakepath", "D:\\kjcdata");
 
 		Workbook book = Workbook.getWorkbook(new File(c));
 		// Workbook book = Workbook.getWorkbook( new File(b));
@@ -284,38 +287,38 @@ if(pageno==1){
 
 
 		Kjzzqcgcjb kjzzqcgcjb=new Kjzzqcgcjb();
-		
+
 		Cell cell= sheet.getCell(1,1);
 		kjzzqcgcjb.setCgmc(cell.getContents());
-		
+
 		cell= sheet.getCell(1,2);
 		kjzzqcgcjb.setWcdw(cell.getContents());
-		
+
 		cell= sheet.getCell(1,3);
 		kjzzqcgcjb.setZywcr(cell.getContents());
-		
+
 		cell= sheet.getCell(1,4);
 		kjzzqcgcjb.setWcsj(StringHelper.stringConvertDate2(cell.getContents()));
-		
+
 		cell= sheet.getCell(1,5);
 		kjzzqcgcjb.setRzbh(cell.getContents());
-		
+
 		cell= sheet.getCell(1,6);
 		kjzzqcgcjb.setCgjj(cell.getContents());
-		
+
 		cell= sheet.getCell(1,7);
 		kjzzqcgcjb.setYyhy(cell.getContents());
-		
+
 		cell= sheet.getCell(1,8);
 		kjzzqcgcjb.setJsly(cell.getContents());
-		
+
 		cell= sheet.getCell(1,9);
 		kjzzqcgcjb.setCgjd(cell.getContents());
-		
+
 		cell= sheet.getCell(1,11);
 		kjzzqcgcjb.setJyfs(cell.getContents());
-		
-		
+
+
 		cell= sheet.getCell(1,13);
 		if(!cell.getContents().equals("")){
 		if(cell.equals("是"))
@@ -323,13 +326,13 @@ if(pageno==1){
 		else if(cell.equals("否"))
 			kjzzqcgcjb.setSfzj(0);
 		}
-		
+
 		cell= sheet.getCell(1,15);
 		kjzzqcgcjb.setGfdj(cell.getContents());
-		
+
 		cell= sheet.getCell(1,18);
 		kjzzqcgcjb.setZhyq(cell.getContents());
-		
+
 		cell= sheet.getCell(1,18);
 		if(!cell.getContents().equals(""))
 		{
@@ -338,10 +341,10 @@ if(pageno==1){
 			else if(cell.equals("否"))
 				kjzzqcgcjb.setSfgk(0);
 		}
-		
+
 		////
 		cell= sheet.getCell(1,20);
-		
+
 		if(cell.getContents()!=null&&!cell.getContents().equals(""))
 		{
 			if(cell.getContents().equals("机构"))
@@ -349,57 +352,58 @@ if(pageno==1){
 			else if(cell.getContents().equals("个人"))
 				kjzzqcgcjb.setFbrxz(1);
 		}
-		
-		
+
+
 		cell= sheet.getCell(1,21);
 		kjzzqcgcjb.setLxrxm(cell.getContents());
-		
-	
+
+
 		cell= sheet.getCell(3,21);
-		
+
 		if(!cell.getContents().equals(""))
 		kjzzqcgcjb.setGddh(String.valueOf(cell.getContents()));
-		
+
 		cell= sheet.getCell(1,22);
 		kjzzqcgcjb.setSzdq(cell.getContents());
-		
+
 		cell= sheet.getCell(1,23);
 		if(!cell.getContents().equals(""))
 		kjzzqcgcjb.setSj(String.valueOf(cell.getContents()));
 		System.out.println(cell.getContents());
-		
+
 		cell= sheet.getCell(3,23);
 		kjzzqcgcjb.setDzyx(cell.getContents());
-		
+
 		cell= sheet.getCell(1,24);
 		kjzzqcgcjb.setLxdz(cell.getContents());
-		
+
 		kjzzqcgcjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjzzqcgcjb.setUsername(username);
 		kjzzqcgcjb.setGxsj(new Date().toString());
 		kjzzqcgcjb.setSubmit(0);
-		
-		kjzzqcgcjbDao.save(kjzzqcgcjb);
-			
+
+		this.kjzzqcgcjbDao.save(kjzzqcgcjb);
+
 
 		book.close();
 		// } catch (Exception e) {
 		// System.out.println(e);
 		// }
-		
-		
-	}
-	
-	public void showexportObject(String str) throws Exception {
 
-		File file =new File("D:\\kjcoutput");    
-		//如果文件夹不存在则创建    
-		if  (!file .exists()  && !file .isDirectory())      
-		{       
-		    System.out.println("//不存在");  
-		    file .mkdir();    
-		} 
-		String[] ss = str.split(" ");  
+
+	}
+
+	@Override
+    public void showexportObject(String str) throws Exception {
+
+		File file =new File("D:\\kjcoutput");
+		//如果文件夹不存在则创建
+		if  (!file .exists()  && !file .isDirectory())
+		{
+		    System.out.println("//不存在");
+		    file .mkdir();
+		}
+		String[] ss = str.split(" ");
 
 		String hqlWhere = "";
 		Object[] params = null;
@@ -409,8 +413,8 @@ if(pageno==1){
 //				.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 	//	List<KjsjjljgxxbForm> formlist = this.KjsjjljgxxbPOListToVOList(list);
 
-		List<KjzzqcgcjbForm> formlist =listtemp;
-		
+		List<KjzzqcgcjbForm> formlist =this.listtemp;
+
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		// System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
 		String time = df.format(new Date());
@@ -424,12 +428,12 @@ if(pageno==1){
 		// 以及单元格内容为test
 
 		  WritableCellFormat cellFormat=new WritableCellFormat();
-			cellFormat.setBorder(jxl.format.Border.ALL,jxl.format.BorderLineStyle.THIN); 
+			cellFormat.setBorder(jxl.format.Border.ALL,jxl.format.BorderLineStyle.THIN);
 			cellFormat.setAlignment(jxl.format.Alignment.CENTRE);
-			
-		
+
+
 			int lie=0;
-			
+
 		for(int i=0;i<ss.length;i++)
 		{
 			sheet.setColumnView( i , 20 );
@@ -470,7 +474,7 @@ if(pageno==1){
 			    }
 			    lie++;
 			    break;
-			    
+
 				case "5":
 					Label lab8 = new Label(lie, 0, "软著编号",cellFormat);
 				    sheet.addCell(lab8);
@@ -480,7 +484,7 @@ if(pageno==1){
 				    }
 				    lie++;
 				    break;
-	
+
 				case "6":
 					Label lab10 = new Label(lie, 0, "成果简介",cellFormat);
 				    sheet.addCell(lab10);
@@ -526,7 +530,7 @@ if(pageno==1){
 				    }
 				    lie++;
 				    break;
-				    
+
 					case "11":
 						Label lab15 = new Label(lie, 0, "是否委托中介",cellFormat);
 					    sheet.addCell(lab15);
@@ -599,7 +603,7 @@ if(pageno==1){
 					    }
 					    lie++;
 					    break;
-					    
+
 						case "19":
 							Label lab22 = new Label(lie, 0, "手机",cellFormat);
 						    sheet.addCell(lab22);
@@ -627,11 +631,11 @@ if(pageno==1){
 						    }
 						    lie++;
 						    break;
-						
-			
+
+
 			}
 		}
-		
+
 
 		// 写入数据并关闭文件
 		book.write();
@@ -639,13 +643,13 @@ if(pageno==1){
 
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
 }

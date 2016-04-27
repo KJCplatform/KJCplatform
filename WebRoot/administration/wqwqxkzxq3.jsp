@@ -99,24 +99,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</dl>
 			
 		
-			<dl>
-				<dd>科研/生产</dd>
-				<dd>
-				<select style="width: 150px" id="kysc" name="kysc" >
-				<option value="科研">科研</option>
-				<option value="生产">生产</option>
-				
-				</dd>
-			</dl> 
-			<dl>
-				<dd>许可类型</dd>
-				<dd>
-				<select style="width: 150px" id="xklx" name="xklx" >
-				<option value="一类">一类</option>
-				<option value="二类">二类</option>
-				
-				</dd>
-			</dl> 
+		    <dl>
+                <dd>科研/生产:</dd>
+                <dd><select   style="width: 150px" id="kysc" name="kysc" >
+                <option value="科研">科研</option> 
+                <option value="生产">生产</option>
+                </select>
+                </dd>
+            </dl>
+
+            <dl>
+                <dd>许可类型</dd>
+                <dd><select style="width: 150px" id="xklx" name="xklx" >
+                <option value="一类">一类</option>
+                <option value="二类">二类</option>
+                  </select>
+                </dd>
+                
+            </dl> 
 		</form>
 	</div>
 </div>	

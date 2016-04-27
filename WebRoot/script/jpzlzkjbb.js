@@ -26,7 +26,7 @@ $(function() {
 		required : true,
 		missingMessage : '不能为空'
 	});
-	
+
 });
 //加载公文列表
 function listDoc() {
@@ -36,7 +36,7 @@ function listDoc() {
             width : 1200,
             height: 400,
             //fit: true,
-			fitColumns : true, // 自动适应列宽      
+			fitColumns : true, // 自动适应列宽
             pageSize : 10,//默认选择的分页是每页5行数据
             pageList : [ 5, 10, 15, 20 ],//可以选择的分页集合
             nowrap : true,//设置为true，当数据长度超出列宽时将会自动截取
@@ -48,7 +48,7 @@ function listDoc() {
             //sortOrder : 'desc',//定义排序顺序，可以是'asc'或者'desc'（正序或者倒序）。
             pagination : true,//分页
             rownumbers : true,//行数
-			
+
             toolbar:[ {// 工具栏
 				text : '添加',
 				id:'add',
@@ -72,11 +72,11 @@ function listDoc() {
 				}
 			}
 		 ],
-	 
-            onLoadSuccess: function (data) { 
-            	
+
+            onLoadSuccess: function (data) {
+
 				user=eval(data).user;
-			
+
 				 if(user!="admin"){
 					// alert("123");
 					 $("#delete").linkbutton("disable");
@@ -84,10 +84,10 @@ function listDoc() {
 				 }
 			}
         });
-	 
-	
-	 
-	 
+
+
+
+
 }
 //查询
 function doSearch(){
@@ -157,15 +157,15 @@ function editDoc() {
 	$("#zlhdqk").val(doc.zlhdqk);
 	$("#tbr").val(doc.tbr);
 	$("#zlbfzr").val(doc.zlbfzr);
-	$("#shr").val(doc.shr);
+	$("#shr2").val(doc.shr2);
 	$("#bcrq").datebox("setValue", doc.bcrq.substring(0, 10));
-	
+
 	$("#jlnf").val(doc.jlnf);
 	$("#username").val(doc.username);
 	$("#gxsj").val(doc.gxsj);
 	$("#submit").val(doc.submit);
 
-	
+
 	// 显示编辑页面
 	showEditForm();
 }
@@ -179,7 +179,7 @@ function dealSave() {
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {
-				
+
 					$('#dg').datagrid('reload');// 重新加载
 					$.messager.alert('添加', '添加成功', 'info');
 			} else {
@@ -255,21 +255,21 @@ function ShowImport() {
 	//	  var fileName = document.selection.createRange().text;
 	//	alert(fileName);
 
-	//得到上传文件的全路径  
+	//得到上传文件的全路径
 	var fileName = $('#uploadExcel').filebox('getValue');
-	//	
+	//
 
 	// alert(fileName);
-	//进行基本校验  
+	//进行基本校验
 	if (fileName == "") {
 		$.messager.alert('提示', '请选择上传文件！', 'info');
 	} else {
-		//对文件格式进行校验  
+		//对文件格式进行校验
 		var d1 = /\.[^\.]+$/.exec(fileName);
 		if (d1 == ".xls") {
-			//提交表单  
-			//document.getElementById("questionTypesManage").action="${pageContext.request.contextPath}/leadtoQuestionTypes/leadInExcelQuestionBank?questionType="+questionTypes+"&courseType="+courseType;  
-			//document.getElementById("questionTypesManage").submit();     
+			//提交表单
+			//document.getElementById("questionTypesManage").action="${pageContext.request.contextPath}/leadtoQuestionTypes/leadInExcelQuestionBank?questionType="+questionTypes+"&courseType="+courseType;
+			//document.getElementById("questionTypesManage").submit();
 			var params = "jd=" + fileName;
 			var showimport = basePath
 					+ '/system/JpzlzkjbbAction_showimport.action';
@@ -358,4 +358,3 @@ function closeForm2() {
 
 
 
-	

@@ -81,8 +81,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 
 	<!-- 编辑数据的div，默认看不到 -->
-<div id="divEdit" style="display:none;">
-	<div id="tabEdit">
+    <div id="divEdit" style="display:none;">
+        <div id="tabEdit" style="overflow-y:auto;">
 		<form id="frmEdit" style="width:800px; height:400px; overflow:auto;" method= "post">
 			<input type="hidden" id="id" name="id" />
 			<dl>
@@ -97,25 +97,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd>项目名称:</dd>
 				<dd><input size="15" id="xmmc" name="xmmc" /></dd>
 			</dl>
-			
-		
-			<dl>
-				<dd>科研/生产</dd>
-				<dd>
-				<select style="width: 150px" id="kysc" name="kysc" >
-				<option value="科研">科研</option>
-				<option value="生产">生产</option>
-				
-				</dd>
-			</dl> 
+            
+            <dl>
+                <dd>科研/生产:</dd>
+                <dd><select   style="width: 150px" id="kysc" name="kysc" >
+                <option value="科研">科研</option> 
+                <option value="生产">生产</option>
+                </select>
+                </dd>
+            </dl>
+
 			<dl>
 				<dd>许可类型</dd>
-				<dd>
-				<select style="width: 150px" id="xklx" name="xklx" >
+				<dd><select style="width: 150px" id="xklx" name="xklx" >
 				<option value="一类">一类</option>
 				<option value="二类">二类</option>
-				
-				</dd>
+                  </select>
+                </dd>
+                
 			</dl> 
 		</form>
 	</div>

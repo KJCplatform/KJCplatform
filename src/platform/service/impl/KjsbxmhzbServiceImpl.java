@@ -17,33 +17,32 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import excel.CreateExcel;
 import platform.dao.KjsbxmhzbDao;
 import platform.domain.Kjsbxmhzb;
-import platform.domain.Kjrzxqcjb;
 import platform.form.KjsbxmhzbForm;
-import platform.form.KjrzxqcjbForm;
 import platform.service.KjsbxmhzbService;
-import platform.util.StringHelper;
+import excel.CreateExcel;
 @Transactional
 @SuppressWarnings("unused")
 @Service(KjsbxmhzbService.SERVICE_NAME)
 public class KjsbxmhzbServiceImpl implements KjsbxmhzbService{
-	
+
 	@Resource(name=KjsbxmhzbDao.SERVICE_NAME)
 	private KjsbxmhzbDao kjsbxmhzbDao;
-	
-	public List<KjsbxmhzbForm> findKjsbxmhzbList(){
+
+	@Override
+    public List<KjsbxmhzbForm> findKjsbxmhzbList(){
 		String hqlWhere = "";
 		Object [] params = null;
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 		orderby.put(" o.xh", "desc");
-		List<Kjsbxmhzb> list=kjsbxmhzbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
+		List<Kjsbxmhzb> list=this.kjsbxmhzbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<KjsbxmhzbForm> formlist=this.KjsbxmhzbPOListToVOList(list);
 		return formlist;
-		
+
 	}
-	public List<KjsbxmhzbForm> findKjsbxmhzbListWithPage(int pagesize,int pageno,KjsbxmhzbForm kjsbxmhzbForm){
+	@Override
+    public List<KjsbxmhzbForm> findKjsbxmhzbListWithPage(int pagesize,int pageno,KjsbxmhzbForm kjsbxmhzbForm){
 		String hqlWhere = "";
 		Object [] params = null;
 		List<String> paramsList=new ArrayList<String>();
@@ -58,48 +57,51 @@ public class KjsbxmhzbServiceImpl implements KjsbxmhzbService{
 		}
 		orderby.put(" o.xh", "desc");
 		params = paramsList.toArray();
-		List<Kjsbxmhzb> list=kjsbxmhzbDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
+		List<Kjsbxmhzb> list=this.kjsbxmhzbDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
 		List<KjsbxmhzbForm> formlist=this.KjsbxmhzbPOListToVOList(list);
 		return formlist;
-		
+
 	}
-	
-	public void updateKjsbxmhzb(KjsbxmhzbForm kjsbxmhzbForm,String username){
+
+	@Override
+    public void updateKjsbxmhzb(KjsbxmhzbForm kjsbxmhzbForm,String username){
 		Kjsbxmhzb kjsbxmhzb=new Kjsbxmhzb();
 		kjsbxmhzb.setId(Integer.valueOf(kjsbxmhzbForm.getId()));
 		kjsbxmhzb.setXh(kjsbxmhzbForm.getXh());
 		kjsbxmhzb.setDw(kjsbxmhzbForm.getDw());
 		kjsbxmhzb.setXmmc(kjsbxmhzbForm.getXmmc());
 		kjsbxmhzb.setZxmc(kjsbxmhzbForm.getZxmc());
-		
+
 		kjsbxmhzb.setBz(kjsbxmhzbForm.getBz());
-		
+
 		kjsbxmhzb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjsbxmhzb.setUsername(username);
 		kjsbxmhzb.setGxsj(new Date().toString());
 		kjsbxmhzb.setSubmit(0);
-		
-		kjsbxmhzbDao.update(kjsbxmhzb);
-		
+
+		this.kjsbxmhzbDao.update(kjsbxmhzb);
+
 	}
-	public void deleteObject(String id){
-		kjsbxmhzbDao.deleteObjectByIDs(Integer.valueOf(id));
+	@Override
+    public void deleteObject(String id){
+		this.kjsbxmhzbDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(KjsbxmhzbForm kjsbxmhzbForm,String username){
+	@Override
+    public void saveObject(KjsbxmhzbForm kjsbxmhzbForm,String username){
 		Kjsbxmhzb kjsbxmhzb=new Kjsbxmhzb();
 		kjsbxmhzb.setXh(kjsbxmhzbForm.getXh());
 		kjsbxmhzb.setDw(kjsbxmhzbForm.getDw());
 		kjsbxmhzb.setXmmc(kjsbxmhzbForm.getXmmc());
 		kjsbxmhzb.setZxmc(kjsbxmhzbForm.getZxmc());
-		
+
 		kjsbxmhzb.setBz(kjsbxmhzbForm.getBz());
-		
+
 		kjsbxmhzb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjsbxmhzb.setUsername(username);
 		kjsbxmhzb.setGxsj(new Date().toString());
 		kjsbxmhzb.setSubmit(0);
-		
-		kjsbxmhzbDao.save(kjsbxmhzb);
+
+		this.kjsbxmhzbDao.save(kjsbxmhzb);
 	}
 	private List<KjsbxmhzbForm> KjsbxmhzbPOListToVOList(List<Kjsbxmhzb> list) {
 		// TODO Auto-generated method stub
@@ -108,41 +110,42 @@ public class KjsbxmhzbServiceImpl implements KjsbxmhzbService{
 			Kjsbxmhzb kjsbxmhzb=list.get(i);
 			KjsbxmhzbForm kjsbxmhzbForm=new KjsbxmhzbForm();
 			kjsbxmhzbForm.setId(String.valueOf(kjsbxmhzb.getId()));
-			
+
 			kjsbxmhzbForm.setXh(kjsbxmhzb.getXh());
 			kjsbxmhzbForm.setDw(kjsbxmhzb.getDw());
 			kjsbxmhzbForm.setXmmc(kjsbxmhzb.getXmmc());
 			kjsbxmhzbForm.setZxmc(kjsbxmhzb.getZxmc());
-			
-			
+
+
 			kjsbxmhzbForm.setBz(kjsbxmhzb.getBz());
-			
+
 			kjsbxmhzbForm.setJlnf(kjsbxmhzb.getJlnf());
 			kjsbxmhzbForm.setUsername(kjsbxmhzb.getUsername());
 			kjsbxmhzbForm.setGxsj(kjsbxmhzb.getGxsj());
 			kjsbxmhzbForm.setSubmit(String.valueOf(kjsbxmhzb.getSubmit()));
-			
+
 			formlist.add(kjsbxmhzbForm);
-			
+
 		}
 		return formlist;
 	}
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	public void showimportObject(String showimport) throws Exception {
+
+
+
+
+
+
+
+
+
+
+	@Override
+    public void showimportObject(String showimport) throws Exception {
 
 		String b = showimport.replace("\\", "\\\\");
-		String c = b.replace("C:\\\\fakepath", "D:");
+		String c = b.replace("C:\\\\fakepath", "D:\\kjcdata");
 
 		Workbook book = Workbook.getWorkbook(new File(c));
 		// Workbook book = Workbook.getWorkbook( new File(b));
@@ -173,11 +176,11 @@ public class KjsbxmhzbServiceImpl implements KjsbxmhzbService{
 					case "企业技术中心名称":
 						array[j] = 4;
 						break;
-					
+
 					case "备注":
 						array[j] = 5;
 						break;
-					
+
 					case "记录时间（年份）":
 						array[j] = 6;
 						break;
@@ -215,8 +218,8 @@ public class KjsbxmhzbServiceImpl implements KjsbxmhzbService{
 					case 4:
 						kjsbxmhzb.setZxmc(cell0.getContents());
 						break;
-					
-					
+
+
 					case 5:
 						kjsbxmhzb.setBz(cell0.getContents());
 						break;
@@ -237,7 +240,7 @@ public class KjsbxmhzbServiceImpl implements KjsbxmhzbService{
 					}
 				}
 
-				kjsbxmhzbDao.save(kjsbxmhzb);
+				this.kjsbxmhzbDao.save(kjsbxmhzb);
 			}
 
 		}
@@ -257,12 +260,12 @@ public class KjsbxmhzbServiceImpl implements KjsbxmhzbService{
 		LinkedHashMap<String, ArrayList<String>> lhm = new LinkedHashMap<String ,ArrayList<String>>();
 		List<String> li = new ArrayList<String>();
 		String[] ss = str.split(" ");
-		
+
 		String hqlWhere = "";
 		Object[] params = null;
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 		orderby.put(" o.id", "desc");
-		List<Kjsbxmhzb> list = kjsbxmhzbDao
+		List<Kjsbxmhzb> list = this.kjsbxmhzbDao
 				.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<KjsbxmhzbForm> formlist = this.KjsbxmhzbPOListToVOList(list);
 
@@ -276,7 +279,7 @@ public class KjsbxmhzbServiceImpl implements KjsbxmhzbService{
 			    li.clear();
 			    k++;
 				break;
-			
+
 			case "2":
 			    for(int j= 0;j< list.size();j++){
 			    	li.add(formlist.get(j).getDw());
@@ -301,12 +304,12 @@ public class KjsbxmhzbServiceImpl implements KjsbxmhzbService{
 			    li.clear();
 			    k++;
 				break;
-			
-			
-				
-				
-				
-								
+
+
+
+
+
+
 						      case "5":
 								    for(int j= 0;j< list.size();j++){
 								    	li.add(formlist.get(j).getBz());
@@ -315,13 +318,13 @@ public class KjsbxmhzbServiceImpl implements KjsbxmhzbService{
 								    li.clear();
 								    k++;
 									break;
-				
-				
-				
-				
-				
-				
-				
+
+
+
+
+
+
+
 			case "6":
 			    for(int j= 0;j< list.size();j++){
 			    	li.add(formlist.get(j).getJlnf());
@@ -346,7 +349,7 @@ public class KjsbxmhzbServiceImpl implements KjsbxmhzbService{
 			    li.clear();
 			    k++;
 				break;
-				
+
 			case "9":
 			    for(int j= 0;j< list.size();j++){
 			    	li.add(formlist.get(j).getSubmit());
@@ -356,24 +359,24 @@ public class KjsbxmhzbServiceImpl implements KjsbxmhzbService{
 			    k++;
 				break;
 			}
-			
+
 		}
-		
+
 		return lhm;
 	}
-	
-	
-	
+
+
+
 	@Override
 	public void showexportObject(String str) throws Exception {
 
-		 
-		
+
+
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		// System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
 		String time = df.format(new Date());
-		String path = "D:\\年重大专项技术需求申报项目汇总表   admin  " + time + ".xls";	
-		CreateExcel.createExcel(getDataAsHashMap(str), path);				
+		String path = "D:\\年重大专项技术需求申报项目汇总表   admin  " + time + ".xls";
+		CreateExcel.createExcel(this.getDataAsHashMap(str), path);
 	}
-	
+
 }

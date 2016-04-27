@@ -1,27 +1,10 @@
 package platform.action;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-
-import platform.action.BaseAction;
-import platform.dao.TestDataDao;
-import platform.domain.Jpzlzkjbb;
-import platform.form.TestDataFrom;
-
-
 import platform.form.JpzlzkjbbForm;
-import platform.service.TestDataService;
 import platform.service.JpzlzkjbbService;
 
 import com.opensymphony.xwork2.ModelDriven;
@@ -33,7 +16,7 @@ public class JpzlzkjbbAction extends BaseAction implements ModelDriven<Jpzlzkjbb
 	public int page = 0;
 	public boolean operateSuccess;
 	public boolean isOperateSuccess() {
-		return operateSuccess;
+		return this.operateSuccess;
 	}
 	public void setOperateSuccess(boolean operateSuccess) {
 		this.operateSuccess = operateSuccess;
@@ -42,42 +25,43 @@ public class JpzlzkjbbAction extends BaseAction implements ModelDriven<Jpzlzkjbb
 	@SuppressWarnings("rawtypes")
 	public Map responseJson;
 	public int getPage() {
-		return page;
+		return this.page;
 	}
 	public void setPage(int page) {
 		this.page = page;
 	}
 	public int getRows() {
-		return rows;
+		return this.rows;
 	}
 	public void setRows(int rows) {
 		this.rows = rows;
 	}
 	@SuppressWarnings("rawtypes")
 	public Map getResponseJson() {
-		return responseJson;
+		return this.responseJson;
 	}
 	@SuppressWarnings("rawtypes")
 	public void setResponseJson(Map responseJson) {
 		this.responseJson = responseJson;
 	}
-	private  JpzlzkjbbService jpzlzkjbbService=(JpzlzkjbbService) ServiceProvider.getService(JpzlzkjbbService.SERVICE_NAME);
-	private JpzlzkjbbForm jpzlzkjbbForm=new JpzlzkjbbForm();
-	public JpzlzkjbbForm getModel() {
+	private final  JpzlzkjbbService jpzlzkjbbService=(JpzlzkjbbService) ServiceProvider.getService(JpzlzkjbbService.SERVICE_NAME);
+	private final JpzlzkjbbForm jpzlzkjbbForm=new JpzlzkjbbForm();
+	@Override
+    public JpzlzkjbbForm getModel() {
 
-		return jpzlzkjbbForm;
+		return this.jpzlzkjbbForm;
 	}
 	Map<String, Object> map = new HashMap<String, Object>();
 	public String list(){
 		//System.out.println(page+":"+rows);
 		//xzxzgzbForm.setWjm("test");
 		//xzxzgzbForm.setWjh("2");
-		List<JpzlzkjbbForm> formlist=jpzlzkjbbService.findJpzlzkjbbListWithPage(rows,page,jpzlzkjbbForm);
+		List<JpzlzkjbbForm> formlist=this.jpzlzkjbbService.findJpzlzkjbbListWithPage(this.rows,this.page,this.jpzlzkjbbForm);
 		//System.out.println(formlist.get(formlist.size()-1).getCljg());
-		map.put("rows", formlist);
-		map.put("total", jpzlzkjbbService.findJpzlzkjbbList().size());
-		map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
-		this.setResponseJson(map);
+		this.map.put("rows", formlist);
+		this.map.put("total", this.jpzlzkjbbService.findJpzlzkjbbList().size());
+		this.map.put("user", String.valueOf(this.request.getSession().getAttribute("hhs_user")));
+		this.setResponseJson(this.map);
 		return "list";
 	}
 	public String update(){
@@ -98,14 +82,16 @@ public class JpzlzkjbbAction extends BaseAction implements ModelDriven<Jpzlzkjbb
 		jpzlzkjbbForm1.setDwmc("单位1");
 		jpzlzkjbbForm1.setJd("3");
 		jpzlzkjbbForm1.setJlnf("2015");*/
-		jpzlzkjbbService.updateJpzlzkjbb(jpzlzkjbbForm);
-		operateSuccess=true;
+		this.jpzlzkjbbService.updateJpzlzkjbb(this.jpzlzkjbbForm);
+		this.operateSuccess=true;
 		return "update";
 	}
 	public String delete(){
 		//xzxzgzbForm.setId("2");
-		jpzlzkjbbService.deleteObject(jpzlzkjbbForm.getId());
-		operateSuccess=true;
+
+		this.jpzlzkjbbService.deleteObject(this.jpzlzkjbbForm.getId());
+
+		this.operateSuccess=true;
 		return   "delete";
 	}
 	public String add(){
@@ -115,21 +101,21 @@ public class JpzlzkjbbAction extends BaseAction implements ModelDriven<Jpzlzkjbb
 		jpzlzkjbbForm1.setDwmc("单位1");
 		jpzlzkjbbForm1.setJd("4");
 		jpzlzkjbbForm1.setJlnf("2015");*/
-		jpzlzkjbbService.saveObject(jpzlzkjbbForm);
-		operateSuccess=true;
+		this.jpzlzkjbbService.saveObject(this.jpzlzkjbbForm);
+		this.operateSuccess=true;
 		return "add";
 	}
 	public String showimport() throws Exception{
-		System.out.println(jpzlzkjbbForm.getJd());
-		jpzlzkjbbService.showImportObject(jpzlzkjbbForm.getJd());
-		operateSuccess=true;
+		System.out.println(this.jpzlzkjbbForm.getJd());
+		this.jpzlzkjbbService.showImportObject(this.jpzlzkjbbForm.getJd());
+		this.operateSuccess=true;
 		return "showimport";
 	}
-	
+
 	public String showexport() throws Exception{
-		System.out.println(jpzlzkjbbForm.getJd());
-		jpzlzkjbbService.showExportObject(jpzlzkjbbForm.getJd());
-		operateSuccess=true;
+		System.out.println(this.jpzlzkjbbForm.getJd());
+		this.jpzlzkjbbService.showExportObject(this.jpzlzkjbbForm.getJd());
+		this.operateSuccess=true;
 		return "showexport";
 	}
 }

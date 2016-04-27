@@ -1,5 +1,6 @@
 package platform.service.impl;
 
+import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -9,34 +10,18 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import jxl.Cell;
+import jxl.Sheet;
+import jxl.Workbook;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
-import excel.CreateExcel;
 import platform.dao.KjsjjljgxxbDao;
 import platform.domain.Kjsjjljgxxb;
 import platform.form.KjsjjljgxxbForm;
 import platform.service.KjsjjljgxxbService;
-
-
-
-
-
-
-
-
-
-
-
-import java.io.File;
-
-import jxl.Cell;
-import jxl.Sheet;
-import jxl.Workbook;
-import jxl.write.Label;
-import jxl.write.WritableCellFormat;
-import jxl.write.WritableSheet;
-import jxl.write.WritableWorkbook;
+import excel.CreateExcel;
 
 
 @Service(KjsjjljgxxbService.SERVICE_NAME)
@@ -45,14 +30,15 @@ public class KjsjjljgxxbServiceImpl implements KjsjjljgxxbService {
 	@Resource(name = KjsjjljgxxbDao.SERVICE_NAME)
 	private KjsjjljgxxbDao kjsjjljgxxbDao;
 private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
-	
 
-	public List<KjsjjljgxxbForm> findKjsjjljgxxbList() {
+
+	@Override
+    public List<KjsjjljgxxbForm> findKjsjjljgxxbList() {
 		String hqlWhere = "";
 		Object[] params = null;
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 		orderby.put(" o.qjsl", "desc");
-		List<Kjsjjljgxxb> list = kjsjjljgxxbDao
+		List<Kjsjjljgxxb> list = this.kjsjjljgxxbDao
 				.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<KjsjjljgxxbForm> formlist = this.KjsjjljgxxbPOListToVOList(list);
 
@@ -61,7 +47,8 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 
 	}
 
-	public List<KjsjjljgxxbForm> findKjsjjljgxxbListWithPage(int pagesize,
+	@Override
+    public List<KjsjjljgxxbForm> findKjsjjljgxxbListWithPage(int pagesize,
 			int pageno, KjsjjljgxxbForm kjsjjljgxxbForm) {
 		String hqlWhere = "";
 		Object[] params = null;
@@ -79,25 +66,26 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 		}
 		orderby.put(" o.qjsl", "desc");
 		params = paramsList.toArray();
-		List<Kjsjjljgxxb> list = kjsjjljgxxbDao
+		List<Kjsjjljgxxb> list = this.kjsjjljgxxbDao
 				.findCollectionByConditionWithPage(hqlWhere, params, orderby,
 						pagesize, pageno);
 		List<KjsjjljgxxbForm> formlist = this.KjsjjljgxxbPOListToVOList(list);
-		
+
 //		if(pageno==1){listtemp=formlist;}
 //		else	listtemp.addAll(formlist);
 
 		if(pageno==1){
-		
-		listtemp = 
-				KjsjjljgxxbPOListToVOList(kjsjjljgxxbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby));
+
+		this.listtemp =
+				this.KjsjjljgxxbPOListToVOList(this.kjsjjljgxxbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby));
 		}
-		
+
 		return formlist;
 
 	}
 
-	public void updateKjsjjljgxxb(KjsjjljgxxbForm kjsjjljgxxbForm,String username) {
+	@Override
+    public void updateKjsjjljgxxb(KjsjjljgxxbForm kjsjjljgxxbForm,String username) {
 
 		Kjsjjljgxxb kjsjjljgxxb = new Kjsjjljgxxb();
 		// kjsjjljgxxb.readexcel();
@@ -105,7 +93,7 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 		kjsjjljgxxb.setId(Integer.valueOf(kjsjjljgxxbForm.getId()));
 		kjsjjljgxxb.setFrmc(kjsjjljgxxbForm.getFrmc());
 		kjsjjljgxxb.setJlzy(kjsjjljgxxbForm.getJlzy());
-		
+
 		// 数据校验
 		if (kjsjjljgxxbForm.getQjsl() != null
 				&& !kjsjjljgxxbForm.getQjsl().equals(""))
@@ -118,23 +106,25 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 		if (kjsjjljgxxbForm.getSj() != null
 				&& !kjsjjljgxxbForm.getSj().equals(""))
 			kjsjjljgxxb.setSj(Long.valueOf(kjsjjljgxxbForm.getSj()));
-		
-		
-		
+
+
+
 
 		kjsjjljgxxb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjsjjljgxxb.setUsername(username);
 		kjsjjljgxxb.setGxsj(new Date().toString());
 		kjsjjljgxxb.setSubmit(0);
-		kjsjjljgxxbDao.update(kjsjjljgxxb);
+		this.kjsjjljgxxbDao.update(kjsjjljgxxb);
 
 	}
 
-	public void deleteObject(String id) {
-		kjsjjljgxxbDao.deleteObjectByIDs(Integer.valueOf(id));
+	@Override
+    public void deleteObject(String id) {
+		this.kjsjjljgxxbDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
 
-	public void saveObject(KjsjjljgxxbForm kjsjjljgxxbForm,String username) {
+	@Override
+    public void saveObject(KjsjjljgxxbForm kjsjjljgxxbForm,String username) {
 
 		// CreateExcel cr=new CreateExcel();
 		// cr.createExcel(kjsjjljgxxbForm);
@@ -156,14 +146,14 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 		if (kjsjjljgxxbForm.getSj() != null
 				&& !kjsjjljgxxbForm.getSj().equals(""))
 			kjsjjljgxxb.setSj(Long.valueOf(kjsjjljgxxbForm.getSj()));
-		
-		
-		
+
+
+
 		kjsjjljgxxb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjsjjljgxxb.setUsername(username);
 		kjsjjljgxxb.setGxsj(new Date().toString());
 		kjsjjljgxxb.setSubmit(0);
-		kjsjjljgxxbDao.save(kjsjjljgxxb);
+		this.kjsjjljgxxbDao.save(kjsjjljgxxb);
 	}
 
 	private List<KjsjjljgxxbForm> KjsjjljgxxbPOListToVOList(
@@ -181,8 +171,8 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 			kjsjjljgxxbForm.setLxr(kjsjjljgxxb.getLxr());
 			kjsjjljgxxbForm.setBgdh(kjsjjljgxxb.getBgdh());
 			kjsjjljgxxbForm.setSj(String.valueOf(kjsjjljgxxb.getSj()));
-			
-			
+
+
 			kjsjjljgxxbForm.setJlnf(kjsjjljgxxb.getJlnf());
 			kjsjjljgxxbForm.setUsername(kjsjjljgxxb.getUsername());
 			kjsjjljgxxbForm.setGxsj(kjsjjljgxxb.getGxsj());
@@ -192,10 +182,11 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 		return formlist;
 	}
 
-	public void showimportObject(String showimport) throws Exception {
+	@Override
+    public void showimportObject(String showimport) throws Exception {
 
 		String b = showimport.replace("\\", "\\\\");
-		String c = b.replace("C:\\\\fakepath", "D:");
+		String c = b.replace("C:\\\\fakepath", "D:\\kjcdata");
 
 		Workbook book = Workbook.getWorkbook(new File(c));
 		// Workbook book = Workbook.getWorkbook( new File(b));
@@ -215,7 +206,7 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 					Cell cell0 = sheet.getCell(j, i);
 					System.out.println(cell0.getContents().trim());
 					switch (cell0.getContents().trim()) {
-					
+
 					case "法人单位名称":
 						array[j] = 1;
 						break;
@@ -274,7 +265,7 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 					}
 				}
 
-				kjsjjljgxxbDao.save(kjsjjljgxxb);
+				this.kjsjjljgxxbDao.save(kjsjjljgxxb);
 			}
 
 		}
@@ -294,12 +285,12 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 		LinkedHashMap<String, ArrayList<String>> lhm = new LinkedHashMap<String ,ArrayList<String>>();
 		List<String> li = new ArrayList<String>();
 		String[] ss = str.split(" ");
-		
+
 		String hqlWhere = "";
 		Object[] params = null;
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 		orderby.put(" o.qjsl", "desc");
-		List<Kjsjjljgxxb> list = kjsjjljgxxbDao
+		List<Kjsjjljgxxb> list = this.kjsjjljgxxbDao
 				.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<KjsjjljgxxbForm> formlist = this.KjsjjljgxxbPOListToVOList(list);
 
@@ -311,7 +302,7 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 			    }
 			    lhm.put("法人单位名称", new ArrayList<String>(li));
 			    li.clear();
-			   
+
 				break;
 			case "2":
 			    for(int j= 0;j< list.size();j++){
@@ -319,7 +310,7 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 			    }
 			    lhm.put("涉及的计量专业", new ArrayList<String>(li));
 			    li.clear();
-			    
+
 				break;
 			case "3":
 			    for(int j= 0;j< list.size();j++){
@@ -327,7 +318,7 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 			    }
 			    lhm.put("企事业最高计量标准器具数量", new ArrayList<String>(li));
 			    li.clear();
-			    
+
 				break;
 			case "4":
 			    for(int j= 0;j< list.size();j++){
@@ -335,7 +326,7 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 			    }
 			    lhm.put("通讯地址", new ArrayList<String>(li));
 			    li.clear();
-			    
+
 				break;
 			case "5":
 			    for(int j= 0;j< list.size();j++){
@@ -343,7 +334,7 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 			    }
 			    lhm.put("联系人", new ArrayList<String>(li));
 			    li.clear();
-			    
+
 			    break;
 			case "6":
 			    for(int j= 0;j< list.size();j++){
@@ -351,7 +342,7 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 			    }
 			    lhm.put("办公电话", new ArrayList<String>(li));
 			    li.clear();
-			    
+
 				break;
 			case "7":
 			    for(int j= 0;j< list.size();j++){
@@ -359,31 +350,31 @@ private List<KjsjjljgxxbForm>  listtemp=new ArrayList<KjsjjljgxxbForm> ();
 			    }
 			    lhm.put("手机", new ArrayList<String>(li));
 			    li.clear();
-			   
+
 				break;
 			}
-			
+
 		}
-		
+
 		return lhm;
 	}
-	
-	
-	
+
+
+
 	@Override
 	public void showexportObject(String str) throws Exception {
 
-		File file =new File("D:\\kjcoutput");    
-		//如果文件夹不存在则创建    
-		if  (!file .exists()  && !file .isDirectory())      
-		{       
-		    System.out.println("文件夹不存在");  
-		    file .mkdir();    
-		} 
+		File file =new File("D:\\kjcoutput");
+		//如果文件夹不存在则创建
+		if  (!file .exists()  && !file .isDirectory())
+		{
+		    System.out.println("文件夹不存在");
+		    file .mkdir();
+		}
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		String time = df.format(new Date());
 		String path = "D:\\kjcoutput\\国防三级计量技术机构表   admin "+ time+".xls";
-		CreateExcel.createExcel(getDataAsHashMap(str), path);
+		CreateExcel.createExcel(this.getDataAsHashMap(str), path);
 
 	}
 

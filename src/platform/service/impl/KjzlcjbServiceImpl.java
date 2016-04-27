@@ -23,31 +23,30 @@ import org.springframework.stereotype.Service;
 
 import platform.dao.KjzlcjbDao;
 import platform.domain.Kjzlcjb;
-import platform.domain.Kjzlcjb;
-import platform.form.KjsjjljgxxbForm;
-import platform.form.KjzlcjbForm;
 import platform.form.KjzlcjbForm;
 import platform.service.KjzlcjbService;
 import platform.util.StringHelper;
 
 @Service(KjzlcjbService.SERVICE_NAME)
 public class KjzlcjbServiceImpl implements KjzlcjbService{
-	
+
 	@Resource(name=KjzlcjbDao.SERVICE_NAME)
 	private KjzlcjbDao kjzlcjbDao;
 	private List<KjzlcjbForm>  listtemp=new ArrayList<KjzlcjbForm> ();
-	
-	public List<KjzlcjbForm> findKjzlcjbList(){
+
+	@Override
+    public List<KjzlcjbForm> findKjzlcjbList(){
 		String hqlWhere = "";
 		Object [] params = null;
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 		orderby.put(" o.zlqr", "desc");
-		List<Kjzlcjb> list=kjzlcjbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
+		List<Kjzlcjb> list=this.kjzlcjbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<KjzlcjbForm> formlist=this.KjzlcjbPOListToVOList(list);
 		return formlist;
-		
+
 	}
-	public List<KjzlcjbForm> findKjzlcjbListWithPage(int pagesize,int pageno,KjzlcjbForm kjzlcjbForm){
+	@Override
+    public List<KjzlcjbForm> findKjzlcjbListWithPage(int pagesize,int pageno,KjzlcjbForm kjzlcjbForm){
 		String hqlWhere = "";
 		Object [] params = null;
 		List<String> paramsList=new ArrayList<String>();
@@ -62,24 +61,25 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		}
 		orderby.put(" o.zlqr", "desc");
 		params = paramsList.toArray();//
-		List<Kjzlcjb> list=kjzlcjbDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
+		List<Kjzlcjb> list=this.kjzlcjbDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
 		List<KjzlcjbForm> formlist=this.KjzlcjbPOListToVOList(list);//
-		
+
 		if(pageno==1){
-			
-			listtemp = 
-					KjzlcjbPOListToVOList(kjzlcjbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby));
+
+			this.listtemp =
+					this.KjzlcjbPOListToVOList(this.kjzlcjbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby));
 			}
-			
+
 		return formlist;
-		
+
 	}
-	
-	public void updateKjzlcjb(KjzlcjbForm kjzlcjbForm,String username){
+
+	@Override
+    public void updateKjzlcjb(KjzlcjbForm kjzlcjbForm,String username){
 	Kjzlcjb kjzlcjb=new Kjzlcjb();
-		
+
 		kjzlcjb.setId(Integer.valueOf(kjzlcjbForm.getId()));
-		
+
 
 		kjzlcjb.setCgmc(kjzlcjbForm.getCgmc());
 		kjzlcjb.setZllx(kjzlcjbForm.getZllx());
@@ -95,7 +95,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setJsly(kjzlcjbForm.getJsly());
 		kjzlcjb.setCgjd(kjzlcjbForm.getCgjd());
 		kjzlcjb.setJyfs(kjzlcjbForm.getJyfs());
-		
+
 		//数据校验
 		if(kjzlcjbForm.getSfzj()!=null){
 		if(kjzlcjbForm.getSfzj().equals("是"))
@@ -103,10 +103,10 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		else if(kjzlcjbForm.getSfzj().equals("否"))
 			kjzlcjb.setSfzj(0);
 		}
-		
+
 		kjzlcjb.setGfdj(kjzlcjbForm.getGfdj());
 		kjzlcjb.setZhyq(kjzlcjbForm.getZhyq());
-		
+
 		//数据校验
 		if(kjzlcjbForm.getSfgk()!=null)
 		{
@@ -115,40 +115,42 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 			else if(kjzlcjbForm.getSfgk().equals("否"))
 				kjzlcjb.setSfgk(0);
 		}
-		
-		
+
+
 		kjzlcjb.setLxrxm(kjzlcjbForm.getLxrxm());
-		
+
 		//数据校验
 		if(kjzlcjbForm.getGddh()!=null
 				&&!kjzlcjbForm.getGddh().equals(""))
 		kjzlcjb.setGddh(Long.valueOf(kjzlcjbForm.getGddh()));
-		
+
 		kjzlcjb.setSzdq(kjzlcjbForm.getSzdq());
-		
+
 		//数据校验
 		if(!kjzlcjbForm.getSj().equals(""))
 		kjzlcjb.setSj(Long.valueOf(kjzlcjbForm.getSj()));
 		kjzlcjb.setDzyx(kjzlcjbForm.getDzyx());
 		kjzlcjb.setLxdz(kjzlcjbForm.getLxdz());
-		
+
 		kjzlcjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjzlcjb.setUsername(username);
 		kjzlcjb.setGxsj(new Date().toString());
 		kjzlcjb.setSubmit(0);
-		
+
 		kjzlcjb.setSqh(kjzlcjbForm.getSqh());
 		kjzlcjb.setZjdw(kjzlcjbForm.getZjdw());
 		kjzlcjb.setZjlxr(kjzlcjbForm.getZjlxr());
-		
-		
-		kjzlcjbDao.update(kjzlcjb);
-		
+
+
+		this.kjzlcjbDao.update(kjzlcjb);
+
 	}
-	public void deleteObject(String id){
-		kjzlcjbDao.deleteObjectByIDs(Integer.valueOf(id));
+	@Override
+    public void deleteObject(String id){
+		this.kjzlcjbDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(KjzlcjbForm kjzlcjbForm,String username){
+	@Override
+    public void saveObject(KjzlcjbForm kjzlcjbForm,String username){
 		Kjzlcjb kjzlcjb=new Kjzlcjb();
 
 		kjzlcjb.setCgmc(kjzlcjbForm.getCgmc());
@@ -165,7 +167,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setJsly(kjzlcjbForm.getJsly());
 		kjzlcjb.setCgjd(kjzlcjbForm.getCgjd());
 		kjzlcjb.setJyfs(kjzlcjbForm.getJyfs());
-		
+
 		//数据校验
 		if(kjzlcjbForm.getSfzj()!=null){
 		if(kjzlcjbForm.getSfzj().equals("是"))
@@ -173,10 +175,10 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		else if(kjzlcjbForm.getSfzj().equals("否"))
 			kjzlcjb.setSfzj(0);
 		}
-		
+
 		kjzlcjb.setGfdj(kjzlcjbForm.getGfdj());
 		kjzlcjb.setZhyq(kjzlcjbForm.getZhyq());
-		
+
 		//数据校验
 		if(kjzlcjbForm.getSfgk()!=null)
 		{
@@ -185,20 +187,20 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 			else if(kjzlcjbForm.getSfgk().equals("否"))
 				kjzlcjb.setSfgk(0);
 		}
-		
+
 		kjzlcjb.setLxrxm(kjzlcjbForm.getLxrxm());
-		
+
 		//数据校验
 		if(!kjzlcjbForm.getGddh().equals(""))
 		kjzlcjb.setGddh(Long.valueOf(kjzlcjbForm.getGddh()));
 		kjzlcjb.setSzdq(kjzlcjbForm.getSzdq());
-		
+
 		//数据校验
 		if(!kjzlcjbForm.getSj().equals(""))
 		kjzlcjb.setSj(Long.valueOf(kjzlcjbForm.getSj()));
 		kjzlcjb.setDzyx(kjzlcjbForm.getDzyx());
 		kjzlcjb.setLxdz(kjzlcjbForm.getLxdz());
-		
+
 
 		kjzlcjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjzlcjb.setUsername(username);
@@ -208,7 +210,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setZjdw(kjzlcjbForm.getZjdw());
 		kjzlcjb.setZjlxr(kjzlcjbForm.getZjlxr());
 
-		kjzlcjbDao.save(kjzlcjb);
+		this.kjzlcjbDao.save(kjzlcjb);
 	}
 	private List<KjzlcjbForm> KjzlcjbPOListToVOList(List<Kjzlcjb> list) {
 		// TODO Auto-generated method stub
@@ -216,7 +218,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		for(int i=0;i<list.size();i++){
 			Kjzlcjb kjzlcjb=list.get(i);
 			KjzlcjbForm kjzlcjbForm=new KjzlcjbForm();
-			
+
 			kjzlcjbForm.setId(String.valueOf(kjzlcjb.getId()));
 			kjzlcjbForm.setCgmc(kjzlcjb.getCgmc());
 			kjzlcjbForm.setZllx(kjzlcjb.getZllx());
@@ -224,7 +226,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 			kjzlcjbForm.setZywcr(kjzlcjb.getZywcr());
 			kjzlcjbForm.setZlh(kjzlcjb.getZlh());
 			kjzlcjbForm.setGkh(kjzlcjb.getGkh());
-			
+
 			if(kjzlcjb.getGkr()!=null)
 			kjzlcjbForm.setGkr(String.valueOf(kjzlcjb.getGkr()));
 			kjzlcjbForm.setZflh(kjzlcjb.getZflh());
@@ -239,48 +241,48 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 			kjzlcjbForm.setSfzj("是");
 			else if(kjzlcjb.getSfzj()==0)
 			kjzlcjbForm.setSfzj("否");
-			
-			
+
+
 			kjzlcjbForm.setGfdj(kjzlcjb.getGfdj());
 			kjzlcjbForm.setZhyq(kjzlcjb.getZhyq());
-			
-			
+
+
 			if(kjzlcjb.getSfgk()==1)
 				kjzlcjbForm.setSfgk("是");
 				else if(kjzlcjb.getSfgk()==0)
 				kjzlcjbForm.setSfgk("否");
-			
+
 			kjzlcjbForm.setLxrxm(kjzlcjb.getLxrxm());
-			
+
 			if(kjzlcjb.getGddh()!=null)
 			kjzlcjbForm.setGddh(String.valueOf(kjzlcjb.getGddh()));
 			kjzlcjbForm.setSzdq(kjzlcjb.getSzdq());
-			
+
 			if(kjzlcjb.getSj()!=null)
 			kjzlcjbForm.setSj(String.valueOf(kjzlcjb.getSj()));
 			kjzlcjbForm.setDzyx(kjzlcjb.getDzyx());
 			kjzlcjbForm.setLxdz(kjzlcjb.getLxdz());
-			
+
 			kjzlcjbForm.setJlnf(kjzlcjb.getJlnf());
 			kjzlcjbForm.setUsername(kjzlcjb.getUsername());
 			kjzlcjbForm.setGxsj(kjzlcjb.getGxsj());
 			kjzlcjbForm.setSubmit(String.valueOf(kjzlcjb.getSubmit()));
-			
+
 			kjzlcjbForm.setSqh(kjzlcjb.getSqh());
 			kjzlcjbForm.setZjdw(kjzlcjb.getZjdw());
 			kjzlcjbForm.setZjlxr(kjzlcjb.getZjlxr());
-			
+
 			formlist.add(kjzlcjbForm);
 		}
 		return formlist;
 	}
-	
-	
+
+
 	@Override
 	public void showimportObject(String showimport,String username)  throws Exception {
-		
+
 		String b = showimport.replace("\\", "\\\\");
-		String c = b.replace("C:\\\\fakepath", "D:");
+		String c = b.replace("C:\\\\fakepath", "D:\\kjcdata");
 
 		Workbook book = Workbook.getWorkbook(new File(c));
 		// Workbook book = Workbook.getWorkbook( new File(b));
@@ -293,52 +295,52 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 
 
 		Kjzlcjb kjzlcjb=new Kjzlcjb();
-		
+
 		Cell cell= sheet.getCell(1,1);
 		kjzlcjb.setCgmc(cell.getContents());
-		
+
 		cell= sheet.getCell(1,2);
 		System.out.println("test:"+String.valueOf(cell.getContents()));
 		kjzlcjb.setZllx(cell.getContents());
-		
+
 		cell= sheet.getCell(1,4);
 		kjzlcjb.setZlqr(cell.getContents());
-		
+
 		cell= sheet.getCell(1,5);
 		kjzlcjb.setZywcr(cell.getContents());
-		
+
 		cell= sheet.getCell(1,6);
 		kjzlcjb.setZlh(cell.getContents());
-		
+
 		cell= sheet.getCell(1,7);
 		kjzlcjb.setGkh(cell.getContents());
-		
+
 		cell= sheet.getCell(1,8);
 		if(!cell.getContents().equals(""))
 		kjzlcjb.setGkr(StringHelper.stringConvertDate(cell.getContents()));
-		
+
 		cell= sheet.getCell(1,9);
 		kjzlcjb.setZflh(cell.getContents());
-		
+
 		cell= sheet.getCell(1,10);
 		kjzlcjb.setFlzt(cell.getContents());
-		
+
 		cell= sheet.getCell(1,11);
 		kjzlcjb.setCgjj(cell.getContents());
-		
+
 		cell= sheet.getCell(1,12);
 		kjzlcjb.setYyhy(cell.getContents());
-		
+
 		cell= sheet.getCell(1,13);
 		kjzlcjb.setJsly(cell.getContents());
-		
+
 		cell= sheet.getCell(1,14);
 		kjzlcjb.setCgjd(cell.getContents());
-		
+
 		cell= sheet.getCell(1,16);
 		kjzlcjb.setJyfs(cell.getContents());
-		
-		
+
+
 		cell= sheet.getCell(1,18);
 		if(!cell.getContents().equals("")){
 		if(cell.equals("是"))
@@ -346,13 +348,13 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		else if(cell.equals("否"))
 			kjzlcjb.setSfzj(0);
 		}
-		
+
 		cell= sheet.getCell(1,21);
 		kjzlcjb.setGfdj(cell.getContents());
-		
+
 		cell= sheet.getCell(1,23);
 		kjzlcjb.setZhyq(cell.getContents());
-		
+
 		cell= sheet.getCell(1,24);
 		if(!cell.getContents().equals(""))
 		{
@@ -361,63 +363,64 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 			else if(cell.equals("否"))
 				kjzlcjb.setSfgk(0);
 		}
-		
+
 		cell= sheet.getCell(1,25);
 		kjzlcjb.setLxrxm(cell.getContents());
-		
-	
+
+
 		cell= sheet.getCell(3,25);
-		
+
 		if(!cell.getContents().equals(""))
 		kjzlcjb.setGddh(Long.valueOf(cell.getContents()));
-		
+
 		cell= sheet.getCell(1,26);
 		kjzlcjb.setSzdq(cell.getContents());
-		
+
 		cell= sheet.getCell(1,27);
 		if(!cell.getContents().equals(""))
 		kjzlcjb.setSj(Long.valueOf(cell.getContents()));
 		System.out.println(cell.getContents());
-		
+
 		cell= sheet.getCell(3,27);
 		kjzlcjb.setDzyx(cell.getContents());
-		
+
 		cell= sheet.getCell(1,28);
 		kjzlcjb.setLxdz(cell.getContents());
-		
-		
+
+
 		kjzlcjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjzlcjb.setUsername(username);
 		kjzlcjb.setGxsj(new Date().toString());
 		kjzlcjb.setSubmit(0);
-		
-		
-		kjzlcjbDao.save(kjzlcjb);
-			
+
+
+		this.kjzlcjbDao.save(kjzlcjb);
+
 
 		book.close();
 		// } catch (Exception e) {
 		// System.out.println(e);
 		// }
-		
-		
+
+
 	}
-	
-	public void showexportObject(String str,String username) throws Exception {
-		File file =new File("D:\\kjcoutput");    
-		//如果文件夹不存在则创建    
-		if  (!file .exists()  && !file .isDirectory())      
-		{       
-		    System.out.println("//不存在");  
-		    file .mkdir();    
-		} 
-//		else   
-//		{  
-//		    System.out.println("//目录存在");  
-//		}  
-		
-		 
-		String[] ss = str.split(" ");  
+
+	@Override
+    public void showexportObject(String str,String username) throws Exception {
+		File file =new File("D:\\kjcoutput");
+		//如果文件夹不存在则创建
+		if  (!file .exists()  && !file .isDirectory())
+		{
+		    System.out.println("//不存在");
+		    file .mkdir();
+		}
+//		else
+//		{
+//		    System.out.println("//目录存在");
+//		}
+
+
+		String[] ss = str.split(" ");
 
 		String hqlWhere = "";
 		Object[] params = null;
@@ -427,14 +430,14 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 //				.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 	//	List<KjsjjljgxxbForm> formlist = this.KjsjjljgxxbPOListToVOList(list);
 
-		List<KjzlcjbForm> formlist =listtemp;
-		
+		List<KjzlcjbForm> formlist =this.listtemp;
+
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		// System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
 		String time = df.format(new Date());
 		String path = "D:\\kjcoutput\\国防专利  操作员-"+username+" " + time + ".xls";
 
-		 
+
 		// 打开文件
 		WritableWorkbook book = Workbook.createWorkbook(new File(path));
 		// 生成名为“第一页”的工作表，参数0表示这是第一页
@@ -443,12 +446,12 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		// 以及单元格内容为test
 
 		  WritableCellFormat cellFormat=new WritableCellFormat();
-			cellFormat.setBorder(jxl.format.Border.ALL,jxl.format.BorderLineStyle.THIN); 
+			cellFormat.setBorder(jxl.format.Border.ALL,jxl.format.BorderLineStyle.THIN);
 			cellFormat.setAlignment(jxl.format.Alignment.CENTRE);
-			
-		
+
+
 			int lie=0;
-			
+
 		for(int i=0;i<ss.length;i++)
 		{
 			sheet.setColumnView( i , 20 );
@@ -516,7 +519,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 			    }
 			    lie++;
 			    break;
-			    
+
 				case "8":
 					Label lab8 = new Label(lie, 0, "公开日",cellFormat);
 				    sheet.addCell(lab8);
@@ -580,7 +583,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 				    }
 				    lie++;
 				    break;
-				    
+
 					case "15":
 						Label lab15 = new Label(lie, 0, "是否委托中介",cellFormat);
 					    sheet.addCell(lab15);
@@ -644,7 +647,7 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 					    }
 					    lie++;
 					    break;
-					    
+
 						case "22":
 							Label lab22 = new Label(lie, 0, "手机",cellFormat);
 						    sheet.addCell(lab22);
@@ -672,11 +675,11 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 						    }
 						    lie++;
 						    break;
-						
-			
+
+
 			}
 		}
-		
+
 
 		// 写入数据并关闭文件
 		book.write();
@@ -684,8 +687,8 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 
 	}
 
-	
-	
 
-	
+
+
+
 }
