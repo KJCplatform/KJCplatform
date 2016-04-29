@@ -12,7 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"
     content="ie=edge" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>湖北省国防科技工业科技信息管理系统</title>
+<title>湖北省国防科工办科技质量处信息管理系统</title>
 <link href="<%=basePath%>/css/default.css" rel="stylesheet"
     type="text/css" />
 <link rel="stylesheet" type="text/css"
@@ -795,7 +795,7 @@ var basePath = localhostPath + projectName;
                 style="padding:20px;overflow:hidden; color:red; text-align:center;">
                 <br>
                 <br>
-                <h1 style="font-size:24px;">欢迎使用湖北省国防科学技术工业办公室软件平台</h1>
+                <h1 style="font-size:24px;">欢迎使用湖北省国防科工办科技质量处信息管理系统</h1>
                 <h1 style="font-size:40px;">国家秘密高于一切</h1>
                 <h1 style="font-size:40px;">保密责任重于泰山</h1>
             </div>
