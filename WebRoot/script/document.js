@@ -21,7 +21,7 @@ $(function() {
 	});
 	$("#jzrq").datebox({
 		editable:false,
-		required : true
+		required : false
 	});
 	// 给文本框加上验证器
 	$("#wjm").validatebox({
