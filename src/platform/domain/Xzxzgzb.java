@@ -16,11 +16,19 @@ public class Xzxzgzb implements java.io.Serializable{
 	private String cljg;
 	private String fj1;
 	private String fj2;
+	private String fwlb;
 	
 	private String jlnf;
 	private String username;
 	private String gxsj;
 	private int submit;
+	
+	public String getFwlb() {
+		return fwlb;
+	}
+	public void setFwlb(String fwlb) {
+		this.fwlb = fwlb;
+	}
 	public Integer getId() {
 		return id;
 	}

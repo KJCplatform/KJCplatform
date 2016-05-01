@@ -64,6 +64,7 @@
 							<!-- <option value="6">截止日期</option> -->
 							<option value="7">交办人</option>
 							<option value="8">处理结果</option>
+							<option value="9">发文类别</option>
 							<!-- <option value="9">记录年份</option>
 						<option value="10">操作员</option>
 						<option value="11">更新时间</option> -->
@@ -90,6 +91,7 @@
 							<!-- <option value="6">截止日期</option> -->
 							<option value="7">交办人</option>
 							<option value="8">处理结果</option>
+							<option value="9">发文类别</option>
 							<!-- <option value="9">记录年份</option>
 						<option value="10">操作员</option>
 						<option value="11">更新时间</option> -->
@@ -129,6 +131,7 @@
 				<input name="Items" type="checkbox" checked="checked" value="7" />交办人<br>
 				<input name="Items" type="checkbox" checked="checked" value="8" />处理结果<br>
 				<input name="Items" type="checkbox" checked="checked" value="9" />记录年份<br>
+				<input name="Items" type="checkbox" checked="checked" value="10" />发文类别<br>
 			</form>
 		</div>
 	</div>
@@ -142,11 +145,12 @@
 					<th field="wjh" width="130">文件编号</th>
 					<th field="fwjg" width="130">发文机关</th>
 					<th field="fwrq" width="130">发文日期</th>
+					<th field="fwlb" width="130">发文类别</th>
 					<th field="jbnr" width="130">交办内容</th>
 					<th field="jzrq" width="130">截止日期</th>
 					<th field="jbr" width="130">交办人</th>
 					<th field="cljg" width="130">处理结果</th>
-
+                    
 					<th field="jlnf" width="130">记录时间(年份)</th>
 					<th field="username" width="130">操作员</th>
 					<th field="gxsj" width="130">更新时间</th>
@@ -185,6 +189,12 @@
 					<dd>发文日期:</dd>
 					<dd>
 						<input type="text" style="width: 150px" id="fwrq" name="fwrq" />
+					</dd>
+				</dl>
+				<dl>
+					<dd>发文类别:</dd>
+					<dd>
+						<input type="text" style="width: 150px" id="fwlb" name="fwlb" />
 					</dd>
 				</dl>
 				<dl>

@@ -42,6 +42,10 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 			hqlWhere += " and o.wjm like ?";
 			paramsList.add("%"+xzxzgzbForm.getWjm()+"%");
 		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getFwlb())){
+			hqlWhere += " and o.fwlb like ?";
+			paramsList.add("%"+xzxzgzbForm.getFwlb()+"%");
+		}
 		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getWjh())){
 			hqlWhere += " and o.wjh like ?";
 			paramsList.add("%"+xzxzgzbForm.getWjh()+"%");
@@ -101,6 +105,10 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getWjm())){
 			hqlWhere += " and o.wjm like ?";
 			paramsList.add("%"+xzxzgzbForm.getWjm()+"%");
+		}
+		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getFwlb())){
+			hqlWhere += " and o.fwlb like ?";
+			paramsList.add("%"+xzxzgzbForm.getFwlb()+"%");
 		}
 		if(xzxzgzbForm!=null&&StringUtils.isNotBlank(xzxzgzbForm.getWjh())){
 			hqlWhere += " and o.wjh like ?";
@@ -165,6 +173,7 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		xzxzgzb.setWjm(xzxzgzbForm.getWjm());
 		xzxzgzb.setFwjg(xzxzgzbForm.getFwjg());
 		xzxzgzb.setMiji(xzxzgzbForm.getMiji());
+		xzxzgzb.setFwlb(xzxzgzbForm.getFwlb());
 		xzxzgzb.setFwrq(StringHelper.stringConvertDate(xzxzgzbForm.getFwrq()));
 		xzxzgzb.setJbnr(xzxzgzbForm.getJbnr());
 		xzxzgzb.setJzrq(StringHelper.stringConvertDate(xzxzgzbForm.getJzrq()));
@@ -197,6 +206,7 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 		xzxzgzb.setWjm(xzxzgzbForm.getWjm());
 		xzxzgzb.setFwjg(xzxzgzbForm.getFwjg());
 		xzxzgzb.setMiji(xzxzgzbForm.getMiji());
+		xzxzgzb.setFwlb(xzxzgzbForm.getFwlb());
 		xzxzgzb.setFwrq(StringHelper.stringConvertDate(xzxzgzbForm.getFwrq()));
 		xzxzgzb.setJbnr(xzxzgzbForm.getJbnr());
 		xzxzgzb.setJzrq(StringHelper.stringConvertDate(xzxzgzbForm.getJzrq()));
@@ -226,6 +236,7 @@ public class XzxzgzbServiceImpl implements XzxzgzbService{
 			xzxzgzbForm.setWjm(xzxzgzb.getWjm());
 			xzxzgzbForm.setFwjg(xzxzgzb.getFwjg());
 			xzxzgzbForm.setMiji(xzxzgzb.getMiji());
+			xzxzgzbForm.setFwlb(xzxzgzb.getFwlb());
 			xzxzgzbForm.setFwrq(String.valueOf(xzxzgzb.getFwrq()));
 			xzxzgzbForm.setJbnr(xzxzgzb.getJbnr());
 			//xzxzgzbForm.setBlrq(String.valueOf(xzxzgzb.getBlrq()));
