@@ -20,7 +20,7 @@ $(function() {
 		required : true
 	});
 	$("#jzrq").datebox({
-		editable : false,
+		editable : true,
 		required : false
 	});
 	// 给文本框加上验证器
@@ -1040,7 +1040,7 @@ function openfj1() {
 		if (result.operateSuccess) {
 			$.messager.alert('打开', '打开成功！', 'info');
 
-		} else {
+		} else {Jzrq
 			$.messager.alert('打开', '格式不正确或不存在此文件！', 'warning');
 		}
 	});

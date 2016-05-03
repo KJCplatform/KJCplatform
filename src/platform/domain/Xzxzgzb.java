@@ -131,6 +131,10 @@ public class Xzxzgzb implements java.io.Serializable{
 	public void setSubmit(int submit) {
 		this.submit = submit;
 	}
+	public void setJzrq(String jzrq) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	 
 }

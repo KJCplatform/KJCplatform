@@ -237,10 +237,9 @@ public class XzxzgzbServiceImpl implements XzxzgzbService {
 		xzxzgzb.setFwlb(xzxzgzbForm.getFwlb());
 		xzxzgzb.setFwrq(StringHelper.stringConvertDate(xzxzgzbForm.getFwrq()));
 		xzxzgzb.setJbnr(xzxzgzbForm.getJbnr());
-		xzxzgzb.setJzrq(StringHelper.stringConvertDate(xzxzgzbForm.getJzrq()));
-
-		// if(xzxzgzbForm.getBlrq()!=null)
-		// xzxzgzb.setBlrq(StringHelper.stringConvertDate(xzxzgzbForm.getBlrq()));
+		if (!xzxzgzbForm.getJzrq().equals(""))
+			xzxzgzb.setJzrq(StringHelper.stringConvertDate(xzxzgzbForm
+					.getJzrq()));
 		xzxzgzb.setJbr(xzxzgzbForm.getJbr());
 		xzxzgzb.setCljg(xzxzgzbForm.getCljg());
 		xzxzgzb.setFj1(xzxzgzbForm.getFj1());
@@ -437,7 +436,7 @@ public class XzxzgzbServiceImpl implements XzxzgzbService {
 	@Override
 	public void showExportObject(String items) throws Exception {
 		// TODO Auto-generated method stub
-System.out.println("items:" + items);
+		System.out.println("items:" + items);
 		File file = new File("D:\\kjcoutput");
 		// 如果文件夹不存在则创建
 		if (!file.exists() && !file.isDirectory()) {
@@ -447,7 +446,8 @@ System.out.println("items:" + items);
 		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmm");// 设置日期格式
 		String time = df.format(new Date());
 		String path = "D:\\kjcoutput\\行政管理表   admin " + time + ".xls";
-System.out.println("getDataAsHashMap(items):" + getDataAsHashMap(items));
+		System.out
+				.println("getDataAsHashMap(items):" + getDataAsHashMap(items));
 		CreateExcel.createExcel(getDataAsHashMap(items), path);
 	}
 
