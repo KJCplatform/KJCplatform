@@ -113,7 +113,7 @@ public class Kjjszjcjb1ServiceImpl implements Kjjszjcjb1Service {
 			hqlWhere += " and o.bz like ?";
 			paramsList.add("%"+Kjjszjcjb1Form.getBz()+"%");
 		}
-		
+
 		orderby.put(" o.sfzh", "desc");
 		params = paramsList.toArray();
 		List<Kjjszjcjb1> list = this.kjjszjcjb1Dao
@@ -235,7 +235,7 @@ public class Kjjszjcjb1ServiceImpl implements Kjjszjcjb1Service {
 		// TODO Auto-generated method stub
 		// System.out.println("导入excel。。。");
 		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath",
-				"D:\\kjcdata");
+				"D:\\kjcoutput");
 		Workbook workbook = Workbook.getWorkbook(new File(path));
 		Sheet sheet = workbook.getSheet(0);
 		int rows = sheet.getRows();
@@ -270,7 +270,7 @@ public class Kjjszjcjb1ServiceImpl implements Kjjszjcjb1Service {
 
 	/**
 	 * 将要导出的数据存成LinkedHashMap
-	 * 
+	 *
 	 * @return LinkedHashMap
 	 */
 	private LinkedHashMap<String, ArrayList<String>> getDataAsHashMap(

@@ -1,7 +1,5 @@
 package platform.service.impl;
 
-import java.io.File;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -10,30 +8,26 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import jxl.Sheet;
-import jxl.Workbook;
-
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import excel.CreateExcel;
 /*import excel.CreatePdf;*/
 import platform.dao.KjzdzxhzDao;
 import platform.domain.Kjzdzxhz;
 import platform.form.KjzdzxhzForm;
 import platform.service.KjzdzxhzService;
-import platform.util.StringHelper;
 @Transactional
 @Service(KjzdzxhzService.SERVICE_NAME)
 public class KjzdzxhzServiceImpl implements KjzdzxhzService{
-	
+
 	@Resource(name=KjzdzxhzDao.SERVICE_NAME)
 	private KjzdzxhzDao kjzdzxhzDao;
 	private List<KjzdzxhzForm> formListTemp = new ArrayList<KjzdzxhzForm>();
-	
-	public List<KjzdzxhzForm> findKjzdzxhzList(KjzdzxhzForm kjzdzxhzForm){
-		
+
+	@Override
+    public List<KjzdzxhzForm> findKjzdzxhzList(KjzdzxhzForm kjzdzxhzForm){
+
 		String hqlWhere = "";
 		Object [] params = null;
 		List<String> paramsList=new ArrayList<String>();
@@ -48,12 +42,13 @@ public class KjzdzxhzServiceImpl implements KjzdzxhzService{
 		}
 		orderby.put(" o.xh", "desc");
 		params = paramsList.toArray();
-		List<Kjzdzxhz> list=kjzdzxhzDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
+		List<Kjzdzxhz> list=this.kjzdzxhzDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<KjzdzxhzForm> formlist=this.KjzdzxhzPOListToVOList(list);
 		return formlist;
-		
+
 	}
-	public List<KjzdzxhzForm> findKjzdzxhzListWithPage(int pagesize,int pageno,KjzdzxhzForm kjzdzxhzForm){
+	@Override
+    public List<KjzdzxhzForm> findKjzdzxhzListWithPage(int pagesize,int pageno,KjzdzxhzForm kjzdzxhzForm){
 		String hqlWhere = "";
 		Object [] params = null;
 		List<String> paramsList=new ArrayList<String>();
@@ -68,61 +63,64 @@ public class KjzdzxhzServiceImpl implements KjzdzxhzService{
 		}
 		orderby.put(" o.xh", "desc");
 		params = paramsList.toArray();
-		List<Kjzdzxhz> list=kjzdzxhzDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
+		List<Kjzdzxhz> list=this.kjzdzxhzDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
 		List<KjzdzxhzForm> formlist=this.KjzdzxhzPOListToVOList(list);
 		if(pageno == 1 ){
-			formListTemp = 
-					KjzdzxhzPOListToVOList(kjzdzxhzDao.findCollectionByConditionNoPage(hqlWhere, params, orderby));
+			this.formListTemp =
+					this.KjzdzxhzPOListToVOList(this.kjzdzxhzDao.findCollectionByConditionNoPage(hqlWhere, params, orderby));
 		}
 		return formlist;
-		
+
 	}
-	
-	public void updateKjzdzxhz(KjzdzxhzForm kjzdzxhzForm, String username){
+
+	@Override
+    public void updateKjzdzxhz(KjzdzxhzForm kjzdzxhzForm, String username){
 		Kjzdzxhz kjzdzxhz=new Kjzdzxhz();
 		kjzdzxhz.setId(Integer.valueOf(kjzdzxhzForm.getId()));
-		
+
 		kjzdzxhz.setXh(kjzdzxhzForm.getXh());
 		kjzdzxhz.setDw(kjzdzxhzForm.getDw());
-		
+
 		kjzdzxhz.setXmmc(kjzdzxhzForm.getXmmc());
-		
+
 		kjzdzxhz.setQyjsmc(kjzdzxhzForm.getQyjsmc());
-		
-		
+
+
 
 //		kjzdzxhz.setFj1(kjzdzxhzForm.getFj1());
 //		kjzdzxhz.setFj2(kjzdzxhzForm.getFj2());
-		
-		
+
+
 		kjzdzxhz.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjzdzxhz.setUsername(username);
 		kjzdzxhz.setGxsj(new Date().toString());
 		kjzdzxhz.setSubmit(0);
-		
-		kjzdzxhzDao.update(kjzdzxhz);
-		
+
+		this.kjzdzxhzDao.update(kjzdzxhz);
+
 	}
 	/*blic void updateKjzdzxhzWithget(KjzdzxhzForm kjzdzxhzForm){
 		Kjzdzxhz kjzdzxhz=kjzdzxhzDao.findObjectByID(Integer.valueOf(kjzdzxhzForm.getId()));
 		kjzdzxhz.setCljg("chenggong");
 	}*/
-	public void deleteObject(String id){
-		kjzdzxhzDao.deleteObjectByIDs(Integer.valueOf(id));
+	@Override
+    public void deleteObject(String id){
+		this.kjzdzxhzDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(KjzdzxhzForm kjzdzxhzForm, String username){
-		Kjzdzxhz kjzdzxhz=new Kjzdzxhz();	
+	@Override
+    public void saveObject(KjzdzxhzForm kjzdzxhzForm, String username){
+		Kjzdzxhz kjzdzxhz=new Kjzdzxhz();
 
 		kjzdzxhz.setXh(kjzdzxhzForm.getXh());
 		kjzdzxhz.setDw(kjzdzxhzForm.getDw());
 		kjzdzxhz.setXmmc(kjzdzxhzForm.getXmmc());
 		kjzdzxhz.setQyjsmc(kjzdzxhzForm.getQyjsmc());
-		
+
 		kjzdzxhz.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjzdzxhz.setUsername(username);
 		kjzdzxhz.setGxsj(new Date().toString());
 		kjzdzxhz.setSubmit(0);
-		kjzdzxhzDao.save(kjzdzxhz);
+		this.kjzdzxhzDao.save(kjzdzxhz);
 	}
 	private List<KjzdzxhzForm> KjzdzxhzPOListToVOList(List<Kjzdzxhz> list) {
 		// TODO Auto-generated method stub
@@ -130,7 +128,7 @@ public class KjzdzxhzServiceImpl implements KjzdzxhzService{
 		for(int i=0;i<list.size();i++){
 			Kjzdzxhz kjzdzxhz=list.get(i);
 			KjzdzxhzForm kjzdzxhzForm=new KjzdzxhzForm();
-			
+
 			kjzdzxhzForm.setId(String.valueOf(kjzdzxhz.getId()));
 			kjzdzxhzForm.setXh(kjzdzxhz.getXh());
 			kjzdzxhzForm.setDw(kjzdzxhz.getDw());
@@ -148,12 +146,12 @@ public class KjzdzxhzServiceImpl implements KjzdzxhzService{
 	@Override
 	public void showExportObject(String items) throws Exception {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public void showImportObject(String filePath) throws Exception {
 		// TODO Auto-generated method stub
-		
+
 	}
 	@Override
 	public boolean openFj1Object(String id) {
@@ -165,15 +163,15 @@ public class KjzdzxhzServiceImpl implements KjzdzxhzService{
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
+
 //	@Override
 //	public void showImportObject(String filePath) throws Exception {
 //		// TODO Auto-generated method stub
 //		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:");
-//		
-//		Workbook workbook = Workbook.getWorkbook(new File(path));		
+//
+//		Workbook workbook = Workbook.getWorkbook(new File(path));
 //		Sheet sheet = workbook.getSheet(0);
-//		int rows = sheet.getRows();	
+//		int rows = sheet.getRows();
 //		for(int i = 1 ; i < rows; i++){
 //			Kjzdzxhz kjzdzxhz = new Kjzdzxhz();
 //			kjzdzxhz.setWjm(sheet.getCell(0, i).getContents());
@@ -185,7 +183,7 @@ public class KjzdzxhzServiceImpl implements KjzdzxhzService{
 //			kjzdzxhz.setJbr(sheet.getCell(6, i).getContents());
 //			kjzdzxhz.setCljg(sheet.getCell(7, i).getContents());
 //			kjzdzxhz.setJlnf(sheet.getCell(8, i).getContents());
-//			
+//
 //			kjzdzxhz.setJlnf(sheet.getCell(13, i).getContents());
 //			kjzdzxhz.setUsername(formListTemp.get(0).getUsername());
 //			kjzdzxhz.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
@@ -193,7 +191,7 @@ public class KjzdzxhzServiceImpl implements KjzdzxhzService{
 //			//kjzdzxhz.setUsername();
 //			kjzdzxhzDao.save(kjzdzxhz);
 //		}
-//				
+//
 //		workbook.close();
 //	}
 //	/**
@@ -273,65 +271,65 @@ public class KjzdzxhzServiceImpl implements KjzdzxhzService{
 //			    }
 //			    lhm.put("记录年份", new ArrayList<String>(li));
 //			    li.clear();
-//				break;	
+//				break;
 //			case "10":
 //			    for(int j= 0;j< len; j++){
 //			    	li.add(formListTemp.get(j).getUsername());
 //			    }
 //			    lhm.put("操作员", new ArrayList<String>(li));
 //			    li.clear();
-//				break;	
+//				break;
 //			case "11":
 //			    for(int j= 0;j< len; j++){
 //			    	li.add(formListTemp.get(j).getGxsj());
 //			    }
 //			    lhm.put("更新时间", new ArrayList<String>(li));
 //			    li.clear();
-//				break;	
+//				break;
 //			case "12":
 //			    for(int j= 0;j< len; j++){
 //			    	li.add(formListTemp.get(j).getSubmit());
 //			    }
 //			    lhm.put("是否提交", new ArrayList<String>(li));
 //			    li.clear();
-//				break;	
+//				break;
 //			}
 //		}
-//					
+//
 //		return lhm;
-//	}	
+//	}
 //	@Override
 //	public void showExportObject(String items) throws Exception {
 //		// TODO Auto-generated method stub
 //		System.out.println("items:"+items);
-//		File file =new File("D:\\kjcoutput");    
-//		//如果文件夹不存在则创建    
-//		if  (!file .exists()  && !file .isDirectory())      
-//		{       
-//		    System.out.println("文件夹不存在");  
-//		    file .mkdir();    
-//		} 
+//		File file =new File("D:\\kjcoutput");
+//		//如果文件夹不存在则创建
+//		if  (!file .exists()  && !file .isDirectory())
+//		{
+//		    System.out.println("文件夹不存在");
+//		    file .mkdir();
+//		}
 //		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 //		String time = df.format(new Date());
 //		String path = "D:\\kjcoutput\\行政管理表   admin "+ time+".xls";
 //		System.out.println("getDataAsHashMap(items):"+getDataAsHashMap(items));
-//		CreateExcel.createExcel(getDataAsHashMap(items), path);	
+//		CreateExcel.createExcel(getDataAsHashMap(items), path);
 //	}
-	
+
 	/*public void TopdfObject(String items) throws Exception {
-		
+
 		// TODO Auto-generated method stub
-		File file =new File("D:\\kjcoutput");    
-		//如果文件夹不存在则创建    
-		if  (!file .exists()  && !file .isDirectory())      
-		{       
-		    System.out.println("文件夹不存在");  
-		    file .mkdir();    
-		} 
+		File file =new File("D:\\kjcoutput");
+		//如果文件夹不存在则创建
+		if  (!file .exists()  && !file .isDirectory())
+		{
+		    System.out.println("文件夹不存在");
+		    file .mkdir();
+		}
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
 		String time = df.format(new Date());
 		String path = "D:\\kjcoutput\\行政管理表   admin "+ time+".pdf";
-		CreatePdf.createPdf(getDataAsHashMap(items), path);	
+		CreatePdf.createPdf(getDataAsHashMap(items), path);
 	}*/
 
 //	public boolean openFj1Object(String id) {
@@ -340,47 +338,47 @@ public class KjzdzxhzServiceImpl implements KjzdzxhzService{
 //		Object[] params = null;
 //		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();//这句代码是干什么的
 //		orderby.put(" o.id", "desc");
-//	
+//
 //		List<Kjzdzxhz> list=kjzdzxhzDao.findCollectionByConditionNoPage2(hqlWhere, params, orderby);
-//		
+//
 //		String fj1=list.get(0).getFj1();
-//		String path = fj1.replace("\\", "\\\\").replace("C:\\\\fakepath",  "D:\\kjcdata");
+//		String path = fj1.replace("\\", "\\\\").replace("C:\\\\fakepath",  "D:\\kjcoutput");
 //		if(path.endsWith(".xls")||path.endsWith(".doc")||path.endsWith(".pdf")){
 //
-//		      try{  
-//		            Runtime.getRuntime().exec("cmd  /c  start  "+path);  
-//		        }catch(Exception  e){System.out.println("Error!");}  
+//		      try{
+//		            Runtime.getRuntime().exec("cmd  /c  start  "+path);
+//		        }catch(Exception  e){System.out.println("Error!");}
 //		      return true;
 //		}
 //		else
 //			return false;
-//			
-//		
-//	      
+//
+//
+//
 //	}
 //
 //	public boolean openFj2Object(String id) {
-//		String hqlWhere = "id="+id+" "; 
+//		String hqlWhere = "id="+id+" ";
 //		Object[] params = null;
 //		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 //		orderby.put(" o.id", "desc");
-//	
+//
 //		List<Kjzdzxhz> list=kjzdzxhzDao.findCollectionByConditionNoPage2(hqlWhere, params, orderby);
-//		
+//
 //		String fj2=list.get(0).getFj2();
-//		String path = fj2.replace("\\", "\\\\").replace("C:\\\\fakepath",  "D:\\kjcdata");
+//		String path = fj2.replace("\\", "\\\\").replace("C:\\\\fakepath",  "D:\\kjcoutput");
 //		if(path.endsWith(".xls")||path.endsWith(".doc")||path.endsWith(".pdf")){
 //
-//		      try{  
-//		            Runtime.getRuntime().exec("cmd  /c  start  "+path);  
-//		        }catch(Exception  e){System.out.println("Error!");}  
+//		      try{
+//		            Runtime.getRuntime().exec("cmd  /c  start  "+path);
+//		        }catch(Exception  e){System.out.println("Error!");}
 //		      return true;
 //		}
 //		else
 //			return false;
-//			
-//		
+//
+//
 //	}
 
-	
+
 }
