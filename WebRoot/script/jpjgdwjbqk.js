@@ -158,7 +158,7 @@ $(function() {
 								//alert(data);
 								$.post(action, data, function(result){
 									if (result.operateSuccess) {
-									alert(result);
+									//alert(result);
 										$('#srqk').datagrid('reload');// 重新加载
 										$.messager.alert('提交', '提交成功', 'info');
 									} else {
@@ -275,7 +275,7 @@ $(function() {
 							//alert(data);
 							$.post(action, data, function(result){
 								if (result.operateSuccess) {
-								alert(result);
+								//alert(result);
 									$('#ry').datagrid('reload');// 重新加载
 									$.messager.alert('提交', '提交成功', 'info');
 								} else {
