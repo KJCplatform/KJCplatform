@@ -146,7 +146,7 @@ public class KjkjxmkServiceImpl implements KjkjxmkService{
 	@Override
 	public void showimportObject(String filepath) throws Exception {
 		// TODO Auto-generated method stub
-		String path = filepath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:\\kjcdata");
+		String path = filepath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:\\kjcoutput");
 		Workbook workbook = Workbook.getWorkbook(new File(path));
 
 		Sheet sheet = workbook.getSheet(0);

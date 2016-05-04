@@ -159,7 +159,7 @@ public class Kjjszjcjb2ServiceImpl implements Kjjszjcjb2Service{
 	@Override
 	public void showImportObject(String filePath) throws Exception {
 		// TODO Auto-generated method stub
-		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:\\kjcdata");
+		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:\\kjcoutput");
 		Workbook workbook = Workbook.getWorkbook(new File(path));
 		Sheet sheet = workbook.getSheet(0);
 		int rows = sheet.getRows();
