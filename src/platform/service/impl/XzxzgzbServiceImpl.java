@@ -302,8 +302,9 @@ public class XzxzgzbServiceImpl implements XzxzgzbService {
 					.getContents()));
 			xzxzgzb.setFwlb(sheet.getCell(4, i).getContents());
 			xzxzgzb.setJbnr(sheet.getCell(5, i).getContents());
-			xzxzgzb.setJzrq(StringHelper.stringConvertDate(sheet.getCell(6, i)
-					.getContents()));
+			if (!sheet.getCell(6, i).getContents().equals("null"))
+				xzxzgzb.setJzrq(StringHelper.stringConvertDate(sheet.getCell(6,
+						i).getContents()));
 			xzxzgzb.setJbr(sheet.getCell(7, i).getContents());
 			xzxzgzb.setCljg(sheet.getCell(8, i).getContents());
 			xzxzgzb.setJlnf(sheet.getCell(9, i).getContents());
@@ -445,7 +446,7 @@ public class XzxzgzbServiceImpl implements XzxzgzbService {
 		}
 		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmm");// 设置日期格式
 		String time = df.format(new Date());
-		String path = "D:\\kjcoutput\\行政管理表   admin " + time + ".xls";
+		String path = "D:\\kjcoutput\\公文管理表   admin " + time + ".xls";
 		System.out
 				.println("getDataAsHashMap(items):" + getDataAsHashMap(items));
 		CreateExcel.createExcel(getDataAsHashMap(items), path);

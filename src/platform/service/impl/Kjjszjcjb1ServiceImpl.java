@@ -235,7 +235,7 @@ public class Kjjszjcjb1ServiceImpl implements Kjjszjcjb1Service {
 		// TODO Auto-generated method stub
 		// System.out.println("导入excel。。。");
 		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath",
-				"D:\\kjcdata");
+				"D:\\kjcoutput");
 		Workbook workbook = Workbook.getWorkbook(new File(path));
 		Sheet sheet = workbook.getSheet(0);
 		int rows = sheet.getRows();
@@ -416,9 +416,9 @@ public class Kjjszjcjb1ServiceImpl implements Kjjszjcjb1Service {
 			System.out.println("文件夹不存在");
 			file.mkdir();
 		}
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmm");// 设置日期格式
 		String time = df.format(new Date());
-		String path = "D:\\kjcoutput\\质量管理专家表    admin " + time + ".xls";
+		String path = "D:\\kjcoutput\\专家库表    admin " + time + ".xls";
 		CreateExcel.createExcel(this.getDataAsHashMap(items), path);
 	}
 

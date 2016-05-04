@@ -148,7 +148,7 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 	 */
 	public void showImportObject(String filepath) throws Exception {
 
-			String path = filepath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:");		
+			String path = filepath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:\\kjcoutput");		
 			Workbook workbook = Workbook.getWorkbook(new File(path));		
 			Sheet sheet = workbook.getSheet(0);
 			int rows = sheet.getRows();
@@ -165,7 +165,7 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 				jljlqjhzb.setBqdd(sheet.getCell(7, i).getContents());
 				jljlqjhzb.setZsyjg(sheet.getCell(8, i).getContents());
 				
-				jljlqjhzb.setJlnf(sheet.getCell(13, i).getContents());
+				jljlqjhzb.setJlnf(sheet.getCell(9, i).getContents());
 				jljlqjhzb.setUsername(formListTemp.get(0).getUsername());
 				jljlqjhzb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 				jljlqjhzb.setSubmit(0);
@@ -280,7 +280,7 @@ public class JljlqjhzbServiceImpl implements JljlqjhzbService{
 		    System.out.println("文件夹不存在");  
 		    file .mkdir();    
 		} 
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmm");// 设置日期格式
 		String time = df.format(new Date());
 		String path = "D:\\kjcoutput\\湖北省国防军工企事业单位最高计量标准器具汇总表   admin "+ time+".xls";
 		CreateExcel.createExcel(getDataAsHashMap(items), path);

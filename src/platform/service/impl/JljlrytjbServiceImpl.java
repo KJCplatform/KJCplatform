@@ -160,7 +160,7 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 	@Override
 	public void showImportObject(String filePath) throws Exception {
 		// TODO Auto-generated method stub
-		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:");		
+		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:\\kjcoutput");		
 		Workbook workbook = Workbook.getWorkbook(new File(path));		
 		Sheet sheet = workbook.getSheet(0);
 		int rows = sheet.getRows();
@@ -179,7 +179,7 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 			jljlrytjb.setKjxm(sheet.getCell(8, i).getContents());
 			jljlrytjb.setQfrq(StringHelper.stringConvertDate(sheet.getCell(9, i).getContents()));
 			
-			jljlrytjb.setJlnf(sheet.getCell(13, i).getContents());
+			jljlrytjb.setJlnf(sheet.getCell(10, i).getContents());
 			jljlrytjb.setUsername(formListTemp.get(0).getUsername());
 			jljlrytjb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
 			jljlrytjb.setSubmit(0);
@@ -294,7 +294,7 @@ public class JljlrytjbServiceImpl implements JljlrytjbService{
 		    System.out.println("文件夹不存在");  
 		    file .mkdir();    
 		} 
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmm");// 设置日期格式
 		String time = df.format(new Date());
 		String path = "D:\\kjcoutput\\国防军工企事业单位计量检定人员  admin " + time + ".xls";	
 		CreateExcel.createExcel(getDataAsHashMap(items), path);
