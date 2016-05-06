@@ -598,7 +598,7 @@ var basePath = localhostPath + projectName;
             <a href="#" id="editpass">修改密码</a> <a href="#" id="loginOut">安全退出</a>
         </span> <span style="padding-left:10px; font-size: 20px; "><img
             src="<%=basePath%>/images/blocks.gif" width="20" height="20"
-            align="absmiddle" /> 湖北省国防科技工业科技信息管理系统</span>
+            align="absmiddle" /> 湖北省国防科工办科技质量处信息管理系统</span>
     </div>
     <div region="south" split="true"
         style="height: 30px; background: #D2E0F2; ">
