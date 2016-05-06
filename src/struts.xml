@@ -700,12 +700,13 @@
  	    	<result name="update" type="json"> 
 				
  			</result> 
- 			    	<result name="addxkzycp" type="json"> 
-				
- 			</result> 
- 			    	<result name="addsrqk" type="json"> 
-				
- 			</result> 
+ 			    	<result name="showimport" type="json">
+
+			</result>
+
+			<result name="showexport" type="json">
+
+			</result> 
  			
 		</action> 
 		
@@ -723,12 +724,13 @@
  	    	<result name="update" type="json"> 
 				
  			</result> 
- 			    	<result name="addxkzycp" type="json"> 
-				
- 			</result> 
- 			    	<result name="addsrqk" type="json"> 
-				
- 			</result> 
+ 			    	<result name="showimport" type="json">
+
+			</result>
+
+			<result name="showexport" type="json">
+
+			</result> 
  			
 		</action> 
 		
@@ -745,13 +747,13 @@
  	    	<result name="update" type="json"> 
 				
  			</result> 
- 			    	<result name="addxkzycp" type="json"> 
-				
- 			</result> 
- 			    	<result name="addsrqk" type="json"> 
-				
- 			</result> 
- 			
+ 			    	<result name="showimport" type="json">
+
+			</result>
+
+			<result name="showexport" type="json">
+
+			</result>
 		</action> 
 		
 			<action name="Wqwqxkzxq4Action_*" class="platform.action.Wqwqxkzxq4Action" method="{1}">			 
@@ -767,12 +769,13 @@
  	    	<result name="update" type="json"> 
 				
  			</result> 
- 			    	<result name="addxkzycp" type="json"> 
-				
- 			</result> 
- 			    	<result name="addsrqk" type="json"> 
-				
- 			</result> 
+ 			    	<result name="showimport" type="json">
+
+			</result>
+
+			<result name="showexport" type="json">
+
+			</result> 
  			
 		</action> 
 		<action name="JpjgdwjbqkAction_*" class="platform.action.JpjgdwjbqkAction" method="{1}">			

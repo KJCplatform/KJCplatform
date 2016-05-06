@@ -19,7 +19,7 @@ $(function() {
 });
 //加载公文列表
 function listDoc() {
-	var actionPath = basePath + '/system/Wqwqxkzxq2Action_list.action';
+	var actionPath = basePath + '/system/Wqwqxkzxq1Action_list.action';
 	 $('#dg').datagrid({
             title : '已获得许可的武器生产专业(产品)',
             width : 1200,
@@ -147,8 +147,8 @@ function editDoc() {
 function dealSave() {
 	// 表单数据序列化成一个字符串用&拼接
 	var params = $("#frmEdit").serialize();
-	var actionAdd = basePath + '/system/Wqwqxkzxq2Action_add.action';
-	var actionUpdate = basePath + '/system/Wqwqxkzxq2Action_update.action';
+	var actionAdd = basePath + '/system/Wqwqxkzxq1Action_add.action';
+	var actionUpdate = basePath + '/system/Wqwqxkzxq1Action_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
@@ -204,7 +204,7 @@ function deleteDoc() {
 	}
 	$.messager.confirm('确认', '真的要删除选中的记录吗？', function(r) {
 		if (r) {
-			var actionPath = basePath + '/system/Wqwqxkzxq2Action_delete.action?id=';
+			var actionPath = basePath + '/system/Wqwqxkzxq1Action_delete.action?id=';
 			var url = actionPath + doc.id;
 			// 试一下get方法（地址，回调函数）
 			$.get(url, function(result) {
@@ -218,4 +218,102 @@ function deleteDoc() {
 			});
 		}
 	});
+}
+
+
+
+
+function ShowImport() {
+
+	// 得到上传文件的全路径
+	var fileName = $('#uploadExcel').filebox('getValue');
+
+	// 进行基本校验
+	if (fileName == "") {
+		$.messager.alert('提示', '请选择上传文件！', 'info');
+	} else {
+		// 对文件格式进行校验
+		var d1 = /\.[^\.]+$/.exec(fileName);
+		if (d1 == ".xls") {
+			// 提交表单
+			
+			var params = "id=" + fileName;
+			var showimport = basePath
+					+ '/system/Wqwqxkzxq1Action_showimport.action';
+
+			// alert(params);
+
+			$.post(showimport, params, function(result) {
+				if (result.operateSuccess) {
+					$('#dg').datagrid('reload');// 重新加载
+					$.messager.alert('导入', '导入Excel成功', 'info');
+
+				} else {
+					$.messager.alert('导入', '导入Excel失败', 'warning');
+				}
+			});
+
+			return false;
+		} else {
+			$.messager.alert('提示', '请选择xls格式文件！', 'info');
+			$('#uploadExcel').filebox('setValue', '');
+		}
+	}
+}
+
+function ShowExport() {
+
+	var Items = document.getElementsByName("Items");
+	var params = "id=";
+
+	for (var i = 0; i < Items.length; i++) {
+		if (Items[i].checked == true) {
+			params += Items[i].value + " ";
+		}
+	}
+
+	// alert(params);
+
+	var showimport = basePath + '/system/Wqwqxkzxq1Action_showexport.action';
+
+	$.post(showimport, params, function(result) {
+		if (result.operateSuccess) {
+			$('#dg').datagrid('reload');// 重新加载
+			$.messager.alert('导出', '导出Excel成功', 'info');
+
+		} else {
+			$.messager.alert('导出', '文件被占用！导出Excel失败', 'warning');
+		}
+	});
+
+	return false;
+}
+
+
+//Excelselect
+function selectExcel() {
+
+	$("#tabEdit2").dialog({
+		modal : true,// 模式窗口
+		title : '导出Excel',
+		iconCls : 'icon-save',
+		buttons : [ {
+			text : '确认',
+			handler : function() {
+
+				ShowExport();
+				closeForm2();
+			}
+		}, {
+			text : '取消',
+			handler : function() {
+				closeForm2();
+			}
+		} ]
+	});
+}
+
+function closeForm2() {
+	// $("#frmEdit2").form('clear');
+	$('#tabEdit2').dialog('close');
 }

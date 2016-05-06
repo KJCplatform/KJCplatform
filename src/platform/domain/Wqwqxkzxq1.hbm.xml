@@ -17,6 +17,26 @@
 		<property name="bz" type="string">
 			<column name="bz" />
 		</property>
-
+ <property name="jlnf" type="java.lang.String">
+            <column name="jlnf">
+                <comment>记录时间（年份）</comment>
+            </column>
+        </property>
+        <property name="username" type="java.lang.String">
+            <column name="username">
+                <comment>操作员</comment>
+            </column>
+        </property>
+        <property name="gxsj" type="java.lang.String">
+            <column name="gxsj">
+                <comment>更新时间</comment>
+            </column>
+        </property>
+       
+        <property name="submit" type="java.lang.Integer">
+            <column name="submit">
+                <comment>是否提交</comment>
+            </column>
+        </property>
 	</class>
 </hibernate-mapping>

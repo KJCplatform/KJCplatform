@@ -328,9 +328,9 @@ public class XzxzgzbServiceImpl implements XzxzgzbService {
 	 */
 	private LinkedHashMap<String, ArrayList<String>> getDataAsHashMap(
 			String items) {
-		System.out.println("getDataAsHashMap:" + items);
+System.out.println("getDataAsHashMap:" + items);
 		LinkedHashMap<String, ArrayList<String>> lhm = new LinkedHashMap<String, ArrayList<String>>();
-		System.out.println("LinkedHashMap:" + lhm);
+System.out.println("LinkedHashMap:" + lhm);
 		List<String> li = new ArrayList<String>();
 		String[] item = items.split(" ");
 

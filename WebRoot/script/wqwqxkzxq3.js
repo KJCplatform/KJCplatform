@@ -221,3 +221,100 @@ function deleteDoc() {
 		}
 	});
 }
+
+
+
+function ShowImport() {
+
+	// 得到上传文件的全路径
+	var fileName = $('#uploadExcel').filebox('getValue');
+
+	// 进行基本校验
+	if (fileName == "") {
+		$.messager.alert('提示', '请选择上传文件！', 'info');
+	} else {
+		// 对文件格式进行校验
+		var d1 = /\.[^\.]+$/.exec(fileName);
+		if (d1 == ".xls") {
+			// 提交表单
+			
+			var params = "id=" + fileName;
+			var showimport = basePath
+					+ '/system/Wqwqxkzxq3Action_showimport.action';
+
+			// alert(params);
+
+			$.post(showimport, params, function(result) {
+				if (result.operateSuccess) {
+					$('#dg').datagrid('reload');// 重新加载
+					$.messager.alert('导入', '导入Excel成功', 'info');
+
+				} else {
+					$.messager.alert('导入', '导入Excel失败', 'warning');
+				}
+			});
+
+			return false;
+		} else {
+			$.messager.alert('提示', '请选择xls格式文件！', 'info');
+			$('#uploadExcel').filebox('setValue', '');
+		}
+	}
+}
+
+function ShowExport() {
+
+	var Items = document.getElementsByName("Items");
+	var params = "id=";
+
+	for (var i = 0; i < Items.length; i++) {
+		if (Items[i].checked == true) {
+			params += Items[i].value + " ";
+		}
+	}
+
+	// alert(params);
+
+	var showimport = basePath + '/system/Wqwqxkzxq3Action_showexport.action';
+
+	$.post(showimport, params, function(result) {
+		if (result.operateSuccess) {
+			$('#dg').datagrid('reload');// 重新加载
+			$.messager.alert('导出', '导出Excel成功', 'info');
+
+		} else {
+			$.messager.alert('导出', '文件被占用！导出Excel失败', 'warning');
+		}
+	});
+
+	return false;
+}
+
+// Excelselect
+function selectExcel() {
+
+	$("#tabEdit2").dialog({
+		modal : true,// 模式窗口
+		title : '导出Excel',
+		iconCls : 'icon-save',
+		buttons : [ {
+			text : '确认',
+			handler : function() {
+
+				ShowExport();
+				closeForm2();
+			}
+		}, {
+			text : '取消',
+			handler : function() {
+				closeForm2();
+			}
+		} ]
+	});
+}
+
+
+function closeForm2() {
+	// $("#frmEdit2").form('clear');
+	$('#tabEdit2').dialog('close');
+}

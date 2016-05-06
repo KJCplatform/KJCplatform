@@ -61,7 +61,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </table>
         </form>
 </div>
+<form id="questionTypesManage" method="post"
+		enctype="multipart/form-data">
+		选择文件： <input type="text" id="uploadExcel" name="uploadExcel"
+			class="easyui-filebox" style="width:200px"
+			data-options="prompt:'请选择文件...'"> <a href="#"
+			class="easyui-linkbutton" id="btnImport" onclick="ShowImport()">导入</a>
+		<a href="#" class="easyui-linkbutton" id="btnExport"
+			onclick="selectExcel()">导出</a> <a href="#" class="easyui-linkbutton"
+			id="btnExport" onclick="writeFileToService()">上传附件</a>
+		<!-- <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="topdf()" >导出pdf</a>　 -->
+	</form>
 
+	<div id="divEdit2" style="display:none;">
+		<div id="tabEdit2" style="overflow-y:auto;">
+			<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"
+				method="post">
+				>>>请选择导出项<<< <br> <br> 
+				<input name="Items" type="checkbox" checked="checked" value="1" />序号 <br> 
+				<input name="Items" type="checkbox" checked="checked" value="2" />项目代码<br> 
+				<input name="Items" type="checkbox" checked="checked" value="3" />项目名称<br>
+				<input name="Items" type="checkbox" checked="checked" value="4" />科研生产<br> 
+				<input name="Items" type="checkbox" checked="checked" value="5" />许可类型<br>
+				<input name="Items" type="checkbox" checked="checked" value="6" />记录年份<br>
+			</form>
+		</div>
+	</div>
 
 <div data-options="region:'center',split:false">
 	<!-- 表格主题部分-->
@@ -73,7 +98,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<th field="xmmc" >项目名称</th>
 		    <th field="kysc" >科研生产</th>
 			<th field="xklx" >许可类型</th>
-		
+		    <th field="jlnf" width="130">记录时间(年份)</th>
+			<th field="username" width="130">操作员</th>
+			<th field="gxsj" width="130">更新时间</th>
 	
 		</tr>
 	</thead>
