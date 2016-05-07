@@ -330,7 +330,7 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
         SimpleDateFormat df = new SimpleDateFormat("yy年MM月dd日 HH时mm分");// 设置日期格式
         // System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
         String time = df.format(new Date());
-        String path = "D:\\高新技术企业认定备案信息表   admin  "+"企业名称-"+str+"   " + time + ".xls";
+        String path = "D:\\kjcoutput\\高新技术企业认定备案信息表   admin  "+"企业名称-"+str+"   " + time + ".xls";
 
 
         // 打开文件
@@ -451,22 +451,142 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
         int zynum=formlist.get(0).getKjgxqybabzscqs().size();
 
 
-
-//        public void addZscqListWithExpertId(int id, List<KjgxqybabzscqForm> list){
-//
-//        public void addYfxmListWithExpertId(int id, List<KjgxqybabyfxmForm> list){
-//
-//        @Override
-//        public void addGxcpListWithExpertId(int id, List<KjgxqybabgxcpForm> list){
+        sheet.mergeCells(0, 15, 9, 15);
+        Label label16= new Label(0,15,"上年度高新技术产品（服务）情况",cellFormat);
+        sheet.addCell(label16);
 
 
 
+        for(int i=0;i<=xmnum;i++){
+
+            if(i==0){
+        sheet.mergeCells(0, 16+i, 1, 16+i);
+        Label label17_1= new Label(0,16+i,"序号",cellFormat);
+        sheet.addCell(label17_1);
+        sheet.mergeCells(2, 16+i, 3, 16+i);
+        Label label17_2= new Label(2,16+i,"产品编号",cellFormat);
+        sheet.addCell(label17_2);
+        sheet.mergeCells(4, 16+i, 5, 16+i);
+        Label label17_3= new Label(4,16+i,"项目（服务）名称",cellFormat);
+        sheet.addCell(label17_3);
+        sheet.mergeCells(6, 16+i, 7, 16+i);
+        Label label17_4= new Label(6,16+i,"上年度销售收入",cellFormat);
+        sheet.addCell(label17_4);
+            }
+            else{
+                sheet.mergeCells(0, 16+i, 1, 16+i);
+                Label label17_1= new Label(0,16+i,String.valueOf(i),cellFormat);
+                sheet.addCell(label17_1);
+                sheet.mergeCells(2, 16+i, 3, 16+i);
+                Label label17_2= new Label(2,16+i,formlist.get(0).getKjgxqybabgxcps().get(i-1).getCpbh(),cellFormat);
+                sheet.addCell(label17_2);
+                sheet.mergeCells(4, 16+i, 5, 16+i);
+                Label label17_3= new Label(4,16+i,formlist.get(0).getKjgxqybabgxcps().get(i-1).getCpmc(),cellFormat);
+                sheet.addCell(label17_3);
+                sheet.mergeCells(6, 16+i, 7, 16+i);
+                Label label17_4= new Label(6,16+i,formlist.get(0).getKjgxqybabgxcps().get(i-1).getShsr(),cellFormat);
+                sheet.addCell(label17_4);
+            }
+        }
 
 
 
 
+        sheet.mergeCells(0, 17+xmnum, 9, 17+xmnum);
+        Label label18= new Label(0,17+xmnum,"企业研究开发项目情况",cellFormat);
+        sheet.addCell(label18);
 
 
+
+
+        for(int i=xmnum;i<=xmnum+cgnum;i++){
+            if(i==xmnum){
+        sheet.mergeCells(0, 18+i, 1, 18+i);
+        Label label19_1= new Label(0,18+i,"序号",cellFormat);
+        sheet.addCell(label19_1);
+        sheet.mergeCells(2, 18+i, 3, 18+i);
+        Label label19_2= new Label(2,18+i,"项目编号",cellFormat);
+        sheet.addCell(label19_2);
+        sheet.mergeCells(4, 18+i, 5, 18+i);
+        Label label19_3= new Label(4,18+i,"项目名称",cellFormat);
+        sheet.addCell(label19_3);
+        sheet.mergeCells(6, 18+i, 7, 18+i);
+        Label label19_4= new Label(6,18+i,"项目研发经费-内部",cellFormat);
+        sheet.addCell(label19_4);
+        sheet.mergeCells(8, 18+i, 9, 18+i);
+        Label label19_5= new Label(8,18+i,"项目研发经费-外部",cellFormat);
+        sheet.addCell(label19_5);
+            }
+            else{
+                sheet.mergeCells(0, 18+i, 1, 18+i);
+                Label label19_1= new Label(0,18+i,String.valueOf(i-xmnum),cellFormat);
+                sheet.addCell(label19_1);
+                sheet.mergeCells(2, 18+i, 3, 18+i);
+                Label label19_2= new Label(2,18+i,formlist.get(0).getKjgxqybabyfxms().get(i-xmnum-1).getXmbh(),cellFormat);
+                sheet.addCell(label19_2);
+                sheet.mergeCells(4, 18+i, 5, 18+i);
+                Label label19_3= new Label(4,18+i,formlist.get(0).getKjgxqybabyfxms().get(i-xmnum-1).getXmmc(),cellFormat);
+                sheet.addCell(label19_3);
+                sheet.mergeCells(6, 18+i, 7, 18+i);
+                Label label19_4= new Label(6,18+i,formlist.get(0).getKjgxqybabyfxms().get(i-xmnum-1).getJfnb(),cellFormat);
+                sheet.addCell(label19_4);
+                sheet.mergeCells(8, 18+i, 9, 18+i);
+                Label label19_5= new Label(8,18+i,formlist.get(0).getKjgxqybabyfxms().get(i-xmnum-1).getJfwb(),cellFormat);
+                sheet.addCell(label19_5);
+            }
+
+
+        }
+
+
+
+        sheet.mergeCells(0, 19+xmnum+cgnum, 9, 19+xmnum+cgnum);
+        Label label20= new Label(0,19+xmnum+cgnum,"近3年内获得的自主知识产权情况",cellFormat);
+        sheet.addCell(label20);
+
+
+        for(int i=xmnum+cgnum;i<=xmnum+cgnum+zynum;i++){
+            if(i==xmnum+cgnum){
+        sheet.mergeCells(0, 20+i, 1, 20+i);
+        Label label21_1= new Label(0,20+i,"序号",cellFormat);
+        sheet.addCell(label21_1);
+        sheet.mergeCells(2, 20+i, 3, 20+i);
+        Label label21_2= new Label(2,20+i,"项目编号",cellFormat);
+        sheet.addCell(label21_2);
+        sheet.mergeCells(4, 20+i, 5, 20+i);
+        Label label21_3= new Label(4,20+i,"授权项目名称",cellFormat);
+        sheet.addCell(label21_3);
+        sheet.mergeCells(6, 20+i, 7, 20+i);
+        Label label21_4= new Label(6,20+i,"类别",cellFormat);
+        sheet.addCell(label21_4);
+        sheet.mergeCells(8, 20+i, 9, 20+i);
+        Label label21_5= new Label(8,20+i,"授权号",cellFormat);
+        sheet.addCell(label21_5);
+            }
+            else {
+                sheet.mergeCells(0, 20+i, 1, 20+i);
+                Label label21_1= new Label(0,20+i,String.valueOf(i-xmnum-cgnum),cellFormat);
+                sheet.addCell(label21_1);
+                sheet.mergeCells(2, 20+i, 3, 20+i);
+                Label label21_2= new Label(2,20+i,formlist.get(0).getKjgxqybabzscqs().get(i-xmnum-cgnum-1).getXmbh(),cellFormat);
+                sheet.addCell(label21_2);
+                sheet.mergeCells(4, 20+i, 5, 20+i);
+                Label label21_3= new Label(4,20+i,formlist.get(0).getKjgxqybabzscqs().get(i-xmnum-cgnum-1).getSqmc(),cellFormat);
+                sheet.addCell(label21_3);
+                sheet.mergeCells(6, 20+i, 7, 20+i);
+                Label label21_4= new Label(6,20+i,formlist.get(0).getKjgxqybabzscqs().get(i-xmnum-cgnum-1).getLb(),cellFormat);
+                sheet.addCell(label21_4);
+                sheet.mergeCells(8, 20+i, 9, 20+i);
+                Label label21_5= new Label(8,20+i,formlist.get(0).getKjgxqybabzscqs().get(i-xmnum-cgnum-1).getSqh(),cellFormat);
+                sheet.addCell(label21_5);
+
+            }
+
+        }
+        
+        // 写入数据并关闭文件
+        book.write();
+        book.close();
 
 
     }
