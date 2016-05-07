@@ -1,8 +1,6 @@
 package platform.service.impl;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -11,24 +9,12 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.print.Doc;
-import javax.print.DocFlavor;
-import javax.print.DocPrintJob;
-import javax.print.PrintException;
-import javax.print.PrintService;
-import javax.print.PrintServiceLookup;
-import javax.print.ServiceUI;
-import javax.print.SimpleDoc;
-import javax.print.attribute.DocAttributeSet;
-import javax.print.attribute.HashDocAttributeSet;
-import javax.print.attribute.HashPrintRequestAttributeSet;
-import javax.print.attribute.PrintRequestAttributeSet;
 
-import jp.ne.so_net.ga2.no_ji.jcom.ReleaseManager;
-import jp.ne.so_net.ga2.no_ji.jcom.excel8.ExcelApplication;
-import jp.ne.so_net.ga2.no_ji.jcom.excel8.ExcelWorkbook;
-import jp.ne.so_net.ga2.no_ji.jcom.excel8.ExcelWorkbooks;
-import jp.ne.so_net.ga2.no_ji.jcom.excel8.ExcelWorksheet;
+//import jp.ne.so_net.ga2.no_ji.jcom.ReleaseManager;
+//import jp.ne.so_net.ga2.no_ji.jcom.excel8.ExcelApplication;
+//import jp.ne.so_net.ga2.no_ji.jcom.excel8.ExcelWorkbook;
+//import jp.ne.so_net.ga2.no_ji.jcom.excel8.ExcelWorkbooks;
+//import jp.ne.so_net.ga2.no_ji.jcom.excel8.ExcelWorksheet;
 import jxl.Cell;
 import jxl.Sheet;
 import jxl.Workbook;
@@ -45,11 +31,6 @@ import platform.domain.Kjzlcjb;
 import platform.form.KjzlcjbForm;
 import platform.service.KjzlcjbService;
 import platform.util.StringHelper;
-
-import com.jacob.activeX.ActiveXComponent;
-import com.jacob.com.ComThread;
-import com.jacob.com.Dispatch;
-import com.jacob.com.Variant;
 
 @Service(KjzlcjbService.SERVICE_NAME)
 public class KjzlcjbServiceImpl implements KjzlcjbService{
@@ -709,15 +690,15 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		book.write();
 		book.close();
 
-		try{
-
-		    printExcel("D:\\kjcoutput\\国防专利  操作员-"+username+" " + time + ".xls");
-//		    System.out.println("status:"+printExcel3("D:\\kjcoutput\\国防专利  操作员-"+username+" " + time + ".xls"));
-
-		}
-		catch(Exception e){
-		    System.out.println("e:"+e);
-		}
+//		try{
+//
+////		    printExcel("D:\\kjcoutput\\国防专利  操作员-"+username+" " + time + ".xls");
+////		    System.out.println("status:"+printExcel3("D:\\kjcoutput\\国防专利  操作员-"+username+" " + time + ".xls"));
+//
+//		}
+//		catch(Exception e){
+//		    System.out.println("e:"+e);
+//		}
 
 	}
 
@@ -725,144 +706,144 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 
 
 
-
-	public static boolean printExcel3(String path){
-	    if(path != null){
-
-	        System.out.println("hh1");
-	            ComThread.InitSTA();
-	            System.out.println("hh2");
-	            ActiveXComponent xl = new ActiveXComponent("Excel.Application");
-	            System.out.println("hh3");
-
-
-	             try {
-	                 System.out.println("version=" + xl.getProperty("Version"));
-	                   //不打开文档
-	                   Dispatch.put(xl, "Visible", new Variant(false)); //new Variant(true)显示文档
-	                   Dispatch workbooks = xl.getProperty("Workbooks").toDispatch();
-	                   Dispatch excel=Dispatch.call(workbooks,"Open",path).toDispatch();
-	                  //调用excel宏的方法(不带参数的宏)需要说明宏所在的文档
-	                  Dispatch.call(xl, "Run", new Variant("test.xls!Sheet1.test"));
-	                   // 横向打印
-	                  // Dispatch currentSheet = Dispatch.get(excel, "ActiveSheet")
-	                  // .toDispatch();
-	                  // Dispatch pageSetup = Dispatch
-	                  // .get(currentSheet, "PageSetup").toDispatch();
-	                   // Dispatch.put(pageSetup, "Orientation", new Variant(2)); //Variant(2)横向打印
-	                   //设置边距
-	                  // Dispatch.put(pageSetup,"LeftMargin",0);
-	                  // Dispatch.put(pageSetup,"RightMargin",0);
-	                  // Dispatch.put(pageSetup,"TopMargin",0);
-	                 //  Dispatch.put(pageSetup,"BottomMargin",0);
-	                   //开始打印
-	                   Dispatch.get(excel,"PrintOut");
-	                   //增加以下三行代码解决文件无法删除bug
-	                   Dispatch.call(excel, "save");
-	                   Dispatch.call(excel,  "Close" ,  new  Variant(true));
-	                   excel=null;
-
-	                   return true;
-	                } catch (Exception e) {
-	                    e.printStackTrace();
-	                    return false;
-	                  } finally {
-	                      //始终释放资源
-	                     xl.invoke("Quit", new Variant[] {});
-	                     xl=null;
-	                     ComThread.Release();
-	                     }
-	      }else {
-	         return false;
-	      }
-}
-
-
-
-
+//
+//	public static boolean printExcel3(String path){
+//	    if(path != null){
+//
+//	        System.out.println("hh1");
+//	            ComThread.InitSTA();
+//	            System.out.println("hh2");
+//	            ActiveXComponent xl = new ActiveXComponent("Excel.Application");
+//	            System.out.println("hh3");
+//
+//
+//	             try {
+//	                 System.out.println("version=" + xl.getProperty("Version"));
+//	                   //不打开文档
+//	                   Dispatch.put(xl, "Visible", new Variant(false)); //new Variant(true)显示文档
+//	                   Dispatch workbooks = xl.getProperty("Workbooks").toDispatch();
+//	                   Dispatch excel=Dispatch.call(workbooks,"Open",path).toDispatch();
+//	                  //调用excel宏的方法(不带参数的宏)需要说明宏所在的文档
+//	                  Dispatch.call(xl, "Run", new Variant("test.xls!Sheet1.test"));
+//	                   // 横向打印
+//	                  // Dispatch currentSheet = Dispatch.get(excel, "ActiveSheet")
+//	                  // .toDispatch();
+//	                  // Dispatch pageSetup = Dispatch
+//	                  // .get(currentSheet, "PageSetup").toDispatch();
+//	                   // Dispatch.put(pageSetup, "Orientation", new Variant(2)); //Variant(2)横向打印
+//	                   //设置边距
+//	                  // Dispatch.put(pageSetup,"LeftMargin",0);
+//	                  // Dispatch.put(pageSetup,"RightMargin",0);
+//	                  // Dispatch.put(pageSetup,"TopMargin",0);
+//	                 //  Dispatch.put(pageSetup,"BottomMargin",0);
+//	                   //开始打印
+//	                   Dispatch.get(excel,"PrintOut");
+//	                   //增加以下三行代码解决文件无法删除bug
+//	                   Dispatch.call(excel, "save");
+//	                   Dispatch.call(excel,  "Close" ,  new  Variant(true));
+//	                   excel=null;
+//
+//	                   return true;
+//	                } catch (Exception e) {
+//	                    e.printStackTrace();
+//	                    return false;
+//	                  } finally {
+//	                      //始终释放资源
+//	                     xl.invoke("Quit", new Variant[] {});
+//	                     xl=null;
+//	                     ComThread.Release();
+//	                     }
+//	      }else {
+//	         return false;
+//	      }
+//}
+//
+//
 
 
 
 
-
-
-//jcom 打印excel
-public  static  boolean   printExcel2(String fname)   {
-    ReleaseManager   rm   =   new   ReleaseManager();
-
-    try   {
-
-        System.out.println("1:");
-            ExcelApplication   excel   =   new   ExcelApplication(rm);
-            Thread.sleep(10000);
-            System.out.println("2:");
-            ExcelWorkbooks   xlBooks   =   excel.Workbooks();
-            ExcelWorkbook   xlBook   =   xlBooks.Open(fname);
-            ExcelWorksheet   xlSheet   =   excel.ActiveSheet();
-            xlSheet.PrintOut();
-
-            xlBook.Close(false,   null,   false);
-
-            excel.Quit();
-    }   catch   (Exception   e)   {
-        System.out.println(e);
-//            e.printStackTrace();
-            return   false;
-    }   finally   {
-            rm.release();
-    }
-    return   true;
-}
-
-
-//打印机 API
-public static void printExcel(String str) throws IOException, PrintException, InterruptedException{
-
-//  Thread.sleep(1000);
-  String filename =str;
-  //PrintRequestAttributeSet实例。
-  //这用来弹出显示的对话框，并在对话框消失之前返回用户所作的任何更改。
-
-  PrintRequestAttributeSet pras = new HashPrintRequestAttributeSet();
-  DocFlavor flavor = DocFlavor.INPUT_STREAM.POSTSCRIPT;
-  PrintService printService[] = PrintServiceLookup.lookupPrintServices(flavor, pras);//用户可选用的PrintService实例数组。
-  if (printService == null || printService.length == 0) {
-      System.out.println("未找到打印机。");
-      return;
-}
-  PrintService defaultService = PrintServiceLookup.lookupDefaultPrintService(); //默认的PrintService
-
-  /*为用户提供一个选择 PrintService（打印机）的对话框。
-      gc - 用于选择屏幕。null 意味着主屏幕或默认屏幕。
-      x - 对话框在屏幕坐标中的位置，包括边框
-      y - 对话框在屏幕坐标中的位置，包括边框
-      services - 可浏览的服务，必须不为 null。
-      defaultService - 要显示的初始 PrintService。
-      flavor - 要打印的 flavor，或者为 null。
-      attributes - 输入时为应用程序最初提供的首选项。这不能为 null，但可以为空。输出时为反映用户所作的更改的属性。
-  */
-  PrintService service = ServiceUI.printDialog(null, 200, 200,printService, defaultService, flavor, pras);
-  if (service != null) {
-
-      DocPrintJob job = service.createPrintJob();  //创建打印任务
-      FileInputStream fis = new FileInputStream(filename);
-      DocAttributeSet das = new HashDocAttributeSet();
-      /*
-       * 定义要打印的文档,SimpleDoc(,,)里有三个参数:
-       * 　　   ·Object 代表要打印的内容
-       *      ·DocFlavor的一个实例描述数据类型
-       *      ·可选的DocAttributeSet 包含打印时的属性
-       */
-      Doc doc = new SimpleDoc(fis, flavor, das);
-      /*   启动打印 job.print( , )
-       * doc - 要打印的文档。如果必须是一个 flavor，则此 PrintJob 必须支持它。
-       *  attributes - 应用到此 PrintJob 的作业属性。如果此参数为 null，则使用默认属性。
-       * */
-      job.print(doc, pras);
-      Thread.sleep(10000);
-  }
-  System.exit(0);
-}
+//
+//
+//
+//
+////jcom 打印excel
+//public  static  boolean   printExcel2(String fname)   {
+//    ReleaseManager   rm   =   new   ReleaseManager();
+//
+//    try   {
+//
+//        System.out.println("1:");
+//            ExcelApplication   excel   =   new   ExcelApplication(rm);
+//            Thread.sleep(10000);
+//            System.out.println("2:");
+//            ExcelWorkbooks   xlBooks   =   excel.Workbooks();
+//            ExcelWorkbook   xlBook   =   xlBooks.Open(fname);
+//            ExcelWorksheet   xlSheet   =   excel.ActiveSheet();
+//            xlSheet.PrintOut();
+//
+//            xlBook.Close(false,   null,   false);
+//
+//            excel.Quit();
+//    }   catch   (Exception   e)   {
+//        System.out.println(e);
+////            e.printStackTrace();
+//            return   false;
+//    }   finally   {
+//            rm.release();
+//    }
+//    return   true;
+//}
+//
+//
+////打印机 API
+//public static void printExcel(String str) throws IOException, PrintException, InterruptedException{
+//
+////  Thread.sleep(1000);
+//  String filename =str;
+//  //PrintRequestAttributeSet实例。
+//  //这用来弹出显示的对话框，并在对话框消失之前返回用户所作的任何更改。
+//
+//  PrintRequestAttributeSet pras = new HashPrintRequestAttributeSet();
+//  DocFlavor flavor = DocFlavor.INPUT_STREAM.POSTSCRIPT;
+//  PrintService printService[] = PrintServiceLookup.lookupPrintServices(flavor, pras);//用户可选用的PrintService实例数组。
+//  if (printService == null || printService.length == 0) {
+//      System.out.println("未找到打印机。");
+//      return;
+//}
+//  PrintService defaultService = PrintServiceLookup.lookupDefaultPrintService(); //默认的PrintService
+//
+//  /*为用户提供一个选择 PrintService（打印机）的对话框。
+//      gc - 用于选择屏幕。null 意味着主屏幕或默认屏幕。
+//      x - 对话框在屏幕坐标中的位置，包括边框
+//      y - 对话框在屏幕坐标中的位置，包括边框
+//      services - 可浏览的服务，必须不为 null。
+//      defaultService - 要显示的初始 PrintService。
+//      flavor - 要打印的 flavor，或者为 null。
+//      attributes - 输入时为应用程序最初提供的首选项。这不能为 null，但可以为空。输出时为反映用户所作的更改的属性。
+//  */
+//  PrintService service = ServiceUI.printDialog(null, 200, 200,printService, defaultService, flavor, pras);
+//  if (service != null) {
+//
+//      DocPrintJob job = service.createPrintJob();  //创建打印任务
+//      FileInputStream fis = new FileInputStream(filename);
+//      DocAttributeSet das = new HashDocAttributeSet();
+//      /*
+//       * 定义要打印的文档,SimpleDoc(,,)里有三个参数:
+//       * 　　   ·Object 代表要打印的内容
+//       *      ·DocFlavor的一个实例描述数据类型
+//       *      ·可选的DocAttributeSet 包含打印时的属性
+//       */
+//      Doc doc = new SimpleDoc(fis, flavor, das);
+//      /*   启动打印 job.print( , )
+//       * doc - 要打印的文档。如果必须是一个 flavor，则此 PrintJob 必须支持它。
+//       *  attributes - 应用到此 PrintJob 的作业属性。如果此参数为 null，则使用默认属性。
+//       * */
+//      job.print(doc, pras);
+//      Thread.sleep(10000);
+//  }
+//  System.exit(0);
+//}
 
 
 
