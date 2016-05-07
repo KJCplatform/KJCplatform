@@ -3,9 +3,9 @@ package platform.service;
 import java.util.List;
 
 import platform.form.KjgxqybabForm;
-import platform.form.KjgxqybabzscqForm;
-import platform.form.KjgxqybabyfxmForm;
 import platform.form.KjgxqybabgxcpForm;
+import platform.form.KjgxqybabyfxmForm;
+import platform.form.KjgxqybabzscqForm;
 
 
 public interface KjgxqybabService {
@@ -25,6 +25,7 @@ public interface KjgxqybabService {
 
 	public void deleteObject(String id);
 
+    public void showexportObject(String str,List<KjgxqybabForm> formlist) throws Exception;
 
 
 }
