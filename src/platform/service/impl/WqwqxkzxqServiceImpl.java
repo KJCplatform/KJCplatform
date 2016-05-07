@@ -1,6 +1,7 @@
 package platform.service.impl;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -30,8 +31,12 @@ public class WqwqxkzxqServiceImpl implements WqwqxkzxqService{
 	
 	@Resource(name=WqwqxkzxqDao.SERVICE_NAME)
 	private WqwqxkzxqDao wqwqxkzxqDao;
-	public String saveWqwqxkzxq(WqwqxkzxqForm wqwqxkzxqForm){
+	public String saveWqwqxkzxq(WqwqxkzxqForm wqwqxkzxqForm,String username){
 		Wqwqxkzxq wqwqxkzxq=this.VoObjecttoPoObject(wqwqxkzxqForm);
+		wqwqxkzxq.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		wqwqxkzxq.setUsername(username);
+		wqwqxkzxq.setGxsj(new Date().toString());
+		wqwqxkzxq.setSubmit(0);
 		wqwqxkzxqDao.save(wqwqxkzxq);
 		return wqwqxkzxqDao.selectMaxId();
 		
@@ -179,6 +184,10 @@ public class WqwqxkzxqServiceImpl implements WqwqxkzxqService{
 			wqwqxkzxqForm.setJpzzqk(list.get(i).getJpzzqk());
 			wqwqxkzxqForm.setWcjpqk(list.get(i).getWcjpqk());
 			wqwqxkzxqForm.setXcjpxmqk(list.get(i).getXcjpxmqk());
+			wqwqxkzxqForm.setJlnf(list.get(i).getJlnf());
+			wqwqxkzxqForm.setUsername(list.get(i).getUsername());
+			wqwqxkzxqForm.setGxsj(list.get(i).getGxsj());
+			wqwqxkzxqForm.setSubmit(String.valueOf(list.get(i).getSubmit()));
 			wqwqxkzxqForm.setWqwqxkzxqxkzycps(WqwqxkzxqxkzycpSetToFormList(list.get(i).getWqwqxkzxqxkzycps()));
 			wqwqxkzxqForm.setWqwqxkzxqsrqks(WqwqxkzxqsrqkSetToFormList(list.get(i).getWqwqxkzxqsrqks()));
 			formlist.add(wqwqxkzxqForm);
@@ -227,7 +236,7 @@ public class WqwqxkzxqServiceImpl implements WqwqxkzxqService{
 	}
 	
 	
-	public void updateObject(WqwqxkzxqForm wqwqxkzxqForm){
+	public void updateObject(WqwqxkzxqForm wqwqxkzxqForm,String username){
 		
 		
 	Wqwqxkzxq wqwqxkzxq=new Wqwqxkzxq();
@@ -265,7 +274,10 @@ public class WqwqxkzxqServiceImpl implements WqwqxkzxqService{
 		wqwqxkzxq.setJpjcqk(wqwqxkzxqForm.getJpjcqk());
 		wqwqxkzxq.setWcjpqk(wqwqxkzxqForm.getWcjpqk());
 		wqwqxkzxq.setXcjpxmqk(wqwqxkzxqForm.getXcjpxmqk());
-		
+		wqwqxkzxq.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		wqwqxkzxq.setUsername(username);
+		wqwqxkzxq.setGxsj(new Date().toString());
+		wqwqxkzxq.setSubmit(0);
 		wqwqxkzxqDao.update(wqwqxkzxq);
 		
 	}

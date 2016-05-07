@@ -2,6 +2,7 @@ package platform.service.impl;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -38,8 +39,12 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 	@Resource(name=JpjgdwjbqkDao.SERVICE_NAME)
 	private JpjgdwjbqkDao jpjgdwjbqkDao;
 	private JpjgdwjbqkForm jpjgdwjbqkFormTemp = null;
-	public String saveJpjgdwjbqk(JpjgdwjbqkForm jpjgdwjbqkForm){
+	public String saveJpjgdwjbqk(JpjgdwjbqkForm jpjgdwjbqkForm,String username){
 		Jpjgdwjbqk jpjgdwjbqk=this.VoObjecttoPoObject(jpjgdwjbqkForm);
+		jpjgdwjbqk.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		jpjgdwjbqk.setUsername(username);
+		jpjgdwjbqk.setGxsj(new Date().toString());
+		jpjgdwjbqk.setSubmit(0);
 		jpjgdwjbqkDao.save(jpjgdwjbqk);
 		return jpjgdwjbqkDao.selectMaxId();
 		
@@ -183,7 +188,10 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 			jpjgdwjbqkForm.setJpkyrw(list.get(i).getJpkyrw());
 			jpjgdwjbqkForm.setGjsyssl(list.get(i).getGjsyssl());
 			jpjgdwjbqkForm.setGfsyssl(list.get(i).getGfsyssl());
-			
+			jpjgdwjbqkForm.setJlnf(list.get(i).getJlnf());
+			jpjgdwjbqkForm.setUsername(list.get(i).getUsername());
+			jpjgdwjbqkForm.setGxsj(list.get(i).getGxsj());
+			jpjgdwjbqkForm.setSubmit(String.valueOf(list.get(i).getSubmit()));
 			jpjgdwjbqkForm.setJpjgdwjbqksrqks(JpjgdwjbqksrqkSetToFormList(list.get(i).getJpjgdwjbqksrqks()));
 			jpjgdwjbqkForm.setJpjgdwjbqkrys(JpjgdwjbqkrySetToFormList(list.get(i).getJpjgdwjbqkrys()));
 			
@@ -232,7 +240,7 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 	}
 	
 	
-	public void updateObject(JpjgdwjbqkForm jpjgdwjbqkForm){
+	public void updateObject(JpjgdwjbqkForm jpjgdwjbqkForm,String username){
 		Jpjgdwjbqk jpjgdwjbqk=new Jpjgdwjbqk();
 		jpjgdwjbqk.setId(Integer.valueOf(jpjgdwjbqkForm.getId()));
 		jpjgdwjbqk.setDwmc(jpjgdwjbqkForm.getDwmc());
@@ -262,6 +270,10 @@ public class JpjgdwjbqkServiceImpl implements JpjgdwjbqkService{
 		jpjgdwjbqk.setJpkyrw(jpjgdwjbqkForm.getJpkyrw());
 		jpjgdwjbqk.setGjsyssl(jpjgdwjbqkForm.getGjsyssl());
 		jpjgdwjbqk.setGfsyssl(jpjgdwjbqkForm.getGfsyssl());
+		jpjgdwjbqk.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		jpjgdwjbqk.setUsername(username);
+		jpjgdwjbqk.setGxsj(new Date().toString());
+		jpjgdwjbqk.setSubmit(0);
 		jpjgdwjbqkDao.update(jpjgdwjbqk);
 		
 	}

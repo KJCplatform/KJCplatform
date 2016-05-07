@@ -5,6 +5,10 @@ public class User implements java.io.Serializable {
 	private String name;
 	private String password;
 	private int id;
+	private String jlnf;
+	  private String username;
+	  private String gxsj;
+	  private int submit;
 	public int getId() {
 		return id;
 	}
@@ -23,4 +27,29 @@ public class User implements java.io.Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getJlnf() {
+		return jlnf;
+	}
+	public void setJlnf(String jlnf) {
+		this.jlnf = jlnf;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getGxsj() {
+		return gxsj;
+	}
+	public void setGxsj(String gxsj) {
+		this.gxsj = gxsj;
+	}
+	public int getSubmit() {
+		return submit;
+	}
+	public void setSubmit(int submit) {
+		this.submit = submit;
+	}
+	
 }

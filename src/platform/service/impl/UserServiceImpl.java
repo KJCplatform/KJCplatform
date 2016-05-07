@@ -1,6 +1,7 @@
 package platform.service.impl;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -47,6 +48,8 @@ public class UserServiceImpl implements UserService{
 	    return false;
 	}
 	
+	
+
 	public User getUserByName(String name){
 		String hqlWhere = " and o.name = ?";
 		Object [] params = {name};
@@ -129,6 +132,10 @@ public class UserServiceImpl implements UserService{
 			UserRight userRight = new UserRight();
 			userRight.setUserID(Integer.valueOf(userForm.getId()));
 			userRight.setRightID(Integer.valueOf(selectrights[i]));
+			/*userRight.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+			userRight.setUsername(username);
+			userRight.setGxsj(new Date().toString());
+			userRight.setSubmit(0);*/
 			newlist.add(userRight);
 		}
 		userRightDao.saveObjectByCollection(newlist);
@@ -149,6 +156,10 @@ public class UserServiceImpl implements UserService{
 			user.setName(valueOf);
 			
 		    user.setPassword(MD5(userForm.getPassword()));
+		    /*user.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		    user.setUsername(username);
+		    user.setGxsj(new Date().toString());
+		    user.setSubmit(0);*/
 		  	userDao.update(user);
 			
 			return true;

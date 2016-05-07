@@ -14,7 +14,7 @@ public class Jpzlzkdwb implements java.io.Serializable {
 	private Boolean jinyong;
 	private String username;
 	private String gxsj;
-	private Boolean submit;
+	private int submit;
 	public Integer getId() {
 		return id;
 	}
@@ -45,11 +45,12 @@ public class Jpzlzkdwb implements java.io.Serializable {
 	public void setGxsj(String gxsj) {
 		this.gxsj = gxsj;
 	}
-	public Boolean getSubmit() {
+	public int getSubmit() {
 		return submit;
 	}
-	public void setSubmit(Boolean submit) {
+	public void setSubmit(int submit) {
 		this.submit = submit;
 	}
+	
 	
 }

@@ -18,7 +18,7 @@ public class Jpzlbgtjb implements java.io.Serializable {//质量报告统计表
 	private String fourth;
 	private String username;
 	private String gxsj;
-	private Boolean submit;
+	private int submit;
 	
 	public String getYear() {
 		return year;
@@ -74,11 +74,12 @@ public class Jpzlbgtjb implements java.io.Serializable {//质量报告统计表
 	public void setGxsj(String gxsj) {
 		this.gxsj = gxsj;
 	}
-	public Boolean getSubmit() {
+	public int getSubmit() {
 		return submit;
 	}
-	public void setSubmit(Boolean submit) {
+	public void setSubmit(int submit) {
 		this.submit = submit;
 	}
+	
 	
 }

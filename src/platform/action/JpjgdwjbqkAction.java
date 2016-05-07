@@ -20,7 +20,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
-import platform.action.BaseAction;
 import platform.dao.TestDataDao;
 import platform.form.JpjgdwjbqkForm;
 import platform.form.JpjgdwjbqksrqkForm;
@@ -35,6 +34,9 @@ import platform.service.TestDataService;
 
 
 
+
+
+
 import com.opensymphony.xwork2.ModelDriven;
 
 import container.ServiceProvider;
@@ -42,6 +44,8 @@ import container.ServiceProvider;
 public class JpjgdwjbqkAction extends BaseAction implements ModelDriven<JpjgdwjbqkForm>{
 	String srqkform;
 	String ryform;
+	String username;
+	
 	
 	public String getSrqkform() {
 		return srqkform;
@@ -112,8 +116,8 @@ public class JpjgdwjbqkAction extends BaseAction implements ModelDriven<Jpjgdwjb
 		return "list";
 	}
 	public String update(){
-		
-		jpjgdwjbqkService.updateObject(jpjgdwjbqkForm);
+		username=String.valueOf(request.getSession().getAttribute(""));
+		jpjgdwjbqkService.updateObject(jpjgdwjbqkForm,username);
 			operateSuccess=true;
 			return "update";
 		}
@@ -128,7 +132,8 @@ public class JpjgdwjbqkAction extends BaseAction implements ModelDriven<Jpjgdwjb
 		kjjszjcjbForm1.setGzbm("哈哈哈");
 		kjjszjcjbForm1.setZytc("哈哈哈");
 		kjjszjcjbForm1.setSfgk("否");*/
-		resultid=jpjgdwjbqkService.saveJpjgdwjbqk(jpjgdwjbqkForm);
+		username=String.valueOf(request.getSession().getAttribute(""));
+		resultid=jpjgdwjbqkService.saveJpjgdwjbqk(jpjgdwjbqkForm,username);
 		//System.out.println(resultid);
 		operateSuccess=true;
 		return "add";

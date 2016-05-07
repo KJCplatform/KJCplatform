@@ -35,6 +35,7 @@ import container.ServiceProvider;
 public class WqwqxkzxqyxAction extends BaseAction implements ModelDriven<WqwqxkzxqyxForm>{
 	String xkzycpform;
 	String srqkform;
+	String username;
 	
 	public String getXkzycpform() {
 		return xkzycpform;
@@ -119,8 +120,8 @@ public class WqwqxkzxqyxAction extends BaseAction implements ModelDriven<Wqwqxkz
 	
 	
 	public String update(){
-		
-		wqwqxkzxqyxService.updateObject(wqwqxkzxqyxForm);
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		wqwqxkzxqyxService.updateObject(wqwqxkzxqyxForm,username);
 			operateSuccess=true;
 			return "update";
 		}
@@ -132,13 +133,14 @@ public class WqwqxkzxqyxAction extends BaseAction implements ModelDriven<Wqwqxkz
 		
 		
 	public String add(){
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
 		System.out.println(resultid);
 		/*KjjszjcjbForm kjjszjcjbForm1=new KjjszjcjbForm();
 		kjjszjcjbForm1.setFwyy("哈哈哈");
 		kjjszjcjbForm1.setGzbm("哈哈哈");
 		kjjszjcjbForm1.setZytc("哈哈哈");
 		kjjszjcjbForm1.setSfgk("否");*/
-		resultid=wqwqxkzxqyxService.saveWqwqxkzxqyx(wqwqxkzxqyxForm);
+		resultid=wqwqxkzxqyxService.saveWqwqxkzxqyx(wqwqxkzxqyxForm,username);
 		System.out.println(resultid);
 		operateSuccess=true;
 		return "add";
