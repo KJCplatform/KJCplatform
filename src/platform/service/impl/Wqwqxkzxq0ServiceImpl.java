@@ -160,6 +160,7 @@ public class Wqwqxkzxq0ServiceImpl implements Wqwqxkzxq0Service{
 		// TODO Auto-generated method stub
 		List<Wqwqxkzxq0Form> formlist=new ArrayList<Wqwqxkzxq0Form>();
 		for(int i=0;i<list.size();i++){
+			Wqwqxkzxq0 wqwqxkzxq0=list.get(i);
 Wqwqxkzxq0Form wqwqxkzxq0Form=new Wqwqxkzxq0Form();
 			
 			wqwqxkzxq0Form.setId(String.valueOf(list.get(i).getId()));
@@ -201,7 +202,7 @@ Wqwqxkzxq0Form wqwqxkzxq0Form=new Wqwqxkzxq0Form();
 			wqwqxkzxq0Form.setJlnf(list.get(i).getJlnf());
 			wqwqxkzxq0Form.setUsername(list.get(i).getUsername());
 			wqwqxkzxq0Form.setGxsj(list.get(i).getGxsj());
-			wqwqxkzxq0Form.setSubmit(String.valueOf(0));
+			wqwqxkzxq0Form.setSubmit(String.valueOf(wqwqxkzxq0.getSubmit()));
 			
 			
 			wqwqxkzxq0Form.setName1(list.get(i).getName1());

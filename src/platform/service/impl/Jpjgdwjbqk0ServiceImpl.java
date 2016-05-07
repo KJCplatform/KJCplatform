@@ -172,7 +172,8 @@ public class Jpjgdwjbqk0ServiceImpl implements Jpjgdwjbqk0Service{
 			jpjgdwjbqk0Form.setJpkyrw(list.get(i).getJpkyrw());
 			jpjgdwjbqk0Form.setGjsyssl(list.get(i).getGjsyssl());
 			jpjgdwjbqk0Form.setGfsyssl(list.get(i).getGfsyssl());
-			
+			jpjgdwjbqk0Form.setName1(list.get(i).getName1());
+			jpjgdwjbqk0Form.setName2(list.get(i).getName2());
 			jpjgdwjbqk0Form.setJlnf(jpjgdwjbqk0.getJlnf());
 			jpjgdwjbqk0Form.setUsername(jpjgdwjbqk0.getUsername());
 			jpjgdwjbqk0Form.setGxsj(jpjgdwjbqk0.getGxsj());
