@@ -12,7 +12,7 @@ public interface Kjkjxmxxb2Service {
 
 	public String saveKjkjxmxxb2(Kjkjxmxxb2Form kjkjxmxxb2Form, String username);
 
-	public void addCjdwListWithExpertId(int id, List<Kjkjxmxxb2cjdwForm> list);
+	public void addCjdwListWithExpertId(int id, List<Kjkjxmxxb2cjdwForm> list,String username);
 
 	public List<Kjkjxmxxb2Form> findKjkjxmxxb2List(Kjkjxmxxb2Form kjkjxmxxb2Form);
 

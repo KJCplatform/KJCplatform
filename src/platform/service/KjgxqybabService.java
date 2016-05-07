@@ -3,9 +3,9 @@ package platform.service;
 import java.util.List;
 
 import platform.form.KjgxqybabForm;
-import platform.form.KjgxqybabzscqForm;
-import platform.form.KjgxqybabyfxmForm;
 import platform.form.KjgxqybabgxcpForm;
+import platform.form.KjgxqybabyfxmForm;
+import platform.form.KjgxqybabzscqForm;
 
 
 public interface KjgxqybabService {
@@ -13,11 +13,11 @@ public interface KjgxqybabService {
 
 	public String saveKjgxqybab(KjgxqybabForm kjgxqybabForm, String username);
 
-	public void addZscqListWithExpertId(int id, List<KjgxqybabzscqForm> list);
+	public void addZscqListWithExpertId(int id, List<KjgxqybabzscqForm> list, String username);
 
-	public void addYfxmListWithExpertId(int id, List<KjgxqybabyfxmForm> list);
+	public void addYfxmListWithExpertId(int id, List<KjgxqybabyfxmForm> list, String username);
 
-	public void addGxcpListWithExpertId(int id, List<KjgxqybabgxcpForm> list);
+	public void addGxcpListWithExpertId(int id, List<KjgxqybabgxcpForm> list, String username);
 
 	public List<KjgxqybabForm> findKjgxqybabList(KjgxqybabForm kjgxqybabForm);
 
@@ -25,6 +25,7 @@ public interface KjgxqybabService {
 
 	public void deleteObject(String id);
 
+    public void showexportObject(String str,List<KjgxqybabForm> formlist) throws Exception;
 
 
 }

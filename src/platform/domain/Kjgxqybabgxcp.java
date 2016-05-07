@@ -1,20 +1,47 @@
 package platform.domain;
 // default package
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Kjgxqybabgxcp  implements java.io.Serializable {
 	private Integer id;
-	
+
 	private String cpbh;
 	private String cpmc;
 	private String shsr;
 	private String sqrq;
-	
+
+    private String jlnf;
+    private String username;
+    private String gxsj;
+    private int submit;
+    public String getJlnf() {
+        return this.jlnf;
+    }
+    public void setJlnf(String jlnf) {
+        this.jlnf = jlnf;
+    }
+    public String getUsername() {
+        return this.username;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public String getGxsj() {
+        return this.gxsj;
+    }
+    public void setGxsj(String gxsj) {
+        this.gxsj = gxsj;
+    }
+    public int getSubmit() {
+        return this.submit;
+    }
+    public void setSubmit(int submit) {
+        this.submit = submit;
+    }
 	public String getSqrq() {
-		return sqrq;
+		return this.sqrq;
 	}
 
 	public void setSqrq(String sqrq) {
@@ -24,17 +51,17 @@ public class Kjgxqybabgxcp  implements java.io.Serializable {
 	private Set<Kjgxqybab> kjgxqybabs = new HashSet<Kjgxqybab>();
 
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 
 	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	
+
 
 	public String getCpbh() {
-		return cpbh;
+		return this.cpbh;
 	}
 
 	public void setCpbh(String cpbh) {
@@ -42,7 +69,7 @@ public class Kjgxqybabgxcp  implements java.io.Serializable {
 	}
 
 	public String getCpmc() {
-		return cpmc;
+		return this.cpmc;
 	}
 
 	public void setCpmc(String cpmc) {
@@ -50,7 +77,7 @@ public class Kjgxqybabgxcp  implements java.io.Serializable {
 	}
 
 	public String getShsr() {
-		return shsr;
+		return this.shsr;
 	}
 
 	public void setShsr(String shsr) {
@@ -58,13 +85,13 @@ public class Kjgxqybabgxcp  implements java.io.Serializable {
 	}
 
 	public Set<Kjgxqybab> getKjgxqybabs() {
-		return kjgxqybabs;
+		return this.kjgxqybabs;
 	}
 
 	public void setKjgxqybabs(Set<Kjgxqybab> kjgxqybabs) {
 		this.kjgxqybabs = kjgxqybabs;
 	}
 
-	
+
 
 }
