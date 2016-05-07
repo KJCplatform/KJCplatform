@@ -9,7 +9,7 @@ import java.io.*;
 
 public class DBbackup {
 
-	public static void tocd(/* String[] args */) {
+	public static void tocd(/* String[] args */) throws SQLException, InstantiationException, IllegalAccessException, ClassNotFoundException {
 		HashSet hs = new HashSet();
 		
 		hs.add("jp01");
@@ -29,8 +29,8 @@ public class DBbackup {
 		hs.add("t4");
 	//	hs.add("kj_kjxmxxb_cjdw");
 	//	hs.add("kj_kjxmxxb_cjdw2");
-		hs.add("jp_dw_ry");
-		hs.add("jp_dw_srqk");
+		/*hs.add("jp_dw_ry");
+		hs.add("jp_dw_srqk");*/
 	//	hs.add("jp_jgdwjbqk_ry");
 	//	hs.add("jp_jgdwjbqk_srqk");
 	//	hs.add("kj_gxqybab_gxcp");
@@ -40,20 +40,20 @@ public class DBbackup {
 	//	hs.add("kj_jszjcjb_xm");
 	//	hs.add("kj_jszjcjb_zy");
 	//	hs.add("kj_kjxmxxb_cjdw");
-		hs.add("kj_qy_gxcp");
+		/*hs.add("kj_qy_gxcp");
 		hs.add("kj_qy_yfxm");
-		hs.add("kj_qy_zscq");
+		hs.add("kj_qy_zscq");*/
 	//	hs.add("kj_rzxqcjb");
-		hs.add("kj_xm_cjdw");
+		/*hs.add("kj_xm_cjdw");
 		hs.add("kj_xm_cjdw2");
 		hs.add("kj_zj_cg");
 		hs.add("kj_zj_xm");
-		hs.add("kj_zj_zy");
+		hs.add("kj_zj_zy");*/
 	//	hs.add("kpc_text");
 		hs.add("right");
-		hs.add("rights");
+		/*hs.add("rights");
 		hs.add("user");
-		hs.add("user_right");
+		hs.add("user_right");*/
 		hs.add("testdata");
 		//hs.add("kj_zlcjb");
 		//hs.add("kj_zzqcgcjb");//这张表出了问题
@@ -67,13 +67,13 @@ public class DBbackup {
 	//	hs.add("wq_wqxkzxqyx");
 	//	hs.add("wq_wqxkzxqyx_srqk");
 	//	hs.add("wq_wqxkzxqyx_xkzycp");
-		hs.add("wq_xkzyx_srqk");
-		hs.add("wq_xkzyx_xkzycp");
+		/*hs.add("wq_xkzyx_srqk");
+		hs.add("wq_xkzyx_xkzycp");*/
 	//	hs.add("kj_nzwcjb");						
-		hs.add("wq_xkz_srqk");
-		hs.add("wq_xkz_xkzycp");
+		/*hs.add("wq_xkz_srqk");
+		hs.add("wq_xkz_xkzycp");*/
 	//	hs.add("zjtxl");
-		try {
+		/*try {*/
 			String url = "jdbc:mysql://localhost/kjcplatform";
 			String user = "root";
 			String pwd = "123456";
@@ -111,7 +111,18 @@ public class DBbackup {
 				SimpleDateFormat df = new SimpleDateFormat(
 						"yyyy-MM-dd-kk-mm");// 设置日期格式
 				String time = df.format(new Date());
-				
+				try{
+					String directory="D:/kjcdata";
+					//生成文件夹
+					if(!new java.io.File(directory).isDirectory()){
+						
+							new java.io.File(directory).mkdirs();
+						
+					}
+						
+				}catch (Exception e){
+					System.out.println("Error : " + e.toString());
+				}
 				File file=new File("D:/kjcdata/"+time);
 				file.mkdir();
 				//需要把mysqldump.exe程序复制到执行目录下，如：项目文件的根目录，WEB应用部署时会有所变化，注意调整
@@ -144,8 +155,8 @@ public class DBbackup {
 			
 			rs.close();// 关闭数据库
 			conn.close();
-		} catch (Exception ex) {
-			System.out.println("Error : " + ex.toString());
+		/*} catch (Exception ex) {*/
+		//	System.out.println("上传数据到光盘失败 : " /*+ ex.toString()*/);
 		}
 	}
-}
+
