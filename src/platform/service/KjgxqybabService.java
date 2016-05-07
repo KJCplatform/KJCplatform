@@ -13,11 +13,11 @@ public interface KjgxqybabService {
 
 	public String saveKjgxqybab(KjgxqybabForm kjgxqybabForm, String username);
 
-	public void addZscqListWithExpertId(int id, List<KjgxqybabzscqForm> list);
+	public void addZscqListWithExpertId(int id, List<KjgxqybabzscqForm> list, String username);
 
-	public void addYfxmListWithExpertId(int id, List<KjgxqybabyfxmForm> list);
+	public void addYfxmListWithExpertId(int id, List<KjgxqybabyfxmForm> list, String username);
 
-	public void addGxcpListWithExpertId(int id, List<KjgxqybabgxcpForm> list);
+	public void addGxcpListWithExpertId(int id, List<KjgxqybabgxcpForm> list, String username);
 
 	public List<KjgxqybabForm> findKjgxqybabList(KjgxqybabForm kjgxqybabForm);
 

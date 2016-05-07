@@ -42,13 +42,8 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 	@Override
     public String saveKjgxqybab(KjgxqybabForm kjgxqybabForm,String username){
 
-		Kjgxqybab kjgxqybab=this.VoObjecttoPoObject(kjgxqybabForm);
+		Kjgxqybab kjgxqybab=this.VoObjecttoPoObject(kjgxqybabForm,username);
 
-
-		kjgxqybab.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
-		kjgxqybab.setUsername(username);
-		kjgxqybab.setGxsj(new Date().toString());
-		kjgxqybab.setSubmit(0);
 
 		this.kjgxqybabDao.save(kjgxqybab);
 	//	try{
@@ -60,7 +55,7 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 		return this.kjgxqybabDao.selectMaxId();
 	}
 
-	private Kjgxqybab VoObjecttoPoObject(KjgxqybabForm kjgxqybabForm) {
+	private Kjgxqybab VoObjecttoPoObject(KjgxqybabForm kjgxqybabForm,String username) {
 
 		Kjgxqybab kjgxqybab=new Kjgxqybab();
 //		kjgxqybab.setId(Integer.valueOf(kjgxqybabForm.getId()));
@@ -84,12 +79,17 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 		kjgxqybab.setZc3(kjgxqybabForm.getZc3());
 		kjgxqybab.setZczzl(kjgxqybabForm.getZczzl());
 
+		kjgxqybab.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		kjgxqybab.setUsername(username);
+		kjgxqybab.setGxsj(new Date().toString());
+		kjgxqybab.setSubmit(0);
+
 
 		return kjgxqybab;
 	}
 	@Override
-    public void addZscqListWithExpertId(int id, List<KjgxqybabzscqForm> list){
-		List<Kjgxqybabzscq> Plist=this.zscqPoToVoList(list);
+    public void addZscqListWithExpertId(int id, List<KjgxqybabzscqForm> list, String username){
+		List<Kjgxqybabzscq> Plist=this.zscqPoToVoList(list,username);
 		Kjgxqybab kjgxqybab= this.kjgxqybabDao.findObjectByID(id);
 
 		kjgxqybab.setKjgxqybabzscqs(new HashSet<Kjgxqybabzscq>());
@@ -98,8 +98,8 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 		}
 	}
 	@Override
-    public void addYfxmListWithExpertId(int id, List<KjgxqybabyfxmForm> list){
-		List<Kjgxqybabyfxm> Plist=this.yfxmPoToVoList(list);
+    public void addYfxmListWithExpertId(int id, List<KjgxqybabyfxmForm> list, String username){
+		List<Kjgxqybabyfxm> Plist=this.yfxmPoToVoList(list,username);
 		Kjgxqybab kjgxqybab= this.kjgxqybabDao.findObjectByID(id);
 
 		kjgxqybab.setKjgxqybabyfxms(new HashSet<Kjgxqybabyfxm>());
@@ -109,8 +109,8 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 
 	}
 	@Override
-    public void addGxcpListWithExpertId(int id, List<KjgxqybabgxcpForm> list){
-		List<Kjgxqybabgxcp> Plist=this.gxcpPoToVoList(list);
+    public void addGxcpListWithExpertId(int id, List<KjgxqybabgxcpForm> list, String username){
+		List<Kjgxqybabgxcp> Plist=this.gxcpPoToVoList(list,username);
 		Kjgxqybab kjgxqybab= this.kjgxqybabDao.findObjectByID(id);
 
 		kjgxqybab.setKjgxqybabgxcps(new HashSet<Kjgxqybabgxcp>());
@@ -120,8 +120,12 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 	}
 
 
+//    kjgxqybab.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+//    kjgxqybab.setUsername(username);
+//    kjgxqybab.setGxsj(new Date().toString());
+//    kjgxqybab.setSubmit(0);
 
-	private List<Kjgxqybabzscq> zscqPoToVoList(List<KjgxqybabzscqForm> list) {
+	private List<Kjgxqybabzscq> zscqPoToVoList(List<KjgxqybabzscqForm> list,String username) {
 		List<Kjgxqybabzscq> Plist=new ArrayList<Kjgxqybabzscq>();
 		for(int i=0;i<list.size();i++){
 			Kjgxqybabzscq kjgxqybabzscq=new Kjgxqybabzscq();
@@ -131,12 +135,18 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 			kjgxqybabzscq.setLb(list.get(i).getLb());
 			kjgxqybabzscq.setSqh(list.get(i).getSqh());
 			kjgxqybabzscq.setSqrq(list.get(i).getSqrq());
+
+			kjgxqybabzscq.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+			kjgxqybabzscq.setUsername(username);
+			kjgxqybabzscq.setGxsj(new Date().toString());
+			kjgxqybabzscq.setSubmit(0);
+
 			Plist.add(kjgxqybabzscq);
 		}
 		return Plist;
 	}
 
-	private List<Kjgxqybabyfxm> yfxmPoToVoList(List<KjgxqybabyfxmForm> list) {
+	private List<Kjgxqybabyfxm> yfxmPoToVoList(List<KjgxqybabyfxmForm> list,String username) {
 		List<Kjgxqybabyfxm> Plist=new ArrayList<Kjgxqybabyfxm>();
 		for(int i=0;i<list.size();i++){
 			Kjgxqybabyfxm kjgxqybabyfxm=new Kjgxqybabyfxm();
@@ -147,12 +157,16 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 			kjgxqybabyfxm.setJfnb(list.get(i).getJfnb());
 			kjgxqybabyfxm.setJfwb(list.get(i).getJfwb());
 
+			kjgxqybabyfxm.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+			kjgxqybabyfxm.setUsername(username);
+			kjgxqybabyfxm.setGxsj(new Date().toString());
+			kjgxqybabyfxm.setSubmit(0);
 			Plist.add(kjgxqybabyfxm);
 		}
 		return Plist;
 	}
 
-	private List<Kjgxqybabgxcp> gxcpPoToVoList(List<KjgxqybabgxcpForm> list) {
+	private List<Kjgxqybabgxcp> gxcpPoToVoList(List<KjgxqybabgxcpForm> list,String username) {
 		List<Kjgxqybabgxcp> Plist=new ArrayList<Kjgxqybabgxcp>();
 		for(int i=0;i<list.size();i++){
 			Kjgxqybabgxcp kjgxqybabgxcp=new Kjgxqybabgxcp();
@@ -160,6 +174,11 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
 			kjgxqybabgxcp.setCpbh(list.get(i).getCpbh());
 			kjgxqybabgxcp.setCpmc(list.get(i).getCpmc());
 			kjgxqybabgxcp.setShsr(list.get(i).getShsr());
+
+			kjgxqybabgxcp.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+			kjgxqybabgxcp.setUsername(username);
+			kjgxqybabgxcp.setGxsj(new Date().toString());
+			kjgxqybabgxcp.setSubmit(0);
 			Plist.add(kjgxqybabgxcp);
 		}
 		return Plist;
@@ -583,7 +602,7 @@ public class KjgxqybabServiceImpl implements KjgxqybabService{
             }
 
         }
-        
+
         // 写入数据并关闭文件
         book.write();
         book.close();

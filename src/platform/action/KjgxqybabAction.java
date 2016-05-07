@@ -10,7 +10,6 @@ import platform.form.KjgxqybabForm;
 import platform.form.KjgxqybabgxcpForm;
 import platform.form.KjgxqybabyfxmForm;
 import platform.form.KjgxqybabzscqForm;
-import platform.form.KjjszjcjbForm;
 import platform.service.KjgxqybabService;
 
 import com.opensymphony.xwork2.ModelDriven;
@@ -132,6 +131,7 @@ public String update(){
 	public String addzscq(){
 
 
+	    this.username=String.valueOf(this.request.getSession().getAttribute("hhs_user"));
 
 		//JSONObject jsonObj = JSONObject.fromObject(cxyform);
 		List<KjgxqybabzscqForm> list=new ArrayList<KjgxqybabzscqForm>();
@@ -149,16 +149,21 @@ public String update(){
         	kjgxqybabzscqForm.setLb(jsonJ.getString("lb"));
         	kjgxqybabzscqForm.setSqh(jsonJ.getString("sqh"));
         	kjgxqybabzscqForm.setSqrq(jsonJ.getString("sqrq"));
+
+
+
         	list.add(kjgxqybabzscqForm);
         }
         try{
         	  if(arrays.size()>0)
-        this.kjgxqybabService.addZscqListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
+        this.kjgxqybabService.addZscqListWithExpertId(arrays.getJSONObject(0).getInt("id"),list,this.username);
 	}catch(Exception e){System.out.println(e);}
 		this.operateSuccess=true;
 		return "addzscq";
 	}
 	public String addyfxm(){
+	    this.username=String.valueOf(this.request.getSession().getAttribute("hhs_user"));
+
 		//System.out.println(cxyform);
 		//JSONObject jsonObj = JSONObject.fromObject(cxyform);
 		List<KjgxqybabyfxmForm> list=new ArrayList<KjgxqybabyfxmForm>();
@@ -174,16 +179,20 @@ public String update(){
         	kjgxqybabyfxmForm.setJfhj(jsonJ.getString("jfhj"));
         	kjgxqybabyfxmForm.setJfnb(jsonJ.getString("jfnb"));
         	kjgxqybabyfxmForm.setJfwb(jsonJ.getString("jfwb"));
+
+
         	list.add(kjgxqybabyfxmForm);
         }
         try{
         if(arrays.size()>0)
-        this.kjgxqybabService.addYfxmListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
+        this.kjgxqybabService.addYfxmListWithExpertId(arrays.getJSONObject(0).getInt("id"),list,this.username);
 	}catch(Exception e){System.out.println(e);}
 		this.operateSuccess=true;
 		return "addyfxm";
 	}
 	public String addgxcp(){
+	    this.username=String.valueOf(this.request.getSession().getAttribute("hhs_user"));
+
 		//System.out.println(cxyform);
 		//JSONObject jsonObj = JSONObject.fromObject(cxyform);
 		List<KjgxqybabgxcpForm> list=new ArrayList<KjgxqybabgxcpForm>();
@@ -198,6 +207,7 @@ public String update(){
         	kjgxqybabgxcpForm.setCpmc(jsonJ.getString("cpmc"));
         	kjgxqybabgxcpForm.setShsr(jsonJ.getString("shsr"));
 
+
         	list.add(kjgxqybabgxcpForm);
         }
 
@@ -205,7 +215,7 @@ public String update(){
 //        kjgxqybabService.addGxcpListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
         try{
         	  if(arrays.size()>0)
-        this.kjgxqybabService.addGxcpListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
+        this.kjgxqybabService.addGxcpListWithExpertId(arrays.getJSONObject(0).getInt("id"),list,this.username);
         }catch(Exception e){System.out.println(e);}
 
 
@@ -217,16 +227,16 @@ public String update(){
 
     public String showexport() throws Exception{
 
-        List<KjgxqybabForm> formlist=kjgxqybabService.findKjgxqybabList(kjgxqybabForm);
-        
-        kjgxqybabService.showexportObject(kjgxqybabForm.getQymc(),formlist);
+        List<KjgxqybabForm> formlist=this.kjgxqybabService.findKjgxqybabList(this.kjgxqybabForm);
+
+        this.kjgxqybabService.showexportObject(this.kjgxqybabForm.getQymc(),formlist);
 
 //      List<KjjszjcjbForm> formlist=kjjszjcjbService.findKjjszjcjbList(kjjszjcjbForm);
 //      for(int i=0;i<18;i++){
 //      System.out.println("hhs:"+formlist.get(0).getKjjszjcjbxms().get(i).getXmjj());
 //      }
-    
-        operateSuccess=true;
+
+        this.operateSuccess=true;
         return "showexport";
     }
 

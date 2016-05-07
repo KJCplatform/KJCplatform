@@ -3,7 +3,6 @@ package platform.service.impl;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
@@ -17,33 +16,32 @@ import org.springframework.transaction.annotation.Transactional;
 import platform.dao.Kjkjxmxxb2Dao;
 import platform.domain.Kjkjxmxxb2;
 import platform.domain.Kjkjxmxxb2cjdw;
-import platform.domain.Kjndgfjtjb;
 import platform.form.Kjkjxmxxb2Form;
 import platform.form.Kjkjxmxxb2cjdwForm;
-import platform.form.KjndgfjtjbForm;
 import platform.service.Kjkjxmxxb2Service;
 
 @Transactional
 
 @Service(Kjkjxmxxb2Service.SERVICE_NAME)
 public class Kjkjxmxxb2ServiceImpl implements Kjkjxmxxb2Service{
-	
+
 	@Resource(name=Kjkjxmxxb2Dao.SERVICE_NAME)
 	private Kjkjxmxxb2Dao kjkjxmxxb2Dao;
 
-	public String saveKjkjxmxxb2(Kjkjxmxxb2Form kjkjxmxxb2Form,String username){
+	@Override
+    public String saveKjkjxmxxb2(Kjkjxmxxb2Form kjkjxmxxb2Form,String username){
 		Kjkjxmxxb2 kjkjxmxxb2=this.VoObjecttoPoObject(kjkjxmxxb2Form);
-		
+
 		kjkjxmxxb2.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjkjxmxxb2.setUsername(username);
 		kjkjxmxxb2.setGxsj(new Date().toString());
 		kjkjxmxxb2.setSubmit(0);
-		
+
 		try{
-		kjkjxmxxb2Dao.save(kjkjxmxxb2);
+		this.kjkjxmxxb2Dao.save(kjkjxmxxb2);
 		}catch(Exception e){System.out.println(e);}
-		return kjkjxmxxb2Dao.selectMaxId();
-		
+		return this.kjkjxmxxb2Dao.selectMaxId();
+
 	}
 
 	private Kjkjxmxxb2 VoObjecttoPoObject(Kjkjxmxxb2Form kjkjxmxxb2Form) {
@@ -83,51 +81,55 @@ public class Kjkjxmxxb2ServiceImpl implements Kjkjxmxxb2Service{
 
 		return kjkjxmxxb2;
 	}
-	public void addCjdwListWithExpertId(int id, List<Kjkjxmxxb2cjdwForm> list){
+	public void addCjdwListWithExpertId(int id, List<Kjkjxmxxb2cjdwForm> list,String username){
 //		System.out.println("hhs1:"+list.get(0).getXh());
-		List<Kjkjxmxxb2cjdw> Plist=this.cjdwPoToVoList(list);
+		List<Kjkjxmxxb2cjdw> Plist=this.cjdwPoToVoList(list,username);
 //		System.out.println("hhs2:"+Plist.get(0).getXh());
-		
-		Kjkjxmxxb2 kjkjxmxxb2= kjkjxmxxb2Dao.findObjectByID(id);
+
+		Kjkjxmxxb2 kjkjxmxxb2= this.kjkjxmxxb2Dao.findObjectByID(id);
 //		private Integer id;
 //		private String xh;
 //		private String dwmc;
 //		private Set<Kjkjxmxxb2> Kjkjxmxxb2s = new HashSet<Kjkjxmxxb2>();
-		
-		
+
+
 //		System.out.println("hh:"+Plist.get(0).getDwmc());
 //		System.out.println("hh:"+Plist.get(0).getXh());
 //		System.out.println("hh:"+Plist.get(0).getId());
 //		System.out.println("hh:"+Plist.get(0).getKjkjxmxxb2s());
-		
+
 		try{
-		
+
 		for(int i=0;i<Plist.size();i++){
 			kjkjxmxxb2.getKjkjxmxxb2cjdws().add(Plist.get(i));
 		}
-		
+
 		}catch(Exception e){System.out.println(e);}
-		
+
 	}
-	
-	private List<Kjkjxmxxb2cjdw> cjdwPoToVoList(List<Kjkjxmxxb2cjdwForm> list) {
+
+	private List<Kjkjxmxxb2cjdw> cjdwPoToVoList(List<Kjkjxmxxb2cjdwForm> list,String username) {
 		List<Kjkjxmxxb2cjdw> Plist=new ArrayList<Kjkjxmxxb2cjdw>();
 		for(int i=0;i<list.size();i++){
 			Kjkjxmxxb2cjdw kjkjxmxxb2cjdw=new Kjkjxmxxb2cjdw();
 			kjkjxmxxb2cjdw.setDwmc(list.get(i).getDwmc());
 			kjkjxmxxb2cjdw.setXh(list.get(i).getXh());
 	//		kjkjxmxxb2cjdw.setFk_kj_kjxmxxb(list.get(i).getFk_kj_kjxmxxb());
-			
-			
-			
+
+			kjkjxmxxb2cjdw.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+			kjkjxmxxb2cjdw.setUsername(username);
+			kjkjxmxxb2cjdw.setGxsj(new Date().toString());
+			kjkjxmxxb2cjdw.setSubmit(0);
+
 			Plist.add(kjkjxmxxb2cjdw);
 		}
 		return Plist;
 	}
 
-	
 
-	public List<Kjkjxmxxb2Form> findKjkjxmxxb2List(Kjkjxmxxb2Form kjkjxmxxb2Form){
+
+	@Override
+    public List<Kjkjxmxxb2Form> findKjkjxmxxb2List(Kjkjxmxxb2Form kjkjxmxxb2Form){
 		String hqlWhere = "";
 		Object [] params = null;
 		List<String> paramsList=new ArrayList<String>();
@@ -138,7 +140,7 @@ public class Kjkjxmxxb2ServiceImpl implements Kjkjxmxxb2Service{
 		}
 		orderby.put(" o.qssj", "desc");
 		params = paramsList.toArray();
-		List<Kjkjxmxxb2> list=kjkjxmxxb2Dao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
+		List<Kjkjxmxxb2> list=this.kjkjxmxxb2Dao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<Kjkjxmxxb2Form> formlist=this.Kjkjxmxxb2PoToVoList(list);
 		return formlist;
 	}
@@ -147,11 +149,11 @@ public class Kjkjxmxxb2ServiceImpl implements Kjkjxmxxb2Service{
 		List<Kjkjxmxxb2Form> formlist=new ArrayList<Kjkjxmxxb2Form>();
 		if(list.size()>0){
 		for(int i=0;i<list.size();i++){
-			
+
 			Kjkjxmxxb2Form kjkjxmxxb2Form=new Kjkjxmxxb2Form();
-			
+
 			kjkjxmxxb2Form.setId(String.valueOf(list.get(i).getId()));
-			
+
 			kjkjxmxxb2Form.setXmbh(list.get(i).getXmbh());
 			kjkjxmxxb2Form.setXmmc(list.get(i).getXmmc());
 			kjkjxmxxb2Form.setCjdws(list.get(i).getCjdws());
@@ -183,14 +185,14 @@ public class Kjkjxmxxb2ServiceImpl implements Kjkjxmxxb2Service{
 			kjkjxmxxb2Form.setYqzl(list.get(i).getYqzl());
 			kjkjxmxxb2Form.setZjf(list.get(i).getZjf());
 			kjkjxmxxb2Form.setSbk(list.get(i).getSbk());
-			
+
 			kjkjxmxxb2Form.setJlnf(list.get(i).getJlnf());
 			kjkjxmxxb2Form.setUsername(list.get(i).getUsername());
 			kjkjxmxxb2Form.setGxsj(list.get(i).getGxsj());
 			kjkjxmxxb2Form.setSubmit(String.valueOf(list.get(i).getSubmit()));
-			
-			kjkjxmxxb2Form.setKjkjxmxxb2cjdws(Kjkjxmxxb2cjdwSetToFormList(list.get(i).getKjkjxmxxb2cjdws()));
-			
+
+			kjkjxmxxb2Form.setKjkjxmxxb2cjdws(this.Kjkjxmxxb2cjdwSetToFormList(list.get(i).getKjkjxmxxb2cjdws()));
+
 			formlist.add(kjkjxmxxb2Form);
 		}}
 		return formlist;
@@ -205,21 +207,23 @@ public class Kjkjxmxxb2ServiceImpl implements Kjkjxmxxb2Service{
 			kjkjxmxxb2cjdwForm.setXh(kjkjxmxxb2cjdw.getXh());
 			kjkjxmxxb2cjdwForm.setDwmc(kjkjxmxxb2cjdw.getDwmc());
 	//		kjkjxmxxb2cjdwForm.setFk_kj_kjxmxxb(kjkjxmxxb2cjdw.getFk_kj_kjxmxxb());
-			
-			
+
+
 			formlist.add(kjkjxmxxb2cjdwForm);
 		}}
 		return formlist;
 	}
-	
-	
-	
-	public void deleteObject(String id){
-		kjkjxmxxb2Dao.deleteObjectByIDs(Integer.valueOf(id));
+
+
+
+	@Override
+    public void deleteObject(String id){
+		this.kjkjxmxxb2Dao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	
-	
-	public void updateObject(Kjkjxmxxb2Form kjkjxmxxb2Form,String username){
+
+
+	@Override
+    public void updateObject(Kjkjxmxxb2Form kjkjxmxxb2Form,String username){
 		Kjkjxmxxb2 kjkjxmxxb2=new Kjkjxmxxb2();
 
 		kjkjxmxxb2.setId(Integer.valueOf(kjkjxmxxb2Form.getId()));
@@ -254,16 +258,16 @@ public class Kjkjxmxxb2ServiceImpl implements Kjkjxmxxb2Service{
 		kjkjxmxxb2.setYqzl(kjkjxmxxb2Form.getYqzl());
 		kjkjxmxxb2.setZjf(kjkjxmxxb2Form.getZjf());
 		kjkjxmxxb2.setSbk(kjkjxmxxb2Form.getSbk());
-		
-		
+
+
 		kjkjxmxxb2.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjkjxmxxb2.setUsername(username);
 		kjkjxmxxb2.setGxsj(new Date().toString());
 		kjkjxmxxb2.setSubmit(0);
-		
-		
-		kjkjxmxxb2Dao.update(kjkjxmxxb2);
-		
+
+
+		this.kjkjxmxxb2Dao.update(kjkjxmxxb2);
+
 	}
 
 }
