@@ -19,7 +19,7 @@ import platform.form.Jpjgdwjbqk0Form;
 import platform.form.JpjgdwjbqkForm;
 import platform.service.Jpjgdwjbqk0Service;
 import platform.util.StringHelper;
-@Transactional
+@SuppressWarnings("unused")
 @Service(Jpjgdwjbqk0Service.SERVICE_NAME)
 public class Jpjgdwjbqk0ServiceImpl implements Jpjgdwjbqk0Service{
 	

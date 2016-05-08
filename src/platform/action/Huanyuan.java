@@ -49,9 +49,9 @@ public class Huanyuan {
 		hs.add("kj_zj_zy");*/
 	//	hs.add("kpc_text");
 		hs.add("right");
-		/*hs.add("rights");
-		hs.add("user");
-		hs.add("user_right");*/
+		//		hs.add("rights");
+//		hs.add("user");
+//		hs.add("user_right");
 		hs.add("testdata");
 		//hs.add("kj_zlcjb");
 		//hs.add("kj_zzqcgcjb");//这张表出了问题
@@ -68,10 +68,11 @@ public class Huanyuan {
 		/*hs.add("wq_xkzyx_srqk");
 		hs.add("wq_xkzyx_xkzycp");*/
 	//	hs.add("kj_nzwcjb");						
-		/*hs.add("wq_xkz_srqk");
-		hs.add("wq_xkz_xkzycp");*/
-	//	hs.add("zjtxl");
-		/*try {*/
+//		hs.add("wq_xkz_srqk");
+//		hs.add("wq_xkz_xkzycp");
+//		hs.add("zjtxl");
+//		hs.add("xz_xzzjb");
+		try {
 			String url = "jdbc:mysql://localhost/kjcplatform";
 			String user = "root";
 			String pwd = "123456";
@@ -114,19 +115,19 @@ public class Huanyuan {
 				String command = "load data infile 'D:/kjcdata/data/"+tabs.get(i)+".sql' into table kjcplatform."+tabs.get(i)+"("+cols+")";
 				
 				stmt.executeQuery(command);
-		//		System.out.println(command);
+//System.out.println(command);
 				
 				
 				String command1	="UPDATE "+tabs.get(i)+ " SET submit=1";
-		//		System.out.println(command1);
+//System.out.println(command1);
 				stmt.executeUpdate(command1);
 			}
 			stmt.close();
 			rs.close();// 关闭数据库
 			conn.close();
-		/*} catch (Exception ex) {
+		} catch (Exception ex) {
 			System.out.println("Error : " + ex.toString());
-		}*/
+		}
 	}
 
 	
