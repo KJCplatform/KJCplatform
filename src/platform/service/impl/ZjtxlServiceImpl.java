@@ -1,6 +1,7 @@
 package platform.service.impl;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -55,7 +56,7 @@ public class ZjtxlServiceImpl implements ZjtxlService{
 		
 	}
 	
-	public void updateZjtxl(ZjtxlForm zjtxlForm){
+	public void updateZjtxl(ZjtxlForm zjtxlForm,String username){
 		Zjtxl zjtxl=new Zjtxl();
 		zjtxl.setId(Integer.valueOf(zjtxlForm.getId()));
 		zjtxl.setXm(zjtxlForm.getXm());
@@ -64,13 +65,17 @@ public class ZjtxlServiceImpl implements ZjtxlService{
 		zjtxl.setZw(zjtxlForm.getZw());
 		zjtxl.setLxfszj(zjtxlForm.getLxfszj());
 		zjtxl.setLxfssj(zjtxlForm.getLxfssj());
+		zjtxl.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		zjtxl.setUsername(username);
+		zjtxl.setGxsj(new Date().toString());
+		zjtxl.setSubmit(0);
 		zjtxlDao.update(zjtxl);
 		
 	}
 	public void deleteObject(String id){
 		zjtxlDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(ZjtxlForm zjtxlForm){
+	public void saveObject(ZjtxlForm zjtxlForm,String username){
 		Zjtxl zjtxl=new Zjtxl();
 		zjtxl.setXm(zjtxlForm.getXm());
 		zjtxl.setDw(zjtxlForm.getDw());
@@ -78,6 +83,10 @@ public class ZjtxlServiceImpl implements ZjtxlService{
 		zjtxl.setZw(zjtxlForm.getZw());
 		zjtxl.setLxfszj(zjtxlForm.getLxfszj());
 		zjtxl.setLxfssj(zjtxlForm.getLxfssj());
+		zjtxl.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
+		zjtxl.setUsername(username);
+		zjtxl.setGxsj(new Date().toString());
+		zjtxl.setSubmit(0);
 		zjtxlDao.save(zjtxl);
 	}
 	private List<ZjtxlForm> ZjtxlPOListToVOList(List<Zjtxl> list) {
@@ -95,6 +104,10 @@ public class ZjtxlServiceImpl implements ZjtxlService{
 			
 			zjtxlForm.setLxfszj(zjtxl.getLxfszj());
 			zjtxlForm.setLxfssj(zjtxl.getLxfssj());
+			zjtxlForm.setJlnf(zjtxl.getJlnf());
+			zjtxlForm.setUsername(zjtxl.getUsername());
+			zjtxlForm.setGxsj(zjtxl.getGxsj());
+			zjtxlForm.setSubmit(String.valueOf(zjtxl.getSubmit())); 
 			formlist.add(zjtxlForm);
 		}
 		return formlist;

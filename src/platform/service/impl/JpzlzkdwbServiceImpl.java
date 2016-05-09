@@ -80,7 +80,7 @@ public class JpzlzkdwbServiceImpl implements JpzlzkdwbService{
 		else jpzlzkdwb.setJinyong(false);
 		jpzlzkdwb.setGxsj(new Date().toString());
 		jpzlzkdwb.setUsername(username);
-		jpzlzkdwb.setSubmit(false);
+		jpzlzkdwb.setSubmit(0);
 		jpzlzkdwbDao.update(jpzlzkdwb);
 	}
 	@Override
@@ -93,7 +93,7 @@ public class JpzlzkdwbServiceImpl implements JpzlzkdwbService{
 		else jpzlzkdwb.setJinyong(false);
 		jpzlzkdwb.setGxsj(new Date().toString());
 		jpzlzkdwb.setUsername(username);
-		jpzlzkdwb.setSubmit(false);
+		jpzlzkdwb.setSubmit(0);
 		jpzlzkdwbDao.save(jpzlzkdwb);
 	}
 	@Override

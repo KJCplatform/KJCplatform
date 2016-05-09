@@ -542,6 +542,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			
 			
 		}
+        
+        
+        
+        
+        
+        
+        
+        function ShowExport(){
+
+      var isValid = $('#searchForm').form('validate');
+                    if(!isValid){
+                        alert("请输入企业名称");
+                        return false;
+                    }
+                    //alert(isValid);
+
+    var params =$('#searchForm').serialize();
+    //alert(params);
+
+    var showimport = basePath + '/system/KjgxqybabAction_showexport.action';
+                                
+    $.post(showimport, params, function(result) {
+                        if (result.operateSuccess) {
+                                $('#dg').datagrid('reload');// 重新加载
+                                $.messager.alert('导出', '导出Excel成功', 'info');
+                            
+                        }else {
+                                $.messager.alert('导出', '导出失败：系统无此企业认定备案信息，请检查企业名称', 'warning');
+                            }
+                    });
+  
+                      return false;
+                      }
 
 
 	</script>
@@ -562,7 +595,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</td>       
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" href="javascript:void(0);" onclick="deleteInfo();">删除</a>
-					</td>	
+					</td>
+                        <td>
+                       <a href="#" class="easyui-linkbutton" id="btnExport" onclick="ShowExport()" >导出Excel</a> 　
+                    </td>  	
                 </tr>
             </table>
         </form>

@@ -1,33 +1,16 @@
 package platform.action;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
-import javax.annotation.Resource;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-
-import platform.action.BaseAction;
-import platform.dao.TestDataDao;
 import platform.form.KjgxqybabForm;
-import platform.form.KjgxqybabzscqForm;
-import platform.form.KjgxqybabyfxmForm;
 import platform.form.KjgxqybabgxcpForm;
-import platform.form.TestDataFrom;
+import platform.form.KjgxqybabyfxmForm;
+import platform.form.KjgxqybabzscqForm;
 import platform.service.KjgxqybabService;
-import platform.service.TestDataService;
 
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -38,21 +21,21 @@ public class KjgxqybabAction extends BaseAction implements ModelDriven<Kjgxqybab
 	String yfxmform;
 	String gxcpform;
 	String username;
-	
+
 	public String getZscqform() {
-		return zscqform;
+		return this.zscqform;
 	}
 	public void setZscqform(String zscqform) {
 		this.zscqform = zscqform;
 	}
 	public String getYfxmform() {
-		return yfxmform;
+		return this.yfxmform;
 	}
 	public void setYfxmform(String yfxmform) {
 		this.yfxmform = yfxmform;
 	}
 	public String getGxcpform() {
-		return gxcpform;
+		return this.gxcpform;
 	}
 	public void setGxcpform(String gxcpform) {
 		this.gxcpform = gxcpform;
@@ -60,14 +43,14 @@ public class KjgxqybabAction extends BaseAction implements ModelDriven<Kjgxqybab
 	public int page = 0;
 	private String resultid;
 	public String getResultid() {
-		return resultid;
+		return this.resultid;
 	}
 	public void setResultid(String resultid) {
 		this.resultid = resultid;
 	}
 	private boolean operateSuccess;
 	public boolean getOperateSuccess() {
-		return operateSuccess;
+		return this.operateSuccess;
 	}
 	public void setOperateSuccess(boolean operateSuccess) {
 		this.operateSuccess = operateSuccess;
@@ -75,59 +58,60 @@ public class KjgxqybabAction extends BaseAction implements ModelDriven<Kjgxqybab
 	public int rows = 0;
 	public Map responseJson;
 	public int getPage() {
-		return page;
+		return this.page;
 	}
 	public void setPage(int page) {
 		this.page = page;
 	}
 	public int getRows() {
-		return rows;
+		return this.rows;
 	}
 	public void setRows(int rows) {
 		this.rows = rows;
 	}
 	public Map getResponseJson() {
-		return responseJson;
+		return this.responseJson;
 	}
 	public void setResponseJson(Map responseJson) {
 		this.responseJson = responseJson;
 	}
-	private  KjgxqybabService kjgxqybabService=(KjgxqybabService) ServiceProvider.getService(KjgxqybabService.SERVICE_NAME);
-	private KjgxqybabForm kjgxqybabForm=new KjgxqybabForm();
-	public KjgxqybabForm getModel() {
+	private final  KjgxqybabService kjgxqybabService=(KjgxqybabService) ServiceProvider.getService(KjgxqybabService.SERVICE_NAME);
+	private final KjgxqybabForm kjgxqybabForm=new KjgxqybabForm();
+	@Override
+    public KjgxqybabForm getModel() {
 
-		return kjgxqybabForm;
+		return this.kjgxqybabForm;
 	}
 	Map<String, Object> map = new HashMap<String, Object>();
 	public String list(){
 		//KjjszjcjbForm kjjszjcjbForm1=new KjjszjcjbForm();
 		//kjjszjcjbForm1.setZjxm("哈哈哈");
-		List<KjgxqybabForm> formlist=kjgxqybabService.findKjgxqybabList(kjgxqybabForm);
+		List<KjgxqybabForm> formlist=this.kjgxqybabService.findKjgxqybabList(this.kjgxqybabForm);
 		//System.out.println(formlist.get(0).getKjjszjcjbcgs().get(2).getCgjj());
-		  map.put("rows", formlist);
-		  
-		  map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
-			
-		  this.setResponseJson(map);
+		  this.map.put("rows", formlist);
+
+		  this.map.put("user", String.valueOf(this.request.getSession().getAttribute("hhs_user")));
+
+		  this.setResponseJson(this.map);
 		//map.put("total", xzxzgzbService.findXzxzgzbList().size());
 		//this.setResponseJson(map);
 		return "list";
 	}
 public String update(){
-		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
-	kjgxqybabService.updateObject(kjgxqybabForm,username);
-		operateSuccess=true;
+		this.username=String.valueOf(this.request.getSession().getAttribute("hhs_user"));
+	this.kjgxqybabService.updateObject(this.kjgxqybabForm,this.username);
+		this.operateSuccess=true;
 		return "update";
 	}
 	public String delete(){
-		kjgxqybabService.deleteObject(kjgxqybabForm.getId());
+		this.kjgxqybabService.deleteObject(this.kjgxqybabForm.getId());
 //		for(int i=1;i<=1000;i++){
 //			try{
 //		kjgxqybabService.deleteObject(String.valueOf(i));
 //		}catch(Exception e){}
 //		}
-		
-		operateSuccess=true;
+
+		this.operateSuccess=true;
 		return   "delete";
 	}
 	public String add(){
@@ -137,20 +121,21 @@ public String update(){
 		kjjszjcjbForm1.setZytc("哈哈哈");
 		kjjszjcjbForm1.setSfgk("否");*/
 		//System.out.println("123");
-		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
-		resultid=kjgxqybabService.saveKjgxqybab(kjgxqybabForm,username);
+		this.username=String.valueOf(this.request.getSession().getAttribute("hhs_user"));
+		this.resultid=this.kjgxqybabService.saveKjgxqybab(this.kjgxqybabForm,this.username);
 		//System.out.println(resultid);
 		//System.out.println("123");
-		operateSuccess=true;
+		this.operateSuccess=true;
 		return "add";
 	}
 	public String addzscq(){
-		
-		
-	
+
+
+	    this.username=String.valueOf(this.request.getSession().getAttribute("hhs_user"));
+
 		//JSONObject jsonObj = JSONObject.fromObject(cxyform);
 		List<KjgxqybabzscqForm> list=new ArrayList<KjgxqybabzscqForm>();
-		JSONArray  arrays=JSONArray.fromObject(zscqform);
+		JSONArray  arrays=JSONArray.fromObject(this.zscqform);
         for(int i=0;i<arrays.size();i++){
         	JSONObject jsonJ = arrays.getJSONObject(i);
         	KjgxqybabzscqForm kjgxqybabzscqForm=new KjgxqybabzscqForm();
@@ -164,20 +149,25 @@ public String update(){
         	kjgxqybabzscqForm.setLb(jsonJ.getString("lb"));
         	kjgxqybabzscqForm.setSqh(jsonJ.getString("sqh"));
         	kjgxqybabzscqForm.setSqrq(jsonJ.getString("sqrq"));
-        	list.add(kjgxqybabzscqForm);   	
+
+
+
+        	list.add(kjgxqybabzscqForm);
         }
         try{
         	  if(arrays.size()>0)
-        kjgxqybabService.addZscqListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
+        this.kjgxqybabService.addZscqListWithExpertId(arrays.getJSONObject(0).getInt("id"),list,this.username);
 	}catch(Exception e){System.out.println(e);}
-		operateSuccess=true;
+		this.operateSuccess=true;
 		return "addzscq";
 	}
 	public String addyfxm(){
+	    this.username=String.valueOf(this.request.getSession().getAttribute("hhs_user"));
+
 		//System.out.println(cxyform);
 		//JSONObject jsonObj = JSONObject.fromObject(cxyform);
 		List<KjgxqybabyfxmForm> list=new ArrayList<KjgxqybabyfxmForm>();
-		JSONArray  arrays=JSONArray.fromObject(yfxmform);
+		JSONArray  arrays=JSONArray.fromObject(this.yfxmform);
         for(int i=0;i<arrays.size();i++){
         	JSONObject jsonJ = arrays.getJSONObject(i);
         	KjgxqybabyfxmForm kjgxqybabyfxmForm=new KjgxqybabyfxmForm();
@@ -189,20 +179,24 @@ public String update(){
         	kjgxqybabyfxmForm.setJfhj(jsonJ.getString("jfhj"));
         	kjgxqybabyfxmForm.setJfnb(jsonJ.getString("jfnb"));
         	kjgxqybabyfxmForm.setJfwb(jsonJ.getString("jfwb"));
-        	list.add(kjgxqybabyfxmForm);   	
+
+
+        	list.add(kjgxqybabyfxmForm);
         }
         try{
         if(arrays.size()>0)
-        kjgxqybabService.addYfxmListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
+        this.kjgxqybabService.addYfxmListWithExpertId(arrays.getJSONObject(0).getInt("id"),list,this.username);
 	}catch(Exception e){System.out.println(e);}
-		operateSuccess=true;
+		this.operateSuccess=true;
 		return "addyfxm";
 	}
 	public String addgxcp(){
+	    this.username=String.valueOf(this.request.getSession().getAttribute("hhs_user"));
+
 		//System.out.println(cxyform);
 		//JSONObject jsonObj = JSONObject.fromObject(cxyform);
 		List<KjgxqybabgxcpForm> list=new ArrayList<KjgxqybabgxcpForm>();
-		JSONArray  arrays=JSONArray.fromObject(gxcpform);
+		JSONArray  arrays=JSONArray.fromObject(this.gxcpform);
         for(int i=0;i<arrays.size();i++){
         	JSONObject jsonJ = arrays.getJSONObject(i);
         	KjgxqybabgxcpForm kjgxqybabgxcpForm=new KjgxqybabgxcpForm();
@@ -212,21 +206,42 @@ public String update(){
         	kjgxqybabgxcpForm.setCpbh(jsonJ.getString("cpbh"));
         	kjgxqybabgxcpForm.setCpmc(jsonJ.getString("cpmc"));
         	kjgxqybabgxcpForm.setShsr(jsonJ.getString("shsr"));
-        	
-        	list.add(kjgxqybabgxcpForm);   	
+
+
+        	list.add(kjgxqybabgxcpForm);
         }
-        
-        
+
+
 //        kjgxqybabService.addGxcpListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
         try{
         	  if(arrays.size()>0)
-        kjgxqybabService.addGxcpListWithExpertId(arrays.getJSONObject(0).getInt("id"),list);
+        this.kjgxqybabService.addGxcpListWithExpertId(arrays.getJSONObject(0).getInt("id"),list,this.username);
         }catch(Exception e){System.out.println(e);}
-        
-        
-		operateSuccess=true;
+
+
+		this.operateSuccess=true;
 		return "addgxcp";
 	}
+
+
+
+    public String showexport() throws Exception{
+
+        List<KjgxqybabForm> formlist=this.kjgxqybabService.findKjgxqybabList(this.kjgxqybabForm);
+
+        this.kjgxqybabService.showexportObject(this.kjgxqybabForm.getQymc(),formlist);
+
+//      List<KjjszjcjbForm> formlist=kjjszjcjbService.findKjjszjcjbList(kjjszjcjbForm);
+//      for(int i=0;i<18;i++){
+//      System.out.println("hhs:"+formlist.get(0).getKjjszjcjbxms().get(i).getXmjj());
+//      }
+
+        this.operateSuccess=true;
+        return "showexport";
+    }
+
+
+
 }
 
 

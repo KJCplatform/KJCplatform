@@ -29,6 +29,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import container.ServiceProvider;
 
 public class Wqwqxkzxq4Action extends BaseAction implements ModelDriven<Wqwqxkzxq4Form>{
+	String username;
 	public int page = 0;
 	private boolean operateSuccess;
 	public boolean getOperateSuccess() {
@@ -65,6 +66,8 @@ public class Wqwqxkzxq4Action extends BaseAction implements ModelDriven<Wqwqxkzx
 	}
 	Map<String, Object> map = new HashMap<String, Object>();
 	public String list(){
+		username = String
+				.valueOf(request.getSession().getAttribute("hhs_user"));
 		//System.out.println(page+":"+rows);
 		//wqwqxkzxq4Form.setWjm("test");
 		//wqwqxkzxq4Form.setWjh("2");
@@ -83,19 +86,9 @@ public class Wqwqxkzxq4Action extends BaseAction implements ModelDriven<Wqwqxkzx
 		return "list";
 	}
 	public String update(){
-		/*Wqwqxkzxq4Form wqwqxkzxq4Form1 = new Wqwqxkzxq4Form();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		String d=format.format(new Date());
-		wqwqxkzxq4Form1.setId("1");
-		wqwqxkzxq4Form1.setCljg("update");
-		wqwqxkzxq4Form1.setFwjg("update");
-		wqwqxkzxq4Form1.setFwrq(d);
-		wqwqxkzxq4Form1.setJbnr("update");
-		wqwqxkzxq4Form1.setJbr("update");
-		wqwqxkzxq4Form1.setJzrq(d);
-		wqwqxkzxq4Form1.setWjh("update");
-		wqwqxkzxq4Form1.setWjm("update");*/
-		wqwqxkzxq4Service.updateWqwqxkzxq4(wqwqxkzxq4Form);
+		username = String
+				.valueOf(request.getSession().getAttribute("hhs_user"));
+		wqwqxkzxq4Service.updateWqwqxkzxq4(wqwqxkzxq4Form,username);
 		operateSuccess=true;
 		return "update";
 	}
@@ -106,9 +99,25 @@ public class Wqwqxkzxq4Action extends BaseAction implements ModelDriven<Wqwqxkzx
 		return   "delete";
 	}
 	public String add(){
-		wqwqxkzxq4Service.saveObject(wqwqxkzxq4Form);
+		username = String
+				.valueOf(request.getSession().getAttribute("hhs_user"));
+		wqwqxkzxq4Service.saveObject(wqwqxkzxq4Form,username);
 		operateSuccess=true;
 		return "add";
+	}
+	
+	public String showimport() throws Exception {
+
+		wqwqxkzxq4Service.showImportObject(wqwqxkzxq4Form.getId());
+		operateSuccess = true;
+		return "showimport";
+	}
+
+	public String showexport() throws Exception {
+		// System.out.println(xzxzgzbForm.getId());
+		wqwqxkzxq4Service.showExportObject(wqwqxkzxq4Form.getId());
+		operateSuccess = true;
+		return "showexport";
 	}
 }
 

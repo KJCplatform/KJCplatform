@@ -30,6 +30,7 @@ import container.ServiceProvider;
 
 @SuppressWarnings({ "unused", "serial" })
 public class AddrightAction extends BaseAction implements ModelDriven<AddrightForm>{
+	String username;
 	public int page = 0;
 	public boolean operateSuccess;
 	public boolean isOperateSuccess() {
@@ -83,6 +84,7 @@ public class AddrightAction extends BaseAction implements ModelDriven<AddrightFo
 		return "list";
 	}
 	public String update(){
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
 		/*XzxzgzbForm xzxzgzbForm1 = new XzxzgzbForm();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		String d=format.format(new Date());
@@ -95,7 +97,7 @@ public class AddrightAction extends BaseAction implements ModelDriven<AddrightFo
 		xzxzgzbForm1.setJzrq(d);
 		xzxzgzbForm1.setWjh("update");
 		xzxzgzbForm1.setWjm("update");*/
-		addrightService.updateAddright(addrightForm);
+		addrightService.updateAddright(addrightForm,username);
 		operateSuccess=true;
 		return "update";
 	}
@@ -106,9 +108,10 @@ public class AddrightAction extends BaseAction implements ModelDriven<AddrightFo
 		return   "delete";
 	}
 	public String add(){
-		System.out.println(addrightForm.getUserid());
-		System.out.println(addrightForm.getRightid());
-		addrightService.saveObject(addrightForm.getUserid(),addrightForm.getRightid());
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+	//	System.out.println(addrightForm.getUserid());
+	//	System.out.println(addrightForm.getRightid());
+		addrightService.saveObject(addrightForm.getUserid(),addrightForm.getRightid(),username);
 		operateSuccess=true;
 		return "add";
 	}

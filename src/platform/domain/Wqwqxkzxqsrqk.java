@@ -11,6 +11,10 @@ public class Wqwqxkzxqsrqk  implements java.io.Serializable {
 	private String jp;
 	private String zcz;
 	private String mp;
+	private String jlnf;
+	  private String username;
+	  private String gxsj;
+	  private int submit;
 	private Set<Wqwqxkzxq> wqwqxkzxqs = new HashSet<Wqwqxkzxq>();
 	public Integer getId() {
 		return id;
@@ -48,6 +52,30 @@ public class Wqwqxkzxqsrqk  implements java.io.Serializable {
 	}
 	public void setWqwqxkzxqs(Set<Wqwqxkzxq> wqwqxkzxqs) {
 		this.wqwqxkzxqs = wqwqxkzxqs;
+	}
+	public String getJlnf() {
+		return jlnf;
+	}
+	public void setJlnf(String jlnf) {
+		this.jlnf = jlnf;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getGxsj() {
+		return gxsj;
+	}
+	public void setGxsj(String gxsj) {
+		this.gxsj = gxsj;
+	}
+	public int getSubmit() {
+		return submit;
+	}
+	public void setSubmit(int submit) {
+		this.submit = submit;
 	}
 	
 }

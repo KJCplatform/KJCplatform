@@ -29,6 +29,7 @@ import com.opensymphony.xwork2.ModelDriven;
 import container.ServiceProvider;
 
 public class Wqwqxkzxq1Action extends BaseAction implements ModelDriven<Wqwqxkzxq1Form>{
+	String username;
 	public int page = 0;
 	private boolean operateSuccess;
 	public boolean getOperateSuccess() {
@@ -65,9 +66,8 @@ public class Wqwqxkzxq1Action extends BaseAction implements ModelDriven<Wqwqxkzx
 	}
 	Map<String, Object> map = new HashMap<String, Object>();
 	public String list(){
-		//System.out.println(page+":"+rows);
-		//wqwqxkzxq1Form.setWjm("test");
-		//wqwqxkzxq1Form.setWjh("2");
+		username = String
+				.valueOf(request.getSession().getAttribute("hhs_user"));
 		List<Wqwqxkzxq1Form> formlist=wqwqxkzxq1Service.findWqwqxkzxq1ListWithPage(rows,page,wqwqxkzxq1Form);
 		//System.out.println(formlist.get(formlist.size()-1).getCljg());
 		map.put("rows", formlist);
@@ -83,32 +83,38 @@ public class Wqwqxkzxq1Action extends BaseAction implements ModelDriven<Wqwqxkzx
 		return "list";
 	}
 	public String update(){
-		/*Wqwqxkzxq1Form wqwqxkzxq1Form1 = new Wqwqxkzxq1Form();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		String d=format.format(new Date());
-		wqwqxkzxq1Form1.setId("1");
-		wqwqxkzxq1Form1.setCljg("update");
-		wqwqxkzxq1Form1.setFwjg("update");
-		wqwqxkzxq1Form1.setFwrq(d);
-		wqwqxkzxq1Form1.setJbnr("update");
-		wqwqxkzxq1Form1.setJbr("update");
-		wqwqxkzxq1Form1.setJzrq(d);
-		wqwqxkzxq1Form1.setWjh("update");
-		wqwqxkzxq1Form1.setWjm("update");*/
-		wqwqxkzxq1Service.updateWqwqxkzxq1(wqwqxkzxq1Form);
+		username = String
+				.valueOf(request.getSession().getAttribute("hhs_user"));
+		wqwqxkzxq1Service.updateWqwqxkzxq1(wqwqxkzxq1Form,username);
 		operateSuccess=true;
 		return "update";
 	}
 	public String delete(){
+		
 		//wqwqxkzxq1Form.setId("2");
 		wqwqxkzxq1Service.deleteObject(wqwqxkzxq1Form.getId());
 		operateSuccess=true;
 		return   "delete";
 	}
 	public String add(){
-		wqwqxkzxq1Service.saveObject(wqwqxkzxq1Form);
+		username = String
+				.valueOf(request.getSession().getAttribute("hhs_user"));
+		wqwqxkzxq1Service.saveObject(wqwqxkzxq1Form,username);
 		operateSuccess=true;
 		return "add";
+	}
+	public String showimport() throws Exception {
+
+		wqwqxkzxq1Service.showImportObject(wqwqxkzxq1Form.getId());
+		operateSuccess = true;
+		return "showimport";
+	}
+
+	public String showexport() throws Exception {
+		// System.out.println(xzxzgzbForm.getId());
+		wqwqxkzxq1Service.showExportObject(wqwqxkzxq1Form.getId());
+		operateSuccess = true;
+		return "showexport";
 	}
 }
 

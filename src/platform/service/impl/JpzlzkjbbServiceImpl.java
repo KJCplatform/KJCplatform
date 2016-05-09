@@ -116,7 +116,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		    case "三": oldJpzlbgtjb.setThird(null);break;
 		    case "四": oldJpzlbgtjb.setFourth(null);break;
 		    }
-		    oldJpzlbgtjb.setSubmit(false);
+		    oldJpzlbgtjb.setSubmit(0);
 		    //oldJpzlbgtjb.setUsername();
 		    oldJpzlbgtjb.setGxsj(new Date().toString());
 		    this.jpzlbgtjbDao.save(oldJpzlbgtjb);
@@ -137,7 +137,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			    case "三": newJpzlbgtjb.setThird("是");break;
 			    case "四": newJpzlbgtjb.setFourth("是");break;
 			    }
-			    newJpzlbgtjb.setSubmit(false);
+			    newJpzlbgtjb.setSubmit(0);
 			    //oldJpzlbgtjb.setUsername();
 			    newJpzlbgtjb.setGxsj(new Date().toString());
 			    this.jpzlbgtjbDao.save(newJpzlbgtjb);
@@ -150,7 +150,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 				    	jpzlzkdwb.setDwmc(jpzlzkjbbForm.getDwmc());
 				    	jpzlzkdwb.setJinyong(false);
 				    	jpzlzkdwb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-				    	jpzlzkdwb.setSubmit(false);
+				    	jpzlzkdwb.setSubmit(0);
 				    	this.jpzlzkdwbDao.save(jpzlzkdwb);
 				    }
 			    }
@@ -178,7 +178,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 	    case "三": oldJpzlbgtjb.setThird(null);break;
 	    case "四": oldJpzlbgtjb.setFourth(null);break;
 	    }
-	    oldJpzlbgtjb.setSubmit(false);
+	    oldJpzlbgtjb.setSubmit(0);
 	    //oldJpzlbgtjb.setUsername();
 	    oldJpzlbgtjb.setGxsj(new Date().toString());
 	    this.jpzlbgtjbDao.save(oldJpzlbgtjb);
@@ -221,7 +221,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		    case "三": newJpzlbgtjb.setThird("是");break;
 		    case "四": newJpzlbgtjb.setFourth("是");break;
 		    }
-		    newJpzlbgtjb.setSubmit(false);
+		    newJpzlbgtjb.setSubmit(0);
 		    //oldJpzlbgtjb.setUsername();
 		    newJpzlbgtjb.setGxsj(new Date().toString());
 		    this.jpzlbgtjbDao.save(newJpzlbgtjb);
@@ -233,7 +233,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		    	jpzlzkdwb.setDwmc(jpzlzkjbbForm.getDwmc());
 		    	jpzlzkdwb.setJinyong(false);
 		    	jpzlzkdwb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-		    	jpzlzkdwb.setSubmit(false);
+		    	jpzlzkdwb.setSubmit(0);
 		    	this.jpzlzkdwbDao.save(jpzlzkdwb);
 		    }
 	}

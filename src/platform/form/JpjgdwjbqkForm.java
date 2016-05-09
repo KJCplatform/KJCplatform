@@ -39,6 +39,7 @@ public class JpjgdwjbqkForm implements java.io.Serializable{
 	private String jpkyrw;
 	private String gjsyssl;
 	private String gfsyssl;
+	
 	private List<JpjgdwjbqksrqkForm> jpjgdwjbqksrqks ;
 	private List<JpjgdwjbqkryForm> jpjgdwjbqkrys ;
 	

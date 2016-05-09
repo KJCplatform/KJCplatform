@@ -88,7 +88,7 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 			jpsgwtbb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 			jpsgwtbb.setUsername(jpsgwtbbForm.getUsername());
 			jpsgwtbb.setGxsj(jpsgwtbbForm.getGxsj());
-			jpsgwtbb.setSubmit(jpsgwtbbForm.getSubmit());
+			jpsgwtbb.setSubmit(0);
 			
 		    jpsgwtbbDao.update(jpsgwtbb);
 		
@@ -111,7 +111,7 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 		jpsgwtbb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		jpsgwtbb.setUsername(jpsgwtbbForm.getUsername());
 		jpsgwtbb.setGxsj(jpsgwtbbForm.getGxsj());
-		jpsgwtbb.setSubmit(jpsgwtbbForm.getSubmit());
+		jpsgwtbb.setSubmit(0);
 		
 		jpsgwtbbDao.save(jpsgwtbb);
 	}
@@ -160,7 +160,7 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 			jpsgwtbb.setBcrq(StringHelper.stringConvertDate(sheet.getCell(6, i).getContents()));
 			
 			jpsgwtbb.setJlnf(sheet.getCell(7, i).getContents());
-			jpsgwtbb.setSubmit("否");
+			jpsgwtbb.setSubmit(0);
 			jpsgwtbb.setUsername(formListTemp.get(0).getUsername());
 			jpsgwtbb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()).toString());
 			jpsgwtbbDao.save(jpsgwtbb);

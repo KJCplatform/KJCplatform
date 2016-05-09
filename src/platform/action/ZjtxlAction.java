@@ -30,6 +30,7 @@ import container.ServiceProvider;
 
 @SuppressWarnings({ "unused", "serial" })
 public class ZjtxlAction extends BaseAction implements ModelDriven<ZjtxlForm>{
+	String username;
 	public int page = 0;
 	public boolean operateSuccess;
 	public boolean isOperateSuccess() {
@@ -83,6 +84,7 @@ public class ZjtxlAction extends BaseAction implements ModelDriven<ZjtxlForm>{
 		return "list";
 	}
 	public String update(){
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
 		/*ZjtxlForm ZjtxlForm1 = new ZjtxlForm();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		String d=format.format(new Date());
@@ -95,7 +97,7 @@ public class ZjtxlAction extends BaseAction implements ModelDriven<ZjtxlForm>{
 		ZjtxlForm1.setJzrq(d);
 		ZjtxlForm1.setWjh("update");
 		ZjtxlForm1.setWjm("update");*/
-		zjtxlService.updateZjtxl(zjtxlForm);
+		zjtxlService.updateZjtxl(zjtxlForm,username);
 		operateSuccess=true;
 		return "update";
 	}
@@ -108,7 +110,8 @@ public class ZjtxlAction extends BaseAction implements ModelDriven<ZjtxlForm>{
 		return   "delete";
 	}
 	public String add(){
-		zjtxlService.saveObject(zjtxlForm);
+		username=String.valueOf(request.getSession().getAttribute("hhs_user"));
+		zjtxlService.saveObject(zjtxlForm,username);
 		operateSuccess=true;
 		return "add";
 	}

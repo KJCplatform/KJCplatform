@@ -10,8 +10,8 @@ public interface ZjtxlService {
 
 	public List<ZjtxlForm> findZjtxlList();
 	public List<ZjtxlForm> findZjtxlListWithPage(int pagesize,int pageno, ZjtxlForm ZjtxlForm);
-	public void updateZjtxl(ZjtxlForm ZjtxlForm);
+	public void updateZjtxl(ZjtxlForm ZjtxlForm,String username);
 	public void deleteObject(String id);
-	public void saveObject(ZjtxlForm ZjtxlForm);
+	public void saveObject(ZjtxlForm ZjtxlForm,String username);
 
 }

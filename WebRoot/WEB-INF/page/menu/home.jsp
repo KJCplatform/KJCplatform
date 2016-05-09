@@ -12,7 +12,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"
     content="ie=edge" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>湖北省国防科技工业科技信息管理系统</title>
+<title>湖北省国防科工办科技质量处信息管理系统</title>
 <link href="<%=basePath%>/css/default.css" rel="stylesheet"
     type="text/css" />
 <link rel="stylesheet" type="text/css"
@@ -47,98 +47,35 @@
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/kjjszjcjb1.jsp"
 				
-// 				"child":[
-// 							{
-// 								"menuid": "121",
-// 								"menuname": "质量管理专家",
-// 								"icon": "icon-nav",
-// 								"url": "<%=basePath%>/administration/kjjszjcjb1.jsp"
-								
-// 							},
-// 							{
-// 								"menuid": "122",
-// 								"menuname": "计量管理专家",
-// 								"icon": "icon-nav",
-// 								"url": "<%=basePath%>/administration/kjjszjcjb2.jsp"
-								
-// 							},
-// 							{
-// 								"menuid": "123",
-// 								"menuname": "科技专家",
-// 								"icon": "icon-nav",
-// 								"url": "<%=basePath%>/administration/kjjszjcjb3.jsp"
-								
-// 							},
-// 							{
-// 								"menuid": "124",
-// 								"menuname": "许可专家",
-// 								"icon": "icon-nav",
-// 								"url": "<%=basePath%>/administration/kjjszjcjb4.jsp"
-								
-// 							}
-// 						]
-				
-				
-				//"url": "http://hxling.cnblogs.com",
-				
-// 				"child": [{
-// 					"menuid": "121",
-// 					"menuname": "计量机构",
-// 					"icon": "icon-role",
-// 					"url": "demo2.html"
-// 					},
-					
-// 					{
-// 					"menuid": "122",
-// 					"menuname": "高技术企业",
-// 					"icon": "icon-role",
-// 					"url": "demo.html"
-// 					},
-// 					{
-// 					"menuid": "123",
-// 					"menuname": "军工企业",
-// 					"icon": "icon-role",
-// 					"url": "demo.html"
-// 					},
-// 					{
-// 					"menuid": "124",
-// 					"menuname": "专家通讯录",
-// 					"icon": "icon-role",
-// 					"url": "demo.html"
-// 					},
-// 					{
-// 					"menuid": "125",
-// 					"menuname": "项目目录",
-// 					"icon": "icon-set",
-// 					"url": "demo.html"
-// 					},
-// 					{
-// 					"menuid": "126",
-// 					"menuname": "成果目录",
-// 					"icon": "icon-set",
-// 					"url": "demo.html"
-// 					},
-// 					{
-// 					"menuid": "127",
-// 					"menuname": "专项目录",
-// 					"icon": "icon-set",
-// 					"url": "demo.html"
-// 					}					
-// 				]
 			},{
 				"menuid": "13",
 				"menuname": "综合查询",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/professor.jsp"
 				
+			},
+			{
+				"menuid": "14",
+				"menuname": "军工单位基本情况信息",
+				"icon": "icon-nav",
+				"url": "",
+				"child":[{
+					"menuid": "141",
+					"menuname": "数据录入-军工单位基本情况信息",
+					"icon": "icon-nav",
+					"url": "<%=basePath%>/project/jpjgdwjbqk.jsp"
+				},{
+					"menuid": "142",
+					"menuname": "信息查询-军工单位基本情况信息",
+					"icon": "icon-nav",
+					"url": "<%=basePath%>/project/jpjgdwjbqk_search.jsp"
+				},{
+					"menuid": "143",
+					"menuname": "信息汇总-军工单位基本情况信息",
+					"icon": "icon-nav",
+					"url": "<%=basePath%>/project/jpjgdwjbqk0.jsp"
+				}]	
 			}
-// 			,{
-// 				"menuid": "13",
-// 				"menuname": "行业通讯库",
-// 				"icon": "icon-nav",
-// 				"url": "<%=basePath%>/administration/hytxk.jsp"
-				
-// 			}
 			
 		]
 		
@@ -172,12 +109,6 @@
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/kjzzqcgcjb.jsp"
 			},
-//			{
-//			    "menuid": "214",
-//				"menuname": "农作物新品种成果",
-//				"icon": "icon-nav",
-//				"url": "<%=basePath%>/administration/kjnzwcjb.jsp"
-//			},
 			{
 				"menuid": "215",
 				"menuname": "其他技术成果",
@@ -190,11 +121,6 @@
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/kjjsxqcjb.jsp"
 			}
-//			{
-//				"menuid": "217",
-//				"menuname": "融资需求",
-//				"icon": "icon-nav",
-//				"url": "<%=basePath%>/administration/kjrzxqcjb.jsp" }
 			]		
 		},
 		
@@ -205,23 +131,23 @@
 			"url": "",
 			"child":[
 			{
-			"menuid": "290",
+			"menuid": "23",
 			"menuname": "高新技术企业基本信息",
 			"icon": "icon-nav",
 			 "url": "<%=basePath%>/administration/kjndgxjsqypjb.jsp"
 		},
 			{
-				"menuid": "291",
+				"menuid": "231",
 				"menuname": "数据录入-高新技术企业认定备案信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjgxqybab.jsp"
 			},{
-				"menuid": "292",
+				"menuid": "232",
 				"menuname": "信息查询-高新技术企业认定备案信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjgxqybab_search.jsp"
 			},	{
-				"menuid": "293",
+				"menuid": "233",
 				"menuname": "汇总表-高新技术企业认定备案信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
@@ -232,18 +158,18 @@
 			]	
 		},
 		{
-			"menuid": "23",
+			"menuid": "24",
 			"menuname": "军品科研项目",
 			"icon": "icon-nav",
 			"url": "demo.html",
 			"child":[{
-			    "menuid": "231",
+			    "menuid": "241",
 				"menuname": "军品科研项目汇总表",
 				"icon": "icon-nav",
 			    "url": "<%=basePath%>/administration/kjndjpptkyxmb.jsp"	
 			},
 			{
-			    "menuid": "232",
+			    "menuid": "242",
 				"menuname": "军品科研项目执行情况表",
 				"icon": "icon-nav",
 			    "url": "<%=basePath%>/administration/kjndjpptkyxmb2.jsp"	
@@ -253,52 +179,52 @@
 			
 		},
 		{
-			"menuid": "20",
+			"menuid": "25",
 			"menuname": "重大专项技术需求申报项目汇总表",
 			"icon": "icon-nav",
 	        "url": "<%=basePath%>/administration/zdzxhz.jsp"	
 		},
 		{
-			"menuid": "24",
+			"menuid": "26",
 			"menuname": "湖北省科学技术奖励",
 			"icon": "icon-nav",
 	        "url": "<%=basePath%>/administration/kjgfjflqk.jsp"	
 		},
 		{
-			"menuid": "52",
+			"menuid": "27",
 			"menuname": "大型仪器信息表",
 			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/aaa.jsp"
 			
 		},
 		{
-			"menuid": "25",
+			"menuid": "28",
 			"menuname": "国防科学技术奖",
 			"icon": "icon-nav",
 			"url": "demo.html",
 			"child":[{
-				"menuid": "251",
+				"menuid": "281",
 				"menuname": "1.年度我省获国防科学技术进步奖和发明奖统计表",
 				"icon": "icon-nav",
 			    "url": "<%=basePath%>/administration/kjndgfjtjb.jsp"
 				
 			},
 			{
-				"menuid": "252",
+				"menuid": "282",
 				"menuname": "2.年度我省获国家科学技术奖国防科技工业专用项目特等奖统计",
 				"icon": "icon-nav",
 			    "url": "<%=basePath%>/administration/kjgjkjjgfxmtj.jsp"
 				
 			},
 			{
-				"menuid": "253",
+				"menuid": "283",
 				"menuname": "3.年度我省获国家科学技术奖国防科技工业专用项目统计",
 				"icon": "icon-nav",
 			    "url": "<%=basePath%>/administration/kjgjkjjgftdtj.jsp"
 				
 			},
 			{
-				"menuid": "254",
+				"menuid": "284",
 				"menuname": "4.年度我省军工单位获湖北省科学技术奖励情况表",
 				"icon": "icon-nav",
 			    "url": "<%=basePath%>/administration/kjndjgkjjlqkb.jsp"
@@ -309,95 +235,32 @@
 			
 			
 		},
-// 		{
-// 			"menuid": "26",
-// 			"menuname": "技术专家信息",
-// 			"icon": "icon-nav",
-// 			"url": "",
-// 			"child":[{
-// 				"menuid": "261",
-// 				"menuname": "数据录入-技术专家信息",
-// 				"icon": "icon-nav",
-// 				"url": "<%=basePath%>/project/expert.jsp"
-// 			},{
-// 				"menuid": "262",
-// 				"menuname": "信息查询-技术专家信息",
-// 				"icon": "icon-nav",
-// 				"url": "<%=basePath%>/project/search.jsp"
-// 			}]	
-// 		},
-// 	{
-// 			"menuid": "28",
-// 			"menuname": "科技项目信息",
-// 			"icon": "icon-nav",
-// 			"url": "demo.html",
-// 			"child":[{
-// 				"menuid": "281",
-// 				"menuname": "军转民科技项目信息",
-// 				"icon": "icon-nav",
-// 				"url": "demo.html",
-// 				"child":[{
-// 				"menuid": "2811",
-// 				"menuname": "数据录入-军转民科技项目信息",
-// 				"icon": "icon-nav",
-// 				"url": "<%=basePath%>/project/kjkjxmxxb.jsp"
-// 			},{
-// 				"menuid": "2812",
-// 				"menuname": "信息查询-军转民科技项目信息",
-// 				"icon": "icon-nav",
-// 				"url": "<%=basePath%>/project/kjkjxmxxb_search.jsp"
-// 			}]
-// 			},{
-// 				"menuid": "282",
-// 				"menuname": "民参军科技项目信息",
-// 				"icon": "icon-nav",
-// 				"url": "demo.html",
-// 				"child":[{
-// 				"menuid": "2821",
-// 				"menuname": "数据录入-民参军科技项目信息",
-// 				"icon": "icon-nav",
-// 				"url": "<%=basePath%>/project/kjkjxmxxb2.jsp"
-// 			},{
-// 				"menuid": "2822",
-// 				"menuname": "信息查询-民参军科技项目信息",
-// 				"icon": "icon-nav",
-// 				"url": "<%=basePath%>/project/kjkjxmxxb_search2.jsp"
-// 			}]
-// 			},
-			
-// 		{
-// 				"menuid": "283",
-// 				"menuname": "科技项目库",
-// 				"icon": "icon-nav",
-// 				"url": "<%=basePath%>/administration/kjkjxmk.jsp"
-				
-// 		}
 		
 			{
-			"menuid": "28",
+			"menuid": "29",
 			"menuname": "科技项目信息",
 			"icon": "icon-nav",
 			"url": "demo.html",
 			"child":[{
 				
-				"menuid": "2811",
+				"menuid": "2911",
 				"menuname": "录入-军转民",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjkjxmxxb.jsp"
 			},{
-				"menuid": "2812",
+				"menuid": "2912",
 				"menuname": "查询-军转民",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjkjxmxxb_search.jsp"
 			}
 			,{
 			
-				"menuid": "2821",
+				"menuid": "2921",
 				"menuname": "录入-民参军",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjkjxmxxb2.jsp"
 			},{
-				"menuid": "2822",
+				"menuid": "2922",
 				"menuname": "查询-民参军",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjkjxmxxb_search2.jsp"
@@ -405,7 +268,7 @@
 			},
 			
 		{
-				"menuid": "283",
+				"menuid": "293",
 				"menuname": "科技项目库",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/kjkjxmk.jsp"
@@ -413,15 +276,24 @@
 		},
 			
 		{
-				"menuid": "284",
+				"menuid": "294",
 				"menuname": "科技项目信息汇总",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/kjkjxmxxb0.jsp"
 				
 		}
 				]
+		},{
+			"menuid": "30",
+			"menuname": "军工民用技术需求调查表",
+			"icon": "icon-nav",
+			"url": "<%=basePath%>/administration/jgmyjsxq.jsp"
+		},{
+			"menuid": "31",
+			"menuname": "军品配套科研项目汇总表",
+			"icon": "icon-nav",
+			"url": "<%=basePath%>/administration/jppthz.jsp"
 		}
-
 		
 		
 	]
@@ -457,18 +329,7 @@
 			"menuname": "单位信息维护",
 			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/dwxx.jsp"
-		},{
-			"menuid": "35",
-			"menuname": "军工民用技术需求调查表",
-			"icon": "icon-nav",
-			"url": "<%=basePath%>/administration/jgmyjsxq.jsp"
-		},{
-			"menuid": "36",
-			"menuname": "军品配套科研项目汇总表",
-			"icon": "icon-nav",
-			"url": "<%=basePath%>/administration/jppthz.jsp"
 		}
-
 		]		
 	}<%}
 			if (rights.contains("4")) {%>,
@@ -494,28 +355,6 @@
 			"menuname": "国防军工企事业单位计量检定人员",
 			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/xxtjb.jsp"	
-		},
-		{
-			"menuid": "44",
-			"menuname": "军工单位基本情况信息",
-			"icon": "icon-nav",
-			"url": "",
-			"child":[{
-				"menuid": "441",
-				"menuname": "数据录入-军工单位基本情况信息",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/project/jpjgdwjbqk.jsp"
-			},{
-				"menuid": "442",
-				"menuname": "信息查询-军工单位基本情况信息",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/project/jpjgdwjbqk_search.jsp"
-			},{
-				"menuid": "443",
-				"menuname": "信息汇总-军工单位基本情况信息",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/project/jpjgdwjbqk0.jsp"
-			}]	
 		}
 		]
 	}<%}
@@ -665,8 +504,6 @@ var localhostPath = curWwwPath.substring(0, pos);
 //获取带"/"的项目名，如：/ems
 var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
 var basePath = localhostPath + projectName;
-
-
         //设置登录窗口
         function openPwd() {
             $('#w').window({
@@ -683,16 +520,13 @@ var basePath = localhostPath + projectName;
         function closePwd() {
             $('#w').window('close');
         }
-
         
-
             //修改密码
         function serverLogin() {
             var $oldpass = $('#txtOldPass');
             var $newpass = $('#txtNewPass');
             var $rePass = $('#txtRePass');
             
-
             if ($newpass.val() == '') {
                 msgShow('系统提示', '请输入密码！', 'warning');
                 return false;
@@ -701,13 +535,10 @@ var basePath = localhostPath + projectName;
                 msgShow('系统提示', '请在一次输入密码！', 'warning');
                 return false;
             }
-
             if ($newpass.val() != $rePass.val()) {
                 msgShow('系统提示', '两次密码不一至！请重新输入', 'warning');
                 return false;
             }
-
-
           //  alert($newpass.val());
             var actionChange = basePath + '/system/UserAction_change.action';
             
@@ -727,24 +558,17 @@ var basePath = localhostPath + projectName;
             });
             
         }
-
         $(function() {
-
             openPwd();
-
             $('#editpass').click(function() {
                 $('#w').window('open');
             });
-
             $('#btnEp').click(function() {
                 serverLogin();
             })
-
 			$('#btnCancel').click(function(){closePwd();})
-
             $('#loginOut').click(function() {
                 $.messager.confirm('系统提示', '您确定要退出本次登录吗?', function(r) {
-
                     if (r) {
                         location.href = '/KJCPlatform/';
                     }
@@ -774,7 +598,7 @@ var basePath = localhostPath + projectName;
             <a href="#" id="editpass">修改密码</a> <a href="#" id="loginOut">安全退出</a>
         </span> <span style="padding-left:10px; font-size: 20px; "><img
             src="<%=basePath%>/images/blocks.gif" width="20" height="20"
-            align="absmiddle" /> 湖北省国防科技工业科技信息管理系统</span>
+            align="absmiddle" /> 湖北省国防科工办科技质量处信息管理系统</span>
     </div>
     <div region="south" split="true"
         style="height: 30px; background: #D2E0F2; ">
@@ -795,7 +619,7 @@ var basePath = localhostPath + projectName;
                 style="padding:20px;overflow:hidden; color:red; text-align:center;">
                 <br>
                 <br>
-                <h1 style="font-size:24px;">欢迎使用湖北省国防科学技术工业办公室软件平台</h1>
+                <h1 style="font-size:24px;">欢迎使用湖北省国防科工办科技质量处信息管理系统</h1>
                 <h1 style="font-size:40px;">国家秘密高于一切</h1>
                 <h1 style="font-size:40px;">保密责任重于泰山</h1>
             </div>

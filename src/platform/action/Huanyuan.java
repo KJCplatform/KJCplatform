@@ -8,7 +8,7 @@ import java.io.*;
 
 public class Huanyuan {
 
-	public static void sjhy() {
+	public static void sjhy() throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
 		HashSet hs = new HashSet();
 		hs.add("jp01");
 		hs.add("jp012");
@@ -27,8 +27,8 @@ public class Huanyuan {
 		hs.add("t4");
 	//	hs.add("kj_kjxmxxb_cjdw");
 	//	hs.add("kj_kjxmxxb_cjdw2");
-		hs.add("jp_dw_ry");
-		hs.add("jp_dw_srqk");
+     /*	hs.add("jp_dw_ry");
+		hs.add("jp_dw_srqk");*/
 	//	hs.add("jp_jgdwjbqk_ry");
 	//	hs.add("jp_jgdwjbqk_srqk");
 	//	hs.add("kj_gxqybab_gxcp");
@@ -38,20 +38,20 @@ public class Huanyuan {
 	//	hs.add("kj_jszjcjb_xm");
 	//	hs.add("kj_jszjcjb_zy");
 	//	hs.add("kj_kjxmxxb_cjdw");
-		hs.add("kj_qy_gxcp");
+		/*hs.add("kj_qy_gxcp");
 		hs.add("kj_qy_yfxm");
-		hs.add("kj_qy_zscq");
+		hs.add("kj_qy_zscq");*/
 	//	hs.add("kj_rzxqcjb");
-		hs.add("kj_xm_cjdw");
+		/*hs.add("kj_xm_cjdw");
 		hs.add("kj_xm_cjdw2");
 		hs.add("kj_zj_cg");
 		hs.add("kj_zj_xm");
-		hs.add("kj_zj_zy");
+		hs.add("kj_zj_zy");*/
 	//	hs.add("kpc_text");
 		hs.add("right");
-		hs.add("rights");
-		hs.add("user");
-		hs.add("user_right");
+		//		hs.add("rights");
+//		hs.add("user");
+//		hs.add("user_right");
 		hs.add("testdata");
 		//hs.add("kj_zlcjb");
 		//hs.add("kj_zzqcgcjb");//这张表出了问题
@@ -65,12 +65,13 @@ public class Huanyuan {
 	//	hs.add("wq_wqxkzxqyx");
 	//	hs.add("wq_wqxkzxqyx_srqk");
 	//	hs.add("wq_wqxkzxqyx_xkzycp");
-		hs.add("wq_xkzyx_srqk");
-		hs.add("wq_xkzyx_xkzycp");
+		/*hs.add("wq_xkzyx_srqk");
+		hs.add("wq_xkzyx_xkzycp");*/
 	//	hs.add("kj_nzwcjb");						
-		hs.add("wq_xkz_srqk");
-		hs.add("wq_xkz_xkzycp");
-	//	hs.add("zjtxl");
+//		hs.add("wq_xkz_srqk");
+//		hs.add("wq_xkz_xkzycp");
+//		hs.add("zjtxl");
+//		hs.add("xz_xzzjb");
 		try {
 			String url = "jdbc:mysql://localhost/kjcplatform";
 			String user = "root";
@@ -114,11 +115,11 @@ public class Huanyuan {
 				String command = "load data infile 'D:/kjcdata/data/"+tabs.get(i)+".sql' into table kjcplatform."+tabs.get(i)+"("+cols+")";
 				
 				stmt.executeQuery(command);
-				System.out.println(command);
+//System.out.println(command);
 				
 				
 				String command1	="UPDATE "+tabs.get(i)+ " SET submit=1";
-				System.out.println(command1);
+//System.out.println(command1);
 				stmt.executeUpdate(command1);
 			}
 			stmt.close();
@@ -126,7 +127,6 @@ public class Huanyuan {
 			conn.close();
 		} catch (Exception ex) {
 			System.out.println("Error : " + ex.toString());
-			
 		}
 	}
 

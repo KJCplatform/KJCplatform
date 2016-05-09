@@ -95,7 +95,7 @@ public class Wqwqxkzxq0ServiceImpl implements Wqwqxkzxq0Service{
 		wqwqxkzxq0.setJlnf(wqwqxkzxq0Form.getJlnf());
 		wqwqxkzxq0.setUsername(wqwqxkzxq0Form.getUsername());
 		wqwqxkzxq0.setGxsj(wqwqxkzxq0Form.getGxsj());
-		wqwqxkzxq0.setSubmit(wqwqxkzxq0Form.getSubmit());	
+		wqwqxkzxq0.setSubmit(0);	
 		
 		wqwqxkzxq0.setName1(wqwqxkzxq0Form.getName1());
 		wqwqxkzxq0.setName2(wqwqxkzxq0Form.getName2());
@@ -149,7 +149,7 @@ public class Wqwqxkzxq0ServiceImpl implements Wqwqxkzxq0Service{
 		wqwqxkzxq0.setJlnf(wqwqxkzxq0Form.getJlnf());
 		wqwqxkzxq0.setUsername(wqwqxkzxq0Form.getUsername());
 		wqwqxkzxq0.setGxsj(wqwqxkzxq0Form.getGxsj());
-		wqwqxkzxq0.setSubmit(wqwqxkzxq0Form.getSubmit());
+		wqwqxkzxq0.setSubmit(0);
 		
 		
 		wqwqxkzxq0.setName1(wqwqxkzxq0Form.getName1());
@@ -160,6 +160,7 @@ public class Wqwqxkzxq0ServiceImpl implements Wqwqxkzxq0Service{
 		// TODO Auto-generated method stub
 		List<Wqwqxkzxq0Form> formlist=new ArrayList<Wqwqxkzxq0Form>();
 		for(int i=0;i<list.size();i++){
+			Wqwqxkzxq0 wqwqxkzxq0=list.get(i);
 Wqwqxkzxq0Form wqwqxkzxq0Form=new Wqwqxkzxq0Form();
 			
 			wqwqxkzxq0Form.setId(String.valueOf(list.get(i).getId()));
@@ -201,7 +202,7 @@ Wqwqxkzxq0Form wqwqxkzxq0Form=new Wqwqxkzxq0Form();
 			wqwqxkzxq0Form.setJlnf(list.get(i).getJlnf());
 			wqwqxkzxq0Form.setUsername(list.get(i).getUsername());
 			wqwqxkzxq0Form.setGxsj(list.get(i).getGxsj());
-			wqwqxkzxq0Form.setSubmit(list.get(i).getSubmit());
+			wqwqxkzxq0Form.setSubmit(String.valueOf(wqwqxkzxq0.getSubmit()));
 			
 			
 			wqwqxkzxq0Form.setName1(list.get(i).getName1());

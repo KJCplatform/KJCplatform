@@ -9,6 +9,10 @@ public class Wqwqxkzxq3 implements java.io.Serializable{
 	  private String xmmc;
 	  private String kysc;
 	  private String xklx;
+	  private String jlnf;
+		private String username;
+		private String gxsj;
+		private int submit;
 	public int getId() {
 		return id;
 	}
@@ -44,6 +48,30 @@ public class Wqwqxkzxq3 implements java.io.Serializable{
 	}
 	public void setXklx(String xklx) {
 		this.xklx = xklx;
+	}
+	public String getJlnf() {
+		return jlnf;
+	}
+	public void setJlnf(String jlnf) {
+		this.jlnf = jlnf;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getGxsj() {
+		return gxsj;
+	}
+	public void setGxsj(String gxsj) {
+		this.gxsj = gxsj;
+	}
+	public int getSubmit() {
+		return submit;
+	}
+	public void setSubmit(int submit) {
+		this.submit = submit;
 	}
 	  
 	

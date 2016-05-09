@@ -163,7 +163,7 @@ public class Kjjszjcjb4ServiceImpl implements Kjjszjcjb4Service{
 	public void showImportObject(String filePath) throws Exception {
 		// TODO Auto-generated method stub
 		//System.out.println("导入excel。。。");
-		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:\\kjcdata");
+		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:\\kjcoutput");
 		Workbook workbook = Workbook.getWorkbook(new File(path));
 		Sheet sheet = workbook.getSheet(0);
 		int rows = sheet.getRows();

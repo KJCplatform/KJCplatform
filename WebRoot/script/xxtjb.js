@@ -1,12 +1,12 @@
 //JQuery的入口
 //获取当前网址，如： http://localhost:8080/ems/Pages/Basic/Person.jsp
 var curWwwPath = window.document.location.href;
-//获取主机地址之后的目录，如： /ems/Pages/Basic/Person.jsp
+// 获取主机地址之后的目录，如： /ems/Pages/Basic/Person.jsp
 var pathName = window.document.location.pathname;
 var pos = curWwwPath.indexOf(pathName);
-//获取主机地址，如： http://localhost:8080
+// 获取主机地址，如： http://localhost:8080
 var localhostPath = curWwwPath.substring(0, pos);
-//获取带"/"的项目名，如：/ems
+// 获取带"/"的项目名，如：/ems
 var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
 var basePath = localhostPath + projectName;
 var user;
@@ -15,15 +15,15 @@ $(function() {
 	listDoc();
 	// 日期加上日期控件
 	$("#csny").datebox({
-		editable:false,
+		editable : false,
 		required : true
 	});
 	$("#qzrq").datebox({
-		editable:false,
+		editable : false,
 		required : true
 	});
 	$("#qfrq").datebox({
-		editable:false,
+		editable : false,
 		required : true
 	});
 	// 给文本框加上验证器
@@ -37,70 +37,68 @@ $(function() {
 	});
 
 });
-//加载公文列表
+// 加载公文列表
 function listDoc() {
 	var actionPath = basePath + '/system/JljlrytjbAction_list.action';
-	 $('#dg').datagrid({
-            title : '国防军工企事业单位计量检定人员',
-            width : 1200,
-            height: 400,
-            //fit: true,
-			fitColumns : true, // 自动适应列宽      
-            pageSize : 10,//默认选择的分页是每页5行数据
-            pageList : [ 5, 10, 15, 20 ],//可以选择的分页集合
-            nowrap : true,//设置为true，当数据长度超出列宽时将会自动截取
-            toolbar:"#toolbar",//在添加 增添、删除、修改操作的按钮要用到这个
-            url:actionPath,//url调用Action方法
-            loadMsg : '数据装载中......',
-            singleSelect:true,//为true时只能选择单行
-            //sortName : 'xh',//当数据表格初始化时以哪一列来排序
-            //sortOrder : 'desc',//定义排序顺序，可以是'asc'或者'desc'（正序或者倒序）。
-            pagination : true,//分页
-            rownumbers : true,//行数
-			
-            toolbar:[ {// 工具栏
-				text : '添加',
-				id:'add',
-				iconCls : 'icon-add', // 图标
-				handler : function() { // 处理函数
-					addDoc();
-				}
-			}, {
-				text : '删除',
-				id:'delete',
-				iconCls : 'icon-cancel', // 图标
-				handler : function() { // 处理函数
-					deleteDoc();
-				}
-			}, {
-				text : '编辑',
-				id:'edit',
-				iconCls : 'icon-edit',// 图标
-				handler : function() {// 处理函数
-					editDoc();
-				}
+	$('#dg').datagrid({
+		title : '国防军工企事业单位计量检定人员',
+		width : 1200,
+		height : 400,
+		// fit: true,
+		fitColumns : true, // 自动适应列宽
+		pageSize : 10,// 默认选择的分页是每页5行数据
+		pageList : [ 5, 10, 15, 20 ],// 可以选择的分页集合
+		nowrap : true,// 设置为true，当数据长度超出列宽时将会自动截取
+		toolbar : "#toolbar",// 在添加 增添、删除、修改操作的按钮要用到这个
+		url : actionPath,// url调用Action方法
+		loadMsg : '数据装载中......',
+		singleSelect : true,// 为true时只能选择单行
+		// sortName : 'xh',//当数据表格初始化时以哪一列来排序
+		// sortOrder : 'desc',//定义排序顺序，可以是'asc'或者'desc'（正序或者倒序）。
+		pagination : true,// 分页
+		rownumbers : true,// 行数
+
+		toolbar : [ {// 工具栏
+			text : '添加',
+			id : 'add',
+			iconCls : 'icon-add', // 图标
+			handler : function() { // 处理函数
+				addDoc();
 			}
-		 ],
-	 
-            onLoadSuccess: function (data) { 
-            	
-				user=eval(data).user;
-			
-				 if(user!="admin"){
-					// alert("123");
-					 $("#delete").linkbutton("disable");
-					 $("#edit").linkbutton("disable");
-				 }
+		}, {
+			text : '删除',
+			id : 'delete',
+			iconCls : 'icon-cancel', // 图标
+			handler : function() { // 处理函数
+				deleteDoc();
 			}
-        });
-	 
-	 
+		}, {
+			text : '编辑',
+			id : 'edit',
+			iconCls : 'icon-edit',// 图标
+			handler : function() {// 处理函数
+				editDoc();
+			}
+		} ],
+
+		onLoadSuccess : function(data) {
+
+			user = eval(data).user;
+
+			if (user != "admin") {
+				// alert("123");
+				$("#delete").linkbutton("disable");
+				$("#edit").linkbutton("disable");
+			}
+		}
+	});
+
 }
-//查询
-function doSearch(){
-	$('#dg').datagrid('load',{
-		dwmc: $('#fileName').val(),
-		xm: $('#fileId').val()
+// 查询
+function doSearch() {
+	$('#dg').datagrid('load', {
+		dwmc : $('#fileName').val(),
+		xm : $('#fileId').val()
 	});
 }
 // 显示编辑窗口
@@ -149,7 +147,7 @@ function addDoc() {
 function editDoc() {
 	var doc = $('#dg').datagrid('getSelected');// 得到选中的一行数据
 	// 如果没有选中记录
-	if (doc	== null) {
+	if (doc == null) {
 		$.messager.alert('文件', '请先选中要编辑的文件', 'info');
 		return;
 	}
@@ -158,21 +156,21 @@ function editDoc() {
 	$("#id").val(doc.id);
 	$("#dwmc").val(doc.dwmc);
 	$("#xm").val(doc.xm);
-	$("#xb").val(doc.xb);	
+	$("#xb").val(doc.xb);
 
 	$("#csny").datebox("setValue", doc.csny.substring(0, 10));
 	$("#qzrq").datebox("setValue", doc.qzrq.substring(0, 10));
 	$("#qfrq").datebox("setValue", doc.qfrq.substring(0, 10));
-	
+
 	$("#whcd").val(doc.whcd);
 	$("#jlzh").val(doc.jlzh);
 	$("#yxq").val(doc.yxq);
 	$("#kjxm").val(doc.kjxm);
-	
-	/*$("#jlnf").val(doc.jlnf);
-	$("#username").val(doc.username);
-	$("#gxsj").val(doc.gxsj);
-	$("#submit").val(doc.submit);*/
+
+	/*
+	 * $("#jlnf").val(doc.jlnf); $("#username").val(doc.username);
+	 * $("#gxsj").val(doc.gxsj); $("#submit").val(doc.submit);
+	 */
 	// 显示编辑页面
 	showEditForm();
 }
@@ -185,40 +183,40 @@ function dealSave() {
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {
-					$('#dg').datagrid('reload');// 重新加载
-					$.messager.alert('添加', '添加成功', 'info');
+				$('#dg').datagrid('reload');// 重新加载
+				$.messager.alert('添加', '添加成功', 'info');
 			} else {
-					$.messager.alert('添加', '添加失败', 'warning');
-				}
+				$.messager.alert('添加', '添加失败', 'warning');
+			}
 		});
-		} else {
+	} else {
 		// 表示更新
-			$.post(actionUpdate, params, function(result) {
-				if (result.operateSuccess) {
-					$('#dg').datagrid('reload');// 重新加载
-						$.messager.alert('更新', '更新成功', 'info');
-				} else {
-						$.messager.alert('更新', '更新失败', 'warning');
-					}
-			});
-		}
+		$.post(actionUpdate, params, function(result) {
+			if (result.operateSuccess) {
+				$('#dg').datagrid('reload');// 重新加载
+				$.messager.alert('更新', '更新成功', 'info');
+			} else {
+				$.messager.alert('更新', '更新失败', 'warning');
+			}
+		});
 	}
-//保存操作第二种实现方法
-function save(){
-	$('#frmEdit').form('submit',{
-		url: url,
-		onSubmit: function(){
+}
+// 保存操作第二种实现方法
+function save() {
+	$('#frmEdit').form('submit', {
+		url : url,
+		onSubmit : function() {
 			return $(this).form('validate');
 		},
-		success: function(result){
-			var result = eval('('+result+')');
-			if (result.success){
-				$('#frmEdit').dialog('close');		// close the dialog
-				$('#dg').datagrid('reload');	// reload the user data
+		success : function(result) {
+			var result = eval('(' + result + ')');
+			if (result.success) {
+				$('#frmEdit').dialog('close'); // close the dialog
+				$('#dg').datagrid('reload'); // reload the user data
 			} else {
 				$.messager.show({
-					title: 'Error',
-					msg: result.msg
+					title : 'Error',
+					msg : result.msg
 				});
 			}
 		}
@@ -235,11 +233,12 @@ function deleteDoc() {
 	}
 	$.messager.confirm('确认', '真的要删除选中的记录吗？', function(r) {
 		if (r) {
-			var actionPath = basePath + '/system/JljlrytjbAction_delete.action?id=';
+			var actionPath = basePath
+					+ '/system/JljlrytjbAction_delete.action?id=';
 			var url = actionPath + doc.id;
 			// 试一下get方法（地址，回调函数）
 			$.get(url, function(result) {
-			//	alert(result);
+				// alert(result);
 				if (result.operateSuccess) {
 					$.messager.alert('删除', '选中的文件成功删除！', 'info');
 					// 重新加载
@@ -252,50 +251,49 @@ function deleteDoc() {
 	});
 }
 
-
 function getPath(obj) {
-	alert(obj);
- if (obj) {
-  if (window.navigator.userAgent.indexOf("MSIE") >= 1) {
-   obj.select();
-   return document.selection.createRange().text;
-  } else if (window.navigator.userAgent.indexOf("Firefox") >= 1) {
-   if (obj.files) {
-    return obj.files.item(0).getAsDataURL();
-   }
-   return obj.value;
-  }
-  return obj.value;
- }
+	// alert(obj);
+	if (obj) {
+		if (window.navigator.userAgent.indexOf("MSIE") >= 1) {
+			obj.select();
+			return document.selection.createRange().text;
+		} else if (window.navigator.userAgent.indexOf("Firefox") >= 1) {
+			if (obj.files) {
+				return obj.files.item(0).getAsDataURL();
+			}
+			return obj.value;
+		}
+		return obj.value;
+	}
 }
 
 function ShowImport() {
 
-	//	  var file_upl = document.getElementById('uploadExcel');
-	//	  file_upl.select();
-	//	  var fileName = document.selection.createRange().text;
-	//	alert(fileName);
+	// var file_upl = document.getElementById('uploadExcel');
+	// file_upl.select();
+	// var fileName = document.selection.createRange().text;
+	// alert(fileName);
 	var url = getPath(document.getElementById("uploadExcel"));
-	//得到上传文件的全路径  
+	// 得到上传文件的全路径
 	var fileName = $('#uploadExcel').filebox('getValue');
 	//	
-alert(url);
+	// alert(url);
 	// alert(fileName);
-	//进行基本校验  
+	// 进行基本校验
 	if (fileName == "") {
 		$.messager.alert('提示', '请选择上传文件！', 'info');
 	} else {
-		//对文件格式进行校验  
+		// 对文件格式进行校验
 		var d1 = /\.[^\.]+$/.exec(fileName);
 		if (d1 == ".xls") {
-			//提交表单  
-			//document.getElementById("questionTypesManage").action="${pageContext.request.contextPath}/leadtoQuestionTypes/leadInExcelQuestionBank?questionType="+questionTypes+"&courseType="+courseType;  
-			//document.getElementById("questionTypesManage").submit();     
+			// 提交表单
+			// document.getElementById("questionTypesManage").action="${pageContext.request.contextPath}/leadtoQuestionTypes/leadInExcelQuestionBank?questionType="+questionTypes+"&courseType="+courseType;
+			// document.getElementById("questionTypesManage").submit();
 			var params = "dwmc=" + fileName;
 			var showimport = basePath
 					+ '/system/JljlrytjbAction_showimport.action';
 
-			//alert(params);
+			// alert(params);
 
 			$.post(showimport, params, function(result) {
 				if (result.operateSuccess) {
@@ -326,7 +324,7 @@ function ShowExport() {
 		}
 	}
 
-	//alert(params);
+	// alert(params);
 
 	var showimport = basePath + '/system/JljlrytjbAction_showexport.action';
 
@@ -343,7 +341,7 @@ function ShowExport() {
 	return false;
 }
 
-//Excelselect
+// Excelselect
 function selectExcel() {
 
 	$("#tabEdit2").dialog({
@@ -367,17 +365,6 @@ function selectExcel() {
 }
 
 function closeForm2() {
-	//$("#frmEdit2").form('clear');
+	// $("#frmEdit2").form('clear');
 	$('#tabEdit2').dialog('close');
 }
-
-
-
-
-
-
-
-
-
-
-	

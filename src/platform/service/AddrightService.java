@@ -10,8 +10,8 @@ public interface AddrightService {
 
 	public List<AddrightForm> findAddrightList();
 	public List<AddrightForm> findAddrightListWithPage(int pagesize,int pageno,AddrightForm addrightForm);
-	public void updateAddright(AddrightForm addrightForm);
+	public void updateAddright(AddrightForm addrightForm,String username);
 	public void deleteObject(String id);
-	public void saveObject(String userid, String rightid);
+	public void saveObject(String userid, String rightid,String username);
 
 }

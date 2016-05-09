@@ -249,7 +249,7 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 	public void showimportObject(String showimport,String username)  throws Exception {
 
 		String b = showimport.replace("\\", "\\\\");
-		String c = b.replace("C:\\\\fakepath", "D:\\kjcdata");
+		String c = b.replace("C:\\\\fakepath", "D:\\kjcoutput");
 
 		Workbook book = Workbook.getWorkbook(new File(c));
 		// Workbook book = Workbook.getWorkbook( new File(b));

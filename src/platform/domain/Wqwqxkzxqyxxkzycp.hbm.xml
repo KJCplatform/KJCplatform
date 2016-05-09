@@ -31,6 +31,28 @@
                 <comment>外键</comment>
             </column>
         </property>
+        <property name="jlnf" type="java.lang.String">
+            <column name="jlnf">
+                <comment>记录年份</comment>
+            </column>
+        </property>
+        
+         <property name="username" type="java.lang.String">
+            <column name="username">
+                <comment>操作员</comment>
+            </column>
+        </property>
+        <property name="gxsj" type="java.lang.String">
+            <column name="gxsj">
+                <comment>更新时间</comment>
+            </column>
+        </property>
+        
+         <property name="submit" type="java.lang.Integer">
+            <column name="submit">
+                <comment>是否提交</comment>
+            </column>
+        </property>
          <set name="Wqwqxkzxqyxs" table="wq_xkzyx_xkzycp" >
             <key>
                 <column name="FK_wq_xkzycp" not-null="true" />

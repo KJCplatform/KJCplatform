@@ -46,6 +46,7 @@
 			<result name="list" type="json">
 			<param name="root">responseJson</param>
 			</result>
+			
 			<result name="add" type="json">
 				
 			</result>
@@ -639,6 +640,31 @@
 			
 			
 		</action>
+		
+		
+		<action name="Kjkjxmxxb2Action_*" class="platform.action.Kjkjxmxxb2Action" method="{1}">
+		    <result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>			
+			<result name="add" type="json">
+				
+			</result>
+	    	
+             <result name="addcjdw" type="json">
+				
+			</result>
+			
+			  <result name="update" type="json">
+				
+			</result>
+			
+			  <result name="delete" type="json">
+				
+			</result>
+			
+			
+		</action>
+		
 		<action name="WqwqxkzxqAction_*" class="platform.action.WqwqxkzxqAction" method="{1}">			
 			<result name="list" type="json">
 			<param name="root">responseJson</param>
@@ -1018,16 +1044,82 @@
 		</action>
 		
 		<action name="DbbackupAction_*" class="platform.action.DbbackupAction" method="{1}">
+		<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
 		    <result name="sjbf" type="json">
 		    </result>
 		    <result name="tocd" type="json">
 		    </result>
 		</action>
 		<action name="HuanyuanAction_*" class="platform.action.HuanyuanAction" method="{1}">
+		<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
 		    <result name="sjhy" type="json">
 		    </result>
 		     <result name="fromcd" type="json">
 		    </result>
+		</action>
+		
+		
+		<action name="BeifenAction_*" class="platform.action.BeifenAction" method="{1}">
+		    <result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+		    <result name="tocd" type="json">
+		    </result>
+		</action>
+		
+		
+		<action name="SjhyAction_*" class="platform.action.SjhyAction" method="{1}">
+		<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+		    <result name="sjhy" type="json">
+		    </result>
+		   
+		</action>
+		<action name="CopyTextAction_*" class="platform.action.CopyTextAction" method="{1}">
+		<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+		    <result name="copytext" type="json">
+		    </result>
+		    <result name="copytext1" type="json">
+		    </result>
+		</action>
+		
+		<action name="ProfessorAction_*" class="platform.action.ProfessorAction" method="{1}">
+		
+		   <result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+		</action>
+		<action name="CompanyAction_*" class="platform.action.CompanyAction" method="{1}">
+		   <result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+		</action>
+		
+			<action name="KjzdzxhzAction_*" class="platform.action.KjzdzxhzAction" method="{1}">
+			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+				<result name="showimport" type="json">
+			</result>
+			<result name="showexport" type="json">
+			</result>
 		</action>
 	</package>
 </struts>

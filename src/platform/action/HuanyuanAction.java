@@ -12,10 +12,8 @@ public class HuanyuanAction extends BaseAction {
 	public String sjhy() throws Exception{
 		System.out.println("123");
 		Huanyuan abc=new Huanyuan();
-		
 		abc.sjhy();
 		operateSuccess=true;
-		
 	return "sjhy";
 	}
 

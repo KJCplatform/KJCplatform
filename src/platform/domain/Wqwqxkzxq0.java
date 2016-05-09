@@ -77,7 +77,7 @@ public class Wqwqxkzxq0 implements java.io.Serializable{
 	  private String jlnf;
 	  private String username;
 	  private String gxsj;
-	  private String submit;
+	  private int submit;
 	  
 	  private String name1;
 	  private String name2;
@@ -119,13 +119,14 @@ public class Wqwqxkzxq0 implements java.io.Serializable{
 	public void setGxsj(String gxsj) {
 		this.gxsj = gxsj;
 	}
-	public String getSubmit() {
+	
+	
+	public int getSubmit() {
 		return submit;
 	}
-	public void setSubmit(String submit) {
+	public void setSubmit(int submit) {
 		this.submit = submit;
 	}
-	
 	public String getDwmc() {
 		return dwmc;
 	}
