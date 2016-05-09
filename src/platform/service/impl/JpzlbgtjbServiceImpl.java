@@ -7,10 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.transaction.Transactional;
-
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import platform.dao.JpzlbgtjbDao;
 import platform.dao.JpzlzkdwbDao;
@@ -26,6 +25,7 @@ import platform.service.JpzlbgtjbService;
 import platform.service.JpzlzkdwbService;
 import platform.service.ZjtxlService;
 import platform.util.StringHelper;
+
 @Transactional
 @SuppressWarnings("unused")
 @Service(JpzlbgtjbService.SERVICE_NAME)

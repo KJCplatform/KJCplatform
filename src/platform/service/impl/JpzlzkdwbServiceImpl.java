@@ -6,10 +6,10 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.transaction.Transactional;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import platform.dao.JpzlzkdwbDao;
 import platform.dao.XzxzgzbDao;
@@ -21,6 +21,7 @@ import platform.form.ZjtxlForm;
 import platform.service.JpzlzkdwbService;
 import platform.service.ZjtxlService;
 import platform.util.StringHelper;
+
 @Transactional
 @SuppressWarnings("unused")
 @Service(JpzlzkdwbService.SERVICE_NAME)

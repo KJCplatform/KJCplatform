@@ -13,6 +13,7 @@ import jxl.Workbook;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import platform.dao.JpzlbgtjbDao;
 import platform.dao.JpzlzkdwbDao;
@@ -25,7 +26,7 @@ import platform.service.JpzlzkjbbService;
 import platform.util.StringHelper;
 import excel.CreateExcel;
 
-
+@Transactional
 @Service(JpzlzkjbbService.SERVICE_NAME)
 public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 
@@ -156,7 +157,6 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 	}
 	@Override
     public void deleteObject(String id){
-		System.out.println(Integer.valueOf(id));
 		Jpzlzkjbb old=this.jpzlzkjbbDao.findObjectByID(Integer.valueOf(id));
 	     String oldjd=old.getJd();
 	     String olddwmc= old.getDwmc();
@@ -271,17 +271,17 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		int rows = sheet.getRows();
 		for(int i = 1; i < rows ; i ++){
 			Jpzlzkjbb jpzlzkjbb = new Jpzlzkjbb();
-			jpzlzkjbb.setJd(sheet.getCell(0, i).getContents());
-			jpzlzkjbb.setDwmc(sheet.getCell(1, i).getContents());
-			jpzlzkjbb.setHgl(sheet.getCell(2, i).getContents());
-			jpzlzkjbb.setCgl(sheet.getCell(3, i).getContents());
-			jpzlzkjbb.setSsl2(sheet.getCell(4, i).getContents());
-			jpzlzkjbb.setZlhdqk(sheet.getCell(5, i).getContents());
-			jpzlzkjbb.setTbr(sheet.getCell(6, i).getContents());
-			jpzlzkjbb.setZlbfzr(sheet.getCell(7, i).getContents());
-			jpzlzkjbb.setShr2(sheet.getCell(8, i).getContents());
-			jpzlzkjbb.setBcrq(StringHelper.stringConvertDate(sheet.getCell(9, i).getContents()));
-			jpzlzkjbb.setJlnf(sheet.getCell(10, i).getContents());
+			jpzlzkjbb.setJd(sheet.getCell(1, i).getContents());
+			jpzlzkjbb.setDwmc(sheet.getCell(2, i).getContents());
+			jpzlzkjbb.setHgl(sheet.getCell(3, i).getContents());
+			jpzlzkjbb.setCgl(sheet.getCell(4, i).getContents());
+			jpzlzkjbb.setSsl2(sheet.getCell(5, i).getContents());
+			jpzlzkjbb.setZlhdqk(sheet.getCell(6, i).getContents());
+			jpzlzkjbb.setTbr(sheet.getCell(7, i).getContents());
+			jpzlzkjbb.setZlbfzr(sheet.getCell(8, i).getContents());
+			jpzlzkjbb.setShr2(sheet.getCell(9, i).getContents());
+			jpzlzkjbb.setBcrq(StringHelper.stringConvertDate(sheet.getCell(10, i).getContents()));
+			jpzlzkjbb.setJlnf(sheet.getCell(0, i).getContents());
 
 
 			this.jpzlzkjbbDao.save(jpzlzkjbb);
