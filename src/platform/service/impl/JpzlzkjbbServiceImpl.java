@@ -97,7 +97,8 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			jpzlzkjbb.setShr2(jpzlzkjbbForm.getShr2());
 			jpzlzkjbb.setJlnf(jpzlzkjbbForm.getJlnf());
 			if(jpzlzkjbbForm.getBcrq()!=null&&!jpzlzkjbbForm.getBcrq().equals(""))
-			jpzlzkjbb.setBcrq(StringHelper.stringConvertDate2(jpzlzkjbbForm.getBcrq()));
+			jpzlzkjbb.setBcrq(StringHelper.stringConvertDate(jpzlzkjbbForm.getBcrq()));
+			jpzlzkjbb.setGxsj(StringHelper.dateFormat(new Date()));
 		    this.jpzlzkjbbDao.update(jpzlzkjbb);
 
 
@@ -138,8 +139,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			    case "四": newJpzlbgtjb.setFourth("是");break;
 			    }
 			    newJpzlbgtjb.setSubmit(0);
-			    //oldJpzlbgtjb.setUsername();
-			    newJpzlbgtjb.setGxsj(new Date().toString());
+			    newJpzlbgtjb.setGxsj(StringHelper.dateFormat(new Date()));
 			    this.jpzlbgtjbDao.save(newJpzlbgtjb);
 
 			    ////向单位表中插入新的单位信息
@@ -149,7 +149,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 				    	Jpzlzkdwb jpzlzkdwb = new Jpzlzkdwb();
 				    	jpzlzkdwb.setDwmc(jpzlzkjbbForm.getDwmc());
 				    	jpzlzkdwb.setJinyong(false);
-				    	jpzlzkdwb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+				    	jpzlzkdwb.setGxsj(StringHelper.dateFormat(new Date()));
 				    	jpzlzkdwb.setSubmit(0);
 				    	this.jpzlzkdwbDao.save(jpzlzkdwb);
 				    }
@@ -180,7 +180,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 	    }
 	    oldJpzlbgtjb.setSubmit(0);
 	    //oldJpzlbgtjb.setUsername();
-	    oldJpzlbgtjb.setGxsj(new Date().toString());
+	    oldJpzlbgtjb.setGxsj(StringHelper.dateFormat(new Date()));
 	    this.jpzlbgtjbDao.save(oldJpzlbgtjb);
 	}
 	@Override
@@ -196,9 +196,9 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		jpzlzkjbb.setZlbfzr(jpzlzkjbbForm.getZlbfzr());
 		jpzlzkjbb.setShr2(jpzlzkjbbForm.getShr2());
 		jpzlzkjbb.setJlnf(jpzlzkjbbForm.getJlnf());
-		//jpzlzkjbb.sets2hr("123");
 		if(jpzlzkjbbForm.getBcrq()!=null&&!jpzlzkjbbForm.getBcrq().equals(""))
-		jpzlzkjbb.setBcrq(StringHelper.stringConvertDate2(jpzlzkjbbForm.getBcrq()));
+			jpzlzkjbb.setBcrq(StringHelper.stringConvertDate(jpzlzkjbbForm.getBcrq()));
+		jpzlzkjbb.setGxsj(StringHelper.dateFormat(new Date()));
 
 		try{
 		this.jpzlzkjbbDao.save(jpzlzkjbb);
@@ -222,9 +222,13 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		    case "四": newJpzlbgtjb.setFourth("是");break;
 		    }
 		    newJpzlbgtjb.setSubmit(0);
-		    //oldJpzlbgtjb.setUsername();
-		    newJpzlbgtjb.setGxsj(new Date().toString());
-		    this.jpzlbgtjbDao.save(newJpzlbgtjb);
+		    newJpzlbgtjb.setGxsj(StringHelper.dateFormat(new Date()));
+		    try{
+		    	this.jpzlbgtjbDao.save(newJpzlbgtjb);
+		    }catch(Exception e){
+		    	System.out.println(e.getMessage());
+		    	e.printStackTrace();
+		    }
 
 		    //向单位表中插入新的单位信息
 		    String hqlString = " and o.dwmc = '" + jpzlzkjbbForm.getDwmc()+"'";
@@ -232,7 +236,7 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		    	Jpzlzkdwb jpzlzkdwb = new Jpzlzkdwb();
 		    	jpzlzkdwb.setDwmc(jpzlzkjbbForm.getDwmc());
 		    	jpzlzkdwb.setJinyong(false);
-		    	jpzlzkdwb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+		    	jpzlzkdwb.setGxsj(StringHelper.dateFormat(new Date()));
 		    	jpzlzkdwb.setSubmit(0);
 		    	this.jpzlzkdwbDao.save(jpzlzkdwb);
 		    }
@@ -243,8 +247,6 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 		for(int i=0;i<list.size();i++){
 			Jpzlzkjbb jpzlzkjbb=list.get(i);
 			JpzlzkjbbForm jpzlzkjbbForm=new JpzlzkjbbForm();
-            //	jljlqjhzbForm.setCljg(jljlqjhzb.getCljg());
-			//	jljlqjhzbForm.setFwrq(String.valueOf(jljlqjhzb.getFwrq()));
 			jpzlzkjbbForm.setId(String.valueOf(jpzlzkjbb.getId()));
 			jpzlzkjbbForm.setJd(jpzlzkjbb.getJd());
 			jpzlzkjbbForm.setDwmc(jpzlzkjbb.getDwmc());
@@ -255,7 +257,6 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			jpzlzkjbbForm.setTbr(jpzlzkjbb.getTbr());
 			jpzlzkjbbForm.setZlbfzr(jpzlzkjbb.getZlbfzr());
 			jpzlzkjbbForm.setShr2(jpzlzkjbb.getShr2());
-			//jpzlzkjbbForm.sets2hr("123");
 			jpzlzkjbbForm.setBcrq(String.valueOf(jpzlzkjbb.getBcrq()));
 			jpzlzkjbbForm.setJlnf(jpzlzkjbb.getJlnf());
 			formlist.add(jpzlzkjbbForm);
@@ -265,12 +266,11 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 
 	@Override
 	public void showImportObject(String filePath) throws Exception {
-		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:");
-		Workbook workbook = Workbook.getWorkbook(new File(path));
+		Workbook workbook = Workbook.getWorkbook(new File(filePath));
 		Sheet sheet = workbook.getSheet(0);
 		int rows = sheet.getRows();
 		for(int i = 1; i < rows ; i ++){
-			Jpzlzkjbb jpzlzkjbb = new Jpzlzkjbb();
+			JpzlzkjbbForm jpzlzkjbb = new JpzlzkjbbForm();
 			jpzlzkjbb.setJd(sheet.getCell(1, i).getContents());
 			jpzlzkjbb.setDwmc(sheet.getCell(2, i).getContents());
 			jpzlzkjbb.setHgl(sheet.getCell(3, i).getContents());
@@ -280,11 +280,10 @@ public class JpzlzkjbbServiceImpl implements JpzlzkjbbService{
 			jpzlzkjbb.setTbr(sheet.getCell(7, i).getContents());
 			jpzlzkjbb.setZlbfzr(sheet.getCell(8, i).getContents());
 			jpzlzkjbb.setShr2(sheet.getCell(9, i).getContents());
-			jpzlzkjbb.setBcrq(StringHelper.stringConvertDate(sheet.getCell(10, i).getContents()));
+			jpzlzkjbb.setBcrq(sheet.getCell(10, i).getContents());
 			jpzlzkjbb.setJlnf(sheet.getCell(0, i).getContents());
 
-
-			this.jpzlzkjbbDao.save(jpzlzkjbb);
+			saveObject(jpzlzkjbb);
 		}
 
 		workbook.close();

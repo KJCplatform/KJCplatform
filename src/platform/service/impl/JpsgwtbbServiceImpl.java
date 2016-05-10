@@ -64,18 +64,10 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 		return formlist;
 		
 	}
-	/*private int id;
-	  private String cpmc;
-	  private Date fsrq;
-	  private String yyqk;
-	  private String bz;
-	  private String tbr;
-	  private String zlbmfzr;
-	  private Date bcrq;*/
+
 	public void updateJpsgwtbb(JpsgwtbbForm jpsgwtbbForm){
 		Jpsgwtbb jpsgwtbb=new Jpsgwtbb();
-        //  jljlqjhzb.setCljg(jljlqjhzbForm.getCljg());
-		//	jljlqjhzb.setFwrq(StringHelper.stringConvertDate(jljlqjhzbForm.getFwrq()));
+
 			jpsgwtbb.setId(Integer.valueOf(jpsgwtbbForm.getId()));
 			jpsgwtbb.setCpmc(jpsgwtbbForm.getCpmc());
 			jpsgwtbb.setFsrq(StringHelper.stringConvertDate2(jpsgwtbbForm.getFsrq()));
@@ -83,11 +75,11 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 			jpsgwtbb.setBz(jpsgwtbbForm.getBz());
 			jpsgwtbb.setTbr(jpsgwtbbForm.getTbr());
 			jpsgwtbb.setZlbmfzr(jpsgwtbbForm.getZlbmfzr());
-			jpsgwtbb.setBcrq(StringHelper.stringConvertDate2(jpsgwtbbForm.getBcrq()));
+			jpsgwtbb.setBcrq(StringHelper.stringConvertDate(jpsgwtbbForm.getBcrq()));
 			
 			jpsgwtbb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 			jpsgwtbb.setUsername(jpsgwtbbForm.getUsername());
-			jpsgwtbb.setGxsj(jpsgwtbbForm.getGxsj());
+			jpsgwtbb.setGxsj(StringHelper.dateFormat(new Date()));
 			jpsgwtbb.setSubmit(0);
 			
 		    jpsgwtbbDao.update(jpsgwtbb);
@@ -98,19 +90,17 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 	}
 	public void saveObject(JpsgwtbbForm jpsgwtbbForm){
 		Jpsgwtbb jpsgwtbb=new Jpsgwtbb();
-        //  jljlqjhzb.setCljg(jljlqjhzbForm.getCljg());
-		//	jljlqjhzb.setFwrq(StringHelper.stringConvertDate2(jljlqjhzbForm.getFwrq()));
 		jpsgwtbb.setCpmc(jpsgwtbbForm.getCpmc());
-		jpsgwtbb.setFsrq(StringHelper.stringConvertDate2(jpsgwtbbForm.getFsrq()));
+		jpsgwtbb.setFsrq(StringHelper.stringConvertDate(jpsgwtbbForm.getFsrq()));
 		jpsgwtbb.setYyqk(jpsgwtbbForm.getYyqk());
 		jpsgwtbb.setBz(jpsgwtbbForm.getBz());
 		jpsgwtbb.setTbr(jpsgwtbbForm.getTbr());
 		jpsgwtbb.setZlbmfzr(jpsgwtbbForm.getZlbmfzr());
-		jpsgwtbb.setBcrq(StringHelper.stringConvertDate2(jpsgwtbbForm.getBcrq()));
+		jpsgwtbb.setBcrq(StringHelper.stringConvertDate(jpsgwtbbForm.getBcrq()));
 		
 		jpsgwtbb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		jpsgwtbb.setUsername(jpsgwtbbForm.getUsername());
-		jpsgwtbb.setGxsj(jpsgwtbbForm.getGxsj());
+		jpsgwtbb.setGxsj(StringHelper.dateFormat(new Date()));
 		jpsgwtbb.setSubmit(0);
 		
 		jpsgwtbbDao.save(jpsgwtbb);
@@ -121,8 +111,6 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 		for(int i=0;i<list.size();i++){
 			Jpsgwtbb jpsgwtbb=list.get(i);
 			JpsgwtbbForm jpsgwtbbForm=new JpsgwtbbForm();
-            //	jljlqjhzbForm.setCljg(jljlqjhzb.getCljg());
-			//	jljlqjhzbForm.setFwrq(String.valueOf(jljlqjhzb.getFwrq()));
 			jpsgwtbbForm.setId(String.valueOf(jpsgwtbb.getId()));
 			jpsgwtbbForm.setCpmc(jpsgwtbb.getCpmc());
 			jpsgwtbbForm.setFsrq(String.valueOf(jpsgwtbb.getFsrq()));
@@ -130,12 +118,10 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 			jpsgwtbbForm.setBz(jpsgwtbb.getBz());
 			jpsgwtbbForm.setTbr(jpsgwtbb.getTbr());
 			jpsgwtbbForm.setZlbmfzr(jpsgwtbb.getZlbmfzr());
-			jpsgwtbbForm.setBcrq(String.valueOf(jpsgwtbb.getBcrq()));
-			
+			jpsgwtbbForm.setBcrq(String.valueOf(jpsgwtbb.getBcrq()));			
 			jpsgwtbbForm.setJlnf(jpsgwtbb.getJlnf());
 			jpsgwtbbForm.setUsername(jpsgwtbb.getUsername());
 			jpsgwtbbForm.setGxsj(jpsgwtbb.getGxsj());
-			jpsgwtbbForm.setSubmit(String.valueOf(jpsgwtbb.getSubmit()));
 			
 			formlist.add(jpsgwtbbForm);
 		}
@@ -162,7 +148,7 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 			jpsgwtbb.setJlnf(sheet.getCell(7, i).getContents());
 			jpsgwtbb.setSubmit(0);
 			jpsgwtbb.setUsername(formListTemp.get(0).getUsername());
-			jpsgwtbb.setGxsj(new SimpleDateFormat("yyyy-MM-dd").format(new Date()).toString());
+			jpsgwtbb.setGxsj(StringHelper.dateFormat(new Date()));
 			jpsgwtbbDao.save(jpsgwtbb);
 		}
 		

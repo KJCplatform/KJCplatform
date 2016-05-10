@@ -168,19 +168,30 @@ function editDoc() {
 }
 function dealSave() {
 	// 表单数据序列化成一个字符串用&拼接
-	var params = $("#frmEdit").serialize();
+	//var params = $("#frmEdit").serialize();
 	var actionAdd = basePath + '/system/JpsgwtbbAction_add.action';
 	var actionUpdate = basePath + '/system/JpsgwtbbAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
 	if ($("#id").val() == "") {
-		$.post(actionAdd, params, function(result) {
+		$("#frmEdit").form('submit',{
+			url:actionAdd ,
+			success:function(result) {
+				if (result.operateSuccess) {
+					$('#dg').datagrid('reload');// 重新加载
+					$.messager.alert('添加', '添加成功', 'info');
+				} else {
+					$.messager.alert('添加', '添加失败', 'warning');
+				}
+			}
+		});
+		/*$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {
 					$('#dg').datagrid('reload');// 重新加载
 					$.messager.alert('添加', '添加成功', 'info');
 			} else {
 					$.messager.alert('添加', '添加失败', 'warning');
 				}
-		});
+		});*/
 		} else {
 		// 表示更新
 			$.post(actionUpdate, params, function(result) {
@@ -246,16 +257,9 @@ function deleteDoc() {
 
 function ShowImport() {
 
-	//	  var file_upl = document.getElementById('uploadExcel');
-	//	  file_upl.select();
-	//	  var fileName = document.selection.createRange().text;
-	//	alert(fileName);
-
 	//得到上传文件的全路径  
 	var fileName = $('#uploadExcel').filebox('getValue');
-	//	
 
-	// alert(fileName);
 	//进行基本校验  
 	if (fileName == "") {
 		$.messager.alert('提示', '请选择上传文件！', 'info');
@@ -264,25 +268,22 @@ function ShowImport() {
 		var d1 = /\.[^\.]+$/.exec(fileName);
 		if (d1 == ".xls") {
 			//提交表单  
-			//document.getElementById("questionTypesManage").action="${pageContext.request.contextPath}/leadtoQuestionTypes/leadInExcelQuestionBank?questionType="+questionTypes+"&courseType="+courseType;  
-			//document.getElementById("questionTypesManage").submit();     
-			var params = "cpmc=" + fileName;
-			var showimport = basePath
-					+ '/system/JpsgwtbbAction_showimport.action';
-
-			//alert(params);
-
-			$.post(showimport, params, function(result) {
-				if (result.operateSuccess) {
-					$('#dg').datagrid('reload');// 重新加载
-					$.messager.alert('导入', '导入Excel成功', 'info');
-
-				} else {
-					$.messager.alert('导入', '导入Excel失败', 'warning');
-				}
-			});
-
-			return false;
+			   $('#questionTypesManage').form('submit',   
+				        {      
+				            url: basePath
+							+ '/system/JpsgwtbbAction_showimport.action',      
+				            success:function(result){
+				    			var result = eval('('+result+')');
+				                if(result.operateSuccess == true){  
+									$.messager.alert('导入', '选中的文件成功导入！', 'info'); 
+									$('#dg').datagrid('reload');// 重新加载
+				                }else{  
+									$.messager.alert('导入', '选中的文件导入失败！', 'warning');  
+									$('#dg').datagrid('reload');// 重新加载
+				                }  
+				            }  
+				        }  
+				    ); 
 		} else {
 			$.messager.alert('提示', '请选择xls格式文件！', 'info');
 			$('#uploadExcel').filebox('setValue', '');

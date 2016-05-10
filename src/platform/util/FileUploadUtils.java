@@ -16,6 +16,8 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 public class FileUploadUtils {
 	
 	private static final String uploadDir = "D:\\kcjdata\\";
+	private static final long MB = 1024 * 1024;
+	private static final long GB = 1024 * MB;
 	
 //	private static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh-mm-ss");
 	
@@ -40,21 +42,23 @@ public class FileUploadUtils {
 		factory.setRepository(dir);
 		ServletFileUpload upload = new ServletFileUpload(factory);
 		// 设置单个文件的最大上传值
-		upload.setFileSizeMax(1024000000l);
+		upload.setFileSizeMax( GB );
 		// 设置整个request的最大值
-		upload.setSizeMax(10240000000l);
+		upload.setSizeMax( 10*GB );
 		upload.setHeaderEncoding("UTF-8");
 		
 		try {
 			List<?> items = upload.parseRequest(request);
-			FileItem item = null;
-			for (int i = 0; i < items.size(); i++) {
-				item = (FileItem) items.get(i);
-				String fileName = uploadDir + item.getName();
-				if (!item.isFormField() && item.getName().length() > 0) {
-					System.out.println("[ 上传文件  ] " + fileName);
-					item.write(new File(fileName));
-					files.add(fileName);
+			if(items.size() > 0){
+				FileItem item = null;
+				for (int i = 0; i < items.size(); i++) {
+					item = (FileItem) items.get(i);
+					String fileName = uploadDir + item.getName();
+					if (!item.isFormField() && item.getName().length() > 0) {
+						System.out.println("[ 上传文件  ] " + fileName);
+						item.write(new File(fileName));
+						files.add(fileName);
+					}
 				}
 			}
 			

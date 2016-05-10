@@ -45,7 +45,7 @@
                
             </column>
         </property>
-       <property name="submit" type="java.lang.Boolean">
+       <property name="submit" type="java.lang.Integer">
             <column name="submit">
                
             </column>

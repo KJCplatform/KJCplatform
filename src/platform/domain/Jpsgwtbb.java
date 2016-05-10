@@ -1,18 +1,11 @@
 package platform.domain;
 
 import java.util.Date;
-@SuppressWarnings("serial")
 public class Jpsgwtbb implements java.io.Serializable{
 	
-	
-	/*`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
-	`cpmc` varchar(255) NULL COMMENT '产品名称',
-	`fsrq` datetime NULL COMMENT '发生日期',
-	`yyqk` varchar(255) NULL COMMENT '质量事故或重大质量问题发生的原因等基本情况',
-	`bz` varchar(255) NULL COMMENT '备注',
-	`tbr` varchar(255) NULL COMMENT '填表人',
-	`zlbmfzr` varchar(255) NULL COMMENT '质量部门负责人',
-	`bcrq` datetime NULL COMMENT '报出日期',*/
+
+	  private static final long serialVersionUID = 6724744492993710355L;
+
 	  private int id;
 	  private String cpmc;
 	  private Date fsrq;
@@ -26,6 +19,10 @@ public class Jpsgwtbb implements java.io.Serializable{
 	  private String username;
 	  private String gxsj;
 	  private int submit;
+	  
+	  private String _1fjpath;
+	  private String _2fjpath;
+	  
 	  
 	public String getJlnf() {
 		return jlnf;
@@ -99,6 +96,18 @@ public class Jpsgwtbb implements java.io.Serializable{
 	}
 	public void setBcrq(Date bcrq) {
 		this.bcrq = bcrq;
+	}
+	public String get_2fjpath() {
+		return _2fjpath;
+	}
+	public void set_2fjpath(String _2fjpath) {
+		this._2fjpath = _2fjpath;
+	}
+	public String get_1fjpath() {
+		return _1fjpath;
+	}
+	public void set_1fjpath(String _1fjpath) {
+		this._1fjpath = _1fjpath;
 	}
 	
 }

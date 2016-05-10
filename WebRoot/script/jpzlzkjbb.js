@@ -249,8 +249,18 @@ function deleteDoc() {
 
 
 function ShowImport() {
+	//得到上传文件的全路径  
+	var fileName = $('#uploadExcel').filebox('getValue');
 
-	   $('#questionTypesManage').form('submit',   
+	//进行基本校验  
+	if (fileName == "") {
+		$.messager.alert('提示', '请选择上传文件！', 'info');
+	} else {
+		//对文件格式进行校验  
+		var d1 = /\.[^\.]+$/.exec(fileName);
+		if (d1 == ".xls") {
+
+			$('#questionTypesManage').form('submit',   
 		        {      
 		            url:basePath
 					+ '/system/JpzlzkjbbAction_showimport.action',      
@@ -267,7 +277,12 @@ function ShowImport() {
 		        }  
 		    );  
 
-	
+		}
+		 else {
+				$.messager.alert('提示', '请选择xls格式文件！', 'info');
+				$('#uploadExcel').filebox('setValue', '');
+			}
+	}
 }
 
 function ShowExport() {
@@ -281,7 +296,6 @@ function ShowExport() {
 		}
 	}
 
-	//alert(params);
 
 	var showimport = basePath + '/system/JpzlzkjbbAction_showexport.action';
 

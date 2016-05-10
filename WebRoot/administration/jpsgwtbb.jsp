@@ -107,10 +107,6 @@
 					<th field="zlbmfzr">质量部门负责人</th>
 			        <th field="bcrq">报出日期</th>
 			        
-			       <!--  <th field="jlnf" width="130">记录时间(年份)</th>
-			        <th field="username" width="130">操作员</th>
-			        <th field="gxsj" width="130">更新时间</th>
-			        <th field="submit" width="130">是否提交</th> -->
 			        
 
 				</tr>
@@ -121,7 +117,7 @@
 	<!-- 编辑数据的div，默认看不到 -->
 	<div id="divEdit" style="display:none;">
 	<div id="tabEdit">
-		<form id="frmEdit" style="width:800px; height:400px; overflow:auto;" method= "post">
+		<form id="frmEdit" style="width:800px; height:400px; overflow:auto;" method= "post" enctype="multipart/form-data">
 				<input type="hidden" id="id" name="id" />
 				<dl>
 					<dd>
@@ -155,35 +151,24 @@
 						质量部门负责人: <input size="15" id="zlbmfzr" name="zlbmfzr" />
 					</dd>
 				</dl>
-						<dl>
+				<dl>
 					<dd>
 						报出日期: <input  type="text" style="width: 150px" id="bcrq" name="bcrq" />
 					</dd>
 				</dl>
-
-
-
-                 <!-- <dl>
-			     	<dd>记录时间:</dd>
-			     	<dd><input size="15" id="jlnf" name="jlnf" /></dd>
-			     </dl>
-			    <dl>
-			    	<dd>操作员:</dd>
-				    <dd><input size="15" id="username" name="username" /></dd>
-			    </dl>
-			    <dl>
-				<dd>更新时间:</dd>
-				<dd><input size="15" id="gxsj" name="gxsj" /></dd>
-			</dl>
-			<dl>
-				<dd>是否提交:</dd>
-				<dd>
-				<select style="width: 150px" id="submit" name="submit" >
-				<option value="是">是</option>
-				<option value="否">否</option>
+				<dl>
+					<dd>
+						附件1: <input  type="text" style="width: 150px" id="_fj1" name="fj1" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'"/>
+					</dd>
+				</dl>
 				
-				</dd>
-			</dl>  -->
+				<dl>
+					<dd>
+						附件2: <input  type="text" style="width: 150px" id="_fj2" name="fj2" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'"/>
+					</dd>
+				</dl>
+
+				
 			</form>
 		</div>
 	</div>
