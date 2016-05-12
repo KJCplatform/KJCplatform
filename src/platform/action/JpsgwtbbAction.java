@@ -76,16 +76,24 @@ public class JpsgwtbbAction extends BaseAction implements ModelDriven<JpsgwtbbFo
 		operateSuccess=true;
 		return   "delete";
 	}
+	
+	public String upload(){
+		FileUploadUtils.uplaodFile(request);
+		response.setContentType("text/html;charset=UTF-8");
+		operateSuccess=true;
+		System.out.println("[info ]:\t附件上传成功");
+		return "upload";
+	}
 	public String add(){
-		
-		List<String> pathes = FileUploadUtils.uplaodFile(request);
-		
+
 		try {
-			jpsgwtbbService.saveObject(jpsgwtbbForm);
-			operateSuccess=true;
-		} catch (Exception e) {
-			e.printStackTrace();
-		}					
+				jpsgwtbbService.saveObject(jpsgwtbbForm);
+				operateSuccess=true;
+				System.out.println("[info ]:\t记录添加成功");
+
+			} catch (Exception e) {
+				System.out.println("[error ]:\t记录添加失败");
+			}	
 		return "add";
 	}
 	

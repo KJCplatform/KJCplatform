@@ -11,6 +11,7 @@ var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
 var basePath = localhostPath + projectName;
 var user;
 
+
 $(function() {
 	listDoc();
 
@@ -166,44 +167,100 @@ function editDoc() {
 	// 显示编辑页面
 	showEditForm();
 }
+
+/**
+ * 上传附件
+ */
+function upload(){
+	$("#frmEdit").form('submit',{
+		url:basePath + '/system/JpsgwtbbAction_upload.action' ,
+		async:true,
+		success:function(result) {
+			var result = eval('('+result+')');
+			if (result.operateSuccess) {
+				$.messager.alert('上传', '附件上传成功', 'info');
+				return true;
+			} else {
+				$.messager.alert('上传', '附件上传失败', 'warning');
+				return false;
+			}
+		}
+	});
+}
+
 function dealSave() {
 	// 表单数据序列化成一个字符串用&拼接
-	//var params = $("#frmEdit").serialize();
-	var actionAdd = basePath + '/system/JpsgwtbbAction_add.action';
-	var actionUpdate = basePath + '/system/JpsgwtbbAction_update.action';
-	// 得到doc的值，为空串表示添加的值，为空串表示添加
-	if ($("#id").val() == "") {
+	var params = $("#frmEdit").serialize();	
+	var fj1 = ($("#fj1").filebox('getValue') == "" ? "" : "&fj1="+$("#fj1").filebox('getValue')) ;
+	var fj2 = ($("#fj2").filebox('getValue') == "" ? "" : "&fj2="+$("#fj2").filebox('getValue'));
+	
+	if(fj1 == "" && fj2 == ""){
+		// 得到id属性的值，为空串表示添加
+		if ($("#id").val() == "") {
+				add(params);
+
+			} else {
+			// 表示更新
+				update(params)
+			}		
+	}else{
+		params += (fj1+fj2);
 		$("#frmEdit").form('submit',{
-			url:actionAdd ,
+			url:basePath + '/system/JpsgwtbbAction_upload.action' ,
+			async:true,
 			success:function(result) {
+				var result = eval('('+result+')');
 				if (result.operateSuccess) {
-					$('#dg').datagrid('reload');// 重新加载
-					$.messager.alert('添加', '添加成功', 'info');
+					//$.messager.alert('上传', '附件上传成功', 'info');
+					// 得到id属性的值，为空串表示添加
+					if ($("#id").val() == "") {
+							add(params);
+						} else {
+							// 表示更新
+							update(params)
+						}	
+				
 				} else {
-					$.messager.alert('添加', '添加失败', 'warning');
+					$.messager.alert('上传', '附件上传失败', 'warning');
 				}
 			}
 		});
-		/*$.post(actionAdd, params, function(result) {
-			if (result.operateSuccess) {
-					$('#dg').datagrid('reload');// 重新加载
-					$.messager.alert('添加', '添加成功', 'info');
-			} else {
-					$.messager.alert('添加', '添加失败', 'warning');
-				}
-		});*/
-		} else {
-		// 表示更新
-			$.post(actionUpdate, params, function(result) {
-				if (result.operateSuccess) {
-					$('#dg').datagrid('reload');// 重新加载
-						$.messager.alert('更新', '更新成功', 'info');
-				} else {
-						$.messager.alert('更新', '更新失败', 'warning');
-					}
-			});
-		}
+
 	}
+}
+/**
+ * 添加记录
+ * @param params
+ */
+function add(params){
+	var actionAdd = basePath + '/system/JpsgwtbbAction_add.action';
+	$.post(actionAdd, params, function(result) {
+		if (result.operateSuccess) {
+				$('#dg').datagrid('reload');// 重新加载
+				$.messager.alert('添加', '添加成功', 'info');
+		} else {
+				$.messager.alert('添加', '添加失败', 'warning');
+			}
+	});
+}
+
+/**
+ * 更新记录
+ * @param params
+ */
+function update(params){
+	var actionUpdate = basePath + '/system/JpsgwtbbAction_update.action';
+	$.post(actionUpdate, params, function(result) {
+		if (result.operateSuccess) {
+			$('#dg').datagrid('reload');// 重新加载
+				$.messager.alert('更新', '更新成功', 'info');
+		} else {
+				$.messager.alert('更新', '更新失败', 'warning');
+			}
+	});
+}
+
+
 //保存操作第二种实现方法
 function save(){
 	$('#frmEdit').form('submit',{

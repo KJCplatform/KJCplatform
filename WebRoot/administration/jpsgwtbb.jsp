@@ -158,13 +158,13 @@
 				</dl>
 				<dl>
 					<dd>
-						附件1: <input  type="text" style="width: 150px" id="_fj1" name="fj1" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'"/>
+						附件1: <input  type="text" style="width: 150px" id="fj1" name="fj1" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'"/>
 					</dd>
 				</dl>
 				
 				<dl>
 					<dd>
-						附件2: <input  type="text" style="width: 150px" id="_fj2" name="fj2" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'"/>
+						附件2: <input  type="text" style="width: 150px" id="fj2" name="fj2" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'"/>
 					</dd>
 				</dl>
 

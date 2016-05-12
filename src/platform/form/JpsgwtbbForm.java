@@ -17,8 +17,8 @@ public class JpsgwtbbForm implements java.io.Serializable{
 	  private String username;
 	  private String gxsj;	  
 	  
-	  private String _1fjpath;
-	  private String _2fjpath;
+	  private String  fj1;
+	  private String fj2;
 	  
 	  
 	public String getJlnf() {
@@ -88,17 +88,17 @@ public class JpsgwtbbForm implements java.io.Serializable{
 	public void setBcrq(String bcrq) {
 		this.bcrq = bcrq;
 	}
-	public String get_1fjpath() {
-		return _1fjpath;
+	public String getFj1() {
+		return fj1;
 	}
-	public void set_1fjpath(String _1fjpath) {
-		this._1fjpath = _1fjpath;
+	public void setFj1(String fj1) {
+		this.fj1 = fj1;
 	}
-	public String get_2fjpath() {
-		return _2fjpath;
+	public String getFj2() {
+		return fj2;
 	}
-	public void set_2fjpath(String _2fjpath) {
-		this._2fjpath = _2fjpath;
+	public void setFj2(String fj2) {
+		this.fj2 = fj2;
 	}
 	
 	

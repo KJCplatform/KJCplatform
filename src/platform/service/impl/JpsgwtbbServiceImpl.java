@@ -82,6 +82,11 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 			jpsgwtbb.setGxsj(StringHelper.dateFormat(new Date()));
 			jpsgwtbb.setSubmit(0);
 			
+			jpsgwtbb.set_1fjpath(jpsgwtbbForm.getFj1() == null?
+					null:jpsgwtbbForm.getFj1().replace("C:\\fakepath", "D:\\kjcdata"));
+			jpsgwtbb.set_2fjpath(jpsgwtbbForm.getFj1() == null?
+					null:jpsgwtbbForm.getFj1().replace("C:\\fakepath", "D:\\kjcdata"));
+			
 		    jpsgwtbbDao.update(jpsgwtbb);
 		
 	}
@@ -103,6 +108,11 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 		jpsgwtbb.setGxsj(StringHelper.dateFormat(new Date()));
 		jpsgwtbb.setSubmit(0);
 		
+		jpsgwtbb.set_1fjpath(jpsgwtbbForm.getFj1() == null?
+				null:jpsgwtbbForm.getFj1().replace("C:\\fakepath", "D:\\kjcdata"));
+		jpsgwtbb.set_2fjpath(jpsgwtbbForm.getFj1() == null?
+				null:jpsgwtbbForm.getFj1().replace("C:\\fakepath", "D:\\kjcdata"));
+		
 		jpsgwtbbDao.save(jpsgwtbb);
 	}
 	private List<JpsgwtbbForm> JpsgwtbbPOListToVOList(List<Jpsgwtbb> list) {
@@ -123,14 +133,16 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 			jpsgwtbbForm.setUsername(jpsgwtbb.getUsername());
 			jpsgwtbbForm.setGxsj(jpsgwtbb.getGxsj());
 			
+			jpsgwtbbForm.setFj1(jpsgwtbb.get_1fjpath());
+			jpsgwtbbForm.setFj2(jpsgwtbb.get_2fjpath());
+			
 			formlist.add(jpsgwtbbForm);
 		}
 		return formlist;
 	}
 	@Override
 	public void showImportObject(String filePath) throws Exception {
-		String path = filePath.replace("\\", "\\\\").replace("C:\\\\fakepath", "D:");
-		Workbook workbook = Workbook.getWorkbook(new File(path));		
+		Workbook workbook = Workbook.getWorkbook(new File(filePath));		
 		Sheet sheet = workbook.getSheet(0);
 		int rows = sheet.getRows();
 		

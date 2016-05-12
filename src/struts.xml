@@ -438,6 +438,9 @@
 	    	<result name="delete" type="json">
 				
 			</result>
+			<result name="upload" type="json">
+				
+			</result>
 	    	<result name="update" type="json">
 				
 			</result>

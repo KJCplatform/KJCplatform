@@ -15,7 +15,7 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 public class FileUploadUtils {
 	
-	private static final String uploadDir = "D:\\kcjdata\\";
+	private static final String uploadDir = "D:\\kjcdata\\";
 	private static final long MB = 1024 * 1024;
 	private static final long GB = 1024 * MB;
 	
@@ -55,7 +55,7 @@ public class FileUploadUtils {
 					item = (FileItem) items.get(i);
 					String fileName = uploadDir + item.getName();
 					if (!item.isFormField() && item.getName().length() > 0) {
-						System.out.println("[ 上传文件  ] " + fileName);
+						System.out.println("[info ]:\t上传文件" + fileName);
 						item.write(new File(fileName));
 						files.add(fileName);
 					}
