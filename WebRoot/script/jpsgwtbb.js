@@ -159,10 +159,6 @@ function editDoc() {
 	$("#zlbmfzr").val(doc.zlbmfzr);
 	$("#bcrq").datebox("setValue", doc.bcrq.substring(0, 10));
 	
-	$("#jlnf").val(doc.jlnf);
-	$("#username").val(doc.username);
-	$("#gxsj").val(doc.gxsj);
-	$("#submit").val(doc.submit);
 	
 	// 显示编辑页面
 	showEditForm();
@@ -193,14 +189,16 @@ function dealSave() {
 	var params = $("#frmEdit").serialize();	
 	var fj1 = ($("#fj1").filebox('getValue') == "" ? "" : "&fj1="+$("#fj1").filebox('getValue')) ;
 	var fj2 = ($("#fj2").filebox('getValue') == "" ? "" : "&fj2="+$("#fj2").filebox('getValue'));
-	
+	var flag = $("#id").val() ;
 	if(fj1 == "" && fj2 == ""){
 		// 得到id属性的值，为空串表示添加
-		if ($("#id").val() == "") {
+		if (flag == "") {
 				add(params);
 
 			} else {
 			// 表示更新
+				var doc = $('#dg').datagrid('getSelected');
+				params += ("&fj1="+doc.fj1+"&fj2="+doc.fj2);
 				update(params)
 			}		
 	}else{
@@ -211,9 +209,8 @@ function dealSave() {
 			success:function(result) {
 				var result = eval('('+result+')');
 				if (result.operateSuccess) {
-					//$.messager.alert('上传', '附件上传成功', 'info');
-					// 得到id属性的值，为空串表示添加
-					if ($("#id").val() == "") {
+
+					if (flag == "") {
 							add(params);
 						} else {
 							// 表示更新
@@ -400,14 +397,71 @@ function selectExcel() {
 }
 
 function closeForm2() {
-	//$("#frmEdit2").form('clear');
 	$('#tabEdit2').dialog('close');
 }
 
 
+function selectFile(){
+	var doc = $('#dg').datagrid('getSelected');// 得到选中的一行数据
+	// 如果没有选中记录
+	if (doc	== null) {
+		$.messager.alert('选择记录', '请先选择要查看附件的所属记录', 'info');
+		return;
+	}
+	if(doc.fj1 == null && doc.fj2 == null){
+		$.messager.alert('选择记录', '请选择有附件的记录', 'info');
+		return;
+	}
+	$("#fj1Name").text(doc.fj1 == null ? "无": doc.fj1);
+	$("#fj2Name").text(doc.fj2 == null ? "无": doc.fj2);
+	$("#tabOpen").dialog({
+		modal : true,// 模式窗口
+		title : '选择附件',
+		buttons : [ {
+			text : '确认',
+			handler : function() {
+				// 进行表单字段验证，当全部字段都有效时返回true和validatebox一起使用
+					open();
+			}
+		}, {
+			text : '取消',
+			handler : function() {
+				$('#tabOpen').dialog('close');
+				$('#openFj').form('clear');
+			}
+		} ]
+	});
 
+}
 
+function open(){
+	var openAction = basePath + '/system/JpsgwtbbAction_open.action';
+	var params = "";
+	
 
+	if($("#Fj1").is(":checked")){
+		params += "fj1="+	$("#fj1Name").text();
+		if($("#Fj2").is(":checked")){
+			params += "&fj2="+	$("#fj2Name").text();
+		}
+	}
+	else if($("#Fj2").is(":checked")){
+		params += "fj2="+	$("#fj2Name").text();
+	}	
+	if(!params == ""){
+		$.post(openAction, params, function(result) {
+			if (result.operateSuccess) {
+				$.messager.alert('打开附件', '打开附件成功', 'info');
+
+			} else {
+				$.messager.alert('打开附件', '打开附件失败', 'warning');
+			}
+		});
+	}
+	$
+	$('#tabOpen').dialog('close');
+	$('#openFj').form('clear');
+}
 
 
 

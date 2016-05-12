@@ -1,14 +1,15 @@
 package platform.action;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+import org.apache.commons.lang.StringUtils;
 
 import platform.action.BaseAction;
 import platform.form.JpsgwtbbForm;
-import platform.util.FileUploadUtils;
+import platform.util.FileOpUtils;
 import platform.service.JpsgwtbbService;
 
 import com.opensymphony.xwork2.ModelDriven;
@@ -68,6 +69,7 @@ public class JpsgwtbbAction extends BaseAction implements ModelDriven<JpsgwtbbFo
 	public String update(){
 
 		jpsgwtbbService.updateJpsgwtbb(jpsgwtbbForm);
+		System.out.println("[info ]:\t记录更新成功");
 		operateSuccess=true;
 		return "update";
 	}
@@ -78,7 +80,7 @@ public class JpsgwtbbAction extends BaseAction implements ModelDriven<JpsgwtbbFo
 	}
 	
 	public String upload(){
-		FileUploadUtils.uplaodFile(request);
+		FileOpUtils.uplaodFile(request);
 		response.setContentType("text/html;charset=UTF-8");
 		operateSuccess=true;
 		System.out.println("[info ]:\t附件上传成功");
@@ -97,11 +99,27 @@ public class JpsgwtbbAction extends BaseAction implements ModelDriven<JpsgwtbbFo
 		return "add";
 	}
 	
+	public String open(){
+			try {
+				if(!StringUtils.isEmpty(jpsgwtbbForm.getFj1()) )
+					FileOpUtils.openFile(jpsgwtbbForm.getFj1());
+				if(!StringUtils.isEmpty(jpsgwtbbForm.getFj2()) )
+					FileOpUtils.openFile(jpsgwtbbForm.getFj2());
+				
+				operateSuccess = true;
+			} catch (IOException e) {
+				System.out.println("[error ]:\t文件打开失败  " + e.getMessage());
+				operateSuccess = false;
+			}
+		
+		return "open";
+	}
+	
 	public String showimport() {
 		try {
-			String path = FileUploadUtils.uplaodFile(request).get(0);//上传文件到服务器，并返回文件在服务器上的地址
+			String path = FileOpUtils.uplaodFile(request).get(0);//上传文件到服务器，并返回文件在服务器上的地址
 			jpsgwtbbService.showImportObject(path);
-			FileUploadUtils.deleteFile(path);//删除用来导入数据的excel文件
+			FileOpUtils.deleteFile(path);//删除用来导入数据的excel文件
 			operateSuccess=true;
 		} catch (Exception e) {
 			this.operateSuccess =false;

@@ -449,6 +449,8 @@
 			
 			<result name="showexport" type="json">
 			</result>
+			<result name="open" type="json">
+			</result>
 		</action>
 		<action name="JpzlzkjbbAction_*" class="platform.action.JpzlzkjbbAction" method="{1}">			
 			<result name="list" type="json">

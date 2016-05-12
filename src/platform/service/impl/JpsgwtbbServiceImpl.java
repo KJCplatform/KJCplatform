@@ -84,8 +84,8 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 			
 			jpsgwtbb.set_1fjpath(jpsgwtbbForm.getFj1() == null?
 					null:jpsgwtbbForm.getFj1().replace("C:\\fakepath", "D:\\kjcdata"));
-			jpsgwtbb.set_2fjpath(jpsgwtbbForm.getFj1() == null?
-					null:jpsgwtbbForm.getFj1().replace("C:\\fakepath", "D:\\kjcdata"));
+			jpsgwtbb.set_2fjpath(jpsgwtbbForm.getFj2() == null?
+					null:jpsgwtbbForm.getFj2().replace("C:\\fakepath", "D:\\kjcdata"));
 			
 		    jpsgwtbbDao.update(jpsgwtbb);
 		
@@ -110,8 +110,8 @@ public class JpsgwtbbServiceImpl implements JpsgwtbbService{
 		
 		jpsgwtbb.set_1fjpath(jpsgwtbbForm.getFj1() == null?
 				null:jpsgwtbbForm.getFj1().replace("C:\\fakepath", "D:\\kjcdata"));
-		jpsgwtbb.set_2fjpath(jpsgwtbbForm.getFj1() == null?
-				null:jpsgwtbbForm.getFj1().replace("C:\\fakepath", "D:\\kjcdata"));
+		jpsgwtbb.set_2fjpath(jpsgwtbbForm.getFj2() == null?
+				null:jpsgwtbbForm.getFj2().replace("C:\\fakepath", "D:\\kjcdata"));
 		
 		jpsgwtbbDao.save(jpsgwtbb);
 	}

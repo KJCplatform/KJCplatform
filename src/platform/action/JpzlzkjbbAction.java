@@ -7,7 +7,7 @@ import java.util.Map;
 
 import platform.form.JpzlzkjbbForm;
 import platform.service.JpzlzkjbbService;
-import platform.util.FileUploadUtils;
+import platform.util.FileOpUtils;
 
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -86,9 +86,9 @@ public class JpzlzkjbbAction extends BaseAction implements ModelDriven<Jpzlzkjbb
 	public String showimport() {
 
 		try {			
-			String path = FileUploadUtils.uplaodFile(request).get(0);
+			String path = FileOpUtils.uplaodFile(request).get(0);
 			this.jpzlzkjbbService.showImportObject(path);
-			FileUploadUtils.deleteFile(path);//导入成功后删除文件
+			FileOpUtils.deleteFile(path);//导入成功后删除文件
 			this.operateSuccess=true;
 
 		} catch (Exception e) {
