@@ -1,5 +1,6 @@
 package platform.action;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -8,6 +9,7 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
@@ -23,6 +25,7 @@ import platform.form.TestDataFrom;
 import platform.form.KjzlcjbForm;
 import platform.service.TestDataService;
 import platform.service.KjzlcjbService;
+import platform.util.FileOpUtils;
 
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -99,6 +102,13 @@ public class KjzlcjbAction extends BaseAction implements ModelDriven<KjzlcjbForm
 		operateSuccess=true;
 		return "update";
 	}
+	   public String upload(){
+	        FileOpUtils.uplaodFile(request);
+	        response.setContentType("text/html;charset=UTF-8");
+	        operateSuccess=true;
+	        System.out.println("[info ]:\t附件上传成功");
+	        return "upload";
+	    }
 	public String delete(){
 		//kjzlcjbForm.setId("2");
 		kjzlcjbService.deleteObject(kjzlcjbForm.getId());
@@ -130,7 +140,21 @@ public class KjzlcjbAction extends BaseAction implements ModelDriven<KjzlcjbForm
 		operateSuccess=true;
 		return "showexport";
 	}
-	
+	   public String open(){
+           try {
+               if(!StringUtils.isEmpty(kjzlcjbForm.getFj1()) )
+                   FileOpUtils.openFile(kjzlcjbForm.getFj1());
+               if(!StringUtils.isEmpty(kjzlcjbForm.getFj2()) )
+                   FileOpUtils.openFile(kjzlcjbForm.getFj2());
+               
+               operateSuccess = true;
+           } catch (IOException e) {
+               System.out.println("[error ]:\t文件打开失败  " + e.getMessage());
+               operateSuccess = false;
+           }
+       
+       return "open";
+   }
 }
 
 

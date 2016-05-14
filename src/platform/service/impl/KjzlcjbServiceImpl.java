@@ -145,6 +145,10 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setSqh(kjzlcjbForm.getSqh());
 		kjzlcjb.setZjdw(kjzlcjbForm.getZjdw());
 		kjzlcjb.setZjlxr(kjzlcjbForm.getZjlxr());
+		kjzlcjb.setFj1(kjzlcjbForm.getFj1() == null?
+                null:kjzlcjbForm.getFj1().replace("C:\\fakepath", "D:\\kjcdata"));
+		kjzlcjb.setFj2(kjzlcjbForm.getFj2() == null?
+	            null:kjzlcjbForm.getFj2().replace("C:\\fakepath", "D:\\kjcdata"));
 
 
 		this.kjzlcjbDao.update(kjzlcjb);
@@ -215,6 +219,11 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setZjdw(kjzlcjbForm.getZjdw());
 		kjzlcjb.setZjlxr(kjzlcjbForm.getZjlxr());
 
+		kjzlcjb.setFj1(kjzlcjbForm.getFj1() == null?
+	                null:kjzlcjbForm.getFj1().replace("C:\\fakepath", "D:\\kjcdata"));
+	    kjzlcjb.setFj2(kjzlcjbForm.getFj2() == null?
+	                null:kjzlcjbForm.getFj2().replace("C:\\fakepath", "D:\\kjcdata"));
+
 		this.kjzlcjbDao.save(kjzlcjb);
 	}
 	private List<KjzlcjbForm> KjzlcjbPOListToVOList(List<Kjzlcjb> list) {
@@ -276,6 +285,9 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 			kjzlcjbForm.setSqh(kjzlcjb.getSqh());
 			kjzlcjbForm.setZjdw(kjzlcjb.getZjdw());
 			kjzlcjbForm.setZjlxr(kjzlcjb.getZjlxr());
+
+			kjzlcjbForm.setFj1(kjzlcjb.getFj1());
+			kjzlcjbForm.setFj2(kjzlcjb.getFj2());
 
 			formlist.add(kjzlcjbForm);
 		}

@@ -234,6 +234,9 @@
 			<result name="update" type="json">
 
 			</result>
+                <result name="upload" type="json">
+                
+            </result>
 			
 			<result name="showimport" type="json">
 
@@ -242,6 +245,10 @@
 			<result name="showexport" type="json">
 
 			</result>
+            
+            <result name="open" type="json">
+            
+            </result>
 			
 		</action>
 

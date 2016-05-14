@@ -17,7 +17,7 @@ $(function() {
 		editable:false,
 		required : true
 	});
-	
+
 
 	// 给文本框加上验证器
 	$("#cgmc").validatebox({
@@ -28,9 +28,9 @@ $(function() {
 		//required : true,
 		missingMessage : '不能为空'
 	});
-	
+
 	$('#jsly').combotree();
-	$('#jsly').combotree('loadData', 
+	$('#jsly').combotree('loadData',
 	[{ id: "一、", text: '一、信息',
 		children: [{ id: "网络设备", text: '网络设备' },
 		           { id: "光传输设备", text: '光传输设备' },
@@ -66,7 +66,7 @@ $(function() {
 		           { id: "生物芯片", text: '生物芯片' },
 		           { id: "生物材料及产品", text: '生物材料及产品' },
 		           { id: "功能性食品", text: '功能性食品' }
-		           
+
 		           ]},
 	 {id: "三、", text: '三、航空航天',
 		 children: [{ id: "民用飞机", text: '民用飞机' },
@@ -75,8 +75,8 @@ $(function() {
 		       		 { id: "卫星通信应用系统", text: '卫星通信应用系统' },
 		       		 { id: "卫星导航应用服务系统", text: '卫星导航应用服务系统' },
 		       		 { id: "卫星遥感应用系统", text: '卫星遥感应用系统' }
-		       	
-		       		           
+
+
 		       		]},
 	{id: "四、", text: '四、新材料',
 	      children: [{ id: "纳米材料", text: '纳米材料' },
@@ -103,9 +103,9 @@ $(function() {
 			           { id: "造纸用助剂", text: '造纸用助剂' },
 			           { id: "新型选矿设备及药剂", text: '新型选矿设备及药剂' },
 			           { id: "核工程用特种材料", text: '核工程用特种材料' }
-			           
-			           ]},	 
-			       			           
+
+			           ]},
+
     {id: "五、", text: '五、先进能源',
 		children: [{ id: "动力电池及储能电池", text: '动力电池及储能电池' },
 		           { id: "氢开发与利用", text: '氢开发与利用' },
@@ -120,9 +120,9 @@ $(function() {
 		           { id: "高效低污染燃煤发电及水电技术系统", text: '高效低污染燃煤发电及水电技术系统' },
 		           { id: "核电及核燃料循环", text: '核电及核燃料循环' },
 		           { id: "电网输送及安全保障技术", text: '电网输送及安全保障技术' }
-		        
-		           
-		           ]},	
+
+
+		           ]},
      {id: "六、", text: '六、现代农业',
  		children: [{ id: "农作物新品种", text: '农作物新品种' },
  		           { id: "蔬菜、水果等园艺作物新品种", text: '蔬菜、水果等园艺作物新品种' },
@@ -184,9 +184,9 @@ $(function() {
 	 		           { id: "设施渔业和渔业工程装备", text: '设施渔业和渔业工程装备' },
 	 		           { id: "海底资源环境监测", text: '海底资源环境监测、勘探技术与装备' },
 	 		           { id: "海洋环境保护与生态修复技术及装备", text: '海洋环境保护与生态修复技术及装备' }
-	 		         
+
 	 		           ]},
-		           
+
 {id: "十、", text: '十、高技术服务',
 		children: [{ id: "信息技术服务", text: '信息技术服务' },
 		           { id: "电子商务服务", text: '电子商务服务' },
@@ -196,17 +196,17 @@ $(function() {
 		           { id: "检验检测服务", text: '检验检测服务' },
 		           { id: "知识产权服务", text: '知识产权服务' },
 		           { id: "科技成果转化服务", text: '科技成果转化服务' }
-		           
+
 		           ]}]
 	);
-	
+
 	$('#yyhy').combotree();
-	$('#yyhy').combotree('loadData', 
+	$('#yyhy').combotree('loadData',
 			[{ id: "一、", text: 'A—农、牧、林、渔业',
 				children: [{ id: "作物和牲畜生产、狩猎和相关服务", text: '•	01—作物和牲畜生产、狩猎和相关服务' },
 				           { id: "林业与伐木业", text: '•	02—林业与伐木业' },
 				           { id: "渔业与水产业", text: '•	03—渔业与水产业' }]},
-			
+
 			 {id: "二、", text: 'B—采矿和采石',
 				children: [{ id: "煤炭和褐煤的开采", text: '•	04—煤炭和褐煤的开采' },
 				           { id: "石油及天然气的开采", text: '•	05—石油及天然气的开采' },
@@ -276,7 +276,7 @@ $(function() {
 				           { id: "金融保险服务及其附属", text: '• 59—金融保险服务及其附属' }]},
            { id: "十二、", text: 'L—房地产',
 				children: [{ id: "房地产", text: '• 60—房地产' }]},
-				           
+
 		 {id: "十三、", text: 'M—专业、科学和技术',
 			children: [{ id: "法律和会计", text: '• 61—法律和会计' },
 			           { id: "总公司的；管理咨询", text: '• 62—总公司的；管理咨询' },
@@ -304,7 +304,7 @@ $(function() {
 			children: [{ id: "艺术创作和文娱", text: '• 79—艺术创作和文娱' },
 			           { id: "图书馆、档案馆、博物馆及其他文化", text: '• 80—图书馆、档案馆、博物馆及其他文化' },
 			           { id: "赌博和押宝", text: '• 81—赌博和押宝' },
-			           { id: "体育、娱乐和文娱", text: '• 82—体育、娱乐和文娱' }]},  
+			           { id: "体育、娱乐和文娱", text: '• 82—体育、娱乐和文娱' }]},
        {id: "十九、", text: 'S—其他服务',
 		children: [{ id: "成员组织", text: '• 83—成员组织' },
 		           { id: "电脑及个人和家庭用品的修理", text: '• 84—电脑及个人和家庭用品的修理' },
@@ -314,13 +314,13 @@ $(function() {
 			           { id: "未加区分的私人家庭自用物品生产和服务", text: '• 87—未加区分的私人家庭自用物品生产和服务' }]},
    { id: "二十一、", text: 'U—国际组织和机构',
 	children: [{ id: "国际组织和机构", text: '• 88—国际组织和机构' }]}
-			           
+
 				           ]
 
 	);
-	
+
 	$('#jyfs').combotree();
-	$('#jyfs').combotree('loadData', 
+	$('#jyfs').combotree('loadData',
 			[{ id: "技术许可", text: '技术许可'},
 				{id: "技术转让", text: '技术转让'},
 				{id: "技术入股", text: '技术入股'},
@@ -329,34 +329,34 @@ $(function() {
 			 ]
 	);
 
-	
+
 	$("#sj").numberbox({
-		
+
 	});
 	$("#gddh").numberbox({
-		
+
 	});
 
 //    $("dzyx").validatebox({
-//    	
-//    	 email : {     
-//             validator: function(value){     
-//                 return /^[a-zA-Z0-9_+.-]+\@([a-zA-Z0-9-]+\.)+[a-zA-Z0-9]{2,4}$/i.test($.trim(value));     
-//             },     
+//
+//    	 email : {
+//             validator: function(value){
+//                 return /^[a-zA-Z0-9_+.-]+\@([a-zA-Z0-9-]+\.)+[a-zA-Z0-9]{2,4}$/i.test($.trim(value));
+//             },
 //             message: '电子邮箱格式错误.'
 //    	 }
 //    });
-	
+
 //	$("dzyx").validatebox({
 //              validType:"email"
 //     });
-  
+
 //	<input class="easyui-validatebox" data-options="
 //	    required:true,
 //	    validType:['email','length[0,20]']
 //	">
-	
-	
+
+
 });
 //加载公文列表
 function listDoc() {
@@ -366,7 +366,7 @@ function listDoc() {
           //  width : 1200,
             height: 400,
             //fit: true,
-			fitColumns : true, // 自动适应列宽      
+			fitColumns : true, // 自动适应列宽
             pageSize : 10,//默认选择的分页是每页5行数据
             pageList : [ 5, 10, 15, 20 ],//可以选择的分页集合
             nowrap : true,//设置为true，当数据长度超出列宽时将会自动截取
@@ -378,7 +378,7 @@ function listDoc() {
             //sortOrder : 'desc',//定义排序顺序，可以是'asc'或者'desc'（正序或者倒序）。
             pagination : true,//分页
             rownumbers : true,//行数
-			
+
             toolbar:[ {// 工具栏
 				text : '添加',
 				id:'add',
@@ -402,11 +402,11 @@ function listDoc() {
 				}
 			}
 		 ],
-	 
-            onLoadSuccess: function (data) { 
-            	
+
+            onLoadSuccess: function (data) {
+
 				user=eval(data).user;
-			
+
 				 if(user!="admin"){
 					// alert("123");
 					 $("#delete").linkbutton("disable");
@@ -414,8 +414,8 @@ function listDoc() {
 				 }
 			}
         });
-	 
-	 
+
+
 //	 setTimeout(
 //			 function(){
 //				// alert("Hello world");
@@ -455,10 +455,10 @@ function listDoc() {
 //							}
 //						} ]
 //				 });
-//				 
+//
 //				 }
 //			 },300);
-//	 
+//
 }
 //查询
 function doSearch(){
@@ -520,14 +520,14 @@ function editDoc() {
 		return;
 	}
 	$('#frmEdit').form('clear');
-	
 
-	
+
+
 	// 填充数据
 	$("#id").val(doc.id);
 	$("#cgmc").val(doc.cgmc);
 	$("#zllx").val(doc.zllx);
-	$("#zlqr").val(doc.zlqr);	
+	$("#zlqr").val(doc.zlqr);
 	$("#zywcr").val(doc.zywcr);
 	$("#zlh").val(doc.zlh);
 	$("#gkh").val(doc.gkh);
@@ -535,59 +535,86 @@ function editDoc() {
 	$("#zflh").val(doc.zflh);
 	$("#flzt").val(doc.flzt);
 	$("#cgjj").val(doc.cgjj);
-	//$('#yyhy').combotree('loadData', 
-	$("#yyhy").combotree("setValue", doc.yyhy);	
+	//$('#yyhy').combotree('loadData',
+	$("#yyhy").combotree("setValue", doc.yyhy);
 	$("#jsly").combotree("setValue", doc.jsly);
 	$("#cgjd").val(doc.cgjd);
 	$("#jyfs").combotree("setValue", doc.jyfs);
-	
+
 	$("#sfzj").val(doc.sfzj);
-	
+
 	$("#gfdj").val(doc.gfdj);
 	$("#zhyq").val(doc.zhyq);
 	$("#sfgk").val(doc.sfgk);
-	$("#lxrxm").val(doc.lxrxm);	
-	$("#gddh").numberbox("setValue", doc.gddh);	
+	$("#lxrxm").val(doc.lxrxm);
+	$("#gddh").numberbox("setValue", doc.gddh);
 	$("#szdq").val(doc.szdq);
 	$("#sj").numberbox("setValue", doc.sj);
 	$("#dzyx").val(doc.dzyx);
 	$("#lxdz").val(doc.lxdz);
-	
+
 	$("#sqh").val(doc.sqh);
 	$("#zjdw").val(doc.zjdw);
 	$("#zjlxr").val(doc.zjlxr);
 	// 显示编辑页面
 	showEditForm();
 }
+/**
+ * 更新记录
+ * @param params
+ */
+function update(params){
+    var actionUpdate = basePath + '/system/KjzlcjbAction_update.action';
+    $.post(actionUpdate, params, function(result) {
+        if (result.operateSuccess) {
+            $('#dg').datagrid('reload');// 重新加载
+                $.messager.alert('更新', '更新成功', 'info');
+        } else {
+                $.messager.alert('更新', '更新失败', 'warning');
+            }
+    });
+}
 function dealSave() {
-	// 表单数据序列化成一个字符串用&拼接
-	var params = $("#frmEdit").serialize();
-	
-	var actionAdd = basePath + '/system/KjzlcjbAction_add.action';
-	var actionUpdate = basePath + '/system/KjzlcjbAction_update.action';
-	// 得到doc的值，为空串表示添加的值，为空串表示添加
-	//alert(params);
-	if ($("#id").val() == "") {
-		$.post(actionAdd, params, function(result) {
-			if (result.operateSuccess) {
-					$('#dg').datagrid('reload');// 重新加载
-					$.messager.alert('添加', '添加成功', 'info');
-			} else {
-					$.messager.alert('添加', '添加失败', 'warning');
-				}
-		});
-		} else {
-		// 表示更新
-			$.post(actionUpdate, params, function(result) {
-				if (result.operateSuccess) {
-					$('#dg').datagrid('reload');// 重新加载
-						$.messager.alert('更新', '更新成功', 'info');
-				} else {
-						$.messager.alert('更新', '更新失败', 'warning');
-					}
-			});
-		}
-	}
+    // 表单数据序列化成一个字符串用&拼接
+    var params = $("#frmEdit").serialize();
+    var fj1 = ($("#fj1").filebox('getValue') == "" ? "" : "&fj1="+$("#fj1").filebox('getValue')) ;
+    var fj2 = ($("#fj2").filebox('getValue') == "" ? "" : "&fj2="+$("#fj2").filebox('getValue'));
+    var flag = $("#id").val() ;
+    if(fj1 == "" && fj2 == ""){
+        // 得到id属性的值，为空串表示添加
+        if (flag == "") {
+                add(params);
+
+            } else {
+            // 表示更新
+                var doc = $('#dg').datagrid('getSelected');
+                params += ("&fj1="+doc.fj1+"&fj2="+doc.fj2);
+                update(params);
+            }
+    }else{
+        params += (fj1+fj2);
+        $("#frmEdit").form('submit',{
+            url:basePath + '/system/KjzlcjbAction_upload.action' ,
+            async:true,
+            success:function(result) {
+                var result = eval('('+result+')');
+                if (result.operateSuccess) {
+
+                    if (flag == "") {
+                            add(params);
+                        } else {
+                            // 表示更新
+                            update(params)
+                        }
+
+                } else {
+                    $.messager.alert('上传', '附件上传失败', 'warning');
+                }
+            }
+        });
+
+    }
+}
 //保存操作第二种实现方法
 function save(){
 	$('#frmEdit').form('submit',{
@@ -645,80 +672,80 @@ function deleteDoc() {
 
 
 function ShowImport(){
-	
+
 //	  var file_upl = document.getElementById('uploadExcel');
 //	  file_upl.select();
 //	  var fileName = document.selection.createRange().text;
 //	alert(fileName);
-	
-	  //得到上传文件的全路径  
-	  var fileName= $('#uploadExcel').filebox('getValue');  
-//	
-	  
+
+	  //得到上传文件的全路径
+	  var fileName= $('#uploadExcel').filebox('getValue');
+//
+
 	 // alert(fileName);
-	          //进行基本校验  
+	          //进行基本校验
 	          if(fileName==""){
-	             $.messager.alert('提示','请选择上传文件！','info');   
+	             $.messager.alert('提示','请选择上传文件！','info');
 	          }else{
-	              //对文件格式进行校验  
-	              var d1=/\.[^\.]+$/.exec(fileName);   
-	              if(d1==".xls"){  
-	                   //提交表单  
-	                   //document.getElementById("questionTypesManage").action="${pageContext.request.contextPath}/leadtoQuestionTypes/leadInExcelQuestionBank?questionType="+questionTypes+"&courseType="+courseType;  
-	            	//document.getElementById("questionTypesManage").submit();     
+	              //对文件格式进行校验
+	              var d1=/\.[^\.]+$/.exec(fileName);
+	              if(d1==".xls"){
+	                   //提交表单
+	                   //document.getElementById("questionTypesManage").action="${pageContext.request.contextPath}/leadtoQuestionTypes/leadInExcelQuestionBank?questionType="+questionTypes+"&courseType="+courseType;
+	            	//document.getElementById("questionTypesManage").submit();
 	            		var params ="cgmc="+fileName;
 	            		var showimport = basePath + '/system/KjzlcjbAction_showimport.action';
 
 	            		//alert(params);
-	            		
+
 	          		$.post(showimport, params, function(result) {
 	        			if (result.operateSuccess) {
 	        					$('#dg').datagrid('reload');// 重新加载
 	        					$.messager.alert('导入', '导入Excel成功', 'info');
-	        				
+
 	        			}else {
 	        					$.messager.alert('导入', '导入Excel失败', 'warning');
 	        				}
 	        		});
-	          		
-	            	  
+
+
 	            	  return false;
-	             }else{  
-	                 $.messager.alert('提示','请选择xls格式文件！','info');   
+	             }else{
+	                 $.messager.alert('提示','请选择xls格式文件！','info');
 	                 $('#uploadExcel').filebox('setValue','');
 	             }
-	          } 
+	          }
 	   }
 
 
 
 function ShowExport(){
-	  
-	var Items = document.getElementsByName("Items"); 
+
+	var Items = document.getElementsByName("Items");
 	var params ="cgmc=";
-	
-    for(var i = 0; i < Items.length; i++) 
-    { 
-       if(Items[i].checked == true) 
-       { 
-    	   params+=Items[i].value+" "; 
-       } 
-    } 
+
+    for(var i = 0; i < Items.length; i++)
+    {
+       if(Items[i].checked == true)
+       {
+    	   params+=Items[i].value+" ";
+       }
+    }
 
 	//alert(params);
 
 	var showimport = basePath + '/system/KjzlcjbAction_showexport.action';
-	            				
+
 	$.post(showimport, params, function(result) {
 	        			if (result.operateSuccess) {
 	        					$('#dg').datagrid('reload');// 重新加载
 	        					$.messager.alert('导出', '导出Excel成功', 'info');
-	        				
+
 	        			}else {
 	        					$.messager.alert('导出', '文件被占用！导出Excel失败', 'warning');
 	        				}
 	        		});
-  
+
 	            	  return false;
 	   }
 
@@ -734,7 +761,7 @@ function selectExcel() {
 		buttons : [ {
 			text : '确认',
 			handler : function() {
-				
+
 				ShowExport();
 				closeForm2();
 			}
@@ -757,4 +784,69 @@ function closeForm2() {
 
 
 
-	
+
+function selectFile(){
+    var doc = $('#dg').datagrid('getSelected');// 得到选中的一行数据
+    // 如果没有选中记录
+    if (doc == null) {
+        $.messager.alert('选择记录', '请先选择要查看附件的所属记录', 'info');
+        return;
+    }
+    if(doc.fj1 == null && doc.fj2 == null){
+        $.messager.alert('选择记录', '请选择有附件的记录', 'info');
+        return;
+    }
+    $("#fj1Name").text(doc.fj1 == null ? "无": doc.fj1);
+    $("#fj2Name").text(doc.fj2 == null ? "无": doc.fj2);
+    $("#tabOpen").dialog({
+        modal : true,// 模式窗口
+        title : '选择附件',
+        buttons : [ {
+            text : '确认',
+            handler : function() {
+                // 进行表单字段验证，当全部字段都有效时返回true和validatebox一起使用
+                    open();
+            }
+        }, {
+            text : '取消',
+            handler : function() {
+                $('#tabOpen').dialog('close');
+                $('#openFj').form('clear');
+            }
+        } ]
+    });
+
+}
+
+function open(){
+    var openAction = basePath + '/system/KjzlcjbAction_open.action';
+    var params = "";
+
+
+    if($("#Fj1").is(":checked")){
+        params += "fj1="+   $("#fj1Name").text();
+        if($("#Fj2").is(":checked")){
+            params += "&fj2="+  $("#fj2Name").text();
+        }
+    }
+    else if($("#Fj2").is(":checked")){
+        params += "fj2="+   $("#fj2Name").text();
+    }
+    if(!params == ""){
+        $.post(openAction, params, function(result) {
+            if (result.operateSuccess) {
+                $.messager.alert('打开附件', '打开附件成功', 'info');
+
+            } else {
+                $.messager.alert('打开附件', '打开附件失败', 'warning');
+            }
+        });
+    }
+    $
+    $('#tabOpen').dialog('close');
+    $('#openFj').form('clear');
+}
+
+
+
+

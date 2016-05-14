@@ -104,6 +104,12 @@
 			<property name="zjlxr" type="string">
 			<column name="zjlxr" />
 		</property>
+                <property name="fj1" type="string">
+            <column name="fj1" />
+        </property>
+                <property name="fj2" type="string">
+            <column name="fj2" />
+        </property>
 		
 	</class>
 </hibernate-mapping>
