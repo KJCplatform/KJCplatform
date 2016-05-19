@@ -200,6 +200,9 @@
 			<result name="noFourth" type="json">
 				<param name="root">nofourth</param>
 			</result>
+			<result name="export" type="json">
+			</result>
+			
 		</action>
 		<action name="UserAction_*" class="platform.action.UserAction" method="{1}">			
 			<result name="home" type="json">

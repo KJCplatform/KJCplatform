@@ -91,6 +91,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}
 			});
 		}
+		
+		function exportXLS() {
+			var action = basePath + '/system/JpzlbgtjbAction_export.action';
+			$.post(action, function(result) {
+				if(result.operateSuccess == true){
+					$.messager.alert('导出excel', 'excel导出成功', 'info');
+				}
+				else{
+					$.messager.alert('导出excel', 'excel导出失败', 'warning');
+				}
+			});
+		}
 	
 	</script>
 </head>
@@ -116,6 +128,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-tip'" href="javascript:void(0);" onclick="showInfo('noFourth');">四季度未报</a>
 					</td>
+
                 </tr>
                 <tr>
 					<th>单位名称：</th>
@@ -125,7 +138,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>
 					</td>
-                
+                	<td>
+						<a class="easyui-linkbutton"  href="javascript:void(0);" onclick="exportXLS()">导出</a>
+					</td>
                 </tr>
             </table>
         </form>

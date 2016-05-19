@@ -140,7 +140,17 @@ public class JpzlbgtjbAction extends BaseAction implements ModelDriven<Jpzlbgtjb
 		this.setNofourth(stringlist);
 		return "noFourth";
 	}
-
+	
+	public String export(){
+		try {
+			jpzlbgtjbService.export();
+			operateSuccess = true;
+		} catch (Exception e) {
+			System.out.println("[error]" + e.getMessage());
+		}
+		
+		return "export";
+	}
 }
 
 
