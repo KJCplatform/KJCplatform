@@ -38,7 +38,22 @@ public class KjzlcjbForm implements java.io.Serializable{
 	  private String zjdw;
 	  private String zjlxr;
 	  
-	  
+	  private String fj1;
+	  private String fj2;
+	      
+	      
+	    public String getFj1() {
+	        return fj1;
+	    }
+	    public void setFj1(String fj1) {
+	        this.fj1 = fj1;
+	    }
+	    public String getFj2() {
+	        return fj2;
+	    }
+	    public void setFj2(String fj2) {
+	        this.fj2 = fj2;
+	    }
 	public String getSqh() {
 		return sqh;
 	}

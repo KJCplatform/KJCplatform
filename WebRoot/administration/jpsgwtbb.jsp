@@ -71,7 +71,8 @@
 <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
    选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
        　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
-       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
+     <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
+     <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectFile()" >查看附件</a> 　      
 </form>
 
 <div id="divEdit2" style="display:none;">
@@ -79,19 +80,29 @@
 		<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
 		 >>>请选择导出项<<<
 		 <br> <br>
-<input name="Items" type="checkbox" checked="checked" value="1" />产品名称<br>
-<input name="Items" type="checkbox" checked="checked" value="2" />发生日期<br> 
-<input name="Items" type="checkbox" checked="checked" value="3" /> 质量事故或重大质量问题发生的原因等基本情况<br> 
-<input name="Items" type="checkbox" checked="checked" value="4" />备注<br>
-<input name="Items" type="checkbox" checked="checked" value="5" />填表人<br> 
-<input name="Items" type="checkbox" checked="checked" value="6" />质量部门负责人<br> 
-<input name="Items" type="checkbox" checked="checked" value="7" />报出日期	<br>
-<input name="Items" type="checkbox" checked="checked" value="8" />记录日期（年份）<br>
+			<input name="Items" type="checkbox" checked="checked" value="1" />产品名称<br>
+			<input name="Items" type="checkbox" checked="checked" value="2" />发生日期<br> 
+			<input name="Items" type="checkbox" checked="checked" value="3" /> 质量事故或重大质量问题发生的原因等基本情况<br> 
+			<input name="Items" type="checkbox" checked="checked" value="4" />备注<br>
+			<input name="Items" type="checkbox" checked="checked" value="5" />填表人<br> 
+			<input name="Items" type="checkbox" checked="checked" value="6" />质量部门负责人<br> 
+			<input name="Items" type="checkbox" checked="checked" value="7" />报出日期	<br>
+			<input name="Items" type="checkbox" checked="checked" value="8" />记录日期（年份）<br>
 
 		</form>
 	</div>
 </div>		
-
+	<div id="open" style="display:none;">
+			<div id="tabOpen" style="width:400px; height:300px; overflow:auto;">
+				<form id="openFj">
+					<input id="Fj1" name ="Fj1" type="checkbox" value="附件1"/>
+					<span id="fj1Name" ></span><br>
+					<input id="Fj2" name ="Fj2" type="checkbox" value="附件2"/>
+					<span id="fj2Name" ></span><br>					
+				</form>
+			</div>		
+	</div>
+	
 				
 
 	<div data-options="region:'center',split:false">
@@ -106,11 +117,8 @@
 					<th field="tbr">填表人</th>
 					<th field="zlbmfzr">质量部门负责人</th>
 			        <th field="bcrq">报出日期</th>
-			        
-			       <!--  <th field="jlnf" width="130">记录时间(年份)</th>
-			        <th field="username" width="130">操作员</th>
-			        <th field="gxsj" width="130">更新时间</th>
-			        <th field="submit" width="130">是否提交</th> -->
+			        <th field="fj1">附件1</th>
+			        <th field="fj2">附件2</th>
 			        
 
 				</tr>
@@ -121,7 +129,7 @@
 	<!-- 编辑数据的div，默认看不到 -->
 	<div id="divEdit" style="display:none;">
 	<div id="tabEdit">
-		<form id="frmEdit" style="width:800px; height:400px; overflow:auto;" method= "post">
+		<form id="frmEdit" style="width:800px; height:400px; overflow:auto;" method= "post" enctype="multipart/form-data">
 				<input type="hidden" id="id" name="id" />
 				<dl>
 					<dd>
@@ -155,35 +163,24 @@
 						质量部门负责人: <input size="15" id="zlbmfzr" name="zlbmfzr" />
 					</dd>
 				</dl>
-						<dl>
+				<dl>
 					<dd>
 						报出日期: <input  type="text" style="width: 150px" id="bcrq" name="bcrq" />
 					</dd>
 				</dl>
-
-
-
-                 <!-- <dl>
-			     	<dd>记录时间:</dd>
-			     	<dd><input size="15" id="jlnf" name="jlnf" /></dd>
-			     </dl>
-			    <dl>
-			    	<dd>操作员:</dd>
-				    <dd><input size="15" id="username" name="username" /></dd>
-			    </dl>
-			    <dl>
-				<dd>更新时间:</dd>
-				<dd><input size="15" id="gxsj" name="gxsj" /></dd>
-			</dl>
-			<dl>
-				<dd>是否提交:</dd>
-				<dd>
-				<select style="width: 150px" id="submit" name="submit" >
-				<option value="是">是</option>
-				<option value="否">否</option>
+				<dl>
+					<dd>
+						附件1: <input  type="text" style="width: 150px" id="fj1" name="fj1" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'"/>
+					</dd>
+				</dl>
 				
-				</dd>
-			</dl>  -->
+				<dl>
+					<dd>
+						附件2: <input  type="text" style="width: 150px" id="fj2" name="fj2" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'"/>
+					</dd>
+				</dl>
+
+				
 			</form>
 		</div>
 	</div>

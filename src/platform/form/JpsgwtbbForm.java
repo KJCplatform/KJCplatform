@@ -1,10 +1,10 @@
 package platform.form;
 
-import java.util.Date;
 
-@SuppressWarnings({ "unused", "serial" })
 public class JpsgwtbbForm implements java.io.Serializable{
-	  private String id;
+
+	private static final long serialVersionUID = 1L;
+	private String id;
 	  private String cpmc;
 	  private String fsrq;
 	  private String yyqk;
@@ -15,9 +15,10 @@ public class JpsgwtbbForm implements java.io.Serializable{
 	  
 	  private String jlnf;
 	  private String username;
-	  private String gxsj;
-	  private String submit;
+	  private String gxsj;	  
 	  
+	  private String  fj1;
+	  private String fj2;
 	  
 	  
 	public String getJlnf() {
@@ -38,12 +39,7 @@ public class JpsgwtbbForm implements java.io.Serializable{
 	public void setGxsj(String gxsj) {
 		this.gxsj = gxsj;
 	}
-	public String getSubmit() {
-		return submit;
-	}
-	public void setSubmit(String submit) {
-		this.submit = submit;
-	}
+
 	public String getId() {
 		return id;
 	}
@@ -91,6 +87,18 @@ public class JpsgwtbbForm implements java.io.Serializable{
 	}
 	public void setBcrq(String bcrq) {
 		this.bcrq = bcrq;
+	}
+	public String getFj1() {
+		return fj1;
+	}
+	public void setFj1(String fj1) {
+		this.fj1 = fj1;
+	}
+	public String getFj2() {
+		return fj2;
+	}
+	public void setFj2(String fj2) {
+		this.fj2 = fj2;
 	}
 	
 	

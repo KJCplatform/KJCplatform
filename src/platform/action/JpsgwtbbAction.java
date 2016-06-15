@@ -1,35 +1,23 @@
 package platform.action;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
+import org.apache.commons.lang.StringUtils;
 
 import platform.action.BaseAction;
-import platform.dao.TestDataDao;
-import platform.domain.Jpsgwtbb;
-import platform.form.TestDataFrom;
-
-
 import platform.form.JpsgwtbbForm;
-import platform.service.TestDataService;
+import platform.util.FileOpUtils;
 import platform.service.JpsgwtbbService;
 
 import com.opensymphony.xwork2.ModelDriven;
-
 import container.ServiceProvider;
 
-@SuppressWarnings({ "unused", "serial" })
 public class JpsgwtbbAction extends BaseAction implements ModelDriven<JpsgwtbbForm>{
+
+	private static final long serialVersionUID = -3591435420801043189L;
 	public int page = 0;
 	public boolean operateSuccess;
 	public boolean isOperateSuccess() {
@@ -69,11 +57,8 @@ public class JpsgwtbbAction extends BaseAction implements ModelDriven<JpsgwtbbFo
 	}
 	Map<String, Object> map = new HashMap<String, Object>();
 	public String list(){
-		//System.out.println(page+":"+rows);
-		//xzxzgzbForm.setWjm("test");
-		//xzxzgzbForm.setWjh("2");
+
 		List<JpsgwtbbForm> formlist=jpsgwtbbService.findJpsgwtbbListWithPage(rows,page,jpsgwtbbForm);
-		//System.out.println(formlist.get(formlist.size()-1).getCljg());
 		map.put("rows", formlist);
 		map.put("total", jpsgwtbbService.findJpsgwtbbList().size());
 		map.put("user", String.valueOf(request.getSession().getAttribute("hhs_user")));
@@ -82,45 +67,74 @@ public class JpsgwtbbAction extends BaseAction implements ModelDriven<JpsgwtbbFo
 		return "list";
 	}
 	public String update(){
-		/*XzxzgzbForm xzxzgzbForm1 = new XzxzgzbForm();
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		String d=format.format(new Date());
-		xzxzgzbForm1.setId("1");
-		xzxzgzbForm1.setCljg("update");
-		xzxzgzbForm1.setFwjg("update");
-		xzxzgzbForm1.setFwrq(d);
-		xzxzgzbForm1.setJbnr("update");
-		xzxzgzbForm1.setJbr("update");
-		xzxzgzbForm1.setJzrq(d);
-		xzxzgzbForm1.setWjh("update");
-		xzxzgzbForm1.setWjm("update");*/
+
 		jpsgwtbbService.updateJpsgwtbb(jpsgwtbbForm);
+		System.out.println("[info ]:\t记录更新成功");
 		operateSuccess=true;
 		return "update";
 	}
 	public String delete(){
-		//xzxzgzbForm.setId("2");
 		jpsgwtbbService.deleteObject(jpsgwtbbForm.getId());
 		operateSuccess=true;
 		return   "delete";
 	}
-	public String add(){
-		jpsgwtbbService.saveObject(jpsgwtbbForm);
+	
+	public String upload(){
+		FileOpUtils.uplaodFile(request);
+		response.setContentType("text/html;charset=UTF-8");
 		operateSuccess=true;
+		System.out.println("[info ]:\t附件上传成功");
+		return "upload";
+	}
+	public String add(){
+
+		try {
+				jpsgwtbbService.saveObject(jpsgwtbbForm);
+				operateSuccess=true;
+				System.out.println("[info ]:\t记录添加成功");
+
+			} catch (Exception e) {
+				System.out.println("[error ]:\t记录添加失败");
+			}	
 		return "add";
 	}
 	
-	public String showimport() throws Exception{
-		System.out.println(jpsgwtbbForm.getCpmc());
-		jpsgwtbbService.showImportObject(jpsgwtbbForm.getCpmc());
-		operateSuccess=true;
+	public String open(){
+			try {
+				if(!StringUtils.isEmpty(jpsgwtbbForm.getFj1()) )
+					FileOpUtils.openFile(jpsgwtbbForm.getFj1());
+				if(!StringUtils.isEmpty(jpsgwtbbForm.getFj2()) )
+					FileOpUtils.openFile(jpsgwtbbForm.getFj2());
+				
+				operateSuccess = true;
+			} catch (IOException e) {
+				System.out.println("[error ]:\t文件打开失败  " + e.getMessage());
+				operateSuccess = false;
+			}
+		
+		return "open";
+	}
+	
+	public String showimport() {
+		try {
+			String path = FileOpUtils.uplaodFile(request).get(0);//上传文件到服务器，并返回文件在服务器上的地址
+			jpsgwtbbService.showImportObject(path);
+			FileOpUtils.deleteFile(path);//删除用来导入数据的excel文件
+			operateSuccess=true;
+		} catch (Exception e) {
+			this.operateSuccess =false;
+		}
 		return "showimport";
 	}
 	
-	public String showexport() throws Exception{
-		System.out.println(jpsgwtbbForm.getCpmc());
-		jpsgwtbbService.showExportObject(jpsgwtbbForm.getCpmc());
-		operateSuccess=true;
+	public String showexport() {
+		try{
+			jpsgwtbbService.showExportObject(jpsgwtbbForm.getCpmc());
+			operateSuccess=true;
+		}catch(Exception e){
+			operateSuccess =false;
+		}
+
 		return "showexport";
 	}
 }

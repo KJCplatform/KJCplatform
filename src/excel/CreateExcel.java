@@ -162,7 +162,7 @@ public class CreateExcel {
 	public static void createExcel(LinkedHashMap<String, ArrayList<String>> hm,
 			String name) throws Exception {
 		if (name == "" || name == null)
-			name = "导出信息.xls";
+			name = "D:\\kjcdata\\导出信息.xls";
 		WritableWorkbook wwb = Workbook.createWorkbook(new File(name));
 		WritableSheet sheet = wwb.createSheet("第一页", 0);
 		WritableFont wf = new WritableFont(WritableFont.createFont("宋体"), 12);

@@ -11,6 +11,7 @@ var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
 var basePath = localhostPath + projectName;
 var user;
 
+
 $(function() {
 	listDoc();
 
@@ -158,41 +159,105 @@ function editDoc() {
 	$("#zlbmfzr").val(doc.zlbmfzr);
 	$("#bcrq").datebox("setValue", doc.bcrq.substring(0, 10));
 	
-	$("#jlnf").val(doc.jlnf);
-	$("#username").val(doc.username);
-	$("#gxsj").val(doc.gxsj);
-	$("#submit").val(doc.submit);
 	
 	// 显示编辑页面
 	showEditForm();
 }
+
+/**
+ * 上传附件
+ */
+function upload(){
+	$("#frmEdit").form('submit',{
+		url:basePath + '/system/JpsgwtbbAction_upload.action' ,
+		async:true,
+		success:function(result) {
+			var result = eval('('+result+')');
+			if (result.operateSuccess) {
+				$.messager.alert('上传', '附件上传成功', 'info');
+				return true;
+			} else {
+				$.messager.alert('上传', '附件上传失败', 'warning');
+				return false;
+			}
+		}
+	});
+}
+
 function dealSave() {
 	// 表单数据序列化成一个字符串用&拼接
-	var params = $("#frmEdit").serialize();
-	var actionAdd = basePath + '/system/JpsgwtbbAction_add.action';
-	var actionUpdate = basePath + '/system/JpsgwtbbAction_update.action';
-	// 得到doc的值，为空串表示添加的值，为空串表示添加
-	if ($("#id").val() == "") {
-		$.post(actionAdd, params, function(result) {
-			if (result.operateSuccess) {
-					$('#dg').datagrid('reload');// 重新加载
-					$.messager.alert('添加', '添加成功', 'info');
+	var params = $("#frmEdit").serialize();	
+	var fj1 = ($("#fj1").filebox('getValue') == "" ? "" : "&fj1="+$("#fj1").filebox('getValue')) ;
+	var fj2 = ($("#fj2").filebox('getValue') == "" ? "" : "&fj2="+$("#fj2").filebox('getValue'));
+	var flag = $("#id").val() ;
+	if(fj1 == "" && fj2 == ""){
+		// 得到id属性的值，为空串表示添加
+		if (flag == "") {
+				add(params);
+
 			} else {
-					$.messager.alert('添加', '添加失败', 'warning');
-				}
-		});
-		} else {
-		// 表示更新
-			$.post(actionUpdate, params, function(result) {
+			// 表示更新
+				var doc = $('#dg').datagrid('getSelected');
+				params += ("&fj1="+doc.fj1+"&fj2="+doc.fj2);
+				update(params)
+			}		
+	}else{
+		params += (fj1+fj2);
+		$("#frmEdit").form('submit',{
+			url:basePath + '/system/JpsgwtbbAction_upload.action' ,
+			async:true,
+			success:function(result) {
+				var result = eval('('+result+')');
 				if (result.operateSuccess) {
-					$('#dg').datagrid('reload');// 重新加载
-						$.messager.alert('更新', '更新成功', 'info');
+
+					if (flag == "") {
+							add(params);
+						} else {
+							// 表示更新
+							update(params)
+						}	
+				
 				} else {
-						$.messager.alert('更新', '更新失败', 'warning');
-					}
-			});
-		}
+					$.messager.alert('上传', '附件上传失败', 'warning');
+				}
+			}
+		});
+
 	}
+}
+/**
+ * 添加记录
+ * @param params
+ */
+function add(params){
+	var actionAdd = basePath + '/system/JpsgwtbbAction_add.action';
+	$.post(actionAdd, params, function(result) {
+		if (result.operateSuccess) {
+				$('#dg').datagrid('reload');// 重新加载
+				$.messager.alert('添加', '添加成功', 'info');
+		} else {
+				$.messager.alert('添加', '添加失败', 'warning');
+			}
+	});
+}
+
+/**
+ * 更新记录
+ * @param params
+ */
+function update(params){
+	var actionUpdate = basePath + '/system/JpsgwtbbAction_update.action';
+	$.post(actionUpdate, params, function(result) {
+		if (result.operateSuccess) {
+			$('#dg').datagrid('reload');// 重新加载
+				$.messager.alert('更新', '更新成功', 'info');
+		} else {
+				$.messager.alert('更新', '更新失败', 'warning');
+			}
+	});
+}
+
+
 //保存操作第二种实现方法
 function save(){
 	$('#frmEdit').form('submit',{
@@ -246,16 +311,9 @@ function deleteDoc() {
 
 function ShowImport() {
 
-	//	  var file_upl = document.getElementById('uploadExcel');
-	//	  file_upl.select();
-	//	  var fileName = document.selection.createRange().text;
-	//	alert(fileName);
-
 	//得到上传文件的全路径  
 	var fileName = $('#uploadExcel').filebox('getValue');
-	//	
 
-	// alert(fileName);
 	//进行基本校验  
 	if (fileName == "") {
 		$.messager.alert('提示', '请选择上传文件！', 'info');
@@ -264,25 +322,22 @@ function ShowImport() {
 		var d1 = /\.[^\.]+$/.exec(fileName);
 		if (d1 == ".xls") {
 			//提交表单  
-			//document.getElementById("questionTypesManage").action="${pageContext.request.contextPath}/leadtoQuestionTypes/leadInExcelQuestionBank?questionType="+questionTypes+"&courseType="+courseType;  
-			//document.getElementById("questionTypesManage").submit();     
-			var params = "cpmc=" + fileName;
-			var showimport = basePath
-					+ '/system/JpsgwtbbAction_showimport.action';
-
-			//alert(params);
-
-			$.post(showimport, params, function(result) {
-				if (result.operateSuccess) {
-					$('#dg').datagrid('reload');// 重新加载
-					$.messager.alert('导入', '导入Excel成功', 'info');
-
-				} else {
-					$.messager.alert('导入', '导入Excel失败', 'warning');
-				}
-			});
-
-			return false;
+			   $('#questionTypesManage').form('submit',   
+				        {      
+				            url: basePath
+							+ '/system/JpsgwtbbAction_showimport.action',      
+				            success:function(result){
+				    			var result = eval('('+result+')');
+				                if(result.operateSuccess == true){  
+									$.messager.alert('导入', '选中的文件成功导入！', 'info'); 
+									$('#dg').datagrid('reload');// 重新加载
+				                }else{  
+									$.messager.alert('导入', '选中的文件导入失败！', 'warning');  
+									$('#dg').datagrid('reload');// 重新加载
+				                }  
+				            }  
+				        }  
+				    ); 
 		} else {
 			$.messager.alert('提示', '请选择xls格式文件！', 'info');
 			$('#uploadExcel').filebox('setValue', '');
@@ -342,14 +397,71 @@ function selectExcel() {
 }
 
 function closeForm2() {
-	//$("#frmEdit2").form('clear');
 	$('#tabEdit2').dialog('close');
 }
 
 
+function selectFile(){
+	var doc = $('#dg').datagrid('getSelected');// 得到选中的一行数据
+	// 如果没有选中记录
+	if (doc	== null) {
+		$.messager.alert('选择记录', '请先选择要查看附件的所属记录', 'info');
+		return;
+	}
+	if(doc.fj1 == null && doc.fj2 == null){
+		$.messager.alert('选择记录', '请选择有附件的记录', 'info');
+		return;
+	}
+	$("#fj1Name").text(doc.fj1 == null ? "无": doc.fj1);
+	$("#fj2Name").text(doc.fj2 == null ? "无": doc.fj2);
+	$("#tabOpen").dialog({
+		modal : true,// 模式窗口
+		title : '选择附件',
+		buttons : [ {
+			text : '确认',
+			handler : function() {
+				// 进行表单字段验证，当全部字段都有效时返回true和validatebox一起使用
+					open();
+			}
+		}, {
+			text : '取消',
+			handler : function() {
+				$('#tabOpen').dialog('close');
+				$('#openFj').form('clear');
+			}
+		} ]
+	});
 
+}
 
+function open(){
+	var openAction = basePath + '/system/JpsgwtbbAction_open.action';
+	var params = "";
+	
 
+	if($("#Fj1").is(":checked")){
+		params += "fj1="+	$("#fj1Name").text();
+		if($("#Fj2").is(":checked")){
+			params += "&fj2="+	$("#fj2Name").text();
+		}
+	}
+	else if($("#Fj2").is(":checked")){
+		params += "fj2="+	$("#fj2Name").text();
+	}	
+	if(!params == ""){
+		$.post(openAction, params, function(result) {
+			if (result.operateSuccess) {
+				$.messager.alert('打开附件', '打开附件成功', 'info');
+
+			} else {
+				$.messager.alert('打开附件', '打开附件失败', 'warning');
+			}
+		});
+	}
+	$
+	$('#tabOpen').dialog('close');
+	$('#openFj').form('clear');
+}
 
 
 

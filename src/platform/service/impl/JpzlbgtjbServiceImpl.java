@@ -1,5 +1,6 @@
 package platform.service.impl;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -7,11 +8,12 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
-import javax.transaction.Transactional;
-
 import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import excel.CreateExcel;
+import freemarker.template.SimpleDate;
 import platform.dao.JpzlbgtjbDao;
 import platform.dao.JpzlzkdwbDao;
 import platform.dao.XzxzgzbDao;
@@ -26,6 +28,7 @@ import platform.service.JpzlbgtjbService;
 import platform.service.JpzlzkdwbService;
 import platform.service.ZjtxlService;
 import platform.util.StringHelper;
+
 @Transactional
 @SuppressWarnings("unused")
 @Service(JpzlbgtjbService.SERVICE_NAME)
@@ -240,6 +243,44 @@ public class JpzlbgtjbServiceImpl implements JpzlbgtjbService{
 		 }
 	 }
 		return returnlist;
+	}
+	
+	/**
+	 * 将要导出的数据存成LinkedHashMap
+	 *
+	 * @return LinkedHashMap
+	 */
+	private LinkedHashMap<String, ArrayList<String>> getDataAsHashMap(){
+		LinkedHashMap<String, ArrayList<String>> lhm = new LinkedHashMap<String ,ArrayList<String>>();
+		ArrayList<String> dwmcs = new ArrayList<>();
+		ArrayList<String> years = new ArrayList<>();
+		ArrayList<String> one   = new ArrayList<>();
+		ArrayList<String> two   = new ArrayList<>();
+		ArrayList<String> three = new ArrayList<>();
+		ArrayList<String> four  = new ArrayList<>();
+		lhm.put("单位名称", dwmcs);
+		lhm.put("年份", years);
+		lhm.put("一季度", one);
+		lhm.put("二季度", two);
+		lhm.put("三季度", three);
+		lhm.put("四季度", four);
+		List<Jpzlbgtjb> jpzlbgtjbs = jpzlbgtjbDao.findCollectionByConditionNoPage("", null, null);
+		for(Jpzlbgtjb jpzlbgtjb : jpzlbgtjbs){
+			dwmcs.add(jpzlbgtjb.getDwmc());
+			years.add(jpzlbgtjb.getYear());
+			one.add(jpzlbgtjb.getFirst());
+			two.add(jpzlbgtjb.getSecond());
+			three.add(jpzlbgtjb.getThird());
+			four.add(jpzlbgtjb.getFourth());
+		}
+		
+		return lhm;
+	}
+	@Override
+	public void export() throws Exception  {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		String path = "D:\\kjcoutput\\军品质量报告统计表 "+ sdf.format(new Date())+".xls";
+		CreateExcel.createExcel(getDataAsHashMap(),path);
 	}
 	
 	

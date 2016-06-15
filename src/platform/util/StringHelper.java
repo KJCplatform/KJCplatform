@@ -17,26 +17,26 @@ public class StringHelper {
 		if(date.matches("\\d{4}/\\d{2}/\\d{2}")){
 			 format = new SimpleDateFormat("yyyy/MM/dd");
 		}
-		if(format == null && date.matches("\\d{2}/\\d{2}/\\d{4}")){
+		else if(format == null && date.matches("\\d{2}/\\d{2}/\\d{4}")){
 			format = new SimpleDateFormat("MM/dd/yyyy");
 		}
-		if(format == null && date.matches("\\d{4}-\\d{2}-\\d{2}")){
+		else if(format == null && date.matches("\\d{4}-\\d{2}-\\d{2}")){
 			 format = new SimpleDateFormat("yyyy-MM-dd");
 		}
-		if(format == null && date.matches("\\d{2}-\\d{2}-\\d{4}")){
+		else if(format == null && date.matches("\\d{2}-\\d{2}-\\d{4}")){
 			format = new SimpleDateFormat("MM-dd-yyyy");
 		}		
-		if(format == null && date.matches("\\d{4}\\.\\d{2}\\.\\d{2}")){
+		else if(format == null && date.matches("\\d{4}\\.\\d{2}\\.\\d{2}")){
 			format = new SimpleDateFormat("yyyy.MM.dd");
 		}
-		if(format == null && date.matches("\\d{2}\\.\\d{2}\\.\\d{4}")){
+		else if(format == null && date.matches("\\d{2}\\.\\d{2}\\.\\d{4}")){
 			format = new SimpleDateFormat("MM.dd.yyyy");
 		}
 		Date d = null;
 		try {
 			d = format.parse(date);
 		} catch (ParseException e) {
-			e.printStackTrace();
+			System.out.println("[error] 日期解析错误：\t" + e.getMessage());
 		}
 		return d;
 	}
@@ -51,5 +51,10 @@ public class StringHelper {
 			e.printStackTrace();
 		}
 		return d;
+	}
+	
+	public static String  dateFormat(Date date){
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		return format.format(date);
 	}
 }

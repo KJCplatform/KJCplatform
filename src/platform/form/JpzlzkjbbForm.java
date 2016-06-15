@@ -1,9 +1,12 @@
 package platform.form;
 
 
-@SuppressWarnings({ "unused", "serial" })
 public class JpzlzkjbbForm implements java.io.Serializable{
-	  private String id;
+	  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String id;
 	  private String jd;
 	  private String dwmc;
 	  private String hgl;
@@ -17,7 +20,7 @@ public class JpzlzkjbbForm implements java.io.Serializable{
 	  private String jlnf;
 	  private String gxsj;
 	  private String username;
-	  private String submit;
+	  private String submit;	  
 	public String getId() {
 		return this.id;
 	}
@@ -108,6 +111,7 @@ public class JpzlzkjbbForm implements java.io.Serializable{
 	public void setBcrq(String bcrq) {
 		this.bcrq = bcrq;
 	}
+
 
 
 

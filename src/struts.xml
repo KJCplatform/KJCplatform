@@ -9,6 +9,13 @@
 	<constant name="struts.devMode" value="true"></constant>
 	<!-- 配置struts的简单模式 -->
 	<constant name="struts.ui.theme" value="simple"></constant>
+	
+	
+	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest" 
+	name="myRequestParser" class="platform.util.CustomJakartaMultiPartRequest"  
+	scope="default" optional="true" /> 
+	<constant   name= "struts.multipart.handler"  value="myRequestParser" />
+	
 	<package name="system" namespace="/system" extends="json-default">
 	    <!-- 首页登录 -->
 	    <action name="PlatFormMenuAction_*" class="platform.action.PlatFormMenuAction" method="{1}">
@@ -193,6 +200,9 @@
 			<result name="noFourth" type="json">
 				<param name="root">nofourth</param>
 			</result>
+			<result name="export" type="json">
+			</result>
+			
 		</action>
 		<action name="UserAction_*" class="platform.action.UserAction" method="{1}">			
 			<result name="home" type="json">
@@ -227,6 +237,9 @@
 			<result name="update" type="json">
 
 			</result>
+                <result name="upload" type="json">
+                
+            </result>
 			
 			<result name="showimport" type="json">
 
@@ -235,6 +248,10 @@
 			<result name="showexport" type="json">
 
 			</result>
+            
+            <result name="open" type="json">
+            
+            </result>
 			
 		</action>
 
@@ -431,6 +448,9 @@
 	    	<result name="delete" type="json">
 				
 			</result>
+			<result name="upload" type="json">
+				
+			</result>
 	    	<result name="update" type="json">
 				
 			</result>
@@ -438,6 +458,8 @@
 			</result>
 			
 			<result name="showexport" type="json">
+			</result>
+			<result name="open" type="json">
 			</result>
 		</action>
 		<action name="JpzlzkjbbAction_*" class="platform.action.JpzlzkjbbAction" method="{1}">			
