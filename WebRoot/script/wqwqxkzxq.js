@@ -12,7 +12,7 @@ var resultid;
 
 
 var rows = [
-            {"id":"dwmc", "name": "单位名称", "group": "基本信息", "value": "", "editor": "text" },
+            {"id":"dwmc", "name": "单位名称", "group": "基本信息", "value": "", "editor": "text"},
             {"id":"qtmc", "name": "其他名称", "group": "基本信息", "value": "", "editor":"text" },
             {"id":"dwdh", "name": "单位代号", "value": "", "group": "基本信息", "editor":"text" },
             {"id":"scdz", "name": "军品科研生产场所地址", "group": "基本信息", "value": "", "editor": "text" },
@@ -309,10 +309,10 @@ function submit(){
 	var action =  basePath + '/system/WqwqxkzxqAction_add.action';
 	var rows = $('#wqzbkyscxkzxq').propertygrid('getRows');
 	var changes = $('#wqzbkyscxkzxq').propertygrid('getChanges');
-	if(rows.length != changes.length){
+	/*if(rows.length != changes.length){
 		$.messager.alert('验证', '信息有误或不完整', 'error');
-	}
-	else{
+	}*/
+//	else{
 		for(var i=0; i<changes.length; i++){
 			if(i == changes.length-1){
 				s += changes[i].id + '=' + changes[i].value;
@@ -322,7 +322,7 @@ function submit(){
 			}
 		}
 	
-	}
+//	}
 	//alert(s);
 	if(s.length != 0){
 		$.post(action, s, function(result) {
