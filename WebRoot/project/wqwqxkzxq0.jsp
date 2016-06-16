@@ -5,8 +5,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head >
+
+<!-- <script src='http://10.255.1.22:8000/CLodopfuncs.js'></script> -->
+<script language="javascript" type="text/javascript" src="http://localhost:8000/CLodopfuncs.js"></script>
+<object  id="LODOP" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width=0 height=0> 
+<embed id="LODOP_EM" type="application/x-print-lodop" width=0 height=0></embed> 
+</object> 
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>公文管理</title>
+    <title>武器装备生产许可单位信息汇总</title>
     <link href="<%=path%>/css/default.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="<%=basePath%>/script/easyui/themes/icon.css" />
@@ -56,11 +62,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>
 					</td>
-                
+					<td>
+					<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-print'" style="width:80px" onclick="print1();">打印</a>
+					</td>
+					<td>
+					<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="SaveAsFile();">导出excel</a>
+                </td>
                 </tr>
             </table>
         </form>
 </div>
+ 
+
+
 
 
 <div data-options="region:'center',split:false">
