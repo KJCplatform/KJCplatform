@@ -34,7 +34,7 @@ public class FileOpUtils {
 
 	/**
 	 * 解析用户请求，实现文件上传
-	 * 
+	 *
 	 * @param request
 	 *            用户请求
 	 * @return 上传的所有文件名列表
@@ -63,7 +63,6 @@ public class FileOpUtils {
 					item = (FileItem) items.get(i);
 					String fileName = uploadDir + item.getName();
 					if (!item.isFormField() && item.getName().length() > 0) {
-						System.out.println("[info ]:\t上传文件" + fileName);
 						item.write(new File(fileName));
 						files.add(fileName);
 					}
@@ -108,16 +107,16 @@ public class FileOpUtils {
 		if (file.exists())
 			file.delete();
 	}
-	
-	
+
+
 	public static void openFile(String path) throws IOException{
 		if(path == null || path.length() == 0) return;
-		
+
 		String cmd ="cmd.exe /c start " + path;
 		Runtime runtime = Runtime.getRuntime();
 		runtime.exec(cmd);
 		System.out.println("[info ]:\t打开文件： " + path );
-		
+
 	}
-	
+
 }

@@ -20,12 +20,12 @@ $(function() {
 		required : true,
 		missingMessage : '不能为空'
 	});
-	
+
 	$("#fsrq").datebox({
 		editable:false,
 		required : true
 	});
-	
+
 	$("#bcrq").datebox({
 		editable:false,
 		required : true
@@ -40,7 +40,7 @@ function listDoc() {
             width : 1200,
             height: 400,
             //fit: true,
-			fitColumns : true, // 自动适应列宽      
+			fitColumns : true, // 自动适应列宽
             pageSize : 10,//默认选择的分页是每页5行数据
             pageList : [ 5, 10, 15, 20 ],//可以选择的分页集合
             nowrap : true,//设置为true，当数据长度超出列宽时将会自动截取
@@ -75,11 +75,11 @@ function listDoc() {
 				}
 			}
 		 ],
-	 
-            onLoadSuccess: function (data) { 
-            	
+
+            onLoadSuccess: function (data) {
+
 				user=eval(data).user;
-			
+
 				 if(user!="admin"){
 					// alert("123");
 					 $("#delete").linkbutton("disable");
@@ -87,9 +87,9 @@ function listDoc() {
 				 }
 			}
         });
-	 
-	
-	 
+
+
+
 }
 //查询
 function doSearch(){
@@ -158,8 +158,8 @@ function editDoc() {
 	$("#tbr").val(doc.tbr);
 	$("#zlbmfzr").val(doc.zlbmfzr);
 	$("#bcrq").datebox("setValue", doc.bcrq.substring(0, 10));
-	
-	
+
+
 	// 显示编辑页面
 	showEditForm();
 }
@@ -186,7 +186,7 @@ function upload(){
 
 function dealSave() {
 	// 表单数据序列化成一个字符串用&拼接
-	var params = $("#frmEdit").serialize();	
+	var params = $("#frmEdit").serialize();
 	var fj1 = ($("#fj1").filebox('getValue') == "" ? "" : "&fj1="+$("#fj1").filebox('getValue')) ;
 	var fj2 = ($("#fj2").filebox('getValue') == "" ? "" : "&fj2="+$("#fj2").filebox('getValue'));
 	var flag = $("#id").val() ;
@@ -200,7 +200,7 @@ function dealSave() {
 				var doc = $('#dg').datagrid('getSelected');
 				params += ("&fj1="+doc.fj1+"&fj2="+doc.fj2);
 				update(params)
-			}		
+			}
 	}else{
 		params += (fj1+fj2);
 		$("#frmEdit").form('submit',{
@@ -215,8 +215,8 @@ function dealSave() {
 						} else {
 							// 表示更新
 							update(params)
-						}	
-				
+						}
+
 				} else {
 					$.messager.alert('上传', '附件上传失败', 'warning');
 				}
@@ -311,33 +311,32 @@ function deleteDoc() {
 
 function ShowImport() {
 
-	//得到上传文件的全路径  
+	//得到上传文件的全路径
 	var fileName = $('#uploadExcel').filebox('getValue');
-
-	//进行基本校验  
+	//进行基本校验
 	if (fileName == "") {
 		$.messager.alert('提示', '请选择上传文件！', 'info');
 	} else {
-		//对文件格式进行校验  
+		//对文件格式进行校验
 		var d1 = /\.[^\.]+$/.exec(fileName);
 		if (d1 == ".xls") {
-			//提交表单  
-			   $('#questionTypesManage').form('submit',   
-				        {      
+			//提交表单
+			   $('#questionTypesManage').form('submit',
+				        {
 				            url: basePath
-							+ '/system/JpsgwtbbAction_showimport.action',      
+							+ '/system/JpsgwtbbAction_showimport.action',
 				            success:function(result){
 				    			var result = eval('('+result+')');
-				                if(result.operateSuccess == true){  
-									$.messager.alert('导入', '选中的文件成功导入！', 'info'); 
+				                if(result.operateSuccess == true){
+									$.messager.alert('导入', '选中的文件成功导入！', 'info');
 									$('#dg').datagrid('reload');// 重新加载
-				                }else{  
-									$.messager.alert('导入', '选中的文件导入失败！', 'warning');  
+				                }else{
+									$.messager.alert('导入', '选中的文件导入失败！', 'warning');
 									$('#dg').datagrid('reload');// 重新加载
-				                }  
-				            }  
-				        }  
-				    ); 
+				                }
+				            }
+				        }
+				    );
 		} else {
 			$.messager.alert('提示', '请选择xls格式文件！', 'info');
 			$('#uploadExcel').filebox('setValue', '');
@@ -437,7 +436,7 @@ function selectFile(){
 function open(){
 	var openAction = basePath + '/system/JpsgwtbbAction_open.action';
 	var params = "";
-	
+
 
 	if($("#Fj1").is(":checked")){
 		params += "fj1="+	$("#fj1Name").text();
@@ -447,7 +446,7 @@ function open(){
 	}
 	else if($("#Fj2").is(":checked")){
 		params += "fj2="+	$("#fj2Name").text();
-	}	
+	}
 	if(!params == ""){
 		$.post(openAction, params, function(result) {
 			if (result.operateSuccess) {
@@ -466,4 +465,4 @@ function open(){
 
 
 
-	
+

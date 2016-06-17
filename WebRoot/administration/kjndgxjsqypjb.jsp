@@ -84,6 +84,9 @@
 					<th field="year">年度</th>
 					<th field="qymc">企业名称</th>
 						<th field="zcqznf">最初取证年份</th>
+                        <th field="lxr">联系人</th>
+                        <th field="lxfs">联系方式</th>
+                        <th field="txdz">通信地址</th>
 					<th field="cply">主营产品所属领域</th>
 					<th field="zgzs">职工总数</th>
 					<th field="dzysrs">大专以上学历科技人员数</th>
@@ -126,31 +129,33 @@
 <input name="Items" type="checkbox" checked="checked" value="1" />年度<br>
 <input name="Items" type="checkbox" checked="checked" value="2" />企业名称<br> 
 <input name="Items" type="checkbox" checked="checked" value="3" />最初取证年份<br> 
-<input name="Items" type="checkbox" checked="checked" value="4" />主营产品所属领域<br>
-<input name="Items" type="checkbox" checked="checked" value="5" />职工总数<br> 
-<input name="Items" type="checkbox" checked="checked" value="6" />大专以上学历科技人员数<br> 
-<input name="Items" type="checkbox" checked="checked" value="7" />研发人员数<br>
+<input name="Items" type="checkbox" checked="checked" value="4" />联系人<br> 
+<input name="Items" type="checkbox" checked="checked" value="5" />联系方式<br> 
+<input name="Items" type="checkbox" checked="checked" value="6" />通信地址<br> 
+<input name="Items" type="checkbox" checked="checked" value="7" />主营产品所属领域<br>
+<input name="Items" type="checkbox" checked="checked" value="8" />职工总数<br> 
+<input name="Items" type="checkbox" checked="checked" value="9" />大专以上学历科技人员数<br> 
+<input name="Items" type="checkbox" checked="checked" value="10" />研发人员数<br>
+<input name="Items" type="checkbox" checked="checked" value="11" />研发项目核定数<br>
+<input name="Items" type="checkbox" checked="checked" value="12" />高新技术产品核定数<br> 
+<input name="Items" type="checkbox" checked="checked" value="13" />研发项目经费核定总额<br> 
+<input name="Items" type="checkbox" checked="checked" value="14" />近一年高新产品销售收入核定额<br>
+<input name="Items" type="checkbox" checked="checked" value="15" />在中国境内研发费用总额定数<br> 
+<input name="Items" type="checkbox" checked="checked" value="16" />大专以上学历科技人员占企业职工总数比例（%）<br> 
+<input name="Items" type="checkbox" checked="checked" value="17" />研发人员占企89业职工总数的比例（%）<br>
 
-<input name="Items" type="checkbox" checked="checked" value="8" />研发项目核定数<br>
-<input name="Items" type="checkbox" checked="checked" value="9" />高新技术产品核定数<br> 
-<input name="Items" type="checkbox" checked="checked" value="10" />研发项目经费核定总额<br> 
-<input name="Items" type="checkbox" checked="checked" value="11" />近一年高新产品销售收入核定额<br>
-<input name="Items" type="checkbox" checked="checked" value="12" />在中国境内研发费用总额定数<br> 
-<input name="Items" type="checkbox" checked="checked" value="13" />大专以上学历科技人员占企业职工总数比例（%）<br> 
-<input name="Items" type="checkbox" checked="checked" value="14" />研发人员占企89业职工总数的比例（%）<br>
+<input name="Items" type="checkbox" checked="checked" value="18" />近3年研究开发费用总额占总销售收入比例（%）<br>
+<input name="Items" type="checkbox" checked="checked" value="19" />近3年在中国境内研发费用总额占全部研发费用总额比例（%）<br> 
+<input name="Items" type="checkbox" checked="checked" value="20" />近1年高新技术产品（服务）收入占当年总收入比例（%）<br> 
+<input name="Items" type="checkbox" checked="checked" value="21" />综合得分<br>
+<input name="Items" type="checkbox" checked="checked" value="22" />知识产权得分<br> 
+<input name="Items" type="checkbox" checked="checked" value="23" />转化能力得分<br> 
+<input name="Items" type="checkbox" checked="checked" value="24" />管理水平得分<br>
 
-<input name="Items" type="checkbox" checked="checked" value="15" />近3年研究开发费用总额占总销售收入比例（%）<br>
-<input name="Items" type="checkbox" checked="checked" value="16" />近3年在中国境内研发费用总额占全部研发费用总额比例（%）<br> 
-<input name="Items" type="checkbox" checked="checked" value="17" />近1年高新技术产品（服务）收入占当年总收入比例（%）<br> 
-<input name="Items" type="checkbox" checked="checked" value="18" />综合得分<br>
-<input name="Items" type="checkbox" checked="checked" value="19" />知识产权得分<br> 
-<input name="Items" type="checkbox" checked="checked" value="20" />转化能力得分<br> 
-<input name="Items" type="checkbox" checked="checked" value="21" />管理水平得分<br>
-
-<input name="Items" type="checkbox" checked="checked" value="22" />成长指标得分<br>
-<input name="Items" type="checkbox" checked="checked" value="23" />对企业整体情况的综合评价<br> 
-<input name="Items" type="checkbox" checked="checked" value="24" />评定专家组<br> 
-<input name="Items" type="checkbox" checked="checked" value="25" />备注<br> 
+<input name="Items" type="checkbox" checked="checked" value="25" />成长指标得分<br>
+<input name="Items" type="checkbox" checked="checked" value="26" />对企业整体情况的综合评价<br> 
+<input name="Items" type="checkbox" checked="checked" value="27" />评定专家组<br> 
+<input name="Items" type="checkbox" checked="checked" value="28" />备注<br> 
 			</form>
 	</div>
 </div>	
@@ -175,13 +180,28 @@
 					<dd>
 						企业名称: <input size="15" id="qymc" name="qymc" />
 					</dd>
-				</dl
+				</dl>
 				
-							<dl>
+				<dl>
 					<dd>
 						最初取证年份: <input size="15" id="zcqznf" name="zcqznf" />
 					</dd>
-				</dl>>
+				</dl>
+                        <dl>
+                    <dd>
+                        联系人: <input size="15" id="lxr" name="lxr" />
+                    </dd>
+                </dl>
+                        <dl>
+                    <dd>
+                     联系方式: <input size="15" id="lxfs" name="lxfs" />
+                    </dd>
+                </dl>
+                        <dl>
+                    <dd>
+                        通信地址: <input size="15" id="txdz" name="txdz" />
+                    </dd>
+                </dl>
 				<dl>
 					<dd>
 						主营产品所属领域: <input size="15" id="cply" name="cply" />

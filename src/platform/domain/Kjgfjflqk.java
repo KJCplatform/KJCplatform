@@ -11,58 +11,65 @@ public class Kjgfjflqk implements java.io.Serializable{
 	  private String username;
 	  private String gxsj;
 	  private int  submit;
-	  
-	  
-	public String getJlnf() {
-		return jlnf;
+	  private String nd;
+
+
+	public String getNd() {
+        return this.nd;
+    }
+    public void setNd(String nd) {
+        this.nd = nd;
+    }
+    public String getJlnf() {
+		return this.jlnf;
 	}
 	public void setJlnf(String jlnf) {
 		this.jlnf = jlnf;
 	}
 	public String getUsername() {
-		return username;
+		return this.username;
 	}
 	public void setUsername(String username) {
 		this.username = username;
 	}
 	public String getGxsj() {
-		return gxsj;
+		return this.gxsj;
 	}
 	public void setGxsj(String gxsj) {
 		this.gxsj = gxsj;
 	}
 	public int getSubmit() {
-		return submit;
+		return this.submit;
 	}
 	public void setSubmit(int submit) {
 		this.submit = submit;
 	}
-	
+
 	public int getId() {
-		return id;
+		return this.id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
 	public String getDj() {
-		return dj;
+		return this.dj;
 	}
 	public void setDj(String dj) {
 		this.dj = dj;
 	}
 	public String getXmmc() {
-		return xmmc;
+		return this.xmmc;
 	}
 	public void setXmmc(String xmmc) {
 		this.xmmc = xmmc;
 	}
 	public String getZywcdw() {
-		return zywcdw;
+		return this.zywcdw;
 	}
 	public void setZywcdw(String zywcdw) {
 		this.zywcdw = zywcdw;
 	}
-	  
-	
-	 
+
+
+
 }

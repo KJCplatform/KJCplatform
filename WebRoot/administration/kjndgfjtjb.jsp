@@ -79,7 +79,7 @@
 					<th field="tdj" width="130">特等奖</th>
 					<th field="ydj" width="130">一等奖</th>
 					<th field="edj" width="130">二等奖</th>
-				
+				    <th field="sdj" width="130">三等奖</th>
 					<th field="hj" width="130">合计</th>
 			    <th field="jlnf" width="130">记录年份</th>
 		
@@ -126,9 +126,11 @@
 					</dd>
 				</dl>
 			
-								<dl>
-				
-				</dl>
+		      <dl>
+                    <dd>
+                                                                                三等奖: <input size="15" id="sdj" name="sdj" />
+                     </dd>
+                </dl>
 
 
 			</form>

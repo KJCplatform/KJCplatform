@@ -20,6 +20,9 @@
 		<property name="edj" type="integer">
 			<column name="edj" />
 		</property>
+                <property name="sdj" type="integer">
+            <column name="sdj" />
+        </property>
 		<property name="hj" type="integer">
 			<column name="hj" />	
 		</property>

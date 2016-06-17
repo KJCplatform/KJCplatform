@@ -98,6 +98,15 @@
 			<property name="submit" type="integer">
 			<column name="submit" />
 		</property>
+                    <property name="lxr" type="string">
+            <column name="lxr" />
+        </property>
+                    <property name="lxfs" type="string">
+            <column name="lxfs" />
+        </property>
+                    <property name="txdz" type="string">
+            <column name="txdz" />
+        </property>
 		
 		
 	</class>
