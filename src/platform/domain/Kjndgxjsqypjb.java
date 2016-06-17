@@ -27,198 +27,220 @@ public class Kjndgxjsqypjb implements java.io.Serializable{
 	  private String czzbdf;
 	  private String zhpj;
 	  private String pdzjz;
-	  
+
 	  private String zcqznf;
 	  private String bz;
 	  private String jlnf;
 	  private String username;
 	  private String gxsj;
 	  private int submit;
-	  
-	  
-	  
-	  
-	public String getZcqznf() {
-		return zcqznf;
+
+	  private String lxr;
+	  private String lxfs;
+	  private String txdz;
+
+
+
+
+	public String getLxr() {
+        return this.lxr;
+    }
+    public void setLxr(String lxr) {
+        this.lxr = lxr;
+    }
+    public String getLxfs() {
+        return this.lxfs;
+    }
+    public void setLxfs(String lxfs) {
+        this.lxfs = lxfs;
+    }
+    public String getTxdz() {
+        return this.txdz;
+    }
+    public void setTxdz(String txdz) {
+        this.txdz = txdz;
+    }
+    public String getZcqznf() {
+		return this.zcqznf;
 	}
 	public void setZcqznf(String zcqznf) {
 		this.zcqznf = zcqznf;
 	}
 	public String getBz() {
-		return bz;
+		return this.bz;
 	}
 	public void setBz(String bz) {
 		this.bz = bz;
 	}
 	public String getJlnf() {
-		return jlnf;
+		return this.jlnf;
 	}
 	public void setJlnf(String jlnf) {
 		this.jlnf = jlnf;
 	}
 	public String getUsername() {
-		return username;
+		return this.username;
 	}
 	public void setUsername(String username) {
 		this.username = username;
 	}
 	public String getGxsj() {
-		return gxsj;
+		return this.gxsj;
 	}
 	public void setGxsj(String gxsj) {
 		this.gxsj = gxsj;
 	}
 	public int getSubmit() {
-		return submit;
+		return this.submit;
 	}
 	public void setSubmit(int submit) {
 		this.submit = submit;
 	}
 	public int getId() {
-		return id;
+		return this.id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
 	public String getYear() {
-		return year;
+		return this.year;
 	}
 	public void setYear(String year) {
 		this.year = year;
 	}
 	public String getQymc() {
-		return qymc;
+		return this.qymc;
 	}
 	public void setQymc(String qymc) {
 		this.qymc = qymc;
 	}
 	public String getCply() {
-		return cply;
+		return this.cply;
 	}
 	public void setCply(String cply) {
 		this.cply = cply;
 	}
 	public int getZgzs() {
-		return zgzs;
+		return this.zgzs;
 	}
 	public void setZgzs(int zgzs) {
 		this.zgzs = zgzs;
 	}
 	public int getDzysrs() {
-		return dzysrs;
+		return this.dzysrs;
 	}
 	public void setDzysrs(int dzysrs) {
 		this.dzysrs = dzysrs;
 	}
 	public int getYfrys() {
-		return yfrys;
+		return this.yfrys;
 	}
 	public void setYfrys(int yfrys) {
 		this.yfrys = yfrys;
 	}
 	public int getXmhds() {
-		return xmhds;
+		return this.xmhds;
 	}
 	public void setXmhds(int xmhds) {
 		this.xmhds = xmhds;
 	}
 	public int getCphds() {
-		return cphds;
+		return this.cphds;
 	}
 	public void setCphds(int cphds) {
 		this.cphds = cphds;
 	}
 	public String getJfze() {
-		return jfze;
+		return this.jfze;
 	}
 	public void setJfze(String jfze) {
 		this.jfze = jfze;
 	}
 	public String getYncpsr() {
-		return yncpsr;
+		return this.yncpsr;
 	}
 	public void setYncpsr(String yncpsr) {
 		this.yncpsr = yncpsr;
 	}
 	public String getJnyfze() {
-		return jnyfze;
+		return this.jnyfze;
 	}
 	public void setJnyfze(String jnyfze) {
 		this.jnyfze = jnyfze;
 	}
 	public String getDzrybl() {
-		return dzrybl;
+		return this.dzrybl;
 	}
 	public void setDzrybl(String dzrybl) {
 		this.dzrybl = dzrybl;
 	}
 	public String getYfrybl() {
-		return yfrybl;
+		return this.yfrybl;
 	}
 	public void setYfrybl(String yfrybl) {
 		this.yfrybl = yfrybl;
 	}
 	public String getJsnyfbl() {
-		return jsnyfbl;
+		return this.jsnyfbl;
 	}
 	public void setJsnyfbl(String jsnyfbl) {
 		this.jsnyfbl = jsnyfbl;
 	}
 	public String getJsnjnbl() {
-		return jsnjnbl;
+		return this.jsnjnbl;
 	}
 	public void setJsnjnbl(String jsnjnbl) {
 		this.jsnjnbl = jsnjnbl;
 	}
 	public String getJyngxsrbl() {
-		return jyngxsrbl;
+		return this.jyngxsrbl;
 	}
 	public void setJyngxsrbl(String jyngxsrbl) {
 		this.jyngxsrbl = jyngxsrbl;
 	}
 	public String getZhdf() {
-		return zhdf;
+		return this.zhdf;
 	}
 	public void setZhdf(String zhdf) {
 		this.zhdf = zhdf;
 	}
 	public String getZscqdf() {
-		return zscqdf;
+		return this.zscqdf;
 	}
 	public void setZscqdf(String zscqdf) {
 		this.zscqdf = zscqdf;
 	}
 	public String getGlspdf() {
-		return glspdf;
+		return this.glspdf;
 	}
 	public void setGlspdf(String glspdf) {
 		this.glspdf = glspdf;
 	}
 	public String getZhnldf() {
-		return zhnldf;
+		return this.zhnldf;
 	}
 	public void setZhnldf(String zhnldf) {
 		this.zhnldf = zhnldf;
 	}
 	public String getCzzbdf() {
-		return czzbdf;
+		return this.czzbdf;
 	}
 	public void setCzzbdf(String czzbdf) {
 		this.czzbdf = czzbdf;
 	}
 	public String getZhpj() {
-		return zhpj;
+		return this.zhpj;
 	}
 	public void setZhpj(String zhpj) {
 		this.zhpj = zhpj;
 	}
 	public String getPdzjz() {
-		return pdzjz;
+		return this.pdzjz;
 	}
 	public void setPdzjz(String pdzjz) {
 		this.pdzjz = pdzjz;
 	}
 
-	  
-	 
+
+
 }

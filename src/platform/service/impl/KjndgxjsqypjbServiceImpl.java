@@ -145,6 +145,10 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 
 		kjndgxjsqypjb.setSubmit(0);
 
+	      kjndgxjsqypjb.setLxr(kjndgxjsqypjbForm.getLxr());
+	        kjndgxjsqypjb.setLxfs(kjndgxjsqypjbForm.getLxfs());
+	        kjndgxjsqypjb.setTxdz(kjndgxjsqypjbForm.getTxdz());
+
 		this.kjndgxjsqypjbDao.update(kjndgxjsqypjb);
 
 	}
@@ -198,6 +202,10 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 		kjndgxjsqypjb.setGxsj(new Date().toString());
 		kjndgxjsqypjb.setSubmit(0);
 		kjndgxjsqypjb.setZcqznf(kjndgxjsqypjbForm.getZcqznf());
+
+        kjndgxjsqypjb.setLxr(kjndgxjsqypjbForm.getLxr());
+        kjndgxjsqypjb.setLxfs(kjndgxjsqypjbForm.getLxfs());
+        kjndgxjsqypjb.setTxdz(kjndgxjsqypjbForm.getTxdz());
 		this.kjndgxjsqypjbDao.save(kjndgxjsqypjb);
 	}
 	private List<KjndgxjsqypjbForm> KjndgxjsqypjbPOListToVOList(List<Kjndgxjsqypjb> list) {
@@ -240,6 +248,9 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 			kjndgxjsqypjbForm.setSubmit(String.valueOf(kjndgxjsqypjb.getSubmit()));
 
 			kjndgxjsqypjbForm.setZcqznf(kjndgxjsqypjb.getZcqznf());
+			kjndgxjsqypjbForm.setLxr(kjndgxjsqypjb.getLxr());
+			kjndgxjsqypjbForm.setLxfs(kjndgxjsqypjb.getLxfs());
+			kjndgxjsqypjbForm.setTxdz(kjndgxjsqypjb.getTxdz());
 			formlist.add(kjndgxjsqypjbForm);
 		}
 		return formlist;
@@ -436,36 +447,63 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 			    }
 			    lie++;
 			    break;
-			case "4":
-				Label lab4 = new Label(lie, 0, "主营产品所属领域",cellFormat);
-			    sheet.addCell(lab4);
+	         case "4":
+	                Label lab4 = new Label(lie, 0, "联系人",cellFormat);
+	                sheet.addCell(lab4);
+	                for(int j=1;j<=formlist.size();j++){
+	                    Label label = new Label(lie, j, formlist.get(j-1).getZcqznf(),cellFormat);
+	                    sheet.addCell(label);
+	                }
+	                lie++;
+	                break;
+	           case "5":
+	                Label lab5 = new Label(lie, 0, "联系方式",cellFormat);
+	                sheet.addCell(lab5);
+	                for(int j=1;j<=formlist.size();j++){
+	                    Label label = new Label(lie, j, formlist.get(j-1).getZcqznf(),cellFormat);
+	                    sheet.addCell(label);
+	                }
+	                lie++;
+	                break;
+	           case "6":
+	                Label lab6 = new Label(lie, 0, "通信地址",cellFormat);
+	                sheet.addCell(lab6);
+	                for(int j=1;j<=formlist.size();j++){
+	                    Label label = new Label(lie, j, formlist.get(j-1).getZcqznf(),cellFormat);
+	                    sheet.addCell(label);
+	                }
+	                lie++;
+	                break;
+			case "7":
+				Label lab7 = new Label(lie, 0, "主营产品所属领域",cellFormat);
+			    sheet.addCell(lab7);
 			    for(int j=1;j<=formlist.size();j++){
 			    	Label label = new Label(lie, j, formlist.get(j-1).getCply(),cellFormat);
 					sheet.addCell(label);
 			    }
 			    lie++;
 			    break;
-			case "5":
-				Label lab5 = new Label(lie, 0, "职工总数",cellFormat);
-			    sheet.addCell(lab5);
+			case "8":
+				Label lab8 = new Label(lie, 0, "职工总数",cellFormat);
+			    sheet.addCell(lab8);
 			    for(int j=1;j<=formlist.size();j++){
 			    	Label label = new Label(lie, j, formlist.get(j-1).getZgzs(),cellFormat);
 					sheet.addCell(label);
 			    }
 			    lie++;
 			    break;
-			case "6":
-				Label lab6 = new Label(lie, 0, "大专以上学历科技人员数",cellFormat);
-			    sheet.addCell(lab6);
+			case "9":
+				Label lab9 = new Label(lie, 0, "大专以上学历科技人员数",cellFormat);
+			    sheet.addCell(lab9);
 			    for(int j=1;j<=formlist.size();j++){
 			    	Label label = new Label(lie, j, formlist.get(j-1).getDzysrs(),cellFormat);
 					sheet.addCell(label);
 			    }
 			    lie++;
 			    break;
-			case "7":
-				Label lab7 = new Label(lie, 0, "研发人员数",cellFormat);
-			    sheet.addCell(lab7);
+			case "10":
+				Label lab10 = new Label(lie, 0, "研发人员数",cellFormat);
+			    sheet.addCell(lab10);
 			    for(int j=1;j<=formlist.size();j++){
 			    	Label label = new Label(lie, j, formlist.get(j-1).getYfrys(),cellFormat);
 					sheet.addCell(label);
@@ -473,63 +511,63 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 			    lie++;
 			    break;
 
-				case "8":
-					Label lab8 = new Label(lie, 0, "研发项目核定数",cellFormat);
-				    sheet.addCell(lab8);
+				case "11":
+					Label lab11 = new Label(lie, 0, "研发项目核定数",cellFormat);
+				    sheet.addCell(lab11);
 				    for(int j=1;j<=formlist.size();j++){
 				    	Label label = new Label(lie, j, formlist.get(j-1).getXmhds(),cellFormat);
 						sheet.addCell(label);
 				    }
 				    lie++;
 				    break;
-				case "9":
-					Label lab9 = new Label(lie, 0,"高新技术产品核定数",cellFormat);
-				    sheet.addCell(lab9);
+				case "12":
+					Label lab12 = new Label(lie, 0,"高新技术产品核定数",cellFormat);
+				    sheet.addCell(lab12);
 				    for(int j=1;j<=formlist.size();j++){
 				    	Label label = new Label(lie, j, formlist.get(j-1).getCphds(),cellFormat);
 						sheet.addCell(label);
 				    }
 				    lie++;
 				    break;
-				case "10":
-					Label lab10 = new Label(lie, 0, "研发项目经费核定总额",cellFormat);
-				    sheet.addCell(lab10);
+				case "13":
+					Label lab13 = new Label(lie, 0, "研发项目经费核定总额",cellFormat);
+				    sheet.addCell(lab13);
 				    for(int j=1;j<=formlist.size();j++){
 				    	Label label = new Label(lie, j, formlist.get(j-1).getJfze(),cellFormat);
 						sheet.addCell(label);
 				    }
 				    lie++;
 				    break;
-				case "11":
-					Label lab11 = new Label(lie, 0, "近一年高新产品销售收入核定额",cellFormat);
-				    sheet.addCell(lab11);
+				case "14":
+					Label lab14 = new Label(lie, 0, "近一年高新产品销售收入核定额",cellFormat);
+				    sheet.addCell(lab14);
 				    for(int j=1;j<=formlist.size();j++){
 				    	Label label = new Label(lie, j, formlist.get(j-1).getYncpsr(),cellFormat);
 						sheet.addCell(label);
 				    }
 				    lie++;
 				    break;
-				case "12":
-					Label lab12 = new Label(lie, 0, "在中国境内研发费用总额定数",cellFormat);
-				    sheet.addCell(lab12);
+				case "15":
+					Label lab15 = new Label(lie, 0, "在中国境内研发费用总额定数",cellFormat);
+				    sheet.addCell(lab15);
 				    for(int j=1;j<=formlist.size();j++){
 				    	Label label = new Label(lie, j, formlist.get(j-1).getJnyfze(),cellFormat);
 						sheet.addCell(label);
 				    }
 				    lie++;
 				    break;
-				case "13":
-					Label lab13 = new Label(lie, 0, "大专以上学历科技人员占企业职工总数比例",cellFormat);
-				    sheet.addCell(lab13);
+				case "16":
+					Label lab16 = new Label(lie, 0, "大专以上学历科技人员占企业职工总数比例",cellFormat);
+				    sheet.addCell(lab16);
 				    for(int j=1;j<=formlist.size();j++){
 				    	Label label = new Label(lie, j, formlist.get(j-1).getDzrybl(),cellFormat);
 						sheet.addCell(label);
 				    }
 				    lie++;
 				    break;
-				case "14":
-					Label lab14 = new Label(lie, 0, "研发人员占企89业职工总数的比例",cellFormat);
-				    sheet.addCell(lab14);
+				case "17":
+					Label lab17 = new Label(lie, 0, "研发人员占企89业职工总数的比例",cellFormat);
+				    sheet.addCell(lab17);
 				    for(int j=1;j<=formlist.size();j++){
 				    	Label label = new Label(lie, j, formlist.get(j-1).getYfrybl(),cellFormat);
 						sheet.addCell(label);
@@ -537,63 +575,63 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 				    lie++;
 				    break;
 
-					case "15":
-						Label lab15 = new Label(lie, 0, "近3年研究开发费用总额占总销售收入比例",cellFormat);
-					    sheet.addCell(lab15);
+					case "18":
+						Label lab18 = new Label(lie, 0, "近3年研究开发费用总额占总销售收入比例",cellFormat);
+					    sheet.addCell(lab18);
 					    for(int j=1;j<=formlist.size();j++){
 					    	Label label = new Label(lie, j, formlist.get(j-1).getJsnyfbl(),cellFormat);
 							sheet.addCell(label);
 					    }
 					    lie++;
 					    break;
-					case "16":
-						Label lab16 = new Label(lie, 0,"近3年在中国境内研发费用总额占全部研发费用总额比例",cellFormat);
-					    sheet.addCell(lab16);
+					case "19":
+						Label lab19 = new Label(lie, 0,"近3年在中国境内研发费用总额占全部研发费用总额比例",cellFormat);
+					    sheet.addCell(lab19);
 					    for(int j=1;j<=formlist.size();j++){
 					    	Label label = new Label(lie, j, formlist.get(j-1).getJsnjnbl(),cellFormat);
 							sheet.addCell(label);
 					    }
 					    lie++;
 					    break;
-					case "17":
-						Label lab17 = new Label(lie, 0, "近1年高新技术产品（服务）收入占当年总收入比例",cellFormat);
-					    sheet.addCell(lab17);
+					case "20":
+						Label lab20 = new Label(lie, 0, "近1年高新技术产品（服务）收入占当年总收入比例",cellFormat);
+					    sheet.addCell(lab20);
 					    for(int j=1;j<=formlist.size();j++){
 					    	Label label = new Label(lie, j, formlist.get(j-1).getJyngxsrbl(),cellFormat);
 							sheet.addCell(label);
 					    }
 					    lie++;
 					    break;
-					case "18":
-						Label lab18 = new Label(lie, 0, "综合得分",cellFormat);
-					    sheet.addCell(lab18);
+					case "21":
+						Label lab21 = new Label(lie, 0, "综合得分",cellFormat);
+					    sheet.addCell(lab21);
 					    for(int j=1;j<=formlist.size();j++){
 					    	Label label = new Label(lie, j, formlist.get(j-1).getZhdf(),cellFormat);
 							sheet.addCell(label);
 					    }
 					    lie++;
 					    break;
-					case "19":
-						Label lab19 = new Label(lie, 0, "知识产权得分",cellFormat);
-					    sheet.addCell(lab19);
+					case "22":
+						Label lab22 = new Label(lie, 0, "知识产权得分",cellFormat);
+					    sheet.addCell(lab22);
 					    for(int j=1;j<=formlist.size();j++){
 					    	Label label = new Label(lie, j, formlist.get(j-1).getZhnldf(),cellFormat);
 							sheet.addCell(label);
 					    }
 					    lie++;
 					    break;
-					case "20":
-						Label lab20 = new Label(lie, 0, "转化能力得分",cellFormat);
-					    sheet.addCell(lab20);
+					case "23":
+						Label lab23 = new Label(lie, 0, "转化能力得分",cellFormat);
+					    sheet.addCell(lab23);
 					    for(int j=1;j<=formlist.size();j++){
 					    	Label label = new Label(lie, j, formlist.get(j-1).getZhnldf(),cellFormat);
 							sheet.addCell(label);
 					    }
 					    lie++;
 					    break;
-					case "21":
-						Label lab21 = new Label(lie, 0, "管理水平得分",cellFormat);
-					    sheet.addCell(lab21);
+					case "24":
+						Label lab24 = new Label(lie, 0, "管理水平得分",cellFormat);
+					    sheet.addCell(lab24);
 					    for(int j=1;j<=formlist.size();j++){
 					    	Label label = new Label(lie, j, formlist.get(j-1).getGlspdf(),cellFormat);
 							sheet.addCell(label);
@@ -601,36 +639,36 @@ public class KjndgxjsqypjbServiceImpl implements KjndgxjsqypjbService{
 					    lie++;
 					    break;
 
-						case "22":
-							Label lab22 = new Label(lie, 0, "成长指标得分",cellFormat);
-						    sheet.addCell(lab22);
+						case "25":
+							Label lab25 = new Label(lie, 0, "成长指标得分",cellFormat);
+						    sheet.addCell(lab25);
 						    for(int j=1;j<=formlist.size();j++){
 						    	Label label = new Label(lie, j, formlist.get(j-1).getCzzbdf(),cellFormat);
 								sheet.addCell(label);
 						    }
 						    lie++;
 						    break;
-						case "23":
-							Label lab23 = new Label(lie, 0,"对企业整体情况的综合评价",cellFormat);
-						    sheet.addCell(lab23);
+						case "26":
+							Label lab26 = new Label(lie, 0,"对企业整体情况的综合评价",cellFormat);
+						    sheet.addCell(lab26);
 						    for(int j=1;j<=formlist.size();j++){
 						    	Label label = new Label(lie, j, formlist.get(j-1).getZhpj(),cellFormat);
 								sheet.addCell(label);
 						    }
 						    lie++;
 						    break;
-						case "24":
-							Label lab24 = new Label(lie, 0, "评定专家组",cellFormat);
-						    sheet.addCell(lab24);
+						case "27":
+							Label lab27 = new Label(lie, 0, "评定专家组",cellFormat);
+						    sheet.addCell(lab27);
 						    for(int j=1;j<=formlist.size();j++){
 						    	Label label = new Label(lie, j, formlist.get(j-1).getPdzjz(),cellFormat);
 								sheet.addCell(label);
 						    }
 						    lie++;
 						    break;
-						case "25":
-							Label lab25 = new Label(lie, 0, "备注",cellFormat);
-						    sheet.addCell(lab25);
+						case "28":
+							Label lab28 = new Label(lie, 0, "备注",cellFormat);
+						    sheet.addCell(lab28);
 						    for(int j=1;j<=formlist.size();j++){
 						    	Label label = new Label(lie, j, formlist.get(j-1).getBz(),cellFormat);
 								sheet.addCell(label);

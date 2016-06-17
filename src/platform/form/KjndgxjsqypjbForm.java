@@ -36,7 +36,28 @@ public class KjndgxjsqypjbForm implements java.io.Serializable{
 	  private String gxsj;
 	  private String submit;
 	  
-	  
+	   private String lxr;
+	      private String lxfs;
+	      private String txdz;
+
+	    public String getLxr() {
+	        return lxr;
+	    }
+	    public void setLxr(String lxr) {
+	        this.lxr = lxr;
+	    }
+	    public String getLxfs() {
+	        return lxfs;
+	    }
+	    public void setLxfs(String lxfs) {
+	        this.lxfs = lxfs;
+	    }
+	    public String getTxdz() {
+	        return txdz;
+	    }
+	    public void setTxdz(String txdz) {
+	        this.txdz = txdz;
+	    }
 	  
 	public String getZcqznf() {
 		return zcqznf;
