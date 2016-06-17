@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-
+<div style="page-break-after:always">
 <div data-options="region:'north',title:'查询'" style="height: 60px;">
         <form id="searchForm">
             <table>
@@ -305,6 +305,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</form>
 	</div>
 </div>	
+</div>
 </body>
 
 </html>
