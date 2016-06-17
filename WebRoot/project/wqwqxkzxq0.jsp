@@ -53,11 +53,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <td>
 						<input id="fileName" />
 					</td>
+                
+                    <!-- <th>许可类别：</th>
+                    <td>
+						<input id="xklb" />
+					</td> -->
                 </tr>
                 <tr>
-					<th>单位代号：</th>
+					<th>经济性质：</th>
 					<td>
-                        <input id="fileId" />
+                        <input id="jjxz" />
 					</td>
 					<td>
 						<a class="easyui-linkbutton" data-options="iconCls:'icon-search'" href="javascript:void(0);" onclick="doSearch();">查询</a>

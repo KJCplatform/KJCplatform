@@ -44,10 +44,14 @@ public class Wqwqxkzxq0ServiceImpl implements Wqwqxkzxq0Service{
 			hqlWhere += " and o.dwmc like ?";
 			paramsList.add("%"+wqwqxkzxq0Form.getDwmc()+"%");
 		}
-		if(wqwqxkzxq0Form!=null&&StringUtils.isNotBlank(wqwqxkzxq0Form.getDwdh())){
-			hqlWhere += " and o.dwdh like ?";
-			paramsList.add("%"+wqwqxkzxq0Form.getDwdh()+"%");
+		if(wqwqxkzxq0Form!=null&&StringUtils.isNotBlank(wqwqxkzxq0Form.getJjxz())){
+			hqlWhere += " and o.jjxz like ?";
+			paramsList.add("%"+wqwqxkzxq0Form.getJjxz()+"%");
 		}
+		/*if(wqwqxkzxq0Form!=null&&StringUtils.isNotBlank(wqwqxkzxq0Form.getXklb())){
+			hqlWhere += " and o.xklb like ?";
+			paramsList.add("%"+wqwqxkzxq0Form.getXklb()+"%");
+		}*/
 		orderby.put(" o.id", "desc");
 		params = paramsList.toArray();
 		List<Wqwqxkzxq0> list=wqwqxkzxq0Dao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);

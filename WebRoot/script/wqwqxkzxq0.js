@@ -60,7 +60,9 @@ function listDoc() {
 function doSearch() {
 	$('#dg').datagrid('load', {
 		dwmc : $('#fileName').val(),
-		dwdh : $('#fileId').val()
+		jjxz : $('#jjxz').val(),
+		//xklb : $('#xklb').val()
+		//dwdh : $('#fileId').val()
 	});
 }
 // 显示编辑窗口
