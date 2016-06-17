@@ -19,26 +19,41 @@ $(function() {
 		missingMessage : '不能为空'
 	});
 
-	
+	   $("#tdj").validatebox({
+	        required : true,
+	        missingMessage : '不能为空'
+	    });
+	    $("#ydj").validatebox({
+	        required : true,
+	        missingMessage : '不能为空'
+	    });
+	    $("#edj").validatebox({
+	        required : true,
+	        missingMessage : '不能为空'
+	    });
+	    $("#sdj").validatebox({
+	        required : true,
+	        missingMessage : '不能为空'
+	    });
 //	$("#tdj").numberbox({
-//	//	maxlength:11   
+//	//	maxlength:11
 //	});
 //	$("#ydj").numberbox({
-//	//	maxlength:11   
+//	//	maxlength:11
 //	});
-//	
+//
 //	$("#edj").numberbox({
-//	//	maxlength:11   
+//	//	maxlength:11
 //	});
-//	
+//
 //	$("#sdj").numberbox({
-//	//	maxlength:11   
+//	//	maxlength:11
 //	});
-//	
+//
 //	$("#hj").numberbox({
-//	//	maxlength:11   
+//	//	maxlength:11
 //	});
-	
+
 });
 //加载公文列表
 function listDoc() {
@@ -48,7 +63,7 @@ function listDoc() {
             width : 1200,
             height: 400,
             //fit: true,
-			fitColumns : true, // 自动适应列宽      
+			fitColumns : true, // 自动适应列宽
             pageSize : 10,//默认选择的分页是每页5行数据
             pageList : [ 5, 10, 15, 20 ],//可以选择的分页集合
             nowrap : true,//设置为true，当数据长度超出列宽时将会自动截取
@@ -83,11 +98,11 @@ function listDoc() {
 				}
 			}
 		 ],
-	 
-            onLoadSuccess: function (data) { 
-            	
+
+            onLoadSuccess: function (data) {
+
 				user=eval(data).user;
-			
+
 				 if(user!="admin"){
 					// alert("123");
 					 $("#delete").linkbutton("disable");
@@ -95,9 +110,9 @@ function listDoc() {
 				 }
 			}
         });
-	 
-	
-	 
+
+
+
 }
 //查询
 function doSearch(){
@@ -167,7 +182,7 @@ function editDoc() {
 	$("#edj").val(doc.edj);
 	$("#sdj").val(doc.sdj);
 	$("#hj").val(doc.hj);
-	
+
 	// 显示编辑页面
 	showEditForm();
 }
@@ -177,7 +192,7 @@ function dealSave() {
 	var actionAdd = basePath + '/system/KjgjkjjgfxmtjAction_add.action';
 	var actionUpdate = basePath + '/system/KjgjkjjgfxmtjAction_update.action';
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
-	
+
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
 			if (result.operateSuccess) {
@@ -258,4 +273,3 @@ function deleteDoc() {
 
 
 
-	

@@ -30,5 +30,8 @@
 		<property name="submit" type="integer">
 			<column name="submit" />
 		</property>
+                <property name="nd" type="string">
+            <column name="nd" />
+        </property>
 	</class>	
 </hibernate-mapping>

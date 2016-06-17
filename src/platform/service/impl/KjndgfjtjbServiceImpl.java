@@ -14,26 +14,27 @@ import platform.dao.KjndgfjtjbDao;
 import platform.domain.Kjndgfjtjb;
 import platform.form.KjndgfjtjbForm;
 import platform.service.KjndgfjtjbService;
-import platform.util.StringHelper;
 
 @SuppressWarnings("unused")
 @Service(KjndgfjtjbService.SERVICE_NAME)
 public class KjndgfjtjbServiceImpl implements KjndgfjtjbService{
-	
+
 	@Resource(name=KjndgfjtjbDao.SERVICE_NAME)
 	private KjndgfjtjbDao kjndgfjtjbDao;
-	
-	public List<KjndgfjtjbForm> findKjndgfjtjbList(){
+
+	@Override
+    public List<KjndgfjtjbForm> findKjndgfjtjbList(){
 		String hqlWhere = "";
 		Object [] params = null;
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 		orderby.put(" o.year", "desc");
-		List<Kjndgfjtjb> list=kjndgfjtjbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
+		List<Kjndgfjtjb> list=this.kjndgfjtjbDao.findCollectionByConditionNoPage(hqlWhere, params, orderby);
 		List<KjndgfjtjbForm> formlist=this.KjndgfjtjbPOListToVOList(list);
 		return formlist;
-		
+
 	}
-	public List<KjndgfjtjbForm> findKjndgfjtjbListWithPage(int pagesize,int pageno,KjndgfjtjbForm kjndgfjtjbForm){
+	@Override
+    public List<KjndgfjtjbForm> findKjndgfjtjbListWithPage(int pagesize,int pageno,KjndgfjtjbForm kjndgfjtjbForm){
 		String hqlWhere = "";
 		Object [] params = null;
 		List<String> paramsList=new ArrayList<String>();
@@ -48,10 +49,10 @@ public class KjndgfjtjbServiceImpl implements KjndgfjtjbService{
 		}
 		orderby.put(" o.year", "desc");
 		params = paramsList.toArray();
-		List<Kjndgfjtjb> list=kjndgfjtjbDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
+		List<Kjndgfjtjb> list=this.kjndgfjtjbDao.findCollectionByConditionWithPage(hqlWhere, params, orderby,pagesize,pageno);
 		List<KjndgfjtjbForm> formlist=this.KjndgfjtjbPOListToVOList(list);
 		return formlist;
-		
+
 	}
 	/*private int id;
 	  private String year;
@@ -61,73 +62,80 @@ public class KjndgfjtjbServiceImpl implements KjndgfjtjbService{
 	  private int edj;
 	  private int sdj;
 	  private int hj;*/
-	public void updateKjndgfjtjb(KjndgfjtjbForm kjndgfjtjbForm,String username){
+	@Override
+    public void updateKjndgfjtjb(KjndgfjtjbForm kjndgfjtjbForm,String username){
 		Kjndgfjtjb kjndgfjtjb=new Kjndgfjtjb();
 //		jljlqjhzb.setCljg(jljlqjhzbForm.getCljg());
 		//	jljlqjhzb.setFwrq(StringHelper.stringConvertDate(jljlqjhzbForm.getFwrq()));
 		kjndgfjtjb.setId(Integer.valueOf(kjndgfjtjbForm.getId()));
 		kjndgfjtjb.setYear(kjndgfjtjbForm.getYear());
-		
-		
+
+
 		kjndgfjtjb.setType(kjndgfjtjbForm.getType());
-		
+
 		if(kjndgfjtjbForm.getTdj()!=null&&!kjndgfjtjbForm.getTdj().equals(""))
 		kjndgfjtjb.setTdj(Integer.valueOf(kjndgfjtjbForm.getTdj()));
-		
+
 		if(kjndgfjtjbForm.getYdj()!=null&&!kjndgfjtjbForm.getYdj().equals(""))
 		kjndgfjtjb.setYdj(Integer.valueOf(kjndgfjtjbForm.getYdj()));
-		
+
 		if(kjndgfjtjbForm.getEdj()!=null&&!kjndgfjtjbForm.getEdj().equals(""))
 		kjndgfjtjb.setEdj(Integer.valueOf(kjndgfjtjbForm.getEdj()));
-		
+
 		if(kjndgfjtjbForm.getSdj()!=null&&!kjndgfjtjbForm.getSdj().equals(""))
 		kjndgfjtjb.setSdj(Integer.valueOf(kjndgfjtjbForm.getSdj()));
-		
+
 		if(kjndgfjtjbForm.getTdj()!=null&&!kjndgfjtjbForm.getTdj().equals("")
 				&&kjndgfjtjbForm.getYdj()!=null&&!kjndgfjtjbForm.getYdj().equals("")
-				&&kjndgfjtjbForm.getEdj()!=null&&!kjndgfjtjbForm.getEdj().equals(""))
+				&&kjndgfjtjbForm.getEdj()!=null&&!kjndgfjtjbForm.getEdj().equals("")
+				&&kjndgfjtjbForm.getSdj()!=null&&!kjndgfjtjbForm.getSdj().equals(""))
 		kjndgfjtjb.setHj(Integer.valueOf(kjndgfjtjbForm.getTdj())
 				+Integer.valueOf(kjndgfjtjbForm.getYdj())
-				+Integer.valueOf(kjndgfjtjbForm.getEdj()));
-		
+				+Integer.valueOf(kjndgfjtjbForm.getEdj())
+				+Integer.valueOf(kjndgfjtjbForm.getSdj()));
+
 		kjndgfjtjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjndgfjtjb.setUsername(username);
 		kjndgfjtjb.setGxsj(new Date().toString());
 		kjndgfjtjb.setSubmit(0);
-		kjndgfjtjbDao.update(kjndgfjtjb);
-		
+		this.kjndgfjtjbDao.update(kjndgfjtjb);
+
 	}
-	public void deleteObject(String id){
-		kjndgfjtjbDao.deleteObjectByIDs(Integer.valueOf(id));
+	@Override
+    public void deleteObject(String id){
+		this.kjndgfjtjbDao.deleteObjectByIDs(Integer.valueOf(id));
 	}
-	public void saveObject(KjndgfjtjbForm kjndgfjtjbForm,String username){
+	@Override
+    public void saveObject(KjndgfjtjbForm kjndgfjtjbForm,String username){
 		Kjndgfjtjb kjndgfjtjb=new Kjndgfjtjb();
 		kjndgfjtjb.setYear(kjndgfjtjbForm.getYear());
 		kjndgfjtjb.setType(kjndgfjtjbForm.getType());
 		if(kjndgfjtjbForm.getTdj()!=null&&!kjndgfjtjbForm.getTdj().equals(""))
 		kjndgfjtjb.setTdj(Integer.valueOf(kjndgfjtjbForm.getTdj()));
-		
+
 		if(kjndgfjtjbForm.getYdj()!=null&&!kjndgfjtjbForm.getYdj().equals(""))
 		kjndgfjtjb.setYdj(Integer.valueOf(kjndgfjtjbForm.getYdj()));
-		
+
 		if(kjndgfjtjbForm.getEdj()!=null&&!kjndgfjtjbForm.getEdj().equals(""))
 		kjndgfjtjb.setEdj(Integer.valueOf(kjndgfjtjbForm.getEdj()));
-		
+
 		if(kjndgfjtjbForm.getSdj()!=null&&!kjndgfjtjbForm.getSdj().equals(""))
 		kjndgfjtjb.setSdj(Integer.valueOf(kjndgfjtjbForm.getSdj()));
-		
-		if(kjndgfjtjbForm.getTdj()!=null&&!kjndgfjtjbForm.getTdj().equals("")
-				&&kjndgfjtjbForm.getYdj()!=null&&!kjndgfjtjbForm.getYdj().equals("")
-				&&kjndgfjtjbForm.getEdj()!=null&&!kjndgfjtjbForm.getEdj().equals(""))
-		kjndgfjtjb.setHj(Integer.valueOf(kjndgfjtjbForm.getTdj())
-				+Integer.valueOf(kjndgfjtjbForm.getYdj())
-				+Integer.valueOf(kjndgfjtjbForm.getEdj()));
-	
+
+        if(kjndgfjtjbForm.getTdj()!=null&&!kjndgfjtjbForm.getTdj().equals("")
+                &&kjndgfjtjbForm.getYdj()!=null&&!kjndgfjtjbForm.getYdj().equals("")
+                &&kjndgfjtjbForm.getEdj()!=null&&!kjndgfjtjbForm.getEdj().equals("")
+                &&kjndgfjtjbForm.getSdj()!=null&&!kjndgfjtjbForm.getSdj().equals(""))
+        kjndgfjtjb.setHj(Integer.valueOf(kjndgfjtjbForm.getTdj())
+                +Integer.valueOf(kjndgfjtjbForm.getYdj())
+                +Integer.valueOf(kjndgfjtjbForm.getEdj())
+                +Integer.valueOf(kjndgfjtjbForm.getSdj()));
+
 		kjndgfjtjb.setJlnf(String.valueOf(Calendar.getInstance().get(Calendar.YEAR)));
 		kjndgfjtjb.setUsername(username);
 		kjndgfjtjb.setGxsj(new Date().toString());
 		kjndgfjtjb.setSubmit(0);
-		kjndgfjtjbDao.save(kjndgfjtjb);
+		this.kjndgfjtjbDao.save(kjndgfjtjb);
 	}
 	private List<KjndgfjtjbForm> KjndgfjtjbPOListToVOList(List<Kjndgfjtjb> list) {
 		// TODO Auto-generated method stub
@@ -145,7 +153,7 @@ public class KjndgfjtjbServiceImpl implements KjndgfjtjbService{
 			kjndgfjtjbForm.setEdj(String.valueOf(kjndgfjtjb.getEdj()));
 			kjndgfjtjbForm.setSdj(String.valueOf(kjndgfjtjb.getSdj()));
 			kjndgfjtjbForm.setHj(String.valueOf(kjndgfjtjb.getHj()));
-			
+
 			kjndgfjtjbForm.setJlnf(kjndgfjtjb.getJlnf());
 			kjndgfjtjbForm.setUsername(kjndgfjtjb.getUsername());
 			kjndgfjtjbForm.setGxsj(kjndgfjtjb.getGxsj());
@@ -155,5 +163,5 @@ public class KjndgfjtjbServiceImpl implements KjndgfjtjbService{
 		return formlist;
 	}
 
-	
+
 }

@@ -18,27 +18,47 @@ $(function() {
 		required : true,
 		missingMessage : '不能为空'
 	});
+	   // 给文本框加上验证器
+    $("#tdj").validatebox({
+        required : true,
+        missingMessage : '不能为空'
+    });
+    // 给文本框加上验证器
+    $("#ydj").validatebox({
+        required : true,
+        missingMessage : '不能为空'
+    });
+    // 给文本框加上验证器
+    $("#edj").validatebox({
+        required : true,
+        missingMessage : '不能为空'
+    });
+    // 给文本框加上验证器
+    $("#sdj").validatebox({
+        required : true,
+        missingMessage : '不能为空'
+    });
 
-//	
+//
 //	$("#tdj").numberbox({
-//	//	maxlength:11   
+//	//	maxlength:11
 //	});
 //	$("#ydj").numberbox({
-//	//	maxlength:11   
+//	//	maxlength:11
 //	});
-//	
+//
 //	$("#edj").numberbox({
-//	//	maxlength:11   
+//	//	maxlength:11
 //	});
-//	
+//
 //	$("#sdj").numberbox({
-//	//	maxlength:11   
+//	//	maxlength:11
 //	});
-//	
+//
 //	$("#hj").numberbox({
-//	//	maxlength:11   
+//	//	maxlength:11
 //	});
-	
+
 });
 //加载公文列表
 function listDoc() {
@@ -48,7 +68,7 @@ function listDoc() {
             width : 1200,
             height: 400,
             //fit: true,
-			fitColumns : true, // 自动适应列宽      
+			fitColumns : true, // 自动适应列宽
             pageSize : 10,//默认选择的分页是每页5行数据
             pageList : [ 5, 10, 15, 20 ],//可以选择的分页集合
             nowrap : true,//设置为true，当数据长度超出列宽时将会自动截取
@@ -60,7 +80,7 @@ function listDoc() {
             //sortOrder : 'desc',//定义排序顺序，可以是'asc'或者'desc'（正序或者倒序）。
             pagination : true,//分页
             rownumbers : true,//行数
-			
+
             toolbar:[ {// 工具栏
 				text : '添加',
 				id:'add',
@@ -84,11 +104,11 @@ function listDoc() {
 				}
 			}
 		 ],
-	 
-            onLoadSuccess: function (data) { 
-            	
+
+            onLoadSuccess: function (data) {
+
 				user=eval(data).user;
-			
+
 				 if(user!="admin"){
 					// alert("123");
 					 $("#delete").linkbutton("disable");
@@ -96,8 +116,8 @@ function listDoc() {
 				 }
 			}
         });
-	 
-	 
+
+
 }
 //查询
 function doSearch(){
@@ -168,7 +188,7 @@ function editDoc() {
 	$("#edj").val(doc.edj);
 	$("#sdj").val(doc.sdj);
 	$("#hj").val(doc.hj);
-	
+
 	// 显示编辑页面
 	showEditForm();
 }
@@ -258,4 +278,3 @@ function deleteDoc() {
 
 
 
-	

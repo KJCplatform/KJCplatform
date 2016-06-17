@@ -80,6 +80,8 @@ public class KjgfjflqkServiceImpl implements KjgfjflqkService{
 		kjgfjflqk.setGxsj(new Date().toString());
 		kjgfjflqk.setSubmit(0);
 
+		kjgfjflqk.setNd(kjgfjflqkForm.getNd());
+
 		this.kjgfjflqkDao.update(kjgfjflqk);
 
 	}
@@ -98,6 +100,8 @@ public class KjgfjflqkServiceImpl implements KjgfjflqkService{
 		kjgfjflqk.setUsername(username);
 		kjgfjflqk.setGxsj(new Date().toString());
 		kjgfjflqk.setSubmit(0);
+
+	      kjgfjflqk.setNd(kjgfjflqkForm.getNd());
 
 		this.kjgfjflqkDao.save(kjgfjflqk);
 	}
@@ -118,7 +122,7 @@ public class KjgfjflqkServiceImpl implements KjgfjflqkService{
 			kjgfjflqkForm.setUsername(kjgfjflqk.getUsername());
 			kjgfjflqkForm.setGxsj(kjgfjflqk.getGxsj());
 			kjgfjflqkForm.setSubmit(String .valueOf(kjgfjflqk.getSubmit()));
-
+			kjgfjflqkForm.setNd(kjgfjflqk.getNd());
 
 			formlist.add(kjgfjflqkForm);
 		}
@@ -265,7 +269,15 @@ public class KjgfjflqkServiceImpl implements KjgfjflqkService{
 
 		for(int i = 0, k =0 ; i < ss.length; i ++){
 			switch (ss[i]) {
-			case "1":
+			 case "1":
+	                for(int j= 0;j< list.size();j++){
+	                    li.add(formlist.get(j).getNd());
+	                }
+	                lhm.put("年度", new ArrayList<String>(li));
+	                li.clear();
+	                k++;
+	                break;
+			case "2":
 			    for(int j= 0;j< list.size();j++){
 			    	li.add(formlist.get(j).getDj());
 			    }
@@ -274,7 +286,7 @@ public class KjgfjflqkServiceImpl implements KjgfjflqkService{
 			    k++;
 				break;
 
-			case "2":
+			case "3":
 			    for(int j= 0;j< list.size();j++){
 			    	li.add(formlist.get(j).getXmmc());
 			    }
@@ -282,7 +294,7 @@ public class KjgfjflqkServiceImpl implements KjgfjflqkService{
 			    li.clear();
 			    k++;
 				break;
-			case "3":
+			case "4":
 			    for(int j= 0;j< list.size();j++){
 			    	li.add(formlist.get(j).getZywcdw());
 			    }
@@ -290,7 +302,7 @@ public class KjgfjflqkServiceImpl implements KjgfjflqkService{
 			    li.clear();
 			    k++;
 				break;
-			case "4":
+			case "5":
 			    for(int j= 0;j< list.size();j++){
 			    	li.add(formlist.get(j).getJlnf());
 			    }
@@ -298,7 +310,7 @@ public class KjgfjflqkServiceImpl implements KjgfjflqkService{
 			    li.clear();
 			    k++;
 			    break;
-			case "5":
+			case "6":
 			    for(int j= 0;j< list.size();j++){
 			    	li.add(formlist.get(j).getUsername());
 			    }
@@ -306,7 +318,7 @@ public class KjgfjflqkServiceImpl implements KjgfjflqkService{
 			    li.clear();
 			    k++;
 				break;
-			case "6":
+			case "7":
 			    for(int j= 0;j< list.size();j++){
 			    	li.add(formlist.get(j).getGxsj());
 			    }
@@ -315,7 +327,7 @@ public class KjgfjflqkServiceImpl implements KjgfjflqkService{
 			    k++;
 				break;
 
-			case "7":
+			case "8":
 			    for(int j= 0;j< list.size();j++){
 			    	li.add(formlist.get(j).getSubmit());
 			    }

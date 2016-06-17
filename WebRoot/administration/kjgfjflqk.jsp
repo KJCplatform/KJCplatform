@@ -84,6 +84,7 @@
 		<table id="dg">
 			<thead>
 				<tr>
+                <th field="nd" width="130">年度</th>
 					<th field="dj" width="130">奖励等级</th>
 					<th field="xmmc" width="130">项目名称</th>
 					<th field="zywcdw" width="130">主要完成单位</th>
@@ -100,6 +101,11 @@
 	<form id="frmEdit" style="width:800px;height:400px"
 				method="post">
 				<input type="hidden" id="id" name="id" />
+                    <dl>
+                    <dd>
+                        年度: <input size="15" id="nd" name="nd" />
+                    </dd>
+                </dl>
 				<dl>
 					<dd>
 						奖励等级: <input size="15" id="dj" name="dj" />
@@ -152,13 +158,14 @@
 		<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
 		 >>>请选择导出项<<<
 		 <br> <br>
-<input name="Items" type="checkbox" checked="checked" value="1" />奖励等级<br>
-<input name="Items" type="checkbox" checked="checked" value="2" />项目名称<br> 
-<input name="Items" type="checkbox" checked="checked" value="3" />主要完成单位<br> 
-<input name="Items" type="checkbox" checked="checked" value="4" />记录时间（年份）<br>
-<input name="Items" type="checkbox" checked="checked" value="5" />操作员<br> 
-<input name="Items" type="checkbox" checked="checked" value="6" />更新时间<br> 
-<input name="Items" type="checkbox" checked="checked" value="7" />是否提交<br>
+         <input name="Items" type="checkbox" checked="checked" value="1" />年度<br>
+<input name="Items" type="checkbox" checked="checked" value="2" />奖励等级<br>
+<input name="Items" type="checkbox" checked="checked" value="3" />项目名称<br> 
+<input name="Items" type="checkbox" checked="checked" value="4" />主要完成单位<br> 
+<input name="Items" type="checkbox" checked="checked" value="5" />记录时间（年份）<br>
+<input name="Items" type="checkbox" checked="checked" value="6" />操作员<br> 
+<input name="Items" type="checkbox" checked="checked" value="7" />更新时间<br> 
+<input name="Items" type="checkbox" checked="checked" value="8" />是否提交<br>
 		</form>
 	</div>
 </div>	
