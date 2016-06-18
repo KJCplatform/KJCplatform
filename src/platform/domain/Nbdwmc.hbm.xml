@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="platform.domain.Nbdwmc" table="nb_dwmc">
+		<id name="id" type="integer">
+			<column name="id"  not-null="true"/>
+			<generator class="identity"/>
+		</id>
+        <property name="dwmc" type="string">
+			<column name="dwmc" />
+		</property>
+		<property name="dwdz" type="string">
+			<column name="dwdz" />
+		</property>
+		
+		<property name="yzbm" type="string">
+			<column name="yzbm" />
+		</property>
+		<property name="qh" type="string">
+			<column name="qh" />
+		</property>
+		<property name="zbdh" type="string">
+			<column name="zbdh" />
+		</property>
+		
+		<property name="czhm" type="string">
+			<column name="czhm" />
+		</property>
+		<property name="lxr" type="string">
+			<column name="lxr" />
+		</property>
+		<property name="zw" type="string">
+			<column name="zw" />
+		</property>
+		
+		<property name="sfsb" type="boolean">
+			<column name="sfsb" />
+		</property>
+		<property name="jinyong" type="boolean">
+			<column name="jinyong" />
+		</property>
+		
+		
+		<property name="jlnf" type="string">
+			<column name="jlnf" />
+		</property>
+			<property name="username" type="string">
+			<column name="username" />
+		</property>
+			<property name="gxsj" type="string">
+			<column name="gxsj" />
+		</property>
+			<property name="submit" type="integer">
+			<column name="submit" />
+		</property>
+		
+		
+		
+	</class>
+</hibernate-mapping>

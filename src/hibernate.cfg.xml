@@ -20,6 +20,7 @@
 	<property name="hibernate.hbm2ddl.auto">update</property>
 	<property name="hibernate.show_sql">true</property>
 
+    <mapping resource="platform/domain/Nbdwmc.hbm.xml" />
     <mapping resource="platform/domain/Wqwqxkzxx.hbm.xml" />
 	<mapping resource="platform/domain/Jgmyjsxqdcb.hbm.xml" />
 	<mapping resource="platform/domain/Jpptkyxmhzb.hbm.xml" />

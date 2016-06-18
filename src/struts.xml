@@ -69,6 +69,26 @@
 			</result>
 		</action>
 		
+		<action name="NbdwmcAction_*" class="platform.action.NbdwmcAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+				<result name="showimport" type="json">
+			</result>
+			<result name="showexport" type="json">
+			</result>
+		</action>
+		
 		
 		<action name="WqwqxkzxxAction_*" class="platform.action.WqwqxkzxxAction" method="{1}">			
 			<result name="list" type="json">
