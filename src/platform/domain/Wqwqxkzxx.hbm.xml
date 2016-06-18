@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="platform.domain.Wqwqxkzxx" table="wq_wqxkzxx">
+		<id name="id" type="java.lang.Integer">
+			<column name="id"  not-null="true"/>
+			<generator class="identity"/>
+		</id>
+		<property name="qymc" type="java.lang.String">
+			<column name="qymc" />
+		</property>
+		<property name="xmdm" type="java.lang.String">
+			<column name="xmdm" />
+		</property>
+		<property name="xmmc" type="java.lang.String">
+			<column name="xmmc" />
+		</property>
+		<property name="kysc" type="java.lang.String">
+			<column name="kysc" />
+		</property>
+		<property name="xklx" type="java.lang.String">
+			<column name="xklx" />	
+		</property>
+		<property name="yxq" type="java.lang.String">
+			<column name="yxq" />	
+		</property>
+		<property name="lb" type="java.lang.String">
+			<column name="lb" />	
+		</property>
+		
+		 <property name="jlnf" type="java.lang.String">
+            <column name="jlnf">
+                <comment>记录年份</comment>
+            </column>
+        </property>
+        
+         <property name="username" type="java.lang.String">
+            <column name="username">
+                <comment>操作员</comment>
+            </column>
+        </property>
+        <property name="gxsj" type="java.lang.String">
+            <column name="gxsj">
+                <comment>更新时间</comment>
+            </column>
+        </property>
+        
+         <property name="submit" type="java.lang.Integer">
+            <column name="submit">
+                <comment>是否提交</comment>
+            </column>
+        </property>
+        
+        
+		<!-- 
+		 <set name="Wqwqxkzxqxkzycps" table="wq_xkz_xkzycp" cascade="all">
+            <key>
+                <column name="FK_wq_wqxkzxq" not-null="true" />
+            </key>
+            <many-to-many class="platform.domain.Wqwqxkzxqxkzycp" column="FK_wq_xkzycp"/>
+        </set>
+        <set name="Wqwqxkzxqsrqks" table="wq_xkz_srqk" cascade="all">
+            <key>
+                <column name="FK_wq_wqxkzxq" not-null="true" />
+            </key>
+            <many-to-many class="platform.domain.Wqwqxkzxqsrqk" column="FK_wq_srqk"/>
+        </set>
+         -->
+	</class>
+</hibernate-mapping>

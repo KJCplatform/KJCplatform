@@ -9,6 +9,13 @@
 	<constant name="struts.devMode" value="true"></constant>
 	<!-- 配置struts的简单模式 -->
 	<constant name="struts.ui.theme" value="simple"></constant>
+	
+	
+	<bean type="org.apache.struts2.dispatcher.multipart.MultiPartRequest" 
+	name="myRequestParser" class="platform.util.CustomJakartaMultiPartRequest"  
+	scope="default" optional="true" /> 
+	<constant   name= "struts.multipart.handler"  value="myRequestParser" />
+	
 	<package name="system" namespace="/system" extends="json-default">
 	    <!-- 首页登录 -->
 	    <action name="PlatFormMenuAction_*" class="platform.action.PlatFormMenuAction" method="{1}">
@@ -43,6 +50,27 @@
 	    
 	    
 	    <action name="JgmyjsxqdcbAction_*" class="platform.action.JgmyjsxqdcbAction" method="{1}">			
+			<result name="list" type="json">
+			<param name="root">responseJson</param>
+			</result>
+			
+			<result name="add" type="json">
+				
+			</result>
+	    	<result name="delete" type="json">
+				
+			</result>
+	    	<result name="update" type="json">
+				
+			</result>
+				<result name="showimport" type="json">
+			</result>
+			<result name="showexport" type="json">
+			</result>
+		</action>
+		
+		
+		<action name="WqwqxkzxxAction_*" class="platform.action.WqwqxkzxxAction" method="{1}">			
 			<result name="list" type="json">
 			<param name="root">responseJson</param>
 			</result>
@@ -193,6 +221,9 @@
 			<result name="noFourth" type="json">
 				<param name="root">nofourth</param>
 			</result>
+			<result name="export" type="json">
+			</result>
+			
 		</action>
 		<action name="UserAction_*" class="platform.action.UserAction" method="{1}">			
 			<result name="home" type="json">
@@ -227,6 +258,9 @@
 			<result name="update" type="json">
 
 			</result>
+                <result name="upload" type="json">
+                
+            </result>
 			
 			<result name="showimport" type="json">
 
@@ -235,6 +269,10 @@
 			<result name="showexport" type="json">
 
 			</result>
+            
+            <result name="open" type="json">
+            
+            </result>
 			
 		</action>
 
@@ -431,6 +469,9 @@
 	    	<result name="delete" type="json">
 				
 			</result>
+			<result name="upload" type="json">
+				
+			</result>
 	    	<result name="update" type="json">
 				
 			</result>
@@ -438,6 +479,8 @@
 			</result>
 			
 			<result name="showexport" type="json">
+			</result>
+			<result name="open" type="json">
 			</result>
 		</action>
 		<action name="JpzlzkjbbAction_*" class="platform.action.JpzlzkjbbAction" method="{1}">			
@@ -700,12 +743,13 @@
  	    	<result name="update" type="json"> 
 				
  			</result> 
- 			    	<result name="addxkzycp" type="json"> 
-				
- 			</result> 
- 			    	<result name="addsrqk" type="json"> 
-				
- 			</result> 
+ 			    	<result name="showimport" type="json">
+
+			</result>
+
+			<result name="showexport" type="json">
+
+			</result> 
  			
 		</action> 
 		
@@ -723,12 +767,13 @@
  	    	<result name="update" type="json"> 
 				
  			</result> 
- 			    	<result name="addxkzycp" type="json"> 
-				
- 			</result> 
- 			    	<result name="addsrqk" type="json"> 
-				
- 			</result> 
+ 			    	<result name="showimport" type="json">
+
+			</result>
+
+			<result name="showexport" type="json">
+
+			</result> 
  			
 		</action> 
 		
@@ -745,13 +790,13 @@
  	    	<result name="update" type="json"> 
 				
  			</result> 
- 			    	<result name="addxkzycp" type="json"> 
-				
- 			</result> 
- 			    	<result name="addsrqk" type="json"> 
-				
- 			</result> 
- 			
+ 			    	<result name="showimport" type="json">
+
+			</result>
+
+			<result name="showexport" type="json">
+
+			</result>
 		</action> 
 		
 			<action name="Wqwqxkzxq4Action_*" class="platform.action.Wqwqxkzxq4Action" method="{1}">			 
@@ -767,12 +812,13 @@
  	    	<result name="update" type="json"> 
 				
  			</result> 
- 			    	<result name="addxkzycp" type="json"> 
-				
- 			</result> 
- 			    	<result name="addsrqk" type="json"> 
-				
- 			</result> 
+ 			    	<result name="showimport" type="json">
+
+			</result>
+
+			<result name="showexport" type="json">
+
+			</result> 
  			
 		</action> 
 		<action name="JpjgdwjbqkAction_*" class="platform.action.JpjgdwjbqkAction" method="{1}">			
@@ -823,7 +869,9 @@
 				
 			</result>
 			
-			
+			     <result name="showexport" type="json">
+
+            </result>
 			
 		</action>
 		

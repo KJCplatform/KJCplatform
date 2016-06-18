@@ -5,7 +5,7 @@
 <hibernate-configuration>
 <session-factory>
 	<property name="hibernate.connection.username">root</property>
-	<property name="hibernate.connection.password">123456</property>
+	<property name="hibernate.connection.password"></property>
 	<property name="hibernate.connection.driver_class">
 		com.mysql.jdbc.Driver
 	</property>
@@ -20,7 +20,7 @@
 	<property name="hibernate.hbm2ddl.auto">update</property>
 	<property name="hibernate.show_sql">true</property>
 
-
+    <mapping resource="platform/domain/Wqwqxkzxx.hbm.xml" />
 	<mapping resource="platform/domain/Jgmyjsxqdcb.hbm.xml" />
 	<mapping resource="platform/domain/Jpptkyxmhzb.hbm.xml" />
 	<mapping resource="platform/domain/Kjsbxmhzb.hbm.xml" />
