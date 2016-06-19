@@ -144,7 +144,7 @@ public class NbdwmcServiceImpl implements NbdwmcService{
 		return formlist;
 	}
 
-/*
+
 	
 	
 	
@@ -158,7 +158,7 @@ public class NbdwmcServiceImpl implements NbdwmcService{
 	public void showimportObject(String showimport) throws Exception {
 
 		String b = showimport.replace("\\", "\\\\");
-		String c = b.replace("C:\\\\fakepath", "D:");
+		String c = b.replace("C:\\\\fakepath", "D:\\kjcoutput");
 
 		Workbook book = Workbook.getWorkbook(new File(c));
 		// Workbook book = Workbook.getWorkbook( new File(b));
@@ -177,117 +177,49 @@ public class NbdwmcServiceImpl implements NbdwmcService{
 				for (int j = 0; j < columnum; j++) {
 					Cell cell0 = sheet.getCell(j, i);
 					switch (cell0.getContents().trim()) {
-					case "仪器编号":
+					case "单位名称":
 						array[j] = 1;
 						break;
-					case "仪器分类编码":
+					case "通信地址":
 						array[j] = 2;
 						break;
-					case "所在单位内仪器编号":
+					case "邮政编码":
 						array[j] = 3;
 						break;
-					case "仪器中文名称":
+					case "区号":
 						array[j] = 4;
 						break;
-					case "仪器英文名称":
+					case "值班电话":
 						array[j] = 5;
 						break;
-					case "仪器型号规格":
+					case "传真号码":
 						array[j] = 6;
 						break;
-					case "主要技术指标":
+					case "联系人":
 						array[j] = 7;
 						break;
-					case "主要测试和研究领域":
+					case "职务":
 						array[j] = 8;
 						break;
-					case "主要用途":
+					case "质量统计是否上报":
 						array[j] = 9;
 						break;
-					case "主要附件及功能":
+					case "是否禁用":
 						array[j] = 10;
 						break;
-					case "仪器认证情况":
+					case "记录年份":
 						array[j] = 11;
 						break;
-					case "生产厂商":
+					case "操作员":
 						array[j] = 12;
 						break;
-					case "产地国别":
+					case "更新时间":
 						array[j] = 13;
 						break;
-					case "仪器原值":
+					case "是否提交":
 						array[j] = 14;
 						break;
-					case "启用日期":
-						array[j] = 15;
-						break;
-					case "所在单位名称":
-						array[j] = 16;
-						break;
-					case "实验室名称":
-						array[j] = 17;
-						break;
-					case "仪器安放地址":
-						array[j] = 18;
-						break;
-					case "邮政编码":
-						array[j] = 19;
-						break;
-					case "仪器联系人":
-						array[j] = 20;
-						break;
-					case "电话":
-						array[j] = 21;
-						break;
-					case "电子邮件":
-						array[j] = 22;
-						break;
-					case "是否共享":
-						array[j] = 23;
-						break;
-					case "仪器状态":
-						array[j] = 24;
-						break;
-					case "开放机时安排":
-						array[j] = 25;
-						break;
-					case "参考收费标准":
-						array[j] = 26;
-						break;
-					case "服务统计年份":
-						array[j] = 27;
-						break;
-					case "年对外服务机时":
-						array[j] = 28;
-						break;
-					case "年对外服务收入":
-						array[j] = 29;
-						break;
-					case "知名用户及联系方式":
-						array[j] = 30;
-						break;
-					case "应用成果":
-						array[j] = 31;
-						break;
-					case "仪器图片":
-						array[j] = 32;
-						break;
-					case "备注":
-						array[j] = 33;
-						break;
-					case "记录时间（年份）":
-						array[j] = 34;
-						break;
-					case "操作员":
-						array[j] = 35;
-						break;
-					case "更新时间":
-						array[j] = 36;
-						break;
-					case "是否提交":
-						array[j] = 37;
-						break;
+					
 					}
 				}
 
@@ -295,135 +227,61 @@ public class NbdwmcServiceImpl implements NbdwmcService{
 
 			else {
 
-				Aaa aaa = new Aaa();
+				Nbdwmc nbdwmc = new Nbdwmc();
 				for (int j = 0; j < columnum; j++) {
 
 					Cell cell0 = sheet.getCell(j, i);
 
 					switch (array[j]) {
 					case 1:
-						aaa.setYqbh(cell0.getContents());
+						nbdwmc.setDwmc(cell0.getContents());
 						break;
 					case 2:
-						aaa.setFlbm(cell0.getContents());
+						nbdwmc.setDwdz(cell0.getContents());
 						break;
 					case 3:
-						aaa.setNbbh(cell0.getContents());
+						nbdwmc.setYzbm(cell0.getContents());
 						break;
 					case 4:
-						aaa.setZwmc(cell0.getContents());
+						nbdwmc.setQh(cell0.getContents());
 						break;
 					case 5:
-						aaa.setYwmc(cell0.getContents());
+						nbdwmc.setZbdh(cell0.getContents());
 						break;
 					case 6:
-						aaa.setXhgg(cell0.getContents());
+						nbdwmc.setCzhm(cell0.getContents());
 						break;
 					case 7:
-						aaa.setJszb(cell0.getContents());
+						nbdwmc.setLxr(cell0.getContents());
 						break;
 					case 8:
-						aaa.setCsyjly(cell0.getContents());
+						nbdwmc.setZw(cell0.getContents());
 						break;
 					case 9:
-						aaa.setZyyt(cell0.getContents());
+						nbdwmc.setSfsb(Boolean.valueOf(cell0.getContents()));
 						break;
 					case 10:
-						aaa.setZyfjgn(cell0.getContents());
+						nbdwmc.setJinyong(Boolean.valueOf(cell0.getContents()));
 						break;
+					
 					case 11:
-						aaa.setRzqk(cell0.getContents());
+						nbdwmc.setJlnf(cell0.getContents());
 						break;
 					case 12:
-						aaa.setSccs(cell0.getContents());
+						nbdwmc.setUsername(cell0.getContents());
 						break;
 					case 13:
-						aaa.setCdgb(cell0.getContents());
+						nbdwmc.setGxsj(cell0.getContents());
 						break;
 					case 14:
-						aaa.setFlbm(cell0.getContents());
-						break;
-					case 14:
-						aaa.setYqyz(cell0.getContents());
-						break;
-					case 15:
-						aaa.setQyrq(StringHelper.stringConvertDate(cell0.getContents()));
-						break;
-					case 16:
-						aaa.setSzdwmc(cell0.getContents());
-						break;
-					case 17:
-						aaa.setSysmc(cell0.getContents());
-						break;
-					case 18:
-						aaa.setAfdz(cell0.getContents());
-						break;
-					case 19:
-						aaa.setYzbm(cell0.getContents());
-						break;
-					case 20:
-						aaa.setLxr(cell0.getContents());
-						break;
-					case 21:
-						aaa.setDh(cell0.getContents());
-						break;
-					case 22:
-						aaa.setDzyj(cell0.getContents());
-						break;
-					case 23:
-						aaa.setSfgx(cell0.getContents());
-						break;
-					case 24:
-						aaa.setYqzt(cell0.getContents());
-						break;
-					case 25:
-						aaa.setKfjsap(cell0.getContents());
-						break;
-					case 27:
-						aaa.setSzdwmc(cell0.getContents());
-						break;
-					case 26:
-						aaa.setCksfbz(cell0.getContents());
-						break;
-					case 27:
-						aaa.setFwtjnf(cell0.getContents());
-						break;
-					case 28:
-						aaa.setNfwjs(cell0.getContents());
-						break;
-					case 29:
-						aaa.setNfwsr(cell0.getContents());
-						break;
-					case 30:
-						aaa.setZmyh(cell0.getContents());
-						break;
-					case 31:
-						aaa.setYycg(cell0.getContents());
-						break;
-					case 32:
-						aaa.setYqtp(cell0.getContents());
-						break;
-					case 33:
-						aaa.setBz(cell0.getContents());
-						break;
-					case 34:
-						aaa.setJlnf(cell0.getContents());
-						break;
-					case 35:
-						aaa.setUsername(cell0.getContents());
-						break;
-					case 36:
-						aaa.setGxsj(cell0.getContents());
-						break;
-					case 37:
 						try{
-						aaa.setSubmit(Integer.valueOf(cell0.getContents()));
+						nbdwmc.setSubmit(Integer.valueOf(cell0.getContents()));
 						}catch(Exception e){System.out.println("submit格式转换失败！");}
 						break;
 					}
 				}
 
-				aaaDao.save(aaa);
+				nbdwmcDao.save(nbdwmc);
 			}
 
 		}
@@ -434,309 +292,112 @@ public class NbdwmcServiceImpl implements NbdwmcService{
 		// }
 
 	}
-	*//**
+	/**
 	 * 将要导出的数据存成LinkedHashMap
 	 * @param ss
 	 * @return LinkedHashMap
-	 *//*
-	private LinkedHashMap<String, ArrayList<String>> getDataAsHashMap(String str){
+	 */
+	private LinkedHashMap<String, ArrayList<String>> getDataAsHashMap(String items){
 		LinkedHashMap<String, ArrayList<String>> lhm = new LinkedHashMap<String ,ArrayList<String>>();
 		List<String> li = new ArrayList<String>();
-		String[] ss = str.split(" ");
+		String[] ss = items.split(" ");
 		
 		String hqlWhere = "";
 		Object[] params = null;
 		LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
 		orderby.put(" o.id", "desc");
-		List<Aaa> list = aaaDao
+		List<Nbdwmc> list = nbdwmcDao
 				.findCollectionByConditionNoPage(hqlWhere, params, orderby);
-		List<AaaForm> formlist = this.AaaPOListToVOList(list);
+		List<NbdwmcForm> formlist = this.NbdwmcPOListToVOList(list);
 
 		for(int i = 0, k =0 ; i < ss.length; i ++){
 			switch (ss[i]) {
 			case "1":
 			    for(int j= 0;j< list.size();j++){
-			    	li.add(formlist.get(j).getYqbh());
+			    	li.add(formlist.get(j).getDwmc());
 			    }
-			    lhm.put("仪器编号", new ArrayList<String>(li));
+			    lhm.put("单位名称", new ArrayList<String>(li));
 			    li.clear();
 			    k++;
 				break;
 			
 			case "2":
 			    for(int j= 0;j< list.size();j++){
-			    	li.add(formlist.get(j).getFlbm());
+			    	li.add(formlist.get(j).getDwdz());
 			    }
-			    lhm.put("仪器分类编码", new ArrayList<String>(li));
+			    lhm.put("通信地址", new ArrayList<String>(li));
 			    li.clear();
 			    k++;
 				break;
 			case "3":
 			    for(int j= 0;j< list.size();j++){
-			    	li.add(formlist.get(j).getNbbh());
+			    	li.add(formlist.get(j).getYzbm());
 			    }
-			    lhm.put("所在单位内仪器编号", new ArrayList<String>(li));
+			    lhm.put("邮政编码", new ArrayList<String>(li));
 			    li.clear();
 			    k++;
 				break;
 			case "4":
 			    for(int j= 0;j< list.size();j++){
-			    	li.add(formlist.get(j).getZwmc());
+			    	li.add(formlist.get(j).getQh());
 			    }
-			    lhm.put("仪器中文名称", new ArrayList<String>(li));
+			    lhm.put("区号", new ArrayList<String>(li));
 			    li.clear();
 			    k++;
 				break;
 			
 			case "5":
 			    for(int j= 0;j< list.size();j++){
-			    	li.add(formlist.get(j).getYwmc());
+			    	li.add(formlist.get(j).getZbdh());
 			    }
-			    lhm.put("仪器英文名称", new ArrayList<String>(li));
+			    lhm.put("值班电话", new ArrayList<String>(li));
 			    li.clear();
 			    k++;
 				break;
 			case "6":
 			    for(int j= 0;j< list.size();j++){
-			    	li.add(formlist.get(j).getXhgg());
+			    	li.add(formlist.get(j).getCzhm());
 			    }
-			    lhm.put("仪器型号规格", new ArrayList<String>(li));
+			    lhm.put("传真号码", new ArrayList<String>(li));
 			    li.clear();
 			    k++;
 				break;
 				case "7":
 				    for(int j= 0;j< list.size();j++){
-				    	li.add(formlist.get(j).getJszb());
+				    	li.add(formlist.get(j).getLxr());
 				    }
-				    lhm.put("主要技术指标", new ArrayList<String>(li));
+				    lhm.put("联系人", new ArrayList<String>(li));
 				    li.clear();
 				    k++;
 					break;
 				
 				case "8":
 				    for(int j= 0;j< list.size();j++){
-				    	li.add(formlist.get(j).getCsyjly());
+				    	li.add(formlist.get(j).getZw());
 				    }
-				    lhm.put("主要测试和研究领域", new ArrayList<String>(li));
+				    lhm.put("职务", new ArrayList<String>(li));
 				    li.clear();
 				    k++;
 					break;
 				case "9":
 				    for(int j= 0;j< list.size();j++){
-				    	li.add(formlist.get(j).getZyyt());
+				    	li.add(formlist.get(j).getSfsb());
 				    }
-				    lhm.put("主要用途", new ArrayList<String>(li));
+				    lhm.put("质量统计是否上报", new ArrayList<String>(li));
 				    li.clear();
 				    k++;
 					break;
 				case "10":
 				    for(int j= 0;j< list.size();j++){
-				    	li.add(formlist.get(j).getZyfjgn());
+				    	li.add(formlist.get(j).getJinyong());
 				    }
-				    lhm.put("主要附件及功能", new ArrayList<String>(li));
+				    lhm.put("是否禁用", new ArrayList<String>(li));
 				    li.clear();
 				    k++;
 					break;
 				
-				case "11":
-				    for(int j= 0;j< list.size();j++){
-				    	li.add(formlist.get(j).getRzqk());
-				    }
-				    lhm.put("仪器认证情况", new ArrayList<String>(li));
-				    li.clear();
-				    k++;
-					break;
-				case "12":
-				    for(int j= 0;j< list.size();j++){
-				    	li.add(formlist.get(j).getSccs());
-				    }
-				    lhm.put("生产厂商", new ArrayList<String>(li));
-				    li.clear();
-				    k++;
-					break;
-					case "13":
-					    for(int j= 0;j< list.size();j++){
-					    	li.add(formlist.get(j).getCdgb());
-					    }
-					    lhm.put("产地国别", new ArrayList<String>(li));
-					    li.clear();
-					    k++;
-						break;
-					
-					case "14":
-					    for(int j= 0;j< list.size();j++){
-					    	li.add(formlist.get(j).getYqyz());
-					    }
-					    lhm.put("仪器原值", new ArrayList<String>(li));
-					    li.clear();
-					    k++;
-						break;
-					case "15":
-					    for(int j= 0;j< list.size();j++){
-					    	li.add(formlist.get(j).getQyrq());
-					    }
-					    lhm.put("启用日期", new ArrayList<String>(li));
-					    li.clear();
-					    k++;
-						break;
-					case "16":
-					    for(int j= 0;j< list.size();j++){
-					    	li.add(formlist.get(j).getSzdwmc());
-					    }
-					    lhm.put("所在单位名称", new ArrayList<String>(li));
-					    li.clear();
-					    k++;
-						break;
-					
-					case "17":
-					    for(int j= 0;j< list.size();j++){
-					    	li.add(formlist.get(j).getSysmc());
-					    }
-					    lhm.put("实验室名称", new ArrayList<String>(li));
-					    li.clear();
-					    k++;
-						break;
-					case "18":
-					    for(int j= 0;j< list.size();j++){
-					    	li.add(formlist.get(j).getAfdz());
-					    }
-					    lhm.put("仪器安放地址", new ArrayList<String>(li));
-					    li.clear();
-					    k++;
-						break;
-						case "19":
-						    for(int j= 0;j< list.size();j++){
-						    	li.add(formlist.get(j).getYzbm());
-						    }
-						    lhm.put("邮政编码", new ArrayList<String>(li));
-						    li.clear();
-						    k++;
-							break;
-						
-						case "20":
-						    for(int j= 0;j< list.size();j++){
-						    	li.add(formlist.get(j).getLxr());
-						    }
-						    lhm.put("仪器联系人", new ArrayList<String>(li));
-						    li.clear();
-						    k++;
-							break;
-						case "21":
-						    for(int j= 0;j< list.size();j++){
-						    	li.add(formlist.get(j).getDh());
-						    }
-						    lhm.put("电话", new ArrayList<String>(li));
-						    li.clear();
-						    k++;
-							break;
-						case "22":
-						    for(int j= 0;j< list.size();j++){
-						    	li.add(formlist.get(j).getDzyj());
-						    }
-						    lhm.put("电子邮件", new ArrayList<String>(li));
-						    li.clear();
-						    k++;
-							break;
-						
-						case "23":
-						    for(int j= 0;j< list.size();j++){
-						    	li.add(formlist.get(j).getSfgx());
-						    }
-						    lhm.put("是否共享", new ArrayList<String>(li));
-						    li.clear();
-						    k++;
-							break;
-						case "24":
-						    for(int j= 0;j< list.size();j++){
-						    	li.add(formlist.get(j).getYqzt());
-						    }
-						    lhm.put("仪器状态", new ArrayList<String>(li));
-						    li.clear();
-						    k++;
-							break;
-							case "25":
-							    for(int j= 0;j< list.size();j++){
-							    	li.add(formlist.get(j).getKfjsap());
-							    }
-							    lhm.put("开放机时安排", new ArrayList<String>(li));
-							    li.clear();
-							    k++;
-								break;
-							case "26":
-							    for(int j= 0;j< list.size();j++){
-							    	li.add(formlist.get(j).getCksfbz());
-							    }
-							    lhm.put("参考收费标准", new ArrayList<String>(li));
-							    li.clear();
-							    k++;
-								break;
-							
-							case "27":
-							    for(int j= 0;j< list.size();j++){
-							    	li.add(formlist.get(j).getFwtjnf());
-							    }
-							    lhm.put("服务统计年份", new ArrayList<String>(li));
-							    li.clear();
-							    k++;
-								break;
-							case "28":
-							    for(int j= 0;j< list.size();j++){
-							    	li.add(formlist.get(j).getNfwjs());
-							    }
-							    lhm.put("年对外服务机时", new ArrayList<String>(li));
-							    li.clear();
-							    k++;
-								break;
-								case "29":
-								    for(int j= 0;j< list.size();j++){
-								    	li.add(formlist.get(j).getNfwsr());
-								    }
-								    lhm.put("年对外服务收入", new ArrayList<String>(li));
-								    li.clear();
-								    k++;
-									break;
-								
-								case "30":
-								    for(int j= 0;j< list.size();j++){
-								    	li.add(formlist.get(j).getZmyh());
-								    }
-								    lhm.put("知名用户及联系方式", new ArrayList<String>(li));
-								    li.clear();
-								    k++;
-									break;
-								case "31":
-								    for(int j= 0;j< list.size();j++){
-								    	li.add(formlist.get(j).getYycg());
-								    }
-								    lhm.put("应用成果", new ArrayList<String>(li));
-								    li.clear();
-								    k++;
-									break;
-								case "32":
-								    for(int j= 0;j< list.size();j++){
-								    	li.add(formlist.get(j).getYqtp());
-								    }
-								    lhm.put("仪器图片", new ArrayList<String>(li));
-								    li.clear();
-								    k++;
-									break;
-								
-								case "33":
-								    for(int j= 0;j< list.size();j++){
-								    	li.add(formlist.get(j).getBz());
-								    }
-								    lhm.put("备注", new ArrayList<String>(li));
-								    li.clear();
-								    k++;
-									break;
 				
-				
-				
-				
-				
-				
-				
-			case "34":
+			case "11":
 			    for(int j= 0;j< list.size();j++){
 			    	li.add(formlist.get(j).getJlnf());
 			    }
@@ -744,7 +405,7 @@ public class NbdwmcServiceImpl implements NbdwmcService{
 			    li.clear();
 			    k++;
 			    break;
-			case "35":
+			case "12":
 			    for(int j= 0;j< list.size();j++){
 			    	li.add(formlist.get(j).getUsername());
 			    }
@@ -752,7 +413,7 @@ public class NbdwmcServiceImpl implements NbdwmcService{
 			    li.clear();
 			    k++;
 				break;
-			case "36":
+			case "13":
 			    for(int j= 0;j< list.size();j++){
 			    	li.add(formlist.get(j).getGxsj());
 			    }
@@ -761,7 +422,7 @@ public class NbdwmcServiceImpl implements NbdwmcService{
 			    k++;
 				break;
 				
-			case "37":
+			case "14":
 			    for(int j= 0;j< list.size();j++){
 			    	li.add(formlist.get(j).getSubmit());
 			    }
@@ -779,7 +440,7 @@ public class NbdwmcServiceImpl implements NbdwmcService{
 	
 	
 	@Override
-	public void showexportObject(String str) throws Exception {
+	public void showexportObject(String items) throws Exception {
 
 		File file =new File("D:\\kjcoutput");    
 		//如果文件夹不存在则创建    
@@ -789,11 +450,11 @@ public class NbdwmcServiceImpl implements NbdwmcService{
 		    file .mkdir();    
 		} 
 		
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmm");// 设置日期格式
 		// System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
 		String time = df.format(new Date());
-		String path = "D:\\kjcoutput\\大型仪器信息表    admin  " + time + ".xls";	
-		CreateExcel.createExcel(getDataAsHashMap(str), path);				
-	}*/
+		String path = "D:\\kjcoutput\\国防科技工业单位册    admin  " + time + ".xls";	
+		CreateExcel.createExcel(getDataAsHashMap(items), path);				
+	}
 	
 }

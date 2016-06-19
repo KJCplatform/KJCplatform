@@ -15,7 +15,7 @@ public interface NbdwmcService {
 	public void saveObject(NbdwmcForm nbdwmcForm, String username);
 	
 	
-	/*public void showimportObject(String nbdwmcForm) throws Exception;
-	public void showexportObject(String items) throws Exception;*/
+	public void showimportObject(String nbdwmcForm) throws Exception;
+	public void showexportObject(String items) throws Exception;
 
 }

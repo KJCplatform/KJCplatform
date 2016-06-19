@@ -113,19 +113,19 @@ public class NbdwmcAction extends BaseAction implements ModelDriven<NbdwmcForm>{
 		return "add";
 	}
 	
-	/*public String showimport() throws Exception{
-		System.out.println(aaaForm.getYqbh());
-		aaaService.showimportObject(aaaForm.getYqbh());
+	public String showimport() throws Exception{
+		System.out.println(nbdwmcForm.getId());
+		nbdwmcService.showimportObject(nbdwmcForm.getId());
 		operateSuccess=true;
 		return "showimport";
 	}
 	
 	public String showexport() throws Exception{
 		//System.out.println(kjsjjljgxxbForm.getFrmc());
-		aaaService.showexportObject(aaaForm.getYqbh());
+		nbdwmcService.showexportObject(nbdwmcForm.getId());
 		operateSuccess=true;
 		return "showexport";
-	}*/
+	}
 }
 
 

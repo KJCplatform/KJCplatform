@@ -32,7 +32,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/JpzlzkjbbAction_list.action';
 	 $('#dg').datagrid({
-            title : '国防科技工业军工产品质量',
+            title : '军工产品质量报表',
             width : 1200,
             height: 400,
             //fit: true,
@@ -100,7 +100,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '国防科技工业军工产品质量',
+		title : '军工产品质量报表',
 		iconCls : 'icon-save',
 		buttons : [ {
 			text : '确认',

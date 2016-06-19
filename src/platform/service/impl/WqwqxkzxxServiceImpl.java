@@ -392,7 +392,7 @@ public class WqwqxkzxxServiceImpl implements WqwqxkzxxService{
 		    file .mkdir();    
 		} 
 		
-		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
+		SimpleDateFormat df = new SimpleDateFormat("yyyyMMddHHmm");// 设置日期格式
 		// System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
 		String time = df.format(new Date());
 		String path = "D:\\kjcoutput\\武器装备科研生产许可信息表    admin  " + time + ".xls";	

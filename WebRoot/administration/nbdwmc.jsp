@@ -64,11 +64,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
 </div>
           
-    <!-- <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
+     <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
    选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
        　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
        <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
-</form> -->
+</form> 
 
 <div data-options="region:'center',split:false" >
 	<!-- 表格主题部分-->
@@ -160,43 +160,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<form id="frmEdit2" style="height:400px;margin:0px 0px 0px 0px"  method= "post">
 		 >>>请选择导出项<<<
 		 <br> <br>
-<input name="Items" type="checkbox" checked="checked" value="1" />仪器编号<br>
-<input name="Items" type="checkbox" checked="checked" value="2" />仪器分类编码<br> 
-<input name="Items" type="checkbox" checked="checked" value="3" />所在单位内仪器编号<br> 
-<input name="Items" type="checkbox" checked="checked" value="4" />仪器中文名称<br>
-<input name="Items" type="checkbox" checked="checked" value="5" />仪器英文名称<br> 
-<input name="Items" type="checkbox" checked="checked" value="6" />仪器型号规格<br> 
-<input name="Items" type="checkbox" checked="checked" value="7" />主要技术指标<br>
-<input name="Items" type="checkbox" checked="checked" value="8" />主要测试和研究领域<br>
-<input name="Items" type="checkbox" checked="checked" value="9" />主要用途<br>
-<input name="Items" type="checkbox" checked="checked" value="10" />主要附件及功能<br>
-<input name="Items" type="checkbox" checked="checked" value="11" />仪器认证情况<br>
-<input name="Items" type="checkbox" checked="checked" value="12" />生产厂商<br>
-<input name="Items" type="checkbox" checked="checked" value="13" />产地国别<br>
-<input name="Items" type="checkbox" checked="checked" value="14" />仪器原值<br>
-<input name="Items" type="checkbox" checked="checked" value="15" />启用日期<br>
-<input name="Items" type="checkbox" checked="checked" value="16" />所在单位名称<br>
-<input name="Items" type="checkbox" checked="checked" value="17" />实验室名称<br>
-<input name="Items" type="checkbox" checked="checked" value="18" />仪器安放地址<br>
-<input name="Items" type="checkbox" checked="checked" value="19" />邮政编码<br>
-<input name="Items" type="checkbox" checked="checked" value="20" />仪器联系人<br>
-<input name="Items" type="checkbox" checked="checked" value="21" />电话<br>
-<input name="Items" type="checkbox" checked="checked" value="22" />电子邮件<br>
-<input name="Items" type="checkbox" checked="checked" value="23" />是否共享<br>
-<input name="Items" type="checkbox" checked="checked" value="24" />仪器状态<br>
-<input name="Items" type="checkbox" checked="checked" value="25" />开放机时安排<br>
-<input name="Items" type="checkbox" checked="checked" value="26" />参考收费标准<br>
-<input name="Items" type="checkbox" checked="checked" value="27" />服务统计年份<br>
-<input name="Items" type="checkbox" checked="checked" value="28" />年对外服务机时<br>
-<input name="Items" type="checkbox" checked="checked" value="29" />年对外服务收入<br>
-<input name="Items" type="checkbox" checked="checked" value="30" />知名用户及联系方式<br>
-<input name="Items" type="checkbox" checked="checked" value="31" />应用成果<br>
-<input name="Items" type="checkbox" checked="checked" value="32" />仪器图片<br>
-<input name="Items" type="checkbox" checked="checked" value="33" />备注<br>
-<input name="Items" type="checkbox" checked="checked" value="34" />记录年份<br>
-<input name="Items" type="checkbox" checked="checked" value="35" />操作员<br>
-<input name="Items" type="checkbox" checked="checked" value="36" />更新时间<br>
-<input name="Items" type="checkbox" checked="checked" value="37" />是否提交<br>
+<input name="Items" type="checkbox" checked="checked" value="1" />单位名称<br>
+<input name="Items" type="checkbox" checked="checked" value="2" />通信地址<br> 
+<input name="Items" type="checkbox" checked="checked" value="3" />邮政编码<br> 
+<input name="Items" type="checkbox" checked="checked" value="4" />区号<br>
+<input name="Items" type="checkbox" checked="checked" value="5" />值班电话<br> 
+<input name="Items" type="checkbox" checked="checked" value="6" />传真号码<br> 
+<input name="Items" type="checkbox" checked="checked" value="7" />联系人<br>
+<input name="Items" type="checkbox" checked="checked" value="8" />职务<br>
+<input name="Items" type="checkbox" checked="checked" value="9" />质量统计是否上报<br>
+<input name="Items" type="checkbox" checked="checked" value="10" />是否禁用<br>
+
+<input name="Items" type="checkbox" checked="checked" value="11" />记录年份<br>
+<input name="Items" type="checkbox" checked="checked" value="12" />操作员<br>
+<input name="Items" type="checkbox" checked="checked" value="13" />更新时间<br>
+<input name="Items" type="checkbox" checked="checked" value="14" />是否提交<br>
 
 		</form>
 	</div>

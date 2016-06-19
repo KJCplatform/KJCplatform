@@ -180,6 +180,8 @@ function dealSave() {
 	// 得到doc的值，为空串表示添加的值，为空串表示添加
 	if ($("#id").val() == "") {
 		$.post(actionAdd, params, function(result) {
+			if($("#sfsb").val() == "") $.messager.alert('添加', '是否上报未填', 'warning');
+			if($("#jinyong").val() == "") $.messager.alert('添加', '是否禁用未填', 'warning');
 			if (result.operateSuccess) {
 					//alert(result);
 					$('#dg').datagrid('reload');// 重新加载
@@ -232,7 +234,7 @@ function deleteDoc() {
 	}
 	$.messager.confirm('确认', '真的要删除选中的记录吗？', function(r) {
 		if (r) {
-			var actionPath = basePath + '/system/AaaAction_delete.action?id=';
+			var actionPath = basePath + '/system/NbdwmcAction_delete.action?id=';
 			var url = actionPath + doc.id;
 			// 试一下get方法（地址，回调函数）
 			$.get(url, function(result) {
@@ -284,8 +286,8 @@ function ShowImport(){
 	                   //提交表单  
 	                   //document.getElementById("questionTypesManage").action="${pageContext.request.contextPath}/leadtoQuestionTypes/leadInExcelQuestionBank?questionType="+questionTypes+"&courseType="+courseType;  
 	            	//document.getElementById("questionTypesManage").submit();     
-	            		var params ="yqbh="+fileName;
-	            		var showimport = basePath + '/system/AaaAction_showimport.action';
+	            		var params ="id="+fileName;
+	            		var showimport = basePath + '/system/NbdwmcAction_showimport.action';
 
 	            		//alert(params);
 	            		
@@ -313,7 +315,7 @@ function ShowImport(){
 function ShowExport(){
 	  
 	var Items = document.getElementsByName("Items"); 
-	var params ="yqbh=";
+	var params ="id=";
 	
   for(var i = 0; i < Items.length; i++) 
   { 
@@ -325,7 +327,7 @@ function ShowExport(){
 
 	//alert(params);
 
-	var showimport = basePath + '/system/AaaAction_showexport.action';
+	var showimport = basePath + '/system/NbdwmcAction_showexport.action';
 	            				
 	$.post(showimport, params, function(result) {
 	        			if (result.operateSuccess) {
