@@ -112,6 +112,13 @@ public class Wqwqxkzxq0Action extends BaseAction implements ModelDriven<Wqwqxkzx
 		operateSuccess=true;
 		return "add";
 	}
+	
+	public String showexport() throws Exception {
+		// System.out.println(xzxzgzbForm.getId());
+		wqwqxkzxq0Service.showExportObject(Wqwqxkzxq0Form.getId());
+		operateSuccess = true;
+		return "showexport";
+	}
 }
 
 

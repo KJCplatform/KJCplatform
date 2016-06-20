@@ -13,6 +13,7 @@ public interface Wqwqxkzxq0Service {
 	public void updateWqwqxkzxq0(Wqwqxkzxq0Form Wqwqxkzxq0Form);
 	public void deleteObject(String id);
 	public void saveObject(Wqwqxkzxq0Form Wqwqxkzxq0Form);
+	public void showExportObject(String items) throws Exception;
 	//public void updateWqwqxkzxq0Withget(Wqwqxkzxq0Form Wqwqxkzxq0Form);
 
 }
