@@ -78,29 +78,31 @@
 						<td><a href="javascript:void(0);" class="easyui-linkbutton"
 							data-options="iconCls:'icon-print'" style="width:80px"
 							onclick="print1();">打印</a></td>
+							<td>
+							<a href="#" class="easyui-linkbutton" id="btnExport" onclick="selectExcel()">导出</a>
 						<!-- <td><a href="javascript:void(0);" class="easyui-linkbutton" id="btnExport"
 							onclick="selectExcel();">导出</a></td> -->
-							
+						</td>	
 					</tr>
 				</table>
 			</form>
 		</div>
 		
-		<form id="questionTypesManage" method="post"
+		<!-- <form id="questionTypesManage" method="post"
 		enctype="multipart/form-data">
 		 选择文件： <input type="text" id="uploadExcel" name="uploadExcel"
 			class="easyui-filebox" style="width:200px"
 			data-options="prompt:'请选择文件...'"> 
 			<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()">导入</a> 
 		<a href="#" class="easyui-linkbutton" id="btnExport" onclick="selectExcel()">导出</a>
-		 <!-- <a href="#" class="easyui-linkbutton" id="btnExport" onclick="writeFileToService()">上传附件</a> -->
-		<!-- <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="topdf()" >导出pdf</a>　 -->
-	</form>
+		 <a href="#" class="easyui-linkbutton" id="btnExport" onclick="writeFileToService()">上传附件</a>
+		<a href="#" class="easyui-linkbutton" id="btnExport"  onclick="topdf()" >导出pdf</a>　
+	</form> -->
 
 <div id="divEdit2" style="display:none;">
-		<div id="tabEdit2" style="overflow-y:auto;">
-			<form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"
-				method="post">
+		<div id="tabEdit2" style="heigh:500px;overflow:auto;">
+			<form id="frmEdit2" style="width:400px;margin:0px 0px 0px 0px;height:400px;overflow-y:auto;"
+				method="post"> 
 				>>>请选择导出项<<< <br> <br> 
 				<input name="Items" type="checkbox" checked="checked" value="1" />单位名称 <br> 
 				<input name="Items" type="checkbox" checked="checked" value="2" />其他名称<br> 
