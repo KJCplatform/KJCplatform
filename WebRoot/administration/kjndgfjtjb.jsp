@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>国防科学技术进步奖和发明奖统计表</title>
+<title>年度我省获国防科学技术进步奖和发明奖统计表</title>
 <link href="<%=path%>/css/default.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=basePath%>/script/easyui/themes/default/easyui.css" />

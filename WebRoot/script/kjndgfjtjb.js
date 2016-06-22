@@ -64,7 +64,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/KjndgfjtjbAction_list.action';
 	 $('#dg').datagrid({
-            title : '国防科学技术进步奖和发明奖统计表',
+            title : '年度我省获国防科学技术进步奖和发明奖统计表',
             width : 1200,
             height: 400,
             //fit: true,
@@ -130,7 +130,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '国防科学技术进步奖和发明奖统计表',
+		title : '年度我省获国防科学技术进步奖和发明奖统计表',
 		iconCls : 'icon-save',
 		width :  '55%',
 	       height:  '100%',

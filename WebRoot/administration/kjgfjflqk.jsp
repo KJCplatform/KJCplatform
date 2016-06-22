@@ -8,7 +8,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>湖北省科学技术奖励</title>
+<title>年度我省获国防科学技术奖特一二等奖情况</title>
 <link href="<%=path%>/css/default.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=basePath%>/script/easyui/themes/default/easyui.css" />

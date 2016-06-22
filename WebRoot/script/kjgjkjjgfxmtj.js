@@ -59,7 +59,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/KjgjkjjgfxmtjAction_list.action';
 	 $('#dg').datagrid({
-            title : '国家科学技术奖国防科技工业专用项目特等奖统计',
+            title : '年度我省获国家科学技术奖国防科技工业专用项目特等奖统计',
             width : 1200,
             height: 400,
             //fit: true,
@@ -125,7 +125,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '国家科学技术奖国防科技工业专用项目特等奖统计',
+		title : '年度我省获国家科学技术奖国防科技工业专用项目特等奖统计',
 		iconCls : 'icon-save',
 		width :  '55%',
 	       height:  '100%',

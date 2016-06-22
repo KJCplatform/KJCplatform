@@ -25,11 +25,11 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/KjgjkjjgftdtjAction_list.action';
 	 $('#dg').datagrid({
-            title : '国家科学技术奖国防科技工业专用项目统计',
+            title : '年度我省获国家科学技术奖国防科技工业专用项目特等奖统计',
             width : 1200,
             height: 400,
             //fit: true,
-			fitColumns : true, // 自动适应列宽      
+			fitColumns : true, // 自动适应列宽
             pageSize : 10,//默认选择的分页是每页5行数据
             pageList : [ 5, 10, 15, 20 ],//可以选择的分页集合
             nowrap : true,//设置为true，当数据长度超出列宽时将会自动截取
@@ -41,7 +41,7 @@ function listDoc() {
             //sortOrder : 'desc',//定义排序顺序，可以是'asc'或者'desc'（正序或者倒序）。
             pagination : true,//分页
             rownumbers : true,//行数
-			
+
             toolbar:[ {// 工具栏
 				text : '添加',
 				id:'add',
@@ -65,11 +65,11 @@ function listDoc() {
 				}
 			}
 		 ],
-	 
-            onLoadSuccess: function (data) { 
-            	
+
+            onLoadSuccess: function (data) {
+
 				user=eval(data).user;
-			
+
 				 if(user!="admin"){
 					// alert("123");
 					 $("#delete").linkbutton("disable");
@@ -77,9 +77,9 @@ function listDoc() {
 				 }
 			}
         });
-	 
 
-	 
+
+
 }
 //查询
 function doSearch(){
@@ -92,7 +92,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '国家科学技术奖国防科技工业专用项目统计',
+		title : '年度我省获国家科学技术奖国防科技工业专用项目特等奖统计',
 		iconCls : 'icon-save',
 		width :  '55%',
 	       height:  '100%',
@@ -146,7 +146,7 @@ function editDoc() {
 	$("#nd").val(doc.nd);
 	$("#xmmc").val(doc.xmmc);
 	$("#zywcdw").val(doc.zywcdw);
-	
+
 	// 显示编辑页面
 	showEditForm();
 }
@@ -236,4 +236,3 @@ function deleteDoc() {
 
 
 
-	

@@ -40,7 +40,7 @@
 				"url": "<%=basePath%>/administration/document.jsp"
 				
 			},
-			
+		
 			{
 				"menuid": "12",
 				"menuname": "专家库",
@@ -53,15 +53,9 @@
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/administration/professor.jsp"
 				
-			},{
-				"menuid": "14",
-				"menuname": "国防科技工业单位册",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/nbdwmc.jsp"
-				
 			},
 			{
-				"menuid": "15",
+				"menuid": "14",
 				"menuname": "军工单位基本情况信息",
 				"icon": "icon-nav",
 				"url": "",
@@ -132,37 +126,38 @@
 		
 		{
 			"menuid": "22",
-			"menuname": "高新技术企业信息",
-			"icon": "icon-nav",
-			"url": "",
-			"child":[
-			{
-			"menuid": "23",
 			"menuname": "高新技术企业基本信息",
 			"icon": "icon-nav",
-			 "url": "<%=basePath%>/administration/kjndgxjsqypjb.jsp"
-		},
-			{
-				"menuid": "231",
-				"menuname": "数据录入-高新技术企业认定备案信息",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/project/kjgxqybab.jsp"
-			},{
-				"menuid": "232",
-				"menuname": "信息查询-高新技术企业认定备案信息",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/project/kjgxqybab_search.jsp"
-			},	{
-				"menuid": "233",
-				"menuname": "汇总表-高新技术企业认定备案信息",
-				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
+			"url":  "<%=basePath%>/administration/kjndgxjsqypjb.jsp"
+        },
+// 			"child":[
+// 			{
+// 			"menuid": "23",
+// 			"menuname": "高新技术企业基本信息",
+// 			"icon": "icon-nav",
+// 			 "url": "<%=basePath%>/administration/kjndgxjsqypjb.jsp"
+// 		},
+// 			{
+// 				"menuid": "231",
+// 				"menuname": "数据录入-高新技术企业认定备案信息",
+// 				"icon": "icon-nav",
+// 				"url": "<%=basePath%>/project/kjgxqybab.jsp"
+// 			},{
+// 				"menuid": "232",
+// 				"menuname": "信息查询-高新技术企业认定备案信息",
+// 				"icon": "icon-nav",
+// 				"url": "<%=basePath%>/project/kjgxqybab_search.jsp"
+// 			},	{
+// 				"menuid": "233",
+// 				"menuname": "汇总表-高新技术企业认定备案信息",
+// 				"icon": "icon-nav",
+// 				"url": "<%=basePath%>/administration/kjndgxqybab.jsp"
 				
-		}
+// 		}
 			
 			
-			]	
-		},
+// 			]	
+// 		},
 		{
 			"menuid": "24",
 			"menuname": "军品科研项目",
@@ -191,12 +186,6 @@
 	        "url": "<%=basePath%>/administration/zdzxhz.jsp"	
 		},
 		{
-			"menuid": "26",
-			"menuname": "湖北省科学技术奖励",
-			"icon": "icon-nav",
-	        "url": "<%=basePath%>/administration/kjgfjflqk.jsp"	
-		},
-		{
 			"menuid": "27",
 			"menuname": "大型仪器信息表",
 			"icon": "icon-nav",
@@ -215,23 +204,29 @@
 			    "url": "<%=basePath%>/administration/kjndgfjtjb.jsp"
 				
 			},
-			{
+            {
+                "menuid": "26",
+                "menuname": "2.年度我省获国防科学技术奖特一二等奖情况",
+                "icon": "icon-nav",
+                "url": "<%=basePath%>/administration/kjgfjflqk.jsp" 
+            },
+		 	{
 				"menuid": "282",
-				"menuname": "2.年度我省获国家科学技术奖国防科技工业专用项目特等奖统计",
+				"menuname": "3.年度我省获国防科学技术奖项目获奖统计",
 				"icon": "icon-nav",
 			    "url": "<%=basePath%>/administration/kjgjkjjgfxmtj.jsp"
 				
 			},
 			{
 				"menuid": "283",
-				"menuname": "3.年度我省获国家科学技术奖国防科技工业专用项目统计",
+				"menuname": "4.年度我省获国家科学技术奖国防科技工业专用项目特等奖统计",
 				"icon": "icon-nav",
 			    "url": "<%=basePath%>/administration/kjgjkjjgftdtj.jsp"
 				
 			},
 			{
 				"menuid": "284",
-				"menuname": "4.年度我省军工单位获湖北省科学技术奖励情况表",
+				"menuname": "5.年度我省军工单位获湖北省科学技术奖专用项目特等奖统计",
 				"icon": "icon-nav",
 			    "url": "<%=basePath%>/administration/kjndjgkjjlqkb.jsp"
 				
@@ -313,20 +308,20 @@
 		"menus":[
 		{
 			"menuid": "31",
-			"menuname": "军工产品质量报表",
+			"menuname": "军工产品质量",
 			"icon": "icon-nav",
 			//"url": "demo.html"	
 			"url": "<%=basePath%>/administration/jpzlzkjbb.jsp"			
 		},
 		{
 			"menuid": "32",
-			"menuname": "质量事故报表",
+			"menuname": "质量事故",
 			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/jpsgwtbb.jsp"			
 		},
 		{
 			"menuid": "33",
-			"menuname": "国防质量季报统计表",
+			"menuname": "国防质量报告统计表",
 			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/zlbgtjb.jsp"		
 		},
@@ -387,14 +382,32 @@
 				"url": "<%=basePath%>/project/wqwqxkzxq_search.jsp"
 			},
 			{
-				"menuid": "513",
-				"menuname": "武器装备科研生产许可信息",
+				"menuid": "512A",
+				"menuname": "已获得许可的武器生产专业(产品)",
 				"icon": "icon-nav",
-				"url": "<%=basePath%>/administration/wqwqxkzxx.jsp"	
+				"url": "<%=basePath%>/administration/wqwqxkzxq1.jsp"	
+			},
+			{
+				"menuid": "512B",
+				"menuname": "已获得许可的武器科研专业",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/wqwqxkzxq2.jsp"	
+			},
+			{
+				"menuid": "512C",
+				"menuname": "申请延续的武器装备科研生产许可专业产品",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/wqwqxkzxq3.jsp"	
+			},
+			{
+				"menuid": "512D",
+				"menuname": "申请增加的武器装备科研生产许可专业产品",
+				"icon": "icon-nav",
+				"url": "<%=basePath%>/administration/wqwqxkzxq4.jsp"	
 			},
 			
 			{
-				"menuid": "514",
+				"menuid": "513",
 				"menuname": "信息汇总-武器装备科研生产许可取证单位信息",
 				"icon": "icon-nav",
 				"url": "<%=basePath%>/project/wqwqxkzxq0.jsp"

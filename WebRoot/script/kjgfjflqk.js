@@ -27,7 +27,7 @@ $(function() {
 function listDoc() {
 	var actionPath = basePath + '/system/KjgfjflqkAction_list.action';
 	 $('#dg').datagrid({
-            title : '湖北省科学技术奖励',
+            title : '年度我省获国防科学技术奖特一二等奖情况',
             width : 1200,
             height: 400,
             //fit: true,
@@ -91,7 +91,7 @@ function doSearch(){
 function showEditForm() {
 	$("#tabEdit").dialog({
 		modal : true,// 模式窗口
-		title : '湖北省科学技术奖励',
+		title : '年度我省获国防科学技术奖特一二等奖情况',
 		iconCls : 'icon-save',
 		width :  '55%',
 	       height:  '100%',

@@ -55,7 +55,7 @@
         <form id="searchForm">
             <table>
                 <tr>
-                    <th>成果名称：</th>
+                    <th>发明名称：</th>
                     <td><input id="fileName" /></td>
                 </tr>
                 <tr>
@@ -99,10 +99,12 @@
                     <th field="zywcr">主要完成人</th>
 
                     <th field="zflh">主分类号</th>
-                    <th field="gkh">公开号</th>
-                    <th field="gkr">公开日</th>
 
-                    <th field="flzt">法律状态</th>
+                    <th field="mj">密级</th>
+                    <th field="qx">期限</th>
+                    <th field="jmtj">解密条件</th>
+                    <th field="slr">受理日</th>
+
                     <th field="cgjj">成果简介</th>
                     <th field="yyhy">应用行业</th>
                     <th field="jsly">技术领域</th>
@@ -125,8 +127,8 @@
 
                     <th field="jlnf">记录年份</th>
 
-                    <th field="fj1">附件1</th>
-                    <th field="fj2">附件2</th>
+                    <!--                     <th field="fj1">附件1</th> -->
+                    <!--                     <th field="fj2">附件2</th> -->
 
                 </tr>
             </thead>
@@ -138,44 +140,51 @@
             <form id="frmEdit2"
                 style="width:330px;margin:0px 0px 0px 0px" method="post">
                 >>>请选择导出项<<< <br> <br> <input name="Items"
-                    type="checkbox" checked="checked" value="1" />成果名称<br>
+                    type="checkbox" checked="checked" value="1" />申请号<br>
                 <input name="Items" type="checkbox" checked="checked"
-                    value="2" />专利类型<br> <input name="Items"
-                    type="checkbox" checked="checked" value="3" />专利权人<br>
+                    value="2" />专利号<br> <input name="Items"
+                    type="checkbox" checked="checked" value="3" />发明名称<br>
                 <input name="Items" type="checkbox" checked="checked"
-                    value="4" />主要完成人<br> <input name="Items"
-                    type="checkbox" checked="checked" value="5" />专利号<br>
+                    value="4" />专利权人<br> <input name="Items"
+                    type="checkbox" checked="checked" value="5" />主要完成人<br>
                 <input name="Items" type="checkbox" checked="checked"
                     value="6" />主分类号<br> <input name="Items"
-                    type="checkbox" checked="checked" value="7" />公开号<br>
+                    type="checkbox" checked="checked" value="7" />密级<br>
 
                 <input name="Items" type="checkbox" checked="checked"
-                    value="8" />公开日<br> <input name="Items"
-                    type="checkbox" checked="checked" value="9" />法律状态<br>
+                    value="8" />期限<br> <input name="Items"
+                    type="checkbox" checked="checked" value="9" />解密条件<br>
                 <input name="Items" type="checkbox" checked="checked"
-                    value="10" />成果简介<br> <input name="Items"
-                    type="checkbox" checked="checked" value="11" />应用行业<br>
+                    value="10" />受理日<br> 
                 <input name="Items" type="checkbox" checked="checked"
-                    value="12" />技术领域<br> <input name="Items"
-                    type="checkbox" checked="checked" value="13" />成果阶段<br>
+                    value="11" />成果简介<br> <input name="Items"
+                    type="checkbox" checked="checked" value="12" />应用行业<br>
                 <input name="Items" type="checkbox" checked="checked"
-                    value="14" />交易方式<br> <input name="Items"
-                    type="checkbox" checked="checked" value="15" />是否委托中介<br>
+                    value="13" />技术领域<br> <input name="Items"
+                    type="checkbox" checked="checked" value="14" />成果阶段<br>
                 <input name="Items" type="checkbox" checked="checked"
-                    value="16" />供方定价<br> <input name="Items"
-                    type="checkbox" checked="checked" value="17" />其他转化要求<br>
+                    value="15" />成果联系人<br> <input name="Items"
+                    type="checkbox" checked="checked" value="16" />电话<br>
                 <input name="Items" type="checkbox" checked="checked"
-                    value="18" />是否公开<br> <input name="Items"
-                    type="checkbox" checked="checked" value="19" />联系人姓名<br>
+                    value="17" />所在地区<br> <input name="Items"
+                    type="checkbox" checked="checked" value="18" />电子邮箱<br>
                 <input name="Items" type="checkbox" checked="checked"
-                    value="20" />固定电话<br> <input name="Items"
-                    type="checkbox" checked="checked" value="21" />所在地区<br>
+                    value="19" />联系地址<br> <input name="Items"
+                    type="checkbox" checked="checked" value="20" />交易方式<br>
 
                 <input name="Items" type="checkbox" checked="checked"
-                    value="22" />手机<br> <input name="Items"
-                    type="checkbox" checked="checked" value="23" />电子邮箱<br>
+                    value="21" />是否委托中介<br> <input name="Items"
+                    type="checkbox" checked="checked" value="22" />供方定价<br>
                 <input name="Items" type="checkbox" checked="checked"
-                    value="24" />联系地址<br>
+                    value="23" />其他转化要求<br>
+                     <input name="Items" type="checkbox" checked="checked"
+                    value="24" />是否公开<br>
+                     <input name="Items" type="checkbox" checked="checked"
+                    value="25" />中介单位<br>
+                     <input name="Items" type="checkbox" checked="checked"
+                    value="26" />中介联系人<br>
+                     <input name="Items" type="checkbox" checked="checked"
+                    value="27" />联系方式<br>
             </form>
         </div>
     </div>
@@ -247,22 +256,30 @@
                 </dl>
                 <dl>
                     <dd>
-                        公开号: <input type="text" style="width: 150px"
-                            id="gkh" name="gkh" />
+                        密级: <input type="text" style="width: 150px"
+                            id="mj" name="mj" />
                     </dd>
                 </dl>
                 <dl>
                     <dd>
-                        公开日: <input type="text" style="width: 150px"
-                            id="gkr" name="gkr" />
+                        期限: <input type="text" style="width: 150px"
+                            id="qx" name="qx" />
                     </dd>
                 </dl>
 
                 <dl>
                     <dd>
-                        法律状态: <input size="15" id="flzt" name="flzt" />
+                        解密条件: <input size="15" id="jmtj" name="jmtj" />
                     </dd>
                 </dl>
+                <dl>
+                    <dd>
+                        受理日: <input type="text" style="width: 150px"
+                            id="slr" name="slr" />
+                    </dd>
+                </dl>
+
+
                 <dl>
                     <dd>
                         成果简介:
@@ -273,13 +290,7 @@
 
                 <dl>
                     <dd>
-                        应用行业: <select id="yyhy" multiple="true"
-                            name="yyhy" style="width:300px;">
-                            <!-- 				<option value="1" >1</option> -->
-                            <!-- 				<option value="2" >2</option> -->
-                            <!-- 				<option value="3" >3</option> -->
-                            <!-- 				<option value="4" >4</option> -->
-                        </select>
+                        应用行业: <input size="15" id="yyhy" name="yyhy" />
                     </dd>
                 </dl>
 
@@ -287,10 +298,7 @@
 
                 <dl>
                     <dd>
-                        技术领域: <select id="jsly" multiple="true"
-                            name="jsly" style="width:300px;">
-
-                        </select>
+                        技术领域: <input size="15" id="jsly" name="jsly" />
                     </dd>
                 </dl>
 
@@ -322,13 +330,11 @@
 
                 <dl>
                     <dd>
-                        所在地区: <select id="szdq" name="szdq">
-                            <option value=""></option>
-                            <option value="武汉市">武汉市</option>
-                            <option value="北京市">北京市</option>
-                        </select>
+                        所在地区: <input type="text" style="width: 150px"
+                            id="szdq" name="szdq" style="width:150px;" />
                     </dd>
                 </dl>
+
 
 
 
