@@ -92,8 +92,9 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setZywcr(kjzlcjbForm.getZywcr());
 		kjzlcjb.setZlh(kjzlcjbForm.getZlh());
 		kjzlcjb.setGkh(kjzlcjbForm.getGkh());
-		kjzlcjb.setGkr(StringHelper.stringConvertDate(kjzlcjbForm.getGkr()));
-		kjzlcjb.setZflh(kjzlcjbForm.getZflh());
+	      if(kjzlcjbForm.getGkr()!=null){
+	          kjzlcjb.setGkr(StringHelper.stringConvertDate(kjzlcjbForm.getGkr()));
+	            }	kjzlcjb.setZflh(kjzlcjbForm.getZflh());
 		kjzlcjb.setFlzt(kjzlcjbForm.getFlzt());
 		kjzlcjb.setCgjj(kjzlcjbForm.getCgjj());
 		kjzlcjb.setYyhy(kjzlcjbForm.getYyhy());
@@ -150,7 +151,12 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setFj2(kjzlcjbForm.getFj2() == null?
 	            null:kjzlcjbForm.getFj2().replace("C:\\fakepath", "D:\\kjcdata"));
 
-
+	      kjzlcjb.setMj(kjzlcjbForm.getMj());
+	        kjzlcjb.setQx(kjzlcjbForm.getQx());
+	        kjzlcjb.setJmtj(kjzlcjbForm.getJmtj());
+	        if(kjzlcjbForm.getSlr()!=null){
+	        kjzlcjb.setSlr(StringHelper.stringConvertDate(kjzlcjbForm.getSlr()));
+	        }
 		this.kjzlcjbDao.update(kjzlcjb);
 
 	}
@@ -168,7 +174,9 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setZywcr(kjzlcjbForm.getZywcr());
 		kjzlcjb.setZlh(kjzlcjbForm.getZlh());
 		kjzlcjb.setGkh(kjzlcjbForm.getGkh());
+		  if(kjzlcjbForm.getGkr()!=null){
 		kjzlcjb.setGkr(StringHelper.stringConvertDate(kjzlcjbForm.getGkr()));
+		  }
 		kjzlcjb.setZflh(kjzlcjbForm.getZflh());
 		kjzlcjb.setFlzt(kjzlcjbForm.getFlzt());
 		kjzlcjb.setCgjj(kjzlcjbForm.getCgjj());
@@ -176,7 +184,6 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setJsly(kjzlcjbForm.getJsly());
 		kjzlcjb.setCgjd(kjzlcjbForm.getCgjd());
 		kjzlcjb.setJyfs(kjzlcjbForm.getJyfs());
-
 		//数据校验
 		if(kjzlcjbForm.getSfzj()!=null){
 		if(kjzlcjbForm.getSfzj().equals("是"))
@@ -187,7 +194,6 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 
 		kjzlcjb.setGfdj(kjzlcjbForm.getGfdj());
 		kjzlcjb.setZhyq(kjzlcjbForm.getZhyq());
-
 		//数据校验
 		if(kjzlcjbForm.getSfgk()!=null)
 		{
@@ -203,7 +209,6 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		if(!kjzlcjbForm.getGddh().equals(""))
 		kjzlcjb.setGddh(Long.valueOf(kjzlcjbForm.getGddh()));
 		kjzlcjb.setSzdq(kjzlcjbForm.getSzdq());
-
 		//数据校验
 		if(!kjzlcjbForm.getSj().equals(""))
 		kjzlcjb.setSj(Long.valueOf(kjzlcjbForm.getSj()));
@@ -218,13 +223,17 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 		kjzlcjb.setSqh(kjzlcjbForm.getSqh());
 		kjzlcjb.setZjdw(kjzlcjbForm.getZjdw());
 		kjzlcjb.setZjlxr(kjzlcjbForm.getZjlxr());
-
 		kjzlcjb.setFj1(kjzlcjbForm.getFj1() == null?
 	                null:kjzlcjbForm.getFj1().replace("C:\\fakepath", "D:\\kjcdata"));
 	    kjzlcjb.setFj2(kjzlcjbForm.getFj2() == null?
 	                null:kjzlcjbForm.getFj2().replace("C:\\fakepath", "D:\\kjcdata"));
-
-		this.kjzlcjbDao.save(kjzlcjb);
+        kjzlcjb.setMj(kjzlcjbForm.getMj());
+        kjzlcjb.setQx(kjzlcjbForm.getQx());
+        kjzlcjb.setJmtj(kjzlcjbForm.getJmtj());
+        if(kjzlcjbForm.getSlr()!=null){
+        kjzlcjb.setSlr(StringHelper.stringConvertDate(kjzlcjbForm.getSlr()));
+        }
+        this.kjzlcjbDao.save(kjzlcjb);
 	}
 	private List<KjzlcjbForm> KjzlcjbPOListToVOList(List<Kjzlcjb> list) {
 		// TODO Auto-generated method stub
@@ -289,6 +298,12 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 			kjzlcjbForm.setFj1(kjzlcjb.getFj1());
 			kjzlcjbForm.setFj2(kjzlcjb.getFj2());
 
+			kjzlcjbForm.setMj(kjzlcjb.getMj());
+			kjzlcjbForm.setQx(kjzlcjb.getQx());
+			kjzlcjbForm.setJmtj(kjzlcjb.getJmtj());
+			  if(kjzlcjb.getSlr()!=null){
+			kjzlcjbForm.setSlr(String.valueOf(kjzlcjb.getSlr()));
+			  }
 			formlist.add(kjzlcjbForm);
 		}
 		return formlist;
@@ -474,46 +489,46 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 			sheet.setColumnView( i , 20 );
 			switch(ss[i]){
 			case "1":
-				Label lab1 = new Label(lie, 0, "成果名称",cellFormat);
+				Label lab1 = new Label(lie, 0, "申请号",cellFormat);
 			    sheet.addCell(lab1);
+			    for(int j=1;j<=formlist.size();j++){
+			    	Label label = new Label(lie, j, formlist.get(j-1).getSqh(),cellFormat);
+					sheet.addCell(label);
+			    }
+			    lie++;
+			    break;
+			case "2":
+				Label lab2 = new Label(lie, 0,"专利号",cellFormat);
+			    sheet.addCell(lab2);
+			    for(int j=1;j<=formlist.size();j++){
+			    	Label label = new Label(lie, j, formlist.get(j-1).getZlh(),cellFormat);
+					sheet.addCell(label);
+			    }
+			    lie++;
+			    break;
+			case "3":
+				Label lab3 = new Label(lie, 0, "发明名称",cellFormat);
+			    sheet.addCell(lab3);
 			    for(int j=1;j<=formlist.size();j++){
 			    	Label label = new Label(lie, j, formlist.get(j-1).getCgmc(),cellFormat);
 					sheet.addCell(label);
 			    }
 			    lie++;
 			    break;
-			case "2":
-				Label lab2 = new Label(lie, 0,"专利类型",cellFormat);
-			    sheet.addCell(lab2);
-			    for(int j=1;j<=formlist.size();j++){
-			    	Label label = new Label(lie, j, formlist.get(j-1).getZllx(),cellFormat);
-					sheet.addCell(label);
-			    }
-			    lie++;
-			    break;
-			case "3":
-				Label lab3 = new Label(lie, 0, "专利权人",cellFormat);
-			    sheet.addCell(lab3);
+			case "4":
+				Label lab4 = new Label(lie, 0, "专利权人",cellFormat);
+			    sheet.addCell(lab4);
 			    for(int j=1;j<=formlist.size();j++){
 			    	Label label = new Label(lie, j, formlist.get(j-1).getZlqr(),cellFormat);
 					sheet.addCell(label);
 			    }
 			    lie++;
 			    break;
-			case "4":
-				Label lab4 = new Label(lie, 0, "主要完成人",cellFormat);
-			    sheet.addCell(lab4);
-			    for(int j=1;j<=formlist.size();j++){
-			    	Label label = new Label(lie, j, formlist.get(j-1).getZywcr(),cellFormat);
-					sheet.addCell(label);
-			    }
-			    lie++;
-			    break;
 			case "5":
-				Label lab5 = new Label(lie, 0, "专利号",cellFormat);
+				Label lab5 = new Label(lie, 0, "主要完成人",cellFormat);
 			    sheet.addCell(lab5);
 			    for(int j=1;j<=formlist.size();j++){
-			    	Label label = new Label(lie, j, formlist.get(j-1).getZlh(),cellFormat);
+			    	Label label = new Label(lie, j, formlist.get(j-1).getZywcr(),cellFormat);
 					sheet.addCell(label);
 			    }
 			    lie++;
@@ -528,170 +543,197 @@ public class KjzlcjbServiceImpl implements KjzlcjbService{
 			    lie++;
 			    break;
 			case "7":
-				Label lab7 = new Label(lie, 0, "公开号",cellFormat);
+				Label lab7 = new Label(lie, 0, "密级",cellFormat);
 			    sheet.addCell(lab7);
 			    for(int j=1;j<=formlist.size();j++){
-			    	Label label = new Label(lie, j, formlist.get(j-1).getGkh(),cellFormat);
+			    	Label label = new Label(lie, j, formlist.get(j-1).getMj(),cellFormat);
 					sheet.addCell(label);
 			    }
 			    lie++;
 			    break;
 
 				case "8":
-					Label lab8 = new Label(lie, 0, "公开日",cellFormat);
+					Label lab8 = new Label(lie, 0, "期限",cellFormat);
 				    sheet.addCell(lab8);
 				    for(int j=1;j<=formlist.size();j++){
-				    	Label label = new Label(lie, j, formlist.get(j-1).getGkr(),cellFormat);
+				    	Label label = new Label(lie, j, formlist.get(j-1).getQx(),cellFormat);
 						sheet.addCell(label);
 				    }
 				    lie++;
 				    break;
 				case "9":
-					Label lab9 = new Label(lie, 0,"法律状态",cellFormat);
+					Label lab9 = new Label(lie, 0,"解密条件",cellFormat);
 				    sheet.addCell(lab9);
 				    for(int j=1;j<=formlist.size();j++){
-				    	Label label = new Label(lie, j, formlist.get(j-1).getFlzt(),cellFormat);
+				    	Label label = new Label(lie, j, formlist.get(j-1).getJmtj(),cellFormat);
 						sheet.addCell(label);
 				    }
 				    lie++;
 				    break;
 				case "10":
-					Label lab10 = new Label(lie, 0, "成果简介",cellFormat);
+					Label lab10 = new Label(lie, 0, "受理日",cellFormat);
 				    sheet.addCell(lab10);
+				    for(int j=1;j<=formlist.size();j++){
+				    	Label label = new Label(lie, j, formlist.get(j-1).getSlr(),cellFormat);
+						sheet.addCell(label);
+				    }
+				    lie++;
+				    break;
+				case "11":
+					Label lab11 = new Label(lie, 0, "成果简介",cellFormat);
+				    sheet.addCell(lab11);
 				    for(int j=1;j<=formlist.size();j++){
 				    	Label label = new Label(lie, j, formlist.get(j-1).getCgjj(),cellFormat);
 						sheet.addCell(label);
 				    }
 				    lie++;
 				    break;
-				case "11":
-					Label lab11 = new Label(lie, 0, "应用行业",cellFormat);
-				    sheet.addCell(lab11);
+				case "12":
+					Label lab12 = new Label(lie, 0, "应用行业",cellFormat);
+				    sheet.addCell(lab12);
 				    for(int j=1;j<=formlist.size();j++){
 				    	Label label = new Label(lie, j, formlist.get(j-1).getYyhy(),cellFormat);
 						sheet.addCell(label);
 				    }
 				    lie++;
 				    break;
-				case "12":
-					Label lab12 = new Label(lie, 0, "技术领域",cellFormat);
-				    sheet.addCell(lab12);
+				case "13":
+					Label lab13 = new Label(lie, 0, "技术领域",cellFormat);
+				    sheet.addCell(lab13);
 				    for(int j=1;j<=formlist.size();j++){
 				    	Label label = new Label(lie, j, formlist.get(j-1).getJsly(),cellFormat);
 						sheet.addCell(label);
 				    }
 				    lie++;
 				    break;
-				case "13":
-					Label lab13 = new Label(lie, 0, "成果阶段",cellFormat);
-				    sheet.addCell(lab13);
+				case "14":
+					Label lab14 = new Label(lie, 0, "成果阶段",cellFormat);
+				    sheet.addCell(lab14);
 				    for(int j=1;j<=formlist.size();j++){
 				    	Label label = new Label(lie, j, formlist.get(j-1).getCgjd(),cellFormat);
 						sheet.addCell(label);
 				    }
 				    lie++;
 				    break;
-				case "14":
-					Label lab14 = new Label(lie, 0, "交易方式",cellFormat);
-				    sheet.addCell(lab14);
-				    for(int j=1;j<=formlist.size();j++){
-				    	Label label = new Label(lie, j, formlist.get(j-1).getJyfs(),cellFormat);
-						sheet.addCell(label);
-				    }
-				    lie++;
-				    break;
 
 					case "15":
-						Label lab15 = new Label(lie, 0, "是否委托中介",cellFormat);
+						Label lab15 = new Label(lie, 0, "成果联系人",cellFormat);
 					    sheet.addCell(lab15);
-					    for(int j=1;j<=formlist.size();j++){
-					    	Label label = new Label(lie, j, formlist.get(j-1).getSfzj(),cellFormat);
-							sheet.addCell(label);
-					    }
-					    lie++;
-					    break;
-					case "16":
-						Label lab16 = new Label(lie, 0,"供方定价",cellFormat);
-					    sheet.addCell(lab16);
-					    for(int j=1;j<=formlist.size();j++){
-					    	Label label = new Label(lie, j, formlist.get(j-1).getGfdj(),cellFormat);
-							sheet.addCell(label);
-					    }
-					    lie++;
-					    break;
-					case "17":
-						Label lab17 = new Label(lie, 0, "其他转化要求",cellFormat);
-					    sheet.addCell(lab17);
-					    for(int j=1;j<=formlist.size();j++){
-					    	Label label = new Label(lie, j, formlist.get(j-1).getZhyq(),cellFormat);
-							sheet.addCell(label);
-					    }
-					    lie++;
-					    break;
-					case "18":
-						Label lab18 = new Label(lie, 0, "是否公开",cellFormat);
-					    sheet.addCell(lab18);
-					    for(int j=1;j<=formlist.size();j++){
-					    	Label label = new Label(lie, j, formlist.get(j-1).getSfgk(),cellFormat);
-							sheet.addCell(label);
-					    }
-					    lie++;
-					    break;
-					case "19":
-						Label lab19 = new Label(lie, 0, "联系人姓名",cellFormat);
-					    sheet.addCell(lab19);
 					    for(int j=1;j<=formlist.size();j++){
 					    	Label label = new Label(lie, j, formlist.get(j-1).getLxrxm(),cellFormat);
 							sheet.addCell(label);
 					    }
 					    lie++;
 					    break;
-					case "20":
-						Label lab20 = new Label(lie, 0, "固定电话",cellFormat);
-					    sheet.addCell(lab20);
+					case "16":
+						Label lab16 = new Label(lie, 0,"电话",cellFormat);
+					    sheet.addCell(lab16);
 					    for(int j=1;j<=formlist.size();j++){
 					    	Label label = new Label(lie, j, formlist.get(j-1).getGddh(),cellFormat);
 							sheet.addCell(label);
 					    }
 					    lie++;
 					    break;
-					case "21":
-						Label lab21 = new Label(lie, 0, "所在地区",cellFormat);
-					    sheet.addCell(lab21);
+					case "17":
+						Label lab17 = new Label(lie, 0, "所在地区",cellFormat);
+					    sheet.addCell(lab17);
 					    for(int j=1;j<=formlist.size();j++){
 					    	Label label = new Label(lie, j, formlist.get(j-1).getSzdq(),cellFormat);
 							sheet.addCell(label);
 					    }
 					    lie++;
 					    break;
+					case "18":
+						Label lab18 = new Label(lie, 0, "电子邮箱",cellFormat);
+					    sheet.addCell(lab18);
+					    for(int j=1;j<=formlist.size();j++){
+					    	Label label = new Label(lie, j, formlist.get(j-1).getDzyx(),cellFormat);
+							sheet.addCell(label);
+					    }
+					    lie++;
+					    break;
+					case "19":
+						Label lab19 = new Label(lie, 0, "联系地址",cellFormat);
+					    sheet.addCell(lab19);
+					    for(int j=1;j<=formlist.size();j++){
+					    	Label label = new Label(lie, j, formlist.get(j-1).getLxdz(),cellFormat);
+							sheet.addCell(label);
+					    }
+					    lie++;
+					    break;
+					case "20":
+						Label lab20 = new Label(lie, 0, "交易方式",cellFormat);
+					    sheet.addCell(lab20);
+					    for(int j=1;j<=formlist.size();j++){
+					    	Label label = new Label(lie, j, formlist.get(j-1).getJyfs(),cellFormat);
+							sheet.addCell(label);
+					    }
+					    lie++;
+					    break;
+					case "21":
+						Label lab21 = new Label(lie, 0, "是否委托中介",cellFormat);
+					    sheet.addCell(lab21);
+					    for(int j=1;j<=formlist.size();j++){
+					    	Label label = new Label(lie, j, formlist.get(j-1).getSfzj(),cellFormat);
+							sheet.addCell(label);
+					    }
+					    lie++;
+					    break;
 
 						case "22":
-							Label lab22 = new Label(lie, 0, "手机",cellFormat);
+							Label lab22 = new Label(lie, 0, "供方定价",cellFormat);
 						    sheet.addCell(lab22);
 						    for(int j=1;j<=formlist.size();j++){
-						    	Label label = new Label(lie, j, formlist.get(j-1).getSj(),cellFormat);
+						    	Label label = new Label(lie, j, formlist.get(j-1).getGfdj(),cellFormat);
 								sheet.addCell(label);
 						    }
 						    lie++;
 						    break;
 						case "23":
-							Label lab23 = new Label(lie, 0,"电子邮箱",cellFormat);
+							Label lab23 = new Label(lie, 0,"其他转化要求",cellFormat);
 						    sheet.addCell(lab23);
 						    for(int j=1;j<=formlist.size();j++){
-						    	Label label = new Label(lie, j, formlist.get(j-1).getDzyx(),cellFormat);
+						    	Label label = new Label(lie, j, formlist.get(j-1).getZhyq(),cellFormat);
 								sheet.addCell(label);
 						    }
 						    lie++;
 						    break;
 						case "24":
-							Label lab24 = new Label(lie, 0, "联系地址",cellFormat);
+							Label lab24 = new Label(lie, 0, "是否公开",cellFormat);
 						    sheet.addCell(lab24);
 						    for(int j=1;j<=formlist.size();j++){
-						    	Label label = new Label(lie, j, formlist.get(j-1).getLxdz(),cellFormat);
+						    	Label label = new Label(lie, j, formlist.get(j-1).getSfgk(),cellFormat);
 								sheet.addCell(label);
 						    }
 						    lie++;
 						    break;
+						case "25":
+                            Label lab25 = new Label(lie, 0, "中介单位",cellFormat);
+                            sheet.addCell(lab25);
+                            for(int j=1;j<=formlist.size();j++){
+                                Label label = new Label(lie, j, formlist.get(j-1).getZjdw(),cellFormat);
+                                sheet.addCell(label);
+                            }
+                            lie++;
+                            break;
+						case "26":
+                            Label lab26 = new Label(lie, 0, "中介联系人",cellFormat);
+                            sheet.addCell(lab26);
+                            for(int j=1;j<=formlist.size();j++){
+                                Label label = new Label(lie, j, formlist.get(j-1).getZjlxr(),cellFormat);
+                                sheet.addCell(label);
+                            }
+                            lie++;
+                            break;
+						case "27":
+                            Label lab27 = new Label(lie, 0, "联系方式",cellFormat);
+                            sheet.addCell(lab27);
+                            for(int j=1;j<=formlist.size();j++){
+                                Label label = new Label(lie, j, formlist.get(j-1).getSj(),cellFormat);
+                                sheet.addCell(label);
+                            }
+                            lie++;
+                            break;
 
 
 			}

@@ -110,6 +110,19 @@
                 <property name="fj2" type="string">
             <column name="fj2" />
         </property>
+        
+                    <property name="mj" type="string">
+            <column name="mj" />
+        </property>
+            <property name="qx" type="string">
+            <column name="qx" />
+        </property>
+                <property name="jmtj" type="string">
+            <column name="jmtj" />
+        </property>
+                <property name="slr" type="date">
+            <column name="slr" />
+        </property>
 		
 	</class>
 </hibernate-mapping>

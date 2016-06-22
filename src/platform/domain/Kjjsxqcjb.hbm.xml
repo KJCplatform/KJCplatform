@@ -92,5 +92,18 @@
 			<property name="zjlxr" type="string">
 			<column name="zjlxr" />
 		</property>
+        
+        <property name="dw" type="string">
+            <column name="dw" />
+        </property>
+        <property name="jsmc" type="string">
+            <column name="jsmc" />
+        </property>
+        <property name="jsys" type="string">
+            <column name="jsys" />
+        </property>
+        <property name="gnyt" type="string">
+            <column name="gnyt" />
+        </property>
 </class>
 </hibernate-mapping>

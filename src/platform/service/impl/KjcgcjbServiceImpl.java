@@ -440,8 +440,8 @@ if(pageno==1){
 			    lie++;
 			    break;
 			case "2":
-				Label lab5 = new Label(lie, 0, "成果完成单位",cellFormat);
-			    sheet.addCell(lab5);
+				Label lab2 = new Label(lie, 0, "成果完成单位",cellFormat);
+			    sheet.addCell(lab2);
 			    for(int j=1;j<=formlist.size();j++){
 			    	Label label = new Label(lie, j, formlist.get(j-1).getWcdw(),cellFormat);
 					sheet.addCell(label);
@@ -449,8 +449,8 @@ if(pageno==1){
 			    lie++;
 			    break;
 			case "3":
-				Label lab6 = new Label(lie, 0, "主要完成人",cellFormat);
-			    sheet.addCell(lab6);
+				Label lab3 = new Label(lie, 0, "主要完成人",cellFormat);
+			    sheet.addCell(lab3);
 			    for(int j=1;j<=formlist.size();j++){
 			    	Label label = new Label(lie, j, formlist.get(j-1).getZywcr(),cellFormat);
 					sheet.addCell(label);
@@ -458,8 +458,8 @@ if(pageno==1){
 			    lie++;
 			    break;
 			case "4":
-				Label lab7 = new Label(lie, 0, "完成时间",cellFormat);
-			    sheet.addCell(lab7);
+				Label lab4 = new Label(lie, 0, "完成时间",cellFormat);
+			    sheet.addCell(lab4);
 			    for(int j=1;j<=formlist.size();j++){
 			    	Label label = new Label(lie, j, formlist.get(j-1).getWcsj(),cellFormat);
 					sheet.addCell(label);
@@ -468,8 +468,8 @@ if(pageno==1){
 			    break;
 
 				case "5":
-					Label lab8 = new Label(lie, 0, "登记鉴定号",cellFormat);
-				    sheet.addCell(lab8);
+					Label lab5 = new Label(lie, 0, "登记鉴定号",cellFormat);
+				    sheet.addCell(lab5);
 				    for(int j=1;j<=formlist.size();j++){
 				    	Label label = new Label(lie, j, formlist.get(j-1).getDjjdh(),cellFormat);
 						sheet.addCell(label);
@@ -477,8 +477,8 @@ if(pageno==1){
 				    lie++;
 				    break;
 				case "6":
-					Label lab9 = new Label(lie, 0,"成果体现形式",cellFormat);
-				    sheet.addCell(lab9);
+					Label lab6 = new Label(lie, 0,"成果体现形式",cellFormat);
+				    sheet.addCell(lab6);
 				    for(int j=1;j<=formlist.size();j++){
 				    	Label label = new Label(lie, j, formlist.get(j-1).getTxxs(),cellFormat);
 						sheet.addCell(label);
@@ -586,7 +586,7 @@ if(pageno==1){
 					    lie++;
 					    break;
 					case "18":
-						Label lab20 = new Label(lie, 0, "固定电话",cellFormat);
+						Label lab20 = new Label(lie, 0, "联系方式",cellFormat);
 					    sheet.addCell(lab20);
 					    for(int j=1;j<=formlist.size();j++){
 					    	Label label = new Label(lie, j, formlist.get(j-1).getGddh(),cellFormat);
