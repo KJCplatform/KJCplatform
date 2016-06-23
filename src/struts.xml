@@ -617,6 +617,10 @@
 	    	<result name="update" type="json">
 				
 			</result>
+                    <result name="showimport" type="json">
+            </result>
+            <result name="showexport" type="json">
+            </result>
 		</action>
 		<action name="KjgjkjjgfxmtjAction_*" class="platform.action.KjgjkjjgfxmtjAction" method="{1}">			
 			<result name="list" type="json">
@@ -631,6 +635,10 @@
 	    	<result name="update" type="json">
 				
 			</result>
+                    <result name="showimport" type="json">
+            </result>
+            <result name="showexport" type="json">
+            </result>
 		</action>
 		<action name="KjgjkjjgftdtjAction_*" class="platform.action.KjgjkjjgftdtjAction" method="{1}">			
 			<result name="list" type="json">
@@ -645,6 +653,10 @@
 	    	<result name="update" type="json">
 				
 			</result>
+                    <result name="showimport" type="json">
+            </result>
+            <result name="showexport" type="json">
+            </result>
 		</action>
 		<action name="KjndgfjtjbAction_*" class="platform.action.KjndgfjtjbAction" method="{1}">			
 			<result name="list" type="json">
@@ -659,6 +671,10 @@
 	    	<result name="update" type="json">
 				
 			</result>
+                    <result name="showimport" type="json">
+            </result>
+            <result name="showexport" type="json">
+            </result>
 		</action>
 		<action name="KjgfjflqkAction_*" class="platform.action.KjgfjflqkAction" method="{1}">			
 			<result name="list" type="json">

@@ -161,7 +161,10 @@ function closeForm() {
 	$("#frmEdit").form('clear');
 	$('#tabEdit').dialog('close');
 }
-
+function closeForm2() {
+    //$("#frmEdit2").form('clear');
+    $('#tabEdit2').dialog('close');
+}
 // 添加的函数
 function addDoc() {
 	// 清空原有的数据
@@ -268,6 +271,119 @@ function deleteDoc() {
 	});
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+function ShowImport(){
+
+//    var file_upl = document.getElementById('uploadExcel');
+//    file_upl.select();
+//    var fileName = document.selection.createRange().text;
+//  alert(fileName);
+
+      //得到上传文件的全路径
+      var fileName= $('#uploadExcel').filebox('getValue');
+//
+
+     // alert(fileName);
+              //进行基本校验
+              if(fileName==""){
+                 $.messager.alert('提示','请选择上传文件！','info');
+              }else{
+                  //对文件格式进行校验
+                  var d1=/\.[^\.]+$/.exec(fileName);
+                  if(d1==".xls"){
+                       //提交表单
+                       //document.getElementById("questionTypesManage").action="${pageContext.request.contextPath}/leadtoQuestionTypes/leadInExcelQuestionBank?questionType="+questionTypes+"&courseType="+courseType;
+                    //document.getElementById("questionTypesManage").submit();
+                        var params ="tdj="+fileName;
+                        var showimport = basePath + '/system/KjndgfjtjbAction_showimport.action';
+
+                        //alert(params);
+
+                    $.post(showimport, params, function(result) {
+                        if (result.operateSuccess) {
+                                $('#dg').datagrid('reload');// 重新加载
+                                $.messager.alert('导入', '导入Excel成功', 'info');
+
+                        }else {
+                                $.messager.alert('导入', '导入Excel失败', 'warning');
+                            }
+                    });
+
+
+                      return false;
+                 }else{
+                     $.messager.alert('提示','请选择xls格式文件！','info');
+                     $('#uploadExcel').filebox('setValue','');
+                 }
+              }
+       }
+
+
+
+function ShowExport(){
+
+    var Items = document.getElementsByName("Items");
+    var params ="tdj=";
+
+    for(var i = 0; i < Items.length; i++)
+    {
+       if(Items[i].checked == true)
+       {
+           params+=Items[i].value+" ";
+       }
+    }
+
+    //alert(params);
+
+    var showimport = basePath + '/system/KjndgfjtjbAction_showexport.action';
+
+    $.post(showimport, params, function(result) {
+                        if (result.operateSuccess) {
+                                $('#dg').datagrid('reload');// 重新加载
+                                $.messager.alert('导出', '导出Excel成功', 'info');
+
+                        }else {
+                                $.messager.alert('导出', '文件被占用！导出Excel失败', 'warning');
+                            }
+                    });
+
+                      return false;
+       }
+
+
+
+//Excelselect
+function selectExcel() {
+    $("#tabEdit2").dialog({
+        modal : true,// 模式窗口
+        title : '导出Excel',
+        iconCls : 'icon-save',
+        buttons : [ {
+            text : '确认',
+            handler : function() {
+
+                ShowExport();
+                closeForm2();
+            }
+        }, {
+            text : '取消',
+            handler : function() {
+                closeForm2();
+            }
+        } ]
+    });
+}
 
 
 

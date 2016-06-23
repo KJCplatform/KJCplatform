@@ -68,7 +68,11 @@
 		</form>
 	</div>
 
-
+     <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
+   选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
+       　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
+       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
+</form>
 	<div data-options="region:'center',split:false">
 		<!-- 表格主题部分-->
 		<table id="dg">
@@ -124,6 +128,23 @@
 			</form>
 		</div>
 	</div>
+    
+    
+<div id="divEdit2" style="display:none;">
+    <div id="tabEdit2" style="overflow-y:auto;">
+        <form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
+         >>>请选择导出项<<<
+         <br> <br>
+         <input name="Items" type="checkbox" checked="checked" value="1" />年度<br>
+<input name="Items" type="checkbox" checked="checked" value="2" />特等奖<br>
+<input name="Items" type="checkbox" checked="checked" value="3" />一等奖<br> 
+<input name="Items" type="checkbox" checked="checked" value="4" />二等奖<br> 
+<input name="Items" type="checkbox" checked="checked" value="5" />三等奖<br>
+<input name="Items" type="checkbox" checked="checked" value="6" />合计<br> 
+        </form>
+    </div>
+</div>  
+    
 </body>
 
 </html>

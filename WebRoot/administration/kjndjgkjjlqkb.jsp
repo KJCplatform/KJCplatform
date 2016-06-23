@@ -131,6 +131,21 @@
 			</form>
 		</div>
 	</div>
+    
+    <div id="divEdit2" style="display:none;">
+    <div id="tabEdit2" style="overflow-y:auto;">
+        <form id="frmEdit2" style="width:330px;margin:0px 0px 0px 0px"  method= "post">
+         >>>请选择导出项<<<
+         <br> <br>
+         <input name="Items" type="checkbox" checked="checked" value="1" />年度<br>
+<input name="Items" type="checkbox" checked="checked" value="2" />奖种<br>
+<input name="Items" type="checkbox" checked="checked" value="3" />等级<br> 
+<input name="Items" type="checkbox" checked="checked" value="4" />项目名称<br> 
+<input name="Items" type="checkbox" checked="checked" value="5" />完成单位<br>
+<input name="Items" type="checkbox" checked="checked" value="6" />推荐单位<br> 
+        </form>
+    </div>
+</div>  
 </body>
 
 </html>
