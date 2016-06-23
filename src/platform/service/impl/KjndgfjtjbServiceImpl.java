@@ -1,4 +1,6 @@
 package platform.service.impl;
+import java.io.File;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,6 +16,7 @@ import platform.dao.KjndgfjtjbDao;
 import platform.domain.Kjndgfjtjb;
 import platform.form.KjndgfjtjbForm;
 import platform.service.KjndgfjtjbService;
+import excel.CreateExcel;
 
 @SuppressWarnings("unused")
 @Service(KjndgfjtjbService.SERVICE_NAME)
@@ -162,6 +165,108 @@ public class KjndgfjtjbServiceImpl implements KjndgfjtjbService{
 		}
 		return formlist;
 	}
+
+	   /**
+     * 将要导出的数据存成LinkedHashMap
+     * @param ss
+     * @return LinkedHashMap
+     */
+    private LinkedHashMap<String, ArrayList<String>> getDataAsHashMap(String str){
+        LinkedHashMap<String, ArrayList<String>> lhm = new LinkedHashMap<String ,ArrayList<String>>();
+        List<String> li = new ArrayList<String>();
+        String[] ss = str.split(" ");
+
+        String hqlWhere = "";
+        Object[] params = null;
+        LinkedHashMap<String, String> orderby = new LinkedHashMap<String, String>();
+        orderby.put(" o.id", "desc");
+        List<Kjndgfjtjb> list = this.kjndgfjtjbDao
+                .findCollectionByConditionNoPage(hqlWhere, params, orderby);
+        List<KjndgfjtjbForm> formlist = this.KjndgfjtjbPOListToVOList(list);
+
+        for(int i = 0, k =0 ; i < ss.length; i ++){
+            switch (ss[i]) {
+             case "1":
+                    for(int j= 0;j< list.size();j++){
+                        li.add(formlist.get(j).getYear());
+                    }
+                    lhm.put("年度", new ArrayList<String>(li));
+                    li.clear();
+                    k++;
+                    break;
+            case "2":
+                for(int j= 0;j< list.size();j++){
+                    li.add(formlist.get(j).getType());
+                }
+                lhm.put("类别", new ArrayList<String>(li));
+                li.clear();
+                k++;
+                break;
+
+            case "3":
+                for(int j= 0;j< list.size();j++){
+                    li.add(formlist.get(j).getTdj());
+                }
+                lhm.put("特等奖", new ArrayList<String>(li));
+                li.clear();
+                k++;
+                break;
+            case "4":
+                for(int j= 0;j< list.size();j++){
+                    li.add(formlist.get(j).getYdj());
+                }
+                lhm.put("一等奖", new ArrayList<String>(li));
+                li.clear();
+                k++;
+                break;
+            case "5":
+                for(int j= 0;j< list.size();j++){
+                    li.add(formlist.get(j).getEdj());
+                }
+                lhm.put("二等奖", new ArrayList<String>(li));
+                li.clear();
+                k++;
+                break;
+            case "6":
+                for(int j= 0;j< list.size();j++){
+                    li.add(formlist.get(j).getSdj());
+                }
+                lhm.put("三等奖", new ArrayList<String>(li));
+                li.clear();
+                k++;
+                break;
+
+            }
+
+        }
+
+        return lhm;
+    }
+
+
+
+    @Override
+    public void showexportObject(String str) throws Exception {
+
+
+        File file =new File("D:\\kjcoutput");
+        //如果文件夹不存在则创建
+        if  (!file .exists()  && !file .isDirectory())
+        {
+            System.out.println("//不存在");
+            file .mkdir();
+        }
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");// 设置日期格式
+        // System.out.println(df.format(new Date()));// new Date()为获取当前系统时间
+        String time = df.format(new Date());
+        String path = "D:\\kjcoutput\\年度我省获国防科学技术进步奖和发明奖统计表    admin  " + time + ".xls";
+        CreateExcel.createExcel(this.getDataAsHashMap(str), path);
+    }
+    @Override
+    public void showimportObject(String kjndgfjtjbForm) throws Exception {
+        // TODO Auto-generated method stub
+
+    }
 
 
 }

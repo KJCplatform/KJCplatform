@@ -14,4 +14,7 @@ public interface KjndjgkjjlqkbService {
 	public void deleteObject(String id);
 	public void saveObject(KjndjgkjjlqkbForm kjndjgkjjlqkbForm, String username);
 
+
+    public void showimportObject(String kjndjgkjjlqkbForm) throws Exception;
+    public void showexportObject(String string) throws Exception;
 }
