@@ -68,6 +68,11 @@
 		</form>
 	</div>
 
+     <form id="questionTypesManage"  method="post" enctype="multipart/form-data">  
+   选择文件：　<input type="text" id="uploadExcel" name="uploadExcel" class="easyui-filebox" style="width:200px" data-options="prompt:'请选择文件...'">  
+       　　<a href="#" class="easyui-linkbutton" id="btnImport" onclick="ShowImport()" >导入</a>                       
+       <a href="#" class="easyui-linkbutton" id="btnExport"  onclick="selectExcel()" >导出</a> 　
+</form>
 
 	<div data-options="region:'center',split:false"  style="overflow:scroll" >
 		<!-- 表格主题部分-->
