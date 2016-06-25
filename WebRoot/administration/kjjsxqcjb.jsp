@@ -69,14 +69,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<table id="dg">
 	<thead>
 		<tr>
-			<th field="xqmc"  >需求名称</th>
-			<th field="jjfs"  >解决方式</th>
-			<th field="sfzj"  >是否中介</th>
+<!-- 			<th field="xqmc"  >需求名称</th> -->
+<!-- 			<th field="jjfs"  >解决方式</th> -->
+<!-- 			<th field="sfzj"  >是否中介</th> -->
 				 
-		<th field="zjdw">中介单位</th>
-<th field="zjlxr">中介联系人</th>
-	<th field="sj"  >联系方式</th>
-			<th field="yqrq"  >逾期日期</th>
+<!-- 		<th field="zjdw">中介单位</th> -->
+<!-- <th field="zjlxr">中介联系人</th> -->
+<!-- 	<th field="sj"  >联系方式</th> -->
+<!-- 			<th field="yqrq"  >逾期日期</th> -->
+           <th field="dw"  >单位</th>
+       <th field="jsmc">技术名称</th>
+<th field="jsys">技术优势及特点</th>
+   <th field="gnyt"  >功能和用途</th>
 			<th field="sshy"  >所属行业</th>
 			<th field="jsly"  >技术领域</th>
 			<th field="xqms"  >需求描述</th>
@@ -102,50 +106,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div id="tabEdit">
 		<form id="frmEdit" style="width:800px; height:400px; overflow:auto;" method= "post">
 			<input type="hidden" id="id" name="id" />
-			<dl>
-				<dd>需求名称:</dd>
-				<dd><input size="20" id="xqmc" name="xqmc" />
-				
-				</dd>
-			</dl>
-			<dl>
-				<dd>解决方式:</dd>
-			<dd>  <select id="jjfs"  name="jjfs" style="width: 150px">
-			      <option   value=""></option>
-                  <option   value="技术转让">技术转让</option>
-                  <option   value="技术开发">技术开发</option>
-                  <option   value="技术咨询">技术咨询</option>
-                  <option   value="技术服务">技术服务</option>
-             
-				</select>
-				
-				</dd>
-			</dl>
-			<dl>
-				<dd>是否中介:</dd>
-				<dd><select style="width: 150px" id="sfzj" name="sfzj" >
-				<option value="是">是</option>
-				<option value="否">否</option>
-				</select></dd>
-			</dl>
-				<dl>
-					<dd>
-						中介单位: <input size="15" id="zjdw" name="zjdw">
-					</dd>
-				</dl>	<dl>
-					<dd>
-						中介联系人: <input size="15" id="zjlxr" name="zjlxr">
-					</dd>
-				</dl>
-				<dl>
-				<dd>联系方式:</dd>
-				<dd> <input type="text" style="width: 150px" id="sj" name="sj"
-							style="width:150px;" /></dd>
-			</dl>
-			<dl>
-				<dd>逾期日期:</dd>
-				<dd><input type="text" style="width: 150px" id="yqrq" name="yqrq" /></dd>
-			</dl>
+			
+                    <dl>
+                <dd>单位:</dd>
+                    <dd><input size="20" id="dw" name="dw" /></dd>
+            </dl>
+            
+                    <dl>
+                <dd>技术名称:</dd>
+                    <dd><input size="20" id="jsmc" name="jsmc" /></dd>
+            </dl>
+            
+                    <dl>
+                <dd>技术优势及特点:</dd>
+                    <dd><input size="20" id="jsys" name="jsys" /></dd>
+            </dl>
+            
+                    <dl>
+                <dd>功能和用途:</dd>
+                    <dd><input size="20" id="gnyt" name="gnyt" /></dd>
+            </dl>
 			<dl>
 				<dd>所属行业:</dd>
 					<dd><input size="20" id="sshy" name="sshy" /></dd>

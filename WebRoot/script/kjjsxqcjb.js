@@ -479,6 +479,12 @@ function editDoc() {
 //alert("123");
 	$('#frmEdit').form('clear');
 	// 填充数据
+
+	   $("#dw").val(doc.dw);
+	    $("#jsmc").val(doc.jsmc);
+	    $("#jsys").val(doc.jsys);
+	    $("#gnyt").val(doc.gnyt);
+
 	$("#id").val(doc.id);
 	$("#xqmc").val(doc.xqmc);
 	$("#jjfs").val(doc.jjfs);
@@ -486,7 +492,7 @@ function editDoc() {
 
 	// 给默认值
 	//$("#fwrq").datebox("setValue", doc.fwrq.substring(0, 10));
-	$("#yqrq").datebox("setValue",doc.yqrq.substring(0, 10));
+//	$("#yqrq").datebox("setValue",doc.yqrq.substring(0, 10));
 
     $("#jsly").val(doc.jsly);
 //    $("#jyfs").val(doc.jyfs);
