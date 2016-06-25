@@ -70,7 +70,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<thead>
 		<tr>
 <!-- 			<th field="xqmc"  >需求名称</th> -->
-<!-- 			<th field="jjfs"  >解决方式</th> -->
+			
 <!-- 			<th field="sfzj"  >是否中介</th> -->
 				 
 <!-- 		<th field="zjdw">中介单位</th> -->
@@ -82,6 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <th field="jsys">技术优势及特点</th>
    <th field="gnyt"  >功能和用途</th>
 			<th field="sshy"  >所属行业</th>
+            <th field="jjfs"  >解决方式</th>
 			<th field="jsly"  >技术领域</th>
 			<th field="xqms"  >需求描述</th>
 			<th field="ngzj"  >拟提供资金</th>
@@ -131,7 +132,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<dd><input size="20" id="sshy" name="sshy" /></dd>
 			</dl>
 
-
+<dl>
+                <dd>解决方式:</dd>
+            <dd>  <select id="jjfs"  name="jjfs" style="width: 150px">
+                  <option   value=""></option>
+                  <option   value="技术转让">技术转让</option>
+                  <option   value="技术开发">技术开发</option>
+                  <option   value="技术咨询">技术咨询</option>
+                  <option   value="技术服务">技术服务</option>
+                  <option   value="其他">其他</option>
+             
+                </select>
+                
+                </dd>
+            </dl>
 
                 <dl>
                     <dd>

@@ -24,8 +24,8 @@ $(function() {
 		missingMessage : '需求名称不能为空'
 	});
 	$("#jjfs").validatebox({
-		//required : true,
-		//missingMessage : '需求解决方式不能为空'
+		required : true,
+		missingMessage : '需求解决方式不能为空'
 	});
 
 $("#sj").numberbox({
