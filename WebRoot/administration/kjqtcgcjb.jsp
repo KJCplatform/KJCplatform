@@ -133,18 +133,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd>成果简介:</dd>
 				<dd><textarea cols="20" rows="3" id="cgjj" name="cgjj"></textarea></dd>
 			</dl>
-			<dl>
-				<dd>应用行业: </dd>
-			<dd>	
-			<select id="yyhy" multiple="true" name="yyhy" style="width:300px;"></select>
-			</dd>
-			</dl>
-			<dl>
-				<dd>技术领域:</dd>
-				<dd>
-				<select id="jsly" multiple="true" name="jsly" style="width:300px;"></select>
-				</dd>
-			</dl>
+			            <dl>
+                    <dd>
+                        应用行业: <input size="15" id="yyhy" name="yyhy" />
+                    </dd>
+                </dl>
+
+
+
+                <dl>
+                    <dd>
+                        技术领域: <input size="15" id="jsly" name="jsly" />
+                    </dd>
+                </dl>
 			<dl>
 				<dd>成果阶段:</dd>
 				<dd><select   style="width: 150px" id="cgjd" name="cgjd" >

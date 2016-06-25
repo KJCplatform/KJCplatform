@@ -88,16 +88,16 @@
 					<th field="cgjj" >成果简介</th>
 					<th field="yyhy" >应用行业</th>
 					<th field="jsly" >技术领域</th>
-					<th field="cgjd" >成果阶段</th>
-					<th field="jyfs" >交易方式</th>
-					<th field="sfzj" >是否委托中介</th>
-						<th field="zjdw">中介单位</th>
-<th field="zjlxr">中介联系人</th>
+<!-- 					<th field="cgjd" >成果阶段</th> -->
+<!-- 					<th field="jyfs" >交易方式</th> -->
+<!-- 					<th field="sfzj" >是否委托中介</th> -->
+<!-- 						<th field="zjdw">中介单位</th> -->
+<!-- <th field="zjlxr">中介联系人</th> -->
 <th field="sj" >联系方式</th>
-					<th field="gfdj" >供方定价</th>
-					<th field="zhyq" >其他转化要求</th>
-					<th field="sfgk" >以下信息是否公开</th>
-					<th field="fbrxz" >发布人性质</th>
+<!-- 					<th field="gfdj" >供方定价</th> -->
+<!-- 					<th field="zhyq" >其他转化要求</th> -->
+<!-- 					<th field="sfgk" >以下信息是否公开</th> -->
+<!-- 					<th field="fbrxz" >发布人性质</th> -->
 					<th field="lxrxm" >联系人姓名</th>
 					<th field="gddh" >固定电话</th>
 					<th field="szdq" >所在地区</th>
@@ -130,13 +130,13 @@
 <input name="Items" type="checkbox" checked="checked" value="8" />应用行业<br>
 <input name="Items" type="checkbox" checked="checked" value="9" />技术领域<br> 
 <input name="Items" type="checkbox" checked="checked" value="10" />成果阶段<br> 
-<input name="Items" type="checkbox" checked="checked" value="11" />交易方式<br>
+<!-- <input name="Items" type="checkbox" checked="checked" value="11" />交易方式<br> -->
 
-<input name="Items" type="checkbox" checked="checked" value="12" />是否委托中介<br>
-<input name="Items" type="checkbox" checked="checked" value="13" />供方定价<br> 
-<input name="Items" type="checkbox" checked="checked" value="14" />其他转化要求<br> 
-<input name="Items" type="checkbox" checked="checked" value="15" />以下信息是否公开<br>
-<input name="Items" type="checkbox" checked="checked" value="16" />发布人性质<br> 
+<!-- <input name="Items" type="checkbox" checked="checked" value="12" />是否委托中介<br> -->
+<!-- <input name="Items" type="checkbox" checked="checked" value="13" />供方定价<br>  -->
+<!-- <input name="Items" type="checkbox" checked="checked" value="14" />其他转化要求<br>  -->
+<!-- <input name="Items" type="checkbox" checked="checked" value="15" />以下信息是否公开<br> -->
+<!-- <input name="Items" type="checkbox" checked="checked" value="16" />发布人性质<br>  -->
 
 <input name="Items" type="checkbox" checked="checked" value="17" />联系人姓名<br> 
 <input name="Items" type="checkbox" checked="checked" value="18" />固定电话<br> 
@@ -200,21 +200,19 @@
 						<textarea cols="45" rows="5" size="15" id="cgjj" name="cgjj" /></textarea>
 					</dd>
 				</dl>
-				<dl>
-						<dd>
-						应用行业: <select id="yyhy" multiple="true" name="yyhy" style="width:300px;">
-		
-						</select>
-					</dd>
-				</dl>
-				
-				<dl>
-					<dd>
-						技术领域: <select id="jsly" multiple="true" name="jsly" style="width:300px;">
+				            <dl>
+                    <dd>
+                        应用行业: <input size="15" id="yyhy" name="yyhy" />
+                    </dd>
+                </dl>
 
-						</select>
-					</dd>
-				</dl>
+
+
+                <dl>
+                    <dd>
+                        技术领域: <input size="15" id="jsly" name="jsly" />
+                    </dd>
+                </dl>
 				
 				<dl>
 					<dd>
@@ -230,81 +228,81 @@
 					</dd>
 				</dl>
 
-<dl>
-				<dd>
-					交易方式: <select id="jyfs"  multiple="true" name="jyfs" style="width:150px;" >
+<!-- <dl> -->
+<!-- 				<dd> -->
+<!-- 					交易方式: <select id="jyfs"  multiple="true" name="jyfs" style="width:150px;" > -->
 
 
-					</select>
-				</dd>
-				</dl>
+<!-- 					</select> -->
+<!-- 				</dd> -->
+<!-- 				</dl> -->
 
 
-				<dl>
-					<dd>
-						是否委托中介: <select id="sfzj" name="sfzj">
-							<option value="是" selected="selected">是</option>
-							<option value="否">否</option>
-						</select>
-					</dd>
-				</dl>
+<!-- 				<dl> -->
+<!-- 					<dd> -->
+<!-- 						是否委托中介: <select id="sfzj" name="sfzj"> -->
+<!-- 							<option value="是" selected="selected">是</option> -->
+<!-- 							<option value="否">否</option> -->
+<!-- 						</select> -->
+<!-- 					</dd> -->
+<!-- 				</dl> -->
 
-<dl>
-					<dd>
-						中介单位: <input size="15" id="zjdw" name="zjdw">
-					</dd>
-				</dl>	<dl>
-					<dd>
-						中介联系人: <input size="15" id="zjlxr" name="zjlxr">
-					</dd>
-				</dl>
+<!-- <dl> -->
+<!-- 					<dd> -->
+<!-- 						中介单位: <input size="15" id="zjdw" name="zjdw"> -->
+<!-- 					</dd> -->
+<!-- 				</dl>	<dl> -->
+<!-- 					<dd> -->
+<!-- 						中介联系人: <input size="15" id="zjlxr" name="zjlxr"> -->
+<!-- 					</dd> -->
+<!-- 				</dl> -->
 				<dl>
 					<dd>
 						联系方式: <input type="text" style="width: 150px" id="sj" name="sj" />
 								</dd>
 						</dl>
-				<dl>
-					<dd>
-						供方定价: <select id="gfdj" name="gfdj">
-					        <option value=""></option>
-							<option value="20万元以下">20万元以下</option>
-							<option value="20-50万元以下">20-50万元以下</option>
-							<option value="50-100万元以下">50-100万元以下</option>
-							<option value="100-200万元以下">100-200万元以下</option>
-							<option value="200-500万元以下">200-500万元以下</option>
-							<option value="500-1000万元以下">500-1000万元以下</option>
-							<option value="1000万元以上">1000万元以上</option>
-							<option value="面议">面议</option>
+<!-- 				<dl> -->
+<!-- 					<dd> -->
+<!-- 						供方定价: <select id="gfdj" name="gfdj"> -->
+<!-- 					        <option value=""></option> -->
+<!-- 							<option value="20万元以下">20万元以下</option> -->
+<!-- 							<option value="20-50万元以下">20-50万元以下</option> -->
+<!-- 							<option value="50-100万元以下">50-100万元以下</option> -->
+<!-- 							<option value="100-200万元以下">100-200万元以下</option> -->
+<!-- 							<option value="200-500万元以下">200-500万元以下</option> -->
+<!-- 							<option value="500-1000万元以下">500-1000万元以下</option> -->
+<!-- 							<option value="1000万元以上">1000万元以上</option> -->
+<!-- 							<option value="面议">面议</option> -->
 
-						</select>
-					</dd>
-				</dl>
-
-
-				<dl>
-					<dd>
-						其他转化要求: <input size="15" id="zhyq" name="zhyq" />
-					</dd>
-				</dl>
+<!-- 						</select> -->
+<!-- 					</dd> -->
+<!-- 				</dl> -->
 
 
-				<dl>
-					<dd>
-						以下信息是否公开: <select id="sfgk" name="sfgk">
-							<option value="是" selected="selected">是</option>
-							<option value="否">否</option>
-						</select>
-					</dd>
-				</dl>
+<!-- 				<dl> -->
+<!-- 					<dd> -->
+<!-- 						其他转化要求: <input size="15" id="zhyq" name="zhyq" /> -->
+<!-- 					</dd> -->
+<!-- 				</dl> -->
 
-				<dl>
-					<dd>发布人性质:
-					<select id="fbrxz" name="fbrxz">
-							<option value="机构" selected="selected">机构</option>
-							<option value="个人">个人</option>
-						</select>
-					</dd>
-				</dl>
+
+<!-- 				<dl> -->
+<!-- 					<dd> -->
+<!-- 						以下信息是否公开: <select id="sfgk" name="sfgk"> -->
+<!-- 							<option value="是" selected="selected">是</option> -->
+<!-- 							<option value="否">否</option> -->
+<!-- 						</select> -->
+<!-- 					</dd> -->
+<!-- 				</dl> -->
+
+<!-- 				<dl> -->
+<!-- 					<dd>发布人性质: -->
+<!-- 					<select id="fbrxz" name="fbrxz"> -->
+<!-- 							<option value="机构" selected="selected">机构</option> -->
+<!-- 							<option value="个人">个人</option> -->
+<!-- 						</select> -->
+<!-- 					</dd> -->
+<!-- 				</dl> -->
 				
 				<dl>
 					<dd>
@@ -318,15 +316,12 @@
 				</dl>
 
 
-				<dl>
-					<dd>
-						所在地区: <select id="szdq" name="szdq">
-							<option value=""></option>
-							<option value="武汉市">武汉市</option>
-							<option value="北京市">北京市</option>
-						</select>
-					</dd>
-				</dl>
+		        <dl>
+                    <dd>    
+                         所在地区: <input
+                            type="text" style="width: 150px" id="szdq" name="szdq" />
+                    </dd>
+                </dl>
 
 
 

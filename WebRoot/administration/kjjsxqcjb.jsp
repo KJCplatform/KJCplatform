@@ -150,13 +150,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd>所属行业:</dd>
 					<dd><input size="20" id="sshy" name="sshy" /></dd>
 			</dl>
-			<dl>
-				<dd>技术领域:</dd>
-				<dd>
-				<select id="jsly" multiple="true" name="jsly" style="width:300px;">
-				</select>
-				</dd>
-			</dl>
+
+
+
+                <dl>
+                    <dd>
+                        技术领域: <input size="15" id="jsly" name="jsly" />
+                    </dd>
+                </dl>
 			<dl>
 				<dd>需求描述:</dd>
 				<dd><textarea cols="20" rows="3" id="xqms" name="xqms"></textarea></dd>
@@ -199,15 +200,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<dd> <input type="text" style="width: 150px" id="gddh" name="gddh"
 							style="width:150px;" /></dd>
 			</dl>
-				<dl>
-					<dd>
-						所在地区: <select id="szdq" name="szdq">
-							<option value=""></option>
-							<option value="武汉市">武汉市</option>
-							<option value="北京市">北京市</option>
-						</select>
-					</dd>
-				</dl>
+		        <dl>
+                    <dd>    
+                         所在地区: <input
+                            type="text" style="width: 150px" id="szdq" name="szdq" />
+                    </dd>
+                </dl>
 
 			
 			<dl>

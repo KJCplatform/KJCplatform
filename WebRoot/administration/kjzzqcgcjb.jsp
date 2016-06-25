@@ -175,21 +175,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<textarea cols="45" rows="5" size="15" id="cgjj" name="cgjj" /></textarea>
 					</dd>
 				</dl>
-				<dl>
-						<dd>
-						应用行业: <select id="yyhy" multiple="true" name="yyhy" style="width:300px;">
-		
-						</select>
-					</dd>
-				</dl>
-				
-				<dl>
-					<dd>
-						技术领域: <select id="jsly" multiple="true" name="jsly" style="width:300px;">
+				            <dl>
+                    <dd>
+                        应用行业: <input size="15" id="yyhy" name="yyhy" />
+                    </dd>
+                </dl>
 
-						</select>
-					</dd>
-				</dl>
+
+
+                <dl>
+                    <dd>
+                        技术领域: <input size="15" id="jsly" name="jsly" />
+                    </dd>
+                </dl>
 				
 				<dl>
 					<dd>
@@ -206,7 +204,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</dl>
 
 				<dd>
-					交易方式: <select id="jyfs"   multiple="true" name="jyfs" style="width:150px;" >
+					交易方式: <input size="15" id="jyfs" name="jyfs">
 
 
 					</select>
@@ -293,16 +291,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</dd>
 				</dl>
 
-
-				<dl>
-					<dd>
-						所在地区: <select id="szdq" name="szdq">
-							<option value=""></option>
-							<option value="武汉市">武汉市</option>
-							<option value="北京市">北京市</option>
-						</select>
-					</dd>
-				</dl>
+        <dl>
+                    <dd>    
+                         所在地区: <input
+                            type="text" style="width: 150px" id="szdq" name="szdq" />
+                    </dd>
+                </dl>
 
 
 
