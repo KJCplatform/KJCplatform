@@ -315,20 +315,20 @@
 		"menus":[
 		{
 			"menuid": "31",
-			"menuname": "军工产品质量",
+			"menuname": "军工产品质量报表",
 			"icon": "icon-nav",
 			//"url": "demo.html"	
 			"url": "<%=basePath%>/administration/jpzlzkjbb.jsp"			
 		},
 		{
 			"menuid": "32",
-			"menuname": "质量事故",
+			"menuname": "质量事故报表",
 			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/jpsgwtbb.jsp"			
 		},
 		{
 			"menuid": "33",
-			"menuname": "国防质量报告统计表",
+			"menuname": "国防质量季报统计表",
 			"icon": "icon-nav",
 			"url": "<%=basePath%>/administration/zlbgtjb.jsp"		
 		},
