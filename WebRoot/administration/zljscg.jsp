@@ -350,13 +350,9 @@
                         联系地址: <input size="15" id="lxdz" name="lxdz">
                     </dd>
                 </dl>
-                <dl>
+         <dl>
                     <dd>
-                        交易方式: <select id="jyfs" multiple="true"
-                            name="jyfs" style="width:150px;">
-
-
-                        </select>
+                        交易方式: <input size="15" id="jyfs" name="jyfs">
                     </dd>
                 </dl>
 
